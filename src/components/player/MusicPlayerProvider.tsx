@@ -60,43 +60,78 @@ export function MusicPlayerProvider({ children }: { children: ReactNode }) {
   const playSong = useCallback((songs: Song[], index: number) => {
     setPlaylist(songs);
     setCurrentSongIndex(index);
-    setIsPlaying(true);
+    // Don't set isPlaying to true here, let the useEffect handle it.
   }, []);
   
   useEffect(() => {
+    if (!playlist || playlist.length === 0) return;
+  
+    let songsToShuffle = [...playlist];
+    let newCurrentSongIndex = currentSongIndex;
+  
     if (shuffle) {
-      const current = playlist[currentSongIndex];
-      const remaining = playlist.filter((_, i) => i !== currentSongIndex);
-      const shuffled = remaining.sort(() => Math.random() - 0.5);
-      setShuffledPlaylist([current, ...shuffled]);
-      setCurrentSongIndex(0);
+      const currentSongBeforeShuffle = playlist[currentSongIndex];
+      // Filter out the current song, shuffle the rest
+      const remainingSongs = songsToShuffle.filter((_, i) => i !== currentSongIndex);
+      const shuffled = remainingSongs.sort(() => Math.random() - 0.5);
+      
+      // The new playlist is the current song, then the shuffled rest.
+      const newShuffledPlaylist = currentSongBeforeShuffle ? [currentSongBeforeShuffle, ...shuffled] : [...shuffled];
+      setShuffledPlaylist(newShuffledPlaylist);
+      newCurrentSongIndex = 0; // Current song is now at the start of the shuffled list.
     } else {
-        const current = shuffledPlaylist[currentSongIndex];
-        const originalIndex = playlist.findIndex(song => song.id === current?.id);
-        setCurrentSongIndex(originalIndex > -1 ? originalIndex : 0);
+      // When turning shuffle off, find the original index of the currently playing song
+      const currentSongFromShuffled = shuffledPlaylist[currentSongIndex];
+      const originalIndex = playlist.findIndex(song => song.id === currentSongFromShuffled?.id);
+      newCurrentSongIndex = originalIndex > -1 ? originalIndex : 0;
     }
+    setCurrentSongIndex(newCurrentSongIndex);
+  
   }, [shuffle, playlist]);
 
 
   useEffect(() => {
-    if (audioRef.current && currentSong) {
-      if (audioRef.current.src !== currentSong.src) {
-        audioRef.current.src = currentSong.src;
+    const songToPlay = shuffle ? shuffledPlaylist[currentSongIndex] : playlist[currentSongIndex];
+    if (audioRef.current && songToPlay) {
+      if (audioRef.current.src !== songToPlay.src) {
+        audioRef.current.src = songToPlay.src;
+        // Reset progress for new song
+        setProgress(0);
       }
-      if (isPlaying) {
-        audioRef.current.play().catch(error => console.error("Error playing audio:", error));
-      } else {
-        audioRef.current.pause();
+      
+      const playPromise = audioRef.current.play();
+      if (playPromise !== undefined) {
+        playPromise.then(_ => {
+          setIsPlaying(true);
+        })
+        .catch(error => {
+          console.error("Error playing audio:", error)
+          setIsPlaying(false);
+        });
       }
     }
-  }, [currentSong?.src, isPlaying]);
+  }, [currentSongIndex, playlist, shuffledPlaylist, shuffle]);
   
 
   const togglePlayPause = useCallback(() => {
-    if (currentSong) {
-      setIsPlaying(prev => !prev);
+    if (audioRef.current && currentSong) {
+      if (isPlaying) {
+        audioRef.current.pause();
+        setIsPlaying(false);
+      } else {
+        const playPromise = audioRef.current.play();
+        if (playPromise !== undefined) {
+          playPromise.then(_ => {
+            setIsPlaying(true);
+          })
+          .catch(error => {
+            console.error("Error playing audio:", error);
+            setIsPlaying(false);
+          });
+        }
+      }
     }
-  }, [currentSong]);
+  }, [currentSong, isPlaying]);
 
   const playNext = useCallback(() => {
     const currentPlaylist = shuffle ? shuffledPlaylist : playlist;

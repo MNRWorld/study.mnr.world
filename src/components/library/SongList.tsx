@@ -24,47 +24,35 @@ export default function SongList({ songs, title }: SongListProps) {
 
   return (
     <div>
-      <h2 className="text-2xl font-semibold font-headline mb-4">{title}</h2>
-      <Table>
-        <TableHeader>
-          <TableRow>
-            <TableHead className="w-12"></TableHead>
-            <TableHead>Title</TableHead>
-            <TableHead className="hidden md:table-cell">Album</TableHead>
-            <TableHead className="text-right">
-                <Clock className="inline-block h-4 w-4" />
-            </TableHead>
-          </TableRow>
-        </TableHeader>
-        <TableBody>
-          {songs.map((song, index) => {
-            const isActive = musicPlayer.currentSong?.id === song.id;
-            return (
-              <TableRow
-                key={song.id}
-                onClick={() => musicPlayer.playSong(songs, index)}
-                className={cn(
-                  "group cursor-pointer",
-                  isActive && 'bg-primary/10 hover:bg-primary/20'
-                )}
-              >
-                <TableCell className="relative">
-                    <Image src={song.coverArt} alt={song.title} width={40} height={40} className="rounded-md" />
-                    <div className="absolute inset-0 bg-black/50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
-                        <PlayCircle className="h-6 w-6 text-white" />
-                    </div>
-                </TableCell>
-                <TableCell>
-                  <div className={cn("font-medium", isActive && "text-primary")}>{song.title}</div>
-                  <div className="text-sm text-muted-foreground">{song.artist}</div>
-                </TableCell>
-                <TableCell className="hidden md:table-cell text-muted-foreground">{song.album}</TableCell>
-                <TableCell className="text-right text-muted-foreground">{song.duration}</TableCell>
-              </TableRow>
-            );
-          })}
-        </TableBody>
-      </Table>
+      <h2 className="text-3xl font-bold mb-6">{title}</h2>
+      <div className="space-y-2">
+        {songs.map((song, index) => {
+          const isActive = musicPlayer.currentSong?.id === song.id;
+          return (
+            <div
+              key={song.id}
+              onClick={() => musicPlayer.playSong(songs, index)}
+              className={cn(
+                "group cursor-pointer p-3 flex items-center gap-4 rounded-lg",
+                isActive ? 'bg-primary/20' : 'hover:bg-secondary'
+              )}
+            >
+              <div className="relative">
+                  <Image src={song.coverArt} alt={song.title} width={48} height={48} className="rounded-md" />
+                  <div className="absolute inset-0 bg-black/50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity rounded-md">
+                      <PlayCircle className="h-6 w-6 text-white" />
+                  </div>
+              </div>
+              <div className="flex-1">
+                <div className={cn("font-semibold", isActive && "text-primary")}>{song.title}</div>
+                <div className="text-sm text-muted-foreground">{song.artist}</div>
+              </div>
+              <div className="text-sm text-muted-foreground hidden md:block">{song.album}</div>
+              <div className="text-sm text-muted-foreground">{song.duration}</div>
+            </div>
+          );
+        })}
+      </div>
     </div>
   );
 }
