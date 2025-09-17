@@ -1,3 +1,82 @@
 {
-  "placeholderImages": []
+  "placeholderImages": [
+    {
+      "id": "album-cover-1",
+      "description": "Abstract colorful waves on a dark background",
+      "imageUrl": "https://picsum.photos/seed/101/400/400",
+      "imageHint": "abstract colorful"
+    },
+    {
+      "id": "album-cover-2",
+      "description": "Night view of a city with glowing lights",
+      "imageUrl": "https://picsum.photos/seed/102/400/400",
+      "imageHint": "city lights"
+    },
+    {
+      "id": "album-cover-3",
+      "description": "Sunlight filtering through trees in a lush green forest",
+      "imageUrl": "https://picsum.photos/seed/103/400/400",
+      "imageHint": "forest trees"
+    },
+    {
+      "id": "album-cover-4",
+      "description": "Underwater scene with sunlight filtering through the water",
+      "imageUrl": "https://picsum.photos/seed/104/400/400",
+      "imageHint": "underwater scene"
+    },
+    {
+      "id": "album-cover-5",
+      "description": "Vibrant and colorful nebula in outer space",
+      "imageUrl": "https://picsum.photos/seed/105/400/400",
+      "imageHint": "nebula space"
+    },
+    {
+      "id": "artist-1",
+      "description": "Abstract image representing echoes and rain",
+      "imageUrl": "https://picsum.photos/seed/201/400/400",
+      "imageHint": "abstract rain"
+    },
+    {
+      "id": "artist-2",
+      "description": "Silhouette of a person against a neon-lit city",
+      "imageUrl": "https://picsum.photos/seed/202/400/400",
+      "imageHint": "neon city"
+    },
+    {
+      "id": "artist-3",
+      "description": "A calm creek flowing through a willow forest",
+      "imageUrl": "https://picsum.photos/seed/203/400/400",
+      "imageHint": "creek forest"
+    },
+    {
+      "id": "artist-4",
+      "description": "Waves crashing on a sandy beach",
+      "imageUrl": "https://picsum.photos/seed/204/400/400",
+      "imageHint": "beach waves"
+    },
+    {
+      "id": "artist-5",
+      "description": "A futuristic spaceship travelling through space",
+      "imageUrl": "https://picsum.photos/seed/205/400/400",
+      "imageHint": "spaceship space"
+    },
+    {
+      "id": "playlist-1",
+      "description": "A person relaxing in a hammock with a soft focus background",
+      "imageUrl": "https://picsum.photos/seed/301/400/400",
+      "imageHint": "relaxing hammock"
+    },
+    {
+      "id": "playlist-2",
+      "description": "Streaks of light from car taillights on a highway at night",
+      "imageUrl": "https://picsum.photos/seed/302/400/400",
+      "imageHint": "night highway"
+    },
+    {
+      "id": "playlist-3",
+      "description": "A path leading through a dense, green forest",
+      "imageUrl": "https://picsum.photos/seed/303/400/400",
+      "imageHint": "forest path"
+    }
+  ]
 }

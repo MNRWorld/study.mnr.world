@@ -1,3 +1,5 @@
+import StreamFlowApp from '@/components/StreamFlowApp';
+
 export default function Home() {
-  return <></>;
+  return <StreamFlowApp />;
 }
