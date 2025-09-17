@@ -8,18 +8,20 @@ import AlbumGrid from '@/components/library/AlbumGrid';
 import ArtistList from '@/components/library/ArtistList';
 import PlaylistList from '@/components/library/PlaylistList';
 import { musicData } from '@/lib/music-data';
-import { Heart, ListMusic, PlayCircleIcon, Search } from 'lucide-react';
+import { Heart, ListMusic, Menu, PlayCircleIcon, Search } from 'lucide-react';
 import { Input } from './ui/input';
 import { Button } from './ui/button';
 import Image from 'next/image';
 import { Card, CardContent } from './ui/card';
 import { cn } from '@/lib/utils';
+import { Sheet, SheetContent, SheetTrigger } from './ui/sheet';
 
 export type View = 'songs' | 'albums' | 'artists' | 'playlists' | 'search' | 'favorites';
 
 export default function StreamFlowApp() {
   const [activeView, setActiveView] = useState<View>('songs');
   const [searchTerm, setSearchTerm] = useState('');
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
   const filteredSongs = musicData.songs.filter(
     (song) =>
@@ -49,9 +51,26 @@ export default function StreamFlowApp() {
 
   return (
     <div className="flex h-screen bg-background text-foreground overflow-hidden font-sans">
-      <Sidebar activeView={activeView} setActiveView={setActiveView} />
+      <div className="hidden md:flex">
+        <Sidebar activeView={activeView} setActiveView={setActiveView} />
+      </div>
       <main className="flex-1 flex flex-col relative overflow-hidden">
-        <div className="flex-1 overflow-y-auto px-8 pb-8 pt-6">
+        <div className="flex-1 overflow-y-auto px-4 md:px-8 pb-8 pt-6">
+          <div className="md:hidden mb-4">
+             <Sheet open={isSidebarOpen} onOpenChange={setIsSidebarOpen}>
+                <SheetTrigger asChild>
+                    <Button variant="ghost" size="icon">
+                        <Menu />
+                    </Button>
+                </SheetTrigger>
+                <SheetContent side="left" className="p-0 w-72 bg-card/95 backdrop-blur-sm border-r">
+                    <Sidebar activeView={activeView} setActiveView={(view) => {
+                        setActiveView(view);
+                        setIsSidebarOpen(false);
+                    }} />
+                </SheetContent>
+            </Sheet>
+          </div>
           {renderView()}
         </div>
         <MiniPlayer />
@@ -66,11 +85,11 @@ function HomeView({ setActiveView }: { setActiveView: (view: View) => void }) {
   
   return (
     <div className="space-y-8">
-      <header className="flex items-center justify-between">
+      <header className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
         <div>
           <h1 className="text-3xl font-bold">Hi, Scarlett</h1>
         </div>
-        <div className="flex gap-2">
+        <div className="flex gap-2 flex-wrap">
             {tabs.map(tab => (
               <Button 
                 key={tab} 
@@ -87,7 +106,7 @@ function HomeView({ setActiveView }: { setActiveView: (view: View) => void }) {
 
       <section>
         <h2 className="text-xl font-bold mb-4">Curated & trending</h2>
-        <Card className="bg-accent/80 p-4 rounded-2xl flex gap-6 items-center">
+        <Card className="bg-accent/80 p-4 rounded-2xl flex flex-col-reverse md:flex-row gap-6 items-center">
             <CardContent className="p-0">
                 <h3 className="text-lg font-bold">Discover weekly</h3>
                 <p className="text-sm text-accent-foreground/80 mb-4">The original slow instrumental best playlists.</p>

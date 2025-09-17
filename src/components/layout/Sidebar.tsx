@@ -26,7 +26,7 @@ export default function Sidebar({ activeView, setActiveView }: SidebarProps) {
   ]
 
   return (
-    <aside className="w-72 shrink-0 bg-card/60 flex flex-col p-4 gap-6">
+    <aside className="w-72 shrink-0 bg-card/60 flex flex-col p-4 gap-6 h-full">
        <div className="flex items-center justify-between p-2">
          <div className="flex items-center gap-2">
             <Avatar className="h-10 w-10">

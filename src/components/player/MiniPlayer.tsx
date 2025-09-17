@@ -40,17 +40,17 @@ export default function MiniPlayer() {
 
   return (
     <div className="flex items-center gap-4 p-4 border-t bg-background/80 backdrop-blur-md">
-      <div className="flex items-center gap-3 w-1/4">
-        <Image src={currentSong.coverArt} alt={currentSong.title} width={56} height={56} className="rounded-md"/>
-        <div>
+      <div className="flex items-center gap-3 w-1/4 min-w-0">
+        <Image src={currentSong.coverArt} alt={currentSong.title} width={56} height={56} className="rounded-md hidden sm:block"/>
+        <div className="min-w-0">
           <p className="font-semibold truncate">{currentSong.title}</p>
-          <p className="text-sm text-muted-foreground truncate">{currentSong.artist}</p>
+          <p className="text-sm text-muted-foreground truncate hidden md:block">{currentSong.artist}</p>
         </div>
       </div>
 
       <div className="flex flex-col items-center gap-2 flex-1">
-        <div className="flex items-center gap-2">
-          <Button variant="ghost" size="icon" onClick={toggleShuffle} className={cn('text-muted-foreground hover:text-foreground', shuffle && 'text-primary')}>
+        <div className="flex items-center gap-1 sm:gap-2">
+          <Button variant="ghost" size="icon" onClick={toggleShuffle} className={cn('text-muted-foreground hover:text-foreground hidden sm:inline-flex', shuffle && 'text-primary')}>
             <Shuffle className="h-5 w-5" />
           </Button>
           <Button variant="ghost" size="icon" onClick={playPrev} className="text-muted-foreground hover:text-foreground">
@@ -67,7 +67,7 @@ export default function MiniPlayer() {
           <Button variant="ghost" size="icon" onClick={playNext} className="text-muted-foreground hover:text-foreground">
             <SkipForward className="h-5 w-5" />
           </Button>
-          <Button variant="ghost" size="icon" onClick={toggleRepeat} className={cn('text-muted-foreground hover:text-foreground', repeat !== 'none' && 'text-primary')}>
+          <Button variant="ghost" size="icon" onClick={toggleRepeat} className={cn('text-muted-foreground hover:text-foreground hidden sm:inline-flex', repeat !== 'none' && 'text-primary')}>
             {repeat === 'one' ? <Repeat1 className="h-5 w-5" /> : <Repeat className="h-5 w-5" />}
           </Button>
         </div>

@@ -33,7 +33,7 @@ export default function SongList({ songs, title }: SongListProps) {
               key={song.id}
               onClick={() => musicPlayer.playSong(songs, index)}
               className={cn(
-                "group cursor-pointer p-3 flex items-center gap-4 rounded-lg",
+                "group cursor-pointer p-2 md:p-3 flex items-center gap-4 rounded-lg",
                 isActive ? 'bg-primary/20' : 'hover:bg-secondary'
               )}
             >
@@ -43,12 +43,12 @@ export default function SongList({ songs, title }: SongListProps) {
                       <PlayCircle className="h-6 w-6 text-white" />
                   </div>
               </div>
-              <div className="flex-1">
-                <div className={cn("font-semibold", isActive && "text-primary")}>{song.title}</div>
-                <div className="text-sm text-muted-foreground">{song.artist}</div>
+              <div className="flex-1 min-w-0">
+                <div className={cn("font-semibold truncate", isActive && "text-primary")}>{song.title}</div>
+                <div className="text-sm text-muted-foreground truncate">{song.artist}</div>
               </div>
-              <div className="text-sm text-muted-foreground hidden md:block">{song.album}</div>
-              <div className="text-sm text-muted-foreground">{song.duration}</div>
+              <div className="text-sm text-muted-foreground hidden lg:block flex-shrink-0">{song.album}</div>
+              <div className="text-sm text-muted-foreground flex-shrink-0">{song.duration}</div>
             </div>
           );
         })}
