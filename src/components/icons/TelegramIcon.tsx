@@ -11,6 +11,7 @@ export const TelegramIcon = (props: React.SVGProps<SVGSVGElement>) => (
     strokeLinejoin="round"
     {...props}
   >
-    <path d="M15 10l-4 4 6 6 4-16-18 7 4 2 2 6 3-4" />
+    <path d="m22 2-7 20-4-9-9-4Z" />
+    <path d="M22 2 11 13" />
   </svg>
 );
