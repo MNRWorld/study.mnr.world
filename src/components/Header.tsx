@@ -17,15 +17,13 @@ export function Header() {
 
   return (
     <>
-      <header className="bg-white/80 dark:bg-custom-dark/80 backdrop-blur-sm sticky top-0 z-40 shadow-sm dark:shadow-slate-800">
+      <header className="sticky top-0 z-40 bg-background/80 backdrop-blur-sm border-b border-white/10">
         <nav className="container max-w-6xl mx-auto px-5 py-4 flex justify-between items-center">
           <Link href="#" className="logo flex items-center gap-3">
             <StudyLogo />
             <div>
-              <span className="text-2xl font-bold text-slate-800 dark:text-slate-100">
-                Study
-              </span>
-              <p className="text-xs text-slate-500 dark:text-slate-400 -mt-1">
+              <span className="text-2xl font-bold">Study</span>
+              <p className="text-xs text-muted-foreground -mt-1">
                 Your Study Partner
               </p>
             </div>
@@ -35,7 +33,7 @@ export function Header() {
               <li key={link.label}>
                 <Link
                   href={link.href}
-                  className="hover:text-green-500 dark:hover:text-green-400 transition-colors"
+                  className="text-muted-foreground hover:text-primary transition-colors"
                 >
                   {link.label}
                 </Link>
@@ -44,7 +42,7 @@ export function Header() {
           </ul>
           <Link
             href="#"
-            className="hidden md:block bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-2 px-6 rounded-lg transition-colors font-bangla shadow-lg shadow-indigo-500/30"
+            className="hidden md:block bg-primary hover:bg-primary/90 text-primary-foreground font-bold py-2 px-6 rounded-lg transition-colors font-bangla shadow-lg shadow-primary/30"
           >
             যোগ দিন
           </Link>
@@ -55,14 +53,14 @@ export function Header() {
       </header>
 
       {isMenuOpen && (
-        <div className="fixed inset-0 bg-custom-dark/95 backdrop-blur-sm z-30 flex items-center justify-center transition-opacity duration-300 md:hidden">
-          <ul className="flex flex-col items-center gap-10 font-bangla font-semibold text-2xl text-white">
+        <div className="fixed inset-0 bg-background/95 backdrop-blur-sm z-30 flex items-center justify-center transition-opacity duration-300 md:hidden">
+          <ul className="flex flex-col items-center gap-10 font-bangla font-semibold text-2xl text-foreground">
             {navLinks.map((link) => (
               <li key={link.label}>
                 <Link
                   href={link.href}
                   onClick={toggleMenu}
-                  className="menu-link hover:text-green-400 transition-colors"
+                  className="hover:text-primary transition-colors"
                 >
                   {link.label}
                 </Link>
@@ -72,7 +70,7 @@ export function Header() {
               <Link
                 href="#"
                 onClick={toggleMenu}
-                className="bg-indigo-600 hover:bg-indigo-700 px-8 py-3 rounded-lg transition-colors mt-6"
+                className="bg-primary hover:bg-primary/90 px-8 py-3 rounded-lg transition-colors mt-6"
               >
                 যোগ দিন
               </Link>

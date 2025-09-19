@@ -22,8 +22,6 @@ const config: Config = {
         bangla: ['Hind Siliguri', 'sans-serif'],
       },
       colors: {
-        'custom-dark': '#0d1127',
-        'custom-dark-card': '#1a203c',
         border: 'hsl(var(--border))',
         input: 'hsl(var(--input))',
         ring: 'hsl(var(--ring))',

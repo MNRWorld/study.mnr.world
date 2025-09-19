@@ -15,34 +15,39 @@ import {
   User,
   Youtube,
   Send,
+  GraduationCap,
+  ClipboardList,
+  Library,
+  University,
+  Briefcase
 } from 'lucide-react';
 
 export const heroCards = [
-  { icon: CalendarDays, label: 'ক্যালেন্ডার' },
-  { icon: Book, label: 'প্রশ্নব্যাংক' },
-  { icon: Landmark, label: 'পাবলিক' },
+  { icon: ClipboardList, label: 'ক্যালেন্ডার' },
+  { icon: Library, label: 'প্রশ্নব্যাংক' },
+  { icon: University, label: 'পাবলিক' },
   { icon: Building, label: 'প্রাইভেট' },
-  { icon: School, label: 'কলেজ' },
+  { icon: GraduationCap, label: 'কলেজ' },
 ];
 
 export const footerLinks = [
-  { icon: List, label: 'কোর্স' },
-  { icon: CalendarDays, label: 'ভর্তি ক্যালেন্ডার' },
-  { icon: Book, label: 'বই' },
-  { icon: Newspaper, label: 'শিক্ষামূলক খবর' },
+  { label: 'কোর্স' },
+  { label: 'ভর্তি ক্যালেন্ডার' },
+  { label: 'বই' },
+  { label: 'শিক্ষামূলক খবর' },
 ];
 
 export const footerShortcuts = [
-  { icon: Home, label: 'হোম' },
-  { icon: User, label: 'প্রোফাইল' },
-  { icon: Info, label: 'আমাদের সম্পর্কে' },
-  { icon: Phone, label: 'যোগাযোগ' },
+  { label: 'হোম' },
+  { label: 'প্রোফাইল' },
+  { label: 'আমাদের সম্পর্কে' },
+  { label: 'যোগাযোগ' },
 ];
 
 export const socialLinks = [
-  { href: '#', icon: Facebook },
-  { href: '#', icon: Send },
-  { href: '#', icon: Youtube },
-  { href: '#', icon: Instagram },
-  { href: '#', icon: Twitter },
+  { href: '#', icon: Facebook, label: 'Facebook' },
+  { href: '#', icon: Send, label: 'Telegram' },
+  { href: '#', icon: Youtube, label: 'YouTube' },
+  { href: '#', icon: Instagram, label: 'Instagram' },
+  { href: '#', icon: Twitter, label: 'Twitter' },
 ];
