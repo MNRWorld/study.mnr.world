@@ -1,7 +1,7 @@
 import {
-  Book,
-  Building,
-  CalendarDays,
+  BookOpen,
+  Building2,
+  CalendarCheck,
   Facebook,
   Home,
   Info,
@@ -18,17 +18,17 @@ import {
 import { TelegramIcon } from '@/components/icons/TelegramIcon';
 
 export const heroCards = [
-  { icon: CalendarDays, label: 'ক্যালেন্ডার' },
-  { icon: Book, label: 'প্রশ্নব্যাংক' },
+  { icon: CalendarCheck, label: 'ক্যালেন্ডার' },
+  { icon: BookOpen, label: 'প্রশ্নব্যাংক' },
   { icon: Landmark, label: 'পাবলিক' },
-  { icon: Building, label: 'প্রাইভেট' },
+  { icon: Building2, label: 'প্রাইভেট' },
   { icon: School, label: 'কলেজ' },
 ];
 
 export const footerLinks = [
   { icon: List, label: 'কোর্স' },
-  { icon: CalendarDays, label: 'ভর্তি ক্যালেন্ডার' },
-  { icon: Book, label: 'বই' },
+  { icon: CalendarCheck, label: 'ভর্তি ক্যালেন্ডার' },
+  { icon: BookOpen, label: 'বই' },
   { icon: Newspaper, label: 'শিক্ষামূলক খবর' },
 ];
 
