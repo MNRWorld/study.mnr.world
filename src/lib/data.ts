@@ -118,28 +118,73 @@ export const admissionEvents = [
 
 export const courses = [
   {
+    slug: 'hsc-crash-course',
     title: 'HSC ক্র্যাশ কোর্স',
     description: 'HSC পরীক্ষার চূড়ান্ত প্রস্তুতির জন্য একটি সম্পূর্ণ কোর্স।',
     thumbnail: 'https://picsum.photos/seed/course1/600/400',
-    dataAiHint: 'online course'
+    dataAiHint: 'online course',
+    instructor: 'ড. জ্ঞান আলো',
+    rating: 4.5,
+    reviews: [
+      { id: 1, author: 'আবির হাসান', rating: 5, text: 'চমৎকার কোর্স! অনেক কিছু শিখতে পেরেছি।' },
+      { id: 2, author: 'সাদিয়া ইসলাম', rating: 4, text: 'শিক্ষক খুবই অভিজ্ঞ। তবে আরও কিছু প্র্যাকটিস টেস্ট থাকলে ভালো হতো।' }
+    ],
+    syllabus: [
+      { week: 1, topic: 'পদার্থবিজ্ঞান প্রথম পত্র: ভেক্টর ও গতিবিদ্যা' },
+      { week: 2, topic: 'রসায়ন প্রথম পত্র: গুণগত রসায়ন' },
+      { week: 3, topic: 'গণিত প্রথম পত্র: ম্যাট্রিক্স ও নির্ণায়ক' },
+    ]
   },
   {
+    slug: 'university-admission-prep',
     title: 'বিশ্ববিদ্যালয় ভর্তি প্রস্তুতি',
     description: 'ঢাকা, রাজশাহী, চট্টগ্রাম বিশ্ববিদ্যালয়ের ভর্তি পরীক্ষার জন্য বিশেষ কোর্স।',
     thumbnail: 'https://picsum.photos/seed/course2/600/400',
-    dataAiHint: 'university admission'
+    dataAiHint: 'university admission',
+    instructor: 'অধ্যাপক সফল বড়ুয়া',
+    rating: 4.8,
+    reviews: [
+      { id: 1, author: 'রাফি আহমেদ', rating: 5, text: 'এই কোর্সটি আমার ভর্তি প্রস্তুতিতে অনেক সাহায্য করেছে।' },
+      { id: 2, author: 'ফারজানা আক্তার', rating: 5, text: 'গত বছরের প্রশ্নগুলো সমাধান করার কৌশলগুলো অসাধারণ ছিল।' },
+      { id: 3, author: 'ইমরান হোসেন', rating: 4.5, text: 'সবকিছুই ভালো ছিল।' }
+    ],
+    syllabus: [
+      { week: 1, topic: 'বাংলা ও ইংরেজি রিভিশন' },
+      { week: 2, topic: 'সাধারণ জ্ঞান: বাংলাদেশ ও আন্তর্জাতিক' },
+      { week: 3, topic: 'মডেল টেস্ট ও সল্ভ ক্লাস' },
+    ]
   },
   {
+    slug: 'medical-admission-prep',
     title: 'মেডিকেল ভর্তি প্রস্তুতি',
     description: 'মেডিকেল কলেজে ভর্তির স্বপ্ন পূরণে অভিজ্ঞ শিক্ষকদের তত্ত্বাবধানে পূর্ণাঙ্গ প্রস্তুতি।',
     thumbnail: 'https://picsum.photos/seed/course3/600/400',
-    dataAiHint: 'medical student'
+    dataAiHint: 'medical student',
+    instructor: 'ড. আশরাফ সিদ্দিকী',
+    rating: 4.7,
+     reviews: [
+      { id: 1, author: 'নাবিলা রহমান', rating: 5, text: 'জীববিজ্ঞানের ক্লাসগুলো খুবই কার্যকরী ছিল।' },
+    ],
+    syllabus: [
+      { week: 1, topic: 'জীববিজ্ঞান: কোষ ও এর গঠন' },
+      { week: 2, topic: 'পদার্থবিজ্ঞান: আধুনিক পদার্থবিজ্ঞানের সূচনা' },
+      { week: 3, topic: 'রসায়ন: জৈব রসায়ন' },
+    ]
   },
    {
+    slug: 'engineering-admission-prep',
     title: 'ইঞ্জিনিয়ারিং ভর্তি প্রস্তুতি',
     description: 'বুয়েট, রুয়েট, কুয়েট, চুয়েটের ভর্তি পরীক্ষার জন্য বিশেষায়িত কোর্স।',
     thumbnail: 'https://picsum.photos/seed/course4/600/400',
-    dataAiHint: 'engineering student'
+    dataAiHint: 'engineering student',
+    instructor: 'প্রকৌ. খালিদ হাসান',
+    rating: 4.6,
+     reviews: [],
+    syllabus: [
+      { week: 1, topic: 'উচ্চতর গণিত: কনিকস ও স্থিতিবিদ্যা' },
+      { week: 2, topic: 'পদার্থবিজ্ঞান: তড়িৎ ও চুম্বকবিদ্যা' },
+      { week: 3, topic: 'রসায়ন: তড়িৎ রসায়ন' },
+    ]
   },
 ];
 
@@ -151,7 +196,11 @@ export const blogPosts = [
     author: 'ড. জ্ঞান আলো',
     date: '২০ আগস্ট, ২০২৪',
     thumbnail: 'https://picsum.photos/seed/blog1/800/400',
-    dataAiHint: 'student studying'
+    dataAiHint: 'student studying',
+    comments: [
+        { id: 1, author: 'সুমন', date: '২১ আগস্ট, ২০২৪', text: 'খুবই উপকারী একটি পোস্ট। ধন্যবাদ!' },
+        { id: 2, author: 'রিয়া', date: '২২ আগস্ট, ২০২৪', text: 'এই কৌশলগুলো আমি অনুসরণ করার চেষ্টা করব।' },
+    ]
   },
   {
     slug: 'admission-test-preparation',
@@ -160,7 +209,8 @@ export const blogPosts = [
     author: 'অধ্যাপক সফল বড়ুয়া',
     date: '১৫ আগস্ট, ২০২৪',
     thumbnail: 'https://picsum.photos/seed/blog2/800/400',
-    dataAiHint: 'exam preparation'
+    dataAiHint: 'exam preparation',
+    comments: []
   },
   {
     slug: 'time-management-for-students',
@@ -169,7 +219,10 @@ export const blogPosts = [
     author: 'প্রিয়াঙ্কা চৌধুরী',
     date: '১০ আগস্ট, ২০২৪',
     thumbnail: 'https://picsum.photos/seed/blog3/800/400',
-    dataAiHint: 'time management'
+    dataAiHint: 'time management',
+    comments: [
+       { id: 1, author: 'আকাশ', date: '১১ আগস্ট, ২০২৪', text: 'সময় ব্যবস্থাপনা নিয়ে আমি অনেক সমস্যায় ছিলাম। পোস্টটি পড়ে ভালো লাগলো।' },
+    ]
   },
 ];
 
