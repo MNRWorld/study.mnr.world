@@ -7,10 +7,10 @@ import { Input } from '@/components/ui/input';
 export function Footer() {
   return (
     <footer className="border-t border-border/50 py-16">
-      <div className="container max-w-6xl mx-auto px-5 grid grid-cols-1 md:grid-cols-12 gap-10">
+      <div className="container max-w-7xl mx-auto px-5 grid grid-cols-1 md:grid-cols-12 gap-10">
         <div className="md:col-span-5 text-center md:text-left">
           <Link
-            href="#"
+            href="/"
             className="logo flex items-center gap-3 justify-center md:justify-start w-fit mx-auto md:mx-0"
           >
             <StudyLogo />
@@ -45,7 +45,7 @@ export function Footer() {
             {footerLinks.map((link, index) => (
               <li key={index}>
                 <Link
-                  href="#"
+                  href={link.href}
                   className="flex items-center justify-center md:justify-start gap-3 text-muted-foreground hover:text-primary transition-colors"
                 >
                   {link.label}
@@ -61,7 +61,7 @@ export function Footer() {
             {footerShortcuts.map((link, index) => (
               <li key={index}>
                 <Link
-                  href="#"
+                  href={link.href}
                   className="flex items-center justify-center md:justify-start gap-3 text-muted-foreground hover:text-primary transition-colors"
                 >
                   {link.label}

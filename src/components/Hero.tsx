@@ -23,6 +23,7 @@ export function Hero() {
       transition: {
         type: 'spring',
         stiffness: 100,
+        damping: 10
       },
     },
   };
@@ -61,10 +62,13 @@ export function Hero() {
 
       <motion.div variants={itemVariants}>
         <Button
+          asChild
           size="lg"
           className="font-bold py-3 px-8 h-12 rounded-full text-lg transition-all duration-300 hover:shadow-2xl hover:shadow-primary/40 hover:scale-105"
         >
-          শুরু করুন <ArrowRight className="w-5 h-5 ml-2" />
+          <Link href="/signup">
+            শুরু করুন <ArrowRight className="w-5 h-5 ml-2" />
+          </Link>
         </Button>
       </motion.div>
 
@@ -76,15 +80,15 @@ export function Hero() {
           <motion.div
             key={card.label}
             variants={itemVariants}
-            whileHover={{ scale: 1.05 }}
+            whileHover={{ scale: 1.05, y: -5 }}
             transition={{ type: 'spring', stiffness: 400, damping: 10 }}
           >
             <Link
-              href="#"
-              className="card bg-secondary/50 rounded-xl p-6 flex flex-col items-center justify-center gap-4 font-semibold text-base h-full transition-colors border-2 border-transparent hover:border-primary/50 hover:bg-secondary"
+              href={card.href}
+              className="card bg-card/50 rounded-xl p-6 flex flex-col items-center justify-center gap-4 font-semibold text-base h-full transition-colors border-2 border-transparent hover:border-primary/50 hover:bg-secondary"
             >
               <card.icon className="w-8 h-8 text-primary" />
-              <span className="text-foreground">{card.label}</span>
+              <span className="text-foreground text-center">{card.label}</span>
             </Link>
           </motion.div>
         ))}
