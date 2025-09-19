@@ -1,13 +1,13 @@
 'use client';
-import { Button } from '@/components/ui/button';
 import {
   Book,
   Building,
-  CalendarCheck,
+  CalendarDays,
+  CircleInfo,
+  Display,
   Facebook,
   Github,
-  HomeIcon,
-  Info,
+  Home,
   Instagram,
   Landmark,
   ListUl,
@@ -17,7 +17,6 @@ import {
   Phone,
   School,
   Sun,
-  Tv,
   User,
   X,
   Youtube,
@@ -41,6 +40,23 @@ const StudyLogo = () => (
       strokeLinecap="round"
       strokeLinejoin="round"
     />
+  </svg>
+);
+
+const TelegramIcon = (props: React.SVGProps<SVGSVGElement>) => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24"
+    height="24"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="2"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+    {...props}
+  >
+    <path d="M15 10l-4 4 6 6 4-16-18 7 4 2 2 6 3-4" />
   </svg>
 );
 
@@ -83,9 +99,9 @@ export default function Home() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const heroCards = [
-    { icon: CalendarCheck, label: 'ক্যালেন্ডার' },
+    { icon: CalendarDays, label: 'ক্যালেন্ডার' },
     { icon: Book, label: 'প্রশ্নব্যাংক' },
-    { icon: Tv, label: 'কোর্স' },
+    { icon: Display, label: 'কোর্স' },
     { icon: Landmark, label: 'পাবলিক' },
     { icon: Building, label: 'প্রাইভেট' },
     { icon: School, label: 'কলেজ' },
@@ -93,25 +109,27 @@ export default function Home() {
 
   const footerLinks = [
     { icon: ListUl, label: 'কোর্স' },
-    { icon: CalendarCheck, label: 'ভর্তি ক্যালেন্ডার' },
+    { icon: CalendarDays, label: 'ভর্তি ক্যালেন্ডার' },
     { icon: Book, label: 'বই' },
     { icon: Newspaper, label: 'শিক্ষামূলক খবর' },
   ];
 
   const footerShortcuts = [
-    { icon: HomeIcon, label: 'হোম' },
+    { icon: Home, label: 'হোম' },
     { icon: User, label: 'প্রোফাইল' },
-    { icon: Info, label: 'আমাদের সম্পর্কে' },
+    { icon: CircleInfo, label: 'আমাদের সম্পর্কে' },
     { icon: Phone, label: 'যোগাযোগ' },
   ];
 
   const socialLinks = [
     { icon: Facebook, href: '#' },
-    { icon: Github, href: '#' },
+    { icon: TelegramIcon, href: '#' },
     { icon: Youtube, href: '#' },
     { icon: Instagram, href: '#' },
     { icon: X, href: '#' },
   ];
+
+  const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
 
   return (
     <div className="bg-slate-50 dark:bg-custom-dark text-slate-800 dark:text-slate-200 transition-colors duration-300">
@@ -161,10 +179,7 @@ export default function Home() {
             >
               যোগ দিন
             </Link>
-            <button
-              onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="md:hidden text-2xl z-50"
-            >
+            <button onClick={toggleMenu} className="md:hidden text-2xl z-50">
               {isMenuOpen ? <X /> : <Menu />}
             </button>
           </nav>
@@ -180,7 +195,7 @@ export default function Home() {
               <li>
                 <Link
                   href="#"
-                  onClick={() => setIsMenuOpen(false)}
+                  onClick={toggleMenu}
                   className="menu-link hover:text-green-400 transition-colors"
                 >
                   প্রশ্নব্যাংক
@@ -189,7 +204,7 @@ export default function Home() {
               <li>
                 <Link
                   href="#"
-                  onClick={() => setIsMenuOpen(false)}
+                  onClick={toggleMenu}
                   className="menu-link hover:text-green-400 transition-colors"
                 >
                   এডমিশন ক্যালেন্ডার
@@ -198,7 +213,7 @@ export default function Home() {
               <li>
                 <Link
                   href="#"
-                  onClick={() => setIsMenuOpen(false)}
+                  onClick={toggleMenu}
                   className="menu-link hover:text-green-400 transition-colors"
                 >
                   কোর্স
@@ -207,7 +222,7 @@ export default function Home() {
               <li>
                 <Link
                   href="#"
-                  onClick={() => setIsMenuOpen(false)}
+                  onClick={toggleMenu}
                   className="bg-indigo-600 hover:bg-indigo-700 px-8 py-3 rounded-lg transition-colors mt-6"
                 >
                   যোগ দিন

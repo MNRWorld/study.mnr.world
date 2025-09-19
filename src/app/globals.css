@@ -45,7 +45,7 @@
   left: 0;
   width: 48px;
   height: 2px;
-  background-color: #3b82f6;
+  background-color: #4f46e5;
 }
 @media (max-width: 768px) {
   .footer-heading.text-center::after {

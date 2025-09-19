@@ -1,11 +1,9 @@
 import type { Metadata } from 'next';
-import { Toaster } from '@/components/ui/toaster';
-import { MusicPlayerProvider } from '@/components/player/MusicPlayerProvider';
 import './globals.css';
 
 export const metadata: Metadata = {
-  title: 'StreamFlow',
-  description: 'Your personal music streaming experience.',
+  title: 'Study - Your Study Partner',
+  description: 'Your personal study partner.',
   icons: {
     icon: '/favicon.ico',
   },
@@ -30,12 +28,7 @@ export default function RootLayout({
           rel="stylesheet"
         />
       </head>
-      <body className="font-body antialiased">
-        <MusicPlayerProvider>
-          {children}
-          <Toaster />
-        </MusicPlayerProvider>
-      </body>
+      <body className="font-body antialiased">{children}</body>
     </html>
   );
 }
