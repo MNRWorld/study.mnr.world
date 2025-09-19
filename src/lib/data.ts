@@ -1,7 +1,7 @@
 import {
-  BookOpen,
-  Building2,
-  CalendarCheck,
+  Book,
+  Building,
+  CalendarDays,
   Facebook,
   Home,
   Info,
@@ -14,21 +14,21 @@ import {
   Twitter,
   User,
   Youtube,
+  Send,
 } from 'lucide-react';
-import { TelegramIcon } from '@/components/icons/TelegramIcon';
 
 export const heroCards = [
-  { icon: CalendarCheck, label: 'ক্যালেন্ডার' },
-  { icon: BookOpen, label: 'প্রশ্নব্যাংক' },
+  { icon: CalendarDays, label: 'ক্যালেন্ডার' },
+  { icon: Book, label: 'প্রশ্নব্যাংক' },
   { icon: Landmark, label: 'পাবলিক' },
-  { icon: Building2, label: 'প্রাইভেট' },
+  { icon: Building, label: 'প্রাইভেট' },
   { icon: School, label: 'কলেজ' },
 ];
 
 export const footerLinks = [
   { icon: List, label: 'কোর্স' },
-  { icon: CalendarCheck, label: 'ভর্তি ক্যালেন্ডার' },
-  { icon: BookOpen, label: 'বই' },
+  { icon: CalendarDays, label: 'ভর্তি ক্যালেন্ডার' },
+  { icon: Book, label: 'বই' },
   { icon: Newspaper, label: 'শিক্ষামূলক খবর' },
 ];
 
@@ -41,7 +41,7 @@ export const footerShortcuts = [
 
 export const socialLinks = [
   { href: '#', icon: Facebook },
-  { href: '#', icon: TelegramIcon },
+  { href: '#', icon: Send },
   { href: '#', icon: Youtube },
   { href: '#', icon: Instagram },
   { href: '#', icon: Twitter },
