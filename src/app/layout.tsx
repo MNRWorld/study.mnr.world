@@ -4,9 +4,6 @@ import './globals.css';
 export const metadata: Metadata = {
   title: 'Study - Your Study Partner',
   description: 'Your personal study partner.',
-  icons: {
-    icon: '/favicon.ico',
-  },
 };
 
 export default function RootLayout({
@@ -28,7 +25,7 @@ export default function RootLayout({
           rel="stylesheet"
         />
       </head>
-      <body className="font-body antialiased">{children}</body>
+      <body className="font-poppins antialiased">{children}</body>
     </html>
   );
 }
