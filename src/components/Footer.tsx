@@ -15,14 +15,15 @@ export function Footer() {
           >
             <StudyLogo />
             <div>
-              <span className="text-2xl font-bold">Study</span>
+              <span className="text-2xl font-bold">স্টাডি</span>
               <p className="text-xs text-muted-foreground -mt-1">
-                Your Study Partner
+                আপনার পড়াশোনার সঙ্গী
               </p>
             </div>
           </Link>
           <p className="text-muted-foreground mt-4 max-w-xs mx-auto md:mx-0">
-            A modern learning platform to help you achieve your academic goals.
+            একটি আধুনিক শিক্ষা প্ল্যাটফর্ম যা আপনাকে আপনার একাডেমিক লক্ষ্যে পৌঁছাতে
+            সাহায্য করবে।
           </p>
           <div className="flex gap-4 mt-5 justify-center md:justify-start">
             {socialLinks.map((social, index) => (
@@ -39,7 +40,7 @@ export function Footer() {
         </div>
 
         <div className="md:col-span-2 text-center md:text-left">
-          <h3 className="text-lg font-semibold mb-4">Links</h3>
+          <h3 className="text-lg font-semibold mb-4">লিংক</h3>
           <ul className="space-y-3">
             {footerLinks.map((link, index) => (
               <li key={index}>
@@ -55,7 +56,7 @@ export function Footer() {
         </div>
 
         <div className="md:col-span-2 text-center md:text-left">
-          <h3 className="text-lg font-semibold mb-4">Shortcuts</h3>
+          <h3 className="text-lg font-semibold mb-4">শর্টকাট</h3>
           <ul className="space-y-3">
             {footerShortcuts.map((link, index) => (
               <li key={index}>
@@ -71,18 +72,18 @@ export function Footer() {
         </div>
 
         <div className="md:col-span-3 text-center md:text-left">
-          <h3 className="text-lg font-semibold mb-4">Join Us</h3>
+          <h3 className="text-lg font-semibold mb-4">আমাদের সাথে যোগ দিন</h3>
           <p className="text-muted-foreground mb-4">
-            Subscribe to our newsletter to get the latest updates and offers.
+            সর্বশেষ আপডেট এবং অফার পেতে আমাদের নিউজলেটারে সাবস্ক্রাইব করুন।
           </p>
           <form className="flex gap-2">
-            <Input type="email" placeholder="Your Email" />
-            <Button type="submit">Subscribe</Button>
+            <Input type="email" placeholder="আপনার ইমেইল" />
+            <Button type="submit">সাবস্ক্রাইব</Button>
           </form>
         </div>
       </div>
       <div className="text-center text-muted-foreground mt-12 pt-8 border-t border-border/50">
-        <p>&copy; {new Date().getFullYear()} Study. All rights reserved.</p>
+        <p>&copy; {new Date().getFullYear()} স্টাডি। সর্বস্বত্ব সংরক্ষিত।</p>
       </div>
     </footer>
   );

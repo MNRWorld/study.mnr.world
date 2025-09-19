@@ -18,7 +18,6 @@ const config: Config = {
     },
     extend: {
       fontFamily: {
-        poppins: ['Poppins', 'sans-serif'],
         bangla: ['Hind Siliguri', 'sans-serif'],
       },
       colors: {

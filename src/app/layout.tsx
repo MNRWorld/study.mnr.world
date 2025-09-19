@@ -3,8 +3,9 @@ import './globals.css';
 import { ThemeProvider } from '@/components/ThemeProvider';
 
 export const metadata: Metadata = {
-  title: 'Study - Your Study Partner',
-  description: 'A modern learning platform to help you achieve your academic goals.',
+  title: 'স্টাডি - আপনার পড়াশোনার সঙ্গী',
+  description:
+    'একটি আধুনিক শিক্ষা প্ল্যাটফর্ম যা আপনাকে আপনার একাডেমিক লক্ষ্যে পৌঁছাতে সাহায্য করবে।',
 };
 
 export default function RootLayout({
@@ -13,7 +14,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="bn" suppressHydrationWarning>
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link
@@ -22,11 +23,11 @@ export default function RootLayout({
           crossOrigin="anonymous"
         />
         <link
-          href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&family=Hind+Siliguri:wght@400;500;600;700&display=swap"
+          href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&display=swap"
           rel="stylesheet"
         />
       </head>
-      <body className="font-poppins antialiased">
+      <body className="font-bangla antialiased">
         <ThemeProvider
           attribute="class"
           defaultTheme="dark"

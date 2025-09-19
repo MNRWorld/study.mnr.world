@@ -5,15 +5,16 @@ import Link from 'next/link';
 import { useState } from 'react';
 import { StudyLogo } from '@/components/icons/StudyLogo';
 import { Button } from '@/components/ui/button';
+import { cn } from '@/lib/utils';
 
 export function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
 
   const navLinks = [
-    { href: '#', label: 'Question Bank' },
-    { href: '#', label: 'Admission Calendar' },
-    { href: '#', label: 'Courses' },
+    { href: '#', label: 'প্রশ্ন ব্যাংক' },
+    { href: '#', label: 'ভর্তি ক্যালেন্ডার' },
+    { href: '#', label: 'কোর্সসমূহ' },
   ];
 
   return (
@@ -23,9 +24,9 @@ export function Header() {
           <Link href="#" className="logo flex items-center gap-3">
             <StudyLogo />
             <div>
-              <span className="text-2xl font-bold">Study</span>
+              <span className="text-2xl font-bold">স্টাডি</span>
               <p className="text-xs text-muted-foreground -mt-1">
-                Your Study Partner
+                আপনার পড়াশোনার সঙ্গী
               </p>
             </div>
           </Link>
@@ -42,7 +43,7 @@ export function Header() {
             ))}
           </ul>
           <Button asChild className="hidden md:block">
-            <Link href="#">Join</Link>
+            <Link href="#">যোগ দিন</Link>
           </Button>
           <button onClick={toggleMenu} className="md:hidden text-2xl z-50">
             {isMenuOpen ? <X /> : <Menu />}
@@ -50,30 +51,33 @@ export function Header() {
         </nav>
       </header>
 
-      {isMenuOpen && (
-        <div className="fixed inset-0 bg-background/95 backdrop-blur-sm z-30 flex items-center justify-center transition-opacity duration-300 md:hidden">
-          <ul className="flex flex-col items-center gap-10 font-semibold text-2xl text-foreground">
-            {navLinks.map((link) => (
-              <li key={link.label}>
-                <Link
-                  href={link.href}
-                  onClick={toggleMenu}
-                  className="hover:text-primary transition-colors"
-                >
-                  {link.label}
-                </Link>
-              </li>
-            ))}
-            <li>
-              <Button asChild size="lg" className="mt-6">
-                <Link href="#" onClick={toggleMenu}>
-                  Join
-                </Link>
-              </Button>
+      <div
+        className={cn(
+          'fixed inset-0 bg-background/95 backdrop-blur-sm z-30 flex items-center justify-center transition-opacity duration-300 md:hidden',
+          isMenuOpen ? 'opacity-100' : 'opacity-0 pointer-events-none'
+        )}
+      >
+        <ul className="flex flex-col items-center gap-10 font-semibold text-2xl text-foreground">
+          {navLinks.map((link) => (
+            <li key={link.label}>
+              <Link
+                href={link.href}
+                onClick={toggleMenu}
+                className="hover:text-primary transition-colors"
+              >
+                {link.label}
+              </Link>
             </li>
-          </ul>
-        </div>
-      )}
+          ))}
+          <li>
+            <Button asChild size="lg" className="mt-6">
+              <Link href="#" onClick={toggleMenu}>
+                যোগ দিন
+              </Link>
+            </Button>
+          </li>
+        </ul>
+      </div>
     </>
   );
 }

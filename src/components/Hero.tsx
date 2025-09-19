@@ -39,24 +39,24 @@ export function Hero() {
         className="inline-flex items-center gap-2 bg-secondary text-sm font-medium px-4 py-1.5 rounded-full mb-6"
       >
         <Sparkles className="w-4 h-4 text-primary" />
-        <span className="text-muted-foreground">Start your journey</span>
+        <span className="text-muted-foreground">আপনার যাত্রা শুরু করুন</span>
       </motion.div>
 
       <motion.h1
         variants={itemVariants}
         className="text-5xl md:text-7xl font-extrabold tracking-tighter mb-6 relative bg-clip-text text-transparent bg-gradient-to-b from-foreground to-foreground/70"
       >
-        Your Adventure
+        আপনার অ্যাডভেঞ্চার
         <br />
-        Starts Here
+        এখান থেকে শুরু
       </motion.h1>
 
       <motion.p
         variants={itemVariants}
         className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-10"
       >
-        We are here to make your educational journey easier and more effective.
-        Start the new chapter of your preparation now.
+        আপনার শিক্ষাযাত্রা আরও সহজ ও কার্যকর করতে আমরা পাশে আছি। এখনই আপনার
+        প্রস্তুতির নতুন অধ্যায় শুরু করুন।
       </motion.p>
 
       <motion.div variants={itemVariants}>
@@ -64,7 +64,7 @@ export function Hero() {
           size="lg"
           className="font-bold py-3 px-8 h-12 rounded-full text-lg transition-all duration-300 hover:shadow-2xl hover:shadow-primary/40 hover:scale-105"
         >
-          Get Started <ArrowRight className="w-5 h-5 ml-2" />
+          শুরু করুন <ArrowRight className="w-5 h-5 ml-2" />
         </Button>
       </motion.div>
 

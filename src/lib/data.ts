@@ -17,31 +17,31 @@ import {
 } from 'lucide-react';
 
 export const heroCards = [
-  { icon: ClipboardList, label: 'Calendar' },
-  { icon: Library, label: 'Question Bank' },
-  { icon: Building, label: 'Public' },
-  { icon: Building, label: 'Private' },
-  { icon: GraduationCap, label: 'College' },
+  { icon: ClipboardList, label: 'ক্যালেন্ডার' },
+  { icon: Library, label: 'প্রশ্নব্যাংক' },
+  { icon: Building, label: 'পাবলিক' },
+  { icon: Building, label: 'প্রাইভেট' },
+  { icon: GraduationCap, label: 'কলেজ' },
 ];
 
 export const footerLinks = [
-  { label: 'Courses' },
-  { label: 'Admission Calendar' },
-  { label: 'Books' },
-  { label: 'Educational News' },
+  { label: 'কোর্সসমূহ' },
+  { label: 'ভর্তি ক্যালেন্ডার' },
+  { label: 'বইসমূহ' },
+  { label: 'শিক্ষার খবর' },
 ];
 
 export const footerShortcuts = [
-  { label: 'Home' },
-  { label: 'Profile' },
-  { label: 'About Us' },
-  { label: 'Contact' },
+  { label: 'হোম' },
+  { label: 'প্রোফাইল' },
+  { label: 'আমাদের সম্পর্কে' },
+  { label: 'যোগাযোগ' },
 ];
 
 export const socialLinks = [
-  { href: '#', icon: Facebook, label: 'Facebook' },
-  { href: '#', icon: Send, label: 'Telegram' },
-  { href: '#', icon: Youtube, label: 'YouTube' },
-  { href: '#', icon: Instagram, label: 'Instagram' },
-  { href: '#', icon: Twitter, label: 'Twitter' },
+  { href: '#', icon: Facebook, label: 'ফেসবুক' },
+  { href: '#', icon: Send, label: 'টেলিগ্রাম' },
+  { href: '#', icon: Youtube, label: 'ইউটিউব' },
+  { href: '#', icon: Instagram, label: 'ইנস্টাগ্রাম' },
+  { href: '#', icon: Twitter, label: 'টুইটার' },
 ];
