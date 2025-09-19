@@ -30,7 +30,7 @@ export function Hero() {
   const cardHover = {
     hover: {
       scale: 1.05,
-      boxShadow: '0px 10px 30px -5px rgba(var(--primary-rgb), 0.2)',
+      boxShadow: '0px 10px 30px -5px hsl(var(--primary) / 0.2)',
       transition: {
         type: 'spring',
         stiffness: 400,
@@ -51,39 +51,32 @@ export function Hero() {
         className="inline-flex items-center gap-2 bg-secondary text-sm font-medium px-4 py-1.5 rounded-full mb-6"
       >
         <Sparkles className="w-4 h-4 text-primary" />
-        <span className="text-muted-foreground">নতুন করে শেখা শুরু করুন</span>
+        <span className="text-muted-foreground">Start your journey</span>
       </motion.div>
 
       <motion.h1
         variants={itemVariants}
-        className="font-bangla text-5xl md:text-7xl font-extrabold tracking-tighter mb-6 relative"
+        className="text-5xl md:text-7xl font-extrabold tracking-tighter mb-6 relative bg-clip-text text-transparent bg-gradient-to-b from-foreground to-foreground/70"
       >
-        <span className="relative">
-          স্বপ্ন পূরণের পথে
-          <motion.span
-            className="absolute -bottom-2 left-0 w-full h-1.5 bg-gradient-to-r from-primary/50 to-primary"
-            initial={{ scaleX: 0 }}
-            animate={{ scaleX: 1 }}
-            transition={{ duration: 0.8, ease: [0.6, 0.05, -0.01, 0.9], delay: 0.5 }}
-          />
-        </span>
+        Your Adventure
         <br />
-        সকল কিছু একসাথে
+        Starts Here
       </motion.h1>
 
       <motion.p
         variants={itemVariants}
         className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-10"
       >
-        আপনার শিক্ষাযাত্রাকে আরও সহজ ও কার্যকর করতে আমরা আছি আপনার পাশে। এখনই শুরু করুন আপনার প্রস্তুতির নতুন অধ্যায়।
+        We are here to make your educational journey easier and more effective.
+        Start the new chapter of your preparation now.
       </motion.p>
-      
+
       <motion.div variants={itemVariants}>
         <Button
           size="lg"
-          className="bg-primary text-primary-foreground font-bold py-3 px-8 h-12 rounded-full text-lg transition-all duration-300 hover:shadow-2xl hover:shadow-primary/40 hover:scale-105 font-bangla"
+          className="font-bold py-3 px-8 h-12 rounded-full text-lg transition-all duration-300 hover:shadow-2xl hover:shadow-primary/40 hover:scale-105"
         >
-          শুরু করুন <ArrowRight className="w-5 h-5 ml-2" />
+          Get Started <ArrowRight className="w-5 h-5 ml-2" />
         </Button>
       </motion.div>
 
@@ -92,10 +85,14 @@ export function Hero() {
         className="grid grid-cols-2 md:grid-cols-5 gap-4 mt-20"
       >
         {heroCards.map((card) => (
-          <motion.div key={card.label} variants={{ ...itemVariants, ...cardHover }} whileHover="hover">
+          <motion.div
+            key={card.label}
+            variants={itemVariants}
+            whileHover="hover"
+          >
             <Link
               href="#"
-              className="card bg-secondary rounded-xl p-6 flex flex-col items-center justify-center gap-4 font-bangla font-semibold text-base h-full transition-colors border-2 border-transparent hover:border-primary/50"
+              className="card bg-secondary rounded-xl p-6 flex flex-col items-center justify-center gap-4 font-semibold text-base h-full transition-colors border-2 border-transparent hover:border-primary/50"
             >
               <card.icon className="w-8 h-8 text-primary" />
               <span className="text-foreground">{card.label}</span>

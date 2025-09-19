@@ -1,47 +1,41 @@
 import {
-  Book,
-  Building,
-  CalendarDays,
   Facebook,
-  Home,
-  Info,
   Instagram,
-  Landmark,
-  List,
-  Newspaper,
-  Phone,
-  School,
   Twitter,
-  User,
   Youtube,
   Send,
   GraduationCap,
   ClipboardList,
   Library,
-  University,
-  Briefcase
+  Building,
+  Home,
+  User,
+  Info,
+  Phone,
+  Newspaper,
+  Book,
 } from 'lucide-react';
 
 export const heroCards = [
-  { icon: ClipboardList, label: 'ক্যালেন্ডার' },
-  { icon: Library, label: 'প্রশ্নব্যাংক' },
-  { icon: University, label: 'পাবলিক' },
-  { icon: Building, label: 'প্রাইভেট' },
-  { icon: GraduationCap, label: 'কলেজ' },
+  { icon: ClipboardList, label: 'Calendar' },
+  { icon: Library, label: 'Question Bank' },
+  { icon: Building, label: 'Public' },
+  { icon: Building, label: 'Private' },
+  { icon: GraduationCap, label: 'College' },
 ];
 
 export const footerLinks = [
-  { label: 'কোর্স' },
-  { label: 'ভর্তি ক্যালেন্ডার' },
-  { label: 'বই' },
-  { label: 'শিক্ষামূলক খবর' },
+  { label: 'Courses' },
+  { label: 'Admission Calendar' },
+  { label: 'Books' },
+  { label: 'Educational News' },
 ];
 
 export const footerShortcuts = [
-  { label: 'হোম' },
-  { label: 'প্রোফাইল' },
-  { label: 'আমাদের সম্পর্কে' },
-  { label: 'যোগাযোগ' },
+  { label: 'Home' },
+  { label: 'Profile' },
+  { label: 'About Us' },
+  { label: 'Contact' },
 ];
 
 export const socialLinks = [

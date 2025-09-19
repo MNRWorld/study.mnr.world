@@ -10,14 +10,14 @@ export function Header() {
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
 
   const navLinks = [
-    { href: '#', label: 'প্রশ্নব্যাংক' },
-    { href: '#', label: 'এডমিশন ক্যালেন্ডার' },
-    { href: '#', label: 'কোর্স' },
+    { href: '#', label: 'Question Bank' },
+    { href: '#', label: 'Admission Calendar' },
+    { href: '#', label: 'Courses' },
   ];
 
   return (
     <>
-      <header className="sticky top-0 z-40 bg-background/80 backdrop-blur-sm border-b border-white/10">
+      <header className="sticky top-0 z-40 bg-background/80 backdrop-blur-sm border-b border-border/50">
         <nav className="container max-w-6xl mx-auto px-5 py-4 flex justify-between items-center">
           <Link href="#" className="logo flex items-center gap-3">
             <StudyLogo />
@@ -28,7 +28,7 @@ export function Header() {
               </p>
             </div>
           </Link>
-          <ul className="hidden md:flex items-center gap-8 font-bangla font-medium">
+          <ul className="hidden md:flex items-center gap-8 font-medium">
             {navLinks.map((link) => (
               <li key={link.label}>
                 <Link
@@ -42,9 +42,9 @@ export function Header() {
           </ul>
           <Link
             href="#"
-            className="hidden md:block bg-primary hover:bg-primary/90 text-primary-foreground font-bold py-2 px-6 rounded-lg transition-colors font-bangla shadow-lg shadow-primary/30"
+            className="hidden md:block bg-primary hover:bg-primary/90 text-primary-foreground font-bold py-2 px-6 rounded-lg transition-colors shadow-lg shadow-primary/30"
           >
-            যোগ দিন
+            Join
           </Link>
           <button onClick={toggleMenu} className="md:hidden text-2xl z-50">
             {isMenuOpen ? <X /> : <Menu />}
@@ -54,7 +54,7 @@ export function Header() {
 
       {isMenuOpen && (
         <div className="fixed inset-0 bg-background/95 backdrop-blur-sm z-30 flex items-center justify-center transition-opacity duration-300 md:hidden">
-          <ul className="flex flex-col items-center gap-10 font-bangla font-semibold text-2xl text-foreground">
+          <ul className="flex flex-col items-center gap-10 font-semibold text-2xl text-foreground">
             {navLinks.map((link) => (
               <li key={link.label}>
                 <Link
@@ -72,7 +72,7 @@ export function Header() {
                 onClick={toggleMenu}
                 className="bg-primary hover:bg-primary/90 px-8 py-3 rounded-lg transition-colors mt-6"
               >
-                যোগ দিন
+                Join
               </Link>
             </li>
           </ul>
