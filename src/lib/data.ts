@@ -3,7 +3,6 @@ import {
   Building,
   CalendarDays,
   Facebook,
-  Github,
   Home,
   Info,
   Instagram,
