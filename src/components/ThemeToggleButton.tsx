@@ -1,39 +1,23 @@
 'use client';
 
 import { Moon, Sun } from 'lucide-react';
-import { useEffect, useState } from 'react';
+import { useTheme } from 'next-themes';
+
+import { Button } from '@/components/ui/button';
 
 export function ThemeToggleButton() {
-  const [isDark, setIsDark] = useState(false);
-
-  useEffect(() => {
-    const theme = localStorage.getItem('theme');
-    const prefersDark = window.matchMedia(
-      '(prefers-color-scheme: dark)'
-    ).matches;
-    if (theme === 'dark' || (!theme && prefersDark)) {
-      document.documentElement.classList.add('dark');
-      setIsDark(true);
-    } else {
-      document.documentElement.classList.remove('dark');
-      setIsDark(false);
-    }
-  }, []);
-
-  const toggleTheme = () => {
-    const htmlEl = document.documentElement;
-    htmlEl.classList.toggle('dark');
-    const newIsDark = htmlEl.classList.contains('dark');
-    localStorage.setItem('theme', newIsDark ? 'dark' : 'light');
-    setIsDark(newIsDark);
-  };
+  const { theme, setTheme } = useTheme();
 
   return (
-    <button
-      onClick={toggleTheme}
-      className="fixed bottom-6 right-6 w-12 h-12 bg-violet-100 dark:bg-custom-dark-card text-violet-700 dark:text-violet-300 rounded-full flex items-center justify-center text-xl shadow-lg hover:scale-110 transition-all duration-300 z-50 border border-slate-200 dark:border-slate-700"
+    <Button
+      variant="outline"
+      size="icon"
+      onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
+      className="fixed bottom-6 right-6 w-12 h-12 rounded-full shadow-lg hover:scale-110 transition-all duration-300 z-50"
     >
-      {isDark ? <Sun /> : <Moon />}
-    </button>
+      <Sun className="h-[1.5rem] w-[1.5rem] rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
+      <Moon className="absolute h-[1.5rem] w-[1.5rem] rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
+      <span className="sr-only">Toggle theme</span>
+    </Button>
   );
 }

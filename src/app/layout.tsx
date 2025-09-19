@@ -1,9 +1,10 @@
 import type { Metadata } from 'next';
 import './globals.css';
+import { ThemeProvider } from '@/components/ThemeProvider';
 
 export const metadata: Metadata = {
-  title: 'Study - Your Study Partner',
-  description: 'Your personal study partner.',
+  title: 'StreamFlow - Your Music Library',
+  description: 'A modern music player for your local files.',
 };
 
 export default function RootLayout({
@@ -12,7 +13,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="dark" suppressHydrationWarning>
+    <html lang="en" suppressHydrationWarning>
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link
@@ -21,11 +22,20 @@ export default function RootLayout({
           crossOrigin="anonymous"
         />
         <link
-          href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap"
+          href="https://fonts.googleapis.com/css2?family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap"
           rel="stylesheet"
         />
       </head>
-      <body className="font-poppins antialiased">{children}</body>
+      <body className="font-sans antialiased">
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
+          {children}
+        </ThemeProvider>
+      </body>
     </html>
   );
 }
