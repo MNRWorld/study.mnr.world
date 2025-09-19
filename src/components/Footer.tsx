@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { StudyLogo } from './icons/StudyLogo';
+import { StudyLogo } from '@/components/icons/StudyLogo';
 import { footerLinks, footerShortcuts, socialLinks } from '@/lib/data';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';

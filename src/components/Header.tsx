@@ -3,7 +3,8 @@
 import { Menu, X } from 'lucide-react';
 import Link from 'next/link';
 import { useState } from 'react';
-import { StudyLogo } from './icons/StudyLogo';
+import { StudyLogo } from '@/components/icons/StudyLogo';
+import { Button } from '@/components/ui/button';
 
 export function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -40,12 +41,9 @@ export function Header() {
               </li>
             ))}
           </ul>
-          <Link
-            href="#"
-            className="hidden md:block bg-primary hover:bg-primary/90 text-primary-foreground font-bold py-2 px-6 rounded-lg transition-colors shadow-lg shadow-primary/30"
-          >
-            Join
-          </Link>
+          <Button asChild className="hidden md:block">
+            <Link href="#">Join</Link>
+          </Button>
           <button onClick={toggleMenu} className="md:hidden text-2xl z-50">
             {isMenuOpen ? <X /> : <Menu />}
           </button>
@@ -67,13 +65,11 @@ export function Header() {
               </li>
             ))}
             <li>
-              <Link
-                href="#"
-                onClick={toggleMenu}
-                className="bg-primary hover:bg-primary/90 px-8 py-3 rounded-lg transition-colors mt-6"
-              >
-                Join
-              </Link>
+              <Button asChild size="lg" className="mt-6">
+                <Link href="#" onClick={toggleMenu}>
+                  Join
+                </Link>
+              </Button>
             </li>
           </ul>
         </div>

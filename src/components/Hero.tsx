@@ -27,18 +27,6 @@ export function Hero() {
     },
   };
 
-  const cardHover = {
-    hover: {
-      scale: 1.05,
-      boxShadow: '0px 10px 30px -5px hsl(var(--primary) / 0.2)',
-      transition: {
-        type: 'spring',
-        stiffness: 400,
-        damping: 10,
-      },
-    },
-  };
-
   return (
     <motion.section
       className="container max-w-4xl mx-auto px-5 py-24 text-center"
@@ -88,11 +76,12 @@ export function Hero() {
           <motion.div
             key={card.label}
             variants={itemVariants}
-            whileHover="hover"
+            whileHover={{ scale: 1.05 }}
+            transition={{ type: 'spring', stiffness: 400, damping: 10 }}
           >
             <Link
               href="#"
-              className="card bg-secondary rounded-xl p-6 flex flex-col items-center justify-center gap-4 font-semibold text-base h-full transition-colors border-2 border-transparent hover:border-primary/50"
+              className="card bg-secondary/50 rounded-xl p-6 flex flex-col items-center justify-center gap-4 font-semibold text-base h-full transition-colors border-2 border-transparent hover:border-primary/50 hover:bg-secondary"
             >
               <card.icon className="w-8 h-8 text-primary" />
               <span className="text-foreground">{card.label}</span>
