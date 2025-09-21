@@ -43,7 +43,7 @@ import {
   SquarePollVertical,
   Menu,
   Mosque,
-  BuildingColumns,
+  University,
 } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -337,7 +337,7 @@ function DhakaUniversityPage() {
                             </AccordionContent>
                         </AccordionItem>
                         <AccordionItem value="sub-2">
-                             <AccordionTrigger className="hover:no-underline flex items-center justify-between"><BuildingColumns/> &nbsp;&nbsp; প্রশাসনিক ভবন</AccordionTrigger>
+                             <AccordionTrigger className="hover:no-underline flex items-center justify-between"><University/> &nbsp;&nbsp; প্রশাসনিক ভবন</AccordionTrigger>
                             <AccordionContent>
                                <Table>
                                     <TableBody>
