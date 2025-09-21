@@ -35,7 +35,6 @@ import {
   Link as LinkIcon,
   ArrowUpRightFromSquare,
   CircleAlert,
-  CircleInfo,
   Contact,
   Stopwatch,
   MapPin,
@@ -43,7 +42,7 @@ import {
   SquarePollVertical,
   Menu,
   Mosque,
-  BuildingColumns,
+  University,
 } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -337,7 +336,7 @@ function DhakaUniversityPage() {
                             </AccordionContent>
                         </AccordionItem>
                         <AccordionItem value="sub-2">
-                             <AccordionTrigger className="hover:no-underline flex items-center justify-between"><BuildingColumns/> &nbsp;&nbsp; প্রশাসনিক ভবন</AccordionTrigger>
+                             <AccordionTrigger className="hover:no-underline flex items-center justify-between"><University/> &nbsp;&nbsp; প্রশাসনিক ভবন</AccordionTrigger>
                             <AccordionContent>
                                <Table>
                                     <TableBody>
@@ -498,7 +497,7 @@ function DhakaUniversityPage() {
                     </AccordionContent>
                 </AccordionItem>
                  <AccordionItem value="info-2" className="border border-gray-300 rounded-2xl mt-1.5">
-                    <AccordionTrigger className="p-3 text-[15px] font-bold hover:no-underline"><CircleInfo className="mr-2"/> ইমপ্রুভমেন্ট ও পরবর্তী ব্যাচের সাথে পরীক্ষা দেয়া সংক্রান্ত বিস্তারিত</AccordionTrigger>
+                    <AccordionTrigger className="p-3 text-[15px] font-bold hover:no-underline"><Info className="mr-2"/> ইমপ্রুভমেন্ট ও পরবর্তী ব্যাচের সাথে পরীক্ষা দেয়া সংক্রান্ত বিস্তারিত</AccordionTrigger>
                     <AccordionContent className="p-4 pt-0">
                     <b>দুটি শর্তে একজন শিক্ষার্থী পরবর্তী ব্যাচের সাথে পরের বছর ঢাকা বিশ্ববিদ্যালয়ে পরীক্ষা দিতে পারবে -<br/><br/>
                     ১।</b> ঢাকা বিশ্ববিদ্যালয় কিংবা অধিভুক্ত কলেজে আবেদন না করা<br/>
