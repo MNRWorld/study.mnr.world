@@ -1,8 +1,28 @@
+import { School, Construction } from 'lucide-react';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+
 export default function CollegePage() {
   return (
-    <div className="container mx-auto px-4 py-8">
-      <h1 className="text-4xl font-bold font-bengali">কলেজ</h1>
-      <p className="text-muted-foreground mt-2">This page is under construction.</p>
+    <div className="flex-grow flex items-center justify-center py-12">
+      <Card className="w-full max-w-md text-center animate-fadeInUp">
+        <CardHeader>
+          <div className="mx-auto bg-primary/10 p-4 rounded-full">
+            <School className="h-16 w-16 text-primary" />
+          </div>
+          <CardTitle className="mt-4 text-3xl font-bold font-bengali gradient-text">
+            কলেজ
+          </CardTitle>
+        </CardHeader>
+        <CardContent>
+          <div className="flex items-center justify-center gap-3 text-muted-foreground">
+            <Construction className="h-5 w-5" />
+            <p className="text-lg font-bengali">এই পৃষ্ঠাটি নির্মাণাধীন আছে।</p>
+          </div>
+          <p className="text-sm text-muted-foreground/70 mt-2 font-bengali">
+            খুব শীঘ্রই আসছে...
+          </p>
+        </CardContent>
+      </Card>
     </div>
   );
 }
