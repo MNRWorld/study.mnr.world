@@ -88,8 +88,8 @@ const CountdownTimer = () => {
       return (
           <div className="relative w-[110px] h-[110px] sm:w-[65px] sm:h-[65px] shrink-0">
               <svg className="transform -scale-x-100" viewBox="0 0 100 100">
-                  <circle className="text-gray-300" strokeWidth="6" stroke="currentColor" fill="transparent" r="45" cx="50" cy="50" />
-                  <circle className="text-green-500"
+                  <circle className="text-muted-foreground/20" strokeWidth="6" stroke="currentColor" fill="transparent" r="45" cx="50" cy="50" />
+                  <circle className="text-primary"
                       strokeWidth="6"
                       strokeDasharray={circumference}
                       strokeDashoffset={offset}
@@ -104,17 +104,17 @@ const CountdownTimer = () => {
               </svg>
               <div className="absolute inset-0 flex flex-col items-center justify-center">
                   <div className="text-2xl sm:text-lg font-bold">{value}</div>
-                  <div className="text-xs sm:text-[10px] text-gray-700">{unit}</div>
+                  <div className="text-xs sm:text-[10px] text-muted-foreground">{unit}</div>
               </div>
           </div>
       );
   };
 
   return (
-      <div className="text-center p-5 m-2.5 rounded-2xl bg-blue-50 shadow-[0_4px_8px_rgba(0,0,0,0.05)]">
+      <div className="text-center p-5 m-2.5 rounded-2xl bg-card">
           <div className="text-lg font-bold mb-3">
               {currentDeadline.title}
-              <div className="font-normal text-sm mt-1">
+              <div className="font-normal text-sm mt-1 text-muted-foreground">
                   {currentDeadline.date.toLocaleDateString('en-GB', { year: 'numeric', month: 'long', day: 'numeric' })}
               </div>
           </div>

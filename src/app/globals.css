@@ -4,25 +4,25 @@
 
 @layer base {
   :root {
-    --background: 222 84% 4.9%;
-    --foreground: 210 40% 98%;
-    --card: 222 84% 4.9%;
-    --card-foreground: 210 40% 98%;
-    --popover: 222 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
-    --primary: 142 71% 45%;
-    --primary-foreground: 210 40% 98%;
-    --secondary: 217 33% 17%;
-    --secondary-foreground: 210 40% 98%;
-    --muted: 217 33% 17%;
-    --muted-foreground: 215 20% 65%;
-    --accent: 217 33% 17%;
-    --accent-foreground: 210 40% 98%;
-    --destructive: 0 63% 31%;
-    --destructive-foreground: 210 40% 98%;
-    --border: 217 33% 17%;
-    --input: 217 33% 17%;
-    --ring: 216 34% 65%;
+    --background: 224 71.4% 4.1%;
+    --foreground: 210 20% 98%;
+    --card: 224 71.4% 4.1%;
+    --card-foreground: 210 20% 98%;
+    --popover: 224 71.4% 4.1%;
+    --popover-foreground: 210 20% 98%;
+    --primary: 217.2 91.2% 59.8%;
+    --primary-foreground: 210 20% 98%;
+    --secondary: 215 27.9% 16.9%;
+    --secondary-foreground: 210 20% 98%;
+    --muted: 215 27.9% 16.9%;
+    --muted-foreground: 215 25% 65.1%;
+    --accent: 215 27.9% 16.9%;
+    --accent-foreground: 210 20% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 20% 98%;
+    --border: 215 27.9% 16.9%;
+    --input: 215 27.9% 16.9%;
+    --ring: 217.2 91.2% 59.8%;
     --radius: 0.5rem;
   }
 }
@@ -67,9 +67,9 @@
 
 /* --- Custom Styles --- */
 body {
-    background-color: #0f172a; /* Slate 900 */
-    background-image: radial-gradient(circle at top left, #1e293b, #0f172a);
-    color: #E2E8F0;
+    background-color: hsl(var(--background));
+    background-image: radial-gradient(circle at top left, hsl(var(--secondary)), hsl(var(--background)));
+    color: hsl(var(--foreground));
 }
 
 .font-bengali {
@@ -77,46 +77,46 @@ body {
 }
 
 .glassmorphism-header {
-    background-color: rgba(2, 6, 23, 0.6);
+    background-color: hsla(var(--background), 0.6);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    border-bottom: 1px solid hsla(var(--border), 0.5);
 }
 
 .gradient-text {
-    background: linear-gradient(to right, #ffffff, #94a3b8);
+    background: linear-gradient(to right, hsl(var(--foreground)), hsl(var(--muted-foreground)));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 
 .logo-study {
-    color: #10B981;
+    color: hsl(var(--primary));
 }
 
 .header-link {
     transition: color 0.3s ease;
 }
 .header-link:hover {
-    color: #FFFFFF;
+    color: hsl(var(--primary-foreground));
 }
 
 .join-btn {
-    background-image: linear-gradient(to right, #10B981, #2DD4BF);
+    background-image: linear-gradient(to right, hsl(var(--primary)), #2DD4BF);
     border: none;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    box-shadow: 0 4px 15px rgba(45, 212, 191, 0.2);
+    box-shadow: 0 4px 15px hsla(var(--primary), 0.2);
 }
 .join-btn:hover {
     transform: scale(1.05);
-    box-shadow: 0 6px 20px rgba(45, 212, 191, 0.4);
+    box-shadow: 0 6px 20px hsla(var(--primary), 0.4);
 }
 
 .feature-card {
-    background-color: rgba(51, 65, 85, 0.3); /* Slate-700 with alpha */
+    background-color: hsla(var(--secondary), 0.3);
     border-radius: 0.75rem;
     padding: 1.5rem;
     text-align: center;
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    border: 1px solid hsla(var(--border), 0.5);
     backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px);
     transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
@@ -134,13 +134,13 @@ body {
 
 .feature-card:hover {
     transform: translateY(-8px);
-    background-color: rgba(51, 65, 85, 0.5);
-    box-shadow: 0 0 25px rgba(99, 102, 241, 0.3);
+    background-color: hsla(var(--secondary), 0.5);
+    box-shadow: 0 0 25px hsla(var(--primary), 0.3);
 }
 
 .footer-bg {
-    background-color: #020617; /* Slate 950 */
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    background-color: hsl(var(--background));
+    border-top: 1px solid hsla(var(--border), 0.5);
 }
 
 .link-underline {
@@ -154,7 +154,7 @@ body {
     left: 0;
     width: 100%;
     height: 2px;
-    background-image: linear-gradient(to right, #4f46e5, #7c3aed);
+    background-image: linear-gradient(to right, hsl(var(--primary)), #7c3aed);
 }
 
 .social-icon {
@@ -171,8 +171,8 @@ body {
 }
 
 .theme-toggle {
-    background-color: rgba(30, 41, 59, 0.8);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    background-color: hsla(var(--secondary), 0.8);
+    border: 1px solid hsla(var(--border), 0.5);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 .theme-toggle:hover {
