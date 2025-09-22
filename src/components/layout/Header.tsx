@@ -36,6 +36,12 @@ export default function Header() {
             >
               কোর্স
             </Link>
+            <Link
+              href="/blog"
+              className="text-slate-300 header-link font-bengali font-medium"
+            >
+              ব্লগ
+            </Link>
           </div>
            <div className="hidden md:flex items-center">
             <Button className="join-btn text-white font-semibold py-2 px-6 rounded-lg font-bengali">
@@ -71,6 +77,9 @@ export default function Header() {
                          </SheetClose>
                          <SheetClose asChild>
                            <Link href="/courses" className="text-slate-300 header-link font-bengali font-medium text-lg">কোর্স</Link>
+                         </SheetClose>
+                         <SheetClose asChild>
+                           <Link href="/blog" className="text-slate-300 header-link font-bengali font-medium text-lg">ব্লগ</Link>
                          </SheetClose>
                       </nav>
                       <div className="mt-auto">
