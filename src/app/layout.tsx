@@ -5,6 +5,7 @@ import { Inter, Hind_Siliguri } from 'next/font/google';
 import { cn } from '@/lib/utils';
 import MainLayout from './MainLayout';
 import { ThemeProvider } from '@/components/theme-provider';
+import { AuthProvider } from '@/hooks/use-auth';
 
 const inter = Inter({
   subsets: ['latin'],
@@ -37,10 +38,12 @@ export default function RootLayout({
             enableSystem
             disableTransitionOnChange
         >
+          <AuthProvider>
             <MainLayout>
               {children}
             </MainLayout>
             <Toaster />
+          </AuthProvider>
         </ThemeProvider>
       </body>
     </html>

@@ -1,9 +1,22 @@
+
+'use client';
+
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { BookMarked, Menu } from "lucide-react";
 import { Sheet, SheetTrigger, SheetContent, SheetClose } from "@/components/ui/sheet";
+import { useAuth } from "@/hooks/use-auth";
+import { useRouter } from "next/navigation";
 
 export default function Header() {
+  const { user, loading, logout } = useAuth();
+  const router = useRouter();
+
+  const handleLogout = async () => {
+    await logout();
+    router.push('/');
+  }
+
   return (
     <header className="sticky top-0 z-50 w-full glassmorphism-header">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -44,9 +57,17 @@ export default function Header() {
             </Link>
           </div>
            <div className="hidden md:flex items-center">
-            <Button className="join-btn text-white font-semibold py-2 px-6 rounded-lg font-bengali">
-              যোগ দিন
-            </Button>
+            {!loading && (
+              user ? (
+                <Button onClick={handleLogout} className="join-btn text-white font-semibold py-2 px-6 rounded-lg font-bengali">
+                  লগ আউট
+                </Button>
+              ) : (
+                <Button asChild className="join-btn text-white font-semibold py-2 px-6 rounded-lg font-bengali">
+                  <Link href="/login">যোগ দিন</Link>
+                </Button>
+              )
+            )}
           </div>
 
           {/* Mobile Nav */}
@@ -83,9 +104,19 @@ export default function Header() {
                          </SheetClose>
                       </nav>
                       <div className="mt-auto">
-                        <Button className="w-full join-btn text-white font-semibold py-3 rounded-lg font-bengali text-lg">
-                          যোগ দিন
-                        </Button>
+                        {!loading && (
+                          user ? (
+                            <Button onClick={handleLogout} className="w-full join-btn text-white font-semibold py-3 rounded-lg font-bengali text-lg">
+                              লগ আউট
+                            </Button>
+                          ) : (
+                            <SheetClose asChild>
+                              <Button asChild className="w-full join-btn text-white font-semibold py-3 rounded-lg font-bengali text-lg">
+                                <Link href="/login">যোগ দিন</Link>
+                              </Button>
+                            </SheetClose>
+                          )
+                        )}
                       </div>
                  </div>
               </SheetContent>
