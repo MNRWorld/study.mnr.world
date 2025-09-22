@@ -187,8 +187,8 @@ function DhakaUniversityPage() {
                                <Table>
                                     <TableBody>
                                         <TableRow>
-                                            <TableCell className="text-center">মুসা খান মসজিদ</TableCell>
-                                            <TableCell className="text-center"><Link href="https://maps.app.goo.gl/A5Pt2z5yceEQ641y7?g_st=atm" target="_blank" rel="noreferrer noopener" className="text-primary">[লিংক]</Link></TableCell>
+                                            <TableCell className="text-center">রেজিস্ট্রার বিল্ডিং</TableCell>
+                                            <TableCell className="text-center"><Link href="https://maps.app.goo.gl/your-link-here" target="_blank" rel="noreferrer noopener" className="text-primary">[লিংক]</Link></TableCell>
                                         </TableRow>
                                     </TableBody>
                                 </Table>

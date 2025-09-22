@@ -1,28 +1,141 @@
-import { BookOpen, Construction } from 'lucide-react';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 
-export default function QuestionBankPage() {
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from '@/components/ui/accordion';
+import { Button } from '@/components/ui/button';
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableRow,
+} from '@/components/ui/table';
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from '@/components/ui/tooltip';
+import {
+  Download,
+  Info,
+  File,
+  BookOpen,
+  University,
+  FlaskConical,
+  Calculator,
+} from 'lucide-react';
+import Link from 'next/link';
+import React from 'react';
+import FloatingMenu from '@/app/university/dhaka/_components/FloatingMenu';
+
+
+function QuestionBankPage() {
   return (
-    <div className="flex-grow flex items-center justify-center py-12">
-      <Card className="w-full max-w-md text-center animate-fadeInUp">
-        <CardHeader>
-          <div className="mx-auto bg-primary/10 p-4 rounded-full">
+    <div className="font-bengali bg-background my-[30px]">
+      <div className="container mx-auto px-4">
+        {/* Main Card */}
+        <div className="mt-[25px] sm:mt-[70px] w-full border border-border bg-card rounded-2xl p-[30px_30px_20px_20px] sm:p-[25px_15px] shadow-lg text-center relative">
+          <div className="w-[100px] h-[100px] absolute top-[-45px] left-1/2 -translate-x-1/2 bg-card rounded-2xl shadow-xl z-10 flex items-center justify-center">
             <BookOpen className="h-16 w-16 text-primary" />
           </div>
-          <CardTitle className="mt-4 text-3xl font-bold font-bengali gradient-text">
-            প্রশ্নব্যাংক
-          </CardTitle>
-        </CardHeader>
-        <CardContent>
-          <div className="flex items-center justify-center gap-3 text-muted-foreground">
-            <Construction className="h-5 w-5" />
-            <p className="text-lg font-bengali">এই পৃষ্ঠাটি নির্মাণাধীন আছে।</p>
+          <br />
+          <br />
+          <div className="text-2xl font-bold my-[10px] mx-0 text-foreground">
+            প্রশ্নব্যাংক ও সমাধান
           </div>
-          <p className="text-sm text-muted-foreground/70 mt-2 font-bengali">
-            খুব শীঘ্রই আসছে...
-          </p>
-        </CardContent>
-      </Card>
+          <div className="text-[15px] text-muted-foreground mb-[15px]">
+            (Question Bank & Solutions)
+          </div>
+          <div className="text-[15px] text-muted-foreground mb-5 leading-relaxed">
+          বিগত বছরের প্রশ্ন সমাধান করে ভর্তি প্রস্তুতিতে এগিয়ে থাকো। এখানে পাবে সকল বিশ্ববিদ্যালয় ও ইউনিটের প্রশ্নব্যাংক।
+          </div>
+          <div className="flex justify-around mb-5">
+            <div className="text-center">
+              <div className="text-xl font-bold text-foreground">২০+</div>
+              <div className="text-[13px] text-muted-foreground">বিশ্ববিদ্যালয়</div>
+            </div>
+            <div className="text-center">
+              <div className="text-xl font-bold text-foreground">১৫+</div>
+              <div className="text-[13px] text-muted-foreground">বছর</div>
+            </div>
+            <div className="text-center">
+              <div className="text-xl font-bold text-foreground flex items-center">
+                PDF
+                <TooltipProvider>
+                  <Tooltip>
+                    <TooltipTrigger asChild>
+                      <span className="ml-1 cursor-pointer text-primary">
+                        <Info size={16} />
+                      </span>
+                    </TooltipTrigger>
+                    <TooltipContent className="bg-primary/10 text-primary-foreground border-primary">
+                      <b>সহজে ডাউনলোডযোগ্য</b>
+                    </TooltipContent>
+                  </Tooltip>
+                </TooltipProvider>
+              </div>
+              <div className="text-[13px] text-muted-foreground">פורמט</div>
+            </div>
+          </div>
+        </div>
+
+        {/* Question Bank */}
+        <div id="QuestionBank" className="mt-2.5 w-full border border-border bg-card rounded-2xl p-[17px] shadow-lg text-center relative">
+             <div className="flex justify-center">
+                <div className="inline-block px-[25px] py-[9px] bg-gradient-to-r from-primary to-blue-500 text-white rounded-full text-base mb-3 font-bold shadow-md">প্রশ্নব্যাংক</div>
+            </div>
+            <Tabs defaultValue="du" className="w-full">
+                <TabsList className="grid w-full grid-cols-2 md:grid-cols-4 h-auto">
+                    <TabsTrigger value="du"><University className="mr-2"/> ঢাকা বিশ্ববিদ্যালয়</TabsTrigger>
+                    <TabsTrigger value="medical"><FlaskConical className="mr-2"/> মেডিকেল</TabsTrigger>
+                    <TabsTrigger value="engineering"><Calculator className="mr-2"/> ইঞ্জিনিয়ারিং</TabsTrigger>
+                    <TabsTrigger value="others">অন্যান্য</TabsTrigger>
+                </TabsList>
+                <TabsContent value="du">
+                    <Accordion type="multiple" className="w-full text-left">
+                        <AccordionItem value="qb-a-1" className="border-border rounded-2xl mt-1.5">
+                            <AccordionTrigger className="p-3 text-[15px] font-bold hover:no-underline"><File className="inline-block mr-2" /> "ক" ইউনিট প্রশ্নব্যাংক</AccordionTrigger>
+                            <AccordionContent className="p-4 pt-0 text-muted-foreground">
+                                ● <a href="https://t.me/PDFHour/10357" target="_blank" className="text-primary">আসপেক্ট “ক” ইউনিট প্রশ্নব্যাংক</a><br/>
+                                ● <a href="https://t.me/PDFHour/10357" target="_blank" className="text-primary">উদ্ভাস “ক” ইউনিট প্রশ্নব্যাংক</a><br/>
+                            </AccordionContent>
+                        </AccordionItem>
+                        <AccordionItem value="qb-b-1" className="border-border rounded-2xl mt-1.5">
+                            <AccordionTrigger className="p-3 text-[15px] font-bold hover:no-underline"><File className="inline-block mr-2" /> "খ" ইউনিট প্রশ্নব্যাংক</AccordionTrigger>
+                             <AccordionContent className="p-4 pt-0 text-muted-foreground">
+                                Content for "খ" ইউনিট
+                            </AccordionContent>
+                        </AccordionItem>
+                         <AccordionItem value="qb-c-1" className="border-border rounded-2xl mt-1.5">
+                            <AccordionTrigger className="p-3 text-[15px] font-bold hover:no-underline"><File className="inline-block mr-2" /> "গ" ইউনিট প্রশ্নব্যাংক</AccordionTrigger>
+                             <AccordionContent className="p-4 pt-0 text-muted-foreground">
+                                Content for "গ" ইউনিট
+                            </AccordionContent>
+                        </AccordionItem>
+                    </Accordion>
+                </TabsContent>
+                <TabsContent value="medical">
+                    <p className="text-muted-foreground p-4">মেডিকেল ভর্তি পরীক্ষার বিগত বছরের প্রশ্ন ও সমাধান এখানে যুক্ত করা হবে।</p>
+                </TabsContent>
+                <TabsContent value="engineering">
+                    <p className="text-muted-foreground p-4">বুয়েট, কুয়েট, রুয়েট, চুয়েট সহ সকল ইঞ্জিনিয়ারিং বিশ্ববিদ্যালয়ের প্রশ্ন ও সমাধান এখানে যুক্ত করা হবে।</p>
+                </TabsContent>
+                 <TabsContent value="others">
+                    <p className="text-muted-foreground p-4">অন্যান্য সকল বিশ্ববিদ্যালয়ের প্রশ্ন ও সমাধান এখানে পাওয়া যাবে।</p>
+                </TabsContent>
+            </Tabs>
+        </div>
+        
+        {/* Floating Menu */}
+        <FloatingMenu />
+
+      </div>
     </div>
   );
 }
+
+export default QuestionBankPage;
