@@ -1,6 +1,5 @@
 import {
   BookOpen,
-  BookMarked,
   Building,
   CalendarDays,
   GraduationCap,
@@ -30,39 +29,39 @@ export default function HomePage() {
 
           <div className="mt-10 grid grid-cols-2 sm:grid-cols-3 gap-5">
             <div className="feature-card">
-              <CalendarDays className="h-12 w-12 mx-auto text-indigo-400 mb-3" />
+              <CalendarDays className="h-12 w-12 mx-auto text-primary mb-3" />
               <h3 className="font-bengali font-semibold text-slate-100">
                 ক্যালেন্ডার
               </h3>
             </div>
             <div className="feature-card">
-              <BookOpen className="h-12 w-12 mx-auto text-indigo-400 mb-3" />
+              <BookOpen className="h-12 w-12 mx-auto text-primary mb-3" />
               <h3 className="font-bengali font-semibold text-slate-100">
                 প্রশ্নব্যাংক
               </h3>
             </div>
             <div className="feature-card">
-              <GraduationCap className="h-12 w-12 mx-auto text-indigo-400 mb-3" />
+              <GraduationCap className="h-12 w-12 mx-auto text-primary mb-3" />
               <h3 className="font-bengali font-semibold text-slate-100">
                 কোর্স
               </h3>
             </div>
             <Link href="/university/dhaka">
               <div className="feature-card">
-                <University className="h-12 w-12 mx-auto text-indigo-400 mb-3" />
+                <University className="h-12 w-12 mx-auto text-primary mb-3" />
                 <h3 className="font-bengali font-semibold text-slate-100">
                   পাবলিক
                 </h3>
               </div>
             </Link>
             <div className="feature-card">
-              <Building className="h-12 w-12 mx-auto text-indigo-400 mb-3" />
+              <Building className="h-12 w-12 mx-auto text-primary mb-3" />
               <h3 className="font-bengali font-semibold text-slate-100">
                 প্রাইভেট
               </h3>
             </div>
             <div className="feature-card">
-              <School className="h-12 w-12 mx-auto text-indigo-400 mb-3" />
+              <School className="h-12 w-12 mx-auto text-primary mb-3" />
               <h3 className="font-bengali font-semibold text-slate-100">
                 কলেজ
               </h3>

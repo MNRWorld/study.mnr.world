@@ -20,7 +20,7 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-8">
           <div className="col-span-1 lg:col-span-2">
             <div className="flex items-center space-x-3 mb-4">
-              <BookMarked className="h-8 w-8 text-emerald-500" />
+              <BookMarked className="h-8 w-8 text-primary" />
               <span className="text-2xl font-bold text-slate-100">
                 <span className="logo-study">Study</span>
               </span>
@@ -28,34 +28,27 @@ export default function Footer() {
             <div className="flex items-center space-x-3 mt-4">
               <a
                 href="#"
-                className="social-icon"
-                style={{ backgroundColor: "#1877F2" }}
+                className="social-icon bg-[#1877F2] text-white"
               >
-                <Facebook className="text-white" />
+                <Facebook />
               </a>
               <a
                 href="#"
-                className="social-icon"
-                style={{ backgroundColor: "#1DA1F2" }}
+                className="social-icon bg-[#1DA1F2] text-white"
               >
-                <Twitter className="text-white" />
+                <Twitter />
               </a>
               <a
                 href="#"
-                className="social-icon"
-                style={{
-                  background:
-                    "radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%)",
-                }}
+                className="social-icon bg-gradient-to-r from-yellow-400 via-pink-500 to-purple-600 text-white"
               >
-                <Instagram className="text-white" />
+                <Instagram />
               </a>
               <a
                 href="#"
-                className="social-icon"
-                style={{ backgroundColor: "#FF0000" }}
+                className="social-icon bg-[#FF0000] text-white"
               >
-                <Youtube className="text-white" />
+                <Youtube />
               </a>
             </div>
           </div>
@@ -70,7 +63,7 @@ export default function Footer() {
                   href="#"
                   className="text-slate-400 hover:text-white transition-colors duration-300 flex items-center"
                 >
-                  <ArrowRight className="text-indigo-500 mr-2 h-5 w-5" />
+                  <ArrowRight className="text-primary mr-2 h-5 w-5" />
                   কোর্স
                 </Link>
               </li>
@@ -79,7 +72,7 @@ export default function Footer() {
                   href="#"
                   className="text-slate-400 hover:text-white transition-colors duration-300 flex items-center"
                 >
-                  <ArrowRight className="text-indigo-500 mr-2 h-5 w-5" />
+                  <ArrowRight className="text-primary mr-2 h-5 w-5" />
                   ভর্তি ক্যালেন্ডার
                 </Link>
               </li>
@@ -88,7 +81,7 @@ export default function Footer() {
                   href="#"
                   className="text-slate-400 hover:text-white transition-colors duration-300 flex items-center"
                 >
-                  <ArrowRight className="text-indigo-500 mr-2 h-5 w-5" />
+                  <ArrowRight className="text-primary mr-2 h-5 w-5" />
                   বই
                 </Link>
               </li>
@@ -97,7 +90,7 @@ export default function Footer() {
                   href="#"
                   className="text-slate-400 hover:text-white transition-colors duration-300 flex items-center"
                 >
-                  <ArrowRight className="text-indigo-500 mr-2 h-5 w-5" />
+                  <ArrowRight className="text-primary mr-2 h-5 w-5" />
                   শিক্ষামূলক খবর
                 </Link>
               </li>

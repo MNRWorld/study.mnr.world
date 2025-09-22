@@ -9,7 +9,7 @@ export default function Header() {
         <nav className="flex justify-between items-center h-20">
           <div className="flex items-center space-x-3">
             <Link href="/" className="flex items-center space-x-3">
-              <BookMarked className="h-8 w-8 text-emerald-500" />
+              <BookMarked className="h-8 w-8 text-primary" />
               <span className="text-2xl font-bold text-slate-100">
                 <span className="logo-study">Study</span>
               </span>
