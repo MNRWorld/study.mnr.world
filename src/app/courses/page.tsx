@@ -22,7 +22,6 @@ import Link from 'next/link';
 import React from 'react';
 import FloatingMenu from '@/app/university/dhaka/_components/FloatingMenu';
 
-// Need to import these icons to be used in the courses array
 import { University, HeartPulse, Cog, Network, BookCopy, Briefcase } from 'lucide-react';
 
 function CoursesPage() {
@@ -135,7 +134,6 @@ function CoursesPage() {
         </div>
 
 
-        {/* Floating Menu is not very relevant for this page, but kept for consistency */}
         <FloatingMenu />
 
       </div>

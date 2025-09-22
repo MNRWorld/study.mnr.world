@@ -260,19 +260,15 @@ function DhakaUniversityPage() {
                     </Accordion>
                 </TabsContent>
                 <TabsContent value="tab2">
-                    {/* B Unit content */}
                     <p className="text-muted-foreground p-4">"খ" ইউনিট প্রশ্নব্যাংক এখানে যুক্ত করা হবে।</p>
                 </TabsContent>
                 <TabsContent value="tab3">
-                    {/* C Unit content */}
                      <p className="text-muted-foreground p-4">"গ" ইউনিট প্রশ্নব্যাংক এখানে যুক্ত করা হবে।</p>
                 </TabsContent>
                 <TabsContent value="tab4">
-                    {/* Cha Unit content */}
                      <p className="text-muted-foreground p-4">"চ" ইউনিট প্রশ্নব্যাংক এখানে যুক্ত করা হবে।</p>
                 </TabsContent>
                 <TabsContent value="tab5">
-                    {/* IBA Unit content */}
                      <p className="text-muted-foreground p-4">IBA ইউনিট প্রশ্নব্যাংক এখানে যুক্ত করা হবে।</p>
                 </TabsContent>
             </Tabs>
@@ -379,7 +375,6 @@ function DhakaUniversityPage() {
 
             <div id="MarkDistributionAndOthers"></div>
             <h5 className="bg-primary/10 text-primary rounded-xl p-3 my-4 text-center text-lg sm:text-xl font-bold flex items-center justify-center"><RectangleEllipsis className="mr-2"/> মানবণ্টন ও অন্যান্য তথ্য</h5>
-            {/* ... Mark distribution tabs and content ... */}
 
             <div className="border border-border/80 rounded-xl p-4 mt-2.5 text-sm sm:text-base">
                 ● <b>সিলেবাসঃ </b>সংক্ষিপ্ত<hr className="my-1 border-border/50"/>
