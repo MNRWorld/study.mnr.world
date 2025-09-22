@@ -1,5 +1,3 @@
-
-
 // @ts-nocheck
 'use client';
 
@@ -582,13 +580,3 @@ function DhakaUniversityPage() {
 }
 
 export default DhakaUniversityPage;
-
-    
-    
-    
-
-    
-
-    
-
-    
