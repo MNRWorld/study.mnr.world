@@ -17,13 +17,13 @@ export default function HomePage() {
     <main className="flex-grow container mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-20">
       <div className="grid lg:grid-cols-2 gap-16 items-center">
         <div className="text-center lg:text-left animate-fadeInDown">
-          <h1 className="text-4xl md:text-5xl font-bold text-white font-bengali leading-tight gradient-text">
+          <h1 className="text-4xl md:text-5xl font-bold font-bengali leading-tight gradient-text">
             স্বপ্ন পূরণের পথে, সকল কিছু একসাথে
           </h1>
-          <p className="mt-4 text-lg text-slate-400 font-bengali">
+          <p className="mt-4 text-lg text-muted-foreground font-bengali">
             এডমিশন হোক।
           </p>
-          <p className="text-lg text-slate-400 font-bengali">
+          <p className="text-lg text-muted-foreground font-bengali">
             সকল কিছুর জন্যে পাশে আছে &quot;MNR Study&quot;
           </p>
 
@@ -31,7 +31,7 @@ export default function HomePage() {
             <Link href="/calendar">
               <div className="feature-card">
                 <CalendarDays className="h-12 w-12 mx-auto text-primary mb-3" />
-                <h3 className="font-bengali font-semibold text-slate-100">
+                <h3 className="font-bengali font-semibold text-card-foreground">
                   ক্যালেন্ডার
                 </h3>
               </div>
@@ -39,7 +39,7 @@ export default function HomePage() {
             <Link href="/question-bank">
               <div className="feature-card">
                 <BookOpen className="h-12 w-12 mx-auto text-primary mb-3" />
-                <h3 className="font-bengali font-semibold text-slate-100">
+                <h3 className="font-bengali font-semibold text-card-foreground">
                   প্রশ্নব্যাংক
                 </h3>
               </div>
@@ -47,7 +47,7 @@ export default function HomePage() {
             <Link href="/courses">
               <div className="feature-card">
                 <GraduationCap className="h-12 w-12 mx-auto text-primary mb-3" />
-                <h3 className="font-bengali font-semibold text-slate-100">
+                <h3 className="font-bengali font-semibold text-card-foreground">
                   কোর্স
                 </h3>
               </div>
@@ -55,7 +55,7 @@ export default function HomePage() {
             <Link href="/university/dhaka">
               <div className="feature-card">
                 <University className="h-12 w-12 mx-auto text-primary mb-3" />
-                <h3 className="font-bengali font-semibold text-slate-100">
+                <h3 className="font-bengali font-semibold text-card-foreground">
                   পাবলিক
                 </h3>
               </div>
@@ -63,7 +63,7 @@ export default function HomePage() {
             <Link href="/private">
               <div className="feature-card">
                 <Building className="h-12 w-12 mx-auto text-primary mb-3" />
-                <h3 className="font-bengali font-semibold text-slate-100">
+                <h3 className="font-bengali font-semibold text-card-foreground">
                   প্রাইভেট
                 </h3>
               </div>
@@ -71,7 +71,7 @@ export default function HomePage() {
             <Link href="/college">
               <div className="feature-card">
                 <School className="h-12 w-12 mx-auto text-primary mb-3" />
-                <h3 className="font-bengali font-semibold text-slate-100">
+                <h3 className="font-bengali font-semibold text-card-foreground">
                   কলেজ
                 </h3>
               </div>

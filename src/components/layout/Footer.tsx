@@ -4,7 +4,6 @@ import {
   User,
   Info,
   Mail,
-  Moon,
   ArrowRight,
   Facebook,
   Twitter,
@@ -12,6 +11,7 @@ import {
   Youtube,
 } from "lucide-react";
 import Link from "next/link";
+import ThemeToggle from "./ThemeToggle";
 
 export default function Footer() {
   return (
@@ -21,30 +21,30 @@ export default function Footer() {
           <div className="col-span-1 md:col-span-3 lg:col-span-2">
             <div className="flex items-center space-x-3 mb-4">
               <BookMarked className="h-8 w-8 text-primary" />
-              <span className="text-2xl font-bold text-slate-100">
+              <span className="text-2xl font-bold">
                 <span className="logo-study">Study</span>
               </span>
             </div>
-            <p className="text-slate-400 font-bengali max-w-sm">
+            <p className="text-muted-foreground font-bengali max-w-sm">
               বাংলাদেশের সকল বিশ্ববিদ্যালয়, কলেজ ও ভর্তি পরীক্ষার তথ্য ও সহায়তার জন্য আপনার বিশ্বস্ত প্ল্যাটফর্ম।
             </p>
             <div className="flex items-center space-x-3 mt-6">
-              <a href="#" className="social-icon text-white hover:text-primary"><Facebook /></a>
-              <a href="#" className="social-icon text-white hover:text-primary"><Twitter /></a>
-              <a href="#" className="social-icon text-white hover:text-primary"><Instagram /></a>
-              <a href="#" className="social-icon text-white hover:text-primary"><Youtube /></a>
+              <a href="#" className="social-icon"><Facebook /></a>
+              <a href="#" className="social-icon"><Twitter /></a>
+              <a href="#" className="social-icon"><Instagram /></a>
+              <a href="#" className="social-icon"><Youtube /></a>
             </div>
           </div>
 
           <div className="col-span-1">
-            <h3 className="text-xl font-semibold text-white link-underline inline-block font-bengali">
+            <h3 className="text-xl font-semibold link-underline inline-block font-bengali">
               লিঙ্কস
             </h3>
             <ul className="mt-4 space-y-3 font-bengali">
               <li>
                 <Link
                   href="/courses"
-                  className="text-slate-400 hover:text-white transition-colors duration-300 flex items-center"
+                  className="text-muted-foreground hover:text-primary transition-colors duration-300 flex items-center"
                 >
                   <ArrowRight className="text-primary mr-2 h-5 w-5" />
                   কোর্স
@@ -53,7 +53,7 @@ export default function Footer() {
               <li>
                 <Link
                   href="/calendar"
-                  className="text-slate-400 hover:text-white transition-colors duration-300 flex items-center"
+                  className="text-muted-foreground hover:text-primary transition-colors duration-300 flex items-center"
                 >
                   <ArrowRight className="text-primary mr-2 h-5 w-5" />
                   ভর্তি ক্যালেন্ডার
@@ -62,7 +62,7 @@ export default function Footer() {
               <li>
                 <Link
                   href="/question-bank"
-                  className="text-slate-400 hover:text-white transition-colors duration-300 flex items-center"
+                  className="text-muted-foreground hover:text-primary transition-colors duration-300 flex items-center"
                 >
                   <ArrowRight className="text-primary mr-2 h-5 w-5" />
                   বই ও প্রশ্নব্যাংক
@@ -71,7 +71,7 @@ export default function Footer() {
               <li>
                 <Link
                   href="#"
-                  className="text-slate-400 hover:text-white transition-colors duration-300 flex items-center"
+                  className="text-muted-foreground hover:text-primary transition-colors duration-300 flex items-center"
                 >
                   <ArrowRight className="text-primary mr-2 h-5 w-5" />
                   শিক্ষামূলক খবর
@@ -81,14 +81,14 @@ export default function Footer() {
           </div>
 
           <div className="col-span-1">
-            <h3 className="text-xl font-semibold text-white link-underline inline-block font-bengali">
+            <h3 className="text-xl font-semibold link-underline inline-block font-bengali">
               শর্টকাট
             </h3>
             <ul className="mt-4 space-y-3 font-bengali">
               <li>
                 <Link
                   href="/"
-                  className="text-slate-400 hover:text-white transition-colors duration-300 flex items-center"
+                  className="text-muted-foreground hover:text-primary transition-colors duration-300 flex items-center"
                 >
                   <HomeIcon className="w-5 text-center mr-2" />
                   হোম
@@ -97,7 +97,7 @@ export default function Footer() {
               <li>
                 <Link
                   href="#"
-                  className="text-slate-400 hover:text-white transition-colors duration-300 flex items-center"
+                  className="text-muted-foreground hover:text-primary transition-colors duration-300 flex items-center"
                 >
                   <User className="w-5 text-center mr-2" />
                   প্রোফাইল
@@ -106,7 +106,7 @@ export default function Footer() {
               <li>
                 <Link
                   href="#"
-                  className="text-slate-400 hover:text-white transition-colors duration-300 flex items-center"
+                  className="text-muted-foreground hover:text-primary transition-colors duration-300 flex items-center"
                 >
                   <Info className="w-5 text-center mr-2" />
                   আমাদের সম্পর্কে
@@ -115,7 +115,7 @@ export default function Footer() {
               <li>
                 <Link
                   href="#"
-                  className="text-slate-400 hover:text-white transition-colors duration-300 flex items-center"
+                  className="text-muted-foreground hover:text-primary transition-colors duration-300 flex items-center"
                 >
                   <Mail className="w-5 text-center mr-2" />
                   যোগাযোগ
@@ -126,9 +126,7 @@ export default function Footer() {
         </div>
       </div>
 
-      <button className="fixed bottom-4 right-4 sm:bottom-10 sm:right-10 w-14 h-14 rounded-full flex items-center justify-center theme-toggle shadow-lg z-50">
-        <Moon className="h-6 w-6 text-yellow-300" />
-      </button>
+      <ThemeToggle />
     </footer>
   );
 }

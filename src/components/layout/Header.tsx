@@ -11,7 +11,7 @@ export default function Header() {
           <div className="flex items-center space-x-3">
             <Link href="/" className="flex items-center space-x-3">
               <BookMarked className="h-8 w-8 text-primary" />
-              <span className="text-2xl font-bold text-slate-100">
+              <span className="text-2xl font-bold">
                 <span className="logo-study">Study</span>
               </span>
             </Link>
@@ -20,25 +20,25 @@ export default function Header() {
           <div className="hidden md:flex items-center space-x-8">
             <Link
               href="/question-bank"
-              className="text-slate-300 header-link font-bengali font-medium"
+              className="text-muted-foreground header-link font-bengali font-medium"
             >
               প্রশ্নব্যাংক
             </Link>
             <Link
               href="/calendar"
-              className="text-slate-300 header-link font-bengali font-medium"
+              className="text-muted-foreground header-link font-bengali font-medium"
             >
               এডমিশন ক্যালেন্ডার
             </Link>
             <Link
               href="/courses"
-              className="text-slate-300 header-link font-bengali font-medium"
+              className="text-muted-foreground header-link font-bengali font-medium"
             >
               কোর্স
             </Link>
             <Link
               href="/blog"
-              className="text-slate-300 header-link font-bengali font-medium"
+              className="text-muted-foreground header-link font-bengali font-medium"
             >
               ব্লগ
             </Link>
@@ -54,7 +54,7 @@ export default function Header() {
             <Sheet>
               <SheetTrigger asChild>
                 <Button variant="ghost" size="icon">
-                  <Menu className="h-6 w-6 text-white" />
+                  <Menu className="h-6 w-6" />
                   <span className="sr-only">Open menu</span>
                 </Button>
               </SheetTrigger>
@@ -63,23 +63,23 @@ export default function Header() {
                     <div className="flex items-center space-x-3 mb-8">
                         <Link href="/" className="flex items-center space-x-3">
                           <BookMarked className="h-8 w-8 text-primary" />
-                          <span className="text-2xl font-bold text-slate-100">
+                          <span className="text-2xl font-bold">
                             <span className="logo-study">Study</span>
                           </span>
                         </Link>
                       </div>
                       <nav className="flex flex-col space-y-4">
                          <SheetClose asChild>
-                            <Link href="/question-bank" className="text-slate-300 header-link font-bengali font-medium text-lg">প্রশ্নব্যাংক</Link>
+                            <Link href="/question-bank" className="text-muted-foreground header-link font-bengali font-medium text-lg">প্রশ্নব্যাংক</Link>
                          </SheetClose>
                          <SheetClose asChild>
-                           <Link href="/calendar" className="text-slate-300 header-link font-bengali font-medium text-lg">এডমিশন ক্যালেন্ডার</Link>
+                           <Link href="/calendar" className="text-muted-foreground header-link font-bengali font-medium text-lg">এডমিশন ক্যালেন্ডার</Link>
                          </SheetClose>
                          <SheetClose asChild>
-                           <Link href="/courses" className="text-slate-300 header-link font-bengali font-medium text-lg">কোর্স</Link>
+                           <Link href="/courses" className="text-muted-foreground header-link font-bengali font-medium text-lg">কোর্স</Link>
                          </SheetClose>
                          <SheetClose asChild>
-                           <Link href="/blog" className="text-slate-300 header-link font-bengali font-medium text-lg">ব্লগ</Link>
+                           <Link href="/blog" className="text-muted-foreground header-link font-bengali font-medium text-lg">ব্লগ</Link>
                          </SheetClose>
                       </nav>
                       <div className="mt-auto">
