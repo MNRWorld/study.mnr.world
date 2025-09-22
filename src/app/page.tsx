@@ -28,24 +28,30 @@ export default function HomePage() {
           </p>
 
           <div className="mt-10 grid grid-cols-2 sm:grid-cols-3 gap-5">
-            <div className="feature-card">
-              <CalendarDays className="h-12 w-12 mx-auto text-primary mb-3" />
-              <h3 className="font-bengali font-semibold text-slate-100">
-                ক্যালেন্ডার
-              </h3>
-            </div>
-            <div className="feature-card">
-              <BookOpen className="h-12 w-12 mx-auto text-primary mb-3" />
-              <h3 className="font-bengali font-semibold text-slate-100">
-                প্রশ্নব্যাংক
-              </h3>
-            </div>
-            <div className="feature-card">
-              <GraduationCap className="h-12 w-12 mx-auto text-primary mb-3" />
-              <h3 className="font-bengali font-semibold text-slate-100">
-                কোর্স
-              </h3>
-            </div>
+            <Link href="/calendar">
+              <div className="feature-card">
+                <CalendarDays className="h-12 w-12 mx-auto text-primary mb-3" />
+                <h3 className="font-bengali font-semibold text-slate-100">
+                  ক্যালেন্ডার
+                </h3>
+              </div>
+            </Link>
+            <Link href="/question-bank">
+              <div className="feature-card">
+                <BookOpen className="h-12 w-12 mx-auto text-primary mb-3" />
+                <h3 className="font-bengali font-semibold text-slate-100">
+                  প্রশ্নব্যাংক
+                </h3>
+              </div>
+            </Link>
+            <Link href="/courses">
+              <div className="feature-card">
+                <GraduationCap className="h-12 w-12 mx-auto text-primary mb-3" />
+                <h3 className="font-bengali font-semibold text-slate-100">
+                  কোর্স
+                </h3>
+              </div>
+            </Link>
             <Link href="/university/dhaka">
               <div className="feature-card">
                 <University className="h-12 w-12 mx-auto text-primary mb-3" />
@@ -54,18 +60,22 @@ export default function HomePage() {
                 </h3>
               </div>
             </Link>
-            <div className="feature-card">
-              <Building className="h-12 w-12 mx-auto text-primary mb-3" />
-              <h3 className="font-bengali font-semibold text-slate-100">
-                প্রাইভেট
-              </h3>
-            </div>
-            <div className="feature-card">
-              <School className="h-12 w-12 mx-auto text-primary mb-3" />
-              <h3 className="font-bengali font-semibold text-slate-100">
-                কলেজ
-              </h3>
-            </div>
+            <Link href="/private">
+              <div className="feature-card">
+                <Building className="h-12 w-12 mx-auto text-primary mb-3" />
+                <h3 className="font-bengali font-semibold text-slate-100">
+                  প্রাইভেট
+                </h3>
+              </div>
+            </Link>
+            <Link href="/college">
+              <div className="feature-card">
+                <School className="h-12 w-12 mx-auto text-primary mb-3" />
+                <h3 className="font-bengali font-semibold text-slate-100">
+                  কলেজ
+                </h3>
+              </div>
+            </Link>
           </div>
         </div>
         <div className="flex justify-center animate-fadeInUp">
