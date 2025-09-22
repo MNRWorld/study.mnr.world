@@ -91,12 +91,14 @@ export default function HomePage() {
                   কোর্স
                 </h3>
               </div>
-              <div className="feature-card">
-                <University className="h-12 w-12 mx-auto text-indigo-400 mb-3" />
-                <h3 className="font-bengali font-semibold text-slate-100">
-                  পাবলিক
-                </h3>
-              </div>
+              <Link href="/university/dhaka">
+                <div className="feature-card">
+                  <University className="h-12 w-12 mx-auto text-indigo-400 mb-3" />
+                  <h3 className="font-bengali font-semibold text-slate-100">
+                    পাবলিক
+                  </h3>
+                </div>
+              </Link>
               <div className="feature-card">
                 <Building className="h-12 w-12 mx-auto text-indigo-400 mb-3" />
                 <h3 className="font-bengali font-semibold text-slate-100">
