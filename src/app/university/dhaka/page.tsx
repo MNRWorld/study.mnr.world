@@ -1,3 +1,4 @@
+
 // @ts-nocheck
 'use client';
 
@@ -28,7 +29,7 @@ import {
   Info,
   Download,
   ChevronRight,
-  FilePdf,
+  File,
   FilePen,
   SackDollar,
   CircleCheck,
@@ -41,7 +42,7 @@ import {
   RectangleList,
   SquarePollVertical,
   Menu,
-  Mosque,
+  Landmark,
   University,
 } from 'lucide-react';
 import Image from 'next/image';
@@ -323,7 +324,7 @@ function DhakaUniversityPage() {
                 <AccordionContent className="bg-white p-4 border-t border-gray-200 text-base text-gray-700">
                      <Accordion type="multiple" className="w-full">
                         <AccordionItem value="sub-1">
-                            <AccordionTrigger className="hover:no-underline flex items-center justify-between"><Mosque/> &nbsp;&nbsp; মসজিদ</AccordionTrigger>
+                            <AccordionTrigger className="hover:no-underline flex items-center justify-between"><Landmark/> &nbsp;&nbsp; মসজিদ</AccordionTrigger>
                             <AccordionContent>
                                <Table>
                                     <TableBody>
@@ -401,20 +402,20 @@ function DhakaUniversityPage() {
                 <TabsContent value="tab1">
                     <Accordion type="multiple" className="w-full text-left">
                         <AccordionItem value="qb-a-1" className="border border-gray-300 rounded-2xl mt-1.5">
-                            <AccordionTrigger className="p-3 text-[15px] font-bold hover:no-underline"><FilePdf className="inline-block mr-2" /> সালভিত্তিক প্রশ্নব্যাংক</AccordionTrigger>
+                            <AccordionTrigger className="p-3 text-[15px] font-bold hover:no-underline"><File className="inline-block mr-2" /> সালভিত্তিক প্রশ্নব্যাংক</AccordionTrigger>
                             <AccordionContent className="p-4 pt-0">
                                 ● <a href="https://t.me/PDFHour/10357" target="_blank" className="text-blue-600">আসপেক্ট “ক” ইউনিট প্রশ্নব্যাংক</a><br/>
                                 ● <a href="https://t.me/PDFHour/10357" target="_blank" className="text-blue-600">উদ্ভাস “ক” ইউনিট প্রশ্নব্যাংক</a><br/>
-                                <b>🔰 সকল সালের প্রশ্ন একত্রে</b><br/>
+                                <b> 🔰 সকল সালের প্রশ্ন একত্রে</b><br/>
                                 ● <a href="https://t.me/PDFHour/10297" target="_blank" className="text-blue-600">Question of 1995-96</a><br/>
                                ... many more links
                             </AccordionContent>
                         </AccordionItem>
                         <AccordionItem value="qb-a-2" className="border border-gray-300 rounded-2xl mt-1.5">
-                            <AccordionTrigger className="p-3 text-[15px] font-bold hover:no-underline"><FilePdf className="inline-block mr-2" /> অধ্যায়ভিত্তিক প্রশ্নব্যাংক</AccordionTrigger>
+                            <AccordionTrigger className="p-3 text-[15px] font-bold hover:no-underline"><File className="inline-block mr-2" /> অধ্যায়ভিত্তিক প্রশ্নব্যাংক</AccordionTrigger>
                             <AccordionContent className="p-4 pt-0">
                                 ● <a href="https://t.me/PDFHour/10285" target="_blank" className="text-blue-600">রেটিনা ঢাবি “ক” ইউনিট প্রশ্নব্যাংক</a><br/><br/>
-                                <b>🔰 সহায়ক বই</b><br/>
+                                <b> 🔰 সহায়ক বই</b><br/>
                                 ● <a href="https://t.me/PDFHour/10214" target="_blank" className="text-blue-600">উদ্ভাস ভার্সিটি “ক” প্রশ্নব্যাংক</a><br/>
                                 ● <a href="https://t.me/PDFHour/10478" target="_blank" className="text-blue-600">উদ্ভাস ভার্সিটি “ক” প্রিপারেশন বুক</a>
                             </AccordionContent>
@@ -519,10 +520,10 @@ function DhakaUniversityPage() {
             
             <h5 id="ExamDate" className="bg-blue-50 text-blue-800 rounded-xl p-3 my-[15px] mt-4 text-center text-lg font-bold flex items-center justify-center"><Stopwatch className="mr-2"/> পরীক্ষার সময়কাল</h5>
              <span>❐ <b>“ক” ইউনিট:</b> ১৫ ফেব্রুয়ারী <br/>
-                ❐ <b>“খ” ইউনিট:</b> ২৫ জানুয়ারি <br/>
+                ❐ <b>“খ” ইউনিট:</b> ২৫ জানুয়ারী <br/>
                 ❐ <b>“গ” ইউনিট:</b> ০৮ ফেব্রুয়ারী <br/>
-                ❐ <b>“চ” ইউনিট:</b> ০৪ জানুয়ারি <br/>
-                ❐ <b>IBA ইউনিট:</b> ০৩ জানুয়ারি
+                ❐ <b>“চ” ইউনিট:</b> ০৪ জানুয়ারী <br/>
+                ❐ <b>IBA ইউনিট:</b> ০৩ জানুয়ারী
             </span>
             <hr className="my-2"/>
             <div className="border border-gray-800 p-3 text-center">
@@ -580,3 +581,5 @@ function DhakaUniversityPage() {
 }
 
 export default DhakaUniversityPage;
+
+    
