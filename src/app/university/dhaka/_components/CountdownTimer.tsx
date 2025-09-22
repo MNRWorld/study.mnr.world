@@ -10,7 +10,7 @@ const deadlines = [
     },
     {
       title: "💡 আবেদন শুরু",
-      date: new Date("2024-11-04T12:00:00")
+      date: new Date("2026-12-31T12:00:00")
     },
     {
       title: "🔔 আবেদন শেষ",
@@ -99,18 +99,19 @@ const CountdownTimer = () => {
 
   const TimeCircle = ({ unit, value, max }: { unit: string; value: string, max: number }) => {
       const numValue = parseInt(value, 10);
-      const progress = isNaN(numValue) ? 0 : (numValue / max);
-      const circumference = 2 * Math.PI * 45; // Corresponds to r="45"
-      const offset = circumference - progress * circumference;
+      const progress = isNaN(numValue) ? 1 : (numValue / max);
+      const circumference = 2 * Math.PI * 45; 
+      const offset = circumference * progress;
 
       return (
           <div className="relative w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 shrink-0">
               <svg className="w-full h-full transform -rotate-90" viewBox="0 0 100 100">
-                  <circle className="text-muted-foreground/20" strokeWidth="6" stroke="currentColor" fill="transparent" r="45" cx="50" cy="50" />
-                  <circle className="text-primary transition-all duration-1000 ease-linear"
+                  <circle className="text-muted/50 dark:text-muted/20" strokeWidth="6" stroke="currentColor" fill="transparent" r="45" cx="50" cy="50" />
+                  <circle className="transition-all duration-1000 ease-linear"
+                      style={{color: '#6ee7b7'}}
                       strokeWidth="6"
                       strokeDasharray={circumference}
-                      strokeDashoffset={isCompleted ? circumference : offset}
+                      strokeDashoffset={isCompleted ? 0 : offset}
                       strokeLinecap="round"
                       stroke="currentColor"
                       fill="transparent"
@@ -120,7 +121,7 @@ const CountdownTimer = () => {
                   />
               </svg>
               <div className="absolute inset-0 flex flex-col items-center justify-center">
-                  <div className="text-xl sm:text-2xl font-bold">{value}</div>
+                  <div className="text-xl sm:text-2xl font-bold text-foreground">{value}</div>
                   <div className="text-xs sm:text-sm text-muted-foreground">{unit}</div>
               </div>
           </div>
@@ -129,20 +130,20 @@ const CountdownTimer = () => {
 
   return (
       <div className="text-center p-4 rounded-2xl bg-card">
-          <div className="text-lg font-bold mb-3 animate-fadeIn">
+          <div className="text-lg font-bold mb-3 animate-fadeIn text-foreground">
               {currentDeadline.title}
               <div className="font-normal text-sm mt-1 text-muted-foreground">
-                  {currentDeadline.date.toLocaleDateString('bn-BD', { year: 'numeric', month: 'long', day: 'numeric' })}
+                  {currentDeadline.date.toLocaleDateString('en-GB', { year: 'numeric', month: 'long', day: 'numeric' })}
               </div>
           </div>
           {isCompleted ? (
               <div className="text-xl text-red-500 font-bold mt-2.5 animate-fadeInUp">সময় শেষ! পরবর্তী আপডেটের জন্য অপেক্ষা করুন।</div>
           ) : (
               <div className="flex gap-2 sm:gap-4 justify-center flex-nowrap animate-fadeInUp">
-                 <TimeCircle unit="দিন" value={timeLeft.days} max={365}/>
-                 <TimeCircle unit="ঘন্টা" value={timeLeft.hours} max={24}/>
-                 <TimeCircle unit="মিনিট" value={timeLeft.minutes} max={60}/>
-                 <TimeCircle unit="সেকেন্ড" value={timeLeft.seconds} max={60}/>
+                 <TimeCircle unit="Days" value={timeLeft.days} max={365}/>
+                 <TimeCircle unit="Hours" value={timeLeft.hours} max={24}/>
+                 <TimeCircle unit="Minutes" value={timeLeft.minutes} max={60}/>
+                 <TimeCircle unit="Seconds" value={timeLeft.seconds} max={60}/>
               </div>
           )}
       </div>
