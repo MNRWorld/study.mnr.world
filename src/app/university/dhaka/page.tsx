@@ -155,7 +155,7 @@ function DhakaUniversityPage() {
                 <AccordionContent className="p-4 sm:p-5 border-t border-border/50 text-sm sm:text-base text-muted-foreground">
                     <p><b>ঢাকা বিশ্ববিদ্যালয় (ঢাবি)</b> বাংলাদেশের সর্বপ্রথম এবং অন্যতম প্রধান উচ্চশিক্ষা প্রতিষ্ঠান, যা ১৯২১ সালের ১ জুলাই প্রতিষ্ঠিত হয়। এটি ব্রিটিশ ভারতের অক্সব্রিজ মডেল অনুসরণে গঠিত হয়েছিল এবং শুরুতে তিনটি অনুষদ (কলা, বিজ্ঞান ও আইন) এবং ১২টি বিভাগ নিয়ে যাত্রা শুরু করে।</p>
                     <p className="mt-2">১৯০৫ সালে বঙ্গভঙ্গের মাধ্যমে পূর্ব বাংলা ও আসাম নিয়ে একটি নতুন প্রদেশ গঠিত হয়, যার রাজধানী ছিল ঢাকা। এই প্রক্রিয়ায় মুসলিম সমাজের মধ্যে শিক্ষার প্রসার ঘটে। তবে ১৯১১ সালে বঙ্গভঙ্গ রদের ফলে পূর্ব বাংলার মুসলিম সমাজের মধ্যে উচ্চশিক্ষার সুযোগ হ্রাস পায়। এই প্রেক্ষাপটে, ১৯১২ সালের ২১ জানুয়ারি ভারতের ভাইসরয় লর্ড হার্ডিঞ্জ ঢাকায় সফরকালে একটি বিশ্ববিদ্যালয় প্রতিষ্ঠার প্রতিশ্রুতি দেন।</p>
-                    <p className="mt-2">এরপর ব্যারিস্টার রবার্ট নাথানের নেতৃত্বে নাথান কমিশন গঠিত হয় এবং ১৯১৩ সালে তার রিপোর্ট অনুমোদন পায়। বর্তমানে ঢাকা বিশ্ববিদ্যালয় ৪৬,০০০-এরও বেশি শিক্ষার্থী এবং ২,০০০-এরও বেশি শিক্ষক নিয়ে বাংলাদেশের বৃহত্তম পাবলিক গবেষণা বিশ্ববিদ্যালয়। এটি দেশের শিক্ষা, संस्कृति এবং মুক্ত চিন্তার বিকাশে গুরুত্বপূর্ণ ভূমিকা পালন করে চলেছে।</p>
+                    <p className="mt-2">এরপর ব্যারিস্টার রবার্ট নাথানের নেতৃত্বে নাথান কমিশন গঠিত হয় এবং ১৯১৩ সালে তার রিপোর্ট অনুমোদন পায়। বর্তমানে ঢাকা বিশ্ববিদ্যালয় ৪৬,০০০-এরও বেশি শিক্ষার্থী এবং ২,০০০-এরও বেশি শিক্ষক নিয়ে বাংলাদেশের বৃহত্তম পাবলিক গবেষণা বিশ্ববিদ্যালয়। এটি দেশের শিক্ষা, সংস্কৃতি এবং মুক্ত চিন্তার বিকাশে গুরুত্বপূর্ণ ভূমিকা পালন করে চলেছে।</p>
                     <hr className="my-3 border-border/50" />
                     <b>তথ্যসূত্র</b><br/>
                     ০১. <a href="https://bn.wikipedia.org/wiki/%E0%A6%A2%E0%A6%BE%E0%A6%95%E0%A6%BE_%E0%A6%AC%E0%A6%BF%E0%A6%B6%E0%A7%8D%E0%A6%AC%E0%A6%AC%E0%A6%BF%E0%A6%A6%E0%A7%8D%E0%A6%AF%E0%A6%BE%E0%A6%B2%E0%A6%AF%E0%A6%BC" target="_blank" className="text-primary hover:underline">
@@ -289,14 +289,14 @@ function DhakaUniversityPage() {
                 <b>➜ আবেদন শেষঃ</b> ২৫ নভেম্বর, ২০২৪ (রাত ১১.৫৯টা পর্যন্ত)</span>
                 <div className="my-2">
                   <b><HandCoins className="inline-block mr-2" />আবেদন ফিঃ</b><br/>
-                  <b>&nbsp;&nbsp;&nbsp; ✓ ক, খ, গ, চ ইউনিট:</b> ۱۰۵۰৳<br/>
+                  <b>&nbsp;&nbsp;&nbsp; ✓ ক, খ, গ, চ ইউনিট:</b> ১০৫০৳<br/>
                   <b>&nbsp;&nbsp;&nbsp; ✓ আইবিএ ইউনিট:</b> ১৫০০৳
                 </div>
 
                 <div className="flex items-center gap-2 flex-wrap">
                     <CircleCheck className="text-green-600" size={16}/>
                     <a href='https://t.me/Study_on_Telegram/13209' target="_blank" className="text-primary">আবেদনের ধাপসমূহ একত্রে</a> | 
-                    <a href='https://t.me/Study_on_Telegram/13206' className="text-primary">আবেদনের ಸচিত্র প্রসেস</a>
+                    <a href='https://t.me/Study_on_Telegram/13206' className="text-primary">আবেদনের সচিত্র প্রসেস</a>
                 </div>
             </div>
             <hr className="my-3 border-border/50" />
@@ -317,22 +317,22 @@ function DhakaUniversityPage() {
                     <AccordionTrigger className="p-3 text-sm sm:text-base font-bold hover:no-underline"><CircleAlert className="mr-2"/> ইউনিট ও বিভাগ ভিত্তিক শর্ত</AccordionTrigger>
                     <AccordionContent className="p-4 pt-0 text-muted-foreground text-sm sm:text-base">
                     ❐ <b>“ক” ইউনিট:</b><br/>
-                    ● <b>বিজ্ঞান বিভাগ:</b> SSC ও HSC তে চতুর্থ বিষয় সহ নুন্যতম GPA-3.5 এবং SSC ও HSC মিলে মোট নূন্যতম GPA-8.0<br/>
-                    <b>● অন্যান্য বিভাগ:</b> SSC ও HSC তে চতুর্থ বিষয় সহ নুন্যতম GPA-3.0 এবং SSC ও HSC মিলে মোট নূন্যতম GPA-7.5<br/><br/>
+                    ● <b>বিজ্ঞান বিভাগ:</b> SSC ও HSC তে চতুর্থ বিষয় সহ ন্যূনতম GPA-3.5 এবং SSC ও HSC মিলে মোট ন্যূনতম GPA-8.0<br/>
+                    <b>● অন্যান্য বিভাগ:</b> SSC ও HSC তে চতুর্থ বিষয় সহ ন্যূনতম GPA-3.0 এবং SSC ও HSC মিলে মোট ন্যূনতম GPA-7.5<br/><br/>
 
                     ❐ <b>“খ” ইউনিট:</b><br/>
-                    ● <b>মানবিক ও ব্যবসা বিভাগ:</b> SSC ও HSC তে চতুর্থ বিষয় সহ নুন্যতম GPA-3.0 এবং SSC ও HSC মিলে মোট নূন্যতম GPA-7.5<br/>
-                    <b>● বিজ্ঞান বিভাগ:</b> SSC ও HSC তে চতুর্থ বিষয় সহ নুন্যতম GPA-3.5 এবং SSC ও HSC মিলে মোট নূন্যতম GPA-8.0<br/><br/>
+                    ● <b>মানবিক ও ব্যবসা বিভাগ:</b> SSC ও HSC তে চতুর্থ বিষয় সহ ন্যূনতম GPA-3.0 এবং SSC ও HSC মিলে মোট ন্যূনতম GPA-7.5<br/>
+                    <b>● বিজ্ঞান বিভাগ:</b> SSC ও HSC তে চতুর্থ বিষয় সহ ন্যূনতম GPA-3.5 এবং SSC ও HSC মিলে মোট ন্যূনতম GPA-8.0<br/><br/>
 
                     ❐ <b>“গ” ইউনিট:</b><br/>
-                    ● <b>মানবিক ও ব্যবসা বিভাগ:</b> SSC ও HSC তে চতুর্থ বিষয় সহ নুন্যতম GPA-3.0 এবং SSC ও HSC মিলে মোট নূন্যতম GPA-7.5<br/>
-                    <b>● বিজ্ঞান বিভাগ:</b> SSC ও HSC তে চতুর্থ বিষয় সহ নুন্যতম GPA-3.5 এবং SSC ও HSC মিলে মোট نূন্যতম GPA-8.0<br/><br/>
+                    ● <b>মানবিক ও ব্যবসা বিভাগ:</b> SSC ও HSC তে চতুর্থ বিষয় সহ ন্যূনতম GPA-3.0 এবং SSC ও HSC মিলে মোট ন্যূনতম GPA-7.5<br/>
+                    <b>● বিজ্ঞান বিভাগ:</b> SSC ও HSC তে চতুর্থ বিষয় সহ ন্যূনতম GPA-3.5 এবং SSC ও HSC মিলে মোট ন্যূনতম GPA-8.0<br/><br/>
 
                     ❐ <b>“চ” ইউনিট:</b><br/>
-                    ● <b>যেকোনো বিভাগ:</b> SSC ও HSC তে চতুর্থ বিষয় সহ নুন্যতম GPA-3.0 এবং SSC ও HSC মিলে মোট নূন্যতম GPA-6.5<br/><br/>
+                    ● <b>যেকোনো বিভাগ:</b> SSC ও HSC তে চতুর্থ বিষয় সহ ন্যূনতম GPA-3.0 এবং SSC ও HSC মিলে মোট ন্যূনতম GPA-6.5<br/><br/>
 
                     ❐ <b>IBA ইউনিট:</b><br/>
-                    ● <b>যেকোনো বিভাগ:</b> SSC ও HSC তে চতুর্থ বিষয় সহ নুন্যতম GPA-3.5 এবং SSC ও HSC মিলে মোট নূন্যতম GPA-8.0
+                    ● <b>যেকোনো বিভাগ:</b> SSC ও HSC তে চতুর্থ বিষয় সহ ন্যূনতম GPA-3.5 এবং SSC ও HSC মিলে মোট ন্যূনতম GPA-8.0
                     </AccordionContent>
                 </AccordionItem>
                  <AccordionItem value="info-2" className="border-border rounded-2xl mt-1.5">
@@ -342,7 +342,7 @@ function DhakaUniversityPage() {
                     ১।</b> ঢাকা বিশ্ববিদ্যালয় কিংবা অধিভুক্ত কলেজে আবেদন না করা<br/>
                     <b>২।</b>পরবর্তী ব্যাচের সাথে  ইমপ্রুভমেন্ট পরীক্ষা দেয়া (HSC)<br/><br/>
 
-                    <b><u>উদাহরণ:</u></b> কোনো HSC-24 ব্যাচের শিক্ষার্থী যদি ঢাকা বিশ্ববিদ্যালয় বা অধিভুক্ত কোনো কলেজে আবেদন করে না করে এবং ইমপ্রুভমেন্ট পরীক্ষা দেয়, তাহলে সে চাইলে HSC-25 ব্যাচের সাথে ঢাকা বিশ্ববিদ্যালয়ে পরীক্ষা দিতে পারবে।
+                    <b><u>উদাহরণ:</u></b> কোনো HSC-24 ব্যাচের শিক্ষার্থী যদি ঢাকা বিশ্ববিদ্যালয় বা অধিভুক্ত কোনো কলেজে আবেদন না করে এবং ইমপ্রুভমেন্ট পরীক্ষা দেয়, তাহলে সে চাইলে HSC-25 ব্যাচের সাথে ঢাকা বিশ্ববিদ্যালয়ে পরীক্ষা দিতে পারবে।
                     </AccordionContent>
                 </AccordionItem>
             </Accordion>
@@ -350,11 +350,11 @@ function DhakaUniversityPage() {
             <h5 id="AdmitCard" className="bg-primary/10 text-primary rounded-xl p-3 my-4 text-center text-lg sm:text-xl font-bold flex items-center justify-center"><Contact className="mr-2"/> প্রবেশপত্র</h5>
             <div className="text-sm sm:text-base">
                 <span><b>➜ শুরু:</b> ২৩ ডিসেম্বর, ২০২৪<br/>
-                <b>➜ শেষ:</b> পরীক্ষা শুরুর ১ঘন্টা পূর্ব অব্দি<br/><br/>
+                <b>➜ শেষ:</b> পরীক্ষা শুরুর ১ ঘণ্টা পূর্ব পর্যন্ত<br/><br/>
                 <b><LinkIcon className="inline-block mr-2" size={16}/>লিংকঃ</b> <a href='https://admission.eis.du.ac.bd/' target="_blank" className="text-primary">https://admission.eis.du.ac.bd/ <ArrowUpRightFromSquare size={11} className="inline-block"/></a>
                 <br/>(লগ ইন করে নিয়ে ডাউনলোড করতে হবে।)
                 <br/><br/>
-                <b><i className="text-orange-500 flex items-center"><CircleAlert size={16} className="inline-block mr-1"/></i> নোটঃ</b> প্রবেশপত্রে শুধু পরীক্ষার অঞ্চল উল্লেখ থাকে। কিন্তু, ঠিক কোন সেন্টারে, কোন বিল্ডিং/রুম এ হবে, সেটা পরে দেয়। সাধারণত যে দিন যে ইউনিটের পরীক্ষা,  পরীক্ষা শুরুর ৭২ হতে ৪৮ ঘন্টা পুর্বে প্রকাশ করে।
+                <b><i className="text-orange-500 flex items-center"><CircleAlert size={16} className="inline-block mr-1"/></i> নোটঃ</b> প্রবেশপত্রে শুধু পরীক্ষার অঞ্চল উল্লেখ থাকে। কিন্তু, ঠিক কোন সেন্টারে, কোন বিল্ডিং/রুম এ হবে, সেটা পরে দেয়। সাধারণত যে দিন যে ইউনিটের পরীক্ষা,  পরীক্ষা শুরুর ৭২ হতে ৪৮ ঘন্টা পূর্বে প্রকাশ করে।
                 </span>
             </div>
             
@@ -377,13 +377,13 @@ function DhakaUniversityPage() {
 
 
             <div id="MarkDistributionAndOthers"></div>
-            <h5 className="bg-primary/10 text-primary rounded-xl p-3 my-4 text-center text-lg sm:text-xl font-bold flex items-center justify-center"><RectangleEllipsis className="mr-2"/> মানবন্টন ও অন্যান্য তথ্য</h5>
+            <h5 className="bg-primary/10 text-primary rounded-xl p-3 my-4 text-center text-lg sm:text-xl font-bold flex items-center justify-center"><RectangleEllipsis className="mr-2"/> মানবণ্টন ও অন্যান্য তথ্য</h5>
             {/* ... Mark distribution tabs and content ... */}
 
             <div className="border border-border/80 rounded-xl p-4 mt-2.5 text-sm sm:text-base">
                 ● <b>সিলেবাসঃ </b>সংক্ষিপ্ত<hr className="my-1 border-border/50"/>
                 ● <b>সেকেন্ড টাইমঃ </b>নেই<hr className="my-1 border-border/50"/>
-                ● <b>নেগিটিভ নাম্বারঃ </b>-০.২৫<hr className="my-1 border-border/50"/>
+                ● <b>নেগেটিভ নাম্বারঃ </b>-০.২৫<hr className="my-1 border-border/50"/>
                 ● <b>ক্যালকুলেটরঃ </b>নেই
             </div>
 

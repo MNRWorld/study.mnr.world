@@ -55,7 +55,7 @@ function QuestionBankPage() {
           </div>
           <div className="flex justify-around mb-6 text-sm sm:text-base">
             <div className="text-center">
-              <div className="text-xl sm:text-2xl font-bold text-foreground">۲۰+</div>
+              <div className="text-xl sm:text-2xl font-bold text-foreground">২০+</div>
               <div className="text-xs sm:text-sm text-muted-foreground">বিশ্ববিদ্যালয়</div>
             </div>
             <div className="text-center">
@@ -78,7 +78,7 @@ function QuestionBankPage() {
                   </Tooltip>
                 </TooltipProvider>
               </div>
-              <div className="text-xs sm:text-sm text-muted-foreground">פורמט</div>
+              <div className="text-xs sm:text-sm text-muted-foreground">פורמট</div>
             </div>
           </div>
         </div>

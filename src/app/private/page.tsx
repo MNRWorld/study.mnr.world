@@ -58,12 +58,12 @@ function PrivatePage() {
               (Private University Admission)
             </div>
             <p className="text-base text-muted-foreground mb-6 max-w-2xl mx-auto">
-            দেশের শীর্ষস্থানীয় প্রাইভেট বিশ্ববিদ্যালয়গুলোতে ভর্তির সর্বশেষ তথ্য, যোগ্যতা ও পরীক্ষার মানবন্টন সম্পর্কে জানুন।
+            দেশের শীর্ষস্থানীয় প্রাইভেট বিশ্ববিদ্যালয়গুলোতে ভর্তির সর্বশেষ তথ্য, যোগ্যতা ও পরীক্ষার মানবণ্টন সম্পর্কে জানুন।
             </p>
           </div>
           <div className="flex justify-around mb-6 text-sm sm:text-base">
             <div className="text-center">
-              <div className="text-xl sm:text-2xl font-bold text-foreground">৮۰+</div>
+              <div className="text-xl sm:text-2xl font-bold text-foreground">৮০+</div>
               <div className="text-xs sm:text-sm text-muted-foreground">বিশ্ববিদ্যালয়</div>
             </div>
             <div className="text-center">
@@ -164,8 +164,8 @@ function PrivatePage() {
              <span className="text-sm sm:text-base">সাধারণত বিশ্ববিদ্যালয়ের নিজস্ব ক্যাম্পাসে পরীক্ষা অনুষ্ঠিত হয়।</span>
 
             <div id="MarkDistributionAndOthers"></div>
-            <h5 className="bg-primary/10 text-primary rounded-xl p-3 my-4 text-center text-lg sm:text-xl font-bold flex items-center justify-center"><RectangleEllipsis className="mr-2"/> মানবন্টন ও অন্যান্য তথ্য</h5>
-            <p className="text-sm sm:text-base">মানবন্টন, সিলেবাস ও পরীক্ষার পদ্ধতি বিশ্ববিদ্যালয়ভেদে সম্পূর্ণ ভিন্ন। সঠিক তথ্যের জন্য পছন্দের বিশ্ববিদ্যালয়ের ওয়েবসাইট ভিজিট করুন।</p>
+            <h5 className="bg-primary/10 text-primary rounded-xl p-3 my-4 text-center text-lg sm:text-xl font-bold flex items-center justify-center"><RectangleEllipsis className="mr-2"/> মানবণ্টন ও অন্যান্য তথ্য</h5>
+            <p className="text-sm sm:text-base">মানবণ্টন, সিলেবাস ও পরীক্ষার পদ্ধতি বিশ্ববিদ্যালয়ভেদে সম্পূর্ণ ভিন্ন। সঠিক তথ্যের জন্য পছন্দের বিশ্ববিদ্যালয়ের ওয়েবসাইট ভিজিট করুন।</p>
 
         </div>
 
