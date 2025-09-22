@@ -13,6 +13,10 @@ import {
   Mail,
   Moon,
   ArrowRight,
+  Facebook,
+  Twitter,
+  Instagram,
+  Youtube,
 } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
@@ -144,14 +148,14 @@ export default function HomePage() {
                   className="social-icon"
                   style={{ backgroundColor: "#1877F2" }}
                 >
-                  <i className="fab fa-facebook-f text-white"></i>
+                  <Facebook className="text-white" />
                 </a>
                 <a
                   href="#"
                   className="social-icon"
                   style={{ backgroundColor: "#1DA1F2" }}
                 >
-                  <i className="fab fa-twitter text-white"></i>
+                  <Twitter className="text-white" />
                 </a>
                 <a
                   href="#"
@@ -161,14 +165,14 @@ export default function HomePage() {
                       "radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%)",
                   }}
                 >
-                  <i className="fab fa-instagram text-white"></i>
+                  <Instagram className="text-white" />
                 </a>
                 <a
                   href="#"
                   className="social-icon"
                   style={{ backgroundColor: "#FF0000" }}
                 >
-                  <i className="fab fa-youtube text-white"></i>
+                  <Youtube className="text-white" />
                 </a>
               </div>
             </div>

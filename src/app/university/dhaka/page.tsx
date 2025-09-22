@@ -1,6 +1,3 @@
-// @ts-nocheck
-'use client';
-
 import {
   Accordion,
   AccordionContent,
@@ -24,9 +21,8 @@ import {
   TooltipTrigger,
 } from '@/components/ui/tooltip';
 import {
-  ChevronDown,
-  Info,
   Download,
+  Info,
   ChevronRight,
   File,
   FilePen,
@@ -36,171 +32,21 @@ import {
   ArrowUpRightFromSquare,
   CircleAlert,
   Contact,
-  Stopwatch,
+  Timer,
   MapPin,
   RectangleEllipsis,
-  SquarePollVertical,
-  Menu,
+  BarChartBig,
   Landmark,
   University,
 } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
-import React, { useState, useEffect, useRef } from 'react';
+import React from 'react';
+import FloatingMenu from './_components/FloatingMenu';
+import CountdownTimer from './_components/CountdownTimer';
+import PreviousYearCirculars from './_components/PreviousYearCirculars';
 
 function DhakaUniversityPage() {
-  const [activeTab, setActiveTab] = useState('A');
-  const [activeQBTab, setActiveQBTab] = useState('tab1');
-  const [activeMarkDistTab, setActiveMarkDistTab] = useState('Amd');
-  const [infoBoxVisible, setInfoBoxVisible] = useState(false);
-  const [searchQuery, setSearchQuery] = useState('');
-  const [menuOpen, setMenuOpen] = useState(false);
-
-  const toggleInfoBox = () => setInfoBoxVisible(!infoBoxVisible);
-
-  const handleSearch = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setSearchQuery(event.target.value.toLowerCase());
-  };
-
-  const deadlines = [
-      {
-        title: "🎓 Exam Countdown",
-        date: new Date("2025-05-20T23:27:00")
-      },
-      {
-        title: "আবেদন শুরু",
-        date: new Date("2026-12-31T23:59:59")
-      },
-      {
-        title: "🇧🇩 National Day",
-        date: new Date("2025-08-15T12:00:00")
-      }
-    ];
-
-  const CountdownTimer = () => {
-    const [currentIndex, setCurrentIndex] = useState(0);
-    const [timeLeft, setTimeLeft] = useState({
-      days: '--',
-      hours: '--',
-      minutes: '--',
-      seconds: '--',
-    });
-    const [isCompleted, setIsCompleted] = useState(false);
-    const intervalRef = useRef<NodeJS.Timeout | null>(null);
-
-    useEffect(() => {
-        if (currentIndex >= deadlines.length) {
-            return;
-        }
-
-        const update = () => {
-            const now = new Date();
-            const diff = deadlines[currentIndex].date.getTime() - now.getTime();
-
-            if (diff <= 0) {
-                setIsCompleted(true);
-                if (intervalRef.current) clearInterval(intervalRef.current);
-                
-                // Automatically move to the next timer after a delay
-                setTimeout(() => {
-                    setIsCompleted(false);
-                    if (currentIndex < deadlines.length - 1) {
-                        setCurrentIndex(currentIndex + 1);
-                    } else {
-                        // Last timer finished, maybe do nothing or loop
-                    }
-                }, 2000); // 2 second delay before switching
-                
-                return;
-            }
-
-            setIsCompleted(false);
-            const totalSeconds = Math.floor(diff / 1000);
-            setTimeLeft({
-                days: String(Math.floor(totalSeconds / (3600 * 24))).padStart(2, '0'),
-                hours: String(Math.floor((totalSeconds % (3600 * 24)) / 3600)).padStart(2, '0'),
-                minutes: String(Math.floor((totalSeconds % 3600) / 60)).padStart(2, '0'),
-                seconds: String(totalSeconds % 60).padStart(2, '0'),
-            });
-        };
-
-        update();
-        intervalRef.current = setInterval(update, 1000);
-
-        return () => {
-            if(intervalRef.current) clearInterval(intervalRef.current);
-        };
-    }, [currentIndex]);
-
-
-    if (currentIndex >= deadlines.length) {
-        return <div className="text-center font-bold text-lg">All timers finished.</div>;
-    }
-    
-    const currentDeadline = deadlines[currentIndex];
-
-    const getTimeProgress = (unit: 'days' | 'hours' | 'minutes' | 'seconds') => {
-        const value = parseInt(timeLeft[unit], 10);
-        if (isNaN(value)) return 0;
-        const max = unit === 'days' ? 365 : unit === 'hours' ? 24 : 60;
-        return (value / max);
-    };
-
-    const TimeCircle = ({ unit, value, max }: { unit: string; value: string, max: number }) => {
-        const numValue = parseInt(value, 10);
-        const progress = isNaN(numValue) ? 0 : (numValue / max);
-        const circumference = 2 * Math.PI * 45;
-        const offset = circumference - progress * circumference;
-
-        return (
-            <div className="relative w-[110px] h-[110px] sm:w-[65px] sm:h-[65px] shrink-0">
-                <svg className="transform -scale-x-100" viewBox="0 0 100 100">
-                    <circle className="text-gray-300" strokeWidth="6" stroke="currentColor" fill="transparent" r="45" cx="50" cy="50" />
-                    <circle className="text-green-500"
-                        strokeWidth="6"
-                        strokeDasharray={circumference}
-                        strokeDashoffset={offset}
-                        strokeLinecap="round"
-                        stroke="currentColor"
-                        fill="transparent"
-                        r="45"
-                        cx="50"
-                        cy="50"
-                        style={{ transform: 'rotate(90deg)', transformOrigin: 'center' }}
-                    />
-                </svg>
-                <div className="absolute inset-0 flex flex-col items-center justify-center">
-                    <div className="text-2xl sm:text-lg font-bold">{value}</div>
-                    <div className="text-xs sm:text-[10px] text-gray-700">{unit}</div>
-                </div>
-            </div>
-        );
-    };
-
-
-    return (
-        <div className="text-center p-5 m-2.5 rounded-2xl bg-blue-50 shadow-[0_4px_8px_rgba(0,0,0,0.05)]">
-            <div className="text-lg font-bold mb-3">
-                {currentDeadline.title}
-                <div className="font-normal text-sm mt-1">
-                    {currentDeadline.date.toLocaleDateString('en-GB', { year: 'numeric', month: 'long', day: 'numeric' })}
-                </div>
-            </div>
-            {isCompleted ? (
-                <div className="text-xl text-red-500 font-bold mt-2.5">সময় শেষ</div>
-            ) : (
-                <div className="flex gap-3 sm:gap-2 justify-center flex-nowrap">
-                   <TimeCircle unit="Days" value={timeLeft.days} max={365}/>
-                   <TimeCircle unit="Hours" value={timeLeft.hours} max={24}/>
-                   <TimeCircle unit="Minutes" value={timeLeft.minutes} max={60}/>
-                   <TimeCircle unit="Seconds" value={timeLeft.seconds} max={60}/>
-                </div>
-            )}
-        </div>
-    );
-};
-
-
   return (
     <div className="font-bengali bg-[#F0F5FA] my-[30px]">
       <div className="container mx-auto px-4">
@@ -371,17 +217,8 @@ function DhakaUniversityPage() {
                 <Button asChild className="bg-blue-800 text-white flex-1 min-w-[150px] hover:bg-gray-100 hover:text-blue-800 hover:border-blue-800 border border-transparent">
                     <a href="https://t.me/Study_on_Telegram/13215" target="_blank"><Download size={16} className="mr-2"/> ডাউনলোড করুন</a>
                 </Button>
-                <Button variant="outline" className="text-blue-800 border-blue-800 flex-1 min-w-[150px] hover:bg-blue-800 hover:text-white" onClick={toggleInfoBox}>
-                     পূর্ববর্তী বছরের সার্কুলার <ChevronRight size={16} className="ml-2"/>
-                </Button>
+                <PreviousYearCirculars />
             </div>
-            {infoBoxVisible && (
-                <div className="mt-[15px] p-[15px] border border-gray-300 border-l-4 border-l-blue-800 bg-gray-50 rounded-md animate-fadeIn text-left">
-                     ● <a href="https://t.me/Study_on_Telegram/2036" target="_blank" className="text-blue-600"> DU Circular 2021-22 (All Unit)</a><br/>
-                     ● <a href="https://t.me/Study_on_Telegram/8022?single" target="_blank" className="text-blue-600"> DU Circular 2022-23 (All Unit)</a><br/>
-                     ● <a href="https://t.me/Study_on_Telegram/11073?single" target="_blank" className="text-blue-600"> DU Circular 2023-24 (All Unit)</a>
-                </div>
-            )}
         </div>
 
 
@@ -451,7 +288,7 @@ function DhakaUniversityPage() {
             <b>➜ আবেদন শেষঃ</b> ২৫ নভেম্বর, ২০২৪ (রাত ১১.৫৯টা পর্যন্ত)</span>
             <div className="my-2">
               <b><HandCoins className="inline-block mr-2" />আবেদন ফিঃ</b><br/>
-              <b>&nbsp;&nbsp;&nbsp; ✓ ক, খ, গ, চ ইউনিট:</b> ১০৫০৳<br/>
+              <b>&nbsp;&nbsp;&nbsp; ✓ ক, খ, গ, চ ইউনিট:</b> ۱۰৫০৳<br/>
               <b>&nbsp;&nbsp;&nbsp; ✓ আইবিএ ইউনিট:</b> ১৫০০৳
             </div>
 
@@ -517,7 +354,7 @@ function DhakaUniversityPage() {
             <b><i className="text-orange-500"><CircleAlert size={16} className="inline-block mr-1"/></i> নোটঃ</b> প্রবেশপত্রে শুধু পরীক্ষার অঞ্চল উল্লেখ থাকে। কিন্তু, ঠিক কোন সেন্টারে, কোন বিল্ডিং/রুম এ হবে, সেটা পরে দেয়। সাধারণত যে দিন যে ইউনিটের পরীক্ষা,  পরীক্ষা শুরুর ৭২ হতে ৪৮ ঘন্টা পুর্বে প্রকাশ করে।
             </span>
             
-            <h5 id="ExamDate" className="bg-blue-50 text-blue-800 rounded-xl p-3 my-[15px] mt-4 text-center text-lg font-bold flex items-center justify-center"><Stopwatch className="mr-2"/> পরীক্ষার সময়কাল</h5>
+            <h5 id="ExamDate" className="bg-blue-50 text-blue-800 rounded-xl p-3 my-[15px] mt-4 text-center text-lg font-bold flex items-center justify-center"><Timer className="mr-2"/> পরীক্ষার সময়কাল</h5>
              <span>❐ <b>“ক” ইউনিট:</b> ১৫ ফেব্রুয়ারী <br/>
                 ❐ <b>“খ” ইউনিট:</b> ২৫ জানুয়ারী <br/>
                 ❐ <b>“গ” ইউনিট:</b> ০৮ ফেব্রুয়ারী <br/>
@@ -532,7 +369,7 @@ function DhakaUniversityPage() {
             <h5 id="Location" className="bg-blue-50 text-blue-800 rounded-xl p-3 my-[15px] mt-4 text-center text-lg font-bold flex items-center justify-center"><MapPin className="mr-2"/> ভর্তি পরীক্ষার কেন্দ্র</h5>
              <span>➜ বিভাগীয় শহরে <a href="https://t.me/Study_on_Telegram/13199" className="text-blue-600">[তালিকা]</a><br/>
              <hr className="my-2" />
-            <b><i className="text-orange-500"><CircleAlert size={16} className="inline-block mr-1"/></i> নোটঃ</b> চারুকলা বা “চ” ইউনিট এবং IBA এর পরীক্ষা শুধুমাত্র ঢাকায় হবে। বাকি সব ইউনিটের পরীক্ষা বিভাগীয় শহরে হবে।</span>
+            <b><i className="text-orange-500"><CircleAlert size={16} className="inline-block mr-1"/></i> নোটঃ</b> چارুকলা বা “চ” ইউনিট এবং IBA এর পরীক্ষা শুধুমাত্র ঢাকায় হবে। বাকি সব ইউনিটের পরীক্ষা বিভাগীয় শহরে হবে।</span>
 
 
             <div id="MarkDistributionAndOthers"></div>
@@ -546,7 +383,7 @@ function DhakaUniversityPage() {
                 ● <b>ক্যালকুলেটরঃ </b>নেই
             </div>
 
-             <h5 id="Result" className="bg-blue-50 text-blue-800 rounded-xl p-3 my-[15px] mt-4 text-center text-lg font-bold flex items-center justify-center"><SquarePollVertical className="mr-2"/> ভর্তি পরীক্ষার ফলাফল</h5>
+             <h5 id="Result" className="bg-blue-50 text-blue-800 rounded-xl p-3 my-[15px] mt-4 text-center text-lg font-bold flex items-center justify-center"><BarChartBig className="mr-2"/> ভর্তি পরীক্ষার ফলাফল</h5>
              <span>● <b>ফলাফল প্রকাশ:</b> ভর্তি পরীক্ষার ৪ সপ্তাহের মধ্যে
                 <hr className="my-1" />
                 <b><LinkIcon className="inline-block mr-2" size={16}/>লিংকঃ</b> <a href='https://admission.eis.du.ac.bd/' target="_blank" className="text-blue-600">https://admission.eis.du.ac.bd/ <ArrowUpRightFromSquare size={11} className="inline-block"/></a>
@@ -554,25 +391,7 @@ function DhakaUniversityPage() {
         </div>
 
         {/* Floating Menu */}
-        <div className="fixed top-1/2 right-0 transform -translate-y-1/2 z-50">
-            <Button onClick={() => setMenuOpen(!menuOpen)} className="bg-blue-800 text-white rounded-l-full rounded-r-none px-4 py-3 text-lg hover:bg-blue-900">
-                <Menu />
-            </Button>
-            {menuOpen && (
-                <div className="absolute right-full top-1/2 -translate-y-1/2 w-56 bg-white rounded-lg shadow-lg p-2.5 animate-fadeIn">
-                    <a href="#Links" className="block p-2 text-gray-800 hover:bg-blue-100">🔗 গুরুত্বপূর্ণ কিছু লিংক একত্রে</a>
-                    <a href="#Circular" className="block p-2 text-gray-800 hover:bg-blue-100">📄 সার্কুলার</a>
-                    <a href="#QuestionBank" className="block p-2 text-gray-800 hover:bg-blue-100">📚 প্রশ্নব্যাংক</a>
-                    <a href="#Apply" className="block p-2 text-gray-800 hover:bg-blue-100">📝 আবেদন</a>
-                    <a href="#AdmitCard" className="block p-2 text-gray-800 hover:bg-blue-100">🎟 প্রবেশপত্র</a>
-                    <a href="#ExamDate" className="block p-2 text-gray-800 hover:bg-blue-100">⏰ পরীক্ষার সময়কাল</a>
-                    <a href="#Location" className="block p-2 text-gray-800 hover:bg-blue-100">🗺️ ভর্তি পরীক্ষার কেন্দ্র</a>
-                    <a href="#MarkDistributionAndOthers" className="block p-2 text-gray-800 hover:bg-blue-100">ℹ️ মানবন্টন ও অন্যান্য তথ্য</a>
-                    <a href="#Result" className="block p-2 text-gray-800 hover:bg-blue-100">📊 ভর্তি পরীক্ষার ফলাফল</a>
-                    <a href="#Subjects" className="block p-2 text-gray-800 hover:bg-blue-100">👤 সাবজেক্ট প্রতি সিট সংখ্যা</a>
-                </div>
-            )}
-        </div>
+        <FloatingMenu />
 
       </div>
     </div>
