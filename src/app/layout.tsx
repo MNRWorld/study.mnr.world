@@ -3,6 +3,7 @@ import './globals.css';
 import { Toaster } from '@/components/ui/toaster';
 import { Inter, Hind_Siliguri } from 'next/font/google';
 import { cn } from '@/lib/utils';
+import MainLayout from './MainLayout';
 
 const inter = Inter({
   subsets: ['latin'],
@@ -29,7 +30,9 @@ export default function RootLayout({
   return (
     <html lang="bn" suppressHydrationWarning>
       <body className={cn("antialiased", inter.variable, hindSiliguri.variable)}>
-        {children}
+        <MainLayout>
+          {children}
+        </MainLayout>
         <Toaster />
       </body>
     </html>
