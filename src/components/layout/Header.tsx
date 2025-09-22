@@ -79,7 +79,7 @@ export default function Header() {
                   <span className="sr-only">Open menu</span>
                 </Button>
               </SheetTrigger>
-              <SheetContent side="left" className="w-[280px] bg-background border-r-border/50">
+              <SheetContent side="left" className="w-[280px] bg-card/95 backdrop-blur-lg border-r-border/50">
                  <div className="flex flex-col h-full p-4">
                     <div className="flex items-center space-x-3 mb-8">
                         <Link href="/" className="flex items-center space-x-3">

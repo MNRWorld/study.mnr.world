@@ -48,20 +48,20 @@ import PreviousYearCirculars from './_components/PreviousYearCirculars';
 
 function DhakaUniversityPage() {
   return (
-    <div className="font-bengali bg-background my-8">
+    <div className="font-bengali bg-background py-8">
       <div className="container mx-auto px-4">
         {/* Main Card */}
-        <div className="mt-[70px] w-full border border-border bg-card rounded-2xl p-6 sm:p-8 shadow-lg text-center relative animate-fadeInUp">
-          <div className="text-sm text-foreground absolute top-[-65px] sm:top-[-60px] left-4 bg-card border border-border rounded-lg px-3 py-1">
+        <div className="mt-20 sm:mt-24 w-full border border-border bg-card rounded-2xl p-6 sm:p-8 shadow-lg text-center relative animate-fadeInUp">
+          <div className="text-sm text-foreground absolute top-[-20px] sm:top-[-20px] left-1/2 -translate-x-1/2 bg-card border border-border rounded-lg px-3 py-1">
             <b>পাবলিক</b>
           </div>
-          <div className="w-[100px] h-[100px] absolute top-[-50px] left-1/2 -translate-x-1/2 bg-card rounded-2xl shadow-xl z-10">
+          <div className="w-24 h-24 absolute -top-12 left-1/2 -translate-x-1/2 bg-card rounded-2xl shadow-xl z-10 flex items-center justify-center">
             <Image
               src="https://study.mnr.world/wp-content/uploads/2025/05/DU-Logo.png"
               alt="DU Logo"
               width={100}
               height={100}
-              className="border-4 border-card w-full h-full object-contain rounded-2xl"
+              className="p-1 w-full h-full object-contain rounded-2xl"
             />
           </div>
           <div className="pt-12">
@@ -77,7 +77,7 @@ function DhakaUniversityPage() {
               গুরুত্বপূর্ণ ভূমিকা রেখেছে।
             </p>
           </div>
-          <div className="flex justify-around mb-6 text-sm sm:text-base">
+          <div className="flex justify-around items-center mb-6 text-sm sm:text-base max-w-md mx-auto">
             <div className="text-center">
               <div className="text-xl sm:text-2xl font-bold text-foreground">১৩টি</div>
               <div className="text-xs sm:text-sm text-muted-foreground">অনুষদ</div>
@@ -87,7 +87,7 @@ function DhakaUniversityPage() {
               <div className="text-xs sm:text-sm text-muted-foreground">বিষয়</div>
             </div>
             <div className="text-center">
-              <div className="text-xl sm:text-2xl font-bold text-foreground flex items-center">
+              <div className="text-xl sm:text-2xl font-bold text-foreground flex items-center justify-center">
                 ৬১৩০টি
                 <TooltipProvider>
                   <Tooltip>
@@ -113,41 +113,42 @@ function DhakaUniversityPage() {
               <div className="text-xs sm:text-sm text-muted-foreground">আসন</div>
             </div>
           </div>
-          <Link
-            href="#Info"
-            className="inline-flex items-center gap-2 px-4 py-2 bg-primary text-primary-foreground border border-primary rounded-lg text-sm shadow-lg transition-all ease-in-out duration-300 hover:bg-background hover:text-primary"
-          >
-            <Info size={14} /> মূল তথ্য
-          </Link>
+          <Button asChild className="transition-transform hover:scale-105">
+            <Link
+                href="#Info"
+            >
+                <Info size={16} /> মূল তথ্য
+            </Link>
+          </Button>
         </div>
 
         {/* Link List */}
-        <div id="Links" className="mt-4 w-full border border-border bg-card rounded-2xl p-4 sm:p-6 shadow-lg text-center relative">
+        <div id="Links" className="mt-8 w-full border border-border bg-card rounded-2xl p-4 sm:p-6 shadow-lg text-center relative">
             <div className="flex justify-center">
                 <div className="inline-block px-6 py-2 bg-gradient-to-r from-primary to-blue-500 text-white rounded-full text-base sm:text-lg mb-4 font-bold shadow-md">গুরুত্বপূর্ণ কিছু লিংক একত্রে</div>
             </div>
             <Table className="border-dotted border-border/50 border-[1px]">
                 <TableBody>
-                    <TableRow>
-                        <TableCell className="text-center text-sm sm:text-base"><Link href="#Circular">সার্কুলার</Link></TableCell>
-                        <TableCell className="text-center text-sm sm:text-base"><Link href="#QuestionBank">প্রশ্নব্যাংক</Link></TableCell>
+                    <TableRow className="flex flex-col sm:flex-row">
+                        <TableCell className="text-center text-sm sm:text-base flex-1"><Link href="#Circular" className="block w-full hover:bg-accent p-2 rounded-md">সার্কুলার</Link></TableCell>
+                        <TableCell className="text-center text-sm sm:text-base flex-1"><Link href="#QuestionBank" className="block w-full hover:bg-accent p-2 rounded-md">প্রশ্নব্যাংক</Link></TableCell>
+                    </TableRow>
+                    <TableRow className="flex flex-col sm:flex-row">
+                        <TableCell className="text-center text-sm sm:text-base flex-1"><Link href="https://www.du.ac.bd/" target="_blank" rel="noreferrer noopener" className="block w-full hover:bg-accent p-2 rounded-md">মূল ওয়েবসাইট</Link></TableCell>
+                        <TableCell className="text-center text-sm sm:text-base flex-1"><Link href="https://admission.eis.du.ac.bd/bn/408b7c8ad06e4d9954fa2d948a01f508" target="_blank" rel="noreferrer noopener" className="block w-full hover:bg-accent p-2 rounded-md">এডমিশন ওয়েবসাইট</Link></TableCell>
                     </TableRow>
                     <TableRow>
-                        <TableCell className="text-center text-sm sm:text-base"><Link href="https://www.du.ac.bd/" target="_blank" rel="noreferrer noopener">মূল ওয়েবসাইট</Link></TableCell>
-                        <TableCell className="text-center text-sm sm:text-base"><Link href="https://admission.eis.du.ac.bd/bn/408b7c8ad06e4d9954fa2d948a01f508" target="_blank" rel="noreferrer noopener">এডমিশন ওয়েবসাইট</Link></TableCell>
+                        <TableCell className="text-center text-sm sm:text-base" colSpan={2}><Link href="https://admission.eis.du.ac.bd/bn/408b7c8ad06e4d9954fa2d948a01f508" target="_blank" className="block w-full hover:bg-accent p-2 rounded-md">আবেদন <b>|</b> প্রবেশপত্র ডাউনলোড <b>|</b> ফলাফল</Link></TableCell>
                     </TableRow>
                     <TableRow>
-                        <TableCell className="text-center text-sm sm:text-base" colSpan={2}><Link href="https://admission.eis.du.ac.bd/bn/408b7c8ad06e4d9954fa2d948a01f508" target="_blank">আবেদন <b>|</b> প্রবেশপত্র ডাউনলোড <b>|</b> ফলাফল</Link></TableCell>
-                    </TableRow>
-                    <TableRow>
-                        <TableCell className="text-center text-sm sm:text-base" colSpan={2}><Link href="https://collegeadmission.eis.du.ac.bd/en/b45de047fde9788c53fradae3cfe8e88dc02" target="_blank">অধিভুক্ত কলেজ (আবেদন, প্রবেশপত্র ডাউনলোড, ফলাফল)</Link></TableCell>
+                        <TableCell className="text-center text-sm sm:text-base" colSpan={2}><Link href="https://collegeadmission.eis.du.ac.bd/en/b45de047fde9788c53fradae3cfe8e88dc02" target="_blank" className="block w-full hover:bg-accent p-2 rounded-md">অধিভুক্ত কলেজ (আবেদন, প্রবেশপত্র ডাউনলোড, ফলাফল)</Link></TableCell>
                     </TableRow>
                 </TableBody>
             </Table>
         </div>
 
         {/* History and Maps */}
-        <Accordion type="multiple" className="w-full mt-4 space-y-4">
+        <Accordion type="multiple" className="w-full mt-8 space-y-4">
             <AccordionItem value="item-1" className="bg-card border border-border rounded-2xl overflow-hidden shadow-lg">
                 <AccordionTrigger className="p-4 sm:p-5 w-full flex justify-between items-center text-base sm:text-lg font-bold cursor-pointer hover:no-underline">
                 <span>সংক্ষিপ্ত পরিচয়</span>
@@ -175,7 +176,7 @@ function DhakaUniversityPage() {
                                     <TableBody>
                                         <TableRow>
                                             <TableCell className="text-center">মুসা খান মসজিদ</TableCell>
-                                            <TableCell className="text-center"><Link href="https://maps.app.goo.gl/A5Pt2z5yceEQ641y7?g_st=atm" target="_blank" rel="noreferrer noopener" className="text-primary">[লিংক]</Link></TableCell>
+                                            <TableCell className="text-center"><Link href="https://maps.app.goo.gl/A5Pt2z5yceEQ641y7?g_st=atm" target="_blank" rel="noreferrer noopener" className="text-primary hover:underline">[লিংক]</Link></TableCell>
                                         </TableRow>
                                     </TableBody>
                                 </Table>
@@ -188,7 +189,7 @@ function DhakaUniversityPage() {
                                     <TableBody>
                                         <TableRow>
                                             <TableCell className="text-center">রেজিস্ট্রার বিল্ডিং</TableCell>
-                                            <TableCell className="text-center"><Link href="https://maps.app.goo.gl/your-link-here" target="_blank" rel="noreferrer noopener" className="text-primary">[লিংক]</Link></TableCell>
+                                            <TableCell className="text-center"><Link href="https://maps.app.goo.gl/your-link-here" target="_blank" rel="noreferrer noopener" className="text-primary hover:underline">[লিংক]</Link></TableCell>
                                         </TableRow>
                                     </TableBody>
                                 </Table>
@@ -200,12 +201,12 @@ function DhakaUniversityPage() {
         </Accordion>
 
         {/* Countdown Timer */}
-        <div className="mt-4 w-full border border-border bg-card rounded-2xl p-4 sm:p-6 shadow-lg relative">
+        <div className="mt-8 w-full border border-border bg-card rounded-2xl p-4 sm:p-6 shadow-lg relative">
             <CountdownTimer />
         </div>
         
         {/* Circular */}
-        <div id="Circular" className="mt-4 w-full border border-border bg-card rounded-2xl p-4 sm:p-6 shadow-lg text-center relative">
+        <div id="Circular" className="mt-8 w-full border border-border bg-card rounded-2xl p-4 sm:p-6 shadow-lg text-center relative">
             <div className="flex justify-center">
                 <div className="inline-block px-6 py-2 bg-gradient-to-r from-primary to-blue-500 text-white rounded-full text-base sm:text-lg mb-4 font-bold shadow-md">সার্কুলার</div>
             </div>
@@ -213,8 +214,8 @@ function DhakaUniversityPage() {
                 <span className="text-base sm:text-lg"><b>HSC-24 ব্যাচের সম্পূর্ণ সার্কুলার</b></span><br/>
                 <span className="text-muted-foreground text-xs sm:text-sm">(⚠ <b>নোট:</b> HSC-25 এর সার্কুলার এখনও প্রকাশিত হয়নি। পূর্ববর্তী ব্যাচের সার্কুলার দেখে আইডিয়া নিতে পারো।)</span>
             </div>
-            <div className="flex flex-col sm:flex-row flex-wrap gap-2.5 mt-5">
-                <Button asChild className="bg-primary text-primary-foreground flex-1 min-w-[150px] hover:bg-primary/90">
+            <div className="flex flex-col sm:flex-row flex-wrap gap-2.5 mt-5 justify-center">
+                <Button asChild className="bg-primary text-primary-foreground flex-1 min-w-[150px] hover:bg-primary/90 transition-transform hover:scale-105">
                     <a href="https://t.me/Study_on_Telegram/13215" target="_blank"><Download size={16} className="mr-2"/> ডাউনলোড করুন</a>
                 </Button>
                 <PreviousYearCirculars />
@@ -223,12 +224,12 @@ function DhakaUniversityPage() {
 
 
         {/* Question Bank */}
-        <div id="QuestionBank" className="mt-4 w-full border border-border bg-card rounded-2xl p-4 sm:p-6 shadow-lg text-center relative">
+        <div id="QuestionBank" className="mt-8 w-full border border-border bg-card rounded-2xl p-4 sm:p-6 shadow-lg text-center relative">
              <div className="flex justify-center">
                 <div className="inline-block px-6 py-2 bg-gradient-to-r from-primary to-blue-500 text-white rounded-full text-base sm:text-lg mb-4 font-bold shadow-md">প্রশ্নব্যাংক</div>
             </div>
             <Tabs defaultValue="tab1" className="w-full">
-                <TabsList className="grid w-full grid-cols-2 sm:grid-cols-3 md:grid-cols-5 h-auto">
+                <TabsList className="grid w-full grid-cols-2 sm:grid-cols-3 md:grid-cols-5 h-auto bg-muted/50">
                     <TabsTrigger value="tab1">"ক" ইউনিট</TabsTrigger>
                     <TabsTrigger value="tab2">"খ" ইউনিট</TabsTrigger>
                     <TabsTrigger value="tab3">"গ" ইউনিট</TabsTrigger>
@@ -237,23 +238,23 @@ function DhakaUniversityPage() {
                 </TabsList>
                 <TabsContent value="tab1">
                     <Accordion type="multiple" className="w-full text-left">
-                        <AccordionItem value="qb-a-1" className="border-border rounded-2xl mt-1.5">
-                            <AccordionTrigger className="p-3 text-sm sm:text-base font-bold hover:no-underline"><File className="inline-block mr-2" /> সালভিত্তিক প্রশ্নব্যাংক</AccordionTrigger>
+                        <AccordionItem value="qb-a-1" className="border-border rounded-2xl mt-1.5 hover:bg-accent/50">
+                            <AccordionTrigger className="p-3 text-base font-bold hover:no-underline"><File className="inline-block mr-2" /> সালভিত্তিক প্রশ্নব্যাংক</AccordionTrigger>
                             <AccordionContent className="p-4 pt-0 text-muted-foreground text-sm sm:text-base">
-                                ● <a href="https://t.me/PDFHour/10357" target="_blank" className="text-primary">আসপেক্ট “ক” ইউনিট প্রশ্নব্যাংক</a><br/>
-                                ● <a href="https://t.me/PDFHour/10357" target="_blank" className="text-primary">উদ্ভাস “ক” ইউনিট প্রশ্নব্যাংক</a><br/>
+                                ● <a href="https://t.me/PDFHour/10357" target="_blank" className="text-primary hover:underline">আসপেক্ট “ক” ইউনিট প্রশ্নব্যাংক</a><br/>
+                                ● <a href="https://t.me/PDFHour/10357" target="_blank" className="text-primary hover:underline">উদ্ভাস “ক” ইউনিট প্রশ্নব্যাংক</a><br/>
                                 <b> 🔰 সকল সালের প্রশ্ন একত্রে</b><br/>
-                                ● <a href="https://t.me/PDFHour/10297" target="_blank" className="text-primary">Question of 1995-96</a><br/>
+                                ● <a href="https://t.me/PDFHour/10297" target="_blank" className="text-primary hover:underline">Question of 1995-96</a><br/>
                                ... many more links
                             </AccordionContent>
                         </AccordionItem>
-                        <AccordionItem value="qb-a-2" className="border-border rounded-2xl mt-1.5">
-                            <AccordionTrigger className="p-3 text-sm sm:text-base font-bold hover:no-underline"><File className="inline-block mr-2" /> অধ্যায়ভিত্তিক প্রশ্নব্যাংক</AccordionTrigger>
+                        <AccordionItem value="qb-a-2" className="border-border rounded-2xl mt-1.5 hover:bg-accent/50">
+                            <AccordionTrigger className="p-3 text-base font-bold hover:no-underline"><File className="inline-block mr-2" /> অধ্যায়ভিত্তিক প্রশ্নব্যাংক</AccordionTrigger>
                             <AccordionContent className="p-4 pt-0 text-muted-foreground text-sm sm:text-base">
-                                ● <a href="https://t.me/PDFHour/10285" target="_blank" className="text-primary">রেটিনা ঢাবি “ক” ইউনিট প্রশ্নব্যাংক</a><br/><br/>
+                                ● <a href="https://t.me/PDFHour/10285" target="_blank" className="text-primary hover:underline">রেটিনা ঢাবি “ক” ইউনিট প্রশ্নব্যাংক</a><br/><br/>
                                 <b> 🔰 সহায়ক বই</b><br/>
-                                ● <a href="https://t.me/PDFHour/10214" target="_blank" className="text-primary">উদ্ভাস ভার্সিটি “ক” প্রশ্নব্যাংক</a><br/>
-                                ● <a href="https://t.me/PDFHour/10478" target="_blank" className="text-primary">উদ্ভাস ভার্সিটি “ক” প্রিপারেশন বুক</a>
+                                ● <a href="https://t.me/PDFHour/10214" target="_blank" className="text-primary hover:underline">উদ্ভাস ভার্সিটি “ক” প্রশ্নব্যাংক</a><br/>
+                                ● <a href="https://t.me/PDFHour/10478" target="_blank" className="text-primary hover:underline">উদ্ভাস ভার্সিটি “ক” প্রিপারেশন বুক</a>
                             </AccordionContent>
                         </AccordionItem>
                     </Accordion>
@@ -278,7 +279,7 @@ function DhakaUniversityPage() {
         </div>
         
         {/* Info Section */}
-        <div id="Info" className="mt-4 w-full border border-border bg-card rounded-2xl p-4 sm:p-6 shadow-lg relative text-left">
+        <div id="Info" className="mt-8 w-full border border-border bg-card rounded-2xl p-4 sm:p-6 shadow-lg relative text-left">
             <div className="flex justify-center">
                 <div className="inline-block px-6 py-2 bg-gradient-to-r from-primary to-blue-500 text-white rounded-full text-base sm:text-lg mb-4 font-bold shadow-md">তথ্যভান্ডার (HSC-24)</div>
             </div>
@@ -295,14 +296,14 @@ function DhakaUniversityPage() {
 
                 <div className="flex items-center gap-2 flex-wrap">
                     <CircleCheck className="text-green-600" size={16}/>
-                    <a href='https://t.me/Study_on_Telegram/13209' target="_blank" className="text-primary">আবেদনের ধাপসমূহ একত্রে</a> | 
-                    <a href='https://t.me/Study_on_Telegram/13206' className="text-primary">আবেদনের সচিত্র প্রসেস</a>
+                    <a href='https://t.me/Study_on_Telegram/13209' target="_blank" className="text-primary hover:underline">আবেদনের ধাপসমূহ একত্রে</a> | 
+                    <a href='https://t.me/Study_on_Telegram/13206' className="text-primary hover:underline">আবেদনের সচিত্র প্রসেস</a>
                 </div>
             </div>
             <hr className="my-3 border-border/50" />
 
              <div className="text-sm sm:text-base">
-                <b><LinkIcon className="inline-block mr-2" size={16}/>লিংকঃ</b> <a href='https://admission.eis.du.ac.bd/' target="_blank" className="text-primary">https://admission.eis.du.ac.bd/ <ArrowUpRightFromSquare size={11} className="inline-block"/></a><br/><br/>
+                <b><LinkIcon className="inline-block mr-2" size={16}/>লিংকঃ</b> <a href='https://admission.eis.du.ac.bd/' target="_blank" className="text-primary hover:underline">https://admission.eis.du.ac.bd/ <ArrowUpRightFromSquare size={11} className="inline-block"/></a><br/><br/>
                 
                 ✔ <b><u>আবেদনের যোগ্যতাঃ</u></b>
                 <hr className="my-1 border-border/50" />
@@ -313,8 +314,8 @@ function DhakaUniversityPage() {
             <hr className="my-3 border-border/50" />
 
             <Accordion type="multiple" className="w-full">
-                <AccordionItem value="info-1" className="border-border rounded-2xl">
-                    <AccordionTrigger className="p-3 text-sm sm:text-base font-bold hover:no-underline"><CircleAlert className="mr-2"/> ইউনিট ও বিভাগ ভিত্তিক শর্ত</AccordionTrigger>
+                <AccordionItem value="info-1" className="border-border rounded-2xl hover:bg-accent/50">
+                    <AccordionTrigger className="p-3 text-base font-bold hover:no-underline"><CircleAlert className="mr-2"/> ইউনিট ও বিভাগ ভিত্তিক শর্ত</AccordionTrigger>
                     <AccordionContent className="p-4 pt-0 text-muted-foreground text-sm sm:text-base">
                     ❐ <b>“ক” ইউনিট:</b><br/>
                     ● <b>বিজ্ঞান বিভাগ:</b> SSC ও HSC তে চতুর্থ বিষয় সহ ন্যূনতম GPA-3.5 এবং SSC ও HSC মিলে মোট ন্যূনতম GPA-8.0<br/>
@@ -335,8 +336,8 @@ function DhakaUniversityPage() {
                     ● <b>যেকোনো বিভাগ:</b> SSC ও HSC তে চতুর্থ বিষয় সহ ন্যূনতম GPA-3.5 এবং SSC ও HSC মিলে মোট ন্যূনতম GPA-8.0
                     </AccordionContent>
                 </AccordionItem>
-                 <AccordionItem value="info-2" className="border-border rounded-2xl mt-1.5">
-                    <AccordionTrigger className="p-3 text-sm sm:text-base font-bold hover:no-underline"><Info className="mr-2"/> ইমপ্রুভমেন্ট ও পরবর্তী ব্যাচের সাথে পরীক্ষা দেয়া সংক্রান্ত বিস্তারিত</AccordionTrigger>
+                 <AccordionItem value="info-2" className="border-border rounded-2xl mt-1.5 hover:bg-accent/50">
+                    <AccordionTrigger className="p-3 text-base font-bold hover:no-underline"><Info className="mr-2"/> ইমপ্রুভমেন্ট ও পরবর্তী ব্যাচের সাথে পরীক্ষা দেয়া সংক্রান্ত বিস্তারিত</AccordionTrigger>
                     <AccordionContent className="p-4 pt-0 text-muted-foreground text-sm sm:text-base">
                     <b>দুটি শর্তে একজন শিক্ষার্থী পরবর্তী ব্যাচের সাথে পরের বছর ঢাকা বিশ্ববিদ্যালয়ে পরীক্ষা দিতে পারবে -<br/><br/>
                     ১।</b> ঢাকা বিশ্ববিদ্যালয় কিংবা অধিভুক্ত কলেজে আবেদন না করা<br/>
@@ -351,7 +352,7 @@ function DhakaUniversityPage() {
             <div className="text-sm sm:text-base">
                 <span><b>➜ শুরু:</b> ২৩ ডিসেম্বর, ২০২৪<br/>
                 <b>➜ শেষ:</b> পরীক্ষা শুরুর ১ ঘণ্টা পূর্ব পর্যন্ত<br/><br/>
-                <b><LinkIcon className="inline-block mr-2" size={16}/>লিংকঃ</b> <a href='https://admission.eis.du.ac.bd/' target="_blank" className="text-primary">https://admission.eis.du.ac.bd/ <ArrowUpRightFromSquare size={11} className="inline-block"/></a>
+                <b><LinkIcon className="inline-block mr-2" size={16}/>লিংকঃ</b> <a href='https://admission.eis.du.ac.bd/' target="_blank" className="text-primary hover:underline">https://admission.eis.du.ac.bd/ <ArrowUpRightFromSquare size={11} className="inline-block"/></a>
                 <br/>(লগ ইন করে নিয়ে ডাউনলোড করতে হবে।)
                 <br/><br/>
                 <b><i className="text-orange-500 flex items-center"><CircleAlert size={16} className="inline-block mr-1"/></i> নোটঃ</b> প্রবেশপত্রে শুধু পরীক্ষার অঞ্চল উল্লেখ থাকে। কিন্তু, ঠিক কোন সেন্টারে, কোন বিল্ডিং/রুম এ হবে, সেটা পরে দেয়। সাধারণত যে দিন যে ইউনিটের পরীক্ষা,  পরীক্ষা শুরুর ৭২ হতে ৪৮ ঘন্টা পূর্বে প্রকাশ করে।
@@ -367,11 +368,11 @@ function DhakaUniversityPage() {
             </span>
             <hr className="my-3 border-border/50"/>
             <div className="border border-border/80 p-3 text-center rounded-md text-sm sm:text-base">
-            সকল বিশ্ববিদ্যালয়ের <b>পরীক্ষার তারিখ ও কাউন্টডাউন</b> দেখতে ভিজিট করো <b><a href='https://mnr.world/ac/' target="_blank" className="text-primary">এডমিশন ক্যালেন্ডার <ArrowUpRightFromSquare size={11} className="inline-block"/></a></b>
+            সকল বিশ্ববিদ্যালয়ের <b>পরীক্ষার তারিখ ও কাউন্টডাউন</b> দেখতে ভিজিট করো <b><a href='https://mnr.world/ac/' target="_blank" className="text-primary hover:underline">এডমিশন ক্যালেন্ডার <ArrowUpRightFromSquare size={11} className="inline-block"/></a></b>
             </div>
 
             <h5 id="Location" className="bg-primary/10 text-primary rounded-xl p-3 my-4 text-center text-lg sm:text-xl font-bold flex items-center justify-center"><MapPin className="mr-2"/> ভর্তি পরীক্ষার কেন্দ্র</h5>
-             <span className="text-sm sm:text-base">➜ বিভাগীয় শহরে <a href="https://t.me/Study_on_Telegram/13199" className="text-primary">[তালিকা]</a><br/>
+             <span className="text-sm sm:text-base">➜ বিভাগীয় শহরে <a href="https://t.me/Study_on_Telegram/13199" className="text-primary hover:underline">[তালিকা]</a><br/>
              <hr className="my-2 border-border/50" />
             <b><i className="text-orange-500 flex items-center"><CircleAlert size={16} className="inline-block mr-1"/></i> নোটঃ</b> চারুকলা বা “চ” ইউনিট এবং IBA এর পরীক্ষা শুধুমাত্র ঢাকায় হবে। বাকি সব ইউনিটের পরীক্ষা বিভাগীয় শহরে হবে।</span>
 
@@ -390,7 +391,7 @@ function DhakaUniversityPage() {
              <h5 id="Result" className="bg-primary/10 text-primary rounded-xl p-3 my-4 text-center text-lg sm:text-xl font-bold flex items-center justify-center"><BarChartBig className="mr-2"/> ভর্তি পরীক্ষার ফলাফল</h5>
              <span className="text-sm sm:text-base">● <b>ফলাফল প্রকাশ:</b> ভর্তি পরীক্ষার ৪ সপ্তাহের মধ্যে
                 <hr className="my-1 border-border/50" />
-                <b><LinkIcon className="inline-block mr-2" size={16}/>লিংকঃ</b> <a href='https://admission.eis.du.ac.bd/' target="_blank" className="text-primary">https://admission.eis.du.ac.bd/ <ArrowUpRightFromSquare size={11} className="inline-block"/></a>
+                <b><LinkIcon className="inline-block mr-2" size={16}/>লিংকঃ</b> <a href='https://admission.eis.du.ac.bd/' target="_blank" className="text-primary hover:underline">https://admission.eis.du.ac.bd/ <ArrowUpRightFromSquare size={11} className="inline-block"/></a>
             </span>
         </div>
 

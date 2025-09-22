@@ -60,11 +60,11 @@ function CoursesPage() {
   ];
 
   return (
-    <div className="font-bengali bg-background my-8">
+    <div className="font-bengali bg-background py-8">
       <div className="container mx-auto px-4">
         {/* Main Card */}
-        <div className="mt-[70px] w-full border border-border bg-card rounded-2xl p-6 sm:p-8 shadow-lg text-center relative animate-fadeInUp">
-          <div className="w-[100px] h-[100px] absolute top-[-50px] left-1/2 -translate-x-1/2 bg-card rounded-2xl shadow-xl z-10 flex items-center justify-center">
+        <div className="mt-20 sm:mt-24 w-full border border-border bg-card rounded-2xl p-6 sm:p-8 shadow-lg text-center relative animate-fadeInUp">
+          <div className="w-24 h-24 absolute -top-12 left-1/2 -translate-x-1/2 bg-card rounded-2xl shadow-xl z-10 flex items-center justify-center">
             <GraduationCap className="h-16 w-16 text-primary" />
           </div>
           <div className="pt-12">
@@ -78,7 +78,7 @@ function CoursesPage() {
               আপনার স্বপ্ন পূরণের যাত্রায় আমরা আছি আপনার পাশে। সেরা শিক্ষকদের তত্ত্বাবধানে আপনার প্রস্তুতিকে করুন আরও মজবুত।
             </p>
           </div>
-          <div className="flex justify-around mb-6 text-sm sm:text-base">
+          <div className="flex justify-around items-center mb-6 text-sm sm:text-base max-w-md mx-auto">
             <div className="text-center">
               <div className="text-xl sm:text-2xl font-bold text-foreground">১০+</div>
               <div className="text-xs sm:text-sm text-muted-foreground">কোর্স</div>
@@ -88,7 +88,7 @@ function CoursesPage() {
               <div className="text-xs sm:text-sm text-muted-foreground">শিক্ষক</div>
             </div>
             <div className="text-center">
-              <div className="text-xl sm:text-2xl font-bold text-foreground flex items-center">
+              <div className="text-xl sm:text-2xl font-bold text-foreground flex items-center justify-center">
                 ১০০০০+
                 <TooltipProvider>
                   <Tooltip>
@@ -109,7 +109,7 @@ function CoursesPage() {
         </div>
 
         {/* Courses Grid */}
-        <div id="Info" className="mt-5 grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div id="Info" className="mt-12 grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {courses.map((course, index) => (
             <div key={index} className="bg-card border border-border rounded-xl p-6 shadow-lg hover:shadow-primary/20 hover:-translate-y-2 transition-all duration-300 animate-fadeInUp">
                 <div className="flex items-center gap-4">
@@ -124,12 +124,12 @@ function CoursesPage() {
           ))}
         </div>
         
-        <div className="mt-5 w-full border border-border bg-card rounded-2xl p-6 sm:p-8 shadow-lg text-center relative animate-fadeInUp">
+        <div className="mt-8 w-full border border-border bg-card rounded-2xl p-6 sm:p-8 shadow-lg text-center relative animate-fadeInUp">
             <div className="flex justify-center">
                 <div className="inline-block px-6 py-2 bg-gradient-to-r from-primary to-blue-500 text-white rounded-full text-base sm:text-lg mb-4 font-bold shadow-md">আমাদের বইসমূহ</div>
             </div>
              <p className="text-muted-foreground mb-4 text-sm sm:text-base">আমাদের কোর্সগুলোর পাশাপাশি প্রস্তুতিকে আরও শাণিত করতে সংগ্রহ করতে পারো আমাদের নিজস্ব প্রকাশনার বইগুলো।</p>
-            <Button asChild>
+            <Button asChild className="transition-transform hover:scale-105">
                 <Link href="/question-bank"><BookOpen className="mr-2"/> বই দেখতে ক্লিক করুন</Link>
             </Button>
         </div>

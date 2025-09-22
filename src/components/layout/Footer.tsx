@@ -70,7 +70,7 @@ export default function Footer() {
               </li>
               <li>
                 <Link
-                  href="#"
+                  href="/blog"
                   className="text-muted-foreground hover:text-primary transition-colors duration-300 flex items-center"
                 >
                   <ArrowRight className="text-primary mr-2 h-5 w-5" />

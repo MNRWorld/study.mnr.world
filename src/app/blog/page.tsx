@@ -69,12 +69,12 @@ function BlogPage() {
     ];
 
     return (
-        <div className="font-bengali bg-background my-8">
+        <div className="font-bengali bg-background py-8">
             <div className="container mx-auto px-4">
                 {/* Main Card */}
-                <div className="mt-[70px] w-full border border-border bg-card rounded-2xl p-6 sm:p-8 shadow-lg text-center relative animate-fadeInUp">
-                    <div className="w-[100px] h-[100px] absolute top-[-50px] left-1/2 -translate-x-1/2 bg-card rounded-2xl shadow-xl z-10 flex items-center justify-center">
-                        <Rss className="h-16 w-16 text-primary" />
+                <div className="mt-20 sm:mt-24 w-full border border-border bg-card rounded-2xl p-6 sm:p-8 shadow-lg text-center relative animate-fadeInUp">
+                    <div className="w-24 h-24 absolute -top-12 left-1/2 -translate-x-1/2 bg-card rounded-2xl shadow-xl z-10 flex items-center justify-center">
+                        <Rss className="h-14 w-14 text-primary" />
                     </div>
                     <div className="pt-12">
                         <div className="text-2xl sm:text-3xl font-bold my-2 text-foreground">
@@ -90,7 +90,7 @@ function BlogPage() {
                 </div>
 
                 {/* Blog Grid */}
-                <div className="mt-8 grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div className="mt-12 grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                     {blogPosts.map((post) => (
                         <div key={post.id} className="bg-card border border-border rounded-xl shadow-lg overflow-hidden hover:shadow-primary/20 hover:-translate-y-2 transition-all duration-300 flex flex-col animate-fadeInUp">
                             <Link href="#" className="block">
