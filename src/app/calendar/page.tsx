@@ -39,32 +39,32 @@ function CalendarPage() {
     <div className="font-bengali bg-background my-[30px]">
       <div className="container mx-auto px-4">
         {/* Main Card */}
-        <div className="mt-[25px] sm:mt-[70px] w-full border border-border bg-card rounded-2xl p-[30px_30px_20px_20px] sm:p-[25px_15px] shadow-lg text-center relative">
-          <div className="w-[100px] h-[100px] absolute top-[-45px] left-1/2 -translate-x-1/2 bg-card rounded-2xl shadow-xl z-10 flex items-center justify-center">
+        <div className="mt-[70px] w-full border border-border bg-card rounded-2xl p-6 sm:p-8 shadow-lg text-center relative">
+          <div className="w-[100px] h-[100px] absolute top-[-50px] left-1/2 -translate-x-1/2 bg-card rounded-2xl shadow-xl z-10 flex items-center justify-center">
             <CalendarDays className="h-16 w-16 text-primary" />
           </div>
-          <br />
-          <br />
-          <div className="text-2xl font-bold my-[10px] mx-0 text-foreground">
-            এডমিশন ক্যালেন্ডার
+          <div className="pt-12">
+            <div className="text-2xl sm:text-3xl font-bold my-2 text-foreground">
+              এডমিশন ক্যালেন্ডার
+            </div>
+            <div className="text-sm text-muted-foreground mb-4">
+              (Admission Calendar)
+            </div>
+            <p className="text-base text-muted-foreground mb-6 max-w-2xl mx-auto">
+              সকল বিশ্ববিদ্যালয়ের ভর্তি পরীক্ষার তারিখ, সময় ও সর্বশেষ আপডেট পেতে আমাদের সাথে থাকুন।
+            </p>
           </div>
-          <div className="text-[15px] text-muted-foreground mb-[15px]">
-            (Admission Calendar)
-          </div>
-          <div className="text-[15px] text-muted-foreground mb-5 leading-relaxed">
-            সকল বিশ্ববিদ্যালয়ের ভর্তি পরীক্ষার তারিখ, সময় ও সর্বশেষ আপডেট পেতে আমাদের সাথে থাকুন।
-          </div>
-          <div className="flex justify-around mb-5">
+          <div className="flex justify-around mb-6 text-sm sm:text-base">
             <div className="text-center">
-              <div className="text-xl font-bold text-foreground">৫০+</div>
-              <div className="text-[13px] text-muted-foreground">বিশ্ববিদ্যালয়</div>
+              <div className="text-xl sm:text-2xl font-bold text-foreground">৫০+</div>
+              <div className="text-xs sm:text-sm text-muted-foreground">বিশ্ববিদ্যালয়</div>
             </div>
             <div className="text-center">
-              <div className="text-xl font-bold text-foreground">১০০+</div>
-              <div className="text-[13px] text-muted-foreground">ভর্তি পরীক্ষা</div>
+              <div className="text-xl sm:text-2xl font-bold text-foreground">১০০+</div>
+              <div className="text-xs sm:text-sm text-muted-foreground">ভর্তি পরীক্ষা</div>
             </div>
             <div className="text-center">
-              <div className="text-xl font-bold text-foreground flex items-center">
+              <div className="text-xl sm:text-2xl font-bold text-foreground flex items-center">
                 লাইভ
                 <TooltipProvider>
                   <Tooltip>
@@ -79,36 +79,36 @@ function CalendarPage() {
                   </Tooltip>
                 </TooltipProvider>
               </div>
-              <div className="text-[13px] text-muted-foreground">স্ট্যাটাস</div>
+              <div className="text-xs sm:text-sm text-muted-foreground">স্ট্যাটাস</div>
             </div>
           </div>
           <Link
             href="#Info"
-            className="inline-flex items-center gap-2 px-[15px] py-[6px] bg-primary text-primary-foreground border border-primary rounded-lg text-[13px] shadow-lg transition-all ease-in-out duration-300 hover:bg-background hover:text-primary"
+            className="inline-flex items-center gap-2 px-4 py-2 bg-primary text-primary-foreground border border-primary rounded-lg text-sm shadow-lg transition-all ease-in-out duration-300 hover:bg-background hover:text-primary"
           >
             <Info size={14} /> মূল তথ্য
           </Link>
         </div>
 
         {/* Countdown Timer */}
-        <div className="mt-2.5 w-full border border-border bg-card rounded-2xl p-[17px_15px] shadow-lg relative">
+        <div className="mt-4 w-full border border-border bg-card rounded-2xl p-4 sm:p-6 shadow-lg relative">
             <CountdownTimer />
         </div>
 
         {/* Info Section */}
-        <div id="Info" className="mt-2.5 w-full border border-border bg-card rounded-2xl p-[17px] shadow-lg relative text-left">
+        <div id="Info" className="mt-4 w-full border border-border bg-card rounded-2xl p-4 sm:p-6 shadow-lg relative text-left">
             <div className="flex justify-center">
-                <div className="inline-block px-[25px] py-[9px] bg-gradient-to-r from-primary to-blue-500 text-white rounded-full text-base mb-3 font-bold shadow-md">সাধারণ তথ্য</div>
+                <div className="inline-block px-6 py-2 bg-gradient-to-r from-primary to-blue-500 text-white rounded-full text-base sm:text-lg mb-4 font-bold shadow-md">সাধারণ তথ্য</div>
             </div>
             
-            <h5 id="ExamDate" className="bg-primary/10 text-primary rounded-xl p-3 my-[15px] mt-4 text-center text-lg font-bold flex items-center justify-center"><Timer className="mr-2"/> পরীক্ষার সময়কাল</h5>
-             <div className="border border-border/80 p-3 text-center rounded-md">
+            <h5 id="ExamDate" className="bg-primary/10 text-primary rounded-xl p-3 my-4 text-center text-lg sm:text-xl font-bold flex items-center justify-center"><Timer className="mr-2"/> পরীক্ষার সময়কাল</h5>
+             <div className="border border-border/80 p-3 text-center rounded-md text-sm sm:text-base">
                 সকল বিশ্ববিদ্যালয়ের <b>পরীক্ষার তারিখ ও কাউন্টডাউন</b> দেখতে ভিজিট করো <b><a href='https://mnr.world/ac/' target="_blank" className="text-primary">এডমিশন ক্যালেন্ডার <ArrowUpRightFromSquare size={11} className="inline-block"/></a></b>
             </div>
 
-             <h5 id="Result" className="bg-primary/10 text-primary rounded-xl p-3 my-[15px] mt-4 text-center text-lg font-bold flex items-center justify-center"><BarChartBig className="mr-2"/> ভর্তি পরীক্ষার ফলাফল</h5>
-             <span>● <b>ফলাফল প্রকাশ:</b> সাধারণত ভর্তি পরীক্ষার ১-৪ সপ্তাহের মধ্যে।
-                <hr className="my-1 border-border/50" />
+             <h5 id="Result" className="bg-primary/10 text-primary rounded-xl p-3 my-4 text-center text-lg sm:text-xl font-bold flex items-center justify-center"><BarChartBig className="mr-2"/> ভর্তি পরীক্ষার ফলাফল</h5>
+             <span className="text-sm sm:text-base">● <b>ফলাফল প্রকাশ:</b> সাধারণত ভর্তি পরীক্ষার ১-৪ সপ্তাহের মধ্যে।
+                <hr className="my-2 border-border/50" />
                 <b><LinkIcon className="inline-block mr-2" size={16}/>লিংকঃ</b> নিজ নিজ বিশ্ববিদ্যালয়ের ওয়েবসাইটে ফলাফল প্রকাশিত হয়।
             </span>
         </div>

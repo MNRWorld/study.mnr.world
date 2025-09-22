@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
-import { BookMarked } from "lucide-react";
+import { BookMarked, Menu } from "lucide-react";
+import { Sheet, SheetTrigger, SheetContent, SheetClose } from "@/components/ui/sheet";
 
 export default function Header() {
   return (
@@ -15,29 +16,72 @@ export default function Header() {
               </span>
             </Link>
           </div>
+          {/* Desktop Nav */}
           <div className="hidden md:flex items-center space-x-8">
             <Link
-              href="#"
+              href="/question-bank"
               className="text-slate-300 header-link font-bengali font-medium"
             >
               প্রশ্নব্যাংক
             </Link>
             <Link
-              href="#"
+              href="/calendar"
               className="text-slate-300 header-link font-bengali font-medium"
             >
               এডমিশন ক্যালেন্ডার
             </Link>
             <Link
-              href="#"
+              href="/courses"
               className="text-slate-300 header-link font-bengali font-medium"
             >
               কোর্স
             </Link>
           </div>
-          <Button className="join-btn text-white font-semibold py-2 px-6 rounded-lg font-bengali">
-            যোগ দিন
-          </Button>
+           <div className="hidden md:flex items-center">
+            <Button className="join-btn text-white font-semibold py-2 px-6 rounded-lg font-bengali">
+              যোগ দিন
+            </Button>
+          </div>
+
+          {/* Mobile Nav */}
+          <div className="md:hidden">
+            <Sheet>
+              <SheetTrigger asChild>
+                <Button variant="ghost" size="icon">
+                  <Menu className="h-6 w-6 text-white" />
+                  <span className="sr-only">Open menu</span>
+                </Button>
+              </SheetTrigger>
+              <SheetContent side="left" className="w-[280px] bg-background border-r-border/50">
+                 <div className="flex flex-col h-full p-4">
+                    <div className="flex items-center space-x-3 mb-8">
+                        <Link href="/" className="flex items-center space-x-3">
+                          <BookMarked className="h-8 w-8 text-primary" />
+                          <span className="text-2xl font-bold text-slate-100">
+                            <span className="logo-study">Study</span>
+                          </span>
+                        </Link>
+                      </div>
+                      <nav className="flex flex-col space-y-4">
+                         <SheetClose asChild>
+                            <Link href="/question-bank" className="text-slate-300 header-link font-bengali font-medium text-lg">প্রশ্নব্যাংক</Link>
+                         </SheetClose>
+                         <SheetClose asChild>
+                           <Link href="/calendar" className="text-slate-300 header-link font-bengali font-medium text-lg">এডমিশন ক্যালেন্ডার</Link>
+                         </SheetClose>
+                         <SheetClose asChild>
+                           <Link href="/courses" className="text-slate-300 header-link font-bengali font-medium text-lg">কোর্স</Link>
+                         </SheetClose>
+                      </nav>
+                      <div className="mt-auto">
+                        <Button className="w-full join-btn text-white font-semibold py-3 rounded-lg font-bengali text-lg">
+                          যোগ দিন
+                        </Button>
+                      </div>
+                 </div>
+              </SheetContent>
+            </Sheet>
+          </div>
         </nav>
       </div>
     </header>

@@ -86,8 +86,8 @@ const CountdownTimer = () => {
       const offset = circumference - progress * circumference;
 
       return (
-          <div className="relative w-[110px] h-[110px] sm:w-[65px] sm:h-[65px] shrink-0">
-              <svg className="transform -scale-x-100" viewBox="0 0 100 100">
+          <div className="relative w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 shrink-0">
+              <svg className="w-full h-full transform -rotate-90" viewBox="0 0 100 100">
                   <circle className="text-muted-foreground/20" strokeWidth="6" stroke="currentColor" fill="transparent" r="45" cx="50" cy="50" />
                   <circle className="text-primary"
                       strokeWidth="6"
@@ -99,19 +99,18 @@ const CountdownTimer = () => {
                       r="45"
                       cx="50"
                       cy="50"
-                      style={{ transform: 'rotate(90deg)', transformOrigin: 'center' }}
                   />
               </svg>
               <div className="absolute inset-0 flex flex-col items-center justify-center">
-                  <div className="text-2xl sm:text-lg font-bold">{value}</div>
-                  <div className="text-xs sm:text-[10px] text-muted-foreground">{unit}</div>
+                  <div className="text-xl sm:text-2xl font-bold">{value}</div>
+                  <div className="text-xs sm:text-sm text-muted-foreground">{unit}</div>
               </div>
           </div>
       );
   };
 
   return (
-      <div className="text-center p-5 m-2.5 rounded-2xl bg-card">
+      <div className="text-center p-4 rounded-2xl bg-card">
           <div className="text-lg font-bold mb-3">
               {currentDeadline.title}
               <div className="font-normal text-sm mt-1 text-muted-foreground">
@@ -121,7 +120,7 @@ const CountdownTimer = () => {
           {isCompleted ? (
               <div className="text-xl text-red-500 font-bold mt-2.5">সময় শেষ</div>
           ) : (
-              <div className="flex gap-3 sm:gap-2 justify-center flex-nowrap">
+              <div className="flex gap-2 sm:gap-4 justify-center flex-nowrap">
                  <TimeCircle unit="Days" value={timeLeft.days} max={365}/>
                  <TimeCircle unit="Hours" value={timeLeft.hours} max={24}/>
                  <TimeCircle unit="Minutes" value={timeLeft.minutes} max={60}/>

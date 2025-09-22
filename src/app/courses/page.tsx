@@ -22,6 +22,8 @@ import Link from 'next/link';
 import React from 'react';
 import FloatingMenu from '@/app/university/dhaka/_components/FloatingMenu';
 
+// Need to import these icons to be used in the courses array
+import { University, HeartPulse, Cog, Network, BookCopy, Briefcase } from 'lucide-react';
 
 function CoursesPage() {
   const courses = [
@@ -58,35 +60,35 @@ function CoursesPage() {
   ];
 
   return (
-    <div className="font-bengali bg-background my-[30px]">
+    <div className="font-bengali bg-background my-8">
       <div className="container mx-auto px-4">
         {/* Main Card */}
-        <div className="mt-[25px] sm:mt-[70px] w-full border border-border bg-card rounded-2xl p-[30px_30px_20px_20px] sm:p-[25px_15px] shadow-lg text-center relative">
-          <div className="w-[100px] h-[100px] absolute top-[-45px] left-1/2 -translate-x-1/2 bg-card rounded-2xl shadow-xl z-10 flex items-center justify-center">
+        <div className="mt-[70px] w-full border border-border bg-card rounded-2xl p-6 sm:p-8 shadow-lg text-center relative">
+          <div className="w-[100px] h-[100px] absolute top-[-50px] left-1/2 -translate-x-1/2 bg-card rounded-2xl shadow-xl z-10 flex items-center justify-center">
             <GraduationCap className="h-16 w-16 text-primary" />
           </div>
-          <br />
-          <br />
-          <div className="text-2xl font-bold my-[10px] mx-0 text-foreground">
-            আমাদের কোর্সসমূহ
+          <div className="pt-12">
+            <div className="text-2xl sm:text-3xl font-bold my-2 text-foreground">
+              আমাদের কোর্সসমূহ
+            </div>
+            <div className="text-sm text-muted-foreground mb-4">
+              (Our Courses)
+            </div>
+            <p className="text-base text-muted-foreground mb-6 max-w-2xl mx-auto">
+              আপনার স্বপ্ন পূরণের যাত্রায় আমরা আছি আপনার পাশে। সেরা শিক্ষকদের তত্ত্বাবধানে আপনার প্রস্তুতিকে করুন আরও মজবুত।
+            </p>
           </div>
-          <div className="text-[15px] text-muted-foreground mb-[15px]">
-            (Our Courses)
-          </div>
-          <div className="text-[15px] text-muted-foreground mb-5 leading-relaxed">
-            আপনার স্বপ্ন পূরণের যাত্রায় আমরা আছি আপনার পাশে। সেরা শিক্ষকদের তত্ত্বাবধানে আপনার প্রস্তুতিকে করুন আরও মজবুত।
-          </div>
-          <div className="flex justify-around mb-5">
+          <div className="flex justify-around mb-6 text-sm sm:text-base">
             <div className="text-center">
-              <div className="text-xl font-bold text-foreground">১০+</div>
-              <div className="text-[13px] text-muted-foreground">কোর্স</div>
+              <div className="text-xl sm:text-2xl font-bold text-foreground">১০+</div>
+              <div className="text-xs sm:text-sm text-muted-foreground">কোর্স</div>
             </div>
             <div className="text-center">
-              <div className="text-xl font-bold text-foreground">৫০+</div>
-              <div className="text-[13px] text-muted-foreground">শিক্ষক</div>
+              <div className="text-xl sm:text-2xl font-bold text-foreground">৫০+</div>
+              <div className="text-xs sm:text-sm text-muted-foreground">শিক্ষক</div>
             </div>
             <div className="text-center">
-              <div className="text-xl font-bold text-foreground flex items-center">
+              <div className="text-xl sm:text-2xl font-bold text-foreground flex items-center">
                 ১০০০০+
                 <TooltipProvider>
                   <Tooltip>
@@ -101,7 +103,7 @@ function CoursesPage() {
                   </Tooltip>
                 </TooltipProvider>
               </div>
-              <div className="text-[13px] text-muted-foreground">শিক্ষার্থী</div>
+              <div className="text-xs sm:text-sm text-muted-foreground">শিক্ষার্থী</div>
             </div>
           </div>
         </div>
@@ -112,9 +114,9 @@ function CoursesPage() {
             <div key={index} className="bg-card border border-border rounded-xl p-6 shadow-lg hover:shadow-primary/20 hover:-translate-y-2 transition-all duration-300">
                 <div className="flex items-center gap-4">
                     {course.icon}
-                    <h3 className="text-xl font-bold text-foreground">{course.title}</h3>
+                    <h3 className="text-lg sm:text-xl font-bold text-foreground">{course.title}</h3>
                 </div>
-                <p className="text-muted-foreground mt-3 mb-4">{course.description}</p>
+                <p className="text-muted-foreground mt-3 mb-4 text-sm sm:text-base">{course.description}</p>
                 <Button asChild className="w-full bg-primary/10 text-primary border border-primary/20 hover:bg-primary hover:text-primary-foreground">
                     <Link href="#">বিস্তারিত দেখুন <ArrowUpRightFromSquare size={14} className="ml-2"/></Link>
                 </Button>
@@ -122,11 +124,11 @@ function CoursesPage() {
           ))}
         </div>
         
-        <div className="mt-5 w-full border border-border bg-card rounded-2xl p-[17px] shadow-lg text-center relative">
+        <div className="mt-5 w-full border border-border bg-card rounded-2xl p-6 sm:p-8 shadow-lg text-center relative">
             <div className="flex justify-center">
-                <div className="inline-block px-[25px] py-[9px] bg-gradient-to-r from-primary to-blue-500 text-white rounded-full text-base mb-3 font-bold shadow-md">আমাদের বইসমূহ</div>
+                <div className="inline-block px-6 py-2 bg-gradient-to-r from-primary to-blue-500 text-white rounded-full text-base sm:text-lg mb-4 font-bold shadow-md">আমাদের বইসমূহ</div>
             </div>
-             <p className="text-muted-foreground mb-4">আমাদের কোর্সগুলোর পাশাপাশি প্রস্তুতিকে আরও শাণিত করতে সংগ্রহ করতে পারো আমাদের নিজস্ব প্রকাশনার বইগুলো।</p>
+             <p className="text-muted-foreground mb-4 text-sm sm:text-base">আমাদের কোর্সগুলোর পাশাপাশি প্রস্তুতিকে আরও শাণিত করতে সংগ্রহ করতে পারো আমাদের নিজস্ব প্রকাশনার বইগুলো।</p>
             <Button asChild>
                 <Link href="/question-bank"><BookOpen className="mr-2"/> বই দেখতে ক্লিক করুন</Link>
             </Button>
@@ -141,7 +143,5 @@ function CoursesPage() {
   );
 }
 
-// Need to import these icons to be used in the courses array
-import { University, HeartPulse, Cog, Network, BookCopy, Briefcase } from 'lucide-react';
 
 export default CoursesPage;
