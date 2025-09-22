@@ -39,7 +39,7 @@ function BlogPage() {
          {
             id: 4,
             title: 'মেডিকেল ভর্তি: জীববিজ্ঞান প্রস্তুতি কেমন হওয়া উচিত?',
-            excerpt: 'মেডিকেল ভর্তি পরীক্ষায় जीवবিজ্ঞানে সর্বোচ্চ নম্বর পেতে কোন কোন অধ্যায়ের উপর জোর দেওয়া উচিত এবং কিভাবে পড়া উচিত, তা নিয়ে আলোচনা।',
+            excerpt: 'মেডিকেল ভর্তি পরীক্ষায় জীববিজ্ঞানে সর্বোচ্চ নম্বর পেতে কোন কোন অধ্যায়ের উপর জোর দেওয়া উচিত এবং কিভাবে পড়া উচিত, তা নিয়ে আলোচনা।',
             author: 'ফারজানা ইসলাম',
             date: 'জুলাই ১৮, ২০২৪',
             imageUrl: 'https://picsum.photos/seed/blog-4/600/400',
@@ -72,7 +72,7 @@ function BlogPage() {
         <div className="font-bengali bg-background my-8">
             <div className="container mx-auto px-4">
                 {/* Main Card */}
-                <div className="mt-[70px] w-full border border-border bg-card rounded-2xl p-6 sm:p-8 shadow-lg text-center relative">
+                <div className="mt-[70px] w-full border border-border bg-card rounded-2xl p-6 sm:p-8 shadow-lg text-center relative animate-fadeInUp">
                     <div className="w-[100px] h-[100px] absolute top-[-50px] left-1/2 -translate-x-1/2 bg-card rounded-2xl shadow-xl z-10 flex items-center justify-center">
                         <Rss className="h-16 w-16 text-primary" />
                     </div>

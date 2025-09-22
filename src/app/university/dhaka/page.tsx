@@ -51,7 +51,7 @@ function DhakaUniversityPage() {
     <div className="font-bengali bg-background my-8">
       <div className="container mx-auto px-4">
         {/* Main Card */}
-        <div className="mt-[70px] w-full border border-border bg-card rounded-2xl p-6 sm:p-8 shadow-lg text-center relative">
+        <div className="mt-[70px] w-full border border-border bg-card rounded-2xl p-6 sm:p-8 shadow-lg text-center relative animate-fadeInUp">
           <div className="text-sm text-foreground absolute top-[-65px] sm:top-[-60px] left-4 bg-card border border-border rounded-lg px-3 py-1">
             <b>পাবলিক</b>
           </div>
@@ -289,14 +289,14 @@ function DhakaUniversityPage() {
                 <b>➜ আবেদন শেষঃ</b> ২৫ নভেম্বর, ২০২৪ (রাত ১১.৫৯টা পর্যন্ত)</span>
                 <div className="my-2">
                   <b><HandCoins className="inline-block mr-2" />আবেদন ফিঃ</b><br/>
-                  <b>&nbsp;&nbsp;&nbsp; ✓ ক, খ, গ, চ ইউনিট:</b> ১০৫০৳<br/>
+                  <b>&nbsp;&nbsp;&nbsp; ✓ ক, খ, গ, চ ইউনিট:</b> ۱۰۵۰৳<br/>
                   <b>&nbsp;&nbsp;&nbsp; ✓ আইবিএ ইউনিট:</b> ১৫০০৳
                 </div>
 
                 <div className="flex items-center gap-2 flex-wrap">
                     <CircleCheck className="text-green-600" size={16}/>
                     <a href='https://t.me/Study_on_Telegram/13209' target="_blank" className="text-primary">আবেদনের ধাপসমূহ একত্রে</a> | 
-                    <a href='https://t.me/Study_on_Telegram/13206' className="text-primary">আবেদনের সচিত্র প্রসেস</a>
+                    <a href='https://t.me/Study_on_Telegram/13206' className="text-primary">আবেদনের ಸচিত্র প্রসেস</a>
                 </div>
             </div>
             <hr className="my-3 border-border/50" />
@@ -326,7 +326,7 @@ function DhakaUniversityPage() {
 
                     ❐ <b>“গ” ইউনিট:</b><br/>
                     ● <b>মানবিক ও ব্যবসা বিভাগ:</b> SSC ও HSC তে চতুর্থ বিষয় সহ নুন্যতম GPA-3.0 এবং SSC ও HSC মিলে মোট নূন্যতম GPA-7.5<br/>
-                    <b>● বিজ্ঞান বিভাগ:</b> SSC ও HSC তে চতুর্থ বিষয় সহ নুন্যতম GPA-3.5 এবং SSC ও HSC মিলে মোট নূন্যতম GPA-8.0<br/><br/>
+                    <b>● বিজ্ঞান বিভাগ:</b> SSC ও HSC তে চতুর্থ বিষয় সহ নুন্যতম GPA-3.5 এবং SSC ও HSC মিলে মোট نূন্যতম GPA-8.0<br/><br/>
 
                     ❐ <b>“চ” ইউনিট:</b><br/>
                     ● <b>যেকোনো বিভাগ:</b> SSC ও HSC তে চতুর্থ বিষয় সহ নুন্যতম GPA-3.0 এবং SSC ও HSC মিলে মোট নূন্যতম GPA-6.5<br/><br/>

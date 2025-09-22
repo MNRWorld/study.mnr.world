@@ -46,7 +46,7 @@ function PrivatePage() {
     <div className="font-bengali bg-background my-8">
       <div className="container mx-auto px-4">
         {/* Main Card */}
-        <div className="mt-[70px] w-full border border-border bg-card rounded-2xl p-6 sm:p-8 shadow-lg text-center relative">
+        <div className="mt-[70px] w-full border border-border bg-card rounded-2xl p-6 sm:p-8 shadow-lg text-center relative animate-fadeInUp">
           <div className="w-[100px] h-[100px] absolute top-[-50px] left-1/2 -translate-x-1/2 bg-card rounded-2xl shadow-xl z-10 flex items-center justify-center">
             <Building className="h-16 w-16 text-primary" />
           </div>
@@ -63,7 +63,7 @@ function PrivatePage() {
           </div>
           <div className="flex justify-around mb-6 text-sm sm:text-base">
             <div className="text-center">
-              <div className="text-xl sm:text-2xl font-bold text-foreground">৮০+</div>
+              <div className="text-xl sm:text-2xl font-bold text-foreground">৮۰+</div>
               <div className="text-xs sm:text-sm text-muted-foreground">বিশ্ববিদ্যালয়</div>
             </div>
             <div className="text-center">
