@@ -31,7 +31,7 @@ import {
   ChevronRight,
   File,
   FilePen,
-  SackDollar,
+  HandCoins,
   CircleCheck,
   Link as LinkIcon,
   ArrowUpRightFromSquare,
@@ -39,7 +39,7 @@ import {
   Contact,
   Stopwatch,
   MapPin,
-  RectangleList,
+  RectangleEllipsis,
   SquarePollVertical,
   Menu,
   Landmark,
@@ -451,7 +451,7 @@ function DhakaUniversityPage() {
             <span><b>➜ আবেদন শুরুঃ</b> ০৪ নভেম্বর, ২০২৪ (দুপুর ১২টা থেকে)<br/>
             <b>➜ আবেদন শেষঃ</b> ২৫ নভেম্বর, ২০২৪ (রাত ১১.৫৯টা পর্যন্ত)</span>
             <div className="my-2">
-              <b><SackDollar className="inline-block mr-2" />আবেদন ফিঃ</b><br/>
+              <b><HandCoins className="inline-block mr-2" />আবেদন ফিঃ</b><br/>
               <b>&nbsp;&nbsp;&nbsp; ✓ ক, খ, গ, চ ইউনিট:</b> ১০৫০৳<br/>
               <b>&nbsp;&nbsp;&nbsp; ✓ আইবিএ ইউনিট:</b> ১৫০০৳
             </div>
@@ -537,7 +537,7 @@ function DhakaUniversityPage() {
 
 
             <div id="MarkDistributionAndOthers"></div>
-            <h5 className="bg-blue-50 text-blue-800 rounded-xl p-3 my-[15px] mt-4 text-center text-lg font-bold flex items-center justify-center"><RectangleList className="mr-2"/> মানবন্টন ও অন্যান্য তথ্য</h5>
+            <h5 className="bg-blue-50 text-blue-800 rounded-xl p-3 my-[15px] mt-4 text-center text-lg font-bold flex items-center justify-center"><RectangleEllipsis className="mr-2"/> মানবন্টন ও অন্যান্য তথ্য</h5>
             {/* ... Mark distribution tabs and content ... */}
 
             <div className="border border-gray-300 rounded-xl p-4 mt-2.5">
@@ -582,4 +582,6 @@ function DhakaUniversityPage() {
 
 export default DhakaUniversityPage;
 
+    
+    
     
