@@ -23,7 +23,7 @@ const FloatingMenu = () => {
                     <a href="#AdmitCard" className={linkClasses}>🎟 প্রবেশপত্র</a>
                     <a href="#ExamDate" className={linkClasses}>⏰ পরীক্ষার সময়কাল</a>
                     <a href="#Location" className={linkClasses}>🗺️ ভর্তি পরীক্ষার কেন্দ্র</a>
-                    <a href="#MarkDistributionAndOthers" className={linkClasses}>ℹ️ মানবন্টন ও অন্যান্য তথ্য</a>
+                    <a href="#MarkDistributionAndOthers" className={linkClasses}>ℹ️ মানবণ্টন ও অন্যান্য তথ্য</a>
                     <a href="#Result" className={linkClasses}>📊 ভর্তি পরীক্ষার ফলাফল</a>
                     <a href="#Subjects" className={linkClasses}>👤 সাবজেক্ট প্রতি সিট সংখ্যা</a>
                 </div>

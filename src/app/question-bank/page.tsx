@@ -78,7 +78,7 @@ function QuestionBankPage() {
                   </Tooltip>
                 </TooltipProvider>
               </div>
-              <div className="text-xs sm:text-sm text-muted-foreground">פורמট</div>
+              <div className="text-xs sm:text-sm text-muted-foreground">פורמט</div>
             </div>
           </div>
         </div>
