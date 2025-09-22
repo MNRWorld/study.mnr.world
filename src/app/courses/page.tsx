@@ -111,20 +111,20 @@ function CoursesPage() {
         {/* Courses Grid */}
         <div id="Info" className="mt-5 grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {courses.map((course, index) => (
-            <div key={index} className="bg-card border border-border rounded-xl p-6 shadow-lg hover:shadow-primary/20 hover:-translate-y-2 transition-all duration-300">
+            <div key={index} className="bg-card border border-border rounded-xl p-6 shadow-lg hover:shadow-primary/20 hover:-translate-y-2 transition-all duration-300 animate-fadeInUp">
                 <div className="flex items-center gap-4">
                     {course.icon}
                     <h3 className="text-lg sm:text-xl font-bold text-foreground">{course.title}</h3>
                 </div>
                 <p className="text-muted-foreground mt-3 mb-4 text-sm sm:text-base">{course.description}</p>
-                <Button asChild className="w-full bg-primary/10 text-primary border border-primary/20 hover:bg-primary hover:text-primary-foreground">
+                <Button asChild className="w-full bg-primary/10 text-primary border border-primary/20 hover:bg-primary hover:text-primary-foreground transition-transform hover:scale-105">
                     <Link href="#">বিস্তারিত দেখুন <ArrowUpRightFromSquare size={14} className="ml-2"/></Link>
                 </Button>
             </div>
           ))}
         </div>
         
-        <div className="mt-5 w-full border border-border bg-card rounded-2xl p-6 sm:p-8 shadow-lg text-center relative">
+        <div className="mt-5 w-full border border-border bg-card rounded-2xl p-6 sm:p-8 shadow-lg text-center relative animate-fadeInUp">
             <div className="flex justify-center">
                 <div className="inline-block px-6 py-2 bg-gradient-to-r from-primary to-blue-500 text-white rounded-full text-base sm:text-lg mb-4 font-bold shadow-md">আমাদের বইসমূহ</div>
             </div>

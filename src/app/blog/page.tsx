@@ -92,7 +92,7 @@ function BlogPage() {
                 {/* Blog Grid */}
                 <div className="mt-8 grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                     {blogPosts.map((post) => (
-                        <div key={post.id} className="bg-card border border-border rounded-xl shadow-lg overflow-hidden hover:shadow-primary/20 hover:-translate-y-2 transition-all duration-300 flex flex-col">
+                        <div key={post.id} className="bg-card border border-border rounded-xl shadow-lg overflow-hidden hover:shadow-primary/20 hover:-translate-y-2 transition-all duration-300 flex flex-col animate-fadeInUp">
                             <Link href="#" className="block">
                                 <Image
                                     src={post.imageUrl}

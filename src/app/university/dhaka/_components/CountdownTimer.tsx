@@ -89,7 +89,7 @@ const CountdownTimer = () => {
           <div className="relative w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 shrink-0">
               <svg className="w-full h-full transform -rotate-90" viewBox="0 0 100 100">
                   <circle className="text-muted-foreground/20" strokeWidth="6" stroke="currentColor" fill="transparent" r="45" cx="50" cy="50" />
-                  <circle className="text-primary"
+                  <circle className="text-primary transition-all duration-1000 ease-linear"
                       strokeWidth="6"
                       strokeDasharray={circumference}
                       strokeDashoffset={offset}
@@ -111,16 +111,16 @@ const CountdownTimer = () => {
 
   return (
       <div className="text-center p-4 rounded-2xl bg-card">
-          <div className="text-lg font-bold mb-3">
+          <div className="text-lg font-bold mb-3 animate-fadeIn">
               {currentDeadline.title}
               <div className="font-normal text-sm mt-1 text-muted-foreground">
                   {currentDeadline.date.toLocaleDateString('en-GB', { year: 'numeric', month: 'long', day: 'numeric' })}
               </div>
           </div>
           {isCompleted ? (
-              <div className="text-xl text-red-500 font-bold mt-2.5">সময় শেষ</div>
+              <div className="text-xl text-red-500 font-bold mt-2.5 animate-fadeIn">সময় শেষ</div>
           ) : (
-              <div className="flex gap-2 sm:gap-4 justify-center flex-nowrap">
+              <div className="flex gap-2 sm:gap-4 justify-center flex-nowrap animate-fadeInUp">
                  <TimeCircle unit="Days" value={timeLeft.days} max={365}/>
                  <TimeCircle unit="Hours" value={timeLeft.hours} max={24}/>
                  <TimeCircle unit="Minutes" value={timeLeft.minutes} max={60}/>
