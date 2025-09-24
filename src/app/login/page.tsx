@@ -3,7 +3,6 @@
 
 import { useState } from 'react';
 import { useAuth } from '@/hooks/use-auth';
-import { useRouter } from 'next/navigation';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
@@ -14,18 +13,13 @@ export default function LoginPage() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const { login, loading } = useAuth();
-  const router = useRouter();
   const { toast } = useToast();
 
   const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
     try {
       await login(email, password);
-      toast({
-        title: "লগইন সফল হয়েছে",
-        description: "MNR Study-তে স্বাগতম!",
-      });
-      router.push('/');
+      // Success toast and redirect are now handled by the useAuth hook.
     } catch (error: any) {
       console.error(error);
       toast({
@@ -52,7 +46,7 @@ export default function LoginPage() {
             <Input
               id="email"
               type="email"
-              placeholder="example@email.com"
+              placeholder="user@example.com"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               required
@@ -64,7 +58,7 @@ export default function LoginPage() {
             <Input
               id="password"
               type="password"
-              placeholder="********"
+              placeholder="password123"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               required

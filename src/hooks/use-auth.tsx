@@ -1,7 +1,9 @@
+
 'use client';
 
 import React, { createContext, useContext, useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
+import { useToast } from './use-toast';
 
 // A simple mock of a User object
 interface User {
@@ -27,6 +29,7 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
   const [user, setUser] = useState<User | null>(null);
   const [loading, setLoading] = useState(true);
   const router = useRouter();
+  const { toast } = useToast();
 
   useEffect(() => {
     // Check for a token in localStorage on initial load
@@ -45,22 +48,29 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
 
   const login = async (email: string, pass: string) => {
     setLoading(true);
-    // Simulate an API call
-    await new Promise(res => setTimeout(res, 500));
+    try {
+      // Simulate an API call
+      await new Promise(res => setTimeout(res, 500));
 
-    if (email === MOCK_EMAIL && pass === MOCK_PASSWORD) {
-      setUser(MOCK_USER);
-      try {
-        // Store a mock token
-        localStorage.setItem(AUTH_TOKEN_KEY, 'mock-jwt-token');
-      } catch (error) {
-        console.error("Could not access localStorage", error);
+      if (email === MOCK_EMAIL && pass === MOCK_PASSWORD) {
+        setUser(MOCK_USER);
+        try {
+          // Store a mock token
+          localStorage.setItem(AUTH_TOKEN_KEY, 'mock-jwt-token');
+        } catch (error) {
+          console.error("Could not access localStorage", error);
+        }
+        toast({
+            title: "লগইন সফল হয়েছে",
+            description: "MNR Study-তে স্বাগতম!",
+        });
+        router.push('/');
+      } else {
+        throw new Error('ভুল ইমেইল অথবা পাসওয়ার্ড');
       }
-    } else {
-      setLoading(false);
-      throw new Error('Invalid email or password');
+    } finally {
+        setLoading(false);
     }
-    setLoading(false);
   };
 
   const logout = async () => {
@@ -74,6 +84,7 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
         console.error("Could not access localStorage", error);
       }
     setLoading(false);
+    router.push('/');
   };
 
   const value = {
