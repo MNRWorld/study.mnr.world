@@ -6,35 +6,20 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from '@/components/ui/accordion';
-import { Button } from '@/components/ui/button';
-import {
-  Table,
-  TableBody,
-  TableCell,
-  TableRow,
-} from '@/components/ui/table';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import {
-  Tooltip,
-  TooltipContent,
-  TooltipProvider,
-  TooltipTrigger,
-} from '@/components/ui/tooltip';
-import {
-  Download,
   Info,
   File,
   BookOpen,
   University,
   FlaskConical,
-  Calculator,
   Rocket,
   Atom,
 } from 'lucide-react';
-import Link from 'next/link';
 import React from 'react';
-import FloatingMenu from '@/app/university/dhaka/_components/FloatingMenu';
+import FloatingMenu from '@/components/common/FloatingMenu';
 import { motion } from 'framer-motion';
+import PageHeaderCard from '@/components/common/PageHeaderCard';
 
 
 function QuestionBankPage() {
@@ -53,56 +38,17 @@ function QuestionBankPage() {
   return (
     <div className="font-bengali bg-background py-8">
       <div className="container mx-auto px-4">
-        {/* Main Card */}
-        <motion.div
-            variants={itemVariants}
-            initial="hidden"
-            animate="visible"
-            className="mt-20 sm:mt-24 w-full border border-border bg-card rounded-2xl p-6 sm:p-8 shadow-lg text-center relative"
-        >
-          <div className="w-24 h-24 absolute -top-12 left-1/2 -translate-x-1/2 bg-card rounded-2xl shadow-xl z-10 flex items-center justify-center">
-            <BookOpen className="h-14 w-14 text-primary" />
-          </div>
-          <div className="pt-12">
-            <div className="text-2xl sm:text-3xl font-bold my-2 text-foreground">
-              প্রশ্নব্যাংক ও সমাধান
-            </div>
-            <div className="text-sm text-muted-foreground mb-4">
-              (Question Bank & Solutions)
-            </div>
-            <p className="text-base text-muted-foreground mb-6 max-w-2xl mx-auto">
-            বিগত বছরের প্রশ্ন সমাধান করে ভর্তি প্রস্তুতিতে এগিয়ে থাকো। এখানেই পাবে সব বিশ্ববিদ্যালয় ও ইউনিটের প্রশ্নব্যাংক।
-            </p>
-          </div>
-          <div className="flex justify-around items-center mb-6 text-sm sm:text-base max-w-md mx-auto">
-            <div className="text-center">
-              <div className="text-xl sm:text-2xl font-bold text-foreground">২০+</div>
-              <div className="text-xs sm:text-sm text-muted-foreground">বিশ্ববিদ্যালয়</div>
-            </div>
-            <div className="text-center">
-              <div className="text-xl sm:text-2xl font-bold text-foreground">১৫+</div>
-              <div className="text-xs sm:text-sm text-muted-foreground">বছর</div>
-            </div>
-            <div className="text-center">
-              <div className="text-xl sm:text-2xl font-bold text-foreground flex items-center justify-center">
-                PDF
-                <TooltipProvider>
-                  <Tooltip>
-                    <TooltipTrigger asChild>
-                      <span className="ml-1 cursor-pointer text-primary">
-                        <Info size={16} />
-                      </span>
-                    </TooltipTrigger>
-                    <TooltipContent className="bg-primary/10 text-primary-foreground border-primary">
-                      <b>সহজে ডাউনলোডযোগ্য</b>
-                    </TooltipContent>
-                  </Tooltip>
-                </TooltipProvider>
-              </div>
-              <div className="text-xs sm:text-sm text-muted-foreground">ফরম্যাট</div>
-            </div>
-          </div>
-        </motion.div>
+        <PageHeaderCard
+            icon={<BookOpen className="h-14 w-14 text-primary" />}
+            title="প্রশ্নব্যাংক ও সমাধান"
+            subtitle="Question Bank & Solutions"
+            description="বিগত বছরের প্রশ্ন সমাধান করে ভর্তি প্রস্তুতিতে এগিয়ে থাকো। এখানেই পাবে সব বিশ্ববিদ্যালয় ও ইউনিটের প্রশ্নব্যাংক।"
+            stats={[
+                { value: "২০+", label: "বিশ্ববিদ্যালয়" },
+                { value: "১৫+", label: "বছর" },
+                { value: "PDF", label: "ফরম্যাট", tooltip: "সহজে ডাউনলোডযোগ্য" }
+            ]}
+        />
 
         {/* Question Bank */}
         <motion.div
@@ -163,7 +109,6 @@ function QuestionBankPage() {
             </Tabs>
         </motion.div>
         
-        {/* Floating Menu is not super relevant here but can link to top */}
         <FloatingMenu />
 
       </div>

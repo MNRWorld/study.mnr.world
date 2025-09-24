@@ -6,6 +6,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react';
 import { motion } from 'framer-motion';
+import PageHeaderCard from '@/components/common/PageHeaderCard';
 
 function BlogPage() {
     const blogPosts = [
@@ -76,6 +77,7 @@ function BlogPage() {
         visible: {
             transition: {
                 staggerChildren: 0.1,
+                delayChildren: 0.3,
             },
         },
     };
@@ -86,7 +88,8 @@ function BlogPage() {
             y: 0,
             opacity: 1,
             transition: {
-                duration: 0.5,
+                type: 'spring',
+                stiffness: 100
             },
         },
     };
@@ -94,28 +97,13 @@ function BlogPage() {
     return (
         <div className="font-bengali bg-background py-8">
             <div className="container mx-auto px-4">
-                {/* Main Card */}
-                <motion.div
-                    variants={itemVariants}
-                    initial="hidden"
-                    animate="visible"
-                    className="mt-20 sm:mt-24 w-full border border-border bg-card rounded-2xl p-6 sm:p-8 shadow-lg text-center relative"
-                >
-                    <div className="w-24 h-24 absolute -top-12 left-1/2 -translate-x-1/2 bg-card rounded-2xl shadow-xl z-10 flex items-center justify-center">
-                        <Newspaper className="h-14 w-14 text-primary" />
-                    </div>
-                    <div className="pt-12">
-                        <div className="text-2xl sm:text-3xl font-bold my-2 text-foreground">
-                            আমাদের ব্লগ ও নিউজ
-                        </div>
-                        <div className="text-sm text-muted-foreground mb-4">
-                            (Blog & News)
-                        </div>
-                        <p className="text-base text-muted-foreground mb-6 max-w-2xl mx-auto">
-                           ভর্তি পরীক্ষা, পড়াশোনা আর ক্যারিয়ার নিয়ে গুরুত্বপূর্ণ সব তথ্য ও টিপস পেতে আমাদের ব্লগে চোখ রাখুন।
-                        </p>
-                    </div>
-                </motion.div>
+                <PageHeaderCard
+                    icon={<Newspaper className="h-14 w-14 text-primary" />}
+                    title="আমাদের ব্লগ ও নিউজ"
+                    subtitle="Blog & News"
+                    description="ভর্তি পরীক্ষা, পড়াশোনা আর ক্যারিয়ার নিয়ে গুরুত্বপূর্ণ সব তথ্য ও টিপস পেতে আমাদের ব্লগে চোখ রাখুন।"
+                    stats={[]}
+                />
 
                 {/* Blog Grid */}
                 <motion.div

@@ -1,11 +1,5 @@
 
 'use client';
-import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from '@/components/ui/accordion';
 import { Button } from '@/components/ui/button';
 import {
   Table,
@@ -13,12 +7,6 @@ import {
   TableCell,
   TableRow,
 } from '@/components/ui/table';
-import {
-  Tooltip,
-  TooltipContent,
-  TooltipProvider,
-  TooltipTrigger,
-} from '@/components/ui/tooltip';
 import {
   Download,
   Info,
@@ -29,20 +17,15 @@ import {
   School,
   PenSquare,
   Banknote,
-  CircleCheck,
-  CircleAlert,
   Ticket,
-  MapPin,
-  Landmark,
-  University,
 } from 'lucide-react';
-import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react';
-import CountdownTimer from '@/app/university/dhaka/_components/CountdownTimer';
-import FloatingMenu from '@/app/university/dhaka/_components/FloatingMenu';
-import PreviousYearCirculars from '@/app/university/dhaka/_components/PreviousYearCirculars';
+import CountdownTimer from '@/components/common/CountdownTimer';
+import FloatingMenu from '@/components/common/FloatingMenu';
+import PreviousYearCirculars from '@/components/common/PreviousYearCirculars';
 import { motion } from 'framer-motion';
+import PageHeaderCard from '@/components/common/PageHeaderCard';
 
 function CollegePage() {
     const itemVariants = {
@@ -58,63 +41,18 @@ function CollegePage() {
   return (
     <div className="font-bengali bg-background py-8">
       <div className="container mx-auto px-4">
-        {/* Main Card */}
-        <motion.div
-            variants={itemVariants}
-            initial="hidden"
-            animate="visible"
-            className="mt-20 sm:mt-24 w-full border border-border bg-card rounded-2xl p-6 sm:p-8 shadow-lg text-center relative"
-        >
-          <div className="w-24 h-24 absolute -top-12 left-1/2 -translate-x-1/2 bg-card rounded-2xl shadow-xl z-10 flex items-center justify-center">
-            <School className="h-14 w-14 text-primary" />
-          </div>
-          <div className="pt-12">
-            <div className="text-2xl sm:text-3xl font-bold my-2 text-foreground">
-              কলেজ ভর্তি তথ্য
-            </div>
-            <div className="text-sm text-muted-foreground mb-4">
-              (College Admission)
-            </div>
-            <p className="text-base text-muted-foreground mb-6 max-w-2xl mx-auto">
-              দেশের সেরা কলেজগুলোতে ভর্তির জন্য প্রয়োজনীয় সব তথ্য ও সর্বশেষ আপডেট এখানেই পাবেন।
-            </p>
-          </div>
-          <div className="flex justify-around items-center mb-6 text-sm sm:text-base max-w-md mx-auto">
-            <div className="text-center">
-              <div className="text-xl sm:text-2xl font-bold text-foreground">১০০+</div>
-              <div className="text-xs sm:text-sm text-muted-foreground">কলেজ</div>
-            </div>
-            <div className="text-center">
-              <div className="text-xl sm:text-2xl font-bold text-foreground">বিভিন্ন</div>
-              <div className="text-xs sm:text-sm text-muted-foreground">বিভাগ</div>
-            </div>
-            <div className="text-center">
-              <div className="text-xl sm:text-2xl font-bold text-foreground flex items-center justify-center">
-                হাজারো
-                <TooltipProvider>
-                  <Tooltip>
-                    <TooltipTrigger asChild>
-                      <span className="ml-1 cursor-pointer text-primary">
-                        <Info size={16} />
-                      </span>
-                    </TooltipTrigger>
-                    <TooltipContent className="bg-primary/10 text-primary-foreground border-primary">
-                      <b>প্রতি বছর আসন সংখ্যা পরিবর্তিত হয়</b>
-                    </TooltipContent>
-                  </Tooltip>
-                </TooltipProvider>
-              </div>
-              <div className="text-xs sm:text-sm text-muted-foreground">আসন</div>
-            </div>
-          </div>
-          <Button asChild className="transition-transform hover:scale-105">
-            <Link
-                href="#Info"
-            >
-                <Info size={16} /> মূল তথ্য
-            </Link>
-          </Button>
-        </motion.div>
+        <PageHeaderCard
+            icon={<School className="h-14 w-14 text-primary" />}
+            title="কলেজ ভর্তি তথ্য"
+            subtitle="College Admission"
+            description="দেশের সেরা কলেজগুলোতে ভর্তির জন্য প্রয়োজনীয় সব তথ্য ও সর্বশেষ আপডেট এখানেই পাবেন।"
+            stats={[
+                { value: "১০০+", label: "কলেজ" },
+                { value: "বিভিন্ন", label: "বিভাগ" },
+                { value: "হাজারো", label: "আসন", tooltip: "প্রতি বছর আসন সংখ্যা পরিবর্তিত হয়" }
+            ]}
+            button={{ href: "#Info", label: "মূল তথ্য", icon: <Info size={16} /> }}
+        />
 
         {/* Link List */}
         <motion.div
@@ -221,7 +159,6 @@ function CollegePage() {
             </span>
         </motion.div>
 
-        {/* Floating Menu */}
         <FloatingMenu />
 
       </div>

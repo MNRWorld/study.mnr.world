@@ -1,11 +1,5 @@
 
 'use client';
-import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from '@/components/ui/accordion';
 import { Button } from '@/components/ui/button';
 import {
   Table,
@@ -13,12 +7,6 @@ import {
   TableCell,
   TableRow,
 } from '@/components/ui/table';
-import {
-  Tooltip,
-  TooltipContent,
-  TooltipProvider,
-  TooltipTrigger,
-} from '@/components/ui/tooltip';
 import {
   Download,
   Info,
@@ -29,18 +17,14 @@ import {
   Building,
   PenSquare,
   Banknote,
-  CircleCheck,
-  CircleAlert,
-  Ticket,
   MapPin,
 } from 'lucide-react';
-import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react';
-import CountdownTimer from '@/app/university/dhaka/_components/CountdownTimer';
-import FloatingMenu from '@/app/university/dhaka/_components/FloatingMenu';
-import PreviousYearCirculars from '@/app/university/dhaka/_components/PreviousYearCirculars';
+import CountdownTimer from '@/components/common/CountdownTimer';
+import FloatingMenu from '@/components/common/FloatingMenu';
 import { motion } from 'framer-motion';
+import PageHeaderCard from '@/components/common/PageHeaderCard';
 
 function PrivatePage() {
     const itemVariants = {
@@ -56,63 +40,18 @@ function PrivatePage() {
   return (
     <div className="font-bengali bg-background py-8">
       <div className="container mx-auto px-4">
-        {/* Main Card */}
-        <motion.div
-            variants={itemVariants}
-            initial="hidden"
-            animate="visible"
-            className="mt-20 sm:mt-24 w-full border border-border bg-card rounded-2xl p-6 sm:p-8 shadow-lg text-center relative"
-        >
-          <div className="w-24 h-24 absolute -top-12 left-1/2 -translate-x-1/2 bg-card rounded-2xl shadow-xl z-10 flex items-center justify-center">
-            <Building className="h-14 w-14 text-primary" />
-          </div>
-          <div className="pt-12">
-            <div className="text-2xl sm:text-3xl font-bold my-2 text-foreground">
-              প্রাইভেট বিশ্ববিদ্যালয় ভর্তি
-            </div>
-            <div className="text-sm text-muted-foreground mb-4">
-              (Private University Admission)
-            </div>
-            <p className="text-base text-muted-foreground mb-6 max-w-2xl mx-auto">
-            দেশের শীর্ষস্থানীয় প্রাইভেট বিশ্ববিদ্যালয়গুলোতে ভর্তির সর্বশেষ তথ্য, যোগ্যতা ও পরীক্ষার মানবণ্টন সম্পর্কে জানুন।
-            </p>
-          </div>
-          <div className="flex justify-around items-center mb-6 text-sm sm:text-base max-w-md mx-auto">
-            <div className="text-center">
-              <div className="text-xl sm:text-2xl font-bold text-foreground">৮০+</div>
-              <div className="text-xs sm:text-sm text-muted-foreground">বিশ্ববিদ্যালয়</div>
-            </div>
-            <div className="text-center">
-              <div className="text-xl sm:text-2xl font-bold text-foreground">বিভিন্ন</div>
-              <div className="text-xs sm:text-sm text-muted-foreground">বিষয়</div>
-            </div>
-            <div className="text-center">
-              <div className="text-xl sm:text-2xl font-bold text-foreground flex items-center justify-center">
-                হাজারো
-                <TooltipProvider>
-                  <Tooltip>
-                    <TooltipTrigger asChild>
-                      <span className="ml-1 cursor-pointer text-primary">
-                        <Info size={16} />
-                      </span>
-                    </TooltipTrigger>
-                    <TooltipContent className="bg-primary/10 text-primary-foreground border-primary">
-                      <b>আসন সংখ্যা বিশ্ববিদ্যালয়ভেদে ভিন্ন</b>
-                    </TooltipContent>
-                  </Tooltip>
-                </TooltipProvider>
-              </div>
-              <div className="text-xs sm:text-sm text-muted-foreground">আসন</div>
-            </div>
-          </div>
-           <Button asChild className="transition-transform hover:scale-105">
-            <Link
-                href="#Info"
-            >
-                <Info size={16} /> মূল তথ্য
-            </Link>
-          </Button>
-        </motion.div>
+        <PageHeaderCard
+            icon={<Building className="h-14 w-14 text-primary" />}
+            title="প্রাইভেট বিশ্ববিদ্যালয় ভর্তি"
+            subtitle="Private University Admission"
+            description="দেশের শীর্ষস্থানীয় প্রাইভেট বিশ্ববিদ্যালয়গুলোতে ভর্তির সর্বশেষ তথ্য, যোগ্যতা ও পরীক্ষার মানবণ্টন সম্পর্কে জানুন।"
+            stats={[
+                { value: "৮০+", label: "বিশ্ববিদ্যালয়" },
+                { value: "বিভিন্ন", label: "বিষয়" },
+                { value: "হাজারো", label: "আসন", tooltip: "আসন সংখ্যা বিশ্ববিদ্যালয়ভেদে ভিন্ন" }
+            ]}
+            button={{ href: "#Info", label: "মূল তথ্য", icon: <Info size={16} /> }}
+        />
 
         {/* Link List */}
         <motion.div
@@ -209,7 +148,6 @@ function PrivatePage() {
 
         </motion.div>
 
-        {/* Floating Menu */}
         <FloatingMenu />
 
       </div>

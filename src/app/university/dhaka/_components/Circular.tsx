@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import { Download } from 'lucide-react';
 
 import { Button } from '@/components/ui/button';
-import PreviousYearCirculars from './PreviousYearCirculars';
+import PreviousYearCirculars from '@/components/common/PreviousYearCirculars';
 
 const Circular = () => {
     const itemVariants = {
