@@ -1,11 +1,8 @@
 
 'use client';
 import {
-  Timer,
-  BarChart3,
   CalendarDays,
   Info,
-  Link as LinkIcon
 } from 'lucide-react';
 import React from 'react';
 import CountdownTimer from '@/components/common/CountdownTimer';
@@ -29,7 +26,12 @@ function CalendarPage() {
     };
 
   return (
-    <div className="font-bengali bg-background py-8">
+    <motion.div 
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5 }}
+        className="font-bengali bg-background py-8"
+    >
       <div className="container mx-auto px-4">
         <PageHeaderCard
             icon={<CalendarDays className="h-14 w-14 text-primary" />}
@@ -58,7 +60,7 @@ function CalendarPage() {
         <FloatingMenu />
 
       </div>
-    </div>
+    </motion.div>
   );
 }
 
