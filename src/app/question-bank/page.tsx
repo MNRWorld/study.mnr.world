@@ -20,10 +20,10 @@ export default function QuestionBankPage() {
           icon={<BookOpen className="h-14 w-14 text-primary" />}
           title="প্রশ্নব্যাংক ও সমাধান"
           subtitle="Question Bank & Solutions"
-          description="বিগত বছরের প্রশ্ন সমাধান করে ভর্তি প্রস্তুতিতে এগিয়ে থাকো। এখানেই পাবে সব বিশ্ববিদ্যালয় ও ইউনিটের প্রশ্নব্যাংক।"
+          description="বিগত বছরের প্রশ্ন সমাধান করে ভর্তি প্রস্তুতিতে এগিয়ে থাকো। এখানেই পাবে সব বিশ্ববিদ্যালয় ও ইউনিটের প্রশ্নব্যাংক।"
           stats={[
-            { value: '۲۰+', label: 'বিশ্ববিদ্যালয়' },
-            { value: '۱۵+', label: 'বছর' },
+            { value: '২০+', label: 'বিশ্ববিদ্যালয়' },
+            { value: '১৫+', label: 'বছর' },
             { value: 'PDF', label: 'ফরম্যাট', tooltip: 'সহজে ডাউনলোডযোগ্য' },
           ]}
         />
