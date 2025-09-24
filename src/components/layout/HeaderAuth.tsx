@@ -37,9 +37,9 @@ function AuthButton({ isHovered, label, icon, onClick, isDestructive = false }: 
                 <motion.div
                     layoutId="auth-hover-bg"
                     className={cn("absolute inset-0 rounded-full", isDestructive ? 'bg-destructive/10' : 'bg-accent')}
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    exit={{ opacity: 0 }}
+                    initial={{ opacity: 0, scale: 0.5 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    exit={{ opacity: 0, scale: 0.5 }}
                 />
                 )}
             </AnimatePresence>

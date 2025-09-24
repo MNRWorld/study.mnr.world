@@ -46,24 +46,19 @@ const Toast = React.forwardRef<
   React.ComponentPropsWithoutRef<typeof ToastPrimitives.Root> &
     VariantProps<typeof toastVariants>
 >(({ className, variant, ...props }, ref) => {
-    const { open } = props;
     return (
-        <AnimatePresence>
-            {open && (
-                <motion.li
-                    initial={{ opacity: 0, y: 50, scale: 0.3 }}
-                    animate={{ opacity: 1, y: 0, scale: 1 }}
-                    exit={{ opacity: 0, scale: 0.5, transition: { duration: 0.2 } }}
-                    layout
-                >
-                    <ToastPrimitives.Root
-                        ref={ref}
-                        className={cn(toastVariants({ variant }), className)}
-                        {...props}
-                    />
-                </motion.li>
-            )}
-        </AnimatePresence>
+        <motion.div
+            layout
+            initial={{ opacity: 0, y: 50, scale: 0.3 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            exit={{ opacity: 0, scale: 0.5, transition: { duration: 0.2 } }}
+        >
+            <ToastPrimitives.Root
+                ref={ref}
+                className={cn(toastVariants({ variant }), className)}
+                {...props}
+            />
+        </motion.div>
     )
 })
 Toast.displayName = ToastPrimitives.Root.displayName
