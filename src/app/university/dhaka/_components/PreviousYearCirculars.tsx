@@ -16,8 +16,8 @@ const PreviousYearCirculars = () => {
             {infoBoxVisible && (
                 <div className="mt-[15px] p-[15px] border border-border border-l-4 border-l-primary bg-accent rounded-md animate-fadeIn text-left w-full">
                      ● <a href="https://t.me/Study_on_Telegram/2036" target="_blank" className="text-primary hover:underline"> DU Circular 2021-22 (All Unit)</a><br/>
-                     ● <a href="https://t.me/Study_on_Telegram/8022?single" target="_blank" className="text-primary hover:underline"> DU Circular 2022-23 (All Unit)</a><br/>
-                     ● <a href="https://t.me/Study_on_Telegram/11073?single" target="_blank" className="text-primary hover:underline"> DU Circular 2023-24 (All Unit)</a>
+                     ● <a href="https.t.me/Study_on_Telegram/8022?single" target="_blank" className="text-primary hover:underline"> DU Circular 2022-23 (All Unit)</a><br/>
+                     ● <a href="https.t.me/Study_on_Telegram/11073?single" target="_blank" className="text-primary hover:underline"> DU Circular 2023-24 (All Unit)</a>
                 </div>
             )}
         </>
