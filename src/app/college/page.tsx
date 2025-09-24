@@ -9,6 +9,7 @@ import PageHeaderCard from '@/components/common/PageHeaderCard';
 import LinkList from '@/components/common/LinkList';
 import Circular from '@/components/common/Circular';
 import CollegeAdmissionInfo from '@/components/CollegeAdmissionInfo';
+import { admissionDeadlines } from '@/lib/data/deadlines';
 
 function CollegePage() {
     const itemVariants = {
@@ -58,7 +59,7 @@ function CollegePage() {
             animate="visible"
             className="mt-8 w-full border border-border bg-card rounded-2xl p-4 sm:p-6 shadow-lg relative"
         >
-            <CountdownTimer />
+            <CountdownTimer deadlines={admissionDeadlines} />
         </motion.div>
         
         <Circular 

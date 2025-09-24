@@ -10,6 +10,7 @@ import Circular from '@/components/common/Circular';
 import QuestionBank from '@/components/DhakaQuestionBank';
 import AdmissionInfo from '@/components/DhakaAdmissionInfo';
 import FloatingMenu from '@/components/common/FloatingMenu';
+import { admissionDeadlines } from '@/lib/data/deadlines';
 
 function DhakaUniversityPage() {
   const itemVariants = {
@@ -56,7 +57,7 @@ function DhakaUniversityPage() {
           animate="visible"
           className="mt-8 w-full border border-border bg-card rounded-2xl p-4 sm:p-6 shadow-lg relative"
         >
-          <CountdownTimer />
+          <CountdownTimer deadlines={admissionDeadlines} />
         </motion.div>
         
         <Circular 

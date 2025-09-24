@@ -18,14 +18,109 @@ import {
 } from 'lucide-react';
 import { AnimatePresence, motion } from 'framer-motion';
 
-interface NavItem {
-  id: string;
-  label: string;
-  icon: React.ReactNode;
-  href: string;
+// --- Sub-components defined within the same file for better organization ---
+
+interface NavItemProps {
+  item: {
+    id: string;
+    label: string;
+    icon: React.ReactNode;
+    href: string;
+  };
+  isHovered: boolean;
+  onMouseEnter: () => void;
 }
 
-const navItems: NavItem[] = [
+function NavItem({ item, isHovered, onMouseEnter }: NavItemProps) {
+  return (
+    <Link
+      href={item.href}
+      onMouseEnter={onMouseEnter}
+      className={cn(
+        'relative flex cursor-pointer items-center justify-center rounded-full transition-colors duration-300',
+        'h-9 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background',
+        isHovered ? 'text-accent-foreground' : 'text-muted-foreground',
+        'px-3 font-bengali'
+      )}
+    >
+      <AnimatePresence>
+        {isHovered && (
+          <motion.div
+            layoutId="nav-hover-bg"
+            className="absolute inset-0 rounded-full bg-accent"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+          />
+        )}
+      </AnimatePresence>
+      <div className="relative z-10 flex items-center">
+        <div className="shrink-0">{item.icon}</div>
+        <motion.div
+          className="overflow-hidden"
+          animate={{ width: isHovered ? 'auto' : 0, marginLeft: isHovered ? '0.5rem' : 0 }}
+          transition={{ duration: 0.3, ease: 'easeInOut' }}
+        >
+          <span className="whitespace-nowrap text-sm font-medium">
+            {item.label}
+          </span>
+        </motion.div>
+      </div>
+    </Link>
+  );
+}
+
+interface AuthButtonProps {
+    isHovered: boolean;
+    label: string;
+    icon: React.ReactNode;
+    onClick?: () => void;
+    isDestructive?: boolean;
+}
+
+function AuthButton({ isHovered, label, icon, onClick, isDestructive = false }: AuthButtonProps) {
+    const activeClasses = isDestructive ? 'bg-destructive/10 text-destructive' : 'bg-accent text-accent-foreground';
+
+    return (
+         <button
+            onClick={onClick}
+            className={cn(
+                'relative flex cursor-pointer items-center justify-center rounded-full transition-colors duration-300',
+                'h-9 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background',
+                isHovered ? activeClasses : 'text-muted-foreground',
+                'px-3'
+            )}
+        >
+             <AnimatePresence>
+                {isHovered && (
+                <motion.div
+                    layoutId="auth-hover-bg"
+                    className={cn("absolute inset-0 rounded-full", isDestructive ? 'bg-destructive/10' : 'bg-accent')}
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    exit={{ opacity: 0 }}
+                />
+                )}
+            </AnimatePresence>
+             <div className="relative z-10 flex items-center">
+                <div className="shrink-0">{icon}</div>
+                 <motion.div
+                    className="overflow-hidden"
+                    animate={{ width: isHovered ? 'auto' : 0, marginLeft: isHovered ? '0.5rem' : 0 }}
+                    transition={{ duration: 0.3, ease: 'easeInOut' }}
+                >
+                    <span className="whitespace-nowrap text-sm font-medium">
+                        {label}
+                    </span>
+                </motion.div>
+            </div>
+        </button>
+    )
+}
+
+// --- Main Header Component ---
+
+const navItems = [
   { id: 'home', label: 'হোম', icon: <Home size={20} />, href: '/' },
   { id: 'question-bank', label: 'প্রশ্নব্যাংক', icon: <BookOpen size={20} />, href: '/question-bank' },
   { id: 'calendar', label: 'ক্যালেন্ডার', icon: <CalendarDays size={20} />, href: '/calendar' },
@@ -92,99 +187,4 @@ export default function Header() {
         </div>
     </header>
   );
-}
-
-
-interface NavItemProps {
-  item: NavItem;
-  isHovered: boolean;
-  onMouseEnter: () => void;
-}
-
-function NavItem({ item, isHovered, onMouseEnter }: NavItemProps) {
-  return (
-    <Link
-      href={item.href}
-      onMouseEnter={onMouseEnter}
-      className={cn(
-        'relative flex cursor-pointer items-center justify-center rounded-full transition-colors duration-300',
-        'h-9 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background',
-        isHovered ? 'text-accent-foreground' : 'text-muted-foreground',
-        'px-3 font-bengali'
-      )}
-    >
-      <AnimatePresence>
-        {isHovered && (
-          <motion.div
-            layoutId="nav-hover-bg"
-            className="absolute inset-0 rounded-full bg-accent"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-          />
-        )}
-      </AnimatePresence>
-      <div className="relative z-10 flex items-center">
-        <div className="shrink-0">{item.icon}</div>
-        <motion.div
-          className="overflow-hidden"
-          animate={{ width: isHovered ? 'auto' : 0, marginLeft: isHovered ? '0.5rem' : 0 }}
-          transition={{ duration: 0.3, ease: 'easeInOut' }}
-        >
-          <span className="whitespace-nowrap text-sm font-medium">
-            {item.label}
-          </span>
-        </motion.div>
-      </div>
-    </Link>
-  );
-}
-
-interface AuthButtonProps {
-    isHovered: boolean;
-    label: string;
-    icon: React.ReactNode;
-    onClick?: () => void;
-    isDestructive?: boolean;
-}
-
-function AuthButton({ isHovered, label, icon, onClick, isDestructive=false }: AuthButtonProps) {
-    const hoverClasses = isDestructive ? 'hover:bg-destructive/10 hover:text-destructive' : 'hover:bg-accent hover:text-accent-foreground';
-    const activeClasses = isDestructive ? 'bg-destructive/10 text-destructive' : 'bg-accent text-accent-foreground';
-
-    return (
-         <button
-            onClick={onClick}
-            className={cn(
-                'relative flex cursor-pointer items-center justify-center rounded-full transition-colors duration-300',
-                'h-9 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background',
-                isHovered ? activeClasses : 'text-muted-foreground',
-                'px-3'
-            )}
-        >
-             <AnimatePresence>
-                {isHovered && (
-                <motion.div
-                    layoutId="auth-hover-bg"
-                    className={cn("absolute inset-0 rounded-full", isDestructive ? 'bg-destructive/10' : 'bg-accent')}
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    exit={{ opacity: 0 }}
-                />
-                )}
-            </AnimatePresence>
-             <div className="relative z-10 flex items-center">
-                <div className="shrink-0">{icon}</div>
-                 <motion.div
-                    className="overflow-hidden"
-                    animate={{ width: isHovered ? 'auto' : 0, marginLeft: isHovered ? '0.5rem' : 0 }}
-                    transition={{ duration: 0.3, ease: 'easeInOut' }}
-                >
-                    <span className="whitespace-nowrap text-sm font-medium">
-                        {label}
-                    </span>
-                </motion.div>
-            </div>
-        </button>
-    )
 }

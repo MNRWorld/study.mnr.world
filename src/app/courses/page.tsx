@@ -1,12 +1,6 @@
 
 'use client';
 
-import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from '@/components/ui/accordion';
 import { Button } from '@/components/ui/button';
 import {
   Tooltip,
@@ -19,51 +13,14 @@ import {
   GraduationCap,
   ArrowUpRightFromSquare,
   BookOpen,
-  BookMarked,
-  Briefcase,
-  Blocks,
 } from 'lucide-react';
 import Link from 'next/link';
 import React from 'react';
 import FloatingMenu from '@/components/common/FloatingMenu';
-
-import { University, HeartPulse, Cog } from 'lucide-react';
 import { motion } from 'framer-motion';
+import { courses } from '@/lib/data/courses';
 
 function CoursesPage() {
-  const courses = [
-    {
-      title: 'বিশ্ববিদ্যালয় ভর্তি প্রস্তুতি',
-      description: 'ঢাকা, রাজশাহী, চট্টগ্রাম, জাহাঙ্গীরনগরসহ সকল পাবলিক বিশ্ববিদ্যালয়ের পূর্ণাঙ্গ প্রস্তুতি।',
-      icon: <University className="h-8 w-8 text-primary" />,
-    },
-    {
-      title: 'মেডিকেল ও ডেন্টাল ভর্তি',
-      description: 'মেডিকেল ও ডেন্টাল কলেজে ভর্তির জন্য বিশেষায়িত কোর্স ও মডেল টেস্ট।',
-      icon: <HeartPulse className="h-8 w-8 text-primary" />,
-    },
-    {
-      title: 'ইঞ্জিনিয়ারিং প্রস্তুতি (BUET, KUET, RUET, CUET)',
-      description: 'বুয়েটসহ সকল ইঞ্জিনিয়ারিং বিশ্ববিদ্যালয়ের জন্য ফিজিক্স, কেমিস্ট্রি, ম্যাথ এর উপর বিশেষ কোর্স।',
-      icon: <Cog className="h-8 w-8 text-primary" />,
-    },
-    {
-      title: 'গুচ্ছ প্রস্তুতি (GST)',
-      description: 'গুচ্ছভুক্ত ২২টি সাধারণ এবং বিজ্ঞান ও প্রযুক্তি বিশ্ববিদ্যালয়ের সমন্বিত প্রস্তুতি।',
-      icon: <Blocks className="h-8 w-8 text-primary" />,
-    },
-    {
-      title: 'HSC বোর্ড পরীক্ষার প্রস্তুতি',
-      description: 'বিজ্ঞান, মানবিক ও ব্যবসায় শিক্ষা শাখার সকল বিষয়ের উপর পূর্ণাঙ্গ প্রস্তুতি কোর্স।',
-      icon: <BookMarked className="h-8 w-8 text-primary" />,
-    },
-    {
-        title: 'IBA ও BUP প্রস্তুতি',
-        description: 'IBA (DU, JU) ও BUP এর ভর্তি পরীক্ষার জন্য বিশেষ ইংরেজি ও গণিত কোর্স।',
-        icon: <Briefcase className="h-8 w-8 text-primary" />,
-    }
-  ];
-
     const containerVariants = {
         hidden: {},
         visible: {
@@ -87,7 +44,6 @@ function CoursesPage() {
   return (
     <div className="font-bengali bg-background py-8">
       <div className="container mx-auto px-4">
-        {/* Main Card */}
         <motion.div
             variants={itemVariants}
             initial="hidden"
@@ -138,7 +94,6 @@ function CoursesPage() {
           </div>
         </motion.div>
 
-        {/* Courses Grid */}
         <motion.div
             variants={containerVariants}
             initial="hidden"

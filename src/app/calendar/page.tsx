@@ -2,12 +2,6 @@
 'use client';
 import { Button } from '@/components/ui/button';
 import {
-  Table,
-  TableBody,
-  TableCell,
-  TableRow,
-} from '@/components/ui/table';
-import {
   ArrowUpRightFromSquare,
   Timer,
   BarChart3,
@@ -21,6 +15,7 @@ import CountdownTimer from '@/components/common/CountdownTimer';
 import FloatingMenu from '@/components/common/FloatingMenu';
 import { motion } from 'framer-motion';
 import PageHeaderCard from '@/components/common/PageHeaderCard';
+import { admissionDeadlines } from '@/lib/data/deadlines';
 
 function CalendarPage() {
 
@@ -51,17 +46,15 @@ function CalendarPage() {
             button={{ href: "#Info", label: "মূল তথ্য", icon: <Info size={16} /> }}
         />
 
-        {/* Countdown Timer */}
         <motion.div
             variants={itemVariants}
             initial="hidden"
             animate="visible"
             className="mt-8 w-full border border-border bg-card rounded-2xl p-4 sm:p-6 shadow-lg relative"
         >
-            <CountdownTimer />
+            <CountdownTimer deadlines={admissionDeadlines} />
         </motion.div>
 
-        {/* Info Section */}
         <motion.div
             variants={itemVariants}
             initial="hidden"
