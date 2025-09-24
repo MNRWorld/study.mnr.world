@@ -4,7 +4,6 @@ import { Toaster } from '@/components/ui/toaster';
 import { Inter, Hind_Siliguri } from 'next/font/google';
 import { cn } from '@/lib/utils';
 import MainLayout from './MainLayout';
-import { ThemeProvider } from '@/components/theme-provider';
 import { AuthProvider } from '@/hooks/use-auth';
 
 const inter = Inter({
@@ -30,21 +29,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="bn" suppressHydrationWarning>
+    <html lang="bn">
       <body className={cn("antialiased", inter.variable, hindSiliguri.variable)}>
-        <ThemeProvider
-            attribute="class"
-            defaultTheme="system"
-            enableSystem
-            disableTransitionOnChange
-        >
           <AuthProvider>
             <MainLayout>
               {children}
             </MainLayout>
             <Toaster />
           </AuthProvider>
-        </ThemeProvider>
       </body>
     </html>
   );

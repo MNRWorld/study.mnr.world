@@ -11,7 +11,6 @@ import {
   Youtube,
 } from "lucide-react";
 import Link from "next/link";
-import ThemeToggle from "./ThemeToggle";
 
 export default function Footer() {
   return (
@@ -125,8 +124,6 @@ export default function Footer() {
           </div>
         </div>
       </div>
-
-      <ThemeToggle />
     </footer>
   );
 }

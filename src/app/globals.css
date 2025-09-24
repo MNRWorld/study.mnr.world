@@ -24,28 +24,6 @@
     --input: 215 20.2% 83.9%;
     --ring: 221 83% 53%;
   }
-
-  .dark {
-    --background: 224 71.4% 4.1%;
-    --foreground: 210 20% 98%;
-    --card: 224 71.4% 4.1%;
-    --card-foreground: 210 20% 98%;
-    --popover: 224 71.4% 4.1%;
-    --popover-foreground: 210 20% 98%;
-    --primary: 216 89% 68%;
-    --primary-foreground: 224 71.4% 4.1%;
-    --secondary: 215 27.9% 16.9%;
-    --secondary-foreground: 210 20% 98%;
-    --muted: 215 27.9% 16.9%;
-    --muted-foreground: 215 25% 65.1%;
-    --accent: 215 27.9% 16.9%;
-    --accent-foreground: 210 20% 98%;
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 20% 98%;
-    --border: 215 27.9% 16.9%;
-    --input: 215 27.9% 16.9%;
-    --ring: 216 89% 68%;
-  }
 }
 
 @layer base {
@@ -84,13 +62,7 @@
   to { opacity: 1; transform: translateY(0); }
 }
 
-.dark body {
-    background-color: hsl(var(--background));
-    background-image: radial-gradient(circle at top left, hsl(var(--secondary)), hsl(var(--background)));
-    color: hsl(var(--foreground));
-}
-
-.light body {
+body {
     background-color: hsl(var(--background));
     color: hsl(var(--foreground));
 }
@@ -113,12 +85,6 @@
     -webkit-text-fill-color: transparent;
 }
 
-.dark .gradient-text {
-     background: linear-gradient(to right, hsl(var(--foreground)), hsl(var(--muted-foreground)));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-}
-
 .logo-study {
     color: hsl(var(--primary));
 }
@@ -129,10 +95,6 @@
 
 .header-link:hover {
     color: hsl(var(--primary));
-}
-
-.dark .header-link:hover {
-    color: hsl(var(--primary-foreground));
 }
 
 .join-btn {
@@ -201,34 +163,9 @@
     color: hsl(var(--foreground));
 }
 
-.dark .social-icon {
-    color: hsl(var(--primary-foreground));
-}
-
 .social-icon:hover {
     transform: scale(1.15);
     color: hsl(var(--primary));
-}
-
-.theme-toggle {
-    background-color: hsla(var(--secondary), 0.8);
-    border: 1px solid hsla(var(--border), 0.5);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.light .theme-toggle {
-    background-color: hsl(var(--background));
-}
-
-
-.light .theme-toggle:hover {
-    transform: scale(1.1);
-    box-shadow: 0 0 20px rgba(50, 50, 50, 0.2);
-}
-
-.dark .theme-toggle:hover {
-    transform: scale(1.1);
-    box-shadow: 0 0 20px rgba(251, 191, 36, 0.5);
 }
 
 .animate-fadeInDown {
