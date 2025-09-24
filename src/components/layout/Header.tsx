@@ -8,15 +8,11 @@ import { useRouter } from 'next/navigation';
 import { cn } from '@/lib/utils';
 import {
   BookMarked,
-  BookOpen,
-  CalendarDays,
-  GraduationCap,
   LogIn,
   LogOut,
-  Newspaper,
-  Home
 } from 'lucide-react';
 import { AnimatePresence, motion } from 'framer-motion';
+import { navItems } from '@/lib/data/navigation';
 
 // --- Sub-components defined within the same file for better organization ---
 
@@ -119,14 +115,6 @@ function AuthButton({ isHovered, label, icon, onClick, isDestructive = false }: 
 }
 
 // --- Main Header Component ---
-
-const navItems = [
-  { id: 'home', label: 'হোম', icon: <Home size={20} />, href: '/' },
-  { id: 'question-bank', label: 'প্রশ্নব্যাংক', icon: <BookOpen size={20} />, href: '/question-bank' },
-  { id: 'calendar', label: 'ক্যালেন্ডার', icon: <CalendarDays size={20} />, href: '/calendar' },
-  { id: 'courses', label: 'কোর্স', icon: <GraduationCap size={20} />, href: '/courses' },
-  { id: 'blog', label: 'ব্লগ', icon: <Newspaper size={20} />, href: '/blog' },
-];
 
 export default function Header() {
   const [hoveredId, setHoveredId] = useState<string | null>(null);
