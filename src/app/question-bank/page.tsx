@@ -1,7 +1,7 @@
 
 'use client';
 
-import React, { Suspense } from 'react';
+import React from 'react';
 import { BookOpen } from 'lucide-react';
 import PageHeaderCard from '@/components/common/PageHeaderCard';
 import QuestionBankTabs from '@/components/QuestionBankTabs';
@@ -28,9 +28,7 @@ export default function QuestionBankPage() {
           ]}
         />
         
-        <Suspense fallback={<div>Loading...</div>}>
-          <QuestionBankTabs />
-        </Suspense>
+        <QuestionBankTabs />
 
       </div>
     </motion.div>
