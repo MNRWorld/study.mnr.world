@@ -105,7 +105,7 @@ function BlogPage() {
                             </Link>
                             <div className="p-6 flex flex-col flex-grow">
                                 <div className="flex justify-between items-center text-xs text-muted-foreground mb-2">
-                                     <span className="bg-primary/10 text-primary px-2 py-1 rounded-full text-xs">{post.category}</span>
+                                     <span className="bg-primary/10 text-primary px-2 py-1 rounded-full">{post.category}</span>
                                      <div className="flex items-center gap-1">
                                         <Calendar size={14} />
                                         <span>{post.date}</span>

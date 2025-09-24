@@ -60,7 +60,7 @@ function CalendarPage() {
               <div className="text-xs sm:text-sm text-muted-foreground">বিশ্ববিদ্যালয়</div>
             </div>
             <div className="text-center">
-              <div className="text-xl sm:text-2xl font-bold text-foreground">১০০+</div>
+              <div className="text-xl sm:text-2xl font-bold text-foreground">۱۰۰+</div>
               <div className="text-xs sm:text-sm text-muted-foreground">ভর্তি পরীক্ষা</div>
             </div>
             <div className="text-center">

@@ -118,8 +118,7 @@ export default function Footer() {
                 >
                   <Mail className="w-5 text-center mr-2" />
                   যোগাযোগ
-                </Link>
-              </li>
+                </Link>              </li>
             </ul>
           </div>
         </div>

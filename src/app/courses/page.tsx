@@ -83,7 +83,7 @@ function CoursesPage() {
               <div className="text-xs sm:text-sm text-muted-foreground">কোর্স</div>
             </div>
             <div className="text-center">
-              <div className="text-xl sm:text-2xl font-bold text-foreground">৫০+</div>
+              <div className="text-xl sm:text-2xl font-bold text-foreground"> ৫০+</div>
               <div className="text-xs sm:text-sm text-muted-foreground">শিক্ষক</div>
             </div>
             <div className="text-center">

@@ -107,13 +107,13 @@ function CollegePage() {
             </div>
             <Table className="border-dotted border-border/50 border-[1px]">
                 <TableBody>
-                    <TableRow className="flex flex-col sm:flex-row">
-                        <TableCell className="text-center text-sm sm:text-base flex-1"><Link href="#Circular" className="block w-full hover:bg-accent p-2 rounded-md">সার্কুলার</Link></TableCell>
-                        <TableCell className="text-center text-sm sm:text-base flex-1"><Link href="/question-bank" className="block w-full hover:bg-accent p-2 rounded-md">প্রশ্নব্যাংক</Link></TableCell>
+                    <TableRow>
+                        <TableCell className="text-center"><Link href="#Circular" className="block w-full hover:bg-accent p-2 rounded-md">সার্কুলার</Link></TableCell>
+                        <TableCell className="text-center"><Link href="/question-bank" className="block w-full hover:bg-accent p-2 rounded-md">প্রশ্নব্যাংক</Link></TableCell>
                     </TableRow>
-                    <TableRow className="flex flex-col sm:flex-row">
-                        <TableCell className="text-center text-sm sm:text-base flex-1"><Link href="http://xiclassadmission.gov.bd/" target="_blank" rel="noreferrer noopener" className="block w-full hover:bg-accent p-2 rounded-md">মূল ওয়েবসাইট</Link></TableCell>
-                        <TableCell className="text-center text-sm sm:text-base flex-1"><Link href="http://xiclassadmission.gov.bd/" target="_blank" rel="noreferrer noopener" className="block w-full hover:bg-accent p-2 rounded-md">এডমিশন ওয়েবসাইট</Link></TableCell>
+                    <TableRow>
+                        <TableCell className="text-center"><Link href="http://xiclassadmission.gov.bd/" target="_blank" rel="noreferrer noopener" className="block w-full hover:bg-accent p-2 rounded-md">মূল ওয়েবসাইট</Link></TableCell>
+                        <TableCell className="text-center"><Link href="http://xiclassadmission.gov.bd/" target="_blank" rel="noreferrer noopener" className="block w-full hover:bg-accent p-2 rounded-md">এডমিশন ওয়েবসাইট</Link></TableCell>
                     </TableRow>
                 </TableBody>
             </Table>
@@ -130,10 +130,10 @@ function CollegePage() {
                 <div className="inline-block px-6 py-2 bg-gradient-to-r from-primary to-blue-500 text-white rounded-full text-base sm:text-lg mb-4 font-bold shadow-md">সার্কুলার</div>
             </div>
             <div className="text-center">
-                <span className="text-base sm:text-lg"><b>সম্পূর্ণ সার্কুলার</b></span><br/>
-                <span className="text-muted-foreground text-xs sm:text-sm">(⚠ <b>নোট:</b> সর্বশেষ সার্কুলার এখনও প্রকাশিত হয়নি। পূর্ববর্তী বছরের সার্কুলার দেখে আইডিয়া নিতে পারো।)</span>
+                <span className="text-lg"><b>সম্পূর্ণ সার্কুলার</b></span><br/>
+                <span className="text-muted-foreground text-sm">(⚠ <b>নোট:</b> সর্বশেষ সার্কুলার এখনও প্রকাশিত হয়নি। পূর্ববর্তী বছরের সার্কুলার দেখে আইডিয়া নিতে পারো।)</span>
             </div>
-            <div className="flex flex-col sm:flex-row flex-wrap gap-2.5 mt-5 justify-center">
+            <div className="flex flex-wrap gap-2.5 mt-5 justify-center">
                 <Button asChild className="bg-primary text-primary-foreground flex-1 min-w-[150px] hover:bg-primary/90 transition-transform hover:scale-105">
                     <a href="#" target="_blank"><Download size={16} className="mr-2"/> ডাউনলোড করুন</a>
                 </Button>
@@ -148,15 +148,15 @@ function CollegePage() {
             </div>
             
             <h5 id="Apply" className="bg-primary/10 text-primary rounded-xl p-3 my-4 text-center text-lg sm:text-xl font-bold flex items-center justify-center"><FilePen className="mr-2"/> আবেদন</h5>
-            <span className="text-sm sm:text-base"><b>➜ আবেদন শুরুঃ</b> ...<br/>
+            <span className="text-base"><b>➜ আবেদন শুরুঃ</b> ...<br/>
             <b>➜ আবেদন শেষঃ</b> ...</span>
-            <div className="my-2 text-sm sm:text-base">
+            <div className="my-2">
               <b><HandCoins className="inline-block mr-2" />আবেদন ফিঃ</b> ...
             </div>
 
             <hr className="my-2 border-border/50" />
 
-             <div className="text-sm sm:text-base">
+             <div className="text-base">
                 <b><LinkIcon className="inline-block mr-2" size={16}/>লিংকঃ</b> <a href='http://xiclassadmission.gov.bd/' target="_blank" className="text-primary hover:underline">http://xiclassadmission.gov.bd/ <ArrowUpRightFromSquare size={11} className="inline-block"/></a><br/><br/>
                 
                 ✔ <b><u>আবেদনের যোগ্যতাঃ</u></b>
@@ -166,17 +166,17 @@ function CollegePage() {
             <hr className="my-2 border-border/50" />
             
             <h5 id="AdmitCard" className="bg-primary/10 text-primary rounded-xl p-3 my-4 text-center text-lg sm:text-xl font-bold flex items-center justify-center"><Contact className="mr-2"/> প্রবেশপত্র</h5>
-            <span className="text-sm sm:text-base">সাধারণত কলেজ ভর্তিতে আলাদা প্রবেশপত্র থাকে না। আবেদন প্রক্রিয়া সম্পন্ন হলে একটি আবেদন কপি দেওয়া হয়।</span>
+            <span className="text-base">সাধারণত কলেজ ভর্তিতে আলাদা প্রবেশপত্র থাকে না। আবেদন প্রক্রিয়া সম্পন্ন হলে একটি আবেদন কপি দেওয়া হয়।</span>
             
             <h5 id="ExamDate" className="bg-primary/10 text-primary rounded-xl p-3 my-4 text-center text-lg sm:text-xl font-bold flex items-center justify-center"><Timer className="mr-2"/> ভর্তির সময়কাল</h5>
-             <span className="text-sm sm:text-base">ভর্তির তারিখ ও সময়সূচী সার্কুলারে উল্লেখ থাকে।</span>
+             <span className="text-base">ভর্তির তারিখ ও সময়সূচী সার্কুলারে উল্লেখ থাকে।</span>
             <hr className="my-2 border-border/50"/>
-            <div className="border border-border/80 p-3 text-center rounded-md text-sm sm:text-base">
+            <div className="border border-border/80 p-3 text-center rounded-md">
             সকল কলেজের <b>ভর্তির তারিখ</b> জানতে ভিজিট করো <b><a href='http://xiclassadmission.gov.bd/' target="_blank" className="text-primary hover:underline">একাদশ শ্রেণি ভর্তি ওয়েবসাইট <ArrowUpRightFromSquare size={11} className="inline-block"/></a></b>
             </div>
 
              <h5 id="Result" className="bg-primary/10 text-primary rounded-xl p-3 my-4 text-center text-lg sm:text-xl font-bold flex items-center justify-center"><BarChartBig className="mr-2"/> ভর্তির ফলাফল</h5>
-             <span className="text-sm sm:text-base">● <b>ফলাফল প্রকাশ:</b> আবেদন প্রক্রিয়া শেষে নির্ধারিত তারিখে ফলাফল প্রকাশিত হয়।
+             <span className="text-base">● <b>ফলাফল প্রকাশ:</b> আবেদন প্রক্রিয়া শেষে নির্ধারিত তারিখে ফলাফল প্রকাশিত হয়।
                 <hr className="my-1 border-border/50" />
                 <b><LinkIcon className="inline-block mr-2" size={16}/>লিংকঃ</b> <a href='http://xiclassadmission.gov.bd/' target="_blank" className="text-primary hover:underline">http://xiclassadmission.gov.bd/ <ArrowUpRightFromSquare size={11} className="inline-block"/></a>
             </span>
