@@ -8,6 +8,7 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { useToast } from '@/hooks/use-toast';
 import { LogIn } from 'lucide-react';
+import Link from 'next/link';
 
 export default function LoginPage() {
   const [email, setEmail] = useState('');
@@ -72,9 +73,9 @@ export default function LoginPage() {
          <div className="text-center text-sm text-muted-foreground">
             <p>
                 কোনো অ্যাকাউন্ট নেই?{' '}
-                <a href="#" className="text-primary hover:underline">
+                <Link href="/signup" className="text-primary hover:underline">
                     এখনি তৈরি করুন
-                </a>
+                </Link>
             </p>
         </div>
       </div>

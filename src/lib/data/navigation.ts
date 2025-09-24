@@ -29,8 +29,8 @@ export const footerLinks = {
   ],
   shortcuts: [
     { href: '/', label: 'হোম', icon: Home },
-    { href: '#', label: 'প্রোফাইল', icon: User },
-    { href: '#', label: 'আমাদের সম্পর্কে', icon: Info },
-    { href: '#', label: 'যোগাযোগ', icon: Mail },
+    { href: '/profile', label: 'প্রোফাইল', icon: User },
+    { href: '/about', label: 'আমাদের সম্পর্কে', icon: Info },
+    { href: '/contact', label: 'যোগাযোগ', icon: Mail },
   ],
 };

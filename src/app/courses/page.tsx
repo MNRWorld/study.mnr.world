@@ -75,7 +75,7 @@ function CoursesPage() {
                 </div>
                 <p className="text-muted-foreground mt-3 mb-4 text-sm sm:text-base">{course.description}</p>
                 <Button asChild className="w-full bg-primary/10 text-primary border border-primary/20 hover:bg-primary hover:text-primary-foreground transition-transform hover:scale-105">
-                    <Link href="#">বিস্তারিত দেখুন <ArrowUpRightFromSquare size={14} className="ml-2"/></Link>
+                    <Link href={`/courses/${encodeURIComponent(course.title.toLowerCase().replace(/ /g, '-'))}`}>বিস্তারিত দেখুন <ArrowUpRightFromSquare size={14} className="ml-2"/></Link>
                 </Button>
             </motion.div>
           ))}

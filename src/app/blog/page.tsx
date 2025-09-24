@@ -63,7 +63,7 @@ function BlogPage() {
                                 variants={itemVariants}
                                 className="bg-card border border-border rounded-xl shadow-lg overflow-hidden hover:shadow-primary/20 hover:-translate-y-2 transition-all duration-300 flex flex-col"
                             >
-                                <Link href="#" className="block">
+                                <Link href={`/blog/${post.id}`} className="block">
                                     {image && (
                                         <Image
                                             src={image.imageUrl}
@@ -84,7 +84,7 @@ function BlogPage() {
                                         </div>
                                     </div>
                                     <h3 className="text-lg sm:text-xl font-bold text-foreground mb-2 flex-grow">
-                                        <Link href="#" className="hover:text-primary transition-colors duration-200">
+                                        <Link href={`/blog/${post.id}`} className="hover:text-primary transition-colors duration-200">
                                             {post.title}
                                         </Link>
                                     </h3>
