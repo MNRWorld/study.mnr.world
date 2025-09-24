@@ -4,6 +4,12 @@ import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
 import { Info } from 'lucide-react';
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from "@/components/ui/tooltip"
 
 interface PageHeaderCardProps {
     icon: React.ReactNode;
@@ -57,14 +63,29 @@ const PageHeaderCard = ({ icon, title, subtitle, description, stats, button }: P
             </div>
             {stats && stats.length > 0 && (
                  <div className="flex justify-around items-center mb-6 text-sm sm:text-base max-w-md mx-auto">
+                    <TooltipProvider>
                     {stats.map((stat, index) => (
                         <div key={index} className="text-center">
-                            <div className="text-xl sm:text-2xl font-bold text-foreground flex items-center justify-center">
-                                {stat.value}
-                            </div>
+                            {stat.tooltip ? (
+                                <Tooltip>
+                                    <TooltipTrigger asChild>
+                                        <div className="text-xl sm:text-2xl font-bold text-foreground flex items-center justify-center cursor-help">
+                                            {stat.value}
+                                        </div>
+                                    </TooltipTrigger>
+                                    <TooltipContent>
+                                        <p dangerouslySetInnerHTML={{ __html: stat.tooltip }} />
+                                    </TooltipContent>
+                                </Tooltip>
+                            ) : (
+                                <div className="text-xl sm:text-2xl font-bold text-foreground flex items-center justify-center">
+                                    {stat.value}
+                                </div>
+                            )}
                             <div className="text-xs sm:text-sm text-muted-foreground">{stat.label}</div>
                         </div>
                     ))}
+                    </TooltipProvider>
                  </div>
             )}
             {button && (
