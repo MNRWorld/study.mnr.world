@@ -3,22 +3,16 @@
 
 import { Button } from '@/components/ui/button';
 import {
-  Tooltip,
-  TooltipContent,
-  TooltipProvider,
-  TooltipTrigger,
-} from '@/components/ui/tooltip';
-import {
-  Info,
-  GraduationCap,
   ArrowUpRightFromSquare,
   BookOpen,
+  GraduationCap
 } from 'lucide-react';
 import Link from 'next/link';
 import React from 'react';
 import FloatingMenu from '@/components/common/FloatingMenu';
 import { motion } from 'framer-motion';
 import { courses } from '@/lib/data/courses';
+import PageHeaderCard from '@/components/common/PageHeaderCard';
 
 function CoursesPage() {
     const containerVariants = {
@@ -44,55 +38,18 @@ function CoursesPage() {
   return (
     <div className="font-bengali bg-background py-8">
       <div className="container mx-auto px-4">
-        <motion.div
-            variants={itemVariants}
-            initial="hidden"
-            animate="visible"
-            className="mt-20 sm:mt-24 w-full border border-border bg-card rounded-2xl p-6 sm:p-8 shadow-lg text-center relative"
-        >
-          <div className="w-24 h-24 absolute -top-12 left-1/2 -translate-x-1/2 bg-card rounded-2xl shadow-xl z-10 flex items-center justify-center">
-            <GraduationCap className="h-16 w-16 text-primary" />
-          </div>
-          <div className="pt-12">
-            <div className="text-2xl sm:text-3xl font-bold my-2 text-foreground">
-              আমাদের কোর্সসমূহ
-            </div>
-            <div className="text-sm text-muted-foreground mb-4">
-              (Our Courses)
-            </div>
-            <p className="text-base text-muted-foreground mb-6 max-w-2xl mx-auto">
-              তোমার স্বপ্ন পূরণের যাত্রায় আমরা আছি পাশে। দেশের সেরা শিক্ষকদের তত্ত্বাবধানে প্রস্তুতি নাও আরও মজবুত ও কার্যকরভাবে।
-            </p>
-          </div>
-          <div className="flex justify-around items-center mb-6 text-sm sm:text-base max-w-md mx-auto">
-            <div className="text-center">
-              <div className="text-xl sm:text-2xl font-bold text-foreground">১০+</div>
-              <div className="text-xs sm:text-sm text-muted-foreground">কোর্স</div>
-            </div>
-            <div className="text-center">
-              <div className="text-xl sm:text-2xl font-bold text-foreground"> ৫০+</div>
-              <div className="text-xs sm:text-sm text-muted-foreground">শিক্ষক</div>
-            </div>
-            <div className="text-center">
-              <div className="text-xl sm:text-2xl font-bold text-foreground flex items-center justify-center">
-                ১০,০০০+
-                <TooltipProvider>
-                  <Tooltip>
-                    <TooltipTrigger asChild>
-                      <span className="ml-1 cursor-pointer text-primary">
-                        <Info size={16} />
-                      </span>
-                    </TooltipTrigger>
-                    <TooltipContent className="bg-primary/10 text-primary-foreground border-primary">
-                      <b>সফল শিক্ষার্থী</b>
-                    </TooltipContent>
-                  </Tooltip>
-                </TooltipProvider>
-              </div>
-              <div className="text-xs sm:text-sm text-muted-foreground">শিক্ষার্থী</div>
-            </div>
-          </div>
-        </motion.div>
+        <PageHeaderCard
+            icon={<GraduationCap className="h-14 w-14 text-primary" />}
+            title="আমাদের কোর্সসমূহ"
+            subtitle="Our Courses"
+            description="তোমার স্বপ্ন পূরণের যাত্রায় আমরা আছি পাশে। দেশের সেরা শিক্ষকদের তত্ত্বাবধানে প্রস্তুতি নাও আরও মজবুত ও কার্যকরভাবে।"
+            stats={[
+                { value: "১০+", label: "কোর্স" },
+                { value: "৫০+", label: "শিক্ষক" },
+                { value: "১০,০০০+", label: "শিক্ষার্থী", tooltip: "সফল শিক্ষার্থী" }
+            ]}
+        />
+
 
         <motion.div
             variants={containerVariants}
