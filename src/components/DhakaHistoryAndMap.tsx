@@ -17,7 +17,7 @@ import {
 } from '@/components/ui/table';
 import { Landmark, University } from 'lucide-react';
 
-const HistoryAndMap = () => {
+const DhakaHistoryAndMap = () => {
     const itemVariants = {
         hidden: { y: 20, opacity: 0 },
         visible: {
@@ -90,4 +90,4 @@ const HistoryAndMap = () => {
     );
 }
 
-export default HistoryAndMap;
+export default DhakaHistoryAndMap;

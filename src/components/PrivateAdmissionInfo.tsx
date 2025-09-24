@@ -8,7 +8,7 @@ import {
   MapPin,
 } from 'lucide-react';
 
-const AdmissionInfo = () => {
+const PrivateAdmissionInfo = () => {
     const itemVariants = {
         hidden: { y: 20, opacity: 0 },
         visible: {
@@ -61,4 +61,4 @@ const AdmissionInfo = () => {
     );
 };
 
-export default AdmissionInfo;
+export default PrivateAdmissionInfo;

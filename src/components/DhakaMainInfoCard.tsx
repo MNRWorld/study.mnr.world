@@ -13,7 +13,7 @@ import {
   TooltipTrigger,
 } from '@/components/ui/tooltip';
 
-const MainInfoCard = () => {
+const DhakaMainInfoCard = () => {
   const itemVariants = {
     hidden: { y: 20, opacity: 0 },
     visible: {
@@ -100,4 +100,4 @@ const MainInfoCard = () => {
   );
 };
 
-export default MainInfoCard;
+export default DhakaMainInfoCard;

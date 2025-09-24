@@ -2,13 +2,13 @@
 'use client';
 import { motion } from 'framer-motion';
 
-import MainInfoCard from '@/app/university/dhaka/_components/MainInfoCard';
+import MainInfoCard from '@/components/DhakaMainInfoCard';
 import LinkList from '@/components/common/LinkList';
-import HistoryAndMap from '@/app/university/dhaka/_components/HistoryAndMap';
+import HistoryAndMap from '@/components/DhakaHistoryAndMap';
 import CountdownTimer from '@/components/common/CountdownTimer';
 import Circular from '@/components/common/Circular';
-import QuestionBank from '@/app/university/dhaka/_components/QuestionBank';
-import AdmissionInfo from '@/app/university/dhaka/_components/AdmissionInfo';
+import QuestionBank from '@/components/DhakaQuestionBank';
+import AdmissionInfo from '@/components/DhakaAdmissionInfo';
 import FloatingMenu from '@/components/common/FloatingMenu';
 
 function DhakaUniversityPage() {

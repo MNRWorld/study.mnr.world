@@ -1,10 +1,10 @@
 
 'use client';
 import { motion } from 'framer-motion';
-import DhakaUniversityTab from '@/app/question-bank/_components/DhakaUniversityTab';
+import DhakaUniversityTab from '@/components/DhakaUniversityTab';
 
 
-const QuestionBank = () => {
+const DhakaQuestionBank = () => {
     const itemVariants = {
         hidden: { y: 20, opacity: 0 },
         visible: {
@@ -32,5 +32,5 @@ const QuestionBank = () => {
     );
 }
 
-export default QuestionBank;
+export default DhakaQuestionBank;
 

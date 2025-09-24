@@ -11,7 +11,7 @@ import { motion } from 'framer-motion';
 import PageHeaderCard from '@/components/common/PageHeaderCard';
 import LinkList from '@/components/common/LinkList';
 import Circular from '@/components/common/Circular';
-import AdmissionInfo from './_components/AdmissionInfo';
+import PrivateAdmissionInfo from '@/components/PrivateAdmissionInfo';
 
 function PrivatePage() {
     const itemVariants = {
@@ -69,7 +69,7 @@ function PrivatePage() {
           downloadLink="#"
         />
         
-        <AdmissionInfo />
+        <PrivateAdmissionInfo />
 
         <FloatingMenu />
 

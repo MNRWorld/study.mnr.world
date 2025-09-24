@@ -21,7 +21,7 @@ import {
   BarChart3,
 } from 'lucide-react';
 
-const AdmissionInfo = () => {
+const DhakaAdmissionInfo = () => {
     const itemVariants = {
         hidden: { y: 20, opacity: 0 },
         visible: {
@@ -156,4 +156,4 @@ const AdmissionInfo = () => {
     );
 };
 
-export default AdmissionInfo;
+export default DhakaAdmissionInfo;

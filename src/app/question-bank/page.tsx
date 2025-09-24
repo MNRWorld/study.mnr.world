@@ -12,7 +12,7 @@ import React from 'react';
 import FloatingMenu from '@/components/common/FloatingMenu';
 import { motion } from 'framer-motion';
 import PageHeaderCard from '@/components/common/PageHeaderCard';
-import DhakaUniversityTab from './_components/DhakaUniversityTab';
+import DhakaUniversityTab from '@/components/DhakaUniversityTab';
 import { useSearchParams } from 'next/navigation';
 
 

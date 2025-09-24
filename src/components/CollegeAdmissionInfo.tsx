@@ -11,7 +11,7 @@ import {
   Ticket,
 } from 'lucide-react';
 
-const AdmissionInfo = () => {
+const CollegeAdmissionInfo = () => {
     const itemVariants = {
         hidden: { y: 20, opacity: 0 },
         visible: {
@@ -72,4 +72,4 @@ const AdmissionInfo = () => {
     );
 };
 
-export default AdmissionInfo;
+export default CollegeAdmissionInfo;
