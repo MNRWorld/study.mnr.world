@@ -41,6 +41,6 @@ export const privateLinks: LinkItem[][] = [
         { href: "/question-bank", label: "প্রশ্নব্যাংক" }
     ],
     [
-        { href: "https://www.ugc.gov.bd/site/view/universities", label: "সব অনুমোদিত প্রাইভেট বিশ্ববিদ্যালয়ের তালিকা", target: "_blank", colSpan: 2 }
+        { href: "https://www.ugc.gov.bd/site/view/universities", label: "সব অনুমোদিত প্রাইভেট বিশ্ববিদ্যালয়ের তালিকা", target: "_blank", colSpan: 2 }
     ]
 ];

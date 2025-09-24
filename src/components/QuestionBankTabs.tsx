@@ -61,13 +61,13 @@ const QuestionBankTabs = () => {
         </TabsContent>
         <TabsContent value="engineering">
           <p className="text-muted-foreground p-4">
-            বুয়েট, কুয়েট, রুয়েট, চুয়েট সহ সকল ইঞ্জিনিয়ারিং বিশ্ববিদ্যালয়ের প্রশ্ন ও
+            বুয়েট, কুয়েট, রুয়েট, চুয়েট সহ সকল ইঞ্জিনিয়ারিং বিশ্ববিদ্যালয়ের প্রশ্ন ও
             সমাধান এখানে যুক্ত করা হবে।
           </p>
         </TabsContent>
         <TabsContent value="others">
           <p className="text-muted-foreground p-4">
-            অন্যান্য সকল বিশ্ববিদ্যালয়ের প্রশ্ন ও সমাধান এখানে পাওয়া যাবে।
+            অন্যান্য সকল বিশ্ববিদ্যালয়ের প্রশ্ন ও সমাধান এখানে পাওয়া যাবে।
           </p>
         </TabsContent>
       </Tabs>

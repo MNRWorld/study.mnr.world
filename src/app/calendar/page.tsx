@@ -36,7 +36,7 @@ function CalendarPage() {
             icon={<CalendarDays className="h-14 w-14 text-primary" />}
             title="অ্যাডমিশন ক্যালেন্ডার"
             subtitle="Admission Calendar"
-            description="সব বিশ্ববিদ্যালয়ের ভর্তি পরীক্ষার তারিখ, সময় ও সর্বশেষ আপডেট এক জায়গায় পেয়ে যাবেন।"
+            description="সব বিশ্ববিদ্যালয়ের ভর্তি পরীক্ষার তারিখ, সময় ও সর্বশেষ আপডেট এক জায়গায় পেয়ে যাবেন।"
             stats={[
                 { value: "৫০+", label: "বিশ্ববিদ্যালয়" },
                 { value: "۱০০+", label: "ভর্তি পরীক্ষা" },
