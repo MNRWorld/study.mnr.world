@@ -46,31 +46,31 @@ const PageHeaderCard = ({ icon, title, subtitle, description, stats, button }: P
             variants={itemVariants}
             initial="hidden"
             animate="visible"
-            className="mt-20 sm:mt-24 w-full border border-border bg-card rounded-2xl p-6 sm:p-8 shadow-lg text-center relative"
+            className="mt-20 w-full border border-border bg-card rounded-2xl p-4 sm:p-8 shadow-lg text-center relative"
         >
-            <div className="w-24 h-24 absolute -top-12 left-1/2 -translate-x-1/2 bg-card rounded-2xl shadow-xl z-10 flex items-center justify-center">
+            <div className="w-20 h-20 sm:w-24 sm:h-24 absolute -top-10 sm:-top-12 left-1/2 -translate-x-1/2 bg-card rounded-2xl shadow-xl z-10 flex items-center justify-center p-1">
                 {icon}
             </div>
-            <div className="pt-12">
-                <div className="text-2xl sm:text-3xl font-bold my-2 text-foreground">
+            <div className="pt-10 sm:pt-12">
+                <div className="text-xl sm:text-2xl md:text-3xl font-bold my-2 text-foreground">
                     {title}
                 </div>
-                <div className="text-sm text-muted-foreground mb-4">
+                <div className="text-xs sm:text-sm text-muted-foreground mb-4">
                     ({subtitle})
                 </div>
-                <p className="text-base text-muted-foreground mb-6 max-w-2xl mx-auto">
+                <p className="text-sm sm:text-base text-muted-foreground mb-6 max-w-2xl mx-auto">
                     {description}
                 </p>
             </div>
             {stats && stats.length > 0 && (
-                 <div className="flex justify-around items-center mb-6 text-sm sm:text-base max-w-md mx-auto">
+                 <div className="flex justify-around items-center mb-6 text-sm max-w-md mx-auto">
                     <TooltipProvider>
                     {stats.map((stat, index) => (
-                        <div key={index} className="text-center">
+                        <div key={index} className="text-center px-2">
                             {stat.tooltip ? (
                                 <Tooltip>
                                     <TooltipTrigger asChild>
-                                        <div className="text-xl sm:text-2xl font-bold text-foreground flex items-center justify-center cursor-help">
+                                        <div className="text-lg sm:text-xl md:text-2xl font-bold text-foreground flex items-center justify-center cursor-help">
                                             {stat.value}
                                         </div>
                                     </TooltipTrigger>
@@ -79,11 +79,11 @@ const PageHeaderCard = ({ icon, title, subtitle, description, stats, button }: P
                                     </TooltipContent>
                                 </Tooltip>
                             ) : (
-                                <div className="text-xl sm:text-2xl font-bold text-foreground flex items-center justify-center">
+                                <div className="text-lg sm:text-xl md:text-2xl font-bold text-foreground flex items-center justify-center">
                                     {stat.value}
                                 </div>
                             )}
-                            <div className="text-xs sm:text-sm text-muted-foreground">{stat.label}</div>
+                            <div className="text-xs sm:text-sm text-muted-foreground whitespace-nowrap">{stat.label}</div>
                         </div>
                     ))}
                     </TooltipProvider>

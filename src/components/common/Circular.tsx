@@ -37,10 +37,10 @@ const Circular = ({ title, note, downloadLink, showPreviousYears = false }: Circ
                 <div className="inline-block px-6 py-2 bg-gradient-to-r from-primary to-blue-500 text-white rounded-full text-base sm:text-lg mb-4 font-bold shadow-md">সার্কুলার</div>
             </div>
             <div className="text-center">
-                <span className="text-lg"><b>{title}</b></span><br/>
-                {note && <span className="text-muted-foreground text-sm">{note}</span>}
+                <span className="text-base sm:text-lg"><b>{title}</b></span><br/>
+                {note && <span className="text-muted-foreground text-xs sm:text-sm">{note}</span>}
             </div>
-            <div className="flex flex-wrap gap-2.5 mt-5 justify-center">
+            <div className="flex flex-col sm:flex-row flex-wrap gap-2.5 mt-5 justify-center">
                 <Button asChild className="bg-primary text-primary-foreground flex-1 min-w-[150px] hover:bg-primary/90 transition-transform hover:scale-105">
                     <a href={downloadLink} target="_blank" rel="noopener noreferrer">
                         <Download size={16} className="mr-2"/> ডাউনলোড করুন

@@ -38,22 +38,27 @@ export default function HomePage() {
   };
 
   return (
-    <main className="flex-grow flex items-center">
+    <motion.main 
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.5 }}
+      className="flex-grow flex items-center"
+    >
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-20">
-            <div className="grid lg:grid-cols-2 gap-16 items-center">
+            <div className="grid lg:grid-cols-2 gap-12 sm:gap-16 items-center">
                 <motion.div
                   initial={{ y: -20, opacity: 0 }}
                   animate={{ y: 0, opacity: 1 }}
                   transition={{ duration: 0.7, ease: 'easeInOut' }}
                   className="text-center lg:text-left"
                 >
-                  <h1 className="text-4xl md:text-5xl font-bold font-bengali leading-tight gradient-text">
+                  <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold font-bengali leading-tight gradient-text">
                     স্বপ্ন পূরণের পথে, সবকিছু এক প্ল্যাটফর্মে
                   </h1>
-                  <p className="mt-4 text-lg text-muted-foreground font-bengali">
+                  <p className="mt-4 text-base sm:text-lg text-muted-foreground font-bengali">
                     ভর্তি পরীক্ষা থেকে শুরু করে পড়াশোনার প্রতিটি ধাপে তোমার পাশেই আছে MNR Study।
                   </p>
-                  <p className="text-lg text-muted-foreground font-bengali">
+                  <p className="text-base sm:text-lg text-muted-foreground font-bengali">
                       চলো, একসাথে শুরু করি তোমার সাফল্যের যাত্রা।
                   </p>
 
@@ -61,52 +66,52 @@ export default function HomePage() {
                     variants={containerVariants}
                     initial="hidden"
                     animate="visible"
-                    className="mt-10 grid grid-cols-2 sm:grid-cols-3 gap-5"
+                    className="mt-10 grid grid-cols-2 sm:grid-cols-3 gap-4 sm:gap-5"
                   >
                     <Link href="/calendar">
                     <motion.div variants={itemVariants} className="feature-card">
-                        <CalendarDays className="h-12 w-12 mx-auto text-primary mb-3" />
-                        <h3 className="font-bengali font-semibold text-card-foreground">
+                        <CalendarDays className="h-10 w-10 sm:h-12 sm:w-12 mx-auto text-primary mb-2 sm:mb-3" />
+                        <h3 className="font-bengali font-semibold text-sm sm:text-base text-card-foreground">
                         ক্যালেন্ডার
                         </h3>
                     </motion.div>
                     </Link>
                     <Link href="/question-bank">
                     <motion.div variants={itemVariants} className="feature-card">
-                        <BookOpen className="h-12 w-12 mx-auto text-primary mb-3" />
-                        <h3 className="font-bengali font-semibold text-card-foreground">
+                        <BookOpen className="h-10 w-10 sm:h-12 sm:w-12 mx-auto text-primary mb-2 sm:mb-3" />
+                        <h3 className="font-bengali font-semibold text-sm sm:text-base text-card-foreground">
                         প্রশ্নব্যাংক
                         </h3>
                     </motion.div>
                     </Link>
                     <Link href="/courses">
                     <motion.div variants={itemVariants} className="feature-card">
-                        <GraduationCap className="h-12 w-12 mx-auto text-primary mb-3" />
-                        <h3 className="font-bengali font-semibold text-card-foreground">
+                        <GraduationCap className="h-10 w-10 sm:h-12 sm:w-12 mx-auto text-primary mb-2 sm:mb-3" />
+                        <h3 className="font-bengali font-semibold text-sm sm:text-base text-card-foreground">
                         কোর্স
                         </h3>
                     </motion.div>
                     </Link>
                     <Link href="/university/dhaka">
                     <motion.div variants={itemVariants} className="feature-card">
-                        <University className="h-12 w-12 mx-auto text-primary mb-3" />
-                        <h3 className="font-bengali font-semibold text-card-foreground">
+                        <University className="h-10 w-10 sm:h-12 sm:w-12 mx-auto text-primary mb-2 sm:mb-3" />
+                        <h3 className="font-bengali font-semibold text-sm sm:text-base text-card-foreground">
                         পাবলিক
                         </h3>
                     </motion.div>
                     </Link>
                     <Link href="/private">
                     <motion.div variants={itemVariants} className="feature-card">
-                        <Building className="h-12 w-12 mx-auto text-primary mb-3" />
-                        <h3 className="font-bengali font-semibold text-card-foreground">
+                        <Building className="h-10 w-10 sm:h-12 sm:w-12 mx-auto text-primary mb-2 sm:mb-3" />
+                        <h3 className="font-bengali font-semibold text-sm sm:text-base text-card-foreground">
                         প্রাইভেট
                         </h3>
                     </motion.div>
                     </Link>
                     <Link href="/college">
                     <motion.div variants={itemVariants} className="feature-card">
-                        <School className="h-12 w-12 mx-auto text-primary mb-3" />
-                        <h3 className="font-bengali font-semibold text-card-foreground">
+                        <School className="h-10 w-10 sm:h-12 sm:w-12 mx-auto text-primary mb-2 sm:mb-3" />
+                        <h3 className="font-bengali font-semibold text-sm sm:text-base text-card-foreground">
                         কলেজ
                         </h3>
                     </motion.div>
@@ -132,6 +137,6 @@ export default function HomePage() {
                 </motion.div>
             </div>
         </div>
-    </main>
+    </motion.main>
   );
 }

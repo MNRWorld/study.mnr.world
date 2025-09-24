@@ -118,25 +118,25 @@ const CountdownTimer = ({ deadlines }: CountdownTimerProps) => {
           />
         </svg>
         <div className="absolute inset-0 flex flex-col items-center justify-center">
-          <div className="text-xl sm:text-2xl font-bold text-foreground">{value}</div>
-          <div className="text-xs sm:text-sm text-muted-foreground">{unit}</div>
+          <div className="text-lg sm:text-2xl font-bold text-foreground">{value}</div>
+          <div className="text-[10px] sm:text-sm text-muted-foreground">{unit}</div>
         </div>
       </div>
     );
   };
 
   return (
-    <div className="text-center p-4 rounded-2xl bg-card">
+    <div className="text-center p-2 sm:p-4 rounded-2xl bg-card">
       <motion.div
         key={currentDeadline.title}
         initial={{ opacity: 0, y: -10 }}
         animate={{ opacity: 1, y: 0 }}
         exit={{ opacity: 0, y: 10 }}
         transition={{ duration: 0.3 }}
-        className="text-lg font-bold mb-3 text-foreground"
+        className="text-base sm:text-lg font-bold mb-3 text-foreground"
       >
         {currentDeadline.title}
-        <div className="font-normal text-sm mt-1 text-muted-foreground">
+        <div className="font-normal text-xs sm:text-sm mt-1 text-muted-foreground">
           {currentDeadline.date.toLocaleDateString('bn-BD', { year: 'numeric', month: 'long', day: 'numeric' })}
         </div>
       </motion.div>
@@ -144,7 +144,7 @@ const CountdownTimer = ({ deadlines }: CountdownTimerProps) => {
         <motion.div
           initial={{ y: 20, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
-          className="text-xl text-red-500 font-bold mt-2.5"
+          className="text-xl text-destructive font-bold mt-2.5"
         >
           সময় শেষ!
         </motion.div>

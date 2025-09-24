@@ -20,7 +20,6 @@ export default function LoginPage() {
     e.preventDefault();
     try {
       await login(email, password);
-      // Success toast and redirect are now handled by the useAuth hook.
     } catch (error: any) {
       console.error(error);
       toast({
@@ -32,14 +31,14 @@ export default function LoginPage() {
   };
 
   return (
-    <div className="flex items-center justify-center min-h-[calc(100vh-10rem)] font-bengali">
-      <div className="w-full max-w-md p-8 space-y-8 bg-card border border-border rounded-2xl shadow-lg">
+    <div className="flex items-center justify-center min-h-[calc(100vh-10rem)] font-bengali px-4">
+      <div className="w-full max-w-md p-6 sm:p-8 space-y-6 sm:space-y-8 bg-card border border-border rounded-2xl shadow-lg">
         <div className="text-center">
             <div className="inline-block p-4 bg-primary/10 rounded-full mb-4">
-                <LogIn className="h-10 w-10 text-primary" />
+                <LogIn className="h-8 w-8 sm:h-10 sm:w-10 text-primary" />
             </div>
-            <h1 className="text-2xl font-bold text-foreground">লগইন করুন</h1>
-            <p className="text-muted-foreground">আপনার অ্যাকাউন্টে প্রবেশ করে শুরু করুন।</p>
+            <h1 className="text-xl sm:text-2xl font-bold text-foreground">লগইন করুন</h1>
+            <p className="text-sm text-muted-foreground">আপনার অ্যাকাউন্টে প্রবেশ করে শুরু করুন।</p>
         </div>
         <form onSubmit={handleLogin} className="space-y-6">
           <div className="space-y-2">
@@ -51,7 +50,7 @@ export default function LoginPage() {
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               required
-              className="text-base"
+              className="text-sm"
             />
           </div>
           <div className="space-y-2">
@@ -63,7 +62,7 @@ export default function LoginPage() {
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               required
-              className="text-base"
+              className="text-sm"
             />
           </div>
           <Button type="submit" className="w-full join-btn text-white font-semibold text-base" disabled={loading}>
