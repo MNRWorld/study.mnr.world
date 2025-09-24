@@ -44,7 +44,7 @@ function CollegePage() {
             subtitle="College Admission"
             description="দেশের সেরা কলেজগুলোতে ভর্তির জন্য প্রয়োজনীয় সব তথ্য ও সর্বশেষ আপডেট এখানেই পাবেন।"
             stats={[
-                { value: "১০০+", label: "কলেজ" },
+                { value: "১০০+", label: "কলেج" },
                 { value: "বিভিন্ন", label: "বিভাগ" },
                 { value: "হাজারো", label: "আসন", tooltip: "প্রতি বছর আসন সংখ্যা পরিবর্তিত হয়" }
             ]}
