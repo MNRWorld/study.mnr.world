@@ -1,90 +1,34 @@
 
-'use client';
-import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
-import {
-  BookOpen,
-  University,
-  FlaskConical,
-  Rocket,
-  Atom,
-} from 'lucide-react';
-import React from 'react';
-import FloatingMenu from '@/components/common/FloatingMenu';
-import { motion } from 'framer-motion';
+import React, { Suspense } from 'react';
+import { BookOpen } from 'lucide-react';
 import PageHeaderCard from '@/components/common/PageHeaderCard';
-import DhakaUniversityTab from '@/components/DhakaUniversityTab';
-import { useSearchParams } from 'next/navigation';
+import FloatingMenu from '@/components/common/FloatingMenu';
+import QuestionBankTabs from '@/components/QuestionBankTabs';
 
-
-function QuestionBankPage() {
-    const searchParams = useSearchParams();
-    const tab = searchParams.get('tab') || 'du';
-
-
-    const itemVariants = {
-        hidden: { y: 20, opacity: 0 },
-        visible: {
-            y: 0,
-            opacity: 1,
-            transition: {
-                duration: 0.5,
-            },
-        },
-    };
-
+// This is now a Server Component
+export default function QuestionBankPage() {
   return (
     <div className="font-bengali bg-background py-8">
       <div className="container mx-auto px-4">
         <PageHeaderCard
-            icon={<BookOpen className="h-14 w-14 text-primary" />}
-            title="প্রশ্নব্যাংক ও সমাধান"
-            subtitle="Question Bank & Solutions"
-            description="বিগত বছরের প্রশ্ন সমাধান করে ভর্তি প্রস্তুতিতে এগিয়ে থাকো। এখানেই পাবে সব বিশ্ববিদ্যালয় ও ইউনিটের প্রশ্নব্যাংক।"
-            stats={[
-                { value: "২০+", label: "বিশ্ববিদ্যালয়" },
-                { value: "১৫+", label: "বছর" },
-                { value: "PDF", label: "ফরম্যাট", tooltip: "সহজে ডাউনলোডযোগ্য" }
-            ]}
+          icon={<BookOpen className="h-14 w-14 text-primary" />}
+          title="প্রশ্নব্যাংক ও সমাধান"
+          subtitle="Question Bank & Solutions"
+          description="বিগত বছরের প্রশ্ন সমাধান করে ভর্তি প্রস্তুতিতে এগিয়ে থাকো। এখানেই পাবে সব বিশ্ববিদ্যালয় ও ইউনিটের প্রশ্নব্যাংক।"
+          stats={[
+            { value: '২০+', label: 'বিশ্ববিদ্যালয়' },
+            { value: '১৫+', label: 'বছর' },
+            { value: 'PDF', label: 'ফরম্যাট', tooltip: 'সহজে ডাউনলোডযোগ্য' },
+          ]}
         />
-
-        {/* Question Bank */}
-        <motion.div
-            variants={itemVariants}
-            initial="hidden"
-            animate="visible"
-            id="QuestionBank"
-            className="mt-8 w-full border border-border bg-card rounded-2xl p-4 sm:p-6 shadow-lg text-center relative"
-        >
-             <div className="flex justify-center">
-                <div className="inline-block px-6 py-2 bg-gradient-to-r from-primary to-blue-500 text-white rounded-full text-base sm:text-lg mb-4 font-bold shadow-md">প্রশ্নব্যাংক</div>
-            </div>
-            <Tabs defaultValue={tab} className="w-full">
-                <TabsList className="grid w-full grid-cols-2 md:grid-cols-4 h-auto bg-muted/50">
-                    <TabsTrigger value="du"><University className="mr-2"/> ঢাকা বিশ্ববিদ্যালয়</TabsTrigger>
-                    <TabsTrigger value="medical"><FlaskConical className="mr-2"/> মেডিকেল</TabsTrigger>
-                    <TabsTrigger value="engineering"><Rocket className="mr-2"/> ইঞ্জিনিয়ারিং</TabsTrigger>
-                    <TabsTrigger value="others"><Atom className="mr-2"/> অন্যান্য</TabsTrigger>
-                </TabsList>
-                <TabsContent value="du">
-                    <DhakaUniversityTab />
-                </TabsContent>
-                <TabsContent value="medical">
-                    <p className="text-muted-foreground p-4">মেডিকেল ভর্তি পরীক্ষার বিগত বছরের প্রশ্ন ও সমাধান এখানে যুক্ত করা হবে।</p>
-                </TabsContent>
-                <TabsContent value="engineering">
-                    <p className="text-muted-foreground p-4">বুয়েট, কুয়েট, রুয়েট, চুয়েট সহ সকল ইঞ্জিনিয়ারিং বিশ্ববিদ্যালয়ের প্রশ্ন ও সমাধান এখানে যুক্ত করা হবে।</p>
-                </TabsContent>
-                 <TabsContent value="others">
-                    <p className="text-muted-foreground p-4">অন্যান্য সকল বিশ্ববিদ্যালয়ের প্রশ্ন ও সমাধান এখানে পাওয়া যাবে।</p>
-                </TabsContent>
-            </Tabs>
-        </motion.div>
         
-        <FloatingMenu />
+        {/* Wrap the client component that uses searchParams in Suspense */}
+        <Suspense fallback={<div>Loading...</div>}>
+          <QuestionBankTabs />
+        </Suspense>
 
+        <FloatingMenu />
       </div>
     </div>
   );
 }
-
-export default QuestionBankPage;
