@@ -101,7 +101,7 @@ function PrivatePage() {
         {/* Link List */}
         <div id="Links" className="mt-8 w-full border border-border bg-card rounded-2xl p-4 sm:p-6 shadow-lg text-center relative">
             <div className="flex justify-center">
-                <div className="inline-block px-6 py-2 bg-gradient-to-r from-primary to-blue-500 text-white rounded-full text-base sm:text-lg mb-4 font-bold shadow-md">গুরুত্বপূর্ণ কিছু লিংক একত্রে</div>
+                <div className="inline-block px-6 py-2 bg-gradient-to-r from-primary to-blue-500 text-white rounded-full text-base sm:text-lg mb-4 font-bold shadow-md">গুরুত্বপূর্ণ লিঙ্ক</div>
             </div>
             <Table className="border-dotted border-border/50 border-[1px]">
                 <TableBody>
@@ -110,7 +110,7 @@ function PrivatePage() {
                         <TableCell className="text-center"><Link href="/question-bank" className="block w-full hover:bg-accent p-2 rounded-md">প্রশ্নব্যাংক</Link></TableCell>
                     </TableRow>
                      <TableRow>
-                        <TableCell className="text-center" colSpan={2}><Link href="https://www.ugc.gov.bd/site/view/universities" target="_blank" className="block w-full hover:bg-accent p-2 rounded-md">সকল অনুমোদিত প্রাইভেট বিশ্ববিদ্যালয়ের তালিকা</Link></TableCell>
+                        <TableCell className="text-center" colSpan={2}><Link href="https://www.ugc.gov.bd/site/view/universities" target="_blank" className="block w-full hover:bg-accent p-2 rounded-md">সব অনুমোদিত প্রাইভেট বিশ্ববিদ্যালয়ের তালিকা</Link></TableCell>
                     </TableRow>
                 </TableBody>
             </Table>
@@ -128,7 +128,7 @@ function PrivatePage() {
             </div>
             <div className="text-center">
                 <span className="text-lg"><b>বিভিন্ন বিশ্ববিদ্যালয়ের সার্কুলার</b></span><br/>
-                <span className="text-muted-foreground text-sm">(⚠ <b>নোট:</b> নিজ নিজ বিশ্ববিদ্যালয়ের ওয়েবসাইটে সর্বশেষ সার্কুলার পাওয়া যাবে।)</span>
+                <span className="text-muted-foreground text-sm">(⚠ <b>নোট:</b> নিজ নিজ বিশ্ববিদ্যালয়ের ওয়েবসাইটে সর্বশেষ সার্কুলার পাবেন।)</span>
             </div>
             <div className="flex flex-wrap gap-2.5 mt-5 justify-center">
                 <Button asChild className="bg-primary text-primary-foreground flex-1 min-w-[150px] hover:bg-primary/90 transition-transform hover:scale-105">
@@ -144,7 +144,7 @@ function PrivatePage() {
             </div>
             
             <h5 id="Apply" className="bg-primary/10 text-primary rounded-xl p-3 my-4 text-center text-lg sm:text-xl font-bold flex items-center justify-center"><FilePen className="mr-2"/> আবেদন</h5>
-            <span className="text-base"><b>➜ আবেদন শুরু ও শেষঃ</b> প্রতিটি বিশ্ববিদ্যালয়ের নিজস্ব ওয়েবসাইটে ভিন্ন ভিন্ন সময়ে আবেদন গ্রহণ করা হয়।</span>
+            <span className="text-base"><b>➜ আবেদন শুরু ও শেষঃ</b> প্রতিটি বিশ্ববিদ্যালয়ের নিজস্ব ওয়েবসাইটে ভিন্ন ভিন্ন সময়ে আবেদন নেওয়া হয়।</span>
             <div className="my-2">
               <b><HandCoins className="inline-block mr-2" />আবেদন ফিঃ</b> বিশ্ববিদ্যালয়ভেদে ভিন্ন।
             </div>
@@ -153,7 +153,7 @@ function PrivatePage() {
              <div className="text-base">
                 ✔ <b><u>আবেদনের যোগ্যতাঃ</u></b>
                 <hr className="my-1 border-border/50" />
-                <p>UGC কর্তৃক নির্ধারিত ন্যূনতম যোগ্যতার প্রয়োজন হয়। তবে অনেক বিশ্ববিদ্যালয় এর চেয়ে বেশি যোগ্যতা চাইতে পারে। বিস্তারিত জানতে নির্দিষ্ট বিশ্ববিদ্যালয়ের ওয়েবসাইট ভিজিট করুন।</p>
+                <p>UGC কর্তৃক নির্ধারিত ন্যূনতম যোগ্যতা প্রয়োজন। তবে অনেক বিশ্ববিদ্যালয় এর চেয়ে বেশি যোগ্যতা চাইতে পারে। বিস্তারিত জানতে পছন্দের বিশ্ববিদ্যালয়ের ওয়েবসাইট ভিজিট করুন।</p>
             </div>
             <hr className="my-2 border-border/50" />
             
@@ -162,7 +162,7 @@ function PrivatePage() {
             <hr className="my-2 border-border/50"/>
 
             <h5 id="Location" className="bg-primary/10 text-primary rounded-xl p-3 my-4 text-center text-lg sm:text-xl font-bold flex items-center justify-center"><MapPin className="mr-2"/> ভর্তি পরীক্ষার কেন্দ্র</h5>
-             <span className="text-base">সাধারণত বিশ্ববিদ্যালয়ের নিজস্ব ক্যাম্পাসে পরীক্ষা অনুষ্ঠিত হয়।</span>
+             <span className="text-base">সাধারণত বিশ্ববিদ্যালয়ের নিজস্ব ক্যাম্পাসেই পরীক্ষা অনুষ্ঠিত হয়।</span>
 
             <div id="MarkDistributionAndOthers"></div>
             <h5 className="bg-primary/10 text-primary rounded-xl p-3 my-4 text-center text-lg sm:text-xl font-bold flex items-center justify-center"><RectangleEllipsis className="mr-2"/> মানবণ্টন ও অন্যান্য তথ্য</h5>

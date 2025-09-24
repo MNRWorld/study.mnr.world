@@ -50,7 +50,7 @@ function QuestionBankPage() {
               (Question Bank & Solutions)
             </div>
             <p className="text-base text-muted-foreground mb-6 max-w-2xl mx-auto">
-            বিগত বছরের প্রশ্ন সমাধান করে ভর্তি প্রস্তুতিতে এগিয়ে থাকো। এখানে পাবে সকল বিশ্ববিদ্যালয় ও ইউনিটের প্রশ্নব্যাংক।
+            বিগত বছরের প্রশ্ন সমাধান করে ভর্তি প্রস্তুতিতে এগিয়ে থাকুন। এখানে পাবেন সব বিশ্ববিদ্যালয় ও ইউনিটের প্রশ্নব্যাংক।
             </p>
           </div>
           <div className="flex justify-around items-center mb-6 text-sm sm:text-base max-w-md mx-auto">
@@ -78,7 +78,7 @@ function QuestionBankPage() {
                   </Tooltip>
                 </TooltipProvider>
               </div>
-              <div className="text-xs sm:text-sm text-muted-foreground">פורמט</div>
+              <div className="text-xs sm:text-sm text-muted-foreground">ফরম্যাট</div>
             </div>
           </div>
         </div>
@@ -107,19 +107,19 @@ function QuestionBankPage() {
                         <AccordionItem value="qb-b-1" className="border-border rounded-2xl mt-1.5 bg-card hover:bg-accent/50 transition-colors">
                             <AccordionTrigger className="p-3 text-lg font-bold hover:no-underline"><File className="inline-block mr-2" /> "খ" ইউনিট প্রশ্নব্যাংক</AccordionTrigger>
                              <AccordionContent className="p-4 pt-0 text-muted-foreground text-base">
-                                (এখানে "খ" ইউনিটের প্রশ্নব্যাংকের লিংক যুক্ত করা হবে)
+                                (এখানে "খ" ইউনিটের প্রশ্নব্যাংকের লিঙ্ক যুক্ত করা হবে)
                             </AccordionContent>
                         </AccordionItem>
                          <AccordionItem value="qb-c-1" className="border-border rounded-2xl mt-1.5 bg-card hover:bg-accent/50 transition-colors">
                             <AccordionTrigger className="p-3 text-lg font-bold hover:no-underline"><File className="inline-block mr-2" /> "গ" ইউনিট প্রশ্নব্যাংক</AccordionTrigger>
                              <AccordionContent className="p-4 pt-0 text-muted-foreground text-base">
-                                (এখানে "গ" ইউনিটের প্রশ্নব্যাংকের লিংক যুক্ত করা হবে)
+                                (এখানে "গ" ইউনিটের প্রশ্নব্যাংকের লিঙ্ক যুক্ত করা হবে)
                             </AccordionContent>
                         </AccordionItem>
                          <AccordionItem value="qb-d-1" className="border-border rounded-2xl mt-1.5 bg-card hover:bg-accent/50 transition-colors">
                             <AccordionTrigger className="p-3 text-lg font-bold hover:no-underline"><File className="inline-block mr-2" /> "ঘ / BBA" ইউনিট প্রশ্নব্যাংক</AccordionTrigger>
                              <AccordionContent className="p-4 pt-0 text-muted-foreground text-base">
-                                (এখানে "ঘ" ও BBA ইউনিটের প্রশ্নব্যাংকের লিংক যুক্ত করা হবে)
+                                (এখানে "ঘ" ও BBA ইউনিটের প্রশ্নব্যাংকের লিঙ্ক যুক্ত করা হবে)
                             </AccordionContent>
                         </AccordionItem>
                     </Accordion>

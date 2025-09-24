@@ -74,7 +74,7 @@ function CoursesPage() {
               (Our Courses)
             </div>
             <p className="text-base text-muted-foreground mb-6 max-w-2xl mx-auto">
-              আপনার স্বপ্ন পূরণের যাত্রায় আমরা আছি আপনার পাশে। সেরা শিক্ষকদের তত্ত্বাবধানে আপনার প্রস্তুতিকে করুন আরও মজবুত।
+              আপনার স্বপ্ন পূরণের যাত্রায় আমরা আছি আপনার পাশে। সেরা শিক্ষকদের তত্ত্বাবধানে আপনার প্রস্তুতিকে করুন আরও মজবুত ও কার্যকর।
             </p>
           </div>
           <div className="flex justify-around items-center mb-6 text-sm sm:text-base max-w-md mx-auto">
@@ -88,7 +88,7 @@ function CoursesPage() {
             </div>
             <div className="text-center">
               <div className="text-xl sm:text-2xl font-bold text-foreground flex items-center justify-center">
-                ১০০০০+
+                ১০,০০০+
                 <TooltipProvider>
                   <Tooltip>
                     <TooltipTrigger asChild>
@@ -127,9 +127,9 @@ function CoursesPage() {
             <div className="flex justify-center">
                 <div className="inline-block px-6 py-2 bg-gradient-to-r from-primary to-blue-500 text-white rounded-full text-base sm:text-lg mb-4 font-bold shadow-md">আমাদের বইসমূহ</div>
             </div>
-             <p className="text-muted-foreground mb-4 text-sm sm:text-base">আমাদের কোর্সগুলোর পাশাপাশি প্রস্তুতিকে আরও শাণিত করতে সংগ্রহ করতে পারো আমাদের নিজস্ব প্রকাশনার বইগুলো।</p>
+             <p className="text-muted-foreground mb-4 text-sm sm:text-base">কোর্সের পাশাপাশি আপনার প্রস্তুতিকে আরও শাণিত করতে সংগ্রহ করতে পারেন আমাদের নিজস্ব প্রকাশনার বইগুলো।</p>
             <Button asChild className="transition-transform hover:scale-105">
-                <Link href="/question-bank"><BookOpen className="mr-2"/> বই দেখতে ক্লিক করুন</Link>
+                <Link href="/question-bank"><BookOpen className="mr-2"/> বইগুলো দেখুন</Link>
             </Button>
         </div>
 

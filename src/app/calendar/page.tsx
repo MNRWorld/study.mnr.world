@@ -45,13 +45,13 @@ function CalendarPage() {
           </div>
           <div className="pt-12">
             <div className="text-2xl sm:text-3xl font-bold my-2 text-foreground">
-              এডমিশন ক্যালেন্ডার
+              অ্যাডমিশন ক্যালেন্ডার
             </div>
             <div className="text-sm text-muted-foreground mb-4">
               (Admission Calendar)
             </div>
             <p className="text-base text-muted-foreground mb-6 max-w-2xl mx-auto">
-              সকল বিশ্ববিদ্যালয়ের ভর্তি পরীক্ষার তারিখ, সময় ও সর্বশেষ আপডেট পেতে আমাদের সাথে থাকুন।
+              সব বিশ্ববিদ্যালয়ের ভর্তি পরীক্ষার তারিখ, সময় ও সর্বশেষ আপডেট এক জায়গায়।
             </p>
           </div>
           <div className="flex justify-around items-center mb-6 text-sm sm:text-base max-w-md mx-auto">
@@ -74,7 +74,7 @@ function CalendarPage() {
                       </span>
                     </TooltipTrigger>
                     <TooltipContent className="bg-primary/10 text-primary-foreground border-primary">
-                      <b>সময়মত আপডেট করা হয়</b>
+                      <b>সময়মতো আপডেট করা হয়</b>
                     </TooltipContent>
                   </Tooltip>
                 </TooltipProvider>
@@ -104,13 +104,13 @@ function CalendarPage() {
             
             <h5 id="ExamDate" className="bg-primary/10 text-primary rounded-xl p-3 my-4 text-center text-lg sm:text-xl font-bold flex items-center justify-center"><Timer className="mr-2"/> পরীক্ষার সময়কাল</h5>
              <div className="border border-border/80 p-3 text-center rounded-md text-sm sm:text-base">
-                সকল বিশ্ববিদ্যালয়ের <b>পরীক্ষার তারিখ ও কাউন্টডাউন</b> দেখতে ভিজিট করো <b><a href='https://mnr.world/ac/' target="_blank" className="text-primary hover:underline">এডমিশন ক্যালেন্ডার <ArrowUpRightFromSquare size={11} className="inline-block"/></a></b>
+                সব বিশ্ববিদ্যালয়ের <b>পরীক্ষার তারিখ ও কাউন্টডাউন</b> দেখতে ভিজিট করুন আমাদের <b><a href='https://mnr.world/ac/' target="_blank" className="text-primary hover:underline">অ্যাডমিশন ক্যালেন্ডার <ArrowUpRightFromSquare size={11} className="inline-block"/></a></b>
             </div>
 
              <h5 id="Result" className="bg-primary/10 text-primary rounded-xl p-3 my-4 text-center text-lg sm:text-xl font-bold flex items-center justify-center"><BarChartBig className="mr-2"/> ভর্তি পরীক্ষার ফলাফল</h5>
-             <span className="text-sm sm:text-base">● <b>ফলাফল প্রকাশ:</b> সাধারণত ভর্তি পরীক্ষার ১-৪ সপ্তাহের মধ্যে।
+             <span className="text-sm sm:text-base">● <b>ফলাফল প্রকাশ:</b> সাধারণত ভর্তি পরীক্ষার ১-৪ সপ্তাহের মধ্যেই ফলাফল প্রকাশিত হয়।
                 <hr className="my-2 border-border/50" />
-                <b><LinkIcon className="inline-block mr-2" size={16}/>লিংকঃ</b> নিজ নিজ বিশ্ববিদ্যালয়ের ওয়েবসাইটে ফলাফল প্রকাশিত হয়।
+                <b><LinkIcon className="inline-block mr-2" size={16}/>লিংকঃ</b> প্রতিটি বিশ্ববিদ্যালয়ের নিজস্ব ওয়েবসাইটে ফলাফল পাবেন।
             </span>
         </div>
 

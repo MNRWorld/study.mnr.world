@@ -78,13 +78,13 @@ function BlogPage() {
                     </div>
                     <div className="pt-12">
                         <div className="text-2xl sm:text-3xl font-bold my-2 text-foreground">
-                            ব্লগ ও নিউজ
+                            আমাদের ব্লগ ও নিউজ
                         </div>
                         <div className="text-sm text-muted-foreground mb-4">
                             (Blog & News)
                         </div>
                         <p className="text-base text-muted-foreground mb-6 max-w-2xl mx-auto">
-                            ভর্তি পরীক্ষা, পড়াশোনা এবং ক্যারিয়ার বিষয়ক সর্বশেষ খবর, টিপস এবং কৌশল জানতে আমাদের ব্লগের সাথে থাকুন।
+                           ভর্তি পরীক্ষা, পড়াশোনা ও ক্যারিয়ার নিয়ে গুরুত্বপূর্ণ সব তথ্য ও টিপস পেতে আমাদের ব্লগে চোখ রাখুন।
                         </p>
                     </div>
                 </div>

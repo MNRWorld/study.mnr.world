@@ -22,15 +22,15 @@ export default function LoginPage() {
     try {
       await login(email, password);
       toast({
-        title: "Login Successful",
-        description: "Welcome back!",
+        title: "লগইন সফল হয়েছে",
+        description: "MNR Study-তে স্বাগতম!",
       });
       router.push('/');
     } catch (error: any) {
       console.error(error);
       toast({
-        title: "Login Failed",
-        description: error.message || "An unexpected error occurred.",
+        title: "লগইন ব্যর্থ হয়েছে",
+        description: error.message || "একটি অপ্রত্যাশিত সমস্যা হয়েছে।",
         variant: "destructive",
       });
     }
@@ -44,7 +44,7 @@ export default function LoginPage() {
                 <LogIn className="h-10 w-10 text-primary" />
             </div>
             <h1 className="text-2xl font-bold text-foreground">লগইন করুন</h1>
-            <p className="text-muted-foreground">আপনার অ্যাকাউন্টে প্রবেশ করুন</p>
+            <p className="text-muted-foreground">আপনার অ্যাকাউন্টে প্রবেশ করে শুরু করুন।</p>
         </div>
         <form onSubmit={handleLogin} className="space-y-6">
           <div className="space-y-2">
@@ -77,9 +77,9 @@ export default function LoginPage() {
         </form>
          <div className="text-center text-sm text-muted-foreground">
             <p>
-                কোনো একাউন্ট নেই?{' '}
+                কোনো অ্যাকাউন্ট নেই?{' '}
                 <a href="#" className="text-primary hover:underline">
-                    একাউন্ট তৈরি করুন
+                    এখনি তৈরি করুন
                 </a>
             </p>
         </div>

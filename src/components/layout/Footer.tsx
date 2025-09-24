@@ -1,3 +1,4 @@
+
 import {
   BookMarked,
   Home as HomeIcon,
@@ -37,7 +38,7 @@ export default function Footer() {
 
           <div className="col-span-1">
             <h3 className="text-xl font-semibold link-underline inline-block font-bengali">
-              লিঙ্কস
+              গুরুত্বপূর্ণ লিঙ্ক
             </h3>
             <ul className="mt-4 space-y-3 font-bengali">
               <li>
@@ -46,7 +47,7 @@ export default function Footer() {
                   className="text-muted-foreground hover:text-primary transition-colors duration-300 flex items-center"
                 >
                   <ArrowRight className="text-primary mr-2 h-5 w-5" />
-                  কোর্স
+                  আমাদের কোর্স
                 </Link>
               </li>
               <li>
@@ -73,7 +74,7 @@ export default function Footer() {
                   className="text-muted-foreground hover:text-primary transition-colors duration-300 flex items-center"
                 >
                   <ArrowRight className="text-primary mr-2 h-5 w-5" />
-                  শিক্ষামূলক খবর
+                  শিক্ষামূলক ব্লগ
                 </Link>
               </li>
             </ul>

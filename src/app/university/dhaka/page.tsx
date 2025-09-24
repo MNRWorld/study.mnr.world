@@ -1,3 +1,4 @@
+
 import {
   Accordion,
   AccordionContent,
@@ -72,9 +73,8 @@ function DhakaUniversityPage() {
               (University of Dhaka)
             </div>
             <p className="text-base text-muted-foreground mb-6 max-w-2xl mx-auto">
-              ঢাকা বিশ্ববিদ্যালয় ১৯২১ সালে প্রতিষ্ঠিত বাংলাদেশের প্রাচীনতম ও অন্যতম
-              প্রধান উচ্চশিক্ষা প্রতিষ্ঠান। এটি শিক্ষা, গবেষণা ও জাতীয় আন্দোলনে
-              গুরুত্বপূর্ণ ভূমিকা রেখেছে।
+              প্রাচ্যের অক্সফোর্ড খ্যাত ঢাকা বিশ্ববিদ্যালয়, বাংলাদেশের স্বপ্নদ্রষ্টাদের সূতিকাগার।
+              এর করিডোরে হেঁটেছে ইতিহাস, জন্মেছে অজস্র জ্ঞানতাপস।
             </p>
           </div>
           <div className="flex justify-around items-center mb-6 text-sm sm:text-base max-w-md mx-auto">
@@ -88,7 +88,7 @@ function DhakaUniversityPage() {
             </div>
             <div className="text-center">
               <div className="text-xl sm:text-2xl font-bold text-foreground flex items-center justify-center">
-                ৬১৩০টি
+                ৬,১৩০+
                 <TooltipProvider>
                   <Tooltip>
                     <TooltipTrigger asChild>
@@ -125,7 +125,7 @@ function DhakaUniversityPage() {
         {/* Link List */}
         <div id="Links" className="mt-8 w-full border border-border bg-card rounded-2xl p-4 sm:p-6 shadow-lg text-center relative">
             <div className="flex justify-center">
-                <div className="inline-block px-6 py-2 bg-gradient-to-r from-primary to-blue-500 text-white rounded-full text-base sm:text-lg mb-4 font-bold shadow-md">গুরুত্বপূর্ণ কিছু লিংক একত্রে</div>
+                <div className="inline-block px-6 py-2 bg-gradient-to-r from-primary to-blue-500 text-white rounded-full text-base sm:text-lg mb-4 font-bold shadow-md">গুরুত্বপূর্ণ লিঙ্ক</div>
             </div>
             <Table className="border-dotted border-border/50 border-[1px]">
                 <TableBody>
@@ -135,13 +135,13 @@ function DhakaUniversityPage() {
                     </TableRow>
                     <TableRow>
                         <TableCell className="text-center"><Link href="https://www.du.ac.bd/" target="_blank" rel="noreferrer noopener" className="block w-full hover:bg-accent p-2 rounded-md">মূল ওয়েবসাইট</Link></TableCell>
-                        <TableCell className="text-center"><Link href="https://admission.eis.du.ac.bd/bn/408b7c8ad06e4d9954fa2d948a01f508" target="_blank" rel="noreferrer noopener" className="block w-full hover:bg-accent p-2 rounded-md">এডমিশন ওয়েবসাইট</Link></TableCell>
+                        <TableCell className="text-center"><Link href="https://admission.eis.du.ac.bd/bn/408b7c8ad06e4d9954fa2d948a01f508" target="_blank" rel="noreferrer noopener" className="block w-full hover:bg-accent p-2 rounded-md">ভর্তি ওয়েবসাইট</Link></TableCell>
                     </TableRow>
                     <TableRow>
-                        <TableCell className="text-center" colSpan={2}><Link href="https://admission.eis.du.ac.bd/bn/408b7c8ad06e4d9954fa2d948a01f508" target="_blank" className="block w-full hover:bg-accent p-2 rounded-md">আবেদন <b>|</b> প্রবেশপত্র ডাউনলোড <b>|</b> ফলাফল</Link></TableCell>
+                        <TableCell className="text-center" colSpan={2}><Link href="https://admission.eis.du.ac.bd/bn/408b7c8ad06e4d9954fa2d948a01f508" target="_blank" className="block w-full hover:bg-accent p-2 rounded-md">আবেদন <b>|</b> প্রবেশপত্র <b>|</b> ফলাফল</Link></TableCell>
                     </TableRow>
                     <TableRow>
-                        <TableCell className="text-center" colSpan={2}><Link href="https://collegeadmission.eis.du.ac.bd/en/b45de047fde9788c53fradae3cfe8e88dc02" target="_blank" className="block w-full hover:bg-accent p-2 rounded-md">অধিভুক্ত কলেজ (আবেদন, প্রবেশপত্র ডাউনলোড, ফলাফল)</Link></TableCell>
+                        <TableCell className="text-center" colSpan={2}><Link href="https://collegeadmission.eis.du.ac.bd/en/b45de047fde9788c53fradae3cfe8e88dc02" target="_blank" className="block w-full hover:bg-accent p-2 rounded-md">অধিভুক্ত কলেজ ভর্তি</Link></TableCell>
                     </TableRow>
                 </TableBody>
             </Table>
@@ -151,21 +151,21 @@ function DhakaUniversityPage() {
         <Accordion type="multiple" className="w-full mt-8 space-y-4">
             <AccordionItem value="item-1" className="bg-card border border-border rounded-2xl overflow-hidden shadow-lg">
                 <AccordionTrigger className="p-4 sm:p-5 w-full flex justify-between items-center text-lg font-bold cursor-pointer hover:no-underline">
-                <span>সংক্ষিপ্ত পরিচয়</span>
+                <span>এক নজরে ঢাকা বিশ্ববিদ্যালয়</span>
                 </AccordionTrigger>
                 <AccordionContent className="p-4 sm:p-5 border-t border-border/50 text-base text-muted-foreground">
-                    <p><b>ঢাকা বিশ্ববিদ্যালয় (ঢাবি)</b> বাংলাদেশের সর্বপ্রথম এবং অন্যতম প্রধান উচ্চশিক্ষা প্রতিষ্ঠান, যা ১৯২১ সালের ১ জুলাই প্রতিষ্ঠিত হয়। এটি ব্রিটিশ ভারতের অক্সব্রিজ মডেল অনুসরণে গঠিত হয়েছিল এবং শুরুতে তিনটি অনুষদ (কলা, বিজ্ঞান ও আইন) এবং ১২টি বিভাগ নিয়ে যাত্রা শুরু করে।</p>
-                    <p className="mt-2">১৯০৫ সালে বঙ্গভঙ্গের মাধ্যমে পূর্ব বাংলা ও আসাম নিয়ে একটি নতুন প্রদেশ গঠিত হয়, যার রাজধানী ছিল ঢাকা। এই প্রক্রিয়ায় মুসলিম সমাজের মধ্যে শিক্ষার প্রসার ঘটে। তবে ১৯১১ সালে বঙ্গভঙ্গ রদের ফলে পূর্ব বাংলার মুসলিম সমাজের মধ্যে উচ্চশিক্ষার সুযোগ হ্রাস পায়। এই প্রেক্ষাপটে, ১৯১২ সালের ২১ জানুয়ারি ভারতের ভাইসরয় লর্ড হার্ডিঞ্জ ঢাকায় সফরকালে একটি বিশ্ববিদ্যালয় প্রতিষ্ঠার প্রতিশ্রুতি দেন।</p>
-                    <p className="mt-2">এরপর ব্যারিস্টার রবার্ট নাথানের নেতৃত্বে নাথান কমিশন গঠিত হয় এবং ১৯১৩ সালে তার রিপোর্ট অনুমোদন পায়। বর্তমানে ঢাকা বিশ্ববিদ্যালয় ৪৬,০০০-এরও বেশি শিক্ষার্থী এবং ২,০০০-এরও বেশি শিক্ষক নিয়ে বাংলাদেশের বৃহত্তম পাবলিক গবেষণা বিশ্ববিদ্যালয়। এটি দেশের শিক্ষা, সংস্কৃতি এবং মুক্ত চিন্তার বিকাশে গুরুত্বপূর্ণ ভূমিকা পালন করে চলেছে।</p>
+                    <p><b>ঢাকা বিশ্ববিদ্যালয় (ঢাবি)</b> বাংলাদেশের প্রথম এবং সবচেয়ে प्रतिष्ठित বিশ্ববিদ্যালয়, যা ১৯২১ সালের ১ জুলাই প্রতিষ্ঠিত হয়। এটি ব্রিটিশ ভারতের অক্সব্রিজ মডেলের আদলে গঠিত হয়েছিল এবং শুরুতে মাত্র তিনটি অনুষদ (কলা, বিজ্ঞান ও আইন) নিয়ে যাত্রা শুরু করে।</p>
+                    <p className="mt-2">১৯০৫ সালের বঙ্গভঙ্গের পর পূর্ব বাংলা ও আসামের মুসলিম সমাজে উচ্চশিক্ষার যে আকাঙ্ক্ষা তৈরি হয়েছিল, তার ফলশ্রুতিতেই এই বিশ্ববিদ্যালয় প্রতিষ্ঠা পায়। স্যার সলিমুল্লাহ, নবাব নওয়াব আলী চৌধুরী এবং এ. কে. ফজলুল হকের মতো নেতাদের অক্লান্ত পরিশ্রমে, ১৯১২ সালে ভাইসরয় লর্ড হার্ডিঞ্জ বিশ্ববিদ্যালয় প্রতিষ্ঠার প্রতিশ্রুতি দেন।</p>
+                    <p className="mt-2">আজ, ঢাকা বিশ্ববিদ্যালয় ৪৬,০০০-এর বেশি শিক্ষার্থী এবং ২,০০০-এর বেশি শিক্ষক নিয়ে বাংলাদেশের বৃহত্তম পাবলিক গবেষণা বিশ্ববিদ্যালয়। এটি দেশের শিক্ষা, সংস্কৃতি এবং মুক্তচিন্তার বিকাশে নেতৃত্ব দিয়ে চলেছে।</p>
                     <hr className="my-3 border-border/50" />
                     <b>তথ্যসূত্র</b><br/>
                     ০১. <a href="https://bn.wikipedia.org/wiki/%E0%A6%A2%E0%A6%BE%E0%A6%95%E0%A6%BE_%E0%A6%AC%E0%A6%BF%E0%A6%B6%E0%A7%8D%E0%A6%AC%E0%A6%AC%E0%A6%BF%E0%A6%A6%E0%A7%8D%E0%A6%AF%E0%A6%BE%E0%A6%B2%E0%A6%AF%E0%A6%BC" target="_blank" className="text-primary hover:underline">
-                    উইকিপিডিয়া প্রতিবেদন (ঢাকা বিশ্ববিদ্যালয়)</a>
+                    উইকিপিডিয়া (ঢাকা বিশ্ববিদ্যালয়)</a>
                 </AccordionContent>
             </AccordionItem>
             <AccordionItem value="item-2" className="bg-card border border-border rounded-2xl overflow-hidden shadow-lg">
                 <AccordionTrigger className="p-4 sm:p-5 w-full flex justify-between items-center text-lg font-bold cursor-pointer hover:no-underline">
-                <span>বিভিন্ন গুগল ম্যাপ লোকেশন</span>
+                <span>ক্যাম্পাসের গুগল ম্যাপ লোকেশন</span>
                 </AccordionTrigger>
                 <AccordionContent className="p-4 sm:p-5 border-t border-border/50 text-base text-muted-foreground">
                      <Accordion type="multiple" className="w-full">
@@ -176,7 +176,7 @@ function DhakaUniversityPage() {
                                     <TableBody>
                                         <TableRow>
                                             <TableCell className="text-center">মুসা খান মসজিদ</TableCell>
-                                            <TableCell className="text-center"><Link href="https://maps.app.goo.gl/A5Pt2z5yceEQ641y7?g_st=atm" target="_blank" rel="noreferrer noopener" className="text-primary hover:underline">[লিংক]</Link></TableCell>
+                                            <TableCell className="text-center"><Link href="https://maps.app.goo.gl/A5Pt2z5yceEQ641y7?g_st=atm" target="_blank" rel="noreferrer noopener" className="text-primary hover:underline">[লিঙ্ক]</Link></TableCell>
                                         </TableRow>
                                     </TableBody>
                                 </Table>
@@ -189,7 +189,7 @@ function DhakaUniversityPage() {
                                     <TableBody>
                                         <TableRow>
                                             <TableCell className="text-center">রেজিস্ট্রার বিল্ডিং</TableCell>
-                                            <TableCell className="text-center"><Link href="https://maps.app.goo.gl/your-link-here" target="_blank" rel="noreferrer noopener" className="text-primary hover:underline">[লিংক]</Link></TableCell>
+                                            <TableCell className="text-center"><Link href="https://maps.app.goo.gl/your-link-here" target="_blank" rel="noreferrer noopener" className="text-primary hover:underline">[লিঙ্ক]</Link></TableCell>
                                         </TableRow>
                                     </TableBody>
                                 </Table>
@@ -211,8 +211,8 @@ function DhakaUniversityPage() {
                 <div className="inline-block px-6 py-2 bg-gradient-to-r from-primary to-blue-500 text-white rounded-full text-base sm:text-lg mb-4 font-bold shadow-md">সার্কুলার</div>
             </div>
             <div className="text-center">
-                <span className="text-lg"><b>HSC-24 ব্যাচের সম্পূর্ণ সার্কুলার</b></span><br/>
-                <span className="text-muted-foreground text-sm">(⚠ <b>নোট:</b> HSC-25 এর সার্কুলার এখনও প্রকাশিত হয়নি। পূর্ববর্তী ব্যাচের সার্কুলার দেখে আইডিয়া নিতে পারো।)</span>
+                <span className="text-lg"><b>HSC-24 ব্যাচের সার্কুলার</b></span><br/>
+                <span className="text-muted-foreground text-sm">(⚠ <b>নোট:</b> HSC-25 এর সার্কুলার এখনও প্রকাশিত হয়নি। আপাতত এটি দেখে আইডিয়া নিতে পারেন।)</span>
             </div>
             <div className="flex flex-wrap gap-2.5 mt-5 justify-center">
                 <Button asChild className="bg-primary text-primary-foreground flex-1 min-w-[150px] hover:bg-primary/90 transition-transform hover:scale-105">
@@ -277,7 +277,7 @@ function DhakaUniversityPage() {
         {/* Info Section */}
         <div id="Info" className="mt-8 w-full border border-border bg-card rounded-2xl p-4 sm:p-6 shadow-lg relative text-left">
             <div className="flex justify-center">
-                <div className="inline-block px-6 py-2 bg-gradient-to-r from-primary to-blue-500 text-white rounded-full text-base sm:text-lg mb-4 font-bold shadow-md">তথ্যভান্ডার (HSC-24)</div>
+                <div className="inline-block px-6 py-2 bg-gradient-to-r from-primary to-blue-500 text-white rounded-full text-base sm:text-lg mb-4 font-bold shadow-md">ভর্তি তথ্য (HSC-24)</div>
             </div>
             
             <h5 id="Apply" className="bg-primary/10 text-primary rounded-xl p-3 my-4 text-center text-lg sm:text-xl font-bold flex items-center justify-center"><FilePen className="mr-2"/> আবেদন</h5>
@@ -286,20 +286,20 @@ function DhakaUniversityPage() {
                 <b>➜ আবেদন শেষঃ</b> ২৫ নভেম্বর, ২০২৪ (রাত ১১.৫৯টা পর্যন্ত)</span>
                 <div className="my-2">
                   <b><HandCoins className="inline-block mr-2" />আবেদন ফিঃ</b><br/>
-                  <b>&nbsp;&nbsp;&nbsp; ✓ ক, খ, গ, চ ইউনিট:</b> ۱۰৫০৳<br/>
+                  <b>&nbsp;&nbsp;&nbsp; ✓ ক, খ, গ, চ ইউনিট:</b> ১০৫০৳<br/>
                   <b>&nbsp;&nbsp;&nbsp; ✓ আইবিএ ইউনিট:</b> ১৫০০৳
                 </div>
 
                 <div className="flex items-center gap-2 flex-wrap">
                     <CircleCheck className="text-green-600" size={16}/>
-                    <a href='https://t.me/Study_on_Telegram/13209' target="_blank" className="text-primary hover:underline">আবেদনের ধাপসমূহ একত্রে</a> | 
-                    <a href='https://t.me/Study_on_Telegram/13206' className="text-primary hover:underline">আবেদনের সচিত্র প্রসেস</a>
+                    <a href='https://t.me/Study_on_Telegram/13209' target="_blank" className="text-primary hover:underline">আবেদনের ধাপসমূহ</a> | 
+                    <a href='https://t.me/Study_on_Telegram/13206' className="text-primary hover:underline">সচিত্র আবেদন প্রক্রিয়া</a>
                 </div>
             </div>
             <hr className="my-3 border-border/50" />
 
              <div className="text-base">
-                <b><LinkIcon className="inline-block mr-2" size={16}/>লিংকঃ</b> <a href='https://admission.eis.du.ac.bd/' target="_blank" className="text-primary hover:underline">https://admission.eis.du.ac.bd/ <ArrowUpRightFromSquare size={11} className="inline-block"/></a><br/><br/>
+                <b><LinkIcon className="inline-block mr-2" size={16}/>লিংকঃ</b> <a href='https://admission.eis.du.ac.bd/' target="_blank" className="text-primary hover:underline">admission.eis.du.ac.bd <ArrowUpRightFromSquare size={11} className="inline-block"/></a><br/><br/>
                 
                 ✔ <b><u>আবেদনের যোগ্যতাঃ</u></b>
                 <hr className="my-1 border-border/50" />
@@ -333,24 +333,24 @@ function DhakaUniversityPage() {
                     </AccordionContent>
                 </AccordionItem>
                  <AccordionItem value="info-2" className="border-border rounded-2xl mt-1.5 hover:bg-accent/50">
-                    <AccordionTrigger className="p-3 text-lg font-bold hover:no-underline"><Info className="mr-2"/> ইমপ্রুভমেন্ট ও পরবর্তী ব্যাচের সাথে পরীক্ষা দেয়া সংক্রান্ত বিস্তারিত</AccordionTrigger>                    <AccordionContent className="p-4 pt-0 text-muted-foreground text-base">
-                    <b>দুটি শর্তে একজন শিক্ষার্থী পরবর্তী ব্যাচের সাথে পরের বছর ঢাকা বিশ্ববিদ্যালয়ে পরীক্ষা দিতে পারবে -<br/><br/>
-                    ১।</b> ঢাকা বিশ্ববিদ্যালয় কিংবা অধিভুক্ত কলেজে আবেদন না করা<br/>
-                    <b>২।</b>পরবর্তী ব্যাচের সাথে  ইমপ্রুভমেন্ট পরীক্ষা দেয়া (HSC)<br/><br/>
+                    <AccordionTrigger className="p-3 text-lg font-bold hover:no-underline"><Info className="mr-2"/> ইমপ্রুভমেন্ট ও পরবর্তী ব্যাচের পরীক্ষা</AccordionTrigger>                    <AccordionContent className="p-4 pt-0 text-muted-foreground text-base">
+                    <b>দুটি শর্ত পূরণ করে একজন শিক্ষার্থী পরবর্তী ব্যাচের সাথে ঢাকা বিশ্ববিদ্যালয়ে পরীক্ষা দিতে পারে:<br/><br/>
+                    ১।</b> ঢাকা বিশ্ববিদ্যালয় বা এর অধিভুক্ত কোনো কলেজে আবেদন না করা।<br/>
+                    <b>২।</b> পরবর্তী ব্যাচের সাথে HSC ইমপ্রুভমেন্ট পরীক্ষা দেওয়া।<br/><br/>
 
-                    <b><u>উদাহরণ:</u></b> কোনো HSC-24 ব্যাচের শিক্ষার্থী যদি ঢাকা বিশ্ববিদ্যালয় বা অধিভুক্ত কোনো কলেজে আবেদন না করে এবং ইমপ্রুভমেন্ট পরীক্ষা দেয়, তাহলে সে চাইলে HSC-25 ব্যাচের সাথে ঢাকা বিশ্ববিদ্যালয়ে পরীক্ষা দিতে পারবে।
+                    <b><u>উদাহরণ:</u></b> একজন HSC-24 ব্যাচের শিক্ষার্থী যদি ঢাবিতে আবেদন না করে এবং HSC-25 ব্যাচের সাথে ইমপ্রুভমেন্ট দেয়, তবে সে HSC-25 ব্যাচের সাথে পরীক্ষা দিতে পারবে।
                     </AccordionContent>
                 </AccordionItem>
             </Accordion>
             
             <h5 id="AdmitCard" className="bg-primary/10 text-primary rounded-xl p-3 my-4 text-center text-lg sm:text-xl font-bold flex items-center justify-center"><Contact className="mr-2"/> প্রবেশপত্র</h5>
             <div className="text-base">
-                <span><b>➜ শুরু:</b> ২৩ ডিসেম্বর, ২০২৪<br/>
-                <b>➜ শেষ:</b> পরীক্ষা শুরুর ১ ঘণ্টা পূর্ব পর্যন্ত<br/><br/>
-                <b><LinkIcon className="inline-block mr-2" size={16}/>লিংকঃ</b> <a href='https://admission.eis.du.ac.bd/' target="_blank" className="text-primary hover:underline">https://admission.eis.du.ac.bd/ <ArrowUpRightFromSquare size={11} className="inline-block"/></a>
-                <br/>(লগ ইন করে নিয়ে ডাউনলোড করতে হবে।)
+                <span><b>➜ ডাউনলোড শুরু:</b> ২৩ ডিসেম্বর, ২০২৪<br/>
+                <b>➜ ডাউনলোড শেষ:</b> পরীক্ষা শুরুর ১ ঘণ্টা পূর্ব পর্যন্ত<br/><br/>
+                <b><LinkIcon className="inline-block mr-2" size={16}/>লিংকঃ</b> <a href='https://admission.eis.du.ac.bd/' target="_blank" className="text-primary hover:underline">admission.eis.du.ac.bd <ArrowUpRightFromSquare size={11} className="inline-block"/></a>
+                <br/>(লগইন করে ডাউনলোড করতে হবে।)
                 <br/><br/>
-                <b><i className="text-orange-500 flex items-center"><CircleAlert size={16} className="inline-block mr-1"/></i> নোটঃ</b> প্রবেশপত্রে শুধু পরীক্ষার অঞ্চল উল্লেখ থাকে। কিন্তু, ঠিক কোন সেন্টারে, কোন বিল্ডিং/রুম এ হবে, সেটা পরে দেয়। সাধারণত যে দিন যে ইউনিটের পরীক্ষা,  পরীক্ষা শুরুর ৭২ হতে ৪৮ ঘন্টা পূর্বে প্রকাশ করে।
+                <b><i className="text-orange-500 flex items-center"><CircleAlert size={16} className="inline-block mr-1"/></i> নোটঃ</b> প্রবেশপত্রে শুধু পরীক্ষার অঞ্চল উল্লেখ থাকে। পরীক্ষার কেন্দ্র, বিল্ডিং ও রুম নম্বর সাধারণত পরীক্ষার ৪৮-৭২ ঘণ্টা আগে ওয়েবসাইটে প্রকাশ করা হয়।
                 </span>
             </div>
             
@@ -363,13 +363,13 @@ function DhakaUniversityPage() {
             </span>
             <hr className="my-3 border-border/50"/>
             <div className="border border-border/80 p-3 text-center rounded-md">
-            সকল বিশ্ববিদ্যালয়ের <b>পরীক্ষার তারিখ ও কাউন্টডাউন</b> দেখতে ভিজিট করো <b><a href='https://mnr.world/ac/' target="_blank" className="text-primary hover:underline">এডমিশন ক্যালেন্ডার <ArrowUpRightFromSquare size={11} className="inline-block"/></a></b>
+            সব বিশ্ববিদ্যালয়ের <b>পরীক্ষার তারিখ ও কাউন্টডাউন</b> জানতে ভিজিট করুন আমাদের <b><a href='https://mnr.world/ac/' target="_blank" className="text-primary hover:underline">অ্যাডমিশন ক্যালেন্ডার <ArrowUpRightFromSquare size={11} className="inline-block"/></a></b>
             </div>
 
             <h5 id="Location" className="bg-primary/10 text-primary rounded-xl p-3 my-4 text-center text-lg sm:text-xl font-bold flex items-center justify-center"><MapPin className="mr-2"/> ভর্তি পরীক্ষার কেন্দ্র</h5>
              <span className="text-base">➜ বিভাগীয় শহরে <a href="https://t.me/Study_on_Telegram/13199" className="text-primary hover:underline">[তালিকা]</a><br/>
              <hr className="my-2 border-border/50" />
-            <b><i className="text-orange-500 flex items-center"><CircleAlert size={16} className="inline-block mr-1"/></i> নোটঃ</b> চারুকলা বা “চ” ইউনিট এবং IBA এর পরীক্ষা শুধুমাত্র ঢাকায় হবে। बाकी সব ইউনিটের পরীক্ষা বিভাগীয় শহরে হবে।</span>
+            <b><i className="text-orange-500 flex items-center"><CircleAlert size={16} className="inline-block mr-1"/></i> নোটঃ</b> "চ" ইউনিট (চারুকলা) এবং IBA-এর পরীক্ষা শুধু ঢাকায় অনুষ্ঠিত হবে। বাকি সব ইউনিটের পরীক্ষা বিভাগীয় শহরে হবে।</span>
 
 
             <div id="MarkDistributionAndOthers"></div>
@@ -378,14 +378,14 @@ function DhakaUniversityPage() {
             <div className="border border-border/80 rounded-xl p-4 mt-2.5 text-base">
                 ● <b>সিলেবাসঃ </b>সংক্ষিপ্ত<hr className="my-1 border-border/50"/>
                 ● <b>সেকেন্ড টাইমঃ </b>নেই<hr className="my-1 border-border/50"/>
-                ● <b>নেগেটিভ নাম্বারঃ </b>-০.২৫<hr className="my-1 border-border/50"/>
-                ● <b>ক্যালকুলেটরঃ </b>নেই
+                ● <b>নেগেটিভ মার্কিংঃ </b>প্রতি ভুলের জন্য ০.২৫ নম্বর কাটা যাবে<hr className="my-1 border-border/50"/>
+                ● <b>ক্যালকুলেটরঃ </b>ব্যবহার করা যাবে না
             </div>
 
              <h5 id="Result" className="bg-primary/10 text-primary rounded-xl p-3 my-4 text-center text-lg sm:text-xl font-bold flex items-center justify-center"><BarChartBig className="mr-2"/> ভর্তি পরীক্ষার ফলাফল</h5>
              <span className="text-base">● <b>ফলাফল প্রকাশ:</b> ভর্তি পরীক্ষার ৪ সপ্তাহের মধ্যে
                 <hr className="my-1 border-border/50" />
-                <b><LinkIcon className="inline-block mr-2" size={16}/>লিংকঃ</b> <a href='https://admission.eis.du.ac.bd/' target="_blank" className="text-primary hover:underline">https://admission.eis.du.ac.bd/ <ArrowUpRightFromSquare size={11} className="inline-block"/></a>
+                <b><LinkIcon className="inline-block mr-2" size={16}/>লিংকঃ</b> <a href='https://admission.eis.du.ac.bd/' target="_blank" className="text-primary hover:underline">admission.eis.du.ac.bd <ArrowUpRightFromSquare size={11} className="inline-block"/></a>
             </span>
         </div>
 

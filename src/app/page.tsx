@@ -1,3 +1,4 @@
+
 import {
   BookOpen,
   Building,
@@ -19,13 +20,13 @@ export default function HomePage() {
             <div className="grid lg:grid-cols-2 gap-16 items-center">
                 <div className="text-center lg:text-left animate-fadeInDown">
                 <h1 className="text-4xl md:text-5xl font-bold font-bengali leading-tight gradient-text">
-                    স্বপ্ন পূরণের পথে, সকল কিছু একসাথে
+                    স্বপ্ন পূরণের পথে, সবকিছু এক প্ল্যাটফর্মে
                 </h1>
                 <p className="mt-4 text-lg text-muted-foreground font-bengali">
-                    এডমিশন হোক।
+                    ভর্তি পরীক্ষা থেকে শুরু করে পড়াশোনার প্রতিটি ধাপে আপনার পাশেই আছে MNR Study।
                 </p>
                 <p className="text-lg text-muted-foreground font-bengali">
-                    সকল কিছুর জন্যে পাশে আছে &quot;MNR Study&quot;
+                    চলুন, একসাথে শুরু করি আপনার সাফল্যের যাত্রা।
                 </p>
 
                 <div className="mt-10 grid grid-cols-2 sm:grid-cols-3 gap-5">
