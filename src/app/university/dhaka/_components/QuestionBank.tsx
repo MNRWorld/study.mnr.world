@@ -2,6 +2,7 @@
 'use client';
 import { motion } from 'framer-motion';
 import { File } from 'lucide-react';
+import Link from 'next/link';
 
 import {
   Accordion,
@@ -45,23 +46,20 @@ const QuestionBank = () => {
                 </TabsList>
                 <TabsContent value="tab1">
                     <Accordion type="multiple" className="w-full text-left">
-                        <AccordionItem value="qb-a-1" className="border-border rounded-2xl mt-1.5 hover:bg-accent/50">
+                        <AccordionItem value="qb-a-1" className="border-border rounded-2xl mt-1.5 bg-card hover:bg-accent/50 transition-colors">
                         <AccordionTrigger className="p-3 text-lg font-bold hover:no-underline"><File className="inline-block mr-2" /> সালভিত্তিক প্রশ্নব্যাংক</AccordionTrigger>
                         <AccordionContent className="p-4 pt-0 text-muted-foreground text-base">
-                            ● <a href="https://t.me/PDFHour/10357" target="_blank" className="text-primary hover:underline">আসপেক্ট "ক" ইউনিট প্রশ্নব্যাংক</a><br/>
-                            ● <a href="https://t.me/PDFHour/10357" target="_blank" className="text-primary hover:underline">উদ্ভাস "ক" ইউনিট প্রশ্নব্যাংক</a><br/>
-                            <b> 🔰 সকল সালের প্রশ্ন একত্রে</b><br/>
-                            ● <a href="https://t.me/PDFHour/10297" target="_blank" className="text-primary hover:underline">Question of 1995-96</a><br/>
-                            ... many more links
+                            ● <Link href="https://t.me/PDFHour/10357" target="_blank" className="text-primary hover:underline">আসপেক্ট "ক" ইউনিট প্রশ্নব্যাংক</Link><br/>
+                            ● <Link href="https://t.me/PDFHour/10357" target="_blank" className="text-primary hover:underline">উদ্ভাস "ক" ইউনিট প্রশ্নব্যাংক</Link><br/>
                         </AccordionContent>
                         </AccordionItem>
-                        <AccordionItem value="qb-a-2" className="border-border rounded-2xl mt-1.5 hover:bg-accent/50">
+                        <AccordionItem value="qb-a-2" className="border-border rounded-2xl mt-1.5 bg-card hover:bg-accent/50 transition-colors">
                         <AccordionTrigger className="p-3 text-lg font-bold hover:no-underline"><File className="inline-block mr-2" /> অধ্যায়ভিত্তিক প্রশ্নব্যাংক</AccordionTrigger>
                         <AccordionContent className="p-4 pt-0 text-muted-foreground text-base">
-                            ● <a href="https://t.me/PDFHour/10285" target="_blank" className="text-primary hover:underline">রেটিনা ঢাবি "ক" ইউনিট প্রশ্নব্যাংক</a><br/><br/>
+                            ● <Link href="https://t.me/PDFHour/10285" target="_blank" className="text-primary hover:underline">রেটিনা ঢাবি "ক" ইউনিট প্রশ্নব্যাংক</Link><br/><br/>
                             <b> 🔰 সহায়ক বই</b><br/>
-                            ● <a href="https://t.me/PDFHour/10214" target="_blank" className="text-primary hover:underline">উদ্ভাস ভার্সিটি "ক" প্রশ্নব্যাংক</a><br/>
-                            ● <a href="https://t.me/PDFHour/10478" target="_blank" className="text-primary hover:underline">উদ্ভাস ভার্সিটি "ক" প্রিপারেশন বুক</a>
+                            ● <Link href="https://t.me/PDFHour/10214" target="_blank" className="text-primary hover:underline">উদ্ভাস ভার্সিটি "ক" প্রশ্নব্যাংক</Link><br/>
+                            ● <Link href="https://t.me/PDFHour/10478" target="_blank" className="text-primary hover:underline">উদ্ভাস ভার্সিটি "ক" প্রিপারেশন বুক</Link>
                         </AccordionContent>
                         </AccordionItem>
                     </Accordion>

@@ -1,15 +1,7 @@
 
 'use client';
-import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from '@/components/ui/accordion';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import {
-  Info,
-  File,
   BookOpen,
   University,
   FlaskConical,
@@ -20,6 +12,7 @@ import React from 'react';
 import FloatingMenu from '@/components/common/FloatingMenu';
 import { motion } from 'framer-motion';
 import PageHeaderCard from '@/components/common/PageHeaderCard';
+import DhakaUniversityTab from './_components/DhakaUniversityTab';
 
 
 function QuestionBankPage() {
@@ -69,33 +62,7 @@ function QuestionBankPage() {
                     <TabsTrigger value="others"><Atom className="mr-2"/> অন্যান্য</TabsTrigger>
                 </TabsList>
                 <TabsContent value="du">
-                    <Accordion type="multiple" className="w-full text-left">
-                        <AccordionItem value="qb-a-1" className="border-border rounded-2xl mt-1.5 bg-card hover:bg-accent/50 transition-colors">
-                            <AccordionTrigger className="p-3 text-lg font-bold hover:no-underline"><File className="inline-block mr-2" /> "ক" ইউনিট প্রশ্নব্যাংক</AccordionTrigger>
-                            <AccordionContent className="p-4 pt-0 text-muted-foreground text-base">
-                                ● <a href="https://t.me/PDFHour/10357" target="_blank" className="text-primary hover:underline">আসপেক্ট “ক” ইউনিট প্রশ্নব্যাংক</a><br/>
-                                ● <a href="https://t.me/PDFHour/10357" target="_blank" className="text-primary hover:underline">উদ্ভাস “ক” ইউনিট প্রশ্নব্যাংক</a><br/>
-                            </AccordionContent>
-                        </AccordionItem>
-                        <AccordionItem value="qb-b-1" className="border-border rounded-2xl mt-1.5 bg-card hover:bg-accent/50 transition-colors">
-                            <AccordionTrigger className="p-3 text-lg font-bold hover:no-underline"><File className="inline-block mr-2" /> "খ" ইউনিট প্রশ্নব্যাংক</AccordionTrigger>
-                             <AccordionContent className="p-4 pt-0 text-muted-foreground text-base">
-                                (এখানে "খ" ইউনিটের প্রশ্নব্যাংকের লিঙ্ক যুক্ত করা হবে)
-                            </AccordionContent>
-                        </AccordionItem>
-                         <AccordionItem value="qb-c-1" className="border-border rounded-2xl mt-1.5 bg-card hover:bg-accent/50 transition-colors">
-                            <AccordionTrigger className="p-3 text-lg font-bold hover:no-underline"><File className="inline-block mr-2" /> "গ" ইউনিট প্রশ্নব্যাংক</AccordionTrigger>
-                             <AccordionContent className="p-4 pt-0 text-muted-foreground text-base">
-                                (এখানে "গ" ইউনিটের প্রশ্নব্যাংকের লিঙ্ক যুক্ত করা হবে)
-                            </AccordionContent>
-                        </AccordionItem>
-                         <AccordionItem value="qb-d-1" className="border-border rounded-2xl mt-1.5 bg-card hover:bg-accent/50 transition-colors">
-                            <AccordionTrigger className="p-3 text-lg font-bold hover:no-underline"><File className="inline-block mr-2" /> "ঘ / BBA" ইউনিট প্রশ্নব্যাংক</AccordionTrigger>
-                             <AccordionContent className="p-4 pt-0 text-muted-foreground text-base">
-                                (এখানে "ঘ" ও BBA ইউনিটের প্রশ্নব্যাংকের লিঙ্ক যুক্ত করা হবে)
-                            </AccordionContent>
-                        </AccordionItem>
-                    </Accordion>
+                    <DhakaUniversityTab />
                 </TabsContent>
                 <TabsContent value="medical">
                     <p className="text-muted-foreground p-4">মেডিকেল ভর্তি পরীক্ষার বিগত বছরের প্রশ্ন ও সমাধান এখানে যুক্ত করা হবে।</p>
