@@ -10,6 +10,7 @@ import {
   TooltipProvider,
   TooltipTrigger,
 } from "@/components/ui/tooltip"
+import React from 'react';
 
 interface PageHeaderCardProps {
     icon: React.ReactNode;
