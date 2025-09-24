@@ -9,7 +9,7 @@ import CountdownTimer from '@/components/common/CountdownTimer';
 import FloatingMenu from '@/components/common/FloatingMenu';
 import { motion } from 'framer-motion';
 import PageHeaderCard from '@/components/common/PageHeaderCard';
-import LinkList from './_components/LinkList';
+import LinkList from '@/components/common/LinkList';
 import Circular from '@/components/common/Circular';
 import AdmissionInfo from './_components/AdmissionInfo';
 
@@ -24,6 +24,18 @@ function PrivatePage() {
             },
         },
     };
+
+    const privateLinks = [
+        [
+            { href: "#Circular", label: "সার্কুলার" },
+            { href: "/question-bank", label: "প্রশ্নব্যাংক" }
+        ],
+        [
+            { href: "https://www.ugc.gov.bd/site/view/universities", label: "সব অনুমোদিত প্রাইভেট বিশ্ববিদ্যালয়ের তালিকা", target: "_blank", colSpan: 2 }
+        ]
+    ];
+
+
   return (
     <div className="font-bengali bg-background py-8">
       <div className="container mx-auto px-4">
@@ -40,7 +52,7 @@ function PrivatePage() {
             button={{ href: "#Info", label: "মূল তথ্য", icon: <Info size={16} /> }}
         />
 
-        <LinkList />
+        <LinkList links={privateLinks} />
         
         <motion.div
             variants={itemVariants}

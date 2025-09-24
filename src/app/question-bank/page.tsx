@@ -13,9 +13,13 @@ import FloatingMenu from '@/components/common/FloatingMenu';
 import { motion } from 'framer-motion';
 import PageHeaderCard from '@/components/common/PageHeaderCard';
 import DhakaUniversityTab from './_components/DhakaUniversityTab';
+import { useSearchParams } from 'next/navigation';
 
 
 function QuestionBankPage() {
+    const searchParams = useSearchParams();
+    const tab = searchParams.get('tab') || 'du';
+
 
     const itemVariants = {
         hidden: { y: 20, opacity: 0 },
@@ -54,7 +58,7 @@ function QuestionBankPage() {
              <div className="flex justify-center">
                 <div className="inline-block px-6 py-2 bg-gradient-to-r from-primary to-blue-500 text-white rounded-full text-base sm:text-lg mb-4 font-bold shadow-md">প্রশ্নব্যাংক</div>
             </div>
-            <Tabs defaultValue="du" className="w-full">
+            <Tabs defaultValue={tab} className="w-full">
                 <TabsList className="grid w-full grid-cols-2 md:grid-cols-4 h-auto bg-muted/50">
                     <TabsTrigger value="du"><University className="mr-2"/> ঢাকা বিশ্ববিদ্যালয়</TabsTrigger>
                     <TabsTrigger value="medical"><FlaskConical className="mr-2"/> মেডিকেল</TabsTrigger>

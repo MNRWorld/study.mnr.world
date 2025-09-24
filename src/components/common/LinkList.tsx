@@ -10,7 +10,19 @@ import {
   TableRow,
 } from '@/components/ui/table';
 
-const LinkList = () => {
+interface LinkItem {
+    href: string;
+    label: string;
+    target?: string;
+    rel?: string;
+    colSpan?: number;
+}
+
+interface LinkListProps {
+    links: LinkItem[][];
+}
+
+const LinkList = ({ links }: LinkListProps) => {
     const itemVariants = {
         hidden: { y: 20, opacity: 0 },
         visible: {
@@ -24,10 +36,10 @@ const LinkList = () => {
 
     return (
         <motion.div
+            id="Links"
             variants={itemVariants}
             initial="hidden"
             animate="visible"
-            id="Links"
             className="mt-8 w-full border border-border bg-card rounded-2xl p-4 sm:p-6 shadow-lg text-center relative"
         >
             <div className="flex justify-center">
@@ -35,14 +47,22 @@ const LinkList = () => {
             </div>
             <Table className="border-dotted border-border/50 border-[1px]">
                 <TableBody>
-                    <TableRow>
-                        <TableCell className="text-center"><Link href="#Circular" className="block w-full hover:bg-accent p-2 rounded-md">সার্কুলার</Link></TableCell>
-                        <TableCell className="text-center"><Link href="/question-bank" className="block w-full hover:bg-accent p-2 rounded-md">প্রশ্নব্যাংক</Link></TableCell>
-                    </TableRow>
-                    <TableRow>
-                        <TableCell className="text-center"><Link href="http://xiclassadmission.gov.bd/" target="_blank" rel="noreferrer noopener" className="block w-full hover:bg-accent p-2 rounded-md">মূল ওয়েবসাইট</Link></TableCell>
-                        <TableCell className="text-center"><Link href="http://xiclassadmission.gov.bd/" target="_blank" rel="noreferrer noopener" className="block w-full hover:bg-accent p-2 rounded-md">ভর্তি ওয়েবসাইট</Link></TableCell>
-                    </TableRow>
+                    {links.map((row, rowIndex) => (
+                        <TableRow key={rowIndex}>
+                            {row.map((link, linkIndex) => (
+                                <TableCell key={linkIndex} className="text-center" colSpan={link.colSpan}>
+                                    <Link 
+                                        href={link.href} 
+                                        target={link.target} 
+                                        rel={link.rel}
+                                        className="block w-full hover:bg-accent p-2 rounded-md"
+                                    >
+                                        <span dangerouslySetInnerHTML={{ __html: link.label }} />
+                                    </Link>
+                                </TableCell>
+                            ))}
+                        </TableRow>
+                    ))}
                 </TableBody>
             </Table>
         </motion.div>
