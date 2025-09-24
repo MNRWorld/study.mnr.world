@@ -13,7 +13,7 @@ const duUnitA_Chapter = [
     { title: 'রেটিনা ঢাবি "ক" ইউনিট প্রশ্নব্যাংক', url: 'https://t.me/PDFHour/10285' },
 ];
 
-const duUnitA_ সহায়ক = [
+const duUnitA_Sohayok = [
     { title: 'উদ্ভাস ভার্সিটি "ক" প্রশ্নব্যাংক', url: 'https://t.me/PDFHour/10214' },
     { title: 'উদ্ভাস ভার্সিটি "ক" প্রিপারেশন বুক', url: 'https://t.me/PDFHour/10478' },
 ]
@@ -35,7 +35,7 @@ const DhakaUniversityTab = () => {
           },
            {
             title: "সহায়ক বই",
-            links: duUnitA_ সহায়ক,
+            links: duUnitA_Sohayok,
           },
         ]}
       />

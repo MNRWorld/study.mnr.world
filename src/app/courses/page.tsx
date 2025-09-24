@@ -25,7 +25,7 @@ import {
 } from 'lucide-react';
 import Link from 'next/link';
 import React from 'react';
-import FloatingMenu from '@/app/university/dhaka/_components/FloatingMenu';
+import FloatingMenu from '@/components/common/FloatingMenu';
 
 import { University, HeartPulse, Cog } from 'lucide-react';
 import { motion } from 'framer-motion';
