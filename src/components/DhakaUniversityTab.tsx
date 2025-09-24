@@ -3,7 +3,7 @@
 
 import React from 'react';
 import { Accordion } from '@/components/ui/accordion';
-import QuestionBankAccordion from './QuestionBankAccordion';
+import QuestionBankAccordion from '@/components/QuestionBankAccordion';
 
 const duUnitA_Yearly = [
     { title: 'আসপেক্ট “ক” ইউনিট প্রশ্নব্যাংক', url: 'https://t.me/PDFHour/10357' },
