@@ -6,7 +6,7 @@ import MainInfoCard from '@/app/university/dhaka/_components/MainInfoCard';
 import LinkList from '@/app/university/dhaka/_components/LinkList';
 import HistoryAndMap from '@/app/university/dhaka/_components/HistoryAndMap';
 import CountdownTimer from '@/components/common/CountdownTimer';
-import Circular from '@/app/university/dhaka/_components/Circular';
+import Circular from '@/components/common/Circular';
 import QuestionBank from '@/app/university/dhaka/_components/QuestionBank';
 import AdmissionInfo from '@/app/university/dhaka/_components/AdmissionInfo';
 import FloatingMenu from '@/components/common/FloatingMenu';
@@ -41,7 +41,12 @@ function DhakaUniversityPage() {
           <CountdownTimer />
         </motion.div>
         
-        <Circular />
+        <Circular 
+          title="HSC-24 ব্যাচের সার্কুলার"
+          note="(⚠ নোট: HSC-25 এর সার্কুলার এখনও প্রকাশিত হয়নি। আপাতত এটি দেখে আইডিয়া নিতে পারেন।)"
+          downloadLink="https://t.me/Study_on_Telegram/13215"
+          showPreviousYears={true}
+        />
 
         <QuestionBank />
         

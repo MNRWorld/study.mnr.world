@@ -10,7 +10,7 @@ import FloatingMenu from '@/components/common/FloatingMenu';
 import { motion } from 'framer-motion';
 import PageHeaderCard from '@/components/common/PageHeaderCard';
 import LinkList from './_components/LinkList';
-import Circular from './_components/Circular';
+import Circular from '@/components/common/Circular';
 import AdmissionInfo from './_components/AdmissionInfo';
 
 function PrivatePage() {
@@ -51,7 +51,11 @@ function PrivatePage() {
             <CountdownTimer />
         </motion.div>
         
-        <Circular />
+        <Circular 
+          title="বিভিন্ন বিশ্ববিদ্যালয়ের সার্কুলার"
+          note="(⚠ নোট: নিজ নিজ বিশ্ববিদ্যালয়ের ওয়েবসাইটে সর্বশেষ সার্কুলার পাবেন।)"
+          downloadLink="#"
+        />
         
         <AdmissionInfo />
 

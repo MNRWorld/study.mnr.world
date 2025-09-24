@@ -7,7 +7,7 @@ import FloatingMenu from '@/components/common/FloatingMenu';
 import { motion } from 'framer-motion';
 import PageHeaderCard from '@/components/common/PageHeaderCard';
 import LinkList from './_components/LinkList';
-import Circular from './_components/Circular';
+import Circular from '@/components/common/Circular';
 import AdmissionInfo from './_components/AdmissionInfo';
 
 function CollegePage() {
@@ -48,7 +48,12 @@ function CollegePage() {
             <CountdownTimer />
         </motion.div>
         
-        <Circular />
+        <Circular 
+          title="সম্পূর্ণ সার্কুলার"
+          note="(⚠ নোট: সর্বশেষ সার্কুলার এখনও প্রকাশিত হয়নি। পূর্ববর্তী বছরের সার্কুলার দেখে আইডিয়া নিতে পারেন।)"
+          downloadLink="#"
+          showPreviousYears={true}
+        />
         
         <AdmissionInfo />
 
