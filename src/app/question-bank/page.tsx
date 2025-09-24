@@ -4,7 +4,6 @@
 import React, { Suspense } from 'react';
 import { BookOpen } from 'lucide-react';
 import PageHeaderCard from '@/components/common/PageHeaderCard';
-import FloatingMenu from '@/components/common/FloatingMenu';
 import QuestionBankTabs from '@/components/QuestionBankTabs';
 import { motion } from 'framer-motion';
 
@@ -33,7 +32,6 @@ export default function QuestionBankPage() {
           <QuestionBankTabs />
         </Suspense>
 
-        <FloatingMenu />
       </div>
     </motion.div>
   );

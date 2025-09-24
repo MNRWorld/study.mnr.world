@@ -3,7 +3,6 @@
 import { School, Info } from 'lucide-react';
 import React from 'react';
 import CountdownTimer from '@/components/common/CountdownTimer';
-import FloatingMenu from '@/components/common/FloatingMenu';
 import { motion } from 'framer-motion';
 import PageHeaderCard from '@/components/common/PageHeaderCard';
 import LinkList from '@/components/common/LinkList';
@@ -64,8 +63,6 @@ function CollegePage() {
         />
         
         <CollegeAdmissionInfo />
-
-        <FloatingMenu />
 
       </div>
     </motion.div>

@@ -6,7 +6,6 @@ import {
 } from 'lucide-react';
 import React from 'react';
 import CountdownTimer from '@/components/common/CountdownTimer';
-import FloatingMenu from '@/components/common/FloatingMenu';
 import { motion } from 'framer-motion';
 import PageHeaderCard from '@/components/common/PageHeaderCard';
 import { admissionDeadlines } from '@/lib/data/deadlines';
@@ -56,8 +55,6 @@ function CalendarPage() {
         </motion.div>
 
         <GeneralAdmissionInfo />
-
-        <FloatingMenu />
 
       </div>
     </motion.div>

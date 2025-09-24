@@ -9,7 +9,6 @@ import {
 } from 'lucide-react';
 import Link from 'next/link';
 import React from 'react';
-import FloatingMenu from '@/components/common/FloatingMenu';
 import { motion } from 'framer-motion';
 import { courses } from '@/lib/data/courses';
 import PageHeaderCard from '@/components/common/PageHeaderCard';
@@ -95,9 +94,6 @@ function CoursesPage() {
                 <Link href="/question-bank"><BookOpen className="mr-2"/> বইগুলো দেখুন</Link>
             </Button>
         </motion.div>
-
-
-        <FloatingMenu />
 
       </div>
     </motion.div>

@@ -9,7 +9,6 @@ import CountdownTimer from '@/components/common/CountdownTimer';
 import Circular from '@/components/common/Circular';
 import QuestionBank from '@/components/DhakaQuestionBank';
 import AdmissionInfo from '@/components/DhakaAdmissionInfo';
-import FloatingMenu from '@/components/common/FloatingMenu';
 import { admissionDeadlines } from '@/lib/data/deadlines';
 import { duLinks } from '@/lib/data/links';
 
@@ -59,7 +58,6 @@ function DhakaUniversityPage() {
         
         <AdmissionInfo />
 
-        <FloatingMenu />
       </div>
     </motion.div>
   );
