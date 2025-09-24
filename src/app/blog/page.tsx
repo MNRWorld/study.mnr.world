@@ -1,5 +1,5 @@
 
-import { Rss, User, Calendar } from 'lucide-react';
+import { Newspaper, User, Calendar } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react';
@@ -74,7 +74,7 @@ function BlogPage() {
                 {/* Main Card */}
                 <div className="mt-20 sm:mt-24 w-full border border-border bg-card rounded-2xl p-6 sm:p-8 shadow-lg text-center relative animate-fadeInUp">
                     <div className="w-24 h-24 absolute -top-12 left-1/2 -translate-x-1/2 bg-card rounded-2xl shadow-xl z-10 flex items-center justify-center">
-                        <Rss className="h-14 w-14 text-primary" />
+                        <Newspaper className="h-14 w-14 text-primary" />
                     </div>
                     <div className="pt-12">
                         <div className="text-2xl sm:text-3xl font-bold my-2 text-foreground">
@@ -84,7 +84,7 @@ function BlogPage() {
                             (Blog & News)
                         </div>
                         <p className="text-base text-muted-foreground mb-6 max-w-2xl mx-auto">
-                           ভর্তি পরীক্ষা, পড়াশোনা ও ক্যারিয়ার নিয়ে গুরুত্বপূর্ণ সব তথ্য ও টিপস পেতে আমাদের ব্লগে চোখ রাখুন।
+                           ভর্তি পরীক্ষা, পড়াশোনা আর ক্যারিয়ার নিয়ে গুরুত্বপূর্ণ সব তথ্য ও টিপস পেতে আমাদের ব্লগে চোখ রাখুন।
                         </p>
                     </div>
                 </div>

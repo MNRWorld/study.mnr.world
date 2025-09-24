@@ -10,6 +10,8 @@ import {
   Twitter,
   Instagram,
   Youtube,
+  ShieldCheck,
+  FileQuestion,
 } from "lucide-react";
 import Link from "next/link";
 
@@ -26,7 +28,7 @@ export default function Footer() {
               </span>
             </div>
             <p className="text-muted-foreground font-bengali max-w-sm">
-              বাংলাদেশের সকল বিশ্ববিদ্যালয়, কলেজ ও ভর্তি পরীক্ষার তথ্য ও সহায়তার জন্য আপনার বিশ্বস্ত প্ল্যাটফর্ম।
+              বাংলাদেশের সকল বিশ্ববিদ্যালয়, কলেজ ও ভর্তি পরীক্ষার তথ্য ও সহায়তার জন্য তোমার বিশ্বস্ত প্ল্যাটফর্ম।
             </p>
             <div className="flex items-center space-x-3 mt-6">
               <a href="#" className="social-icon"><Facebook /></a>

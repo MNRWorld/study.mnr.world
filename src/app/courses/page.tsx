@@ -17,12 +17,15 @@ import {
   GraduationCap,
   ArrowUpRightFromSquare,
   BookOpen,
+  BookMarked,
+  Briefcase,
+  Blocks,
 } from 'lucide-react';
 import Link from 'next/link';
 import React from 'react';
 import FloatingMenu from '@/app/university/dhaka/_components/FloatingMenu';
 
-import { University, HeartPulse, Cog, Network, BookCopy, Briefcase } from 'lucide-react';
+import { University, HeartPulse, Cog } from 'lucide-react';
 
 function CoursesPage() {
   const courses = [
@@ -44,12 +47,12 @@ function CoursesPage() {
     {
       title: 'গুচ্ছ প্রস্তুতি (GST)',
       description: 'গুচ্ছভুক্ত ২২টি সাধারণ এবং বিজ্ঞান ও প্রযুক্তি বিশ্ববিদ্যালয়ের সমন্বিত প্রস্তুতি।',
-      icon: <Network className="h-8 w-8 text-primary" />,
+      icon: <Blocks className="h-8 w-8 text-primary" />,
     },
     {
       title: 'HSC বোর্ড পরীক্ষার প্রস্তুতি',
       description: 'বিজ্ঞান, মানবিক ও ব্যবসায় শিক্ষা শাখার সকল বিষয়ের উপর পূর্ণাঙ্গ প্রস্তুতি কোর্স।',
-      icon: <BookCopy className="h-8 w-8 text-primary" />,
+      icon: <BookMarked className="h-8 w-8 text-primary" />,
     },
     {
         title: 'IBA ও BUP প্রস্তুতি',
@@ -74,7 +77,7 @@ function CoursesPage() {
               (Our Courses)
             </div>
             <p className="text-base text-muted-foreground mb-6 max-w-2xl mx-auto">
-              আপনার স্বপ্ন পূরণের যাত্রায় আমরা আছি আপনার পাশে। সেরা শিক্ষকদের তত্ত্বাবধানে আপনার প্রস্তুতিকে করুন আরও মজবুত ও কার্যকর।
+              তোমার স্বপ্ন পূরণের যাত্রায় আমরা আছি পাশে। দেশের সেরা শিক্ষকদের তত্ত্বাবধানে প্রস্তুতি নাও আরও মজবুত ও কার্যকরভাবে।
             </p>
           </div>
           <div className="flex justify-around items-center mb-6 text-sm sm:text-base max-w-md mx-auto">
@@ -127,7 +130,7 @@ function CoursesPage() {
             <div className="flex justify-center">
                 <div className="inline-block px-6 py-2 bg-gradient-to-r from-primary to-blue-500 text-white rounded-full text-base sm:text-lg mb-4 font-bold shadow-md">আমাদের বইসমূহ</div>
             </div>
-             <p className="text-muted-foreground mb-4 text-sm sm:text-base">কোর্সের পাশাপাশি আপনার প্রস্তুতিকে আরও শাণিত করতে সংগ্রহ করতে পারেন আমাদের নিজস্ব প্রকাশনার বইগুলো।</p>
+             <p className="text-muted-foreground mb-4 text-sm sm:text-base">কোর্সের পাশাপাশি তোমার প্রস্তুতিকে আরও শাণিত করতে সংগ্রহ করতে পারো আমাদের নিজস্ব প্রকাশনার বইগুলো।</p>
             <Button asChild className="transition-transform hover:scale-105">
                 <Link href="/question-bank"><BookOpen className="mr-2"/> বইগুলো দেখুন</Link>
             </Button>

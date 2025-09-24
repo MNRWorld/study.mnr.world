@@ -1,3 +1,4 @@
+
 'use client';
 
 import React, { useState } from 'react';
@@ -12,7 +13,7 @@ import {
   GraduationCap,
   LogIn,
   LogOut,
-  Rss,
+  Newspaper,
   Home
 } from 'lucide-react';
 import { Button } from '../ui/button';
@@ -29,7 +30,7 @@ const navItems: NavItem[] = [
   { id: 'question-bank', label: 'প্রশ্নব্যাংক', icon: <BookOpen size={20} />, href: '/question-bank' },
   { id: 'calendar', label: 'ক্যালেন্ডার', icon: <CalendarDays size={20} />, href: '/calendar' },
   { id: 'courses', label: 'কোর্স', icon: <GraduationCap size={20} />, href: '/courses' },
-  { id: 'blog', label: 'ব্লগ', icon: <Rss size={20} />, href: '/blog' },
+  { id: 'blog', label: 'ব্লগ', icon: <Newspaper size={20} />, href: '/blog' },
 ];
 
 export default function Header() {

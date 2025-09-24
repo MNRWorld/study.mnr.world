@@ -27,6 +27,8 @@ import {
   University,
   FlaskConical,
   Calculator,
+  Rocket,
+  Atom,
 } from 'lucide-react';
 import Link from 'next/link';
 import React from 'react';
@@ -50,7 +52,7 @@ function QuestionBankPage() {
               (Question Bank & Solutions)
             </div>
             <p className="text-base text-muted-foreground mb-6 max-w-2xl mx-auto">
-            বিগত বছরের প্রশ্ন সমাধান করে ভর্তি প্রস্তুতিতে এগিয়ে থাকুন। এখানে পাবেন সব বিশ্ববিদ্যালয় ও ইউনিটের প্রশ্নব্যাংক।
+            বিগত বছরের প্রশ্ন সমাধান করে ভর্তি প্রস্তুতিতে এগিয়ে থাকো। এখানেই পাবে সব বিশ্ববিদ্যালয় ও ইউনিটের প্রশ্নব্যাংক।
             </p>
           </div>
           <div className="flex justify-around items-center mb-6 text-sm sm:text-base max-w-md mx-auto">
@@ -92,8 +94,8 @@ function QuestionBankPage() {
                 <TabsList className="grid w-full grid-cols-2 md:grid-cols-4 h-auto bg-muted/50">
                     <TabsTrigger value="du"><University className="mr-2"/> ঢাকা বিশ্ববিদ্যালয়</TabsTrigger>
                     <TabsTrigger value="medical"><FlaskConical className="mr-2"/> মেডিকেল</TabsTrigger>
-                    <TabsTrigger value="engineering"><Calculator className="mr-2"/> ইঞ্জিনিয়ারিং</TabsTrigger>
-                    <TabsTrigger value="others">অন্যান্য</TabsTrigger>
+                    <TabsTrigger value="engineering"><Rocket className="mr-2"/> ইঞ্জিনিয়ারিং</TabsTrigger>
+                    <TabsTrigger value="others"><Atom className="mr-2"/> অন্যান্য</TabsTrigger>
                 </TabsList>
                 <TabsContent value="du">
                     <Accordion type="multiple" className="w-full text-left">

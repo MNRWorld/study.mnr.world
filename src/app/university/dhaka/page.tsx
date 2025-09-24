@@ -26,17 +26,16 @@ import {
   Info,
   ChevronRight,
   File,
-  FilePen,
-  HandCoins,
+  PenSquare,
+  Banknote,
   CircleCheck,
   Link as LinkIcon,
   ArrowUpRightFromSquare,
   CircleAlert,
-  Contact,
+  Ticket,
   Timer,
   MapPin,
-  RectangleEllipsis,
-  BarChartBig,
+  BarChart3,
   Landmark,
   University,
 } from 'lucide-react';
@@ -73,8 +72,7 @@ function DhakaUniversityPage() {
               (University of Dhaka)
             </div>
             <p className="text-base text-muted-foreground mb-6 max-w-2xl mx-auto">
-              প্রাচ্যের অক্সফোর্ড খ্যাত ঢাকা বিশ্ববিদ্যালয়, বাংলাদেশের স্বপ্নদ্রষ্টাদের সূতিকাগার।
-              এর করিডোরে হেঁটেছে ইতিহাস, জন্মেছে অজস্র জ্ঞানতাপস।
+              প্রাচ্যের অক্সফোর্ড খ্যাত ঢাকা বিশ্ববিদ্যালয়, বাংলাদেশের স্বপ্নদ্রষ্টাদের সূতিকাগার। এর করিডোরে হেঁটেছে ইতিহাস, জন্মেছে অজস্র জ্ঞানতাপস।
             </p>
           </div>
           <div className="flex justify-around items-center mb-6 text-sm sm:text-base max-w-md mx-auto">
@@ -280,12 +278,12 @@ function DhakaUniversityPage() {
                 <div className="inline-block px-6 py-2 bg-gradient-to-r from-primary to-blue-500 text-white rounded-full text-base sm:text-lg mb-4 font-bold shadow-md">ভর্তি তথ্য (HSC-24)</div>
             </div>
             
-            <h5 id="Apply" className="bg-primary/10 text-primary rounded-xl p-3 my-4 text-center text-lg sm:text-xl font-bold flex items-center justify-center"><FilePen className="mr-2"/> আবেদন</h5>
+            <h5 id="Apply" className="bg-primary/10 text-primary rounded-xl p-3 my-4 text-center text-lg sm:text-xl font-bold flex items-center justify-center"><PenSquare className="mr-2"/> আবেদন</h5>
             <div className="text-base">
                 <span><b>➜ আবেদন শুরুঃ</b> ০৪ নভেম্বর, ২০২৪ (দুপুর ১২টা থেকে)<br/>
                 <b>➜ আবেদন শেষঃ</b> ২৫ নভেম্বর, ২০২৪ (রাত ১১.৫৯টা পর্যন্ত)</span>
                 <div className="my-2">
-                  <b><HandCoins className="inline-block mr-2" />আবেদন ফিঃ</b><br/>
+                  <b><Banknote className="inline-block mr-2" />আবেদন ফিঃ</b><br/>
                   <b>&nbsp;&nbsp;&nbsp; ✓ ক, খ, গ, চ ইউনিট:</b> ১০৫০৳<br/>
                   <b>&nbsp;&nbsp;&nbsp; ✓ আইবিএ ইউনিট:</b> ১৫০০৳
                 </div>
@@ -343,7 +341,7 @@ function DhakaUniversityPage() {
                 </AccordionItem>
             </Accordion>
             
-            <h5 id="AdmitCard" className="bg-primary/10 text-primary rounded-xl p-3 my-4 text-center text-lg sm:text-xl font-bold flex items-center justify-center"><Contact className="mr-2"/> প্রবেশপত্র</h5>
+            <h5 id="AdmitCard" className="bg-primary/10 text-primary rounded-xl p-3 my-4 text-center text-lg sm:text-xl font-bold flex items-center justify-center"><Ticket className="mr-2"/> প্রবেশপত্র</h5>
             <div className="text-base">
                 <span><b>➜ ডাউনলোড শুরু:</b> ২৩ ডিসেম্বর, ২০২৪<br/>
                 <b>➜ ডাউনলোড শেষ:</b> পরীক্ষা শুরুর ১ ঘণ্টা পূর্ব পর্যন্ত<br/><br/>
@@ -373,7 +371,7 @@ function DhakaUniversityPage() {
 
 
             <div id="MarkDistributionAndOthers"></div>
-            <h5 className="bg-primary/10 text-primary rounded-xl p-3 my-4 text-center text-lg sm:text-xl font-bold flex items-center justify-center"><RectangleEllipsis className="mr-2"/> মানবণ্টন ও অন্যান্য তথ্য</h5>
+            <h5 className="bg-primary/10 text-primary rounded-xl p-3 my-4 text-center text-lg sm:text-xl font-bold flex items-center justify-center"><Info className="mr-2"/> মানবণ্টন ও অন্যান্য তথ্য</h5>
 
             <div className="border border-border/80 rounded-xl p-4 mt-2.5 text-base">
                 ● <b>সিলেবাসঃ </b>সংক্ষিপ্ত<hr className="my-1 border-border/50"/>
@@ -382,7 +380,7 @@ function DhakaUniversityPage() {
                 ● <b>ক্যালকুলেটরঃ </b>ব্যবহার করা যাবে না
             </div>
 
-             <h5 id="Result" className="bg-primary/10 text-primary rounded-xl p-3 my-4 text-center text-lg sm:text-xl font-bold flex items-center justify-center"><BarChartBig className="mr-2"/> ভর্তি পরীক্ষার ফলাফল</h5>
+             <h5 id="Result" className="bg-primary/10 text-primary rounded-xl p-3 my-4 text-center text-lg sm:text-xl font-bold flex items-center justify-center"><BarChart3 className="mr-2"/> ভর্তি পরীক্ষার ফলাফল</h5>
              <span className="text-base">● <b>ফলাফল প্রকাশ:</b> ভর্তি পরীক্ষার ৪ সপ্তাহের মধ্যে
                 <hr className="my-1 border-border/50" />
                 <b><LinkIcon className="inline-block mr-2" size={16}/>লিংকঃ</b> <a href='https://admission.eis.du.ac.bd/' target="_blank" className="text-primary hover:underline">admission.eis.du.ac.bd <ArrowUpRightFromSquare size={11} className="inline-block"/></a>

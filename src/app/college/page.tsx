@@ -24,15 +24,14 @@ import {
   Link as LinkIcon,
   ArrowUpRightFromSquare,
   Timer,
-  BarChartBig,
+  BarChart3,
   School,
-  FilePen,
-  HandCoins,
+  PenSquare,
+  Banknote,
   CircleCheck,
   CircleAlert,
-  Contact,
+  Ticket,
   MapPin,
-  RectangleEllipsis,
   Landmark,
   University,
 } from 'lucide-react';
@@ -147,11 +146,11 @@ function CollegePage() {
                 <div className="inline-block px-6 py-2 bg-gradient-to-r from-primary to-blue-500 text-white rounded-full text-base sm:text-lg mb-4 font-bold shadow-md">তথ্যভান্ডার</div>
             </div>
             
-            <h5 id="Apply" className="bg-primary/10 text-primary rounded-xl p-3 my-4 text-center text-lg sm:text-xl font-bold flex items-center justify-center"><FilePen className="mr-2"/> আবেদন</h5>
+            <h5 id="Apply" className="bg-primary/10 text-primary rounded-xl p-3 my-4 text-center text-lg sm:text-xl font-bold flex items-center justify-center"><PenSquare className="mr-2"/> আবেদন</h5>
             <span className="text-base"><b>➜ আবেদন শুরুঃ</b> ...<br/>
             <b>➜ আবেদন শেষঃ</b> ...</span>
             <div className="my-2">
-              <b><HandCoins className="inline-block mr-2" />আবেদন ফিঃ</b> ...
+              <b><Banknote className="inline-block mr-2" />আবেদন ফিঃ</b> ...
             </div>
 
             <hr className="my-2 border-border/50" />
@@ -165,7 +164,7 @@ function CollegePage() {
             </div>
             <hr className="my-2 border-border/50" />
             
-            <h5 id="AdmitCard" className="bg-primary/10 text-primary rounded-xl p-3 my-4 text-center text-lg sm:text-xl font-bold flex items-center justify-center"><Contact className="mr-2"/> প্রবেশপত্র</h5>
+            <h5 id="AdmitCard" className="bg-primary/10 text-primary rounded-xl p-3 my-4 text-center text-lg sm:text-xl font-bold flex items-center justify-center"><Ticket className="mr-2"/> প্রবেশপত্র</h5>
             <span className="text-base">সাধারণত কলেজ ভর্তিতে আলাদা প্রবেশপত্র থাকে না। আবেদন প্রক্রিয়া সম্পন্ন হলে একটি আবেদন কপি দেওয়া হয়, সেটিই প্রমাণ।</span>
             
             <h5 id="ExamDate" className="bg-primary/10 text-primary rounded-xl p-3 my-4 text-center text-lg sm:text-xl font-bold flex items-center justify-center"><Timer className="mr-2"/> ভর্তির সময়কাল</h5>
@@ -175,7 +174,7 @@ function CollegePage() {
             সব কলেজের <b>ভর্তির তারিখ</b> জানতে ভিজিট করুন <b><a href='http://xiclassadmission.gov.bd/' target="_blank" className="text-primary hover:underline">একাদশ শ্রেণি ভর্তি ওয়েবসাইট <ArrowUpRightFromSquare size={11} className="inline-block"/></a></b>
             </div>
 
-             <h5 id="Result" className="bg-primary/10 text-primary rounded-xl p-3 my-4 text-center text-lg sm:text-xl font-bold flex items-center justify-center"><BarChartBig className="mr-2"/> ভর্তির ফলাফল</h5>
+             <h5 id="Result" className="bg-primary/10 text-primary rounded-xl p-3 my-4 text-center text-lg sm:text-xl font-bold flex items-center justify-center"><BarChart3 className="mr-2"/> ভর্তির ফলাফল</h5>
              <span className="text-base">● <b>ফলাফল প্রকাশ:</b> আবেদন প্রক্রিয়া শেষে নির্ধারিত তারিখে ফলাফল প্রকাশিত হয়।
                 <hr className="my-1 border-border/50" />
                 <b><LinkIcon className="inline-block mr-2" size={16}/>লিংকঃ</b> <a href='http://xiclassadmission.gov.bd/' target="_blank" className="text-primary hover:underline">xiclassadmission.gov.bd <ArrowUpRightFromSquare size={11} className="inline-block"/></a>
