@@ -1,4 +1,6 @@
 
+'use client';
+
 import {
   Accordion,
   AccordionContent,
@@ -26,6 +28,7 @@ import React from 'react';
 import FloatingMenu from '@/app/university/dhaka/_components/FloatingMenu';
 
 import { University, HeartPulse, Cog } from 'lucide-react';
+import { motion } from 'framer-motion';
 
 function CoursesPage() {
   const courses = [
@@ -61,11 +64,36 @@ function CoursesPage() {
     }
   ];
 
+    const containerVariants = {
+        hidden: {},
+        visible: {
+            transition: {
+                staggerChildren: 0.1,
+            },
+        },
+    };
+
+    const itemVariants = {
+        hidden: { y: 20, opacity: 0 },
+        visible: {
+            y: 0,
+            opacity: 1,
+            transition: {
+                duration: 0.5,
+            },
+        },
+    };
+
   return (
     <div className="font-bengali bg-background py-8">
       <div className="container mx-auto px-4">
         {/* Main Card */}
-        <div className="mt-20 sm:mt-24 w-full border border-border bg-card rounded-2xl p-6 sm:p-8 shadow-lg text-center relative animate-fadeInUp">
+        <motion.div
+            variants={itemVariants}
+            initial="hidden"
+            animate="visible"
+            className="mt-20 sm:mt-24 w-full border border-border bg-card rounded-2xl p-6 sm:p-8 shadow-lg text-center relative"
+        >
           <div className="w-24 h-24 absolute -top-12 left-1/2 -translate-x-1/2 bg-card rounded-2xl shadow-xl z-10 flex items-center justify-center">
             <GraduationCap className="h-16 w-16 text-primary" />
           </div>
@@ -108,12 +136,22 @@ function CoursesPage() {
               <div className="text-xs sm:text-sm text-muted-foreground">শিক্ষার্থী</div>
             </div>
           </div>
-        </div>
+        </motion.div>
 
         {/* Courses Grid */}
-        <div id="Info" className="mt-12 grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <motion.div
+            variants={containerVariants}
+            initial="hidden"
+            animate="visible"
+            id="Info"
+            className="mt-12 grid md:grid-cols-2 lg:grid-cols-3 gap-8"
+        >
           {courses.map((course, index) => (
-            <div key={index} className="bg-card border border-border rounded-xl p-6 shadow-lg hover:shadow-primary/20 hover:-translate-y-2 transition-all duration-300 animate-fadeInUp">
+            <motion.div
+                key={index}
+                variants={itemVariants}
+                className="bg-card border border-border rounded-xl p-6 shadow-lg hover:shadow-primary/20 hover:-translate-y-2 transition-all duration-300"
+            >
                 <div className="flex items-center gap-4">
                     {course.icon}
                     <h3 className="text-lg sm:text-xl font-bold text-foreground">{course.title}</h3>
@@ -122,11 +160,16 @@ function CoursesPage() {
                 <Button asChild className="w-full bg-primary/10 text-primary border border-primary/20 hover:bg-primary hover:text-primary-foreground transition-transform hover:scale-105">
                     <Link href="#">বিস্তারিত দেখুন <ArrowUpRightFromSquare size={14} className="ml-2"/></Link>
                 </Button>
-            </div>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
         
-        <div className="mt-8 w-full border border-border bg-card rounded-2xl p-6 sm:p-8 shadow-lg text-center relative animate-fadeInUp">
+        <motion.div
+            variants={itemVariants}
+            initial="hidden"
+            animate="visible"
+            className="mt-8 w-full border border-border bg-card rounded-2xl p-6 sm:p-8 shadow-lg text-center relative"
+        >
             <div className="flex justify-center">
                 <div className="inline-block px-6 py-2 bg-gradient-to-r from-primary to-blue-500 text-white rounded-full text-base sm:text-lg mb-4 font-bold shadow-md">আমাদের বইসমূহ</div>
             </div>
@@ -134,7 +177,7 @@ function CoursesPage() {
             <Button asChild className="transition-transform hover:scale-105">
                 <Link href="/question-bank"><BookOpen className="mr-2"/> বইগুলো দেখুন</Link>
             </Button>
-        </div>
+        </motion.div>
 
 
         <FloatingMenu />

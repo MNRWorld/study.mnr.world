@@ -1,4 +1,5 @@
 
+'use client';
 import {
   Accordion,
   AccordionContent,
@@ -45,13 +46,31 @@ import React from 'react';
 import FloatingMenu from './_components/FloatingMenu';
 import CountdownTimer from './_components/CountdownTimer';
 import PreviousYearCirculars from './_components/PreviousYearCirculars';
+import { motion } from 'framer-motion';
 
 function DhakaUniversityPage() {
+
+  const itemVariants = {
+    hidden: { y: 20, opacity: 0 },
+    visible: {
+        y: 0,
+        opacity: 1,
+        transition: {
+            duration: 0.5,
+        },
+    },
+  };
+
   return (
     <div className="font-bengali bg-background py-8">
       <div className="container mx-auto px-4">
         {/* Main Card */}
-        <div className="mt-20 sm:mt-24 w-full border border-border bg-card rounded-2xl p-6 sm:p-8 shadow-lg text-center relative animate-fadeInUp">
+        <motion.div
+            variants={itemVariants}
+            initial="hidden"
+            animate="visible"
+            className="mt-20 sm:mt-24 w-full border border-border bg-card rounded-2xl p-6 sm:p-8 shadow-lg text-center relative"
+        >
           <div className="text-sm text-foreground absolute top-[-20px] sm:top-[-20px] left-1/2 -translate-x-1/2 bg-card border border-border rounded-lg px-3 py-1">
             <b>পাবলিক</b>
           </div>
@@ -118,10 +137,16 @@ function DhakaUniversityPage() {
                 <Info size={16} /> মূল তথ্য
             </Link>
           </Button>
-        </div>
+        </motion.div>
 
         {/* Link List */}
-        <div id="Links" className="mt-8 w-full border border-border bg-card rounded-2xl p-4 sm:p-6 shadow-lg text-center relative">
+        <motion.div
+          id="Links"
+          variants={itemVariants}
+          initial="hidden"
+          animate="visible"
+          className="mt-8 w-full border border-border bg-card rounded-2xl p-4 sm:p-6 shadow-lg text-center relative"
+        >
             <div className="flex justify-center">
                 <div className="inline-block px-6 py-2 bg-gradient-to-r from-primary to-blue-500 text-white rounded-full text-base sm:text-lg mb-4 font-bold shadow-md">গুরুত্বপূর্ণ লিঙ্ক</div>
             </div>
@@ -143,9 +168,14 @@ function DhakaUniversityPage() {
                     </TableRow>
                 </TableBody>
             </Table>
-        </div>
+        </motion.div>
 
         {/* History and Maps */}
+        <motion.div
+          variants={itemVariants}
+          initial="hidden"
+          animate="visible"
+        >
         <Accordion type="multiple" className="w-full mt-8 space-y-4">
             <AccordionItem value="item-1" className="bg-card border border-border rounded-2xl overflow-hidden shadow-lg">
                 <AccordionTrigger className="p-4 sm:p-5 w-full flex justify-between items-center text-lg font-bold cursor-pointer hover:no-underline">
@@ -197,14 +227,26 @@ function DhakaUniversityPage() {
                 </AccordionContent>
             </AccordionItem>
         </Accordion>
+        </motion.div>
 
         {/* Countdown Timer */}
-        <div className="mt-8 w-full border border-border bg-card rounded-2xl p-4 sm:p-6 shadow-lg relative">
+        <motion.div
+          variants={itemVariants}
+          initial="hidden"
+          animate="visible"
+          className="mt-8 w-full border border-border bg-card rounded-2xl p-4 sm:p-6 shadow-lg relative"
+        >
             <CountdownTimer />
-        </div>
+        </motion.div>
         
         {/* Circular */}
-        <div id="Circular" className="mt-8 w-full border border-border bg-card rounded-2xl p-4 sm:p-6 shadow-lg text-center relative">
+        <motion.div
+          id="Circular"
+          variants={itemVariants}
+          initial="hidden"
+          animate="visible"
+          className="mt-8 w-full border border-border bg-card rounded-2xl p-4 sm:p-6 shadow-lg text-center relative"
+        >
             <div className="flex justify-center">
                 <div className="inline-block px-6 py-2 bg-gradient-to-r from-primary to-blue-500 text-white rounded-full text-base sm:text-lg mb-4 font-bold shadow-md">সার্কুলার</div>
             </div>
@@ -218,11 +260,17 @@ function DhakaUniversityPage() {
                 </Button>
                 <PreviousYearCirculars />
             </div>
-        </div>
+        </motion.div>
 
 
         {/* Question Bank */}
-        <div id="QuestionBank" className="mt-8 w-full border border-border bg-card rounded-2xl p-4 sm:p-6 shadow-lg text-center relative">
+        <motion.div
+          id="QuestionBank"
+          variants={itemVariants}
+          initial="hidden"
+          animate="visible"
+          className="mt-8 w-full border border-border bg-card rounded-2xl p-4 sm:p-6 shadow-lg text-center relative"
+        >
              <div className="flex justify-center">
                 <div className="inline-block px-6 py-2 bg-gradient-to-r from-primary to-blue-500 text-white rounded-full text-base sm:text-lg mb-4 font-bold shadow-md">প্রশ্নব্যাংক</div>
             </div>
@@ -270,10 +318,16 @@ function DhakaUniversityPage() {
                      <p className="text-muted-foreground p-4">IBA ইউনিট প্রশ্নব্যাংক এখানে যুক্ত করা হবে।</p>
                 </TabsContent>
             </Tabs>
-        </div>
+        </motion.div>
         
         {/* Info Section */}
-        <div id="Info" className="mt-8 w-full border border-border bg-card rounded-2xl p-4 sm:p-6 shadow-lg relative text-left">
+        <motion.div
+          id="Info"
+          variants={itemVariants}
+          initial="hidden"
+          animate="visible"
+          className="mt-8 w-full border border-border bg-card rounded-2xl p-4 sm:p-6 shadow-lg relative text-left"
+        >
             <div className="flex justify-center">
                 <div className="inline-block px-6 py-2 bg-gradient-to-r from-primary to-blue-500 text-white rounded-full text-base sm:text-lg mb-4 font-bold shadow-md">ভর্তি তথ্য (HSC-24)</div>
             </div>

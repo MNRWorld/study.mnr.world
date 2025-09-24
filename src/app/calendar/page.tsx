@@ -1,4 +1,5 @@
 
+'use client';
 import {
   Accordion,
   AccordionContent,
@@ -33,13 +34,31 @@ import React from 'react';
 import CountdownTimer from '@/app/university/dhaka/_components/CountdownTimer';
 import FloatingMenu from '@/app/university/dhaka/_components/FloatingMenu';
 import PreviousYearCirculars from '@/app/university/dhaka/_components/PreviousYearCirculars';
+import { motion } from 'framer-motion';
 
 function CalendarPage() {
+
+    const itemVariants = {
+        hidden: { y: 20, opacity: 0 },
+        visible: {
+            y: 0,
+            opacity: 1,
+            transition: {
+                duration: 0.5,
+            },
+        },
+    };
+
   return (
     <div className="font-bengali bg-background py-8">
       <div className="container mx-auto px-4">
         {/* Main Card */}
-        <div className="mt-20 sm:mt-24 w-full border border-border bg-card rounded-2xl p-6 sm:p-8 shadow-lg text-center relative animate-fadeInUp">
+        <motion.div
+            variants={itemVariants}
+            initial="hidden"
+            animate="visible"
+            className="mt-20 sm:mt-24 w-full border border-border bg-card rounded-2xl p-6 sm:p-8 shadow-lg text-center relative"
+        >
           <div className="w-24 h-24 absolute -top-12 left-1/2 -translate-x-1/2 bg-card rounded-2xl shadow-xl z-10 flex items-center justify-center">
             <CalendarDays className="h-14 w-14 text-primary" />
           </div>
@@ -89,15 +108,26 @@ function CalendarPage() {
                 <Info size={16} /> মূল তথ্য
             </Link>
           </Button>
-        </div>
+        </motion.div>
 
         {/* Countdown Timer */}
-        <div className="mt-8 w-full border border-border bg-card rounded-2xl p-4 sm:p-6 shadow-lg relative">
+        <motion.div
+            variants={itemVariants}
+            initial="hidden"
+            animate="visible"
+            className="mt-8 w-full border border-border bg-card rounded-2xl p-4 sm:p-6 shadow-lg relative"
+        >
             <CountdownTimer />
-        </div>
+        </motion.div>
 
         {/* Info Section */}
-        <div id="Info" className="mt-8 w-full border border-border bg-card rounded-2xl p-4 sm:p-6 shadow-lg relative text-left">
+        <motion.div
+            variants={itemVariants}
+            initial="hidden"
+            animate="visible"
+            id="Info"
+            className="mt-8 w-full border border-border bg-card rounded-2xl p-4 sm:p-6 shadow-lg relative text-left"
+        >
             <div className="flex justify-center">
                 <div className="inline-block px-6 py-2 bg-gradient-to-r from-primary to-blue-500 text-white rounded-full text-base sm:text-lg mb-4 font-bold shadow-md">সাধারণ তথ্য</div>
             </div>
@@ -112,7 +142,7 @@ function CalendarPage() {
                 <hr className="my-2 border-border/50" />
                 <b><LinkIcon className="inline-block mr-2" size={16}/>লিংকঃ</b> প্রতিটি বিশ্ববিদ্যালয়ের নিজস্ব ওয়েবসাইটে ফলাফল পাবেন।
             </span>
-        </div>
+        </motion.div>
 
         {/* Floating Menu */}
         <FloatingMenu />

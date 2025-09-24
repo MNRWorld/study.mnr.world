@@ -1,4 +1,5 @@
 
+'use client';
 import {
   Accordion,
   AccordionContent,
@@ -33,14 +34,32 @@ import {
 import Link from 'next/link';
 import React from 'react';
 import FloatingMenu from '@/app/university/dhaka/_components/FloatingMenu';
+import { motion } from 'framer-motion';
 
 
 function QuestionBankPage() {
+
+    const itemVariants = {
+        hidden: { y: 20, opacity: 0 },
+        visible: {
+            y: 0,
+            opacity: 1,
+            transition: {
+                duration: 0.5,
+            },
+        },
+    };
+
   return (
     <div className="font-bengali bg-background py-8">
       <div className="container mx-auto px-4">
         {/* Main Card */}
-        <div className="mt-20 sm:mt-24 w-full border border-border bg-card rounded-2xl p-6 sm:p-8 shadow-lg text-center relative animate-fadeInUp">
+        <motion.div
+            variants={itemVariants}
+            initial="hidden"
+            animate="visible"
+            className="mt-20 sm:mt-24 w-full border border-border bg-card rounded-2xl p-6 sm:p-8 shadow-lg text-center relative"
+        >
           <div className="w-24 h-24 absolute -top-12 left-1/2 -translate-x-1/2 bg-card rounded-2xl shadow-xl z-10 flex items-center justify-center">
             <BookOpen className="h-14 w-14 text-primary" />
           </div>
@@ -83,10 +102,16 @@ function QuestionBankPage() {
               <div className="text-xs sm:text-sm text-muted-foreground">ফরম্যাট</div>
             </div>
           </div>
-        </div>
+        </motion.div>
 
         {/* Question Bank */}
-        <div id="QuestionBank" className="mt-8 w-full border border-border bg-card rounded-2xl p-4 sm:p-6 shadow-lg text-center relative animate-fadeInUp">
+        <motion.div
+            variants={itemVariants}
+            initial="hidden"
+            animate="visible"
+            id="QuestionBank"
+            className="mt-8 w-full border border-border bg-card rounded-2xl p-4 sm:p-6 shadow-lg text-center relative"
+        >
              <div className="flex justify-center">
                 <div className="inline-block px-6 py-2 bg-gradient-to-r from-primary to-blue-500 text-white rounded-full text-base sm:text-lg mb-4 font-bold shadow-md">প্রশ্নব্যাংক</div>
             </div>
@@ -136,7 +161,7 @@ function QuestionBankPage() {
                     <p className="text-muted-foreground p-4">অন্যান্য সকল বিশ্ববিদ্যালয়ের প্রশ্ন ও সমাধান এখানে পাওয়া যাবে।</p>
                 </TabsContent>
             </Tabs>
-        </div>
+        </motion.div>
         
         {/* Floating Menu is not super relevant here but can link to top */}
         <FloatingMenu />

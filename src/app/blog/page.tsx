@@ -1,8 +1,11 @@
 
+'use client';
+
 import { Newspaper, User, Calendar } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react';
+import { motion } from 'framer-motion';
 
 function BlogPage() {
     const blogPosts = [
@@ -68,11 +71,36 @@ function BlogPage() {
         },
     ];
 
+    const containerVariants = {
+        hidden: {},
+        visible: {
+            transition: {
+                staggerChildren: 0.1,
+            },
+        },
+    };
+
+    const itemVariants = {
+        hidden: { y: 20, opacity: 0 },
+        visible: {
+            y: 0,
+            opacity: 1,
+            transition: {
+                duration: 0.5,
+            },
+        },
+    };
+
     return (
         <div className="font-bengali bg-background py-8">
             <div className="container mx-auto px-4">
                 {/* Main Card */}
-                <div className="mt-20 sm:mt-24 w-full border border-border bg-card rounded-2xl p-6 sm:p-8 shadow-lg text-center relative animate-fadeInUp">
+                <motion.div
+                    variants={itemVariants}
+                    initial="hidden"
+                    animate="visible"
+                    className="mt-20 sm:mt-24 w-full border border-border bg-card rounded-2xl p-6 sm:p-8 shadow-lg text-center relative"
+                >
                     <div className="w-24 h-24 absolute -top-12 left-1/2 -translate-x-1/2 bg-card rounded-2xl shadow-xl z-10 flex items-center justify-center">
                         <Newspaper className="h-14 w-14 text-primary" />
                     </div>
@@ -87,12 +115,21 @@ function BlogPage() {
                            ভর্তি পরীক্ষা, পড়াশোনা আর ক্যারিয়ার নিয়ে গুরুত্বপূর্ণ সব তথ্য ও টিপস পেতে আমাদের ব্লগে চোখ রাখুন।
                         </p>
                     </div>
-                </div>
+                </motion.div>
 
                 {/* Blog Grid */}
-                <div className="mt-12 grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <motion.div
+                    variants={containerVariants}
+                    initial="hidden"
+                    animate="visible"
+                    className="mt-12 grid md:grid-cols-2 lg:grid-cols-3 gap-8"
+                >
                     {blogPosts.map((post) => (
-                        <div key={post.id} className="bg-card border border-border rounded-xl shadow-lg overflow-hidden hover:shadow-primary/20 hover:-translate-y-2 transition-all duration-300 flex flex-col animate-fadeInUp">
+                        <motion.div
+                            key={post.id}
+                            variants={itemVariants}
+                            className="bg-card border border-border rounded-xl shadow-lg overflow-hidden hover:shadow-primary/20 hover:-translate-y-2 transition-all duration-300 flex flex-col"
+                        >
                             <Link href="#" className="block">
                                 <Image
                                     src={post.imageUrl}
@@ -122,9 +159,9 @@ function BlogPage() {
                                     <span>{post.author}</span>
                                 </div>
                             </div>
-                        </div>
+                        </motion.div>
                     ))}
-                </div>
+                </motion.div>
             </div>
         </div>
     );

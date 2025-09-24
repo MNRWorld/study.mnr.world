@@ -2,6 +2,7 @@
 'use client';
 
 import React, { useState, useEffect, useRef } from 'react';
+import { motion } from 'framer-motion';
 
 const deadlines = [
     {
@@ -89,9 +90,13 @@ const CountdownTimer = () => {
 
   if (currentIndex >= deadlines.length) {
       return (
-        <div className="text-center font-bold text-lg p-4 bg-card rounded-2xl animate-fadeIn">
+        <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            className="text-center font-bold text-lg p-4 bg-card rounded-2xl"
+        >
             সকল পরীক্ষার সময়সূচী শীঘ্রই আপডেট করা হবে।
-        </div>
+        </motion.div>
       );
   }
   
@@ -107,17 +112,19 @@ const CountdownTimer = () => {
           <div className="relative w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 shrink-0">
               <svg className="w-full h-full transform -rotate-90" viewBox="0 0 100 100">
                   <circle className="text-muted/50 dark:text-muted/20" strokeWidth="6" stroke="currentColor" fill="transparent" r="45" cx="50" cy="50" />
-                  <circle className="transition-all duration-1000 ease-linear"
+                  <motion.circle
                       style={{color: '#6ee7b7'}}
                       strokeWidth="6"
                       strokeDasharray={circumference}
-                      strokeDashoffset={isCompleted ? 0 : offset}
                       strokeLinecap="round"
                       stroke="currentColor"
                       fill="transparent"
                       r="45"
                       cx="50"
                       cy="50"
+                      initial={{ strokeDashoffset: circumference }}
+                      animate={{ strokeDashoffset: isCompleted ? 0 : offset }}
+                      transition={{ duration: 1, ease: 'linear' }}
                   />
               </svg>
               <div className="absolute inset-0 flex flex-col items-center justify-center">
@@ -130,21 +137,35 @@ const CountdownTimer = () => {
 
   return (
       <div className="text-center p-4 rounded-2xl bg-card">
-          <div className="text-lg font-bold mb-3 animate-fadeIn text-foreground">
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            className="text-lg font-bold mb-3 text-foreground"
+          >
               {currentDeadline.title}
               <div className="font-normal text-sm mt-1 text-muted-foreground">
                   {currentDeadline.date.toLocaleDateString('en-GB', { year: 'numeric', month: 'long', day: 'numeric' })}
               </div>
-          </div>
+          </motion.div>
           {isCompleted ? (
-              <div className="text-xl text-red-500 font-bold mt-2.5 animate-fadeInUp">সময় শেষ! পরবর্তী আপডেটের জন্য অপেক্ষা করুন।</div>
+              <motion.div
+                initial={{ y: 20, opacity: 0 }}
+                animate={{ y: 0, opacity: 1 }}
+                className="text-xl text-red-500 font-bold mt-2.5"
+              >
+                  সময় শেষ! পরবর্তী আপডেটের জন্য অপেক্ষা করুন।
+              </motion.div>
           ) : (
-              <div className="flex gap-2 sm:gap-4 justify-center flex-nowrap animate-fadeInUp">
+              <motion.div
+                initial={{ y: 20, opacity: 0 }}
+                animate={{ y: 0, opacity: 1 }}
+                className="flex gap-2 sm:gap-4 justify-center flex-nowrap"
+              >
                  <TimeCircle unit="Days" value={timeLeft.days} max={365}/>
                  <TimeCircle unit="Hours" value={timeLeft.hours} max={24}/>
                  <TimeCircle unit="Minutes" value={timeLeft.minutes} max={60}/>
                  <TimeCircle unit="Seconds" value={timeLeft.seconds} max={60}/>
-              </div>
+              </motion.div>
           )}
       </div>
   );
