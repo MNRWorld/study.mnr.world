@@ -3,20 +3,7 @@
 import React from 'react';
 import { Accordion } from '@/components/ui/accordion';
 import QuestionBankAccordion from '@/components/QuestionBankAccordion';
-
-const duUnitA_Yearly = [
-    { title: 'আসপেক্ট “ক” ইউনিট প্রশ্নব্যাংক', url: 'https://t.me/PDFHour/10357' },
-    { title: 'উদ্ভাস “ক” ইউনিট প্রশ্নব্যাংক', url: 'https://t.me/PDFHour/10357' },
-];
-
-const duUnitA_Chapter = [
-    { title: 'রেটিনা ঢাবি "ক" ইউনিট প্রশ্নব্যাংক', url: 'https://t.me/PDFHour/10285' },
-];
-
-const duUnitA_Sohayok = [
-    { title: 'উদ্ভাস ভার্সিটি "ক" প্রশ্নব্যাংক', url: 'https://t.me/PDFHour/10214' },
-    { title: 'উদ্ভাস ভার্সিটি "ক" প্রিপারেশন বুক', url: 'https://t.me/PDFHour/10478' },
-]
+import { duUnitA_Yearly, duUnitA_Chapter, duUnitA_Sohayok } from '@/lib/data/question-banks';
 
 const DhakaUniversityTab = () => {
   return (
