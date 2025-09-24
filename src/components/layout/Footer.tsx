@@ -1,21 +1,17 @@
 
 import {
   BookMarked,
-  Home as HomeIcon,
-  User,
-  Info,
-  Mail,
-  ArrowRight,
   Facebook,
   Twitter,
   Instagram,
   Youtube,
-  ShieldCheck,
-  FileQuestion,
 } from "lucide-react";
 import Link from "next/link";
+import { footerLinks } from "@/lib/data/navigation";
 
 export default function Footer() {
+  const { important, shortcuts } = footerLinks;
+
   return (
     <footer className="footer-bg w-full mt-16 relative">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
@@ -43,42 +39,17 @@ export default function Footer() {
               গুরুত্বপূর্ণ লিঙ্ক
             </h3>
             <ul className="mt-4 space-y-3 font-bengali">
-              <li>
-                <Link
-                  href="/courses"
-                  className="text-muted-foreground hover:text-primary transition-colors duration-300 flex items-center"
-                >
-                  <ArrowRight className="text-primary mr-2 h-5 w-5" />
-                  আমাদের কোর্স
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/calendar"
-                  className="text-muted-foreground hover:text-primary transition-colors duration-300 flex items-center"
-                >
-                  <ArrowRight className="text-primary mr-2 h-5 w-5" />
-                  ভর্তি ক্যালেন্ডার
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/question-bank"
-                  className="text-muted-foreground hover:text-primary transition-colors duration-300 flex items-center"
-                >
-                  <ArrowRight className="text-primary mr-2 h-5 w-5" />
-                  বই ও প্রশ্নব্যাংক
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/blog"
-                  className="text-muted-foreground hover:text-primary transition-colors duration-300 flex items-center"
-                >
-                  <ArrowRight className="text-primary mr-2 h-5 w-5" />
-                  শিক্ষামূলক ব্লগ
-                </Link>
-              </li>
+              {important.map((link, index) => (
+                <li key={index}>
+                  <Link
+                    href={link.href}
+                    className="text-muted-foreground hover:text-primary transition-colors duration-300 flex items-center"
+                  >
+                    <link.icon className="text-primary mr-2 h-5 w-5" />
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
             </ul>
           </div>
 
@@ -87,41 +58,17 @@ export default function Footer() {
               শর্টকাট
             </h3>
             <ul className="mt-4 space-y-3 font-bengali">
-              <li>
-                <Link
-                  href="/"
-                  className="text-muted-foreground hover:text-primary transition-colors duration-300 flex items-center"
-                >
-                  <HomeIcon className="w-5 text-center mr-2" />
-                  হোম
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="#"
-                  className="text-muted-foreground hover:text-primary transition-colors duration-300 flex items-center"
-                >
-                  <User className="w-5 text-center mr-2" />
-                  প্রোফাইল
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="#"
-                  className="text-muted-foreground hover:text-primary transition-colors duration-300 flex items-center"
-                >
-                  <Info className="w-5 text-center mr-2" />
-                  আমাদের সম্পর্কে
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="#"
-                  className="text-muted-foreground hover:text-primary transition-colors duration-300 flex items-center"
-                >
-                  <Mail className="w-5 text-center mr-2" />
-                  যোগাযোগ
-                </Link>              </li>
+              {shortcuts.map((link, index) => (
+                 <li key={index}>
+                  <Link
+                    href={link.href}
+                    className="text-muted-foreground hover:text-primary transition-colors duration-300 flex items-center"
+                  >
+                    <link.icon className="w-5 text-center mr-2" />
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
             </ul>
           </div>
         </div>
