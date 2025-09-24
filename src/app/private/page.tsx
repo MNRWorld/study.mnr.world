@@ -13,6 +13,7 @@ import LinkList from '@/components/common/LinkList';
 import Circular from '@/components/common/Circular';
 import PrivateAdmissionInfo from '@/components/PrivateAdmissionInfo';
 import { admissionDeadlines } from '@/lib/data/deadlines';
+import { privateLinks } from '@/lib/data/links';
 
 function PrivatePage() {
     const itemVariants = {
@@ -25,17 +26,6 @@ function PrivatePage() {
             },
         },
     };
-
-    const privateLinks = [
-        [
-            { href: "#Circular", label: "সার্কুলার" },
-            { href: "/question-bank", label: "প্রশ্নব্যাংক" }
-        ],
-        [
-            { href: "https://www.ugc.gov.bd/site/view/universities", label: "সব অনুমোদিত প্রাইভেট বিশ্ববিদ্যালয়ের তালিকা", target: "_blank", colSpan: 2 }
-        ]
-    ];
-
 
   return (
     <div className="font-bengali bg-background py-8">

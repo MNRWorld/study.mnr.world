@@ -11,6 +11,7 @@ import QuestionBank from '@/components/DhakaQuestionBank';
 import AdmissionInfo from '@/components/DhakaAdmissionInfo';
 import FloatingMenu from '@/components/common/FloatingMenu';
 import { admissionDeadlines } from '@/lib/data/deadlines';
+import { duLinks } from '@/lib/data/links';
 
 function DhakaUniversityPage() {
   const itemVariants = {
@@ -23,24 +24,6 @@ function DhakaUniversityPage() {
       },
     },
   };
-
-  const duLinks = [
-    [
-        { href: "#Circular", label: "সার্কুলার" },
-        { href: "/question-bank?tab=du", label: "প্রশ্নব্যাংক" }
-    ],
-    [
-        { href: "https://www.du.ac.bd/", label: "মূল ওয়েবসাইট", target: "_blank", rel: "noreferrer noopener" },
-        { href: "https://admission.eis.du.ac.bd/bn/408b7c8ad06e4d9954fa2d948a01f508", label: "ভর্তি ওয়েবসাইট", target: "_blank", rel: "noreferrer noopener" }
-    ],
-    [
-        { href: "https://admission.eis.du.ac.bd/bn/408b7c8ad06e4d9954fa2d948a01f508", label: "আবেদন <b>|</b> প্রবেশপত্র <b>|</b> ফলাফল", target: "_blank", colSpan: 2 }
-    ],
-    [
-        { href: "https://collegeadmission.eis.du.ac.bd/en/b45de047fde9788c53fradae3cfe8e88dc02", label: "অধিভুক্ত কলেজ ভর্তি", target: "_blank", colSpan: 2 }
-    ]
-];
-
 
   return (
     <div className="font-bengali bg-background py-8">

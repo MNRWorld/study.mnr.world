@@ -10,6 +10,7 @@ import LinkList from '@/components/common/LinkList';
 import Circular from '@/components/common/Circular';
 import CollegeAdmissionInfo from '@/components/CollegeAdmissionInfo';
 import { admissionDeadlines } from '@/lib/data/deadlines';
+import { collegeLinks } from '@/lib/data/links';
 
 function CollegePage() {
     const itemVariants = {
@@ -22,18 +23,6 @@ function CollegePage() {
             },
         },
     };
-
-    const collegeLinks = [
-        [
-            { href: "#Circular", label: "সার্কুলার" },
-            { href: "/question-bank", label: "প্রশ্নব্যাংক" }
-        ],
-        [
-            { href: "http://xiclassadmission.gov.bd/", label: "মূল ওয়েবসাইট", target: "_blank", rel: "noreferrer noopener" },
-            { href: "http://xiclassadmission.gov.bd/", label: "ভর্তি ওয়েবসাইট", target: "_blank", rel: "noreferrer noopener" }
-        ]
-    ];
-
 
   return (
     <div className="font-bengali bg-background py-8">
