@@ -45,7 +45,7 @@ const DhakaHistoryAndMap = () => {
                         <span>{history.title}</span>
                     </AccordionTrigger>
                     <AccordionContent className="p-4 sm:p-5 border-t border-border/50 text-base text-muted-foreground">
-                        {history.paragraphs.map((p, i) => <p key={i} className="mt-2 first:mt-0">{p}</p>)}
+                        {history.paragraphs.map((p, i) => <p key={i} className="mb-4 last:mb-0">{p}</p>)}
                         <hr className="my-3 border-border/50" />
                         <b>{history.source.label}</b><br/>
                         {history.source.links.map((link, i) => (
