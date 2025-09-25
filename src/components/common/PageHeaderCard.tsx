@@ -94,7 +94,7 @@ const PageHeaderCard = ({ icon, title, subtitle, description, stats, button }: P
                  </div>
             )}
             {button && (
-                <Button asChild className="transition-transform hover:scale-105 rounded-[8px]">
+                <Button asChild className="rounded-[8px]">
                     <Link href={button.href}>
                         {button.icon || <Info size={16} />} {button.label}
                     </Link>
