@@ -76,7 +76,7 @@ const CountdownTimer = () => {
     return () => {
       if (intervalRef.current) clearInterval(intervalRef.current);
     };
-  }, [currentIndex, admissionDeadlines]);
+  }, [currentIndex]);
 
 
   if (isCompleted && currentIndex >= admissionDeadlines.length -1) {
@@ -103,7 +103,7 @@ const CountdownTimer = () => {
     const offset = circumference * progress;
 
     const transition = unit === 'সেকেন্ড' 
-        ? { duration: 1, ease: "linear", repeat: Infinity, repeatType: "loop" as const }
+        ? { duration: 1, ease: "linear" as const }
         : { type: "spring" as const, stiffness: 50, damping: 15 };
 
 
