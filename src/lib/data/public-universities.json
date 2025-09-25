@@ -4,114 +4,176 @@
         "nameBn": "ঢাকা বিশ্ববিদ্যালয়",
         "nameEn": "University of Dhaka",
         "shortName": "DU",
+        "category": "সাধারণ",
+        "description": "দেশের শীর্ষস্থানীয় গবেষণাধর্মী সরকারি বিশ্ববিদ্যালয়।",
         "link": "/du"
     },
     {
         "nameBn": "রাজশাহী বিশ্ববিদ্যালয়",
         "nameEn": "University of Rajshahi",
         "shortName": "RU",
+        "category": "সাধারণ",
+        "description": "দেশের দ্বিতীয় বৃহত্তম বিশ্ববিদ্যালয়, যা শিক্ষানগরী রাজশাহীতে অবস্থিত।",
         "link": "/ru"
     },
     {
         "nameBn": "চট্টগ্রাম বিশ্ববিদ্যালয়",
         "nameEn": "University of Chittagong",
         "shortName": "CU",
+        "category": "সাধারণ",
+        "description": "প্রাকৃতিক সৌন্দর্যে ঘেরা দেশের অন্যতম বৃহৎ একটি বিশ্ববিদ্যালয়।",
         "link": "/cu"
     },
     {
         "nameBn": "জাহাঙ্গীরনগর বিশ্ববিদ্যালয়",
         "nameEn": "Jahangirnagar University",
         "shortName": "JU",
+        "category": "সাধারণ",
+        "description": "বাংলাদেশের একমাত্র আবাসিক পাবলিক বিশ্ববিদ্যালয়।",
         "link": "/ju"
     },
     {
         "nameBn": "বাংলাদেশ কৃষি বিশ্ববিদ্যালয়",
         "nameEn": "Bangladesh Agricultural University",
         "shortName": "BAU",
+        "category": "কৃষি",
+        "description": "কৃষি বিষয়ক উচ্চশিক্ষার অন্যতম সেরা একটি প্রতিষ্ঠান।",
         "link": "/bau"
     },
     {
         "nameBn": "বাংলাদেশ প্রকৌশল বিশ্ববিদ্যালয়",
         "nameEn": "Bangladesh University of Engineering and Technology",
         "shortName": "BUET",
+        "category": "প্রকৌশল",
+        "description": "দেশের শীর্ষস্থানীয় প্রকৌশল শিক্ষা প্রতিষ্ঠান।",
         "link": "/buet"
     },
     {
         "nameBn": "খুলনা প্রকৌশল ও প্রযুক্তি বিশ্ববিদ্যালয়",
         "nameEn": "Khulna University of Engineering & Technology",
         "shortName": "KUET",
+        "category": "প্রকৌশল",
+        "description": "দক্ষিণবঙ্গের অন্যতম সেরা প্রকৌশল বিশ্ববিদ্যালয়।",
         "link": "/kuet"
     },
     {
         "nameBn": "রাজশাহী প্রকৌশল ও প্রযুক্তি বিশ্ববিদ্যালয়",
         "nameEn": "Rajshahi University of Engineering & Technology",
         "shortName": "RUET",
+        "category": "প্রকৌশল",
+        "description": "উত্তরবঙ্গের শিক্ষার্থীদের জন্য প্রকৌশল শিক্ষার বাতিঘর।",
         "link": "/ruet"
     },
     {
         "nameBn": "চট্টগ্রাম প্রকৌশল ও প্রযুক্তি বিশ্ববিদ্যালয়",
         "nameEn": "Chittagong University of Engineering & Technology",
         "shortName": "CUET",
+        "category": "প্রকৌশল",
+        "description": "চট্টগ্রামের প্রধান প্রকৌশল শিক্ষা ও গবেষণা প্রতিষ্ঠান।",
         "link": "/cuet"
+    },
+    {
+        "nameBn": "ঢাকা প্রকৌশল ও প্রযুক্তি বিশ্ববিদ্যালয়",
+        "nameEn": "Dhaka University of Engineering & Technology",
+        "shortName": "DUET",
+        "category": "প্রকৌশল",
+        "description": "ডিপ্লোমা ইন ইঞ্জিনিয়ারিং সম্পন্নকারীদের জন্য বিশেষায়িত বিশ্ববিদ্যালয়।",
+        "link": "/duet"
+    },
+    {
+        "nameBn": "বাংলাদেশ টেক্সটাইল বিশ্ববিদ্যালয়",
+        "nameEn": "Bangladesh University of Textiles",
+        "shortName": "BUTEX",
+        "category": "প্রকৌশল",
+        "description": "টেক্সটাইল ইঞ্জিনিয়ারিং শিক্ষার জন্য দেশের একমাত্র সরকারি বিশ্ববিদ্যালয়।",
+        "link": "/butex"
+    },
+    {
+        "nameBn": "সামরিক বিজ্ঞান ও প্রযুক্তি ইনস্টিটিউট",
+        "nameEn": "Military Institute of Science and Technology",
+        "shortName": "MIST",
+        "category": "প্রকৌশল",
+        "description": "বাংলাদেশ সশস্ত্র বাহিনী দ্বারা পরিচালিত একটি উন্নত প্রযুক্তিগত শিক্ষা প্রতিষ্ঠান।",
+        "link": "/mist"
     },
     {
         "nameBn": "শাহজালাল বিজ্ঞান ও প্রযুক্তি বিশ্ববিদ্যালয়",
         "nameEn": "Shahjalal University of Science and Technology",
         "shortName": "SUST",
+        "category": "বিজ্ঞান ও প্রযুক্তি",
+        "description": "বিজ্ঞান ও প্রযুক্তি গবেষণায় দেশের অন্যতম সেরা একটি বিশ্ববিদ্যালয়।",
         "link": "/sust"
     },
     {
         "nameBn": "বঙ্গবন্ধু শেখ মুজিবুর রহমান মেডিকেল বিশ্ববিদ্যালয়",
         "nameEn": "Bangabandhu Sheikh Mujib Medical University",
         "shortName": "BSMMU",
+        "category": "মেডিকেল",
+        "description": "চিকিৎসাশাস্ত্রে উচ্চতর গবেষণা ও ডিগ্রির জন্য দেশের প্রধান প্রতিষ্ঠান।",
         "link": "/bsmmu"
     },
     {
         "nameBn": "ইসলামী বিশ্ববিদ্যালয়",
         "nameEn": "Islamic University, Bangladesh",
         "shortName": "IU",
+        "category": "সাধারণ",
+        "description": "ধর্মতত্ত্ব ও আধুনিক শিক্ষার সমন্বয়ে গঠিত একটি বিশ্ববিদ্যালয়।",
         "link": "/iu"
     },
     {
         "nameBn": "খুলনা বিশ্ববিদ্যালয়",
         "nameEn": "Khulna University",
         "shortName": "KU",
+        "category": "সাধারণ",
+        "description": "সেশনজট মুক্ত একটি পাবলিক বিশ্ববিদ্যালয়।",
         "link": "/ku"
     },
     {
         "nameBn": "জগন্নাথ বিশ্ববিদ্যালয়",
         "nameEn": "Jagannath University",
         "shortName": "JNU",
+        "category": "সাধারণ",
+        "description": "ঢাকার প্রাণকেন্দ্রে অবস্থিত একটি ঐতিহ্যবাহী শিক্ষা প্রতিষ্ঠান।",
         "link": "/jnu"
     },
     {
         "nameBn": "কুমিল্লা বিশ্ববিদ্যালয়",
         "nameEn": "Comilla University",
         "shortName": "CoU",
+        "category": "সাধারণ",
+        "description": "ময়নামতির কোলে অবস্থিত একটি দ্রুত বর্ধনশীল বিশ্ববিদ্যালয়।",
         "link": "/cou"
     },
     {
         "nameBn": "জাতীয় কবি কাজী নজরুল ইসলাম বিশ্ববিদ্যালয়",
         "nameEn": "Jatiya Kabi Kazi Nazrul Islam University",
         "shortName": "JKKNIU",
+        "category": "সাধারণ",
+        "description": "সাহিত্য ও সংস্কৃতি চর্চার জন্য পরিচিত একটি বিশ্ববিদ্যালয়।",
         "link": "/jkkniu"
     },
     {
         "nameBn": "বাংলাদেশ ইউনিভার্সিটি অব প্রফেশনালস",
         "nameEn": "Bangladesh University of Professionals",
         "shortName": "BUP",
+        "category": "অন্যান্য",
+        "description": "বাংলাদেশ সশস্ত্র বাহিনী পরিচালিত একটি মানসম্পন্ন শিক্ষা প্রতিষ্ঠান।",
         "link": "/bup"
     },
     {
         "nameBn": "বেগম রোকেয়া বিশ্ববিদ্যালয়, রংপুর",
         "nameEn": "Begum Rokeya University, Rangpur",
         "shortName": "BRUR",
+        "category": "সাধারণ",
+        "description": "উত্তরবঙ্গের নারী জাগরণের অগ্রদূতের নামে প্রতিষ্ঠিত একটি বিশ্ববিদ্যালয়।",
         "link": "/brur"
     },
     {
         "nameBn": "বরিশাল বিশ্ববিদ্যালয়",
         "nameEn": "University of Barisal",
         "shortName": "BU",
+        "category": "সাধারণ",
+        "description": "কীর্তনখোলা নদীর তীরে অবস্থিত বরিশাল বিভাগের একমাত্র পাবলিক বিশ্ববিদ্যালয়।",
         "link": "/bu"
     }
 ]

@@ -1,4 +1,13 @@
 
 import publicUniversitiesData from './public-universities.json';
 
-export const publicUniversities = publicUniversitiesData;
+export interface University {
+    nameBn: string;
+    nameEn: string;
+    shortName: string;
+    category: string;
+    description: string;
+    link: string;
+}
+
+export const publicUniversities: University[] = publicUniversitiesData;
