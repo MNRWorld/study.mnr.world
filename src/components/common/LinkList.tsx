@@ -50,7 +50,7 @@ const LinkList = ({ links }: LinkListProps) => {
                     {links.map((row, rowIndex) => (
                         <TableRow key={rowIndex}>
                             {row.map((link, linkIndex) => (
-                                <TableCell key={linkIndex} className="text-center p-0" colSpan={link.colSpan}>
+                                <TableCell key={linkIndex} className="text-center" colSpan={link.colSpan}>
                                     <Link 
                                         href={link.href} 
                                         target={link.target} 
