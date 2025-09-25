@@ -67,22 +67,19 @@ const PageHeaderCard = ({ icon, title, subtitle, description, stats, button }: P
                     <TooltipProvider>
                     {stats.map((stat, index) => (
                         <div key={index} className="text-center px-2">
-                            {stat.tooltip ? (
-                                <Tooltip>
-                                    <TooltipTrigger asChild>
-                                        <div className="text-lg sm:text-xl md:text-2xl font-bold text-foreground flex items-center justify-center cursor-help">
-                                            {stat.value}
-                                        </div>
-                                    </TooltipTrigger>
-                                    <TooltipContent>
-                                        <p dangerouslySetInnerHTML={{ __html: stat.tooltip }} />
-                                    </TooltipContent>
-                                </Tooltip>
-                            ) : (
-                                <div className="text-lg sm:text-xl md:text-2xl font-bold text-foreground flex items-center justify-center">
-                                    {stat.value}
-                                </div>
-                            )}
+                            <div className="text-lg sm:text-xl md:text-2xl font-bold text-foreground flex items-center justify-center">
+                                {stat.value}
+                                {stat.tooltip && (
+                                    <Tooltip>
+                                        <TooltipTrigger asChild>
+                                            <i className="fa-solid fa-circle-info text-muted-foreground text-xs ml-1.5 cursor-help"></i>
+                                        </TooltipTrigger>
+                                        <TooltipContent>
+                                            <p dangerouslySetInnerHTML={{ __html: stat.tooltip }} />
+                                        </TooltipContent>
+                                    </Tooltip>
+                                )}
+                            </div>
                             <div className="text-xs sm:text-sm text-muted-foreground whitespace-nowrap">{stat.label}</div>
                         </div>
                     ))}
