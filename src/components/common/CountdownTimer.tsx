@@ -102,11 +102,17 @@ const CountdownTimer = () => {
     const circumference = 2 * Math.PI * 45;
     const offset = circumference * progress;
 
+    const transition = unit === 'সেকেন্ড' 
+        ? { duration: 1, ease: "linear", repeat: Infinity, repeatType: "loop" as const }
+        : { type: "spring" as const, stiffness: 50, damping: 15 };
+
+
     return (
       <div className="relative w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 shrink-0">
         <svg className="w-full h-full transform -rotate-90" viewBox="0 0 100 100">
           <circle className="text-muted/50 dark:text-muted/20" strokeWidth="6" stroke="currentColor" fill="transparent" r="45" cx="50" cy="50" />
           <motion.circle
+            key={`${unit}-${value}`}
             className="text-primary"
             strokeWidth="6"
             strokeDasharray={circumference}
@@ -118,7 +124,7 @@ const CountdownTimer = () => {
             cy="50"
             initial={{ strokeDashoffset: circumference }}
             animate={{ strokeDashoffset: isCompleted ? 0 : offset }}
-            transition={{ duration: 1, ease: 'linear' }}
+            transition={transition}
           />
         </svg>
         <div className="absolute inset-0 flex flex-col items-center justify-center">
