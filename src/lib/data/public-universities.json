@@ -1,0 +1,117 @@
+
+[
+    {
+        "nameBn": "ঢাকা বিশ্ববিদ্যালয়",
+        "nameEn": "University of Dhaka",
+        "shortName": "DU",
+        "link": "/du"
+    },
+    {
+        "nameBn": "রাজশাহী বিশ্ববিদ্যালয়",
+        "nameEn": "University of Rajshahi",
+        "shortName": "RU",
+        "link": "/ru"
+    },
+    {
+        "nameBn": "চট্টগ্রাম বিশ্ববিদ্যালয়",
+        "nameEn": "University of Chittagong",
+        "shortName": "CU",
+        "link": "/cu"
+    },
+    {
+        "nameBn": "জাহাঙ্গীরনগর বিশ্ববিদ্যালয়",
+        "nameEn": "Jahangirnagar University",
+        "shortName": "JU",
+        "link": "/ju"
+    },
+    {
+        "nameBn": "বাংলাদেশ কৃষি বিশ্ববিদ্যালয়",
+        "nameEn": "Bangladesh Agricultural University",
+        "shortName": "BAU",
+        "link": "/bau"
+    },
+    {
+        "nameBn": "বাংলাদেশ প্রকৌশল বিশ্ববিদ্যালয়",
+        "nameEn": "Bangladesh University of Engineering and Technology",
+        "shortName": "BUET",
+        "link": "/buet"
+    },
+    {
+        "nameBn": "খুলনা প্রকৌশল ও প্রযুক্তি বিশ্ববিদ্যালয়",
+        "nameEn": "Khulna University of Engineering & Technology",
+        "shortName": "KUET",
+        "link": "/kuet"
+    },
+    {
+        "nameBn": "রাজশাহী প্রকৌশল ও প্রযুক্তি বিশ্ববিদ্যালয়",
+        "nameEn": "Rajshahi University of Engineering & Technology",
+        "shortName": "RUET",
+        "link": "/ruet"
+    },
+    {
+        "nameBn": "চট্টগ্রাম প্রকৌশল ও প্রযুক্তি বিশ্ববিদ্যালয়",
+        "nameEn": "Chittagong University of Engineering & Technology",
+        "shortName": "CUET",
+        "link": "/cuet"
+    },
+    {
+        "nameBn": "শাহজালাল বিজ্ঞান ও প্রযুক্তি বিশ্ববিদ্যালয়",
+        "nameEn": "Shahjalal University of Science and Technology",
+        "shortName": "SUST",
+        "link": "/sust"
+    },
+    {
+        "nameBn": "বঙ্গবন্ধু শেখ মুজিবুর রহমান মেডিকেল বিশ্ববিদ্যালয়",
+        "nameEn": "Bangabandhu Sheikh Mujib Medical University",
+        "shortName": "BSMMU",
+        "link": "/bsmmu"
+    },
+    {
+        "nameBn": "ইসলামী বিশ্ববিদ্যালয়",
+        "nameEn": "Islamic University, Bangladesh",
+        "shortName": "IU",
+        "link": "/iu"
+    },
+    {
+        "nameBn": "খুলনা বিশ্ববিদ্যালয়",
+        "nameEn": "Khulna University",
+        "shortName": "KU",
+        "link": "/ku"
+    },
+    {
+        "nameBn": "জগন্নাথ বিশ্ববিদ্যালয়",
+        "nameEn": "Jagannath University",
+        "shortName": "JNU",
+        "link": "/jnu"
+    },
+    {
+        "nameBn": "কুমিল্লা বিশ্ববিদ্যালয়",
+        "nameEn": "Comilla University",
+        "shortName": "CoU",
+        "link": "/cou"
+    },
+    {
+        "nameBn": "জাতীয় কবি কাজী নজরুল ইসলাম বিশ্ববিদ্যালয়",
+        "nameEn": "Jatiya Kabi Kazi Nazrul Islam University",
+        "shortName": "JKKNIU",
+        "link": "/jkkniu"
+    },
+    {
+        "nameBn": "বাংলাদেশ ইউনিভার্সিটি অব প্রফেশনালস",
+        "nameEn": "Bangladesh University of Professionals",
+        "shortName": "BUP",
+        "link": "/bup"
+    },
+    {
+        "nameBn": "বেগম রোকেয়া বিশ্ববিদ্যালয়, রংপুর",
+        "nameEn": "Begum Rokeya University, Rangpur",
+        "shortName": "BRUR",
+        "link": "/brur"
+    },
+    {
+        "nameBn": "বরিশাল বিশ্ববিদ্যালয়",
+        "nameEn": "University of Barisal",
+        "shortName": "BU",
+        "link": "/bu"
+    }
+]
