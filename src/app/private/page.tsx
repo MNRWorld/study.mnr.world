@@ -1,4 +1,6 @@
 
+'use client';
+
 import { Info, Building } from 'lucide-react';
 import dynamic from 'next/dynamic';
 import PageHeaderCard from '@/components/common/PageHeaderCard';
@@ -17,7 +19,7 @@ function PrivatePage() {
             icon={<Building className="h-14 w-14 text-primary" />}
             title="প্রাইভেট বিশ্ববিদ্যালয় ভর্তি"
             subtitle="Private University Admission"
-            description="দেশের শীর্ষস্থানীয় প্রাইভেট বিশ্ববিদ্যালয়গুলোতে ভর্তির সর্বশেষ তথ্য, যোগ্যতা ও পরীক্ষার মানবণ্টন সম্পর্কে জানুন।"
+            description="দেশের শীর্ষস্থানীয় প্রাইভেট বিশ্ববিদ্যালয়গুলোতে ভর্তির সর্বশেষ তথ্য, যোগ্যতা ও পরীক্ষার মানবণ্টন সম্পর্কে জানুন।"
             stats={[
                 { value: "৮০+", label: "বিশ্ববিদ্যালয়" },
                 { value: "বিভিন্ন", label: "বিষয়" },
