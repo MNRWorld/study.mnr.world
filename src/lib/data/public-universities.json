@@ -5,7 +5,7 @@
         "nameEn": "University of Dhaka",
         "shortName": "DU",
         "category": "সাধারণ",
-        "description": "দেশের শীর্ষস্থানীয় গবেষণাধর্মী সরকারি বিশ্ববিদ্যালয়।",
+        "description": "দেশের শীর্ষস্থানীয় গবেষণাধর্মী সরকারি বিশ্ববিদ্যালয়।",
         "link": "/du"
     },
     {
@@ -13,7 +13,7 @@
         "nameEn": "University of Rajshahi",
         "shortName": "RU",
         "category": "সাধারণ",
-        "description": "দেশের দ্বিতীয় বৃহত্তম বিশ্ববিদ্যালয়, যা শিক্ষানগরী রাজশাহীতে অবস্থিত।",
+        "description": "দেশের দ্বিতীয় বৃহত্তম বিশ্ববিদ্যালয়, যা শিক্ষানগরী রাজশাহীতে অবস্থিত।",
         "link": "/ru"
     },
     {
@@ -21,7 +21,7 @@
         "nameEn": "University of Chittagong",
         "shortName": "CU",
         "category": "সাধারণ",
-        "description": "প্রাকৃতিক সৌন্দর্যে ঘেরা দেশের অন্যতম বৃহৎ একটি বিশ্ববিদ্যালয়।",
+        "description": "প্রাকৃতিক সৌন্দর্যে ঘেরা দেশের অন্যতম বৃহৎ একটি বিশ্ববিদ্যালয়।",
         "link": "/cu"
     },
     {
@@ -29,7 +29,7 @@
         "nameEn": "Jahangirnagar University",
         "shortName": "JU",
         "category": "সাধারণ",
-        "description": "বাংলাদেশের একমাত্র আবাসিক পাবলিক বিশ্ববিদ্যালয়।",
+        "description": "বাংলাদেশের একমাত্র আবাসিক পাবলিক বিশ্ববিদ্যালয়।",
         "link": "/ju"
     },
     {
@@ -37,7 +37,7 @@
         "nameEn": "Bangladesh Agricultural University",
         "shortName": "BAU",
         "category": "কৃষি",
-        "description": "কৃষি বিষয়ক উচ্চশিক্ষার অন্যতম সেরা একটি প্রতিষ্ঠান।",
+        "description": "কৃষি বিষয়ক উচ্চশিক্ষার অন্যতম সেরা একটি প্রতিষ্ঠান।",
         "link": "/bau"
     },
     {
@@ -53,7 +53,7 @@
         "nameEn": "Khulna University of Engineering & Technology",
         "shortName": "KUET",
         "category": "প্রকৌশল",
-        "description": "দক্ষিণবঙ্গের অন্যতম সেরা প্রকৌশল বিশ্ববিদ্যালয়।",
+        "description": "দক্ষিণবঙ্গের অন্যতম সেরা প্রকৌশল বিশ্ববিদ্যালয়।",
         "link": "/kuet"
     },
     {
@@ -77,7 +77,7 @@
         "nameEn": "Dhaka University of Engineering & Technology",
         "shortName": "DUET",
         "category": "প্রকৌশল",
-        "description": "ডিপ্লোমা ইন ইঞ্জিনিয়ারিং সম্পন্নকারীদের জন্য বিশেষায়িত বিশ্ববিদ্যালয়।",
+        "description": "ডিপ্লোমা ইন ইঞ্জিনিয়ারিং সম্পন্নকারীদের জন্য বিশেষায়িত বিশ্ববিদ্যালয়।",
         "link": "/duet"
     },
     {
@@ -85,7 +85,7 @@
         "nameEn": "Bangladesh University of Textiles",
         "shortName": "BUTEX",
         "category": "প্রকৌশল",
-        "description": "টেক্সটাইল ইঞ্জিনিয়ারিং শিক্ষার জন্য দেশের একমাত্র সরকারি বিশ্ববিদ্যালয়।",
+        "description": "টেক্সটাইল ইঞ্জিনিয়ারিং শিক্ষার জন্য দেশের একমাত্র সরকারি বিশ্ববিদ্যালয়।",
         "link": "/butex"
     },
     {
@@ -101,7 +101,7 @@
         "nameEn": "Shahjalal University of Science and Technology",
         "shortName": "SUST",
         "category": "বিজ্ঞান ও প্রযুক্তি",
-        "description": "বিজ্ঞান ও প্রযুক্তি গবেষণায় দেশের অন্যতম সেরা একটি বিশ্ববিদ্যালয়।",
+        "description": "বিজ্ঞান ও প্রযুক্তি গবেষণায় দেশের অন্যতম সেরা একটি বিশ্ববিদ্যালয়।",
         "link": "/sust"
     },
     {
@@ -117,7 +117,7 @@
         "nameEn": "Islamic University, Bangladesh",
         "shortName": "IU",
         "category": "সাধারণ",
-        "description": "ধর্মতত্ত্ব ও আধুনিক শিক্ষার সমন্বয়ে গঠিত একটি বিশ্ববিদ্যালয়।",
+        "description": "ধর্মতত্ত্ব ও আধুনিক শিক্ষার সমন্বয়ে গঠিত একটি বিশ্ববিদ্যালয়।",
         "link": "/iu"
     },
     {
@@ -141,7 +141,7 @@
         "nameEn": "Comilla University",
         "shortName": "CoU",
         "category": "সাধারণ",
-        "description": "ময়নামতির কোলে অবস্থিত একটি দ্রুত বর্ধনশীল বিশ্ববিদ্যালয়।",
+        "description": "ময়নামতির কোলে অবস্থিত একটি দ্রুত বর্ধনশীল বিশ্ববিদ্যালয়।",
         "link": "/cou"
     },
     {
@@ -149,7 +149,7 @@
         "nameEn": "Jatiya Kabi Kazi Nazrul Islam University",
         "shortName": "JKKNIU",
         "category": "সাধারণ",
-        "description": "সাহিত্য ও সংস্কৃতি চর্চার জন্য পরিচিত একটি বিশ্ববিদ্যালয়।",
+        "description": "সাহিত্য ও সংস্কৃতি চর্চার জন্য পরিচিত একটি বিশ্ববিদ্যালয়।",
         "link": "/jkkniu"
     },
     {
@@ -157,7 +157,7 @@
         "nameEn": "Bangladesh University of Professionals",
         "shortName": "BUP",
         "category": "অন্যান্য",
-        "description": "বাংলাদেশ সশস্ত্র বাহিনী পরিচালিত একটি মানসম্পন্ন শিক্ষা প্রতিষ্ঠান।",
+        "description": "বাংলাদেশ সশস্ত্র বাহিনী দ্বারা পরিচালিত একটি মানসম্পন্ন শিক্ষা প্রতিষ্ঠান।",
         "link": "/bup"
     },
     {
@@ -165,7 +165,7 @@
         "nameEn": "Begum Rokeya University, Rangpur",
         "shortName": "BRUR",
         "category": "সাধারণ",
-        "description": "উত্তরবঙ্গের নারী জাগরণের অগ্রদূতের নামে প্রতিষ্ঠিত একটি বিশ্ববিদ্যালয়।",
+        "description": "উত্তরবঙ্গের নারী জাগরণের অগ্রদূতের নামে প্রতিষ্ঠিত একটি বিশ্ববিদ্যালয়।",
         "link": "/brur"
     },
     {
@@ -173,7 +173,63 @@
         "nameEn": "University of Barisal",
         "shortName": "BU",
         "category": "সাধারণ",
-        "description": "কীর্তনখোলা নদীর তীরে অবস্থিত বরিশাল বিভাগের একমাত্র পাবলিক বিশ্ববিদ্যালয়।",
+        "description": "কীর্তনখোলা নদীর তীরে অবস্থিত বরিশাল বিভাগের একমাত্র পাবলিক বিশ্ববিদ্যালয়।",
         "link": "/bu"
+    },
+    {
+        "nameBn": "যশোর বিজ্ঞান ও প্রযুক্তি বিশ্ববিদ্যালয়",
+        "nameEn": "Jashore University of Science and Technology",
+        "shortName": "JUST",
+        "category": "বিজ্ঞান ও প্রযুক্তি",
+        "description": "দেশের দক্ষিণ-পশ্চিমাঞ্চলের একটি অন্যতম বিজ্ঞান ও প্রযুক্তি বিশ্ববিদ্যালয়।",
+        "link": "/just"
+    },
+    {
+        "nameBn": "মাওলানা ভাসানী বিজ্ঞান ও প্রযুক্তি বিশ্ববিদ্যালয়",
+        "nameEn": "Mawlana Bhashani Science and Technology University",
+        "shortName": "MBSTU",
+        "category": "বিজ্ঞান ও প্রযুক্তি",
+        "description": "টাঙ্গাইলে অবস্থিত একটি সরকারি বিজ্ঞান ও প্রযুক্তি বিশ্ববিদ্যালয়।",
+        "link": "/mbstu"
+    },
+    {
+        "nameBn": "হাজী মোহাম্মদ দানেশ বিজ্ঞান ও প্রযুক্তি বিশ্ববিদ্যালয়",
+        "nameEn": "Hajee Mohammad Danesh Science & Technology University",
+        "shortName": "HSTU",
+        "category": "বিজ্ঞান ও প্রযুক্তি",
+        "description": "উত্তরবঙ্গের একটি শীর্ষস্থানীয় বিজ্ঞান ও প্রযুক্তি বিশ্ববিদ্যালয়।",
+        "link": "/hstu"
+    },
+    {
+        "nameBn": "নোয়াখালী বিজ্ঞান ও প্রযুক্তি বিশ্ববিদ্যালয়",
+        "nameEn": "Noakhali Science and Technology University",
+        "shortName": "NSTU",
+        "category": "বিজ্ঞান ও প্রযুক্তি",
+        "description": "নোয়াখালী জেলায় অবস্থিত একটি সরকারি বিজ্ঞান ও প্রযুক্তি বিশ্ববিদ্যালয়।",
+        "link": "/nstu"
+    },
+    {
+        "nameBn": "পটুয়াখালী বিজ্ঞান ও প্রযুক্তি বিশ্ববিদ্যালয়",
+        "nameEn": "Patuakhali Science and Technology University",
+        "shortName": "PSTU",
+        "category": "বিজ্ঞান ও প্রযুক্তি",
+        "description": "বরিশাল বিভাগে অবস্থিত একটি বিশেষায়িত সরকারি বিশ্ববিদ্যালয়।",
+        "link": "/pstu"
+    },
+    {
+        "nameBn": "পাবনা বিজ্ঞান ও প্রযুক্তি বিশ্ববিদ্যালয়",
+        "nameEn": "Pabna University of Science and Technology",
+        "shortName": "PUST",
+        "category": "বিজ্ঞান ও প্রযুক্তি",
+        "description": "পাবনা জেলায় অবস্থিত একটি পাবলিক বিশ্ববিদ্যালয়।",
+        "link": "/pust"
+    },
+    {
+        "nameBn": "রাঙ্গামাটি বিজ্ঞান ও প্রযুক্তি বিশ্ববিদ্যালয়",
+        "nameEn": "Rangamati Science and Technology University",
+        "shortName": "RMSTU",
+        "category": "বিজ্ঞান ও প্রযুক্তি",
+        "description": "পার্বত্য চট্টগ্রাম অঞ্চলের প্রথম পাবলিক বিশ্ববিদ্যালয়।",
+        "link": "/rmstu"
     }
 ]
