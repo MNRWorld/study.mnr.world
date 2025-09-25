@@ -6,7 +6,7 @@ import { motion } from 'framer-motion';
 import { admissionDeadlines, Deadline } from '@/lib/data/deadlines';
 
 const CountdownTimer = () => {
-  const [currentIndex, setCurrentIndex] = useState(0);
+  const [currentIndex, setCurrentIndex] = useState(-1);
   const [timeLeft, setTimeLeft] = useState({
     days: '--',
     hours: '--',
@@ -17,10 +17,15 @@ const CountdownTimer = () => {
   const intervalRef = useRef<NodeJS.Timeout | null>(null);
 
   useEffect(() => {
-    const upcomingDeadlines = admissionDeadlines.filter(d => d.date > new Date());
+    const upcomingDeadlines = admissionDeadlines
+      .filter(d => d.date > new Date())
+      .sort((a, b) => a.date.getTime() - b.date.getTime());
+
     if (upcomingDeadlines.length === 0) {
       setIsCompleted(true);
       setTimeLeft({ days: '00', hours: '00', minutes: '00', seconds: '00' });
+      const lastDeadlineIndex = admissionDeadlines.length -1;
+      setCurrentIndex(lastDeadlineIndex);
       return;
     }
 
@@ -31,7 +36,7 @@ const CountdownTimer = () => {
 
 
   useEffect(() => {
-    if (currentIndex >= admissionDeadlines.length) return;
+    if (currentIndex < 0 || currentIndex >= admissionDeadlines.length) return;
 
     const update = () => {
       const now = new Date();
@@ -40,10 +45,14 @@ const CountdownTimer = () => {
       if (diff <= 0) {
         if (intervalRef.current) clearInterval(intervalRef.current);
         
-        const upcoming = admissionDeadlines.filter(d => d.date > now);
+        const upcoming = admissionDeadlines
+            .filter(d => d.date > new Date())
+            .sort((a, b) => a.date.getTime() - b.date.getTime());
+
         if (upcoming.length > 0) {
           const nextIndex = admissionDeadlines.findIndex(d => d.date === upcoming[0].date);
           setCurrentIndex(nextIndex);
+          setIsCompleted(false); // Reset completion state for the new timer
         } else {
           setIsCompleted(true);
           setTimeLeft({ days: '00', hours: '00', minutes: '00', seconds: '00' });
@@ -70,19 +79,22 @@ const CountdownTimer = () => {
   }, [currentIndex, admissionDeadlines]);
 
 
-  if (isCompleted && currentIndex >= admissionDeadlines.length - 1) {
+  if (isCompleted && currentIndex >= admissionDeadlines.length -1) {
     return (
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         className="text-center font-bold text-lg p-4 bg-card rounded-2xl"
       >
-        সকল পরীক্ষার সময়সূচী শীঘ্রই আপডেট করা হবে।
+        সকল ভর্তি পরীক্ষার সময়সীমা শেষ হয়েছে। নতুন সময়সূচী শীঘ্রই যুক্ত করা হবে।
       </motion.div>
     );
   }
 
-  const currentDeadline = admissionDeadlines[currentIndex];
+  const currentDeadline = currentIndex !== -1 ? admissionDeadlines[currentIndex] : null;
+  if (!currentDeadline) {
+      return null;
+  }
 
   const TimeCircle = ({ unit, value, max }: { unit: string; value: string, max: number }) => {
     const numValue = parseInt(value, 10);
@@ -132,7 +144,7 @@ const CountdownTimer = () => {
           {currentDeadline.date.toLocaleDateString('bn-BD', { year: 'numeric', month: 'long', day: 'numeric' })}
         </div>
       </motion.div>
-      {isCompleted ? (
+      {isCompleted && !(currentIndex >= admissionDeadlines.length -1) ? (
         <motion.div
           initial={{ y: 20, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
