@@ -26,7 +26,7 @@ const DhakaMainInfoCard = () => {
           { value: '১৩টি', label: 'অনুষদ' },
           { value: '৮৩টি', label: 'বিষয়' },
           {
-            value: '৬,১৩০+',
+            value: '৬১৩০টি',
             label: 'আসন',
             tooltip: `
               'ক' ইউনিট: ১৮৯৬<br/>
