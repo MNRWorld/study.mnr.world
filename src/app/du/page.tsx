@@ -1,3 +1,4 @@
+
 'use client';
 
 import dynamic from 'next/dynamic';
@@ -17,7 +18,7 @@ function DhakaUniversityPage() {
 
   return (
     <div className="font-bengali bg-background py-8">
-      <div className="container mx-auto px-4">
+      <div className="container mx-auto px-4 lg:px-[200px]">
         <MainInfoCard />
 
         <LinkList links={duLinks} />
