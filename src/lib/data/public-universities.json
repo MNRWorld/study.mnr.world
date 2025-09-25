@@ -6,7 +6,8 @@
         "shortName": "DU",
         "category": "সাধারণ",
         "description": "দেশের শীর্ষস্থানীয় গবেষণাধর্মী সরকারি বিশ্ববিদ্যালয়।",
-        "link": "/du"
+        "link": "/du",
+        "logo": "https://study.mnr.world/wp-content/uploads/2025/05/DU-Logo.png"
     },
     {
         "nameBn": "রাজশাহী বিশ্ববিদ্যালয়",
@@ -14,7 +15,8 @@
         "shortName": "RU",
         "category": "সাধারণ",
         "description": "দেশের দ্বিতীয় বৃহত্তম বিশ্ববিদ্যালয়, যা শিক্ষানগরী রাজশাহীতে অবস্থিত।",
-        "link": "/ru"
+        "link": "/ru",
+        "logo": "https://www.ru.ac.bd/wp-content/uploads/2022/07/runiv-logo-512.png"
     },
     {
         "nameBn": "চট্টগ্রাম বিশ্ববিদ্যালয়",
@@ -22,7 +24,8 @@
         "shortName": "CU",
         "category": "সাধারণ",
         "description": "প্রাকৃতিক সৌন্দর্যে ঘেরা দেশের অন্যতম বৃহৎ একটি বিশ্ববিদ্যালয়।",
-        "link": "/cu"
+        "link": "/cu",
+        "logo": "https://cu.ac.bd/assets/images/cu_logo.png"
     },
     {
         "nameBn": "জাহাঙ্গীরনগর বিশ্ববিদ্যালয়",
@@ -30,7 +33,8 @@
         "shortName": "JU",
         "category": "সাধারণ",
         "description": "বাংলাদেশের একমাত্র আবাসিক পাবলিক বিশ্ববিদ্যালয়।",
-        "link": "/ju"
+        "link": "/ju",
+        "logo": "https://juniv.edu/images/logo.png"
     },
     {
         "nameBn": "বাংলাদেশ কৃষি বিশ্ববিদ্যালয়",
@@ -38,7 +42,8 @@
         "shortName": "BAU",
         "category": "কৃষি",
         "description": "কৃষি বিষয়ক উচ্চশিক্ষার অন্যতম সেরা একটি প্রতিষ্ঠান।",
-        "link": "/bau"
+        "link": "/bau",
+        "logo": "https://www.bau.edu.bd/assets/image/logo-white.png"
     },
     {
         "nameBn": "বাংলাদেশ প্রকৌশল বিশ্ববিদ্যালয়",
@@ -46,7 +51,8 @@
         "shortName": "BUET",
         "category": "প্রকৌশল",
         "description": "দেশের শীর্ষস্থানীয় প্রকৌশল শিক্ষা প্রতিষ্ঠান।",
-        "link": "/buet"
+        "link": "/buet",
+        "logo": "https://www.buet.ac.bd/web/assets/img/buet_logo.png"
     },
     {
         "nameBn": "খুলনা প্রকৌশল ও প্রযুক্তি বিশ্ববিদ্যালয়",
@@ -54,7 +60,8 @@
         "shortName": "KUET",
         "category": "প্রকৌশল",
         "description": "দক্ষিণবঙ্গের অন্যতম সেরা প্রকৌশল বিশ্ববিদ্যালয়।",
-        "link": "/kuet"
+        "link": "/kuet",
+        "logo": "https://www.kuet.ac.bd/logo.png"
     },
     {
         "nameBn": "রাজশাহী প্রকৌশল ও প্রযুক্তি বিশ্ববিদ্যালয়",
@@ -62,7 +69,8 @@
         "shortName": "RUET",
         "category": "প্রকৌশল",
         "description": "উত্তরবঙ্গের শিক্ষার্থীদের জন্য প্রকৌশল শিক্ষার বাতিঘর।",
-        "link": "/ruet"
+        "link": "/ruet",
+        "logo": "https://www.ruet.ac.bd/storage/setting/1694411985.png"
     },
     {
         "nameBn": "চট্টগ্রাম প্রকৌশল ও প্রযুক্তি বিশ্ববিদ্যালয়",
@@ -70,7 +78,8 @@
         "shortName": "CUET",
         "category": "প্রকৌশল",
         "description": "চট্টগ্রামের প্রধান প্রকৌশল শিক্ষা ও গবেষণা প্রতিষ্ঠান।",
-        "link": "/cuet"
+        "link": "/cuet",
+        "logo": "https://www.cuet.ac.bd/frontend/assets/images/logo.png"
     },
     {
         "nameBn": "ঢাকা প্রকৌশল ও প্রযুক্তি বিশ্ববিদ্যালয়",
@@ -78,7 +87,8 @@
         "shortName": "DUET",
         "category": "প্রকৌশল",
         "description": "ডিপ্লোমা ইন ইঞ্জিনিয়ারিং সম্পন্নকারীদের জন্য বিশেষায়িত বিশ্ববিদ্যালয়।",
-        "link": "/duet"
+        "link": "/duet",
+        "logo": "https://www.duet.ac.bd/wp-content/uploads/2023/11/DUET_logo.png"
     },
     {
         "nameBn": "বাংলাদেশ টেক্সটাইল বিশ্ববিদ্যালয়",
@@ -86,7 +96,8 @@
         "shortName": "BUTEX",
         "category": "প্রকৌশল",
         "description": "টেক্সটাইল ইঞ্জিনিয়ারিং শিক্ষার জন্য দেশের একমাত্র সরকারি বিশ্ববিদ্যালয়।",
-        "link": "/butex"
+        "link": "/butex",
+        "logo": "https://butex.edu.bd/wp-content/uploads/2019/04/butex-logo-222x300.png"
     },
     {
         "nameBn": "সামরিক বিজ্ঞান ও প্রযুক্তি ইনস্টিটিউট",
@@ -94,7 +105,8 @@
         "shortName": "MIST",
         "category": "প্রকৌশল",
         "description": "বাংলাদেশ সশস্ত্র বাহিনী দ্বারা পরিচালিত একটি উন্নত প্রযুক্তিগত শিক্ষা প্রতিষ্ঠান।",
-        "link": "/mist"
+        "link": "/mist",
+        "logo": "https://mist.ac.bd/images/logo-1.png"
     },
     {
         "nameBn": "শাহজালাল বিজ্ঞান ও প্রযুক্তি বিশ্ববিদ্যালয়",
@@ -102,7 +114,8 @@
         "shortName": "SUST",
         "category": "বিজ্ঞান ও প্রযুক্তি",
         "description": "বিজ্ঞান ও প্রযুক্তি গবেষণায় দেশের অন্যতম সেরা একটি বিশ্ববিদ্যালয়।",
-        "link": "/sust"
+        "link": "/sust",
+        "logo": "https://www.sust.edu/images/logo.png"
     },
     {
         "nameBn": "বঙ্গবন্ধু শেখ মুজিবুর রহমান মেডিকেল বিশ্ববিদ্যালয়",
@@ -110,7 +123,8 @@
         "shortName": "BSMMU",
         "category": "মেডিকেল",
         "description": "চিকিৎসাশাস্ত্রে উচ্চতর গবেষণা ও ডিগ্রির জন্য দেশের প্রধান প্রতিষ্ঠান।",
-        "link": "/bsmmu"
+        "link": "/bsmmu",
+        "logo": "https://bsmmu.edu.bd/public/assets/images/logo/bsmmu-logo.png"
     },
     {
         "nameBn": "ইসলামী বিশ্ববিদ্যালয়",
@@ -118,7 +132,8 @@
         "shortName": "IU",
         "category": "সাধারণ",
         "description": "ধর্মতত্ত্ব ও আধুনিক শিক্ষার সমন্বয়ে গঠিত একটি বিশ্ববিদ্যালয়।",
-        "link": "/iu"
+        "link": "/iu",
+        "logo": "https://www.iu.ac.bd/theme/images/logo.png"
     },
     {
         "nameBn": "খুলনা বিশ্ববিদ্যালয়",
@@ -126,7 +141,8 @@
         "shortName": "KU",
         "category": "সাধারণ",
         "description": "সেশনজট মুক্ত একটি পাবলিক বিশ্ববিদ্যালয়।",
-        "link": "/ku"
+        "link": "/ku",
+        "logo": "https://ku.ac.bd/frontend/images/logo.png"
     },
     {
         "nameBn": "জগন্নাথ বিশ্ববিদ্যালয়",
@@ -134,7 +150,8 @@
         "shortName": "JNU",
         "category": "সাধারণ",
         "description": "ঢাকার প্রাণকেন্দ্রে অবস্থিত একটি ঐতিহ্যবাহী শিক্ষা প্রতিষ্ঠান।",
-        "link": "/jnu"
+        "link": "/jnu",
+        "logo": "https://jnu.ac.bd/assets/images/logo/logo-v2.png"
     },
     {
         "nameBn": "কুমিল্লা বিশ্ববিদ্যালয়",
@@ -142,7 +159,8 @@
         "shortName": "CoU",
         "category": "সাধারণ",
         "description": "ময়নামতির কোলে অবস্থিত একটি দ্রুত বর্ধনশীল বিশ্ববিদ্যালয়।",
-        "link": "/cou"
+        "link": "/cou",
+        "logo": "https://www.cou.ac.bd/branding/logo/cou_logo_2023.png"
     },
     {
         "nameBn": "জাতীয় কবি কাজী নজরুল ইসলাম বিশ্ববিদ্যালয়",
@@ -150,7 +168,8 @@
         "shortName": "JKKNIU",
         "category": "সাধারণ",
         "description": "সাহিত্য ও সংস্কৃতি চর্চার জন্য পরিচিত একটি বিশ্ববিদ্যালয়।",
-        "link": "/jkkniu"
+        "link": "/jkkniu",
+        "logo": "https://jkkniu.edu.bd/wp-content/uploads/2021/04/cropped-site-logo.png"
     },
     {
         "nameBn": "বাংলাদেশ ইউনিভার্সিটি অব প্রফেশনালস",
@@ -158,7 +177,8 @@
         "shortName": "BUP",
         "category": "অন্যান্য",
         "description": "বাংলাদেশ সশস্ত্র বাহিনী দ্বারা পরিচালিত একটি মানসম্পন্ন শিক্ষা প্রতিষ্ঠান।",
-        "link": "/bup"
+        "link": "/bup",
+        "logo": "https://bup.edu.bd/assets/logo.png"
     },
     {
         "nameBn": "বেগম রোকেয়া বিশ্ববিদ্যালয়, রংপুর",
@@ -166,7 +186,8 @@
         "shortName": "BRUR",
         "category": "সাধারণ",
         "description": "উত্তরবঙ্গের নারী জাগরণের অগ্রদূতের নামে প্রতিষ্ঠিত একটি বিশ্ববিদ্যালয়।",
-        "link": "/brur"
+        "link": "/brur",
+        "logo": "https://www.brur.ac.bd/storage/logo/brur-logo.png"
     },
     {
         "nameBn": "বরিশাল বিশ্ববিদ্যালয়",
@@ -174,7 +195,8 @@
         "shortName": "BU",
         "category": "সাধারণ",
         "description": "কীর্তনখোলা নদীর তীরে অবস্থিত বরিশাল বিভাগের একমাত্র পাবলিক বিশ্ববিদ্যালয়।",
-        "link": "/bu"
+        "link": "/bu",
+        "logo": "https://www.bu.ac.bd/resource/images/logo/bu-logo.png"
     },
     {
         "nameBn": "যশোর বিজ্ঞান ও প্রযুক্তি বিশ্ববিদ্যালয়",
@@ -182,7 +204,8 @@
         "shortName": "JUST",
         "category": "বিজ্ঞান ও প্রযুক্তি",
         "description": "দেশের দক্ষিণ-পশ্চিমাঞ্চলের একটি অন্যতম বিজ্ঞান ও প্রযুক্তি বিশ্ববিদ্যালয়।",
-        "link": "/just"
+        "link": "/just",
+        "logo": "https://just.edu.bd/images/logo.png"
     },
     {
         "nameBn": "মাওলানা ভাসানী বিজ্ঞান ও প্রযুক্তি বিশ্ববিদ্যালয়",
@@ -190,7 +213,8 @@
         "shortName": "MBSTU",
         "category": "বিজ্ঞান ও প্রযুক্তি",
         "description": "টাঙ্গাইলে অবস্থিত একটি সরকারি বিজ্ঞান ও প্রযুক্তি বিশ্ববিদ্যালয়।",
-        "link": "/mbstu"
+        "link": "/mbstu",
+        "logo": "https://mbstu.ac.bd/assets/images/logo.png"
     },
     {
         "nameBn": "হাজী মোহাম্মদ দানেশ বিজ্ঞান ও প্রযুক্তি বিশ্ববিদ্যালয়",
@@ -198,7 +222,8 @@
         "shortName": "HSTU",
         "category": "বিজ্ঞান ও প্রযুক্তি",
         "description": "উত্তরবঙ্গের একটি শীর্ষস্থানীয় বিজ্ঞান ও প্রযুক্তি বিশ্ববিদ্যালয়।",
-        "link": "/hstu"
+        "link": "/hstu",
+        "logo": "https://hstu.ac.bd/img/hstu_logo.png"
     },
     {
         "nameBn": "নোয়াখালী বিজ্ঞান ও প্রযুক্তি বিশ্ববিদ্যালয়",
@@ -206,7 +231,8 @@
         "shortName": "NSTU",
         "category": "বিজ্ঞান ও প্রযুক্তি",
         "description": "নোয়াখালী জেলায় অবস্থিত একটি সরকারি বিজ্ঞান ও প্রযুক্তি বিশ্ববিদ্যালয়।",
-        "link": "/nstu"
+        "link": "/nstu",
+        "logo": "https://nstu.edu.bd/assets/images/logo.png"
     },
     {
         "nameBn": "পটুয়াখালী বিজ্ঞান ও প্রযুক্তি বিশ্ববিদ্যালয়",
@@ -214,7 +240,8 @@
         "shortName": "PSTU",
         "category": "বিজ্ঞান ও প্রযুক্তি",
         "description": "বরিশাল বিভাগে অবস্থিত একটি বিশেষায়িত সরকারি বিশ্ববিদ্যালয়।",
-        "link": "/pstu"
+        "link": "/pstu",
+        "logo": "https://pstu.ac.bd/images/logo.png"
     },
     {
         "nameBn": "পাবনা বিজ্ঞান ও প্রযুক্তি বিশ্ববিদ্যালয়",
@@ -222,7 +249,8 @@
         "shortName": "PUST",
         "category": "বিজ্ঞান ও প্রযুক্তি",
         "description": "পাবনা জেলায় অবস্থিত একটি পাবলিক বিশ্ববিদ্যালয়।",
-        "link": "/pust"
+        "link": "/pust",
+        "logo": "https://pust.ac.bd/includes/images/logo.png"
     },
     {
         "nameBn": "রাঙ্গামাটি বিজ্ঞান ও প্রযুক্তি বিশ্ববিদ্যালয়",
@@ -230,6 +258,7 @@
         "shortName": "RMSTU",
         "category": "বিজ্ঞান ও প্রযুক্তি",
         "description": "পার্বত্য চট্টগ্রাম অঞ্চলের প্রথম পাবলিক বিশ্ববিদ্যালয়।",
-        "link": "/rmstu"
+        "link": "/rmstu",
+        "logo": "https://rmstu.ac.bd/asset/images/logo_rmstu_2.png"
     }
 ]

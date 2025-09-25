@@ -8,6 +8,7 @@ export interface University {
     category: string;
     description: string;
     link: string;
+    logo: string;
 }
 
 export const publicUniversities: University[] = publicUniversitiesData;
