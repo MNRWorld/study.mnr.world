@@ -1,4 +1,6 @@
 
+'use client';
+
 import React from 'react';
 import { BookOpen } from 'lucide-react';
 import PageHeaderCard from '@/components/common/PageHeaderCard';
