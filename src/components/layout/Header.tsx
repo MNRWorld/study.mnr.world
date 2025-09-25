@@ -12,6 +12,7 @@ import {
 import { navItems } from '@/lib/data/navigation';
 import HeaderAuth from './HeaderAuth';
 import React, { memo } from 'react';
+import { usePathname } from 'next/navigation';
 
 const icons: { [key: string]: React.ElementType } = {
     Home,
@@ -28,9 +29,10 @@ interface NavItemProps {
     icon: string;
     href: string;
   };
+  isActive: boolean;
 }
 
-const NavItem = memo(function NavItem({ item }: NavItemProps) {
+const NavItem = memo(function NavItem({ item, isActive }: NavItemProps) {
   const Icon = icons[item.icon];
   return (
     <Link
@@ -39,12 +41,13 @@ const NavItem = memo(function NavItem({ item }: NavItemProps) {
         'relative flex cursor-pointer items-center justify-center rounded-full transition-colors duration-300',
         'h-9 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background',
         'text-muted-foreground hover:text-accent-foreground',
+        isActive && 'text-primary',
         'px-3 font-bengali'
       )}
     >
       <div className="relative z-10 flex items-center">
         <div className="shrink-0">{Icon && <Icon size={20} />}</div>
-        <div className="ml-2">
+        <div className={cn("ml-2 hidden sm:block", { "block": isActive })}>
           <span className="whitespace-nowrap text-sm font-medium">
             {item.label}
           </span>
@@ -56,6 +59,8 @@ const NavItem = memo(function NavItem({ item }: NavItemProps) {
 
 
 const Header = memo(function Header() {
+  const pathname = usePathname();
+  
   return (
     <header className="sticky top-2 sm:top-4 z-50 w-full flex justify-center px-2 sm:px-0">
         <div
@@ -75,6 +80,7 @@ const Header = memo(function Header() {
                     <NavItem
                         key={item.id}
                         item={item}
+                        isActive={pathname === item.href}
                     />
                 ))}
               </div>
