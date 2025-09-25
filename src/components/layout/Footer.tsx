@@ -5,9 +5,23 @@ import {
   Twitter,
   Instagram,
   Youtube,
+  ArrowRight,
+  Home,
+  User,
+  Info,
+  Mail
 } from "lucide-react";
 import Link from "next/link";
 import { footerLinks } from "@/lib/data/navigation";
+import React from "react";
+
+const icons: { [key: string]: React.ElementType } = {
+    ArrowRight,
+    Home,
+    User,
+    Info,
+    Mail,
+};
 
 export default function Footer() {
   const { important, shortcuts } = footerLinks;
@@ -39,17 +53,20 @@ export default function Footer() {
               গুরুত্বপূর্ণ লিঙ্ক
             </h3>
             <ul className="mt-4 space-y-3 font-bengali">
-              {important.map((link, index) => (
-                <li key={index}>
-                  <Link
-                    href={link.href}
-                    className="text-muted-foreground hover:text-primary transition-colors duration-300 flex items-center justify-center md:justify-start"
-                  >
-                    <link.icon className="text-primary mr-2 h-5 w-5" />
-                    {link.label}
-                  </Link>
-                </li>
-              ))}
+              {important.map((link, index) => {
+                const Icon = icons[link.icon];
+                return (
+                    <li key={index}>
+                    <Link
+                        href={link.href}
+                        className="text-muted-foreground hover:text-primary transition-colors duration-300 flex items-center justify-center md:justify-start"
+                    >
+                        <Icon className="text-primary mr-2 h-5 w-5" />
+                        {link.label}
+                    </Link>
+                    </li>
+                )
+              })}
             </ul>
           </div>
 
@@ -58,17 +75,20 @@ export default function Footer() {
               শর্টকাট
             </h3>
             <ul className="mt-4 space-y-3 font-bengali">
-              {shortcuts.map((link, index) => (
-                 <li key={index}>
-                  <Link
-                    href={link.href}
-                    className="text-muted-foreground hover:text-primary transition-colors duration-300 flex items-center justify-center md:justify-start"
-                  >
-                    <link.icon className="w-5 text-center mr-2" />
-                    {link.label}
-                  </Link>
-                </li>
-              ))}
+              {shortcuts.map((link, index) => {
+                const Icon = icons[link.icon];
+                return (
+                    <li key={index}>
+                    <Link
+                        href={link.href}
+                        className="text-muted-foreground hover:text-primary transition-colors duration-300 flex items-center justify-center md:justify-start"
+                    >
+                        <Icon className="w-5 text-center mr-2" />
+                        {link.label}
+                    </Link>
+                    </li>
+                )
+              })}
             </ul>
           </div>
         </div>

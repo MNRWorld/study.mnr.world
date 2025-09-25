@@ -1,13 +1,5 @@
-export const duUnitA_Yearly = [
-    { title: 'আসপেক্ট “ক” ইউনিট প্রশ্নব্যাংক', url: 'https://t.me/PDFHour/10357' },
-    { title: 'উদ্ভাস “ক” ইউনিট প্রশ্নব্যাংক', url: 'https://t.me/PDFHour/10357' },
-];
+import questionBanks from './question-banks.json';
 
-export const duUnitA_Chapter = [
-    { title: 'রেটিনা ঢাবি "ক" ইউনিট প্রশ্নব্যাংক', url: 'https://t.me/PDFHour/10285' },
-];
-
-export const duUnitA_Sohayok = [
-    { title: 'উদ্ভাস ভার্সিটি "ক" প্রশ্নব্যাংক', url: 'https://t.me/PDFHour/10214' },
-    { title: 'উদ্ভাস ভার্সিটি "ক" প্রিপারেশন বুক', url: 'https://t.me/PDFHour/10478' },
-];
+export const duUnitA_Yearly = questionBanks.duUnitA_Yearly;
+export const duUnitA_Chapter = questionBanks.duUnitA_Chapter;
+export const duUnitA_Sohayok = questionBanks.duUnitA_Sohayok;

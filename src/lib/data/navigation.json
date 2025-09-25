@@ -1,0 +1,23 @@
+{
+  "navItems": [
+    { "id": "home", "label": "হোম", "icon": "Home", "href": "/" },
+    { "id": "question-bank", "label": "প্রশ্নব্যাংক", "icon": "BookOpen", "href": "/question-bank" },
+    { "id": "calendar", "label": "ক্যালেন্ডার", "icon": "CalendarDays", "href": "/calendar" },
+    { "id": "courses", "label": "কোর্স", "icon": "GraduationCap", "href": "/courses" },
+    { "id": "blog", "label": "ব্লগ", "icon": "Newspaper", "href": "/blog" }
+  ],
+  "footerLinks": {
+    "important": [
+      { "href": "/courses", "label": "আমাদের কোর্স", "icon": "ArrowRight" },
+      { "href": "/calendar", "label": "ভর্তি ক্যালেন্ডার", "icon": "ArrowRight" },
+      { "href": "/question-bank", "label": "বই ও প্রশ্নব্যাংক", "icon": "ArrowRight" },
+      { "href": "/blog", "label": "শিক্ষামূলক ব্লগ", "icon": "ArrowRight" }
+    ],
+    "shortcuts": [
+      { "href": "/", "label": "হোম", "icon": "Home" },
+      { "href": "/profile", "label": "প্রোফাইল", "icon": "User" },
+      { "href": "/about", "label": "আমাদের সম্পর্কে", "icon": "Info" },
+      { "href": "/contact", "label": "যোগাযোগ", "icon": "Mail" }
+    ]
+  }
+}

@@ -1,38 +1,17 @@
 
-'use client';
-import {
-  Info,
-  Building,
-} from 'lucide-react';
-import React from 'react';
-import CountdownTimer from '@/components/common/CountdownTimer';
-import { motion } from 'framer-motion';
+import { Info, Building } from 'lucide-react';
+import dynamic from 'next/dynamic';
 import PageHeaderCard from '@/components/common/PageHeaderCard';
 import LinkList from '@/components/common/LinkList';
 import Circular from '@/components/common/Circular';
 import PrivateAdmissionInfo from '@/components/PrivateAdmissionInfo';
-import { admissionDeadlines } from '@/lib/data/deadlines';
 import { privateLinks } from '@/lib/data/links';
 
-function PrivatePage() {
-    const itemVariants = {
-        hidden: { y: 20, opacity: 0 },
-        visible: {
-            y: 0,
-            opacity: 1,
-            transition: {
-                duration: 0.5,
-            },
-        },
-    };
+const CountdownTimer = dynamic(() => import('@/components/common/CountdownTimer'), { ssr: false });
 
+function PrivatePage() {
   return (
-    <motion.div 
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5 }}
-        className="font-bengali bg-background py-8"
-    >
+    <div className="font-bengali bg-background py-8">
       <div className="container mx-auto px-4">
         <PageHeaderCard
             icon={<Building className="h-14 w-14 text-primary" />}
@@ -49,14 +28,9 @@ function PrivatePage() {
 
         <LinkList links={privateLinks} />
         
-        <motion.div
-            variants={itemVariants}
-            initial="hidden"
-            animate="visible"
-            className="mt-8 w-full border border-border bg-card rounded-2xl p-4 sm:p-6 shadow-lg relative"
-        >
-            <CountdownTimer deadlines={admissionDeadlines} />
-        </motion.div>
+        <div className="mt-8 w-full border border-border bg-card rounded-2xl p-4 sm:p-6 shadow-lg relative">
+            <CountdownTimer />
+        </div>
         
         <Circular 
           title="বিভিন্ন বিশ্ববিদ্যালয়ের সার্কুলার"
@@ -65,9 +39,8 @@ function PrivatePage() {
         />
         
         <PrivateAdmissionInfo />
-
       </div>
-    </motion.div>
+    </div>
   );
 }
 

@@ -3,17 +3,9 @@
 
 import React, { useState, useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
+import { admissionDeadlines, Deadline } from '@/lib/data/deadlines';
 
-export interface Deadline {
-  title: string;
-  date: Date;
-}
-
-interface CountdownTimerProps {
-  deadlines: Deadline[];
-}
-
-const CountdownTimer = ({ deadlines }: CountdownTimerProps) => {
+const CountdownTimer = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [timeLeft, setTimeLeft] = useState({
     days: '--',
@@ -25,32 +17,32 @@ const CountdownTimer = ({ deadlines }: CountdownTimerProps) => {
   const intervalRef = useRef<NodeJS.Timeout | null>(null);
 
   useEffect(() => {
-    const upcomingDeadlines = deadlines.filter(d => d.date > new Date());
+    const upcomingDeadlines = admissionDeadlines.filter(d => d.date > new Date());
     if (upcomingDeadlines.length === 0) {
       setIsCompleted(true);
       setTimeLeft({ days: '00', hours: '00', minutes: '00', seconds: '00' });
       return;
     }
 
-    const firstUpcomingIndex = deadlines.findIndex(d => d.date === upcomingDeadlines[0].date);
+    const firstUpcomingIndex = admissionDeadlines.findIndex(d => d.date === upcomingDeadlines[0].date);
     setCurrentIndex(firstUpcomingIndex);
 
-  }, [deadlines]);
+  }, []);
 
 
   useEffect(() => {
-    if (currentIndex >= deadlines.length) return;
+    if (currentIndex >= admissionDeadlines.length) return;
 
     const update = () => {
       const now = new Date();
-      const diff = deadlines[currentIndex].date.getTime() - now.getTime();
+      const diff = admissionDeadlines[currentIndex].date.getTime() - now.getTime();
 
       if (diff <= 0) {
         if (intervalRef.current) clearInterval(intervalRef.current);
         
-        const upcoming = deadlines.filter(d => d.date > now);
+        const upcoming = admissionDeadlines.filter(d => d.date > now);
         if (upcoming.length > 0) {
-          const nextIndex = deadlines.findIndex(d => d.date === upcoming[0].date);
+          const nextIndex = admissionDeadlines.findIndex(d => d.date === upcoming[0].date);
           setCurrentIndex(nextIndex);
         } else {
           setIsCompleted(true);
@@ -75,10 +67,10 @@ const CountdownTimer = ({ deadlines }: CountdownTimerProps) => {
     return () => {
       if (intervalRef.current) clearInterval(intervalRef.current);
     };
-  }, [currentIndex, deadlines]);
+  }, [currentIndex, admissionDeadlines]);
 
 
-  if (isCompleted && currentIndex >= deadlines.length - 1) {
+  if (isCompleted && currentIndex >= admissionDeadlines.length - 1) {
     return (
       <motion.div
         initial={{ opacity: 0 }}
@@ -90,7 +82,7 @@ const CountdownTimer = ({ deadlines }: CountdownTimerProps) => {
     );
   }
 
-  const currentDeadline = deadlines[currentIndex];
+  const currentDeadline = admissionDeadlines[currentIndex];
 
   const TimeCircle = ({ unit, value, max }: { unit: string; value: string, max: number }) => {
     const numValue = parseInt(value, 10);

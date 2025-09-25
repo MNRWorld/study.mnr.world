@@ -1,22 +1,38 @@
+
+'use client';
 import Link from 'next/link';
 import { cn } from '@/lib/utils';
 import {
   BookMarked,
+  BookOpen,
+  CalendarDays,
+  GraduationCap,
+  Newspaper,
+  Home,
 } from 'lucide-react';
 import { navItems } from '@/lib/data/navigation';
 import HeaderAuth from './HeaderAuth';
-import React, { Suspense } from 'react';
+import React, { memo } from 'react';
+
+const icons: { [key: string]: React.ElementType } = {
+    Home,
+    BookOpen,
+    CalendarDays,
+    GraduationCap,
+    Newspaper
+};
 
 interface NavItemProps {
   item: {
     id: string;
     label: string;
-    icon: React.ReactNode;
+    icon: string;
     href: string;
   };
 }
 
-function NavItem({ item }: NavItemProps) {
+const NavItem = memo(function NavItem({ item }: NavItemProps) {
+  const Icon = icons[item.icon];
   return (
     <Link
       href={item.href}
@@ -28,7 +44,7 @@ function NavItem({ item }: NavItemProps) {
       )}
     >
       <div className="relative z-10 flex items-center">
-        <div className="shrink-0">{item.icon}</div>
+        <div className="shrink-0">{Icon && <Icon size={20} />}</div>
         <div className="ml-2">
           <span className="whitespace-nowrap text-sm font-medium">
             {item.label}
@@ -37,10 +53,10 @@ function NavItem({ item }: NavItemProps) {
       </div>
     </Link>
   );
-}
+});
 
 
-export default function Header() {
+const Header = memo(function Header() {
   return (
     <header className="sticky top-2 sm:top-4 z-50 w-full flex justify-center px-2 sm:px-0">
         <div
@@ -67,10 +83,10 @@ export default function Header() {
 
              <div className="h-6 w-px bg-border/50"></div>
             
-             <Suspense fallback={<div className="w-20 h-9" />}>
-                <HeaderAuth />
-             </Suspense>
+             <HeaderAuth />
         </div>
     </header>
   );
-}
+});
+
+export default Header;

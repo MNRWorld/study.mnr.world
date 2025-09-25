@@ -1,46 +1,13 @@
 
-'use client';
-
-import { Button } from '@/components/ui/button';
-import {
-  ArrowUpRightFromSquare,
-  BookOpen,
-  GraduationCap
-} from 'lucide-react';
+import { BookOpen, GraduationCap } from 'lucide-react';
 import Link from 'next/link';
-import React from 'react';
-import { motion } from 'framer-motion';
-import { courses } from '@/lib/data/courses';
+import { Button } from '@/components/ui/button';
 import PageHeaderCard from '@/components/common/PageHeaderCard';
+import CourseList from '@/components/CourseList';
 
 function CoursesPage() {
-    const containerVariants = {
-        hidden: {},
-        visible: {
-            transition: {
-                staggerChildren: 0.1,
-            },
-        },
-    };
-
-    const itemVariants = {
-        hidden: { y: 20, opacity: 0 },
-        visible: {
-            y: 0,
-            opacity: 1,
-            transition: {
-                duration: 0.5,
-            },
-        },
-    };
-
   return (
-    <motion.div 
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5 }}
-        className="font-bengali bg-background py-8"
-    >
+    <div className="font-bengali bg-background py-8">
       <div className="container mx-auto px-4">
         <PageHeaderCard
             icon={<GraduationCap className="h-14 w-14 text-primary" />}
@@ -54,38 +21,9 @@ function CoursesPage() {
             ]}
         />
 
-
-        <motion.div
-            variants={containerVariants}
-            initial="hidden"
-            animate="visible"
-            id="Info"
-            className="mt-12 grid md:grid-cols-2 lg:grid-cols-3 gap-8"
-        >
-          {courses.map((course, index) => (
-            <motion.div
-                key={index}
-                variants={itemVariants}
-                className="bg-card border border-border rounded-xl p-6 shadow-lg hover:shadow-primary/20 hover:-translate-y-2 transition-all duration-300"
-            >
-                <div className="flex items-center gap-4">
-                    {course.icon}
-                    <h3 className="text-lg sm:text-xl font-bold text-foreground">{course.title}</h3>
-                </div>
-                <p className="text-muted-foreground mt-3 mb-4 text-sm sm:text-base">{course.description}</p>
-                <Button asChild className="w-full bg-primary/10 text-primary border border-primary/20 hover:bg-primary hover:text-primary-foreground transition-transform hover:scale-105">
-                    <Link href={`/courses/${encodeURIComponent(course.title.toLowerCase().replace(/ /g, '-'))}`}>বিস্তারিত দেখুন <ArrowUpRightFromSquare size={14} className="ml-2"/></Link>
-                </Button>
-            </motion.div>
-          ))}
-        </motion.div>
+        <CourseList />
         
-        <motion.div
-            variants={itemVariants}
-            initial="hidden"
-            animate="visible"
-            className="mt-8 w-full border border-border bg-card rounded-2xl p-6 sm:p-8 shadow-lg text-center relative"
-        >
+        <div className="mt-8 w-full border border-border bg-card rounded-2xl p-6 sm:p-8 shadow-lg text-center relative">
             <div className="flex justify-center">
                 <div className="inline-block px-6 py-2 bg-gradient-to-r from-primary to-blue-500 text-white rounded-full text-base sm:text-lg mb-4 font-bold shadow-md">আমাদের বইসমূহ</div>
             </div>
@@ -93,12 +31,10 @@ function CoursesPage() {
             <Button asChild className="transition-transform hover:scale-105">
                 <Link href="/question-bank"><BookOpen className="mr-2"/> বইগুলো দেখুন</Link>
             </Button>
-        </motion.div>
-
+        </div>
       </div>
-    </motion.div>
+    </div>
   );
 }
-
 
 export default CoursesPage;

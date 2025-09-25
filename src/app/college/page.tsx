@@ -1,35 +1,17 @@
 
-'use client';
 import { School, Info } from 'lucide-react';
-import React from 'react';
-import CountdownTimer from '@/components/common/CountdownTimer';
-import { motion } from 'framer-motion';
+import dynamic from 'next/dynamic';
 import PageHeaderCard from '@/components/common/PageHeaderCard';
 import LinkList from '@/components/common/LinkList';
 import Circular from '@/components/common/Circular';
 import CollegeAdmissionInfo from '@/components/CollegeAdmissionInfo';
-import { admissionDeadlines } from '@/lib/data/deadlines';
 import { collegeLinks } from '@/lib/data/links';
 
-function CollegePage() {
-    const itemVariants = {
-        hidden: { y: 20, opacity: 0 },
-        visible: {
-            y: 0,
-            opacity: 1,
-            transition: {
-                duration: 0.5,
-            },
-        },
-    };
+const CountdownTimer = dynamic(() => import('@/components/common/CountdownTimer'), { ssr: false });
 
+function CollegePage() {
   return (
-    <motion.div 
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5 }}
-        className="font-bengali bg-background py-8"
-    >
+    <div className="font-bengali bg-background py-8">
       <div className="container mx-auto px-4">
         <PageHeaderCard
             icon={<School className="h-14 w-14 text-primary" />}
@@ -46,14 +28,9 @@ function CollegePage() {
 
         <LinkList links={collegeLinks} />
 
-        <motion.div
-            variants={itemVariants}
-            initial="hidden"
-            animate="visible"
-            className="mt-8 w-full border border-border bg-card rounded-2xl p-4 sm:p-6 shadow-lg relative"
-        >
-            <CountdownTimer deadlines={admissionDeadlines} />
-        </motion.div>
+        <div className="mt-8 w-full border border-border bg-card rounded-2xl p-4 sm:p-6 shadow-lg relative">
+            <CountdownTimer />
+        </div>
         
         <Circular 
           title="সম্পূর্ণ সার্কুলার"
@@ -63,9 +40,8 @@ function CollegePage() {
         />
         
         <CollegeAdmissionInfo />
-
       </div>
-    </motion.div>
+    </div>
   );
 }
 

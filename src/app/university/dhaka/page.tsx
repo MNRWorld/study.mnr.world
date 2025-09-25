@@ -1,51 +1,35 @@
 
-'use client';
-import { motion } from 'framer-motion';
-
+import dynamic from 'next/dynamic';
 import MainInfoCard from '@/components/DhakaMainInfoCard';
+import { Suspense } from 'react';
 import LinkList from '@/components/common/LinkList';
-import HistoryAndMap from '@/components/DhakaHistoryAndMap';
-import CountdownTimer from '@/components/common/CountdownTimer';
-import Circular from '@/components/common/Circular';
-import QuestionBank from '@/components/DhakaQuestionBank';
-import AdmissionInfo from '@/components/DhakaAdmissionInfo';
-import { admissionDeadlines } from '@/lib/data/deadlines';
 import { duLinks } from '@/lib/data/links';
+import Circular from '@/components/common/Circular';
+import AdmissionInfo from '@/components/DhakaAdmissionInfo';
+
+const HistoryAndMap = dynamic(() => import('@/components/DhakaHistoryAndMap'));
+const CountdownTimer = dynamic(() => import('@/components/common/CountdownTimer'), { ssr: false });
+const QuestionBank = dynamic(() => import('@/components/DhakaQuestionBank'), { ssr: false });
+
 
 function DhakaUniversityPage() {
-  const itemVariants = {
-    hidden: { y: 20, opacity: 0 },
-    visible: {
-      y: 0,
-      opacity: 1,
-      transition: {
-        duration: 0.5,
-      },
-    },
-  };
 
   return (
-    <motion.div 
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5 }}
-        className="font-bengali bg-background py-8"
-    >
+    <div className="font-bengali bg-background py-8">
       <div className="container mx-auto px-4">
         <MainInfoCard />
 
         <LinkList links={duLinks} />
 
-        <HistoryAndMap />
-
-        <motion.div
-          variants={itemVariants}
-          initial="hidden"
-          animate="visible"
-          className="mt-8 w-full border border-border bg-card rounded-2xl p-4 sm:p-6 shadow-lg relative"
-        >
-          <CountdownTimer deadlines={admissionDeadlines} />
-        </motion.div>
+        <Suspense fallback={<div>Loading history...</div>}>
+            <HistoryAndMap />
+        </Suspense>
+        
+        <div className="mt-8 w-full border border-border bg-card rounded-2xl p-4 sm:p-6 shadow-lg relative">
+          <Suspense fallback={<div>Loading timer...</div>}>
+              <CountdownTimer />
+          </Suspense>
+        </div>
         
         <Circular 
           title="HSC-24 ব্যাচের সার্কুলার"
@@ -54,12 +38,13 @@ function DhakaUniversityPage() {
           showPreviousYears={true}
         />
 
-        <QuestionBank />
-        
-        <AdmissionInfo />
+        <Suspense fallback={<div>Loading question bank...</div>}>
+            <QuestionBank />
+        </Suspense>
 
+        <AdmissionInfo />
       </div>
-    </motion.div>
+    </div>
   );
 }
 

@@ -1,6 +1,5 @@
 
 'use client';
-import { motion } from 'framer-motion';
 import {
   Accordion,
   AccordionContent,
@@ -23,25 +22,11 @@ import {
 import { duAdmissionInfo } from '@/lib/data/admission-info';
 
 const DhakaAdmissionInfo = () => {
-    const itemVariants = {
-        hidden: { y: 20, opacity: 0 },
-        visible: {
-            y: 0,
-            opacity: 1,
-            transition: {
-                duration: 0.5,
-            },
-        },
-    };
-
     const { apply, unitRequirements, improvementPolicy, admitCard, examDate, examCenter, generalInfo, result } = duAdmissionInfo;
 
     return (
-        <motion.div
+        <div
             id="Info"
-            variants={itemVariants}
-            initial="hidden"
-            animate="visible"
             className="mt-8 w-full border border-border bg-card rounded-2xl p-4 sm:p-6 shadow-lg relative text-left"
         >
             <div className="flex justify-center">
@@ -150,7 +135,7 @@ const DhakaAdmissionInfo = () => {
                 <hr className="my-1 border-border/50" />
                 <b><LinkIcon className="inline-block mr-2" size={16}/>লিংকঃ</b> <a href={result.link} target="_blank" className="text-primary hover:underline">{result.link.replace('https://','')} <ArrowUpRightFromSquare size={11} className="inline-block"/></a>
             </span>
-        </motion.div>
+        </div>
     );
 };
 
