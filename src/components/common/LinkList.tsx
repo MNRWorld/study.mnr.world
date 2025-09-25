@@ -45,12 +45,12 @@ const LinkList = ({ links }: LinkListProps) => {
             <div className="flex justify-center">
                 <div className="inline-block px-6 py-2 bg-gradient-to-r from-primary to-blue-500 text-white rounded-full text-base sm:text-lg mb-4 font-bold shadow-md">গুরুত্বপূর্ণ লিঙ্ক</div>
             </div>
-            <Table className="border-dotted border-border/50 border-[1px]">
+            <Table className="border-dotted">
                 <TableBody>
                     {links.map((row, rowIndex) => (
                         <TableRow key={rowIndex}>
                             {row.map((link, linkIndex) => (
-                                <TableCell key={linkIndex} className="text-center" colSpan={link.colSpan}>
+                                <TableCell key={linkIndex} className="text-center p-0" colSpan={link.colSpan}>
                                     <Link 
                                         href={link.href} 
                                         target={link.target} 
