@@ -10,7 +10,7 @@ import {
   TooltipProvider,
   TooltipTrigger,
 } from "@/components/ui/tooltip"
-import React from 'react';
+import React, { useState } from 'react';
 
 interface PageHeaderCardProps {
     icon: React.ReactNode;
@@ -41,6 +41,7 @@ const itemVariants = {
 };
 
 const PageHeaderCard = ({ icon, title, subtitle, description, stats, button }: PageHeaderCardProps) => {
+    const [openTooltip, setOpenTooltip] = useState<string | null>(null);
     return (
         <motion.div
             variants={itemVariants}
@@ -70,9 +71,15 @@ const PageHeaderCard = ({ icon, title, subtitle, description, stats, button }: P
                             <div className="text-lg sm:text-xl md:text-2xl font-bold text-foreground flex items-center justify-center">
                                 {stat.value}
                                 {stat.tooltip && (
-                                    <Tooltip>
+                                    <Tooltip open={openTooltip === stat.label} onOpenChange={(isOpen) => setOpenTooltip(isOpen ? stat.label : null)}>
                                         <TooltipTrigger asChild>
-                                            <i className="fa-solid fa-circle-info text-muted-foreground text-xs ml-1.5 cursor-help"></i>
+                                            <i 
+                                                className="fa-solid fa-circle-info text-muted-foreground text-xs ml-1.5 cursor-help"
+                                                onClick={(e) => {
+                                                    e.preventDefault();
+                                                    setOpenTooltip(openTooltip === stat.label ? null : stat.label);
+                                                }}
+                                            ></i>
                                         </TooltipTrigger>
                                         <TooltipContent>
                                             <p dangerouslySetInnerHTML={{ __html: stat.tooltip }} />
