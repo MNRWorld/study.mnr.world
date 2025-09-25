@@ -6,7 +6,7 @@ import PageHeaderCard from '@/components/common/PageHeaderCard';
 const DhakaMainInfoCard = () => {
   return (
     <>
-      <div className="text-xs sm:text-sm text-foreground absolute top-[86px] sm:top-[81px] sm:left-[98px] left-6 bg-card border border-border rounded-[8px] px-3 py-1 z-20">
+      <div className="text-xs sm:text-sm text-foreground absolute top-[86px] sm:top-[81px] sm:left-[108px] left-6 bg-card border border-border rounded-[8px] px-3 py-1 z-20">
         <b>পাবলিক</b>
       </div>
       <PageHeaderCard
