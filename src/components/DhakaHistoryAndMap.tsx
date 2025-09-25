@@ -45,7 +45,10 @@ const DhakaHistoryAndMap = () => {
                         <span>{history.title}</span>
                     </AccordionTrigger>
                     <AccordionContent className="p-4 sm:p-5 border-t border-border/50 text-base text-muted-foreground">
-                        {history.paragraphs.map((p, i) => <p key={i} className="mb-4 last:mb-0">{p}</p>)}
+                        <p className="mb-4 last:mb-0">
+                            <b>ঢাকা বিশ্ববিদ্যালয় (ঢাবি)</b> বাংলাদেশের সর্বপ্রথম এবং অন্যতম প্রধান উচ্চশিক্ষা প্রতিষ্ঠান, যা ১৯২১ সালের ১ জুলাই প্রতিষ্ঠিত হয়। এটি ব্রিটিশ ভারতের অক্সব্রিজ মডেল অনুসরণে গঠিত হয়েছিল এবং শুরুতে তিনটি অনুষদ (কলা, বিজ্ঞান ও আইন) এবং ১২টি বিভাগ নিয়ে যাত্রা শুরু করে।
+                        </p>
+                        {history.paragraphs.slice(1).map((p, i) => <p key={i+1} className="mb-4 last:mb-0">{p}</p>)}
                         <hr className="my-3 border-border/50" />
                         <b>{history.source.label}</b><br/>
                         {history.source.links.map((link, i) => (
