@@ -181,6 +181,60 @@
         "logo": "https://raw.githubusercontent.com/MNRfrom2020/logo-and-icon-cdn/refs/heads/main/University/RMSTU.png"
     },
     {
+        "nameBn": "বগুড়া বিজ্ঞান ও প্রযুক্তি বিশ্ববিদ্যালয়",
+        "nameEn": "Bogura Science and Technology University",
+        "shortName": "BSTU",
+        "category": "বিজ্ঞান ও প্রযুক্তি",
+        "description": "বগুড়া জেলায় অবস্থিত একটি নতুন পাবলিক বিজ্ঞান ও প্রযুক্তি বিশ্ববিদ্যালয়।",
+        "link": "/bstu",
+        "logo": "https://raw.githubusercontent.com/MNRfrom2020/logo-and-icon-cdn/refs/heads/main/University/BSTU.png"
+    },
+    {
+        "nameBn": "চাঁদপুর বিজ্ঞান ও প্রযুক্তি বিশ্ববিদ্যালয়",
+        "nameEn": "Chandpur Science and Technology University",
+        "shortName": "CSTU",
+        "category": "বিজ্ঞান ও প্রযুক্তি",
+        "description": "চাঁদপুর জেলায় অবস্থিত একটি নতুন পাবলিক বিজ্ঞান ও প্রযুক্তি বিশ্ববিদ্যালয়।",
+        "link": "/cstu",
+        "logo": "https://raw.githubusercontent.com/MNRfrom2020/logo-and-icon-cdn/refs/heads/main/University/CSTU.png"
+    },
+    {
+        "nameBn": "বঙ্গবন্ধু শেখ মুজিবুর রহমান বিজ্ঞান ও প্রযুক্তি বিশ্ববিদ্যালয়, গোপালগঞ্জ",
+        "nameEn": "Bangabandhu Sheikh Mujibur Rahman Science and Technology University, Gopalganj",
+        "shortName": "BSMRSTU",
+        "category": "বিজ্ঞান ও প্রযুক্তি",
+        "description": "গোপালগঞ্জ জেলায় অবস্থিত একটি সরকারি বিজ্ঞান ও প্রযুক্তি বিশ্ববিদ্যালয়।",
+        "link": "/bsmrstu",
+        "logo": "https://raw.githubusercontent.com/MNRfrom2020/logo-and-icon-cdn/refs/heads/main/University/BSMRSTU.png"
+    },
+    {
+        "nameBn": "জামালপুর বিজ্ঞান ও প্রযুক্তি বিশ্ববিদ্যালয়",
+        "nameEn": "Jamalpur Science and Technology University",
+        "shortName": "JSTU",
+        "category": "বিজ্ঞান ও প্রযুক্তি",
+        "description": "জামালপুর জেলায় অবস্থিত একটি নতুন পাবলিক বিজ্ঞান ও প্রযুক্তি বিশ্ববিদ্যালয়।",
+        "link": "/jstu",
+        "logo": "https://raw.githubusercontent.com/MNRfrom2020/logo-and-icon-cdn/refs/heads/main/University/JSTU.png"
+    },
+    {
+        "nameBn": "পিরোজপুর বিজ্ঞান ও প্রযুক্তি বিশ্ববিদ্যালয়",
+        "nameEn": "Pirojpur Science and Technology University",
+        "shortName": "PrSTU",
+        "category": "বিজ্ঞান ও প্রযুক্তি",
+        "description": "পিরোজপুর জেলায় অবস্থিত একটি নতুন পাবলিক বিজ্ঞান ও প্রযুক্তি বিশ্ববিদ্যালয়।",
+        "link": "/prstu",
+        "logo": "https://raw.githubusercontent.com/MNRfrom2020/logo-and-icon-cdn/refs/heads/main/University/PrSTU.png"
+    },
+    {
+        "nameBn": "সুনামগঞ্জ বিজ্ঞান ও প্রযুক্তি বিশ্ববিদ্যালয়",
+        "nameEn": "Sunamganj Science and Technology University",
+        "shortName": "SSTU",
+        "category": "বিজ্ঞান ও প্রযুক্তি",
+        "description": "সুনামগঞ্জ জেলায় অবস্থিত একটি নতুন পাবলিক বিজ্ঞান ও প্রযুক্তি বিশ্ববিদ্যালয়।",
+        "link": "/sstu",
+        "logo": "https://raw.githubusercontent.com/MNRfrom2020/logo-and-icon-cdn/refs/heads/main/University/SSTU.png"
+    },
+    {
         "nameBn": "বঙ্গবন্ধু শেখ মুজিবুর রহমান মেডিকেল বিশ্ববিদ্যালয়",
         "nameEn": "Bangabandhu Sheikh Mujib Medical University",
         "shortName": "BSMMU",
