@@ -52,7 +52,7 @@
         "category": "প্রকৌশল",
         "description": "দেশের শীর্ষস্থানীয় প্রকৌশল শিক্ষা প্রতিষ্ঠান।",
         "link": "/buet",
-        "logo": "https://www.buet.ac.bd/web/assets/img/BImages/logoBIRN.png"
+        "logo": "https://raw.githubusercontent.com/MNRfrom2020/logo-and-icon-cdn/refs/heads/main/University/BUET.png"
     },
     {
         "nameBn": "খুলনা প্রকৌশল ও প্রযুক্তি বিশ্ববিদ্যালয়",
@@ -61,7 +61,7 @@
         "category": "প্রকৌশল",
         "description": "দক্ষিণবঙ্গের অন্যতম সেরা প্রকৌশল বিশ্ববিদ্যালয়।",
         "link": "/kuet",
-        "logo": "https://www.kuet.ac.bd/logo.png"
+        "logo": "https://raw.githubusercontent.com/MNRfrom2020/logo-and-icon-cdn/refs/heads/main/University/KUET.png"
     },
     {
         "nameBn": "রাজশাহী প্রকৌশল ও প্রযুক্তি বিশ্ববিদ্যালয়",
@@ -79,7 +79,7 @@
         "category": "প্রকৌশল",
         "description": "চট্টগ্রামের প্রধান প্রকৌশল শিক্ষা ও গবেষণা প্রতিষ্ঠান।",
         "link": "/cuet",
-        "logo": "https://www.cuet.ac.bd/frontend/assets/images/logo.png"
+        "logo": "https://raw.githubusercontent.com/MNRfrom2020/logo-and-icon-cdn/refs/heads/main/University/CUET.png"
     },
     {
         "nameBn": "ঢাকা প্রকৌশল ও প্রযুক্তি বিশ্ববিদ্যালয়",
@@ -88,7 +88,7 @@
         "category": "প্রকৌশল",
         "description": "ডিপ্লোমা ইন ইঞ্জিনিয়ারিং সম্পন্নকারীদের জন্য বিশেষায়িত বিশ্ববিদ্যালয়।",
         "link": "/duet",
-        "logo": "https://www.duet.ac.bd/wp-content/uploads/2023/11/DUET_logo.png"
+        "logo": "https://raw.githubusercontent.com/MNRfrom2020/logo-and-icon-cdn/refs/heads/main/University/DUET.png"
     },
     {
         "nameBn": "বাংলাদেশ টেক্সটাইল বিশ্ববিদ্যালয়",
@@ -97,7 +97,7 @@
         "category": "প্রকৌশল",
         "description": "টেক্সটাইল ইঞ্জিনিয়ারিং শিক্ষার জন্য দেশের একমাত্র সরকারি বিশ্ববিদ্যালয়।",
         "link": "/butex",
-        "logo": "https://butex.edu.bd/wp-content/uploads/2019/04/butex-logo-222x300.png"
+        "logo": "https://raw.githubusercontent.com/MNRfrom2020/logo-and-icon-cdn/refs/heads/main/University/BUTex.png"
     },
     {
         "nameBn": "সামরিক বিজ্ঞান ও প্রযুক্তি ইনস্টিটিউট",
@@ -106,7 +106,7 @@
         "category": "প্রকৌশল",
         "description": "বাংলাদেশ সশস্ত্র বাহিনী দ্বারা পরিচালিত একটি উন্নত প্রযুক্তিগত শিক্ষা প্রতিষ্ঠান।",
         "link": "/mist",
-        "logo": "https://mist.ac.bd/images/logo-1.png"
+        "logo": "https://raw.githubusercontent.com/MNRfrom2020/logo-and-icon-cdn/refs/heads/main/University/MIST.png"
     },
     {
         "nameBn": "শাহজালাল বিজ্ঞান ও প্রযুক্তি বিশ্ববিদ্যালয়",
@@ -262,3 +262,5 @@
         "logo": "https://rmstu.ac.bd/asset/images/logo_rmstu_2.png"
     }
 ]
+
+    
