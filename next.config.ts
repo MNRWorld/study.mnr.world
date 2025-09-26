@@ -45,7 +45,7 @@ const nextConfig: NextConfig = {
       { protocol: 'https', hostname: 'ku.ac.bd' },
       { protocol: 'https', hostname: 'jnu.ac.bd' },
       { protocol: 'https', hostname: 'www.cou.ac.bd' },
-      { protocol: 'https' , hostname: 'jkkniu.edu.bd' },
+      { protocol: 'https', hostname: 'jkkniu.edu.bd' },
       { protocol: 'https', hostname: 'bup.edu.bd' },
       { protocol: 'https', hostname: 'www.brur.ac.bd' },
       { protocol: 'https', hostname: 'www.bu.ac.bd' },
