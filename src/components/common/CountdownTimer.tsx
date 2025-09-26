@@ -2,8 +2,8 @@
 'use client';
 
 import React, { useState, useEffect, useRef } from 'react';
-import { motion } from 'framer-motion';
-import { admissionDeadlines, Deadline } from '@/lib/data/deadlines';
+import { motion, AnimatePresence } from 'framer-motion';
+import { admissionDeadlines } from '@/lib/data/deadlines';
 
 const CountdownTimer = () => {
   const [currentIndex, setCurrentIndex] = useState(-1);
@@ -13,73 +13,80 @@ const CountdownTimer = () => {
     minutes: '--',
     seconds: '--',
   });
-  const [isCompleted, setIsCompleted] = useState(false);
+  const [isCurrentCompleted, setIsCurrentCompleted] = useState(false);
   const intervalRef = useRef<NodeJS.Timeout | null>(null);
 
   useEffect(() => {
+    // Find the first upcoming deadline on initial load
     const upcomingDeadlines = admissionDeadlines
       .filter(d => d.date > new Date())
       .sort((a, b) => a.date.getTime() - b.date.getTime());
 
-    if (upcomingDeadlines.length === 0) {
-      setIsCompleted(true);
+    if (upcomingDeadlines.length > 0) {
+      const firstUpcomingIndex = admissionDeadlines.findIndex(d => d.date === upcomingDeadlines[0].date);
+      setCurrentIndex(firstUpcomingIndex);
+    } else {
+      // If no upcoming deadlines, show the last one as completed
+      setCurrentIndex(admissionDeadlines.length - 1);
+      setIsCurrentCompleted(true);
       setTimeLeft({ days: '00', hours: '00', minutes: '00', seconds: '00' });
-      const lastDeadlineIndex = admissionDeadlines.length -1;
-      setCurrentIndex(lastDeadlineIndex);
-      return;
     }
-
-    const firstUpcomingIndex = admissionDeadlines.findIndex(d => d.date === upcomingDeadlines[0].date);
-    setCurrentIndex(firstUpcomingIndex);
-
   }, []);
 
-
   useEffect(() => {
-    if (currentIndex < 0 || currentIndex >= admissionDeadlines.length) return;
+    if (currentIndex < 0) return;
 
-    const update = () => {
+    const updateTimer = () => {
       const now = new Date();
-      const diff = admissionDeadlines[currentIndex].date.getTime() - now.getTime();
+      const difference = admissionDeadlines[currentIndex].date.getTime() - now.getTime();
 
-      if (diff <= 0) {
+      if (difference <= 0) {
+        setIsCurrentCompleted(true);
+        setTimeLeft({ days: '00', hours: '00', minutes: '00', seconds: '00' });
         if (intervalRef.current) clearInterval(intervalRef.current);
         
-        const upcoming = admissionDeadlines
-            .filter(d => d.date > new Date())
-            .sort((a, b) => a.date.getTime() - b.date.getTime());
-
-        if (upcoming.length > 0) {
-          const nextIndex = admissionDeadlines.findIndex(d => d.date === upcoming[0].date);
-          setCurrentIndex(nextIndex);
-          setIsCompleted(false); // Reset completion state for the new timer
-        } else {
-          setIsCompleted(true);
-          setTimeLeft({ days: '00', hours: '00', minutes: '00', seconds: '00' });
-        }
+        // Wait for a bit before showing the next timer
+        setTimeout(() => {
+          const nextUpcomingIndex = admissionDeadlines.findIndex(d => d.date > new Date());
+          if (nextUpcomingIndex !== -1) {
+            setCurrentIndex(nextUpcomingIndex);
+            setIsCurrentCompleted(false);
+          } else {
+             // To show "All deadlines passed" message, we can set index out of bounds
+             setCurrentIndex(admissionDeadlines.length);
+          }
+        }, 2000); // 2-second delay
         return;
       }
 
-      setIsCompleted(false);
-      const totalSeconds = Math.floor(diff / 1000);
+      const days = Math.floor(difference / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((difference / (1000 * 60 * 60)) % 24);
+      const minutes = Math.floor((difference / 1000 / 60) % 60);
+      const seconds = Math.floor((difference / 1000) % 60);
+      
       setTimeLeft({
-        days: String(Math.floor(totalSeconds / (3600 * 24))).padStart(2, '0'),
-        hours: String(Math.floor((totalSeconds % (3600 * 24)) / 3600)).padStart(2, '0'),
-        minutes: String(Math.floor((totalSeconds % 3600) / 60)).padStart(2, '0'),
-        seconds: String(totalSeconds % 60).padStart(2, '0'),
+        days: String(days).padStart(2, '0'),
+        hours: String(hours).padStart(2, '0'),
+        minutes: String(minutes).padStart(2, '0'),
+        seconds: String(seconds).padStart(2, '0'),
       });
     };
-
-    update();
-    intervalRef.current = setInterval(update, 1000);
+    
+    if (!isCurrentCompleted) {
+        updateTimer();
+        intervalRef.current = setInterval(updateTimer, 1000);
+    }
 
     return () => {
       if (intervalRef.current) clearInterval(intervalRef.current);
     };
-  }, [currentIndex]);
+  }, [currentIndex, isCurrentCompleted]);
 
+  const currentDeadline = currentIndex >= 0 && currentIndex < admissionDeadlines.length 
+    ? admissionDeadlines[currentIndex] 
+    : null;
 
-  if (isCompleted && currentIndex >= admissionDeadlines.length -1) {
+  if (currentIndex >= admissionDeadlines.length) {
     return (
       <motion.div
         initial={{ opacity: 0 }}
@@ -91,7 +98,6 @@ const CountdownTimer = () => {
     );
   }
 
-  const currentDeadline = currentIndex !== -1 ? admissionDeadlines[currentIndex] : null;
   if (!currentDeadline) {
       return null;
   }
@@ -123,7 +129,7 @@ const CountdownTimer = () => {
             cx="50"
             cy="50"
             initial={{ strokeDashoffset: circumference }}
-            animate={{ strokeDashoffset: isCompleted ? 0 : offset }}
+            animate={{ strokeDashoffset: isCurrentCompleted ? 0 : offset }}
             transition={transition}
           />
         </svg>
@@ -137,31 +143,38 @@ const CountdownTimer = () => {
 
   return (
     <div className="text-center p-2 sm:p-4 rounded-2xl bg-card">
-      <motion.div
-        key={currentDeadline.title}
-        initial={{ opacity: 0, y: -10 }}
-        animate={{ opacity: 1, y: 0 }}
-        exit={{ opacity: 0, y: 10 }}
-        transition={{ duration: 0.3 }}
-        className="text-base sm:text-lg font-bold mb-3 text-foreground"
-      >
-        {currentDeadline.title}
-        <div className="font-normal text-xs sm:text-sm mt-1 text-muted-foreground">
-          {currentDeadline.date.toLocaleDateString('bn-BD', { year: 'numeric', month: 'long', day: 'numeric' })}
-        </div>
-      </motion.div>
-      {isCompleted && !(currentIndex >= admissionDeadlines.length -1) ? (
+      <AnimatePresence mode="wait">
         <motion.div
+          key={currentDeadline.title}
+          initial={{ opacity: 0, y: -10 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: 10 }}
+          transition={{ duration: 0.3 }}
+          className="text-base sm:text-lg font-bold mb-3 text-foreground"
+        >
+          {currentDeadline.title}
+          <div className="font-normal text-xs sm:text-sm mt-1 text-muted-foreground">
+            {currentDeadline.date.toLocaleDateString('bn-BD', { year: 'numeric', month: 'long', day: 'numeric' })}
+          </div>
+        </motion.div>
+      </AnimatePresence>
+      <AnimatePresence mode="wait">
+      {isCurrentCompleted ? (
+        <motion.div
+          key="completed"
           initial={{ y: 20, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
+          exit={{ y: -20, opacity: 0 }}
           className="text-xl text-destructive font-bold mt-2.5"
         >
           সময় শেষ!
         </motion.div>
       ) : (
         <motion.div
+          key="timer"
           initial={{ y: 20, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
+          exit={{ y: -20, opacity: 0 }}
           className="flex gap-2 sm:gap-4 justify-center flex-nowrap"
         >
           <TimeCircle unit="দিন" value={timeLeft.days} max={365} />
@@ -170,6 +183,7 @@ const CountdownTimer = () => {
           <TimeCircle unit="সেকেন্ড" value={timeLeft.seconds} max={60} />
         </motion.div>
       )}
+      </AnimatePresence>
     </div>
   );
 };
