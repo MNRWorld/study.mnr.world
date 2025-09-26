@@ -54,9 +54,11 @@ const TypingAnimation = () => {
             <motion.span
                 animate={{ opacity: [0, 1, 0] }}
                 transition={{ duration: 0.8, repeat: Infinity }}
-                className="inline-block w-0.5 h-5 sm:h-6 bg-foreground ml-1 absolute"
+                className="inline-block"
                 style={{ top: '2px' }}
-            />
+            >
+                ।
+            </motion.span>
         </span>
     );
 };
@@ -103,7 +105,7 @@ const HomePageClient = ({ studyPlatformImage, features }: HomePageClientProps) =
                     </h1>
                     <div className="mt-4 text-base sm:text-lg text-muted-foreground font-bengali h-14 sm:h-auto">
                         <TypingAnimation />
-                        <p>তোমার পাশেই আছে MNR Study।</p>
+                        <p>সকল কিছুর জন্যে পাশে আছে <b className="text-primary">“MNR Study”</b>।</p>
                     </div>
 
                     <motion.div
@@ -149,3 +151,4 @@ const HomePageClient = ({ studyPlatformImage, features }: HomePageClientProps) =
 };
 
 export default HomePageClient;
+
