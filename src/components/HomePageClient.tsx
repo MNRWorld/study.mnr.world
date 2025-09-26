@@ -131,25 +131,23 @@ const HomePageClient = ({ studyPlatformImage, characterImage, features }: HomePa
                         initial={{ y: 20, opacity: 0 }}
                         animate={{ y: 0, opacity: 1 }}
                         transition={{ duration: 0.7, ease: 'easeInOut' }}
-                        className="flex justify-center relative"
+                        className="flex justify-center items-center relative max-w-md w-full h-auto mx-auto aspect-square"
                     >
                         {studyPlatformImage && (
                             <Image
                                 src={studyPlatformImage.imageUrl}
                                 alt={studyPlatformImage.description}
-                                width={600}
-                                height={450}
-                                data-ai-hint={studyPlatformImage.imageHint}
-                                className="max-w-md w-full h-auto object-contain rounded-lg"
+                                fill
+                                className="object-contain"
                                 priority
                             />
                         )}
                         {characterImage && (
                             <motion.div
-                                className="absolute -top-12 -right-4 w-[200px] h-[200px]"
-                                animate={{ y: [0, -15, 0] }}
+                                className="absolute inset-0"
+                                animate={{ y: [0, -10, 0] }}
                                 transition={{
-                                    duration: 3,
+                                    duration: 4,
                                     repeat: Infinity,
                                     ease: "easeInOut",
                                 }}
@@ -157,9 +155,7 @@ const HomePageClient = ({ studyPlatformImage, characterImage, features }: HomePa
                                 <Image
                                     src={characterImage.imageUrl}
                                     alt={characterImage.description}
-                                    width={200}
-                                    height={200}
-                                    data-ai-hint={characterImage.imageHint}
+                                    fill
                                     className="object-contain"
                                 />
                             </motion.div>

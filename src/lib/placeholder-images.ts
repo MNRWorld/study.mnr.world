@@ -9,15 +9,15 @@ export type ImagePlaceholder = {
 export const PlaceHolderImages: ImagePlaceholder[] = [
     {
       "id": "study-platform",
-      "description": "Placeholder image for a study platform background",
-      "imageUrl": "https://study.mnr.world/wp-content/uploads/2024/07/image.png",
-      "imageHint": "study platform background"
+      "description": "Static background learning image",
+      "imageUrl": "https://raw.githubusercontent.com/MNRfrom2020/logo-and-icon-cdn/refs/heads/main/Image/Learning-static.png",
+      "imageHint": "learning illustration"
     },
     {
         "id": "study-platform-character",
-        "description": "Floating character for the study platform hero",
-        "imageUrl": "https://study.mnr.world/wp-content/uploads/2024/07/image-1.png",
-        "imageHint": "floating character"
+        "description": "Animated moving parts of learning image",
+        "imageUrl": "https://raw.githubusercontent.com/MNRfrom2020/logo-and-icon-cdn/refs/heads/main/Image/Learning-moving.png",
+        "imageHint": "animated learning"
     },
     {
       "id": "blog-1",
@@ -28,7 +28,7 @@ export const PlaceHolderImages: ImagePlaceholder[] = [
     {
       "id": "blog-2",
       "description": "Blog post about university guides",
-      "imageUrl": "https://images.unsplash.com/photo-1621093418468-0be7d588584b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8dW5pdmVyc2l0eSUyMGd1aWRlfGVufDB8fHx8fDE3NTg3MjMxNTJ8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1621093418468-0be7d588584b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxb3x8dW5pdmVyc2l0eSUyMGd1aWRlfGVufDB8fHx8fDE3NTg3MjMxNTJ8MA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "university guide"
     },
     {
