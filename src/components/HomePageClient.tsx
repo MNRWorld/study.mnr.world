@@ -66,7 +66,7 @@ const HomePageClient = ({ studyPlatformImage, features }: HomePageClientProps) =
                         variants={containerVariants}
                         initial="hidden"
                         animate="visible"
-                        className="mt-10 grid grid-cols-2 sm:grid-cols-3 gap-4 sm:gap-5"
+                        className="mt-10 grid grid-cols-3 gap-4"
                     >
                         {features.map((feature) => (
                              <Link href={feature.href} key={feature.href}>
