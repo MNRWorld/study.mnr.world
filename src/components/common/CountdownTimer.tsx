@@ -108,16 +108,21 @@ const CountdownTimer = () => {
     const circumference = 2 * Math.PI * 45;
     const offset = circumference * progress;
 
-    const transition = unit === 'সেকেন্ড' 
-        ? { duration: 1, ease: "linear" as const }
-        : { type: "spring" as const, stiffness: 50, damping: 15 };
+    const getTransition = () => {
+        if (unit === 'সেকেন্ড') {
+            return { duration: 1, ease: "linear" as const };
+        }
+        // For other units, only animate when the value changes.
+        // The `key` on the motion.circle will trigger this.
+        return { type: "spring" as const, stiffness: 50, damping: 15 };
+    };
     
     return (
       <div className="relative w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 shrink-0">
         <svg className="w-full h-full transform -rotate-90" viewBox="0 0 100 100">
           <circle className="text-muted/50 dark:text-muted/20" strokeWidth="6" stroke="currentColor" fill="transparent" r="45" cx="50" cy="50" />
           <motion.circle
-            key={value}
+            key={unit === 'সেকেন্ড' ? undefined : value}
             className="text-primary"
             strokeWidth="6"
             strokeDasharray={circumference}
@@ -127,9 +132,9 @@ const CountdownTimer = () => {
             r="45"
             cx="50"
             cy="50"
-            initial={{ strokeDashoffset: circumference }}
+            initial={ unit !== 'সেকেন্ড' ? { strokeDashoffset: offset } : false}
             animate={{ strokeDashoffset: isCurrentCompleted ? 0 : offset }}
-            transition={transition}
+            transition={getTransition()}
           />
         </svg>
         <div className="absolute inset-0 flex flex-col items-center justify-center">
