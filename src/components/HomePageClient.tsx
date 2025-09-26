@@ -54,7 +54,7 @@ const TypingAnimation = () => {
             <motion.span
                 animate={{ opacity: [0, 1, 0] }}
                 transition={{ duration: 0.8, repeat: Infinity }}
-                className="inline-block w-0.5 h-6 sm:h-7 bg-foreground ml-1 absolute"
+                className="inline-block w-0.5 h-5 sm:h-6 bg-foreground ml-1 absolute"
                 style={{ top: '2px' }}
             />
         </span>
