@@ -133,16 +133,7 @@ const HomePageClient = ({ studyPlatformImage, characterImage, features }: HomePa
                         transition={{ duration: 0.7, ease: 'easeInOut' }}
                         className="flex justify-center items-center relative max-w-md w-full h-auto mx-auto aspect-square"
                     >
-                        {studyPlatformImage && (
-                            <Image
-                                src={studyPlatformImage.imageUrl}
-                                alt={studyPlatformImage.description}
-                                fill
-                                className="object-contain"
-                                priority
-                            />
-                        )}
-                        {characterImage && (
+                         {characterImage && (
                             <motion.div
                                 className="absolute inset-0"
                                 animate={{ y: [0, -10, 0] }}
@@ -159,6 +150,17 @@ const HomePageClient = ({ studyPlatformImage, characterImage, features }: HomePa
                                     className="object-contain"
                                 />
                             </motion.div>
+                        )}
+                        {studyPlatformImage && (
+                            <div className="relative z-10 w-full h-full">
+                                <Image
+                                    src={studyPlatformImage.imageUrl}
+                                    alt={studyPlatformImage.description}
+                                    fill
+                                    className="object-contain"
+                                    priority
+                                />
+                            </div>
                         )}
                     </motion.div>
                 </div>
