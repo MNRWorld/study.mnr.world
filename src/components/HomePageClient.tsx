@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 import Image from 'next/image';
 import Link from 'next/link';
 import { ImagePlaceholder } from '@/lib/placeholder-images';
+import React, { useState, useEffect } from 'react';
 
 interface Feature {
     href: string;
@@ -15,6 +16,51 @@ interface HomePageClientProps {
     studyPlatformImage: ImagePlaceholder | undefined;
     features: Feature[];
 }
+
+const TypingAnimation = () => {
+    const texts = ['একাডেমিক হোক,', 'এডমিশন হোক,', 'অথবা বেসিক গড়ার প্রচেষ্টা,'];
+    const [textIndex, setTextIndex] = useState(0);
+    const [displayText, setDisplayText] = useState('');
+    const [isDeleting, setIsDeleting] = useState(false);
+
+    useEffect(() => {
+        const handleTyping = () => {
+            const currentText = texts[textIndex];
+            if (isDeleting) {
+                if (displayText.length > 0) {
+                    setDisplayText(currentText.substring(0, displayText.length - 1));
+                } else {
+                    setIsDeleting(false);
+                    setTextIndex((prev) => (prev + 1) % texts.length);
+                }
+            } else {
+                if (displayText.length < currentText.length) {
+                    setDisplayText(currentText.substring(0, displayText.length + 1));
+                } else {
+                    // Pause before deleting
+                    setTimeout(() => setIsDeleting(true), 1500);
+                }
+            }
+        };
+
+        const typingSpeed = isDeleting ? 100 : 150;
+        const timeout = setTimeout(handleTyping, typingSpeed);
+        return () => clearTimeout(timeout);
+    }, [displayText, isDeleting, textIndex, texts]);
+
+    return (
+        <span className="relative">
+            {displayText}
+            <motion.span
+                animate={{ opacity: [0, 1, 0] }}
+                transition={{ duration: 0.8, repeat: Infinity }}
+                className="inline-block w-0.5 h-6 sm:h-7 bg-foreground ml-1 absolute"
+                style={{ top: '2px' }}
+            />
+        </span>
+    );
+};
+
 
 const HomePageClient = ({ studyPlatformImage, features }: HomePageClientProps) => {
     const containerVariants = {
@@ -55,12 +101,10 @@ const HomePageClient = ({ studyPlatformImage, features }: HomePageClientProps) =
                     <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold font-bengali leading-tight gradient-text">
                         স্বপ্ন পূরণের পথে, সকল কিছু একসাথে
                     </h1>
-                    <p className="mt-4 text-base sm:text-lg text-muted-foreground font-bengali">
-                        ভর্তি পরীক্ষা থেকে শুরু করে পড়াশোনার প্রতিটি ধাপে তোমার পাশেই আছে MNR Study।
-                    </p>
-                    <p className="text-base sm:text-lg text-muted-foreground font-bengali">
-                        চলো, একসাথে শুরু করি তোমার সাফল্যের যাত্রা।
-                    </p>
+                    <div className="mt-4 text-base sm:text-lg text-muted-foreground font-bengali h-14 sm:h-auto">
+                        <TypingAnimation />
+                        <p>তোমার পাশেই আছে MNR Study।</p>
+                    </div>
 
                     <motion.div
                         variants={containerVariants}
