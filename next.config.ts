@@ -55,7 +55,8 @@ const nextConfig: NextConfig = {
       { protocol: 'https', hostname: 'nstu.edu.bd' },
       { protocol: 'https', hostname: 'pstu.ac.bd' },
       { protocol: 'https', hostname: 'pust.ac.bd' },
-      { protocol: 'https', hostname: 'rmstu.ac.bd' }
+      { protocol: 'https', hostname: 'rmstu.ac.bd' },
+      { protocol: 'https', hostname: 'raw.githubusercontent.com' }
     ],
   },
 };
