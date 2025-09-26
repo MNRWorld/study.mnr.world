@@ -53,7 +53,7 @@ const HomePageClient = ({ studyPlatformImage, features }: HomePageClientProps) =
                     className="text-center lg:text-left"
                     >
                     <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold font-bengali leading-tight gradient-text">
-                        স্বপ্ন পূরণের পথে, সবকিছু এক প্ল্যাটফর্মে
+                        স্বপ্ন পূরণের পথে, সকল কিছু একসাথে
                     </h1>
                     <p className="mt-4 text-base sm:text-lg text-muted-foreground font-bengali">
                         ভর্তি পরীক্ষা থেকে শুরু করে পড়াশোনার প্রতিটি ধাপে তোমার পাশেই আছে MNR Study।
