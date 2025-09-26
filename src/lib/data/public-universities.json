@@ -46,6 +46,69 @@
         "logo": "https://www.bau.edu.bd/assets/image/logo-white.png"
     },
     {
+        "nameBn": "চট্টগ্রাম ভেটেরিনারি ও এনিম্যাল সাইন্সেস বিশ্ববিদ্যালয়",
+        "nameEn": "Chittagong Veterinary and Animal Sciences University",
+        "shortName": "CVASU",
+        "category": "কৃষি",
+        "description": "প্রাণী ও মৎস্য বিজ্ঞানের জন্য বিশেষায়িত একটি বিশ্ববিদ্যালয়।",
+        "link": "/cvasu",
+        "logo": "https://raw.githubusercontent.com/MNRfrom2020/logo-and-icon-cdn/refs/heads/main/University/CVASU.png"
+    },
+    {
+        "nameBn": "বঙ্গবন্ধু শেখ মুজিবুর রহমান কৃষি বিশ্ববিদ্যালয়",
+        "nameEn": "Bangabandhu Sheikh Mujibur Rahman Agricultural University",
+        "shortName": "BSMRAU",
+        "category": "কৃষি",
+        "description": "গাজীপুরে অবস্থিত একটি আন্তর্জাতিক মানের কৃষি শিক্ষা ও গবেষণা প্রতিষ্ঠান।",
+        "link": "/bsmrau",
+        "logo": "https://raw.githubusercontent.com/MNRfrom2020/logo-and-icon-cdn/refs/heads/main/University/BSMRAU.png"
+    },
+    {
+        "nameBn": "হবিগঞ্জ কৃষি বিশ্ববিদ্যালয়",
+        "nameEn": "Habiganj Agricultural University",
+        "shortName": "HAU",
+        "category": "কৃষি",
+        "description": "হাওর অঞ্চলের কৃষি উন্নয়নে প্রতিষ্ঠিত একটি নতুন বিশ্ববিদ্যালয়।",
+        "link": "/hau",
+        "logo": "https://raw.githubusercontent.com/MNRfrom2020/logo-and-icon-cdn/refs/heads/main/University/HAU.png"
+    },
+    {
+        "nameBn": "খুলনা কৃষি বিশ্ববিদ্যালয়",
+        "nameEn": "Khulna Agricultural University",
+        "shortName": "KAU",
+        "category": "কৃষি",
+        "description": "দক্ষিণ-পশ্চিমাঞ্চলের কৃষি গবেষণার জন্য একটি গুরুত্বপূর্ণ প্রতিষ্ঠান।",
+        "link": "/kau",
+        "logo": "https://raw.githubusercontent.com/MNRfrom2020/logo-and-icon-cdn/refs/heads/main/University/KAU.png"
+    },
+    {
+        "nameBn": "কুড়িগ্রাম কৃষি বিশ্ববিদ্যালয়",
+        "nameEn": "Kurigram Agricultural University",
+        "shortName": "KuriAU",
+        "category": "কৃষি",
+        "description": "উত্তরবঙ্গের কৃষি উন্নয়নে প্রতিষ্ঠিত একটি নতুন পাবলিক বিশ্ববিদ্যালয়।",
+        "link": "/kuriau",
+        "logo": "https://raw.githubusercontent.com/MNRfrom2020/logo-and-icon-cdn/refs/heads/main/University/KuriAU.png"
+    },
+    {
+        "nameBn": "সিলেট কৃষি বিশ্ববিদ্যালয়",
+        "nameEn": "Sylhet Agricultural University",
+        "shortName": "SAU",
+        "category": "কৃষি",
+        "description": "সিলেট বিভাগে অবস্থিত কৃষি ও প্রাণী বিজ্ঞানের একটি বিশেষায়িত বিশ্ববিদ্যালয়।",
+        "link": "/sau",
+        "logo": "https://raw.githubusercontent.com/MNRfrom2020/logo-and-icon-cdn/refs/heads/main/University/SAU.png"
+    },
+    {
+        "nameBn": "শেরেবাংলা কৃষি বিশ্ববিদ্যালয়",
+        "nameEn": "Sher-e-Bangla Agricultural University",
+        "shortName": "SBAU",
+        "category": "কৃষি",
+        "description": "ঢাকার শেরেবাংলা নগরে অবস্থিত একটি ঐতিহ্যবাহী কৃষি শিক্ষা প্রতিষ্ঠান।",
+        "link": "/sbau",
+        "logo": "https://raw.githubusercontent.com/MNRfrom2020/logo-and-icon-cdn/refs/heads/main/University/SBAU.png"
+    },
+    {
         "nameBn": "বাংলাদেশ প্রকৌশল বিশ্ববিদ্যালয়",
         "nameEn": "Bangladesh University of Engineering and Technology",
         "shortName": "BUET",
@@ -347,3 +410,4 @@
     
 
     
+
