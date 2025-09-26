@@ -98,7 +98,7 @@ const HomePageClient = ({ studyPlatformImage, features }: HomePageClientProps) =
                     initial={{ y: -20, opacity: 0 }}
                     animate={{ y: 0, opacity: 1 }}
                     transition={{ duration: 0.7, ease: 'easeInOut' }}
-                    className="text-center lg:text-left"
+                    className="text-center"
                     >
                     <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold font-bengali leading-tight gradient-text">
                         স্বপ্ন পূরণের পথে, সকল কিছু একসাথে
@@ -151,5 +151,6 @@ const HomePageClient = ({ studyPlatformImage, features }: HomePageClientProps) =
 };
 
 export default HomePageClient;
+
 
 
