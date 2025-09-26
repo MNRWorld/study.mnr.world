@@ -56,8 +56,8 @@
     },
     {
         "nameBn": "বঙ্গবন্ধু শেখ মুজিবুর রহমান কৃষি বিশ্ববিদ্যালয়",
-        "nameEn": "Bangabandhu Sheikh Mujibur Rahman Agricultural University",
-        "shortName": "BSMRAU",
+        "nameEn": "Gazipur Agricultural University",
+        "shortName": "GAU",
         "category": "কৃষি",
         "description": "গাজীপুরে অবস্থিত একটি আন্তর্জাতিক মানের কৃষি শিক্ষা ও গবেষণা প্রতিষ্ঠান।",
         "link": "/bsmrau",
@@ -263,8 +263,8 @@
     },
     {
         "nameBn": "বঙ্গবন্ধু শেখ মুজিবুর রহমান বিজ্ঞান ও প্রযুক্তি বিশ্ববিদ্যালয়, গোপালগঞ্জ",
-        "nameEn": "Bangabandhu Sheikh Mujibur Rahman Science and Technology University, Gopalganj",
-        "shortName": "BSMRSTU",
+        "nameEn": "Gopalganj Science and Technology University",
+        "shortName": "GSTU",
         "category": "বিজ্ঞান ও প্রযুক্তি",
         "description": "গোপালগঞ্জ জেলায় অবস্থিত একটি সরকারি বিজ্ঞান ও প্রযুক্তি বিশ্ববিদ্যালয়।",
         "link": "/bsmrstu",
@@ -327,7 +327,7 @@
     {
         "nameBn": "জগন্নাথ বিশ্ববিদ্যালয়",
         "nameEn": "Jagannath University",
-        "shortName": "JNU",
+        "shortName": "JnU",
         "category": "সাধারণ",
         "description": "ঢাকার প্রাণকেন্দ্রে অবস্থিত একটি ঐতিহ্যবাহী শিক্ষা প্রতিষ্ঠান।",
         "link": "/jnu",
@@ -408,6 +408,3 @@
 ]
 
     
-
-    
-
