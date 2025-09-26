@@ -59,7 +59,7 @@ export default function Footer() {
                             <li key={index}>
                             <Link
                                 href={link.href}
-                                className="text-muted-foreground hover:text-primary transition-colors duration-300 flex items-center justify-center md:justify-start"
+                                className="text-muted-foreground hover:text-primary transition-colors duration-300 flex items-center md:justify-start"
                             >
                                 <Icon className="text-primary mr-2 h-5 w-5" />
                                 {link.label}
