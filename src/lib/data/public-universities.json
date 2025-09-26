@@ -115,7 +115,70 @@
         "category": "বিজ্ঞান ও প্রযুক্তি",
         "description": "বিজ্ঞান ও প্রযুক্তি গবেষণায় দেশের অন্যতম সেরা একটি বিশ্ববিদ্যালয়।",
         "link": "/sust",
-        "logo": "https://www.sust.edu/images/logo.png"
+        "logo": "https://raw.githubusercontent.com/MNRfrom2020/logo-and-icon-cdn/refs/heads/main/University/SUST.png"
+    },
+    {
+        "nameBn": "যশোর বিজ্ঞান ও প্রযুক্তি বিশ্ববিদ্যালয়",
+        "nameEn": "Jashore University of Science and Technology",
+        "shortName": "JUST",
+        "category": "বিজ্ঞান ও প্রযুক্তি",
+        "description": "দেশের দক্ষিণ-পশ্চিমাঞ্চলের একটি অন্যতম বিজ্ঞান ও প্রযুক্তি বিশ্ববিদ্যালয়।",
+        "link": "/just",
+        "logo": "https://raw.githubusercontent.com/MNRfrom2020/logo-and-icon-cdn/refs/heads/main/University/JUST.png"
+    },
+    {
+        "nameBn": "মাওলানা ভাসানী বিজ্ঞান ও প্রযুক্তি বিশ্ববিদ্যালয়",
+        "nameEn": "Mawlana Bhashani Science and Technology University",
+        "shortName": "MBSTU",
+        "category": "বিজ্ঞান ও প্রযুক্তি",
+        "description": "টাঙ্গাইলে অবস্থিত একটি সরকারি বিজ্ঞান ও প্রযুক্তি বিশ্ববিদ্যালয়।",
+        "link": "/mbstu",
+        "logo": "https://raw.githubusercontent.com/MNRfrom2020/logo-and-icon-cdn/refs/heads/main/University/MBSTU.png"
+    },
+    {
+        "nameBn": "হাজী মোহাম্মদ দানেশ বিজ্ঞান ও প্রযুক্তি বিশ্ববিদ্যালয়",
+        "nameEn": "Hajee Mohammad Danesh Science & Technology University",
+        "shortName": "HSTU",
+        "category": "বিজ্ঞান ও প্রযুক্তি",
+        "description": "উত্তরবঙ্গের একটি শীর্ষস্থানীয় বিজ্ঞান ও প্রযুক্তি বিশ্ববিদ্যালয়।",
+        "link": "/hstu",
+        "logo": "https://raw.githubusercontent.com/MNRfrom2020/logo-and-icon-cdn/refs/heads/main/University/HSTU.png"
+    },
+    {
+        "nameBn": "নোয়াখালী বিজ্ঞান ও প্রযুক্তি বিশ্ববিদ্যালয়",
+        "nameEn": "Noakhali Science and Technology University",
+        "shortName": "NSTU",
+        "category": "বিজ্ঞান ও প্রযুক্তি",
+        "description": "নোয়াখালী জেলায় অবস্থিত একটি সরকারি বিজ্ঞান ও প্রযুক্তি বিশ্ববিদ্যালয়।",
+        "link": "/nstu",
+        "logo": "https://raw.githubusercontent.com/MNRfrom2020/logo-and-icon-cdn/refs/heads/main/University/NSTU.png"
+    },
+    {
+        "nameBn": "পটুয়াখালী বিজ্ঞান ও প্রযুক্তি বিশ্ববিদ্যালয়",
+        "nameEn": "Patuakhali Science and Technology University",
+        "shortName": "PSTU",
+        "category": "বিজ্ঞান ও প্রযুক্তি",
+        "description": "বরিশাল বিভাগে অবস্থিত একটি বিশেষায়িত সরকারি বিশ্ববিদ্যালয়।",
+        "link": "/pstu",
+        "logo": "https://raw.githubusercontent.com/MNRfrom2020/logo-and-icon-cdn/refs/heads/main/University/PSTU.png"
+    },
+    {
+        "nameBn": "পাবনা বিজ্ঞান ও প্রযুক্তি বিশ্ববিদ্যালয়",
+        "nameEn": "Pabna University of Science and Technology",
+        "shortName": "PUST",
+        "category": "বিজ্ঞান ও প্রযুক্তি",
+        "description": "পাবনা জেলায় অবস্থিত একটি পাবলিক বিশ্ববিদ্যালয়।",
+        "link": "/pust",
+        "logo": "https://raw.githubusercontent.com/MNRfrom2020/logo-and-icon-cdn/refs/heads/main/University/PUST.png"
+    },
+    {
+        "nameBn": "রাঙ্গামাটি বিজ্ঞান ও প্রযুক্তি বিশ্ববিদ্যালয়",
+        "nameEn": "Rangamati Science and Technology University",
+        "shortName": "RMSTU",
+        "category": "বিজ্ঞান ও প্রযুক্তি",
+        "description": "পার্বত্য চট্টগ্রাম অঞ্চলের প্রথম পাবলিক বিশ্ববিদ্যালয়।",
+        "link": "/rmstu",
+        "logo": "https://raw.githubusercontent.com/MNRfrom2020/logo-and-icon-cdn/refs/heads/main/University/RMSTU.png"
     },
     {
         "nameBn": "বঙ্গবন্ধু শেখ মুজিবুর রহমান মেডিকেল বিশ্ববিদ্যালয়",
@@ -217,69 +280,6 @@
         "logo": "https://raw.githubusercontent.com/MNRfrom2020/logo-and-icon-cdn/refs/heads/main/University/NeU.png"
     },
     {
-        "nameBn": "যশোর বিজ্ঞান ও প্রযুক্তি বিশ্ববিদ্যালয়",
-        "nameEn": "Jashore University of Science and Technology",
-        "shortName": "JUST",
-        "category": "বিজ্ঞান ও প্রযুক্তি",
-        "description": "দেশের দক্ষিণ-পশ্চিমাঞ্চলের একটি অন্যতম বিজ্ঞান ও প্রযুক্তি বিশ্ববিদ্যালয়।",
-        "link": "/just",
-        "logo": "https://just.edu.bd/images/logo.png"
-    },
-    {
-        "nameBn": "মাওলানা ভাসানী বিজ্ঞান ও প্রযুক্তি বিশ্ববিদ্যালয়",
-        "nameEn": "Mawlana Bhashani Science and Technology University",
-        "shortName": "MBSTU",
-        "category": "বিজ্ঞান ও প্রযুক্তি",
-        "description": "টাঙ্গাইলে অবস্থিত একটি সরকারি বিজ্ঞান ও প্রযুক্তি বিশ্ববিদ্যালয়।",
-        "link": "/mbstu",
-        "logo": "https://mbstu.ac.bd/assets/images/logo.png"
-    },
-    {
-        "nameBn": "হাজী মোহাম্মদ দানেশ বিজ্ঞান ও প্রযুক্তি বিশ্ববিদ্যালয়",
-        "nameEn": "Hajee Mohammad Danesh Science & Technology University",
-        "shortName": "HSTU",
-        "category": "বিজ্ঞান ও প্রযুক্তি",
-        "description": "উত্তরবঙ্গের একটি শীর্ষস্থানীয় বিজ্ঞান ও প্রযুক্তি বিশ্ববিদ্যালয়।",
-        "link": "/hstu",
-        "logo": "https://hstu.ac.bd/img/hstu_logo.png"
-    },
-    {
-        "nameBn": "নোয়াখালী বিজ্ঞান ও প্রযুক্তি বিশ্ববিদ্যালয়",
-        "nameEn": "Noakhali Science and Technology University",
-        "shortName": "NSTU",
-        "category": "বিজ্ঞান ও প্রযুক্তি",
-        "description": "নোয়াখালী জেলায় অবস্থিত একটি সরকারি বিজ্ঞান ও প্রযুক্তি বিশ্ববিদ্যালয়।",
-        "link": "/nstu",
-        "logo": "https://nstu.edu.bd/assets/images/logo.png"
-    },
-    {
-        "nameBn": "পটুয়াখালী বিজ্ঞান ও প্রযুক্তি বিশ্ববিদ্যালয়",
-        "nameEn": "Patuakhali Science and Technology University",
-        "shortName": "PSTU",
-        "category": "বিজ্ঞান ও প্রযুক্তি",
-        "description": "বরিশাল বিভাগে অবস্থিত একটি বিশেষায়িত সরকারি বিশ্ববিদ্যালয়।",
-        "link": "/pstu",
-        "logo": "https://pstu.ac.bd/images/logo.png"
-    },
-    {
-        "nameBn": "পাবনা বিজ্ঞান ও প্রযুক্তি বিশ্ববিদ্যালয়",
-        "nameEn": "Pabna University of Science and Technology",
-        "shortName": "PUST",
-        "category": "বিজ্ঞান ও প্রযুক্তি",
-        "description": "পাবনা জেলায় অবস্থিত একটি পাবলিক বিশ্ববিদ্যালয়।",
-        "link": "/pust",
-        "logo": "https://pust.ac.bd/includes/images/logo.png"
-    },
-    {
-        "nameBn": "রাঙ্গামাটি বিজ্ঞান ও প্রযুক্তি বিশ্ববিদ্যালয়",
-        "nameEn": "Rangamati Science and Technology University",
-        "shortName": "RMSTU",
-        "category": "বিজ্ঞান ও প্রযুক্তি",
-        "description": "পার্বত্য চট্টগ্রাম অঞ্চলের প্রথম পাবলিক বিশ্ববিদ্যালয়।",
-        "link": "/rmstu",
-        "logo": "https://rmstu.ac.bd/asset/images/logo_rmstu_2.png"
-    },
-    {
         "nameBn": "রবীন্দ্র বিশ্ববিদ্যালয়, বাংলাদেশ",
         "nameEn": "Rabindra University, Bangladesh",
         "shortName": "RUB",
@@ -289,5 +289,7 @@
         "logo": "https://raw.githubusercontent.com/MNRfrom2020/logo-and-icon-cdn/refs/heads/main/University/RUB.png"
     }
 ]
+
+    
 
     
