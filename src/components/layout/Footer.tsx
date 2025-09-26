@@ -69,7 +69,7 @@ export default function Footer() {
             </ul>
           </div>
 
-          <div className="col-span-1">
+          <div className="col-span-1 md:text-right">
             <h3 className="text-xl font-semibold link-underline inline-block font-bengali">
               শর্টকাট
             </h3>
@@ -80,9 +80,9 @@ export default function Footer() {
                     <li key={index}>
                     <Link
                         href={link.href}
-                        className="text-muted-foreground hover:text-primary transition-colors duration-300 flex items-center justify-center md:justify-start"
+                        className="text-muted-foreground hover:text-primary transition-colors duration-300 flex items-center justify-center md:justify-end"
                     >
-                        <Icon className="w-5 text-center mr-2" />
+                        <Icon className="w-5 text-center mr-2 md:mr-0 md:ml-2 order-first md:order-last" />
                         {link.label}
                     </Link>
                     </li>
