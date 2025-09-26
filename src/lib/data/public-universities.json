@@ -55,7 +55,7 @@
         "logo": "https://raw.githubusercontent.com/MNRfrom2020/logo-and-icon-cdn/refs/heads/main/University/CVASU.png"
     },
     {
-        "nameBn": "বঙ্গবন্ধু শেখ মুজিবুর রহমান কৃষি বিশ্ববিদ্যালয়",
+        "nameBn": "গাজীপুর কৃষি বিশ্ববিদ্যালয়",
         "nameEn": "Gazipur Agricultural University",
         "shortName": "GAU",
         "category": "কৃষি",
@@ -262,7 +262,7 @@
         "logo": "https://raw.githubusercontent.com/MNRfrom2020/logo-and-icon-cdn/refs/heads/main/University/CSTU.png"
     },
     {
-        "nameBn": "বঙ্গবন্ধু শেখ মুজিবুর রহমান বিজ্ঞান ও প্রযুক্তি বিশ্ববিদ্যালয়, গোপালগঞ্জ",
+        "nameBn": "বঙ্গবন্ধু শেখ মুজিবুর রহমান বিজ্ঞান ও প্রযুক্তি বিশ্ববিদ্যালয়",
         "nameEn": "Gopalganj Science and Technology University",
         "shortName": "GSTU",
         "category": "বিজ্ঞান ও প্রযুক্তি",
@@ -406,5 +406,3 @@
         "logo": "https://raw.githubusercontent.com/MNRfrom2020/logo-and-icon-cdn/refs/heads/main/University/RUB.png"
     }
 ]
-
-    
