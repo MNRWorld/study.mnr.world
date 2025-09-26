@@ -175,7 +175,7 @@
         "nameBn": "বাংলাদেশ ইউনিভার্সিটি অব প্রফেশনালস",
         "nameEn": "Bangladesh University of Professionals",
         "shortName": "BUP",
-        "category": "অন্যান্য",
+        "category": "সাধারণ",
         "description": "বাংলাদেশ সশস্ত্র বাহিনী দ্বারা পরিচালিত একটি মানসম্পন্ন শিক্ষা প্রতিষ্ঠান।",
         "link": "/bup",
         "logo": "https://raw.githubusercontent.com/MNRfrom2020/logo-and-icon-cdn/refs/heads/main/University/BUP.png"
@@ -197,6 +197,24 @@
         "description": "কীর্তনখোলা নদীর তীরে অবস্থিত বরিশাল বিভাগের একমাত্র পাবলিক বিশ্ববিদ্যালয়।",
         "link": "/bu",
         "logo": "https://raw.githubusercontent.com/MNRfrom2020/logo-and-icon-cdn/refs/heads/main/University/BU.png"
+    },
+    {
+        "nameBn": "কিশোরগঞ্জ বিশ্ববিদ্যালয়",
+        "nameEn": "Kishoreganj University",
+        "shortName": "KiU",
+        "category": "সাধারণ",
+        "description": "কিশোরগঞ্জ জেলায় অবস্থিত একটি নতুন পাবলিক বিশ্ববিদ্যালয়।",
+        "link": "/kiu",
+        "logo": "https://raw.githubusercontent.com/MNRfrom2020/logo-and-icon-cdn/refs/heads/main/University/KiU.png"
+    },
+    {
+        "nameBn": "নেত্রকোনা বিশ্ববিদ্যালয়",
+        "nameEn": "Netrokona University",
+        "shortName": "NeU",
+        "category": "সাধারণ",
+        "description": "নেত্রকোনা জেলায় অবস্থিত একটি নতুন পাবলিক বিশ্ববিদ্যালয়।",
+        "link": "/neu",
+        "logo": "https://raw.githubusercontent.com/MNRfrom2020/logo-and-icon-cdn/refs/heads/main/University/NeU.png"
     },
     {
         "nameBn": "যশোর বিজ্ঞান ও প্রযুক্তি বিশ্ববিদ্যালয়",
@@ -271,3 +289,5 @@
         "logo": "https://raw.githubusercontent.com/MNRfrom2020/logo-and-icon-cdn/refs/heads/main/University/RUB.png"
     }
 ]
+
+    
