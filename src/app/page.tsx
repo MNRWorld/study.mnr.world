@@ -14,6 +14,7 @@ import HomePageClient from "@/components/HomePageClient";
 
 export default function HomePage() {
   const studyPlatformImage = PlaceHolderImages.find(p => p.id === 'study-platform');
+  const characterImage = PlaceHolderImages.find(p => p.id === 'study-platform-character');
 
   const features = [
     { href: "/calendar", icon: <CalendarDays className="h-10 w-10 sm:h-12 sm:w-12 mx-auto text-primary mb-2 sm:mb-3" />, label: "ক্যালেন্ডার" },
@@ -25,6 +26,10 @@ export default function HomePage() {
   ];
 
   return (
-    <HomePageClient studyPlatformImage={studyPlatformImage} features={features} />
+    <HomePageClient 
+      studyPlatformImage={studyPlatformImage} 
+      characterImage={characterImage} 
+      features={features} 
+    />
   );
 }

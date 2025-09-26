@@ -14,6 +14,7 @@ interface Feature {
 
 interface HomePageClientProps {
     studyPlatformImage: ImagePlaceholder | undefined;
+    characterImage: ImagePlaceholder | undefined;
     features: Feature[];
 }
 
@@ -64,7 +65,7 @@ const TypingAnimation = () => {
 };
 
 
-const HomePageClient = ({ studyPlatformImage, features }: HomePageClientProps) => {
+const HomePageClient = ({ studyPlatformImage, characterImage, features }: HomePageClientProps) => {
     const containerVariants = {
         hidden: {},
         visible: {
@@ -127,22 +128,42 @@ const HomePageClient = ({ studyPlatformImage, features }: HomePageClientProps) =
                     </motion.div>
                     </motion.div>
                     <motion.div
-                    initial={{ y: 20, opacity: 0 }}
-                    animate={{ y: 0, opacity: 1 }}
-                    transition={{ duration: 0.7, ease: 'easeInOut' }}
-                    className="flex justify-center"
+                        initial={{ y: 20, opacity: 0 }}
+                        animate={{ y: 0, opacity: 1 }}
+                        transition={{ duration: 0.7, ease: 'easeInOut' }}
+                        className="flex justify-center relative"
                     >
-                    {studyPlatformImage && (
-                        <Image
-                        src={studyPlatformImage.imageUrl}
-                        alt={studyPlatformImage.description}
-                        width={600}
-                        height={450}
-                        data-ai-hint={studyPlatformImage.imageHint}
-                        className="max-w-md w-full h-auto object-contain rounded-lg"
-                        priority
-                        />
-                    )}
+                        {studyPlatformImage && (
+                            <Image
+                                src={studyPlatformImage.imageUrl}
+                                alt={studyPlatformImage.description}
+                                width={600}
+                                height={450}
+                                data-ai-hint={studyPlatformImage.imageHint}
+                                className="max-w-md w-full h-auto object-contain rounded-lg"
+                                priority
+                            />
+                        )}
+                        {characterImage && (
+                            <motion.div
+                                className="absolute -top-12 -right-4 w-[200px] h-[200px]"
+                                animate={{ y: [0, -15, 0] }}
+                                transition={{
+                                    duration: 3,
+                                    repeat: Infinity,
+                                    ease: "easeInOut",
+                                }}
+                            >
+                                <Image
+                                    src={characterImage.imageUrl}
+                                    alt={characterImage.description}
+                                    width={200}
+                                    height={200}
+                                    data-ai-hint={characterImage.imageHint}
+                                    className="object-contain"
+                                />
+                            </motion.div>
+                        )}
                     </motion.div>
                 </div>
             </div>
@@ -151,7 +172,3 @@ const HomePageClient = ({ studyPlatformImage, features }: HomePageClientProps) =
 };
 
 export default HomePageClient;
-
-
-
-
