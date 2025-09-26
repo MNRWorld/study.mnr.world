@@ -20,6 +20,12 @@ export const PlaceHolderImages: ImagePlaceholder[] = [
         "imageHint": "animated learning"
     },
     {
+        "id": "study-platform-character-2",
+        "description": "Second animated moving part of learning image",
+        "imageUrl": "https://raw.githubusercontent.com/MNRfrom2020/logo-and-icon-cdn/refs/heads/main/Image/Learning-second-moving.png",
+        "imageHint": "animated elements"
+    },
+    {
       "id": "blog-1",
       "description": "Blog post about study tips",
       "imageUrl": "https://images.unsplash.com/photo-1673515334485-cf93e12d5812?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxzdHVkeSUyMHRpcHN8ZW58MHx8fHwxNzU4NzIzMTU0fDA&ixlib=rb-4.1.0&q=80&w=1080",

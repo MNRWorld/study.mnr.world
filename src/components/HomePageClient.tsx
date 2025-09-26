@@ -15,6 +15,7 @@ interface Feature {
 interface HomePageClientProps {
     studyPlatformImage: ImagePlaceholder | undefined;
     characterImage: ImagePlaceholder | undefined;
+    characterImage2: ImagePlaceholder | undefined;
     features: Feature[];
 }
 
@@ -65,7 +66,7 @@ const TypingAnimation = () => {
 };
 
 
-const HomePageClient = ({ studyPlatformImage, characterImage, features }: HomePageClientProps) => {
+const HomePageClient = ({ studyPlatformImage, characterImage, characterImage2, features }: HomePageClientProps) => {
     const containerVariants = {
         hidden: {},
         visible: {
@@ -85,6 +86,15 @@ const HomePageClient = ({ studyPlatformImage, characterImage, features }: HomePa
           },
         },
       };
+      
+    const floatingAnimation = {
+        y: [0, -10, 0],
+    };
+    const floatingTransition = {
+        duration: 4,
+        repeat: Infinity,
+        ease: "easeInOut",
+    };
 
     return (
         <motion.main 
@@ -135,13 +145,9 @@ const HomePageClient = ({ studyPlatformImage, characterImage, features }: HomePa
                     >
                          {characterImage && (
                             <motion.div
-                                className="absolute inset-0"
-                                animate={{ y: [0, -10, 0] }}
-                                transition={{
-                                    duration: 4,
-                                    repeat: Infinity,
-                                    ease: "easeInOut",
-                                }}
+                                className="absolute inset-0 z-0"
+                                animate={floatingAnimation}
+                                transition={floatingTransition}
                             >
                                 <Image
                                     src={characterImage.imageUrl}
@@ -161,6 +167,20 @@ const HomePageClient = ({ studyPlatformImage, characterImage, features }: HomePa
                                     priority
                                 />
                             </div>
+                        )}
+                        {characterImage2 && (
+                            <motion.div
+                                className="absolute inset-0 z-20"
+                                animate={floatingAnimation}
+                                transition={floatingTransition}
+                            >
+                                <Image
+                                    src={characterImage2.imageUrl}
+                                    alt={characterImage2.description}
+                                    fill
+                                    className="object-contain"
+                                />
+                            </motion.div>
                         )}
                     </motion.div>
                 </div>
