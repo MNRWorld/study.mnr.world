@@ -105,7 +105,7 @@ const HomePageClient = ({ studyPlatformImage, features }: HomePageClientProps) =
                     </h1>
                     <div className="mt-4 text-base sm:text-lg text-muted-foreground font-bengali h-14 sm:h-auto">
                         <TypingAnimation />
-                        <p>সকল কিছুর জন্যে পাশে আছে <b className="text-primary">“MNR Study”</b>।</p>
+                        <p>সকল কিছুর জন্যে পাশে আছে <b className="text-primary">“MNR Study”</b></p>
                     </div>
 
                     <motion.div
@@ -151,4 +151,5 @@ const HomePageClient = ({ studyPlatformImage, features }: HomePageClientProps) =
 };
 
 export default HomePageClient;
+
 
