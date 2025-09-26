@@ -57,7 +57,7 @@ const LinkList = ({ links }: LinkListProps) => {
                                         rel={link.rel}
                                         className="block w-full hover:bg-accent rounded-md py-2 px-2"
                                     >
-                                        <span dangerouslySetInnerHTML={{ __html: link.label }} />
+                                        <div className="text-base" dangerouslySetInnerHTML={{ __html: link.label }} />
                                     </Link>
                                 </TableCell>
                             ))}
