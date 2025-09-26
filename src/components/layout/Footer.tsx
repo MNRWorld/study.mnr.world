@@ -26,7 +26,7 @@ export default function Footer() {
   const { important, shortcuts } = footerLinks;
 
   return (
-    <footer className="w-full mt-16 m-4">
+    <footer className="w-full mt-16 mx-2 sm:mx-4 mb-2 sm:mb-4">
       <div className="container mx-auto px-0">
         <div className="bg-card rounded-2xl shadow-lg p-8 border border-border">
             <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-8">
