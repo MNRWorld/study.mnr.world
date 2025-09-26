@@ -7,7 +7,7 @@
         "category": "সাধারণ",
         "description": "দেশের শীর্ষস্থানীয় গবেষণাধর্মী সরকারি বিশ্ববিদ্যালয়।",
         "link": "/du",
-        "logo": "https://study.mnr.world/wp-content/uploads/2025/05/DU-Logo.png"
+        "logo": "https://raw.githubusercontent.com/MNRfrom2020/logo-and-icon-cdn/refs/heads/main/University/DU.png"
     },
     {
         "nameBn": "রাজশাহী বিশ্ববিদ্যালয়",
@@ -16,7 +16,7 @@
         "category": "সাধারণ",
         "description": "দেশের দ্বিতীয় বৃহত্তম বিশ্ববিদ্যালয়, যা শিক্ষানগরী রাজশাহীতে অবস্থিত।",
         "link": "/ru",
-        "logo": "https://www.ru.ac.bd/wp-content/uploads/2022/07/runiv-logo-512.png"
+        "logo": "https://raw.githubusercontent.com/MNRfrom2020/logo-and-icon-cdn/refs/heads/main/University/RU.png"
     },
     {
         "nameBn": "চট্টগ্রাম বিশ্ববিদ্যালয়",
@@ -25,7 +25,7 @@
         "category": "সাধারণ",
         "description": "প্রাকৃতিক সৌন্দর্যে ঘেরা দেশের অন্যতম বৃহৎ একটি বিশ্ববিদ্যালয়।",
         "link": "/cu",
-        "logo": "https://cu.ac.bd/assets/images/cu_logo.png"
+        "logo": "https://raw.githubusercontent.com/MNRfrom2020/logo-and-icon-cdn/refs/heads/main/University/CU.png"
     },
     {
         "nameBn": "জাহাঙ্গীরনগর বিশ্ববিদ্যালয়",
@@ -34,7 +34,7 @@
         "category": "সাধারণ",
         "description": "বাংলাদেশের একমাত্র আবাসিক পাবলিক বিশ্ববিদ্যালয়।",
         "link": "/ju",
-        "logo": "https://juniv.edu/images/logo.png"
+        "logo": "https://raw.githubusercontent.com/MNRfrom2020/logo-and-icon-cdn/refs/heads/main/University/JU.png"
     },
     {
         "nameBn": "বাংলাদেশ কৃষি বিশ্ববিদ্যালয়",
@@ -133,7 +133,7 @@
         "category": "সাধারণ",
         "description": "ধর্মতত্ত্ব ও আধুনিক শিক্ষার সমন্বয়ে গঠিত একটি বিশ্ববিদ্যালয়।",
         "link": "/iu",
-        "logo": "https://www.iu.ac.bd/theme/images/logo.png"
+        "logo": "https://raw.githubusercontent.com/MNRfrom2020/logo-and-icon-cdn/refs/heads/main/University/IU.png"
     },
     {
         "nameBn": "খুলনা বিশ্ববিদ্যালয়",
@@ -142,7 +142,7 @@
         "category": "সাধারণ",
         "description": "সেশনজট মুক্ত একটি পাবলিক বিশ্ববিদ্যালয়।",
         "link": "/ku",
-        "logo": "https://ku.ac.bd/frontend/images/logo.png"
+        "logo": "https://raw.githubusercontent.com/MNRfrom2020/logo-and-icon-cdn/refs/heads/main/University/KU.png"
     },
     {
         "nameBn": "জগন্নাথ বিশ্ববিদ্যালয়",
@@ -151,7 +151,7 @@
         "category": "সাধারণ",
         "description": "ঢাকার প্রাণকেন্দ্রে অবস্থিত একটি ঐতিহ্যবাহী শিক্ষা প্রতিষ্ঠান।",
         "link": "/jnu",
-        "logo": "https://jnu.ac.bd/assets/images/logo/logo-v2.png"
+        "logo": "https://raw.githubusercontent.com/MNRfrom2020/logo-and-icon-cdn/refs/heads/main/University/JNU.png"
     },
     {
         "nameBn": "কুমিল্লা বিশ্ববিদ্যালয়",
@@ -160,7 +160,7 @@
         "category": "সাধারণ",
         "description": "ময়নামতির কোলে অবস্থিত একটি দ্রুত বর্ধনশীল বিশ্ববিদ্যালয়।",
         "link": "/cou",
-        "logo": "https://www.cou.ac.bd/branding/logo/cou_logo_2023.png"
+        "logo": "https://raw.githubusercontent.com/MNRfrom2020/logo-and-icon-cdn/refs/heads/main/University/CoU.png"
     },
     {
         "nameBn": "জাতীয় কবি কাজী নজরুল ইসলাম বিশ্ববিদ্যালয়",
@@ -169,7 +169,7 @@
         "category": "সাধারণ",
         "description": "সাহিত্য ও সংস্কৃতি চর্চার জন্য পরিচিত একটি বিশ্ববিদ্যালয়।",
         "link": "/jkkniu",
-        "logo": "https://jkkniu.edu.bd/wp-content/uploads/2021/04/cropped-site-logo.png"
+        "logo": "https://raw.githubusercontent.com/MNRfrom2020/logo-and-icon-cdn/refs/heads/main/University/JKKNIU.png"
     },
     {
         "nameBn": "বাংলাদেশ ইউনিভার্সিটি অব প্রফেশনালস",
@@ -178,7 +178,7 @@
         "category": "অন্যান্য",
         "description": "বাংলাদেশ সশস্ত্র বাহিনী দ্বারা পরিচালিত একটি মানসম্পন্ন শিক্ষা প্রতিষ্ঠান।",
         "link": "/bup",
-        "logo": "https://bup.edu.bd/assets/logo.png"
+        "logo": "https://raw.githubusercontent.com/MNRfrom2020/logo-and-icon-cdn/refs/heads/main/University/BUP.png"
     },
     {
         "nameBn": "বেগম রোকেয়া বিশ্ববিদ্যালয়, রংপুর",
@@ -187,7 +187,7 @@
         "category": "সাধারণ",
         "description": "উত্তরবঙ্গের নারী জাগরণের অগ্রদূতের নামে প্রতিষ্ঠিত একটি বিশ্ববিদ্যালয়।",
         "link": "/brur",
-        "logo": "https://www.brur.ac.bd/storage/logo/brur-logo.png"
+        "logo": "https://raw.githubusercontent.com/MNRfrom2020/logo-and-icon-cdn/refs/heads/main/University/BRUR.png"
     },
     {
         "nameBn": "বরিশাল বিশ্ববিদ্যালয়",
@@ -196,7 +196,7 @@
         "category": "সাধারণ",
         "description": "কীর্তনখোলা নদীর তীরে অবস্থিত বরিশাল বিভাগের একমাত্র পাবলিক বিশ্ববিদ্যালয়।",
         "link": "/bu",
-        "logo": "https://www.bu.ac.bd/resource/images/logo/bu-logo.png"
+        "logo": "https://raw.githubusercontent.com/MNRfrom2020/logo-and-icon-cdn/refs/heads/main/University/BU.png"
     },
     {
         "nameBn": "যশোর বিজ্ঞান ও প্রযুক্তি বিশ্ববিদ্যালয়",
@@ -262,5 +262,7 @@
         "logo": "https://rmstu.ac.bd/asset/images/logo_rmstu_2.png"
     }
 ]
+
+    
 
     
