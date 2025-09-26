@@ -112,30 +112,12 @@ const CountdownTimer = () => {
         ? { duration: 1, ease: "linear" as const }
         : { type: "spring" as const, stiffness: 50, damping: 15 };
     
-    let key;
-    switch (unit) {
-        case 'দিন':
-            key = timeLeft.days;
-            break;
-        case 'ঘন্টা':
-            key = timeLeft.hours;
-            break;
-        case 'মিনিট':
-            key = timeLeft.minutes;
-            break;
-        case 'সেকেন্ড':
-            key = timeLeft.seconds;
-            break;
-        default:
-            key = value;
-    }
-
     return (
       <div className="relative w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 shrink-0">
         <svg className="w-full h-full transform -rotate-90" viewBox="0 0 100 100">
           <circle className="text-muted/50 dark:text-muted/20" strokeWidth="6" stroke="currentColor" fill="transparent" r="45" cx="50" cy="50" />
           <motion.circle
-            key={key}
+            key={value}
             className="text-primary"
             strokeWidth="6"
             strokeDasharray={circumference}
