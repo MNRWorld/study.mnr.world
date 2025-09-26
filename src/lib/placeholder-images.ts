@@ -10,7 +10,7 @@ export const PlaceHolderImages: ImagePlaceholder[] = [
     {
       "id": "study-platform",
       "description": "Placeholder image for a study platform",
-      "imageUrl": "https://images.unsplash.com/photo-1753546466496-d2d8a819f61a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxzdHVkeSUyMHBsYXRmb3JtfGVufDB8fHx8MTc1ODcyMzE1Mnww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://study.mnr.world/wp-content/uploads/2025/05/olosbd1.gif",
       "imageHint": "study platform"
     },
     {
