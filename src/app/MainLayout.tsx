@@ -7,6 +7,7 @@ import { cn } from '@/lib/utils';
 import DynamicFooter from '@/components/layout/DynamicFooter';
 import { motion, AnimatePresence } from 'framer-motion';
 import { usePathname } from 'next/navigation';
+import BackToTopButton from '@/components/common/BackToTopButton';
 
 const inter = Inter({
   subsets: ['latin'],
@@ -51,6 +52,7 @@ export default function MainLayout({ children }: { children: React.ReactNode }) 
         </motion.main>
       </AnimatePresence>
       <DynamicFooter />
+      <BackToTopButton />
     </div>
   );
 }
