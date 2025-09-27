@@ -25,9 +25,9 @@ export default function MainLayout({ children }: { children: React.ReactNode }) 
   const pathname = usePathname();
   
   const variants = {
-    hidden: { opacity: 0, x: -200, y: 0 },
-    enter: { opacity: 1, x: 0, y: 0 },
-    exit: { opacity: 0, x: 0, y: -100 },
+    hidden: { opacity: 0, filter: 'blur(8px)', scale: 1.05 },
+    enter: { opacity: 1, filter: 'blur(0px)', scale: 1 },
+    exit: { opacity: 0, filter: 'blur(8px)', scale: 0.95 },
   };
 
   return (
@@ -43,8 +43,8 @@ export default function MainLayout({ children }: { children: React.ReactNode }) 
           variants={variants}
           initial="hidden"
           animate="enter"
-          exit="exit" // Use exit instead of initial for the exit animation
-          transition={{ type: 'linear' }}
+          exit="exit"
+          transition={{ type: 'tween', ease: 'anticipate', duration: 0.5 }}
           className="flex-grow"
         >
           {children}
