@@ -90,7 +90,7 @@ export default function HeaderAuth() {
             <Link href="/login" onMouseEnter={() => setHoveredId('login')}>
                 <AuthButton
                     isHovered={hoveredId === 'login'}
-                    label="যোগ দিন"
+                    label="লগিন"
                     icon={<LogIn size={20} />}
                 />
             </Link>
