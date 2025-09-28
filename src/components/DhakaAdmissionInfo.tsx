@@ -53,7 +53,7 @@ const DhakaAdmissionInfo = () => {
         id="Apply"
         className="bg-primary/10 text-primary rounded-xl p-3 mt-4 mb-4 text-center text-base sm:text-lg font-bold flex items-center justify-center"
       >
-        <FilePenLine className="mr-2" size={16} /> {apply.title}
+        <FilePenLine size={16} className="mr-2" /> {apply.title}
       </h2>
       <div className="text-base">
         <div className="mt-2">
@@ -126,18 +126,18 @@ const DhakaAdmissionInfo = () => {
       </div>
       <hr className="my-3 border-border/50" />
 
-      <Accordion type="multiple" className="w-full space-y-2">
+      <Accordion type="multiple" className="w-full space-y-4">
         <AccordionItem
           value="info-1"
-          className="border border-border rounded-lg bg-card hover:bg-accent/50 transition-all duration-300"
+          className="bg-card border border-border rounded-2xl overflow-hidden shadow-lg"
         >
-          <AccordionTrigger className="p-3 text-base font-bold hover:no-underline">
+          <AccordionTrigger className="p-4 sm:p-5 w-full flex justify-between items-center text-lg font-bold cursor-pointer hover:no-underline">
             <div className="flex items-center">
-              <CircleAlert className="inline-block mr-2" size={16} />
+              <CircleAlert className="inline-block mr-2" />
               <span>{unitRequirements.title}</span>
             </div>
           </AccordionTrigger>
-          <AccordionContent className="p-4 pt-0 text-base text-foreground">
+          <AccordionContent className="p-4 sm:p-5 border-t border-border/50 text-base text-foreground">
             {unitRequirements.units.map((unit, index) => (
               <div key={index} className="mb-2">
                 ❐ <b>"{unit.name}" ইউনিট:</b>
@@ -154,15 +154,15 @@ const DhakaAdmissionInfo = () => {
         </AccordionItem>
         <AccordionItem
           value="info-2"
-          className="border border-border rounded-lg bg-card hover:bg-accent/50 transition-all duration-300"
+          className="bg-card border border-border rounded-2xl overflow-hidden shadow-lg mt-4"
         >
-          <AccordionTrigger className="p-3 text-base font-bold hover:no-underline">
+          <AccordionTrigger className="p-4 sm:p-5 w-full flex justify-between items-center text-lg font-bold cursor-pointer hover:no-underline">
             <div className="flex items-center">
-              <Info className="inline-block mr-2" size={16} />
+              <Info className="inline-block mr-2" />
               <span>{improvementPolicy.title}</span>
             </div>
           </AccordionTrigger>
-          <AccordionContent className="p-4 pt-0 text-base text-foreground">
+          <AccordionContent className="p-4 sm:p-5 border-t border-border/50 text-base text-foreground">
             <hr className="my-3 border-border/50" />
             <span
               dangerouslySetInnerHTML={{ __html: improvementPolicy.details }}
@@ -292,3 +292,5 @@ const DhakaAdmissionInfo = () => {
 };
 
 export default DhakaAdmissionInfo;
+
+    
