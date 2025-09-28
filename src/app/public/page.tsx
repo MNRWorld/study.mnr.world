@@ -1,38 +1,25 @@
 
 'use client';
 
-import React, { useState, useMemo } from 'react';
-import { University, Search } from 'lucide-react';
-import PageHeaderCard from '@/components/common/PageHeaderCard';
-import { Input } from '@/components/ui/input';
-import { publicUniversities, University as UniversityType } from '@/lib/data/public-universities';
+import React, { useState, useEffect } from 'react';
+import { publicUniversities, University } from '@/lib/data/public-universities';
 import UniversityCard from '@/components/UniversityCard';
+import { Input } from '@/components/ui/input';
+import { Search } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
-const PublicUniversityPage: React.FC = () => {
+export default function PublicPage() {
   const [searchTerm, setSearchTerm] = useState('');
+  const [filteredUniversities, setFilteredUniversities] = useState<University[]>(publicUniversities);
 
-  const filteredUniversities = useMemo(() => {
-    if (!searchTerm) return publicUniversities;
-    return publicUniversities.filter(uni =>
+  useEffect(() => {
+    const results = publicUniversities.filter(uni =>
       uni.nameBn.toLowerCase().includes(searchTerm.toLowerCase()) ||
       uni.nameEn.toLowerCase().includes(searchTerm.toLowerCase()) ||
       uni.shortName.toLowerCase().includes(searchTerm.toLowerCase())
     );
+    setFilteredUniversities(results);
   }, [searchTerm]);
-
-  const groupedUniversities = useMemo(() => {
-    return filteredUniversities.reduce((acc, uni) => {
-      const category = uni.category;
-      if (!acc[category]) {
-        acc[category] = [];
-      }
-      acc[category].push(uni);
-      return acc;
-    }, {} as Record<string, UniversityType[]>);
-  }, [filteredUniversities]);
-
-  const categories = ['সাধারণ', 'কৃষি', 'প্রকৌশল', 'বিজ্ঞান ও প্রযুক্তি', 'মেডিকেল'];
 
   const containerVariants = {
     hidden: {},
@@ -43,66 +30,74 @@ const PublicUniversityPage: React.FC = () => {
     },
   };
 
+  const groupedUniversities = filteredUniversities.reduce((acc, university) => {
+    const { category } = university;
+    if (!acc[category]) {
+      acc[category] = [];
+    }
+    acc[category].push(university);
+    return acc;
+  }, {} as Record<string, University[]>);
+
+  const categoryOrder: (keyof typeof groupedUniversities)[] = [
+    'সাধারণ',
+    'কৃষি',
+    'প্রকৌশল',
+    'বিজ্ঞান ও প্রযুক্তি',
+    'মেডিকেল',
+  ];
+
+  const sortedCategories = categoryOrder.filter(category => groupedUniversities[category]);
+
+
   return (
     <div className="font-bengali bg-background py-8">
       <div className="container mx-auto px-4">
-        <PageHeaderCard
-          icon={<University className="h-14 w-14 text-primary" />}
-          title="পাবলিক বিশ্ববিদ্যালয়"
-          subtitle="Public University"
-          description="বাংলাদেশের সকল পাবলিক বিশ্ববিদ্যালয়, মেডিকেল কলেজ, এবং প্রকৌশল বিশ্ববিদ্যালয়ের তথ্য ও ভর্তি সহায়িকা এখানে পাবেন।"
-          stats={[
-            { value: '৫০+', label: 'বিশ্ববিদ্যালয়' },
-            { value: '১০০০+', label: 'বিষয়' },
-            { value: 'লক্ষাধিক', label: 'আসন', tooltip: 'প্রতি বছর আসন সংখ্যা পরিবর্তিত হয়' },
-          ]}
-        />
+        <div className="mt-20 text-center">
+            <h1 className="text-3xl md:text-4xl font-bold text-foreground">পাবলিক বিশ্ববিদ্যালয়</h1>
+            <p className="text-muted-foreground mt-2">বাংলাদেশের সকল পাবলিক বিশ্ববিদ্যালয়ের তথ্য একসাথে</p>
+        </div>
 
-        <div className="sticky top-[76px] z-40">
-          <div className="relative mt-8">
-            <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground" />
-            <Input
-              type="text"
-              placeholder="বিশ্ববিদ্যালয়ের নাম দিয়ে খুঁজুন..."
-              value={searchTerm}
-              onChange={(e) => setSearchTerm(e.target.value)}
-              className="w-full pl-10 text-base focus-visible:ring-primary focus-visible:ring-offset-2 shadow-sm bg-card"
-            />
+        <div className="sticky top-[76px] z-40 py-3">
+          <div className="relative w-full max-w-lg mx-auto">
+              <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground h-5 w-5" />
+              <Input
+                  type="text"
+                  placeholder="বিশ্ববিদ্যালয়ের নাম দিয়ে খুঁজুন..."
+                  value={searchTerm}
+                  onChange={(e) => setSearchTerm(e.target.value)}
+                  className="w-full pl-10 text-base focus-visible:ring-primary focus-visible:ring-offset-2 shadow-sm bg-card rounded-full"
+              />
           </div>
         </div>
-
-        <div className="mt-8 space-y-8">
-          <AnimatePresence>
-            {categories.map(category => (
-              groupedUniversities[category] && groupedUniversities[category].length > 0 && (
-                <motion.div
-                  key={category}
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  exit={{ opacity: 0 }}
-                  className="space-y-4"
-                >
-                  <h2 className="text-2xl font-bold text-foreground border-b-2 border-primary pb-2">
-                    {category}
-                  </h2>
-                  <motion.div
-                    variants={containerVariants}
-                    initial="hidden"
-                    animate="visible"
-                    className="space-y-3"
-                  >
-                    {groupedUniversities[category].map(uni => (
-                      <UniversityCard key={uni.shortName} university={uni} />
-                    ))}
-                  </motion.div>
-                </motion.div>
-              )
+        
+        <div className="mt-8">
+            {sortedCategories.map(category => (
+                <div key={category} className="mb-12">
+                    <h2 className="text-2xl font-bold text-foreground mb-6 border-b-2 border-primary pb-2">{category} ({groupedUniversities[category].length})</h2>
+                    <motion.div
+                        variants={containerVariants}
+                        initial="hidden"
+                        animate="visible"
+                        className="grid grid-cols-1 gap-4"
+                    >
+                        <AnimatePresence>
+                        {groupedUniversities[category].map(uni => (
+                            <UniversityCard key={uni.shortName} university={uni} />
+                        ))}
+                        </AnimatePresence>
+                    </motion.div>
+                </div>
             ))}
-          </AnimatePresence>
+            {filteredUniversities.length === 0 && (
+                <div className="text-center py-10 text-muted-foreground">
+                    <p>কোনো বিশ্ববিদ্যালয় খুঁজে পাওয়া যায়নি।</p>
+                </div>
+            )}
         </div>
+
       </div>
     </div>
   );
-};
+}
 
-export default PublicUniversityPage;
