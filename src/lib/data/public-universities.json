@@ -1,417 +1,416 @@
-
 [
-    {
-        "nameBn": "ঢাকা বিশ্ববিদ্যালয়",
-        "nameEn": "University of Dhaka",
-        "shortName": "DU",
-        "category": "সাধারণ",
-        "description": "দেশের শীর্ষস্থানীয় গবেষণাধর্মী সরকারি বিশ্ববিদ্যালয়।",
-        "link": "/du",
-        "logo": "https://raw.githubusercontent.com/MNRfrom2020/logo-and-icon-cdn/refs/heads/main/University/DU.png"
-    },
-    {
-        "nameBn": "রাজশাহী বিশ্ববিদ্যালয়",
-        "nameEn": "University of Rajshahi",
-        "shortName": "RU",
-        "category": "সাধারণ",
-        "description": "দেশের দ্বিতীয় বৃহত্তম বিশ্ববিদ্যালয়, যা শিক্ষানগরী রাজশাহীতে অবস্থিত।",
-        "link": "/ru",
-        "logo": "https://raw.githubusercontent.com/MNRfrom2020/logo-and-icon-cdn/refs/heads/main/University/RU.png"
-    },
-    {
-        "nameBn": "চট্টগ্রাম বিশ্ববিদ্যালয়",
-        "nameEn": "University of Chittagong",
-        "shortName": "CU",
-        "category": "সাধারণ",
-        "description": "প্রাকৃতিক সৌন্দর্যে ঘেরা দেশের অন্যতম বৃহৎ একটি বিশ্ববিদ্যালয়।",
-        "link": "/cu",
-        "logo": "https://raw.githubusercontent.com/MNRfrom2020/logo-and-icon-cdn/refs/heads/main/University/CU.png"
-    },
-    {
-        "nameBn": "জাহাঙ্গীরনগর বিশ্ববিদ্যালয়",
-        "nameEn": "Jahangirnagar University",
-        "shortName": "JU",
-        "category": "সাধারণ",
-        "description": "বাংলাদেশের একমাত্র আবাসিক পাবলিক বিশ্ববিদ্যালয়।",
-        "link": "/ju",
-        "logo": "https://raw.githubusercontent.com/MNRfrom2020/logo-and-icon-cdn/refs/heads/main/University/JU.png"
-    },
-    {
-        "nameBn": "কৃষি গুচ্ছ",
-        "nameEn": "Cluster Agri",
-        "shortName": "ACAS",
-        "category": "কৃষি",
-        "description": "কৃষি গুচ্ছভুক্ত বিশ্ববিদ্যালয় মোট ৮টি (সাধারণ+ভেটেরিনারি)",
-        "link": "/agri",
-        "logo": "https://raw.githubusercontent.com/MNRfrom2020/logo-and-icon-cdn/refs/heads/main/University/ACAS.png"
-    },
-    {
-        "nameBn": "বাংলাদেশ কৃষি বিশ্ববিদ্যালয়",
-        "nameEn": "Bangladesh Agricultural University",
-        "shortName": "BAU",
-        "category": "কৃষি",
-        "description": "কৃষি বিষয়ক উচ্চশিক্ষার অন্যতম সেরা একটি প্রতিষ্ঠান।",
-        "link": "/bau",
-        "logo": "https://raw.githubusercontent.com/MNRfrom2020/logo-and-icon-cdn/refs/heads/main/University/BAU.png"
-    },
-    {
-        "nameBn": "চট্টগ্রাম ভেটেরিনারি ও এনিম্যাল সাইন্সেস বিশ্ববিদ্যালয়",
-        "nameEn": "Chittagong Veterinary and Animal Sciences University",
-        "shortName": "CVASU",
-        "category": "কৃষি",
-        "description": "প্রাণী ও মৎস্য বিজ্ঞানের জন্য বিশেষায়িত একটি বিশ্ববিদ্যালয়।",
-        "link": "/cvasu",
-        "logo": "https://raw.githubusercontent.com/MNRfrom2020/logo-and-icon-cdn/refs/heads/main/University/CVASU.png"
-    },
-    {
-        "nameBn": "গাজীপুর কৃষি বিশ্ববিদ্যালয়",
-        "nameEn": "Gazipur Agricultural University",
-        "shortName": "GAU",
-        "category": "কৃষি",
-        "description": "গাজীপুরে অবস্থিত একটি আন্তর্জাতিক মানের কৃষি শিক্ষা ও গবেষণা প্রতিষ্ঠান।",
-        "link": "/bsmrau",
-        "logo": "https://raw.githubusercontent.com/MNRfrom2020/logo-and-icon-cdn/refs/heads/main/University/GAU.png"
-    },
-    {
-        "nameBn": "হবিগঞ্জ কৃষি বিশ্ববিদ্যালয়",
-        "nameEn": "Habiganj Agricultural University",
-        "shortName": "HAU",
-        "category": "কৃষি",
-        "description": "হাওর অঞ্চলের কৃষি উন্নয়নে প্রতিষ্ঠিত একটি নতুন বিশ্ববিদ্যালয়।",
-        "link": "/hau",
-        "logo": "https://raw.githubusercontent.com/MNRfrom2020/logo-and-icon-cdn/refs/heads/main/University/HAU.png"
-    },
-    {
-        "nameBn": "খুলনা কৃষি বিশ্ববিদ্যালয়",
-        "nameEn": "Khulna Agricultural University",
-        "shortName": "KAU",
-        "category": "কৃষি",
-        "description": "দক্ষিণ-পশ্চিমাঞ্চলের কৃষি গবেষণার জন্য একটি গুরুত্বপূর্ণ প্রতিষ্ঠান।",
-        "link": "/kau",
-        "logo": "https://raw.githubusercontent.com/MNRfrom2020/logo-and-icon-cdn/refs/heads/main/University/KAU.png"
-    },
-    {
-        "nameBn": "কুড়িগ্রাম কৃষি বিশ্ববিদ্যালয়",
-        "nameEn": "Kurigram Agricultural University",
-        "shortName": "KuriAU",
-        "category": "কৃষি",
-        "description": "উত্তরবঙ্গের কৃষি উন্নয়নে প্রতিষ্ঠিত একটি নতুন পাবলিক বিশ্ববিদ্যালয়।",
-        "link": "/kuriau",
-        "logo": "https://raw.githubusercontent.com/MNRfrom2020/logo-and-icon-cdn/refs/heads/main/University/KuriAU.png"
-    },
-    {
-        "nameBn": "সিলেট কৃষি বিশ্ববিদ্যালয়",
-        "nameEn": "Sylhet Agricultural University",
-        "shortName": "SAU",
-        "category": "কৃষি",
-        "description": "সিলেট বিভাগে অবস্থিত কৃষি ও প্রাণী বিজ্ঞানের একটি বিশেষায়িত বিশ্ববিদ্যালয়।",
-        "link": "/sau",
-        "logo": "https://raw.githubusercontent.com/MNRfrom2020/logo-and-icon-cdn/refs/heads/main/University/SAU.png"
-    },
-    {
-        "nameBn": "শেরেবাংলা কৃষি বিশ্ববিদ্যালয়",
-        "nameEn": "Sher-e-Bangla Agricultural University",
-        "shortName": "SBAU",
-        "category": "কৃষি",
-        "description": "ঢাকার শেরেবাংলা নগরে অবস্থিত একটি ঐতিহ্যবাহী কৃষি শিক্ষা প্রতিষ্ঠান।",
-        "link": "/sbau",
-        "logo": "https://raw.githubusercontent.com/MNRfrom2020/logo-and-icon-cdn/refs/heads/main/University/SBAU.png"
-    },
-    {
-        "nameBn": "বাংলাদেশ প্রকৌশল বিশ্ববিদ্যালয়",
-        "nameEn": "Bangladesh University of Engineering and Technology",
-        "shortName": "BUET",
-        "category": "প্রকৌশল",
-        "description": "দেশের শীর্ষস্থানীয় প্রকৌশল শিক্ষা প্রতিষ্ঠান।",
-        "link": "/buet",
-        "logo": "https://raw.githubusercontent.com/MNRfrom2020/logo-and-icon-cdn/refs/heads/main/University/BUET.png"
-    },
-    {
-        "nameBn": "খুলনা প্রকৌশল ও প্রযুক্তি বিশ্ববিদ্যালয়",
-        "nameEn": "Khulna University of Engineering & Technology",
-        "shortName": "KUET",
-        "category": "প্রকৌশল",
-        "description": "দক্ষিণবঙ্গের অন্যতম সেরা প্রকৌশল বিশ্ববিদ্যালয়।",
-        "link": "/kuet",
-        "logo": "https://raw.githubusercontent.com/MNRfrom2020/logo-and-icon-cdn/refs/heads/main/University/KUET.png"
-    },
-    {
-        "nameBn": "রাজশাহী প্রকৌশল ও প্রযুক্তি বিশ্ববিদ্যালয়",
-        "nameEn": "Rajshahi University of Engineering & Technology",
-        "shortName": "RUET",
-        "category": "প্রকৌশল",
-        "description": "উত্তরবঙ্গের শিক্ষার্থীদের জন্য প্রকৌশল শিক্ষার বাতিঘর।",
-        "link": "/ruet",
-        "logo": "https://raw.githubusercontent.com/MNRfrom2020/logo-and-icon-cdn/refs/heads/main/University/RUET.png"
-    },
-    {
-        "nameBn": "চট্টগ্রাম প্রকৌশল ও প্রযুক্তি বিশ্ববিদ্যালয়",
-        "nameEn": "Chittagong University of Engineering & Technology",
-        "shortName": "CUET",
-        "category": "প্রকৌশল",
-        "description": "চট্টগ্রামের প্রধান প্রকৌশল শিক্ষা ও গবেষণা প্রতিষ্ঠান।",
-        "link": "/cuet",
-        "logo": "https://raw.githubusercontent.com/MNRfrom2020/logo-and-icon-cdn/refs/heads/main/University/CUET.png"
-    },
-    {
-        "nameBn": "ঢাকা প্রকৌশল ও প্রযুক্তি বিশ্ববিদ্যালয়",
-        "nameEn": "Dhaka University of Engineering & Technology",
-        "shortName": "DUET",
-        "category": "প্রকৌশল",
-        "description": "ডিপ্লোমা ইন ইঞ্জিনিয়ারিং সম্পন্নকারীদের জন্য বিশেষায়িত বিশ্ববিদ্যালয়।",
-        "link": "/duet",
-        "logo": "https://raw.githubusercontent.com/MNRfrom2020/logo-and-icon-cdn/refs/heads/main/University/DUET.png"
-    },
-    {
-        "nameBn": "বাংলাদেশ টেক্সটাইল বিশ্ববিদ্যালয়",
-        "nameEn": "Bangladesh University of Textiles",
-        "shortName": "BUTEX",
-        "category": "প্রকৌশল",
-        "description": "টেক্সটাইল ইঞ্জিনিয়ারিং শিক্ষার জন্য দেশের একমাত্র সরকারি বিশ্ববিদ্যালয়।",
-        "link": "/butex",
-        "logo": "https://raw.githubusercontent.com/MNRfrom2020/logo-and-icon-cdn/refs/heads/main/University/BUTex.png"
-    },
-    {
-        "nameBn": "সামরিক বিজ্ঞান ও প্রযুক্তি ইনস্টিটিউট",
-        "nameEn": "Military Institute of Science and Technology",
-        "shortName": "MIST",
-        "category": "প্রকৌশল",
-        "description": "বাংলাদেশ সশস্ত্র বাহিনী দ্বারা পরিচালিত একটি উন্নত প্রযুক্তিগত শিক্ষা প্রতিষ্ঠান।",
-        "link": "/mist",
-        "logo": "https://raw.githubusercontent.com/MNRfrom2020/logo-and-icon-cdn/refs/heads/main/University/MIST.png"
-    },
-    {
-        "nameBn": "শাহজালাল বিজ্ঞান ও প্রযুক্তি বিশ্ববিদ্যালয়",
-        "nameEn": "Shahjalal University of Science and Technology",
-        "shortName": "SUST",
-        "category": "বিজ্ঞান ও প্রযুক্তি",
-        "description": "বিজ্ঞান ও প্রযুক্তি গবেষণায় দেশের অন্যতম সেরা একটি বিশ্ববিদ্যালয়।",
-        "link": "/sust",
-        "logo": "https://raw.githubusercontent.com/MNRfrom2020/logo-and-icon-cdn/refs/heads/main/University/SUST.png"
-    },
-    {
-        "nameBn": "যশোর বিজ্ঞান ও প্রযুক্তি বিশ্ববিদ্যালয়",
-        "nameEn": "Jashore University of Science and Technology",
-        "shortName": "JUST",
-        "category": "বিজ্ঞান ও প্রযুক্তি",
-        "description": "দেশের দক্ষিণ-পশ্চিমাঞ্চলের একটি অন্যতম বিজ্ঞান ও প্রযুক্তি বিশ্ববিদ্যালয়।",
-        "link": "/just",
-        "logo": "https://raw.githubusercontent.com/MNRfrom2020/logo-and-icon-cdn/refs/heads/main/University/JUST.png"
-    },
-    {
-        "nameBn": "মাওলানা ভাসানী বিজ্ঞান ও প্রযুক্তি বিশ্ববিদ্যালয়",
-        "nameEn": "Mawlana Bhashani Science and Technology University",
-        "shortName": "MBSTU",
-        "category": "বিজ্ঞান ও প্রযুক্তি",
-        "description": "টাঙ্গাইলে অবস্থিত একটি সরকারি বিজ্ঞান ও প্রযুক্তি বিশ্ববিদ্যালয়।",
-        "link": "/mbstu",
-        "logo": "https://raw.githubusercontent.com/MNRfrom2020/logo-and-icon-cdn/refs/heads/main/University/MBSTU.png"
-    },
-    {
-        "nameBn": "হাজী মোহাম্মদ দানেশ বিজ্ঞান ও প্রযুক্তি বিশ্ববিদ্যালয়",
-        "nameEn": "Hajee Mohammad Danesh Science & Technology University",
-        "shortName": "HSTU",
-        "category": "বিজ্ঞান ও প্রযুক্তি",
-        "description": "উত্তরবঙ্গের একটি শীর্ষস্থানীয় বিজ্ঞান ও প্রযুক্তি বিশ্ববিদ্যালয়।",
-        "link": "/hstu",
-        "logo": "https://raw.githubusercontent.com/MNRfrom2020/logo-and-icon-cdn/refs/heads/main/University/HSTU.png"
-    },
-    {
-        "nameBn": "নোয়াখালী বিজ্ঞান ও প্রযুক্তি বিশ্ববিদ্যালয়",
-        "nameEn": "Noakhali Science and Technology University",
-        "shortName": "NSTU",
-        "category": "বিজ্ঞান ও প্রযুক্তি",
-        "description": "নোয়াখালী জেলায় অবস্থিত একটি সরকারি বিজ্ঞান ও প্রযুক্তি বিশ্ববিদ্যালয়।",
-        "link": "/nstu",
-        "logo": "https://raw.githubusercontent.com/MNRfrom2020/logo-and-icon-cdn/refs/heads/main/University/NSTU.png"
-    },
-    {
-        "nameBn": "পটুয়াখালী বিজ্ঞান ও প্রযুক্তি বিশ্ববিদ্যালয়",
-        "nameEn": "Patuakhali Science and Technology University",
-        "shortName": "PSTU",
-        "category": "বিজ্ঞান ও প্রযুক্তি",
-        "description": "বরিশাল বিভাগে অবস্থিত একটি বিশেষায়িত সরকারি বিশ্ববিদ্যালয়।",
-        "link": "/pstu",
-        "logo": "https://raw.githubusercontent.com/MNRfrom2020/logo-and-icon-cdn/refs/heads/main/University/PSTU.png"
-    },
-    {
-        "nameBn": "পাবনা বিজ্ঞান ও প্রযুক্তি বিশ্ববিদ্যালয়",
-        "nameEn": "Pabna University of Science and Technology",
-        "shortName": "PUST",
-        "category": "বিজ্ঞান ও প্রযুক্তি",
-        "description": "পাবনা জেলায় অবস্থিত একটি পাবলিক বিশ্ববিদ্যালয়।",
-        "link": "/pust",
-        "logo": "https://raw.githubusercontent.com/MNRfrom2020/logo-and-icon-cdn/refs/heads/main/University/PUST.png"
-    },
-    {
-        "nameBn": "রাঙ্গামাটি বিজ্ঞান ও প্রযুক্তি বিশ্ববিদ্যালয়",
-        "nameEn": "Rangamati Science and Technology University",
-        "shortName": "RMSTU",
-        "category": "বিজ্ঞান ও প্রযুক্তি",
-        "description": "পার্বত্য চট্টগ্রাম অঞ্চলের প্রথম পাবলিক বিশ্ববিদ্যালয়।",
-        "link": "/rmstu",
-        "logo": "https://raw.githubusercontent.com/MNRfrom2020/logo-and-icon-cdn/refs/heads/main/University/RMSTU.png"
-    },
-    {
-        "nameBn": "বগুড়া বিজ্ঞান ও প্রযুক্তি বিশ্ববিদ্যালয়",
-        "nameEn": "Bogura Science and Technology University",
-        "shortName": "BSTU",
-        "category": "বিজ্ঞান ও প্রযুক্তি",
-        "description": "বগুড়া জেলায় অবস্থিত একটি নতুন পাবলিক বিজ্ঞান ও প্রযুক্তি বিশ্ববিদ্যালয়।",
-        "link": "/bstu",
-        "logo": "https://raw.githubusercontent.com/MNRfrom2020/logo-and-icon-cdn/refs/heads/main/University/BSTU.png"
-    },
-    {
-        "nameBn": "চাঁদপুর বিজ্ঞান ও প্রযুক্তি বিশ্ববিদ্যালয়",
-        "nameEn": "Chandpur Science and Technology University",
-        "shortName": "CSTU",
-        "category": "বিজ্ঞান ও প্রযুক্তি",
-        "description": "চাঁদপুর জেলায় অবস্থিত একটি নতুন পাবলিক বিজ্ঞান ও প্রযুক্তি বিশ্ববিদ্যালয়।",
-        "link": "/cstu",
-        "logo": "https://raw.githubusercontent.com/MNRfrom2020/logo-and-icon-cdn/refs/heads/main/University/CSTU.png"
-    },
-    {
-        "nameBn": "গোপালগঞ্জ বিজ্ঞান ও প্রযুক্তি বিশ্ববিদ্যালয়",
-        "nameEn": "Gopalganj Science and Technology University",
-        "shortName": "GSTU",
-        "category": "বিজ্ঞান ও প্রযুক্তি",
-        "description": "গোপালগঞ্জ জেলায় অবস্থিত একটি সরকারি বিজ্ঞান ও প্রযুক্তি বিশ্ববিদ্যালয়।",
-        "link": "/gstu",
-        "logo": "https://raw.githubusercontent.com/MNRfrom2020/logo-and-icon-cdn/refs/heads/main/University/GSTU.png"
-    },
-    {
-        "nameBn": "জামালপুর বিজ্ঞান ও প্রযুক্তি বিশ্ববিদ্যালয়",
-        "nameEn": "Jamalpur Science and Technology University",
-        "shortName": "JSTU",
-        "category": "বিজ্ঞান ও প্রযুক্তি",
-        "description": "জামালপুর জেলায় অবস্থিত একটি নতুন পাবলিক বিজ্ঞান ও প্রযুক্তি বিশ্ববিদ্যালয়।",
-        "link": "/jstu",
-        "logo": "https://raw.githubusercontent.com/MNRfrom2020/logo-and-icon-cdn/refs/heads/main/University/JSTU.png"
-    },
-    {
-        "nameBn": "পিরোজপুর বিজ্ঞান ও প্রযুক্তি বিশ্ববিদ্যালয়",
-        "nameEn": "Pirojpur Science and Technology University",
-        "shortName": "PrSTU",
-        "category": "বিজ্ঞান ও প্রযুক্তি",
-        "description": "পিরোজপুর জেলায় অবস্থিত একটি নতুন পাবলিক বিজ্ঞান ও প্রযুক্তি বিশ্ববিদ্যালয়।",
-        "link": "/prstu",
-        "logo": "https://raw.githubusercontent.com/MNRfrom2020/logo-and-icon-cdn/refs/heads/main/University/PrSTU.png"
-    },
-    {
-        "nameBn": "সুনামগঞ্জ বিজ্ঞান ও প্রযুক্তি বিশ্ববিদ্যালয়",
-        "nameEn": "Sunamganj Science and Technology University",
-        "shortName": "SSTU",
-        "category": "বিজ্ঞান ও প্রযুক্তি",
-        "description": "সুনামগঞ্জ জেলায় অবস্থিত একটি নতুন পাবলিক বিজ্ঞান ও প্রযুক্তি বিশ্ববিদ্যালয়।",
-        "link": "/sstu",
-        "logo": "https://raw.githubusercontent.com/MNRfrom2020/logo-and-icon-cdn/refs/heads/main/University/SSTU.png"
-    },
-    {
-        "nameBn": "বাংলাদেশ মেডিকেল বিশ্ববিদ্যালয়",
-        "nameEn": "Bangladesh Medical University",
-        "shortName": "BMU",
-        "category": "মেডিকেল",
-        "description": "চিকিৎসাশাস্ত্রে উচ্চতর গবেষণা ও ডিগ্রির জন্য দেশের প্রধান প্রতিষ্ঠান।",
-        "link": "/bsmmu",
-        "logo": "https://raw.githubusercontent.com/MNRfrom2020/logo-and-icon-cdn/refs/heads/main/University/BMU.png"
-    },
-    {
-        "nameBn": "ইসলামী বিশ্ববিদ্যালয়",
-        "nameEn": "Islamic University, Bangladesh",
-        "shortName": "IU",
-        "category": "সাধারণ",
-        "description": "ধর্মতত্ত্ব ও আধুনিক শিক্ষার সমন্বয়ে গঠিত একটি বিশ্ববিদ্যালয়।",
-        "link": "/iu",
-        "logo": "https://raw.githubusercontent.com/MNRfrom2020/logo-and-icon-cdn/refs/heads/main/University/IU.png"
-    },
-    {
-        "nameBn": "খুলনা বিশ্ববিদ্যালয়",
-        "nameEn": "Khulna University",
-        "shortName": "KU",
-        "category": "সাধারণ",
-        "description": "সেশনজট মুক্ত একটি পাবলিক বিশ্ববিদ্যালয়।",
-        "link": "/ku",
-        "logo": "https://raw.githubusercontent.com/MNRfrom2020/logo-and-icon-cdn/refs/heads/main/University/KU.png"
-    },
-    {
-        "nameBn": "জগন্নাথ বিশ্ববিদ্যালয়",
-        "nameEn": "Jagannath University",
-        "shortName": "JnU",
-        "category": "সাধারণ",
-        "description": "ঢাকার প্রাণকেন্দ্রে অবস্থিত একটি ঐতিহ্যবাহী শিক্ষা প্রতিষ্ঠান।",
-        "link": "/jnu",
-        "logo": "https://raw.githubusercontent.com/MNRfrom2020/logo-and-icon-cdn/refs/heads/main/University/JnU.png"
-    },
-    {
-        "nameBn": "কুমিল্লা বিশ্ববিদ্যালয়",
-        "nameEn": "Comilla University",
-        "shortName": "CoU",
-        "category": "সাধারণ",
-        "description": "ময়নামতির কোলে অবস্থিত একটি দ্রুত বর্ধনশীল বিশ্ববিদ্যালয়।",
-        "link": "/cou",
-        "logo": "https://raw.githubusercontent.com/MNRfrom2020/logo-and-icon-cdn/refs/heads/main/University/CoU.png"
-    },
-    {
-        "nameBn": "জাতীয় কবি কাজী নজরুল ইসলাম বিশ্ববিদ্যালয়",
-        "nameEn": "Jatiya Kabi Kazi Nazrul Islam University",
-        "shortName": "JKKNIU",
-        "category": "সাধারণ",
-        "description": "সাহিত্য ও সংস্কৃতি চর্চার জন্য পরিচিত একটি বিশ্ববিদ্যালয়।",
-        "link": "/jkkniu",
-        "logo": "https://raw.githubusercontent.com/MNRfrom2020/logo-and-icon-cdn/refs/heads/main/University/JKKNIU.png"
-    },
-    {
-        "nameBn": "বাংলাদেশ ইউনিভার্সিটি অব প্রফেশনালস",
-        "nameEn": "Bangladesh University of Professionals",
-        "shortName": "BUP",
-        "category": "সাধারণ",
-        "description": "বাংলাদেশ সশস্ত্র বাহিনী দ্বারা পরিচালিত একটি মানসম্পন্ন শিক্ষা প্রতিষ্ঠান।",
-        "link": "/bup",
-        "logo": "https://raw.githubusercontent.com/MNRfrom2020/logo-and-icon-cdn/refs/heads/main/University/BUP.png"
-    },
-    {
-        "nameBn": "বেগম রোকেয়া বিশ্ববিদ্যালয়, রংপুর",
-        "nameEn": "Begum Rokeya University, Rangpur",
-        "shortName": "BRUR",
-        "category": "সাধারণ",
-        "description": "উত্তরবঙ্গের নারী জাগরণের অগ্রদূতের নামে প্রতিষ্ঠিত একটি বিশ্ববিদ্যালয়।",
-        "link": "/brur",
-        "logo": "https://raw.githubusercontent.com/MNRfrom2020/logo-and-icon-cdn/refs/heads/main/University/BRUR.png"
-    },
-    {
-        "nameBn": "বরিশাল বিশ্ববিদ্যালয়",
-        "nameEn": "University of Barisal",
-        "shortName": "BU",
-        "category": "সাধারণ",
-        "description": "কীর্তনখোলা নদীর তীরে অবস্থিত বরিশাল বিভাগের একমাত্র পাবলিক বিশ্ববিদ্যালয়।",
-        "link": "/bu",
-        "logo": "https://raw.githubusercontent.com/MNRfrom2020/logo-and-icon-cdn/refs/heads/main/University/BU.png"
-    },
-    {
-        "nameBn": "কিশোরগঞ্জ বিশ্ববিদ্যালয়",
-        "nameEn": "Kishoreganj University",
-        "shortName": "KiU",
-        "category": "সাধারণ",
-        "description": "কিশোরগঞ্জ জেলায় অবস্থিত একটি নতুন পাবলিক বিশ্ববিদ্যালয়।",
-        "link": "/kiu",
-        "logo": "https://raw.githubusercontent.com/MNRfrom2020/logo-and-icon-cdn/refs/heads/main/University/KiU.png"
-    },
-    {
-        "nameBn": "নেত্রকোনা বিশ্ববিদ্যালয়",
-        "nameEn": "Netrokona University",
-        "shortName": "NeU",
-        "category": "সাধারণ",
-        "description": "নেত্রকোনা জেলায় অবস্থিত একটি নতুন পাবলিক বিশ্ববিদ্যালয়।",
-        "link": "/neu",
-        "logo": "https://raw.githubusercontent.com/MNRfrom2020/logo-and-icon-cdn/refs/heads/main/University/NeU.png"
-    },
-    {
-        "nameBn": "রবীন্দ্র বিশ্ববিদ্যালয়, বাংলাদেশ",
-        "nameEn": "Rabindra University, Bangladesh",
-        "shortName": "RUB",
-        "category": "সাধারণ",
-        "description": "বিশ্বকবি রবীন্দ্রনাথ ঠাকুরের নামে প্রতিষ্ঠিত একটি সাংস্কৃতিক ও সাধারণ বিশ্ববিদ্যালয়।",
-        "link": "/rub",
-        "logo": "https://raw.githubusercontent.com/MNRfrom2020/logo-and-icon-cdn/refs/heads/main/University/RUB.png"
-    }
+  {
+    "nameBn": "ঢাকা বিশ্ববিদ্যালয়",
+    "nameEn": "University of Dhaka",
+    "shortName": "DU",
+    "category": "সাধারণ",
+    "description": "দেশের শীর্ষস্থানীয় গবেষণাধর্মী সরকারি বিশ্ববিদ্যালয়।",
+    "link": "/du",
+    "logo": "https://raw.githubusercontent.com/MNRfrom2020/logo-and-icon-cdn/refs/heads/main/University/DU.png"
+  },
+  {
+    "nameBn": "রাজশাহী বিশ্ববিদ্যালয়",
+    "nameEn": "University of Rajshahi",
+    "shortName": "RU",
+    "category": "সাধারণ",
+    "description": "দেশের দ্বিতীয় বৃহত্তম বিশ্ববিদ্যালয়, যা শিক্ষানগরী রাজশাহীতে অবস্থিত।",
+    "link": "/ru",
+    "logo": "https://raw.githubusercontent.com/MNRfrom2020/logo-and-icon-cdn/refs/heads/main/University/RU.png"
+  },
+  {
+    "nameBn": "চট্টগ্রাম বিশ্ববিদ্যালয়",
+    "nameEn": "University of Chittagong",
+    "shortName": "CU",
+    "category": "সাধারণ",
+    "description": "প্রাকৃতিক সৌন্দর্যে ঘেরা দেশের অন্যতম বৃহৎ একটি বিশ্ববিদ্যালয়।",
+    "link": "/cu",
+    "logo": "https://raw.githubusercontent.com/MNRfrom2020/logo-and-icon-cdn/refs/heads/main/University/CU.png"
+  },
+  {
+    "nameBn": "জাহাঙ্গীরনগর বিশ্ববিদ্যালয়",
+    "nameEn": "Jahangirnagar University",
+    "shortName": "JU",
+    "category": "সাধারণ",
+    "description": "বাংলাদেশের একমাত্র আবাসিক পাবলিক বিশ্ববিদ্যালয়।",
+    "link": "/ju",
+    "logo": "https://raw.githubusercontent.com/MNRfrom2020/logo-and-icon-cdn/refs/heads/main/University/JU.png"
+  },
+  {
+    "nameBn": "কৃষি গুচ্ছ",
+    "nameEn": "Cluster Agri",
+    "shortName": "ACAS",
+    "category": "কৃষি",
+    "description": "কৃষি গুচ্ছভুক্ত বিশ্ববিদ্যালয় মোট ৮টি (সাধারণ+ভেটেরিনারি)",
+    "link": "/agri",
+    "logo": "https://raw.githubusercontent.com/MNRfrom2020/logo-and-icon-cdn/refs/heads/main/University/ACAS.png"
+  },
+  {
+    "nameBn": "বাংলাদেশ কৃষি বিশ্ববিদ্যালয়",
+    "nameEn": "Bangladesh Agricultural University",
+    "shortName": "BAU",
+    "category": "কৃষি",
+    "description": "কৃষি বিষয়ক উচ্চশিক্ষার অন্যতম সেরা একটি প্রতিষ্ঠান।",
+    "link": "/bau",
+    "logo": "https://raw.githubusercontent.com/MNRfrom2020/logo-and-icon-cdn/refs/heads/main/University/BAU.png"
+  },
+  {
+    "nameBn": "চট্টগ্রাম ভেটেরিনারি ও এনিম্যাল সাইন্সেস বিশ্ববিদ্যালয়",
+    "nameEn": "Chittagong Veterinary and Animal Sciences University",
+    "shortName": "CVASU",
+    "category": "কৃষি",
+    "description": "প্রাণী ও মৎস্য বিজ্ঞানের জন্য বিশেষায়িত একটি বিশ্ববিদ্যালয়।",
+    "link": "/cvasu",
+    "logo": "https://raw.githubusercontent.com/MNRfrom2020/logo-and-icon-cdn/refs/heads/main/University/CVASU.png"
+  },
+  {
+    "nameBn": "গাজীপুর কৃষি বিশ্ববিদ্যালয়",
+    "nameEn": "Gazipur Agricultural University",
+    "shortName": "GAU",
+    "category": "কৃষি",
+    "description": "গাজীপুরে অবস্থিত একটি আন্তর্জাতিক মানের কৃষি শিক্ষা ও গবেষণা প্রতিষ্ঠান।",
+    "link": "/bsmrau",
+    "logo": "https://raw.githubusercontent.com/MNRfrom2020/logo-and-icon-cdn/refs/heads/main/University/GAU.png"
+  },
+  {
+    "nameBn": "হবিগঞ্জ কৃষি বিশ্ববিদ্যালয়",
+    "nameEn": "Habiganj Agricultural University",
+    "shortName": "HAU",
+    "category": "কৃষি",
+    "description": "হাওর অঞ্চলের কৃষি উন্নয়নে প্রতিষ্ঠিত একটি নতুন বিশ্ববিদ্যালয়।",
+    "link": "/hau",
+    "logo": "https://raw.githubusercontent.com/MNRfrom2020/logo-and-icon-cdn/refs/heads/main/University/HAU.png"
+  },
+  {
+    "nameBn": "খুলনা কৃষি বিশ্ববিদ্যালয়",
+    "nameEn": "Khulna Agricultural University",
+    "shortName": "KAU",
+    "category": "কৃষি",
+    "description": "দক্ষিণ-পশ্চিমাঞ্চলের কৃষি গবেষণার জন্য একটি গুরুত্বপূর্ণ প্রতিষ্ঠান।",
+    "link": "/kau",
+    "logo": "https://raw.githubusercontent.com/MNRfrom2020/logo-and-icon-cdn/refs/heads/main/University/KAU.png"
+  },
+  {
+    "nameBn": "কুড়িগ্রাম কৃষি বিশ্ববিদ্যালয়",
+    "nameEn": "Kurigram Agricultural University",
+    "shortName": "KuriAU",
+    "category": "কৃষি",
+    "description": "উত্তরবঙ্গের কৃষি উন্নয়নে প্রতিষ্ঠিত একটি নতুন পাবলিক বিশ্ববিদ্যালয়।",
+    "link": "/kuriau",
+    "logo": "https://raw.githubusercontent.com/MNRfrom2020/logo-and-icon-cdn/refs/heads/main/University/KuriAU.png"
+  },
+  {
+    "nameBn": "সিলেট কৃষি বিশ্ববিদ্যালয়",
+    "nameEn": "Sylhet Agricultural University",
+    "shortName": "SAU",
+    "category": "কৃষি",
+    "description": "সিলেট বিভাগে অবস্থিত কৃষি ও প্রাণী বিজ্ঞানের একটি বিশেষায়িত বিশ্ববিদ্যালয়।",
+    "link": "/sau",
+    "logo": "https://raw.githubusercontent.com/MNRfrom2020/logo-and-icon-cdn/refs/heads/main/University/SAU.png"
+  },
+  {
+    "nameBn": "শেরেবাংলা কৃষি বিশ্ববিদ্যালয়",
+    "nameEn": "Sher-e-Bangla Agricultural University",
+    "shortName": "SBAU",
+    "category": "কৃষি",
+    "description": "ঢাকার শেরেবাংলা নগরে অবস্থিত একটি ঐতিহ্যবাহী কৃষি শিক্ষা প্রতিষ্ঠান।",
+    "link": "/sbau",
+    "logo": "https://raw.githubusercontent.com/MNRfrom2020/logo-and-icon-cdn/refs/heads/main/University/SBAU.png"
+  },
+  {
+    "nameBn": "বাংলাদেশ প্রকৌশল বিশ্ববিদ্যালয়",
+    "nameEn": "Bangladesh University of Engineering and Technology",
+    "shortName": "BUET",
+    "category": "প্রকৌশল",
+    "description": "দেশের শীর্ষস্থানীয় প্রকৌশল শিক্ষা প্রতিষ্ঠান।",
+    "link": "/buet",
+    "logo": "https://raw.githubusercontent.com/MNRfrom2020/logo-and-icon-cdn/refs/heads/main/University/BUET.png"
+  },
+  {
+    "nameBn": "খুলনা প্রকৌশল ও প্রযুক্তি বিশ্ববিদ্যালয়",
+    "nameEn": "Khulna University of Engineering & Technology",
+    "shortName": "KUET",
+    "category": "প্রকৌশল",
+    "description": "দক্ষিণবঙ্গের অন্যতম সেরা প্রকৌশল বিশ্ববিদ্যালয়।",
+    "link": "/kuet",
+    "logo": "https://raw.githubusercontent.com/MNRfrom2020/logo-and-icon-cdn/refs/heads/main/University/KUET.png"
+  },
+  {
+    "nameBn": "রাজশাহী প্রকৌশল ও প্রযুক্তি বিশ্ববিদ্যালয়",
+    "nameEn": "Rajshahi University of Engineering & Technology",
+    "shortName": "RUET",
+    "category": "প্রকৌশল",
+    "description": "উত্তরবঙ্গের শিক্ষার্থীদের জন্য প্রকৌশল শিক্ষার বাতিঘর।",
+    "link": "/ruet",
+    "logo": "https://raw.githubusercontent.com/MNRfrom2020/logo-and-icon-cdn/refs/heads/main/University/RUET.png"
+  },
+  {
+    "nameBn": "চট্টগ্রাম প্রকৌশল ও প্রযুক্তি বিশ্ববিদ্যালয়",
+    "nameEn": "Chittagong University of Engineering & Technology",
+    "shortName": "CUET",
+    "category": "প্রকৌশল",
+    "description": "চট্টগ্রামের প্রধান প্রকৌশল শিক্ষা ও গবেষণা প্রতিষ্ঠান।",
+    "link": "/cuet",
+    "logo": "https://raw.githubusercontent.com/MNRfrom2020/logo-and-icon-cdn/refs/heads/main/University/CUET.png"
+  },
+  {
+    "nameBn": "ঢাকা প্রকৌশল ও প্রযুক্তি বিশ্ববিদ্যালয়",
+    "nameEn": "Dhaka University of Engineering & Technology",
+    "shortName": "DUET",
+    "category": "প্রকৌশল",
+    "description": "ডিপ্লোমা ইন ইঞ্জিনিয়ারিং সম্পন্নকারীদের জন্য বিশেষায়িত বিশ্ববিদ্যালয়।",
+    "link": "/duet",
+    "logo": "https://raw.githubusercontent.com/MNRfrom2020/logo-and-icon-cdn/refs/heads/main/University/DUET.png"
+  },
+  {
+    "nameBn": "বাংলাদেশ টেক্সটাইল বিশ্ববিদ্যালয়",
+    "nameEn": "Bangladesh University of Textiles",
+    "shortName": "BUTEX",
+    "category": "প্রকৌশল",
+    "description": "টেক্সটাইল ইঞ্জিনিয়ারিং শিক্ষার জন্য দেশের একমাত্র সরকারি বিশ্ববিদ্যালয়।",
+    "link": "/butex",
+    "logo": "https://raw.githubusercontent.com/MNRfrom2020/logo-and-icon-cdn/refs/heads/main/University/BUTex.png"
+  },
+  {
+    "nameBn": "সামরিক বিজ্ঞান ও প্রযুক্তি ইনস্টিটিউট",
+    "nameEn": "Military Institute of Science and Technology",
+    "shortName": "MIST",
+    "category": "প্রকৌশল",
+    "description": "বাংলাদেশ সশস্ত্র বাহিনী দ্বারা পরিচালিত একটি উন্নত প্রযুক্তিগত শিক্ষা প্রতিষ্ঠান।",
+    "link": "/mist",
+    "logo": "https://raw.githubusercontent.com/MNRfrom2020/logo-and-icon-cdn/refs/heads/main/University/MIST.png"
+  },
+  {
+    "nameBn": "শাহজালাল বিজ্ঞান ও প্রযুক্তি বিশ্ববিদ্যালয়",
+    "nameEn": "Shahjalal University of Science and Technology",
+    "shortName": "SUST",
+    "category": "বিজ্ঞান ও প্রযুক্তি",
+    "description": "বিজ্ঞান ও প্রযুক্তি গবেষণায় দেশের অন্যতম সেরা একটি বিশ্ববিদ্যালয়।",
+    "link": "/sust",
+    "logo": "https://raw.githubusercontent.com/MNRfrom2020/logo-and-icon-cdn/refs/heads/main/University/SUST.png"
+  },
+  {
+    "nameBn": "যশোর বিজ্ঞান ও প্রযুক্তি বিশ্ববিদ্যালয়",
+    "nameEn": "Jashore University of Science and Technology",
+    "shortName": "JUST",
+    "category": "বিজ্ঞান ও প্রযুক্তি",
+    "description": "দেশের দক্ষিণ-পশ্চিমাঞ্চলের একটি অন্যতম বিজ্ঞান ও প্রযুক্তি বিশ্ববিদ্যালয়।",
+    "link": "/just",
+    "logo": "https://raw.githubusercontent.com/MNRfrom2020/logo-and-icon-cdn/refs/heads/main/University/JUST.png"
+  },
+  {
+    "nameBn": "মাওলানা ভাসানী বিজ্ঞান ও প্রযুক্তি বিশ্ববিদ্যালয়",
+    "nameEn": "Mawlana Bhashani Science and Technology University",
+    "shortName": "MBSTU",
+    "category": "বিজ্ঞান ও প্রযুক্তি",
+    "description": "টাঙ্গাইলে অবস্থিত একটি সরকারি বিজ্ঞান ও প্রযুক্তি বিশ্ববিদ্যালয়।",
+    "link": "/mbstu",
+    "logo": "https://raw.githubusercontent.com/MNRfrom2020/logo-and-icon-cdn/refs/heads/main/University/MBSTU.png"
+  },
+  {
+    "nameBn": "হাজী মোহাম্মদ দানেশ বিজ্ঞান ও প্রযুক্তি বিশ্ববিদ্যালয়",
+    "nameEn": "Hajee Mohammad Danesh Science & Technology University",
+    "shortName": "HSTU",
+    "category": "বিজ্ঞান ও প্রযুক্তি",
+    "description": "উত্তরবঙ্গের একটি শীর্ষস্থানীয় বিজ্ঞান ও প্রযুক্তি বিশ্ববিদ্যালয়।",
+    "link": "/hstu",
+    "logo": "https://raw.githubusercontent.com/MNRfrom2020/logo-and-icon-cdn/refs/heads/main/University/HSTU.png"
+  },
+  {
+    "nameBn": "নোয়াখালী বিজ্ঞান ও প্রযুক্তি বিশ্ববিদ্যালয়",
+    "nameEn": "Noakhali Science and Technology University",
+    "shortName": "NSTU",
+    "category": "বিজ্ঞান ও প্রযুক্তি",
+    "description": "নোয়াখালী জেলায় অবস্থিত একটি সরকারি বিজ্ঞান ও প্রযুক্তি বিশ্ববিদ্যালয়।",
+    "link": "/nstu",
+    "logo": "https://raw.githubusercontent.com/MNRfrom2020/logo-and-icon-cdn/refs/heads/main/University/NSTU.png"
+  },
+  {
+    "nameBn": "পটুয়াখালী বিজ্ঞান ও প্রযুক্তি বিশ্ববিদ্যালয়",
+    "nameEn": "Patuakhali Science and Technology University",
+    "shortName": "PSTU",
+    "category": "বিজ্ঞান ও প্রযুক্তি",
+    "description": "বরিশাল বিভাগে অবস্থিত একটি বিশেষায়িত সরকারি বিশ্ববিদ্যালয়।",
+    "link": "/pstu",
+    "logo": "https://raw.githubusercontent.com/MNRfrom2020/logo-and-icon-cdn/refs/heads/main/University/PSTU.png"
+  },
+  {
+    "nameBn": "পাবনা বিজ্ঞান ও প্রযুক্তি বিশ্ববিদ্যালয়",
+    "nameEn": "Pabna University of Science and Technology",
+    "shortName": "PUST",
+    "category": "বিজ্ঞান ও প্রযুক্তি",
+    "description": "পাবনা জেলায় অবস্থিত একটি পাবলিক বিশ্ববিদ্যালয়।",
+    "link": "/pust",
+    "logo": "https://raw.githubusercontent.com/MNRfrom2020/logo-and-icon-cdn/refs/heads/main/University/PUST.png"
+  },
+  {
+    "nameBn": "রাঙ্গামাটি বিজ্ঞান ও প্রযুক্তি বিশ্ববিদ্যালয়",
+    "nameEn": "Rangamati Science and Technology University",
+    "shortName": "RMSTU",
+    "category": "বিজ্ঞান ও প্রযুক্তি",
+    "description": "পার্বত্য চট্টগ্রাম অঞ্চলের প্রথম পাবলিক বিশ্ববিদ্যালয়।",
+    "link": "/rmstu",
+    "logo": "https://raw.githubusercontent.com/MNRfrom2020/logo-and-icon-cdn/refs/heads/main/University/RMSTU.png"
+  },
+  {
+    "nameBn": "বগুড়া বিজ্ঞান ও প্রযুক্তি বিশ্ববিদ্যালয়",
+    "nameEn": "Bogura Science and Technology University",
+    "shortName": "BSTU",
+    "category": "বিজ্ঞান ও প্রযুক্তি",
+    "description": "বগুড়া জেলায় অবস্থিত একটি নতুন পাবলিক বিজ্ঞান ও প্রযুক্তি বিশ্ববিদ্যালয়।",
+    "link": "/bstu",
+    "logo": "https://raw.githubusercontent.com/MNRfrom2020/logo-and-icon-cdn/refs/heads/main/University/BSTU.png"
+  },
+  {
+    "nameBn": "চাঁদপুর বিজ্ঞান ও প্রযুক্তি বিশ্ববিদ্যালয়",
+    "nameEn": "Chandpur Science and Technology University",
+    "shortName": "CSTU",
+    "category": "বিজ্ঞান ও প্রযুক্তি",
+    "description": "চাঁদপুর জেলায় অবস্থিত একটি নতুন পাবলিক বিজ্ঞান ও প্রযুক্তি বিশ্ববিদ্যালয়।",
+    "link": "/cstu",
+    "logo": "https://raw.githubusercontent.com/MNRfrom2020/logo-and-icon-cdn/refs/heads/main/University/CSTU.png"
+  },
+  {
+    "nameBn": "গোপালগঞ্জ বিজ্ঞান ও প্রযুক্তি বিশ্ববিদ্যালয়",
+    "nameEn": "Gopalganj Science and Technology University",
+    "shortName": "GSTU",
+    "category": "বিজ্ঞান ও প্রযুক্তি",
+    "description": "গোপালগঞ্জ জেলায় অবস্থিত একটি সরকারি বিজ্ঞান ও প্রযুক্তি বিশ্ববিদ্যালয়।",
+    "link": "/gstu",
+    "logo": "https://raw.githubusercontent.com/MNRfrom2020/logo-and-icon-cdn/refs/heads/main/University/GSTU.png"
+  },
+  {
+    "nameBn": "জামালপুর বিজ্ঞান ও প্রযুক্তি বিশ্ববিদ্যালয়",
+    "nameEn": "Jamalpur Science and Technology University",
+    "shortName": "JSTU",
+    "category": "বিজ্ঞান ও প্রযুক্তি",
+    "description": "জামালপুর জেলায় অবস্থিত একটি নতুন পাবলিক বিজ্ঞান ও প্রযুক্তি বিশ্ববিদ্যালয়।",
+    "link": "/jstu",
+    "logo": "https://raw.githubusercontent.com/MNRfrom2020/logo-and-icon-cdn/refs/heads/main/University/JSTU.png"
+  },
+  {
+    "nameBn": "পিরোজপুর বিজ্ঞান ও প্রযুক্তি বিশ্ববিদ্যালয়",
+    "nameEn": "Pirojpur Science and Technology University",
+    "shortName": "PrSTU",
+    "category": "বিজ্ঞান ও প্রযুক্তি",
+    "description": "পিরোজপুর জেলায় অবস্থিত একটি নতুন পাবলিক বিজ্ঞান ও প্রযুক্তি বিশ্ববিদ্যালয়।",
+    "link": "/prstu",
+    "logo": "https://raw.githubusercontent.com/MNRfrom2020/logo-and-icon-cdn/refs/heads/main/University/PrSTU.png"
+  },
+  {
+    "nameBn": "সুনামগঞ্জ বিজ্ঞান ও প্রযুক্তি বিশ্ববিদ্যালয়",
+    "nameEn": "Sunamganj Science and Technology University",
+    "shortName": "SSTU",
+    "category": "বিজ্ঞান ও প্রযুক্তি",
+    "description": "সুনামগঞ্জ জেলায় অবস্থিত একটি নতুন পাবলিক বিজ্ঞান ও প্রযুক্তি বিশ্ববিদ্যালয়।",
+    "link": "/sstu",
+    "logo": "https://raw.githubusercontent.com/MNRfrom2020/logo-and-icon-cdn/refs/heads/main/University/SSTU.png"
+  },
+  {
+    "nameBn": "বাংলাদেশ মেডিকেল বিশ্ববিদ্যালয়",
+    "nameEn": "Bangladesh Medical University",
+    "shortName": "BMU",
+    "category": "মেডিকেল",
+    "description": "চিকিৎসাশাস্ত্রে উচ্চতর গবেষণা ও ডিগ্রির জন্য দেশের প্রধান প্রতিষ্ঠান।",
+    "link": "/bsmmu",
+    "logo": "https://raw.githubusercontent.com/MNRfrom2020/logo-and-icon-cdn/refs/heads/main/University/BMU.png"
+  },
+  {
+    "nameBn": "ইসলামী বিশ্ববিদ্যালয়",
+    "nameEn": "Islamic University, Bangladesh",
+    "shortName": "IU",
+    "category": "সাধারণ",
+    "description": "ধর্মতত্ত্ব ও আধুনিক শিক্ষার সমন্বয়ে গঠিত একটি বিশ্ববিদ্যালয়।",
+    "link": "/iu",
+    "logo": "https://raw.githubusercontent.com/MNRfrom2020/logo-and-icon-cdn/refs/heads/main/University/IU.png"
+  },
+  {
+    "nameBn": "খুলনা বিশ্ববিদ্যালয়",
+    "nameEn": "Khulna University",
+    "shortName": "KU",
+    "category": "সাধারণ",
+    "description": "সেশনজট মুক্ত একটি পাবলিক বিশ্ববিদ্যালয়।",
+    "link": "/ku",
+    "logo": "https://raw.githubusercontent.com/MNRfrom2020/logo-and-icon-cdn/refs/heads/main/University/KU.png"
+  },
+  {
+    "nameBn": "জগন্নাথ বিশ্ববিদ্যালয়",
+    "nameEn": "Jagannath University",
+    "shortName": "JnU",
+    "category": "সাধারণ",
+    "description": "ঢাকার প্রাণকেন্দ্রে অবস্থিত একটি ঐতিহ্যবাহী শিক্ষা প্রতিষ্ঠান।",
+    "link": "/jnu",
+    "logo": "https://raw.githubusercontent.com/MNRfrom2020/logo-and-icon-cdn/refs/heads/main/University/JnU.png"
+  },
+  {
+    "nameBn": "কুমিল্লা বিশ্ববিদ্যালয়",
+    "nameEn": "Comilla University",
+    "shortName": "CoU",
+    "category": "সাধারণ",
+    "description": "ময়নামতির কোলে অবস্থিত একটি দ্রুত বর্ধনশীল বিশ্ববিদ্যালয়।",
+    "link": "/cou",
+    "logo": "https://raw.githubusercontent.com/MNRfrom2020/logo-and-icon-cdn/refs/heads/main/University/CoU.png"
+  },
+  {
+    "nameBn": "জাতীয় কবি কাজী নজরুল ইসলাম বিশ্ববিদ্যালয়",
+    "nameEn": "Jatiya Kabi Kazi Nazrul Islam University",
+    "shortName": "JKKNIU",
+    "category": "সাধারণ",
+    "description": "সাহিত্য ও সংস্কৃতি চর্চার জন্য পরিচিত একটি বিশ্ববিদ্যালয়।",
+    "link": "/jkkniu",
+    "logo": "https://raw.githubusercontent.com/MNRfrom2020/logo-and-icon-cdn/refs/heads/main/University/JKKNIU.png"
+  },
+  {
+    "nameBn": "বাংলাদেশ ইউনিভার্সিটি অব প্রফেশনালস",
+    "nameEn": "Bangladesh University of Professionals",
+    "shortName": "BUP",
+    "category": "সাধারণ",
+    "description": "বাংলাদেশ সশস্ত্র বাহিনী দ্বারা পরিচালিত একটি মানসম্পন্ন শিক্ষা প্রতিষ্ঠান।",
+    "link": "/bup",
+    "logo": "https://raw.githubusercontent.com/MNRfrom2020/logo-and-icon-cdn/refs/heads/main/University/BUP.png"
+  },
+  {
+    "nameBn": "বেগম রোকেয়া বিশ্ববিদ্যালয়, রংপুর",
+    "nameEn": "Begum Rokeya University, Rangpur",
+    "shortName": "BRUR",
+    "category": "সাধারণ",
+    "description": "উত্তরবঙ্গের নারী জাগরণের অগ্রদূতের নামে প্রতিষ্ঠিত একটি বিশ্ববিদ্যালয়।",
+    "link": "/brur",
+    "logo": "https://raw.githubusercontent.com/MNRfrom2020/logo-and-icon-cdn/refs/heads/main/University/BRUR.png"
+  },
+  {
+    "nameBn": "বরিশাল বিশ্ববিদ্যালয়",
+    "nameEn": "University of Barisal",
+    "shortName": "BU",
+    "category": "সাধারণ",
+    "description": "কীর্তনখোলা নদীর তীরে অবস্থিত বরিশাল বিভাগের একমাত্র পাবলিক বিশ্ববিদ্যালয়।",
+    "link": "/bu",
+    "logo": "https://raw.githubusercontent.com/MNRfrom2020/logo-and-icon-cdn/refs/heads/main/University/BU.png"
+  },
+  {
+    "nameBn": "কিশোরগঞ্জ বিশ্ববিদ্যালয়",
+    "nameEn": "Kishoreganj University",
+    "shortName": "KiU",
+    "category": "সাধারণ",
+    "description": "কিশোরগঞ্জ জেলায় অবস্থিত একটি নতুন পাবলিক বিশ্ববিদ্যালয়।",
+    "link": "/kiu",
+    "logo": "https://raw.githubusercontent.com/MNRfrom2020/logo-and-icon-cdn/refs/heads/main/University/KiU.png"
+  },
+  {
+    "nameBn": "নেত্রকোনা বিশ্ববিদ্যালয়",
+    "nameEn": "Netrokona University",
+    "shortName": "NeU",
+    "category": "সাধারণ",
+    "description": "নেত্রকোনা জেলায় অবস্থিত একটি নতুন পাবলিক বিশ্ববিদ্যালয়।",
+    "link": "/neu",
+    "logo": "https://raw.githubusercontent.com/MNRfrom2020/logo-and-icon-cdn/refs/heads/main/University/NeU.png"
+  },
+  {
+    "nameBn": "রবীন্দ্র বিশ্ববিদ্যালয়, বাংলাদেশ",
+    "nameEn": "Rabindra University, Bangladesh",
+    "shortName": "RUB",
+    "category": "সাধারণ",
+    "description": "বিশ্বকবি রবীন্দ্রনাথ ঠাকুরের নামে প্রতিষ্ঠিত একটি সাংস্কৃতিক ও সাধারণ বিশ্ববিদ্যালয়।",
+    "link": "/rub",
+    "logo": "https://raw.githubusercontent.com/MNRfrom2020/logo-and-icon-cdn/refs/heads/main/University/RUB.png"
+  }
 ]

@@ -1,15 +1,14 @@
+"use client";
 
-'use client';
-
-import React from 'react';
-import { useSearchParams } from 'next/navigation';
-import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
-import DhakaUniversityTab from '@/components/DhakaUniversityTab';
-import { University, FlaskConical, Rocket, Atom } from 'lucide-react';
+import React from "react";
+import { useSearchParams } from "next/navigation";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import DhakaUniversityTab from "@/components/DhakaUniversityTab";
+import { University, FlaskConical, Rocket, Atom } from "lucide-react";
 
 const QuestionBankTabs = () => {
   const searchParams = useSearchParams();
-  const tab = searchParams.get('tab') || 'du';
+  const tab = searchParams.get("tab") || "du";
 
   return (
     <div
@@ -41,13 +40,14 @@ const QuestionBankTabs = () => {
         </TabsContent>
         <TabsContent value="medical">
           <p className="text-muted-foreground p-4">
-            মেডিকেল ভর্তি পরীক্ষার বিগত বছরের প্রশ্ন ও সমাধান এখানে যুক্ত করা হবে।
+            মেডিকেল ভর্তি পরীক্ষার বিগত বছরের প্রশ্ন ও সমাধান এখানে যুক্ত করা
+            হবে।
           </p>
         </TabsContent>
         <TabsContent value="engineering">
           <p className="text-muted-foreground p-4">
-            বুয়েট, কুয়েট, রুয়েট, চুয়েট সহ সকল ইঞ্জিনিয়ারিং বিশ্ববিদ্যালয়ের প্রশ্ন ও
-            সমাধান এখানে যুক্ত করা হবে।
+            বুয়েট, কুয়েট, রুয়েট, চুয়েট সহ সকল ইঞ্জিনিয়ারিং বিশ্ববিদ্যালয়ের
+            প্রশ্ন ও সমাধান এখানে যুক্ত করা হবে।
           </p>
         </TabsContent>
         <TabsContent value="others">

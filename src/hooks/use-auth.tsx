@@ -1,9 +1,8 @@
+"use client";
 
-'use client';
-
-import React, { createContext, useContext, useEffect, useState } from 'react';
-import { useRouter } from 'next/navigation';
-import { useToast } from './use-toast';
+import React, { createContext, useContext, useEffect, useState } from "react";
+import { useRouter } from "next/navigation";
+import { useToast } from "./use-toast";
 
 // A simple mock of a User object
 interface User {
@@ -20,10 +19,10 @@ interface AuthContextType {
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
 
 // Hardcoded credentials for demonstration
-const MOCK_EMAIL = 'user@example.com';
-const MOCK_PASSWORD = 'password123';
+const MOCK_EMAIL = "user@example.com";
+const MOCK_PASSWORD = "password123";
 const MOCK_USER = { email: MOCK_EMAIL };
-const AUTH_TOKEN_KEY = 'authToken';
+const AUTH_TOKEN_KEY = "authToken";
 
 export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
   const [user, setUser] = useState<User | null>(null);
@@ -41,7 +40,7 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
         setUser(MOCK_USER);
       }
     } catch (error) {
-        console.error("Could not access localStorage", error);
+      console.error("Could not access localStorage", error);
     }
     setLoading(false);
   }, []);
@@ -50,41 +49,41 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
     setLoading(true);
     try {
       // Simulate an API call
-      await new Promise(res => setTimeout(res, 500));
+      await new Promise((res) => setTimeout(res, 500));
 
       if (email === MOCK_EMAIL && pass === MOCK_PASSWORD) {
         setUser(MOCK_USER);
         try {
           // Store a mock token
-          localStorage.setItem(AUTH_TOKEN_KEY, 'mock-jwt-token');
+          localStorage.setItem(AUTH_TOKEN_KEY, "mock-jwt-token");
         } catch (error) {
           console.error("Could not access localStorage", error);
         }
         toast({
-            title: "লগইন সফল হয়েছে",
-            description: "MNR Study-তে স্বাগতম!",
+          title: "লগইন সফল হয়েছে",
+          description: "MNR Study-তে স্বাগতম!",
         });
-        router.push('/');
+        router.push("/");
       } else {
-        throw new Error('ভুল ইমেইল অথবা পাসওয়ার্ড');
+        throw new Error("ভুল ইমেইল অথবা পাসওয়ার্ড");
       }
     } finally {
-        setLoading(false);
+      setLoading(false);
     }
   };
 
   const logout = async () => {
     setLoading(true);
     // Simulate an API call
-    await new Promise(res => setTimeout(res, 500));
+    await new Promise((res) => setTimeout(res, 500));
     setUser(null);
-     try {
-        localStorage.removeItem(AUTH_TOKEN_KEY);
-      } catch (error) {
-        console.error("Could not access localStorage", error);
-      }
+    try {
+      localStorage.removeItem(AUTH_TOKEN_KEY);
+    } catch (error) {
+      console.error("Could not access localStorage", error);
+    }
     setLoading(false);
-    router.push('/');
+    router.push("/");
   };
 
   const value = {
@@ -94,17 +93,13 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
     logout,
   };
 
-  return (
-    <AuthContext.Provider value={value}>
-      {children}
-    </AuthContext.Provider>
-  );
+  return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
 };
 
 export const useAuth = () => {
   const context = useContext(AuthContext);
   if (context === undefined) {
-    throw new Error('useAuth must be used within an AuthProvider');
+    throw new Error("useAuth must be used within an AuthProvider");
   }
   return context;
 };

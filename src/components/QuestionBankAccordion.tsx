@@ -1,8 +1,11 @@
-
-import React from 'react';
-import { AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
-import { File } from 'lucide-react';
-import ExternalLink from './common/ExternalLink';
+import React from "react";
+import {
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
+import { File } from "lucide-react";
+import ExternalLink from "./common/ExternalLink";
 
 interface LinkItem {
   title: string;
@@ -10,9 +13,9 @@ interface LinkItem {
 }
 
 interface ContentItem {
-    title?: string;
-    links: LinkItem[];
-    placeholder?: string;
+  title?: string;
+  links: LinkItem[];
+  placeholder?: string;
 }
 
 interface QuestionBankAccordionProps {
@@ -21,11 +24,20 @@ interface QuestionBankAccordionProps {
   items: ContentItem[];
 }
 
-const QuestionBankAccordion: React.FC<QuestionBankAccordionProps> = ({ value, title, items }) => {
-  const hasContent = items.some(item => item.links.length > 0 || item.placeholder);
+const QuestionBankAccordion: React.FC<QuestionBankAccordionProps> = ({
+  value,
+  title,
+  items,
+}) => {
+  const hasContent = items.some(
+    (item) => item.links.length > 0 || item.placeholder,
+  );
 
   return (
-    <AccordionItem value={value} className="border-border rounded-2xl mt-1.5 bg-card hover:bg-accent/50 transition-all duration-300">
+    <AccordionItem
+      value={value}
+      className="border-border rounded-2xl mt-1.5 bg-card hover:bg-accent/50 transition-all duration-300"
+    >
       <AccordionTrigger className="p-3 text-lg font-bold hover:no-underline">
         <File className="inline-block mr-2" /> {title}
       </AccordionTrigger>

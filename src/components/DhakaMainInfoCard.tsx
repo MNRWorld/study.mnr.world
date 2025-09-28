@@ -1,7 +1,6 @@
-
-'use client';
-import Image from 'next/image';
-import PageHeaderCard from '@/components/common/PageHeaderCard';
+"use client";
+import Image from "next/image";
+import PageHeaderCard from "@/components/common/PageHeaderCard";
 
 const DhakaMainInfoCard = () => {
   return (
@@ -23,11 +22,11 @@ const DhakaMainInfoCard = () => {
         subtitle="University of Dhaka"
         description="প্রাচ্যের অক্সফোর্ড খ্যাত ঢাকা বিশ্ববিদ্যালয়, বাংলাদেশের স্বপ্নদ্রষ্টাদের সূতিকাগার। এর করিডোরে হেঁটেছে ইতিহাস, জন্মেছে অজস্র জ্ঞানতাপস।"
         stats={[
-          { value: '১৩টি', label: 'অনুষদ' },
-          { value: '৮৩টি', label: 'বিষয়' },
+          { value: "১৩টি", label: "অনুষদ" },
+          { value: "৮৩টি", label: "বিষয়" },
           {
-            value: '৬১৩০টি',
-            label: 'আসন',
+            value: "৬১৩০টি",
+            label: "আসন",
             tooltip: `
               'ক' ইউনিট: ১৮৯৬<br/>
               'খ' ইউনিট: ২৯৩৪<br/>
@@ -37,7 +36,7 @@ const DhakaMainInfoCard = () => {
             `,
           },
         ]}
-        button={{ href: '#Info', label: 'মূল তথ্য' }}
+        button={{ href: "#Info", label: "মূল তথ্য" }}
       />
     </>
   );

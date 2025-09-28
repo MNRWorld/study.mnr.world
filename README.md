@@ -7,6 +7,7 @@ This is a Next.js application built with Firebase Studio, designed to be a centr
 The "Study Platform" provides comprehensive information and resources for various university admission tests, including public, private, and engineering universities, as well as medical colleges.
 
 ### Key Features:
+
 - **University Information:** Detailed pages for specific universities (like Dhaka University) with admission info, circulars, and question banks.
 - **Admission Calendar:** A countdown timer for upcoming admission deadlines.
 - **Question Bank:** A collection of past exam questions, organized by university and subject.

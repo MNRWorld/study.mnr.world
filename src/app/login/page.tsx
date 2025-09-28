@@ -1,18 +1,17 @@
+"use client";
 
-'use client';
-
-import { useState } from 'react';
-import { useAuth } from '@/hooks/use-auth';
-import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
-import { Label } from '@/components/ui/label';
-import { useToast } from '@/hooks/use-toast';
-import { LogIn } from 'lucide-react';
-import Link from 'next/link';
+import { useState } from "react";
+import { useAuth } from "@/hooks/use-auth";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import { useToast } from "@/hooks/use-toast";
+import { LogIn } from "lucide-react";
+import Link from "next/link";
 
 export default function LoginPage() {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   const { login, loading } = useAuth();
   const { toast } = useToast();
 
@@ -34,11 +33,15 @@ export default function LoginPage() {
     <div className="flex items-center justify-center min-h-[calc(100vh-10rem)] font-bengali px-4">
       <div className="w-full max-w-md p-6 sm:p-8 space-y-6 sm:space-y-8 bg-card border border-border rounded-2xl shadow-lg animate-fade-in-up">
         <div className="text-center">
-            <div className="inline-block p-4 bg-primary/10 rounded-full mb-4">
-                <LogIn className="h-8 w-8 sm:h-10 sm:w-10 text-primary" />
-            </div>
-            <h1 className="text-xl sm:text-2xl font-bold text-foreground">লগইন করুন</h1>
-            <p className="text-sm text-muted-foreground">আপনার অ্যাকাউন্টে প্রবেশ করে শুরু করুন।</p>
+          <div className="inline-block p-4 bg-primary/10 rounded-full mb-4">
+            <LogIn className="h-8 w-8 sm:h-10 sm:w-10 text-primary" />
+          </div>
+          <h1 className="text-xl sm:text-2xl font-bold text-foreground">
+            লগইন করুন
+          </h1>
+          <p className="text-sm text-muted-foreground">
+            আপনার অ্যাকাউন্টে প্রবেশ করে শুরু করুন।
+          </p>
         </div>
         <form onSubmit={handleLogin} className="space-y-6">
           <div className="space-y-2">
@@ -65,17 +68,21 @@ export default function LoginPage() {
               className="text-sm"
             />
           </div>
-          <Button type="submit" className="w-full text-white font-semibold text-base transition-transform hover:scale-105" disabled={loading}>
-            {loading ? 'প্রসেসিং...' : 'লগইন'}
+          <Button
+            type="submit"
+            className="w-full text-white font-semibold text-base transition-transform hover:scale-105"
+            disabled={loading}
+          >
+            {loading ? "প্রসেসিং..." : "লগইন"}
           </Button>
         </form>
-         <div className="text-center text-sm text-muted-foreground">
-            <p>
-                কোনো অ্যাকাউন্ট নেই?{' '}
-                <Link href="/signup" className="text-primary hover:underline">
-                    এখনি তৈরি করুন
-                </Link>
-            </p>
+        <div className="text-center text-sm text-muted-foreground">
+          <p>
+            কোনো অ্যাকাউন্ট নেই?{" "}
+            <Link href="/signup" className="text-primary hover:underline">
+              এখনি তৈরি করুন
+            </Link>
+          </p>
         </div>
       </div>
     </div>

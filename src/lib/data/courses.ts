@@ -1,5 +1,5 @@
-import coursesData from './courses.json';
+import coursesData from "./courses.json";
 
-export const courses = coursesData.map(course => ({
+export const courses = coursesData.map((course) => ({
   ...course,
 }));

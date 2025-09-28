@@ -1,4 +1,4 @@
-import admissionInfo from './admission-info.json';
+import admissionInfo from "./admission-info.json";
 
 export const duAdmissionInfo = admissionInfo.du;
 export const duHistoryAndMapData = admissionInfo.duHistoryAndMap;

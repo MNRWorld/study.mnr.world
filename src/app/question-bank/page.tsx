@@ -1,12 +1,14 @@
+"use client";
 
-'use client';
+import React from "react";
+import { BookOpen } from "lucide-react";
+import PageHeaderCard from "@/components/common/PageHeaderCard";
+import dynamic from "next/dynamic";
 
-import React from 'react';
-import { BookOpen } from 'lucide-react';
-import PageHeaderCard from '@/components/common/PageHeaderCard';
-import dynamic from 'next/dynamic';
-
-const QuestionBankTabs = dynamic(() => import('@/components/QuestionBankTabs'), { ssr: false });
+const QuestionBankTabs = dynamic(
+  () => import("@/components/QuestionBankTabs"),
+  { ssr: false },
+);
 
 export default function QuestionBankPage() {
   return (
@@ -18,12 +20,12 @@ export default function QuestionBankPage() {
           subtitle="Question Bank & Solutions"
           description="বিগত বছরের প্রশ্ন সমাধান করে ভর্তি প্রস্তুতিতে এগিয়ে থাকো। এখানেই পাবে সব বিশ্ববিদ্যালয় ও ইউনিটের প্রশ্নব্যাংক।"
           stats={[
-            { value: '২০+', label: 'বিশ্ববিদ্যালয়' },
-            { value: '১৫+', label: 'বছর' },
-            { value: 'PDF', label: 'ফরম্যাট', tooltip: 'সহজে ডাউনলোডযোগ্য' },
+            { value: "২০+", label: "বিশ্ববিদ্যালয়" },
+            { value: "১৫+", label: "বছর" },
+            { value: "PDF", label: "ফরম্যাট", tooltip: "সহজে ডাউনলোডযোগ্য" },
           ]}
         />
-        
+
         <QuestionBankTabs />
       </div>
     </div>

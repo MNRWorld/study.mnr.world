@@ -1,5 +1,5 @@
-import * as React from "react"
-import { cn } from "@/lib/utils"
+import * as React from "react";
+import { cn } from "@/lib/utils";
 
 const Table = React.forwardRef<
   HTMLTableElement,
@@ -10,25 +10,21 @@ const Table = React.forwardRef<
       ref={ref}
       className={cn(
         "w-full text-sm text-left border-collapse border border-dotted border-gray-300",
-        className
+        className,
       )}
       {...props}
     />
   </div>
-))
-Table.displayName = "Table"
+));
+Table.displayName = "Table";
 
 const TableHeader = React.forwardRef<
   HTMLTableSectionElement,
   React.HTMLAttributes<HTMLTableSectionElement>
 >(({ className, ...props }, ref) => (
-  <thead
-    ref={ref}
-    className={cn("bg-gray-50", className)}
-    {...props}
-  />
-))
-TableHeader.displayName = "TableHeader"
+  <thead ref={ref} className={cn("bg-gray-50", className)} {...props} />
+));
+TableHeader.displayName = "TableHeader";
 
 const TableBody = React.forwardRef<
   HTMLTableSectionElement,
@@ -39,8 +35,8 @@ const TableBody = React.forwardRef<
     className={cn("[&_tr:nth-child(odd)]:bg-muted/50", className)}
     {...props}
   />
-))
-TableBody.displayName = "TableBody"
+));
+TableBody.displayName = "TableBody";
 
 const TableFooter = React.forwardRef<
   HTMLTableSectionElement,
@@ -51,8 +47,8 @@ const TableFooter = React.forwardRef<
     className={cn("bg-gray-100 font-medium text-gray-700", className)}
     {...props}
   />
-))
-TableFooter.displayName = "TableFooter"
+));
+TableFooter.displayName = "TableFooter";
 
 const TableRow = React.forwardRef<
   HTMLTableRowElement,
@@ -62,12 +58,12 @@ const TableRow = React.forwardRef<
     ref={ref}
     className={cn(
       "transition-colors hover:bg-indigo-50 data-[state=selected]:bg-indigo-100",
-      className
+      className,
     )}
     {...props}
   />
-))
-TableRow.displayName = "TableRow"
+));
+TableRow.displayName = "TableRow";
 
 const TableHead = React.forwardRef<
   HTMLTableCellElement,
@@ -77,12 +73,12 @@ const TableHead = React.forwardRef<
     ref={ref}
     className={cn(
       "px-6 py-3 text-sm font-semibold text-gray-700 tracking-wide border border-dotted border-gray-300",
-      className
+      className,
     )}
     {...props}
   />
-))
-TableHead.displayName = "TableHead"
+));
+TableHead.displayName = "TableHead";
 
 const TableCell = React.forwardRef<
   HTMLTableCellElement,
@@ -92,12 +88,12 @@ const TableCell = React.forwardRef<
     ref={ref}
     className={cn(
       "align-middle text-gray-600 border border-dotted border-gray-300",
-      className
+      className,
     )}
     {...props}
   />
-))
-TableCell.displayName = "TableCell"
+));
+TableCell.displayName = "TableCell";
 
 const TableCaption = React.forwardRef<
   HTMLTableCaptionElement,
@@ -108,8 +104,8 @@ const TableCaption = React.forwardRef<
     className={cn("mt-4 text-sm text-gray-500 italic", className)}
     {...props}
   />
-))
-TableCaption.displayName = "TableCaption"
+));
+TableCaption.displayName = "TableCaption";
 
 export {
   Table,
@@ -120,4 +116,4 @@ export {
   TableRow,
   TableCell,
   TableCaption,
-}
+};
