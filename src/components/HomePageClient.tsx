@@ -1,7 +1,7 @@
 "use client";
 import Image from "next/image";
 import Link from "next/link";
-import { ImagePlaceholder, PlaceHolderImages } from "@/lib/placeholder-images";
+import { PlaceHolderImages, type ImagePlaceholder } from "@/lib/placeholder-images";
 import React, { useState, useEffect } from "react";
 
 interface Feature {
