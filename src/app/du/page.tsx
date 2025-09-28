@@ -7,6 +7,7 @@ import LinkList from "@/components/common/LinkList";
 import { duLinks } from "@/lib/data/links";
 import Circular from "@/components/common/Circular";
 import AdmissionInfo from "@/components/DhakaAdmissionInfo";
+import FloatingMenu from "@/components/common/FloatingMenu";
 
 const HistoryAndMap = dynamic(() => import("@/components/DhakaHistoryAndMap"));
 const CountdownTimer = dynamic(
@@ -22,6 +23,7 @@ function DhakaUniversityPage() {
     <div className="font-bengali bg-background py-8">
       <div className="container mx-auto px-4 lg:px-[200px]">
         <MainInfoCard />
+        <FloatingMenu />
 
         <LinkList links={duLinks} />
 

@@ -1,5 +1,3 @@
-"use client";
-
 import { CalendarDays, Info } from "lucide-react";
 import dynamic from "next/dynamic";
 import PageHeaderCard from "@/components/common/PageHeaderCard";
