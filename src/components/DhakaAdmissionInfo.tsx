@@ -129,9 +129,9 @@ const DhakaAdmissionInfo = () => {
       <Accordion type="multiple" className="w-full space-y-4">
         <AccordionItem
           value="info-1"
-          className="bg-card border border-border rounded-2xl overflow-hidden shadow-lg"
+          className="border border-border rounded-lg bg-card hover:bg-accent/50 transition-all duration-300"
         >
-          <AccordionTrigger className="p-4 sm:p-5 w-full flex justify-between items-center text-lg font-bold cursor-pointer hover:no-underline">
+          <AccordionTrigger className="p-3 text-base font-bold hover:no-underline">
             <div className="flex items-center">
               <CircleAlert className="inline-block mr-2" />
               <span>{unitRequirements.title}</span>
@@ -154,7 +154,7 @@ const DhakaAdmissionInfo = () => {
         </AccordionItem>
         <AccordionItem
           value="info-2"
-          className="bg-card border border-border rounded-2xl overflow-hidden shadow-lg mt-4"
+          className="bg-card border border-border rounded-lg overflow-hidden mt-4"
         >
           <AccordionTrigger className="p-4 sm:p-5 w-full flex justify-between items-center text-lg font-bold cursor-pointer hover:no-underline">
             <div className="flex items-center">
