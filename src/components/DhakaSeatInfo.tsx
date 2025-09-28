@@ -33,14 +33,22 @@ interface SeatCellProps {
 }
 
 const SeatCell: React.FC<SeatCellProps> = ({ seat, tooltip }) => {
+  const [isOpen, setIsOpen] = useState(false);
+
   if (!tooltip) {
     return <span>{seat}</span>;
   }
 
   return (
     <TooltipProvider>
-      <Tooltip>
-        <TooltipTrigger asChild>
+      <Tooltip open={isOpen} onOpenChange={setIsOpen}>
+        <TooltipTrigger
+          asChild
+          onClick={(e) => {
+            e.preventDefault();
+            setIsOpen(!isOpen);
+          }}
+        >
           <span className="flex items-center justify-center gap-1.5 cursor-help">
             {seat}
             <Info className="h-3 w-3 text-muted-foreground" />
