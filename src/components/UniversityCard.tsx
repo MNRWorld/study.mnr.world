@@ -1,3 +1,5 @@
+"use client";
+
 import React from "react";
 import { University } from "@/lib/data/public-universities";
 import { Button } from "@/components/ui/button";
@@ -26,7 +28,7 @@ const UniversityCard = React.memo(function UniversityCard({
     >
       <AccordionItem value={university.shortName} className="border-none">
         <AccordionTrigger
-          className="p-4 w-full flex justify-between items-center cursor-pointer hover:no-underline [&[data-state=open]>svg]:-rotate-180"
+          className="p-4 w-full flex justify-between items-center cursor-pointer hover:no-underline [&[data-state=open]>div>svg.chevron]:-rotate-180"
           asChild
         >
           <div className="flex items-center gap-4 text-left w-full">
@@ -37,7 +39,7 @@ const UniversityCard = React.memo(function UniversityCard({
               height={40}
               className="object-contain"
             />
-            <div className="flex flex-col">
+            <div className="flex flex-col flex-grow">
               <span className="font-bold text-foreground">
                 {university.nameBn} ({university.shortName})
               </span>

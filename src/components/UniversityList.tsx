@@ -1,3 +1,5 @@
+"use client";
+
 import { University } from "@/lib/data/public-universities";
 import UniversityCard from "@/components/UniversityCard";
 
