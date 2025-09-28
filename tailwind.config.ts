@@ -96,12 +96,12 @@ export default {
           },
         },
         typing: {
-          from: { width: "0" },
-          to: { width: "100%" },
+          from: { transform: "scaleX(0)" },
+          to: { transform: "scaleX(1)" },
         },
         "blink-caret": {
-          "from, to": { borderColor: "transparent" },
-          "50%": { borderColor: "hsl(var(--foreground))" },
+          "0%, 100%": { opacity: "1" },
+          "50%": { opacity: "0" },
         },
       },
       animation: {
@@ -109,7 +109,8 @@ export default {
         "accordion-up": "accordion-up 0.2s ease-out",
         float: "float 4s ease-in-out infinite",
         "fade-in-up": "fade-in-up 0.6s ease-out forwards",
-        typing: "typing 2s steps(20, end), blink-caret .75s step-end infinite",
+        typing: "typing 2s steps(20, end)",
+        "blink-caret": "blink-caret .75s step-end infinite",
       },
     },
   },

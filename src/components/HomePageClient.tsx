@@ -56,9 +56,9 @@ const TypingAnimation = () => {
   }, [subIndex, index, texts]);
 
   return (
-    <span className="typing-container">
-      <span className="typing-text animate-typing">{text}</span>
-      <span className="cursor animate-blink-caret">|</span>
+    <span className="typing-container inline-block">
+      <span className="typing-text animate-typing will-change-transform">{text}</span>
+      <span className="cursor border-r-2 border-foreground animate-blink-caret"></span>
     </span>
   );
 };
@@ -114,7 +114,7 @@ const HomePageClient = ({ features }: HomePageClientProps) => {
                 alt={characterImage.description}
                 fill
                 className="object-contain"
-                sizes="(max-width: 768px) 100vw, 50vw"
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
               />
             </div>
           )}
@@ -128,7 +128,7 @@ const HomePageClient = ({ features }: HomePageClientProps) => {
                 priority
                 fetchPriority="high"
                 loading="eager"
-                sizes="(max-width: 768px) 100vw, 50vw"
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
               />
             </div>
           )}
@@ -139,7 +139,7 @@ const HomePageClient = ({ features }: HomePageClientProps) => {
                 alt={characterImage2.description}
                 fill
                 className="object-contain"
-                sizes="(max-width: 768px) 100vw, 50vw"
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
               />
             </div>
           )}
