@@ -4,24 +4,23 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-import { File } from "lucide-react";
+import { FileText, Download } from "lucide-react";
 import ExternalLink from "./common/ExternalLink";
 
 interface LinkItem {
-  title: string;
+  text: string;
   url: string;
 }
 
-interface ContentItem {
+interface ItemGroup {
   title?: string;
   links: LinkItem[];
-  placeholder?: string;
 }
 
 interface QuestionBankAccordionProps {
   value: string;
   title: string;
-  items: ContentItem[];
+  items: ItemGroup[];
 }
 
 const QuestionBankAccordion: React.FC<QuestionBankAccordionProps> = ({
@@ -29,37 +28,29 @@ const QuestionBankAccordion: React.FC<QuestionBankAccordionProps> = ({
   title,
   items,
 }) => {
-  const hasContent = items.some(
-    (item) => item.links.length > 0 || item.placeholder,
-  );
-
   return (
     <AccordionItem
       value={value}
-      className="border-border rounded-2xl mt-1.5 bg-card hover:bg-accent/50 transition-all duration-300"
+      className="border border-border rounded-lg bg-card hover:bg-accent/50 transition-all duration-300"
     >
-      <AccordionTrigger className="p-3 text-lg font-bold hover:no-underline">
-        <File className="inline-block mr-2" /> {title}
+      <AccordionTrigger className="p-3 text-base font-bold hover:no-underline">
+        <div className="flex items-center">
+          <FileText className="inline-block mr-2" size={16} />
+          <span>{title}</span>
+        </div>
+        <Download size={16} />
       </AccordionTrigger>
       <AccordionContent className="p-4 pt-0 text-muted-foreground text-base">
-        {hasContent ? (
-          items.map((item, index) => (
-            <div key={index} className="mb-2 last:mb-0">
-              {item.title && <b className="text-foreground">{item.title}</b>}
-              {item.links.length > 0 ? (
-                item.links.map((link, linkIndex) => (
-                  <div key={linkIndex}>
-                    ● <ExternalLink href={link.url} text={link.title} />
-                  </div>
-                ))
-              ) : (
-                <p>{item.placeholder}</p>
-              )}
-            </div>
-          ))
-        ) : (
-          <p>শীঘ্রই আসছে...</p>
-        )}
+        {items.map((group, index) => (
+          <div key={index} className="mb-2 last:mb-0">
+            {group.title && <b className="text-foreground">{group.title}</b>}
+            {group.links.map((link, linkIndex) => (
+              <div key={linkIndex}>
+                ● <ExternalLink href={link.url} text={link.text} />
+              </div>
+            ))}
+          </div>
+        ))}
       </AccordionContent>
     </AccordionItem>
   );

@@ -4,64 +4,85 @@ import React from "react";
 import { Accordion } from "@/components/ui/accordion";
 import QuestionBankAccordion from "@/components/QuestionBankAccordion";
 import {
-  duUnitA_Yearly,
-  duUnitA_Chapter,
-  duUnitA_Sohayok,
+  duUnitA,
+  duUnitB,
+  duUnitC,
+  duUnitCha,
+  duIBA,
 } from "@/lib/data/question-banks";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 const DhakaUniversityTab = () => {
   return (
-    <Accordion type="multiple" className="w-full text-left">
-      <QuestionBankAccordion
-        value="du-ka-unit"
-        title='"ক" ইউনিট প্রশ্নব্যাংক'
-        items={[
-          {
-            title: "সালভিত্তিক প্রশ্নব্যাংক",
-            links: duUnitA_Yearly,
-          },
-          {
-            title: "অধ্যায়ভিত্তিক প্রশ্নব্যাংক",
-            links: duUnitA_Chapter,
-          },
-          {
-            title: "সহায়ক বই",
-            links: duUnitA_Sohayok,
-          },
-        ]}
-      />
-      <QuestionBankAccordion
-        value="du-kha-unit"
-        title='"খ" ইউনিট প্রশ্নব্যাংক'
-        items={[
-          {
-            links: [],
-            placeholder: 'এখানে "খ" ইউনিটের প্রশ্নব্যাংকের লিঙ্ক যুক্ত করা হবে',
-          },
-        ]}
-      />
-      <QuestionBankAccordion
-        value="du-ga-unit"
-        title='"গ" ইউনিট প্রশ্নব্যাংক'
-        items={[
-          {
-            links: [],
-            placeholder: 'এখানে "গ" ইউনিটের প্রশ্নব্যাংকের লিঙ্ক যুক্ত করা হবে',
-          },
-        ]}
-      />
-      <QuestionBankAccordion
-        value="du-gha-unit"
-        title='"ঘ / BBA" ইউনিট প্রশ্নব্যাংক'
-        items={[
-          {
-            links: [],
-            placeholder:
-              'এখানে "ঘ" ও BBA ইউনিটের প্রশ্নব্যাংকের লিঙ্ক যুক্ত করা হবে',
-          },
-        ]}
-      />
-    </Accordion>
+    <Tabs defaultValue="ka-unit" className="w-full">
+      <TabsList className="grid w-full grid-cols-3 sm:grid-cols-5 h-auto bg-muted/50">
+        <TabsTrigger value="ka-unit">"ক" ইউনিট</TabsTrigger>
+        <TabsTrigger value="kha-unit">"খ" ইউনিট</TabsTrigger>
+        <TabsTrigger value="ga-unit">"গ" ইউনিট</TabsTrigger>
+        <TabsTrigger value="cha-unit">"চ" ইউনিট</TabsTrigger>
+        <TabsTrigger value="iba-unit">DU IBA (বিশেষ)</TabsTrigger>
+      </TabsList>
+      <TabsContent value="ka-unit">
+        <Accordion type="multiple" className="w-full text-left space-y-2">
+          {duUnitA.map((item, index) => (
+            <QuestionBankAccordion
+              key={index}
+              value={`item-${index}`}
+              title={item.title}
+              items={item.items}
+            />
+          ))}
+        </Accordion>
+      </TabsContent>
+      <TabsContent value="kha-unit">
+        <Accordion type="multiple" className="w-full text-left space-y-2">
+          {duUnitB.map((item, index) => (
+            <QuestionBankAccordion
+              key={index}
+              value={`item-${index}`}
+              title={item.title}
+              items={item.items}
+            />
+          ))}
+        </Accordion>
+      </TabsContent>
+      <TabsContent value="ga-unit">
+        <Accordion type="multiple" className="w-full text-left space-y-2">
+          {duUnitC.map((item, index) => (
+            <QuestionBankAccordion
+              key={index}
+              value={`item-${index}`}
+              title={item.title}
+              items={item.items}
+            />
+          ))}
+        </Accordion>
+      </TabsContent>
+      <TabsContent value="cha-unit">
+        <Accordion type="multiple" className="w-full text-left space-y-2">
+          {duUnitCha.map((item, index) => (
+            <QuestionBankAccordion
+              key={index}
+              value={`item-${index}`}
+              title={item.title}
+              items={item.items}
+            />
+          ))}
+        </Accordion>
+      </TabsContent>
+      <TabsContent value="iba-unit">
+        <Accordion type="multiple" className="w-full text-left space-y-2">
+          {duIBA.map((item, index) => (
+            <QuestionBankAccordion
+              key={index}
+              value={`item-${index}`}
+              title={item.title}
+              items={item.items}
+            />
+          ))}
+        </Accordion>
+      </TabsContent>
+    </Tabs>
   );
 };
 
