@@ -46,7 +46,7 @@ const DhakaAdmissionInfo = () => {
 
       <h2
         id="Apply"
-        className="bg-primary/10 text-primary rounded-xl p-3 my-4 text-center text-base sm:text-lg font-bold flex items-center justify-center"
+        className="bg-primary/10 text-primary rounded-xl p-3 mb-4 text-center text-base sm:text-lg font-bold flex items-center justify-center"
       >
         <PenSquare className="mr-2" /> {apply.title}
       </h2>
