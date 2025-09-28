@@ -61,7 +61,6 @@ const DhakaAdmissionInfo = () => {
             <CalendarClock className="inline-block mr-2" />
             আবেদনের সময়কাল:
           </b>
-          <br />
           <div className="flex items-center mt-2">
             <Play className="mr-2 h-4 w-4 text-primary" />
             <b>আবেদন শুরু:</b>
@@ -137,7 +136,7 @@ const DhakaAdmissionInfo = () => {
               <span>{unitRequirements.title}</span>
             </div>
           </AccordionTrigger>
-          <AccordionContent className="p-4 sm:p-5 border-t border-border/50 text-base text-foreground">
+          <AccordionContent className="p-4 sm:p-5 border-t border-border/50 text-foreground">
             {unitRequirements.units.map((unit, index) => (
               <div key={index} className="mb-2">
                 ❐ <b>"{unit.name}" ইউনিট:</b>
@@ -154,15 +153,15 @@ const DhakaAdmissionInfo = () => {
         </AccordionItem>
         <AccordionItem
           value="info-2"
-          className="bg-card border border-border rounded-lg overflow-hidden mt-4"
+          className="border border-border rounded-lg bg-card hover:bg-accent/50 transition-all duration-300 mt-4"
         >
-          <AccordionTrigger className="p-4 sm:p-5 w-full flex justify-between items-center text-lg font-bold cursor-pointer hover:no-underline">
+          <AccordionTrigger className="p-3 text-base font-bold hover:no-underline">
             <div className="flex items-center">
               <Info className="inline-block mr-2" />
               <span>{improvementPolicy.title}</span>
             </div>
           </AccordionTrigger>
-          <AccordionContent className="p-4 sm:p-5 border-t border-border/50 text-base text-foreground">
+          <AccordionContent className="p-4 sm:p-5 border-t border-border/50 text-foreground">
             <hr className="my-3 border-border/50" />
             <span
               dangerouslySetInnerHTML={{ __html: improvementPolicy.details }}
@@ -292,5 +291,3 @@ const DhakaAdmissionInfo = () => {
 };
 
 export default DhakaAdmissionInfo;
-
-    
