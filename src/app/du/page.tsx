@@ -23,27 +23,29 @@ function DhakaUniversityPage() {
   return (
     <div className="font-bengali bg-background py-8">
       <div className="container mx-auto px-4 lg:px-[200px]">
-        <div className="flex flex-col gap-2">
+        <div>
           <div>
             <MainInfoCard />
             <FloatingMenu />
           </div>
 
-          <div className="mt-2">
+          <div className="mt-4">
             <LinkList links={duLinks} />
           </div>
 
-          <Suspense fallback={<div>Loading history...</div>}>
-            <HistoryAndMap />
-          </Suspense>
+          <div className="mt-4">
+            <Suspense fallback={<div>Loading history...</div>}>
+              <HistoryAndMap />
+            </Suspense>
+          </div>
 
-          <div className="w-full border border-border bg-card rounded-2xl p-4 sm:p-6 shadow-lg relative">
+          <div className="mt-4 w-full border border-border bg-card rounded-2xl p-4 sm:p-6 shadow-lg relative">
             <Suspense fallback={<div>Loading timer...</div>}>
               <CountdownTimer />
             </Suspense>
           </div>
 
-          <div>
+          <div className="mt-4">
             <Circular
               title="HSC-24 ব্যাচের সার্কুলার"
               note="(⚠ নোট: HSC-25 এর সার্কুলার এখনও প্রকাশিত হয়নি। আপাতত এটি দেখে আইডিয়া নিতে পারেন।)"
@@ -52,11 +54,15 @@ function DhakaUniversityPage() {
             />
           </div>
 
-          <Suspense fallback={<div>Loading question bank...</div>}>
-            <QuestionBank />
-          </Suspense>
+          <div className="mt-4">
+            <Suspense fallback={<div>Loading question bank...</div>}>
+              <QuestionBank />
+            </Suspense>
+          </div>
 
-          <AdmissionInfo />
+          <div className="mt-4">
+            <AdmissionInfo />
+          </div>
         </div>
       </div>
     </div>

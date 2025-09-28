@@ -17,7 +17,7 @@ const DhakaHistoryAndMap = () => {
   const { history, mapLocations } = duHistoryAndMapData;
 
   return (
-    <div>
+    <div className="mt-4">
       <Accordion type="multiple" className="w-full space-y-4">
         <AccordionItem
           value="item-1"
@@ -52,7 +52,7 @@ const DhakaHistoryAndMap = () => {
         </AccordionItem>
         <AccordionItem
           value="item-2"
-          className="bg-card border border-border rounded-2xl overflow-hidden shadow-lg"
+          className="bg-card border border-border rounded-2xl overflow-hidden shadow-lg mt-4"
         >
           <AccordionTrigger className="p-4 sm:p-5 w-full flex justify-between items-center text-lg font-bold cursor-pointer hover:no-underline">
             <span>{mapLocations.title}</span>
