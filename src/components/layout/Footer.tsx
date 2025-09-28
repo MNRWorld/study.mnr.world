@@ -13,6 +13,7 @@ import {
 import Link from "next/link";
 import { footerLinks } from "@/lib/data/navigation";
 import React from "react";
+import ExternalLink from "../common/ExternalLink";
 
 const icons: { [key: string]: React.ElementType } = {
     ArrowRight,
@@ -40,10 +41,10 @@ export default function Footer() {
                   বাংলাদেশের সকল বিশ্ববিদ্যালয়, কলেজ ও ভর্তি পরীক্ষার তথ্য ও সহায়তার জন্য আপনার বিশ্বস্ত প্ল্যাটফর্ম।
                   </p>
                   <div className="flex items-center space-x-3 mt-6">
-                  <a href="#" className="social-icon text-foreground hover:text-primary transition-transform hover:scale-115" aria-label="Facebook"><Facebook /></a>
-                  <a href="#" className="social-icon text-foreground hover:text-primary transition-transform hover:scale-115" aria-label="Twitter"><Twitter /></a>
-                  <a href="#" className="social-icon text-foreground hover:text-primary transition-transform hover:scale-115" aria-label="Instagram"><Instagram /></a>
-                  <a href="#" className="social-icon text-foreground hover:text-primary transition-transform hover:scale-115" aria-label="Youtube"><Youtube /></a>
+                    <ExternalLink href="#" text="" icon={<Facebook />} className="text-foreground hover:text-primary transition-transform hover:scale-115" aria-label="Facebook" />
+                    <ExternalLink href="#" text="" icon={<Twitter />} className="text-foreground hover:text-primary transition-transform hover:scale-115" aria-label="Twitter" />
+                    <ExternalLink href="#" text="" icon={<Instagram />} className="text-foreground hover:text-primary transition-transform hover:scale-115" aria-label="Instagram" />
+                    <ExternalLink href="#" text="" icon={<Youtube />} className="text-foreground hover:text-primary transition-transform hover:scale-115" aria-label="Youtube" />
                   </div>
               </div>
 

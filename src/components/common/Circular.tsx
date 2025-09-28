@@ -4,6 +4,7 @@ import { Download } from 'lucide-react';
 
 import { Button } from '@/components/ui/button';
 import PreviousYearCirculars from '@/components/common/PreviousYearCirculars';
+import Link from 'next/link';
 
 interface CircularProps {
     title: string;
@@ -28,9 +29,9 @@ const Circular = ({ title, note, downloadLink, showPreviousYears = false }: Circ
             </div>
             <div className="flex flex-col sm:flex-row flex-wrap gap-2.5 mt-5 justify-center">
                 <Button asChild className="bg-primary text-primary-foreground flex-1 min-w-[150px] hover:bg-primary/90 transition-transform hover:scale-105">
-                    <a href={downloadLink} target="_blank" rel="noopener noreferrer">
+                    <Link href={downloadLink} target="_blank" rel="noopener noreferrer">
                         <Download size={16} className="mr-2"/> ডাউনলোড করুন
-                    </a>
+                    </Link>
                 </Button>
                 {showPreviousYears && <PreviousYearCirculars />}
             </div>
