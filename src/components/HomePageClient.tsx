@@ -56,8 +56,8 @@ const TypingAnimation = () => {
 
     return (
         <span className="typing-container">
-            <span className="typing-text">{text}</span>
-            <span className="cursor">|</span>
+            <span className="typing-text animate-typing">{text}</span>
+            <span className="cursor animate-blink-caret">|</span>
         </span>
     );
 };
@@ -102,7 +102,7 @@ const HomePageClient = ({ features }: HomePageClientProps) => {
                 >
                      {characterImage && (
                         <div
-                            className="absolute inset-0 z-0 floating-animation"
+                            className="absolute inset-0 z-0 animate-float"
                         >
                             <Image
                                 src={characterImage.imageUrl}
@@ -127,7 +127,7 @@ const HomePageClient = ({ features }: HomePageClientProps) => {
                     )}
                     {characterImage2 && (
                         <div
-                            className="absolute inset-0 z-20 floating-animation-reverse"
+                            className="absolute inset-0 z-20 animate-float [animation-direction:reverse]"
                         >
                             <Image
                                 src={characterImage2.imageUrl}
