@@ -25,7 +25,7 @@ const QuestionBankAccordion: React.FC<QuestionBankAccordionProps> = ({ value, ti
   const hasContent = items.some(item => item.links.length > 0 || item.placeholder);
 
   return (
-    <AccordionItem value={value} className="border-border rounded-2xl mt-1.5 bg-card hover:bg-accent/50 transition-colors">
+    <AccordionItem value={value} className="border-border rounded-2xl mt-1.5 bg-card hover:bg-accent/50 transition-all duration-300">
       <AccordionTrigger className="p-3 text-lg font-bold hover:no-underline">
         <File className="inline-block mr-2" /> {title}
       </AccordionTrigger>
