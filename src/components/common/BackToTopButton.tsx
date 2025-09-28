@@ -37,10 +37,9 @@ const BackToTopButton = () => {
                 onClick={scrollToTop}
                 size="icon"
                 className={cn(
-                    "rounded-full shadow-lg h-12 w-12 bg-primary/90 backdrop-blur-sm hover:bg-primary transition-opacity duration-300",
-                    isVisible ? "opacity-100 scale-100" : "opacity-0 scale-80"
+                    "rounded-full shadow-lg h-12 w-12 bg-primary/90 backdrop-blur-sm hover:bg-primary transition-all duration-300",
+                    isVisible ? "opacity-100 scale-100 translate-y-0" : "opacity-0 scale-80 translate-y-5 pointer-events-none"
                 )}
-                style={{ transform: isVisible ? 'translateY(0)' : 'translateY(20px)' }}
             >
                 <ArrowUp className="h-6 w-6" />
             </Button>

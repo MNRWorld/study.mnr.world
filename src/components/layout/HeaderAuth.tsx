@@ -40,12 +40,12 @@ function AuthButton({ isHovered, label, icon, onClick, isDestructive = false }: 
                 )}
              />
              <div className="relative z-10 flex items-center">
-                <div className={cn("shrink-0", isHovered && (isDestructive ? 'text-destructive' : 'text-accent-foreground'))}>{icon}</div>
+                <div className={cn("shrink-0 transition-colors", isHovered && (isDestructive ? 'text-destructive' : 'text-accent-foreground'))}>{icon}</div>
                  <div
                     className="overflow-hidden transition-all duration-300 ease-in-out"
-                    style={{ width: isHovered ? 'auto' : 0, marginLeft: isHovered ? '0.5rem' : 0 }}
+                    style={{ maxWidth: isHovered ? '100px' : '0', marginLeft: isHovered ? '0.5rem' : '0' }}
                 >
-                    <span className={cn("whitespace-nowrap text-sm font-medium", isHovered && (isDestructive ? 'text-destructive' : 'text-accent-foreground'))}>
+                    <span className={cn("whitespace-nowrap text-sm font-medium transition-colors", isHovered && (isDestructive ? 'text-destructive' : 'text-accent-foreground'))}>
                         {label}
                     </span>
                 </div>

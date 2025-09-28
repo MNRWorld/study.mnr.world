@@ -58,13 +58,15 @@ const PageHeaderCard = ({ icon, title, subtitle, description, stats, button }: P
                                 {stat.tooltip && (
                                     <Tooltip open={openTooltip === stat.label} onOpenChange={(isOpen) => setOpenTooltip(isOpen ? stat.label : null)}>
                                         <TooltipTrigger asChild>
-                                            <i 
-                                                className="fa-solid fa-circle-info text-muted-foreground text-xs ml-1.5 cursor-help"
+                                            <button 
+                                                className="ml-1.5 cursor-help"
                                                 onClick={(e) => {
                                                     e.preventDefault();
                                                     setOpenTooltip(openTooltip === stat.label ? null : stat.label);
                                                 }}
-                                            ></i>
+                                            >
+                                                <Info className="text-muted-foreground h-3 w-3" />
+                                            </button>
                                         </TooltipTrigger>
                                         <TooltipContent>
                                             <p dangerouslySetInnerHTML={{ __html: stat.tooltip }} />
