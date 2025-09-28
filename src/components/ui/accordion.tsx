@@ -2,7 +2,7 @@
 
 import * as React from "react";
 import * as AccordionPrimitive from "@radix-ui/react-accordion";
-import { ChevronDown } from "lucide-react";
+import { ChevronDown, Download } from "lucide-react";
 
 import { cn } from "@/lib/utils";
 
@@ -25,21 +25,21 @@ const AccordionTrigger = React.forwardRef<
   React.ComponentPropsWithoutRef<typeof AccordionPrimitive.Trigger>
 >(({ className, children, ...props }, ref) => {
   const childrenArray = React.Children.toArray(children);
-  const mainContent = childrenArray.slice(0, childrenArray.length - 1);
+  const mainContent = childrenArray.slice(0, -1);
   const lastChild = childrenArray[childrenArray.length - 1];
 
   const hasCustomIcon =
     React.isValidElement(lastChild) &&
     typeof lastChild.type !== "string" &&
-    (lastChild.type.displayName?.includes("Icon") ||
-      Object.prototype.hasOwnProperty.call(lastChild.type, "displayName"));
+    (lastChild.type === Download ||
+      lastChild.type.displayName?.includes("Icon"));
 
   return (
     <AccordionPrimitive.Header className="flex">
       <AccordionPrimitive.Trigger
         ref={ref}
         className={cn(
-          "flex flex-1 items-center justify-between py-4 font-medium transition-all hover:underline [&[data-state=open]>svg.chevron]:-rotate-180",
+          "flex flex-1 items-center justify-between py-4 font-medium transition-all hover:underline [&[data-state=open]>svg.chevron]:rotate-180",
           className,
         )}
         {...props}
@@ -63,12 +63,14 @@ const AccordionContent = React.forwardRef<
   <AccordionPrimitive.Content
     ref={ref}
     className={cn(
-      "overflow-hidden text-sm transition-all data-[state=closed]:animate-accordion-up data-[state=open]:animate-accordion-down",
+      "grid text-sm transition-[grid-template-rows] duration-300 ease-in-out data-[state=closed]:grid-rows-[0fr] data-[state=open]:grid-rows-[1fr] data-[state=closed]:animate-accordion-up data-[state=open]:animate-accordion-down",
       className,
     )}
     {...props}
   >
-    <div className="pb-4 pt-0">{children}</div>
+    <div className="overflow-hidden">
+      <div className="pb-4 pt-0">{children}</div>
+    </div>
   </AccordionPrimitive.Content>
 ));
 AccordionContent.displayName = AccordionPrimitive.Content.displayName;
