@@ -16,7 +16,7 @@ import {
   CircleAlert,
   Dock,
   Timer,
-  MapPin,
+  MapPinned,
   BarChart3,
   Users,
 } from "lucide-react";
@@ -207,7 +207,7 @@ const DhakaAdmissionInfo = () => {
         id="Location"
         className="bg-primary/10 text-primary rounded-xl p-3 mt-8 mb-4 text-center text-base sm:text-lg font-bold flex items-center justify-center"
       >
-        <MapPin className="mr-2 size-auto" /> {examCenter.title}
+        <MapPinned className="mr-2 size-auto" /> {examCenter.title}
       </h2>
       <span className="text-base">
         ➜ {examCenter.location}{" "}
