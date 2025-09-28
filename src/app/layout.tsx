@@ -34,8 +34,16 @@ export default function RootLayout({
   return (
     <html lang="bn">
       <head>
-        <link rel="preconnect" href="https://raw.githubusercontent.com" />
-        <link rel="preconnect" href="https://images.unsplash.com" />
+        <link
+          rel="preconnect"
+          href="https://raw.githubusercontent.com"
+          crossOrigin="anonymous"
+        />
+        <link
+          rel="preconnect"
+          href="https://images.unsplash.com"
+          crossOrigin="anonymous"
+        />
       </head>
       <body
         className={cn(
@@ -46,7 +54,7 @@ export default function RootLayout({
       >
         <AuthProvider>
           <Header />
-          <main className="flex-grow animate-fade-in-up">{children}</main>
+          <main className="flex-grow">{children}</main>
           <DynamicFooter />
           <BackToTopButton />
           <Toaster />
