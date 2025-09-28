@@ -22,7 +22,7 @@ const QuestionBank = dynamic(() => import("@/components/DhakaQuestionBank"), {
 function DhakaUniversityPage() {
   return (
     <div className="font-bengali bg-background py-8">
-      <div className="container mx-auto px-4 lg:px-[200px] grid gap-8">
+      <div className="container mx-auto px-4 lg:px-[200px] grid gap-4">
         <MainInfoCard />
         <FloatingMenu />
 
