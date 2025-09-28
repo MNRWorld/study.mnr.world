@@ -49,7 +49,7 @@ const DhakaAdmissionInfo = () => {
         id="Apply"
         className="bg-primary/10 text-primary rounded-xl p-3 mt-4 mb-4 text-center text-base sm:text-lg font-bold flex items-center justify-center"
       >
-        <PenSquare className="mr-2" /> {apply.title}
+        <PenSquare className="mr-2 size-auto" /> {apply.title}
       </h2>
       <div className="text-base">
         <span>
@@ -149,7 +149,7 @@ const DhakaAdmissionInfo = () => {
         id="AdmitCard"
         className="bg-primary/10 text-primary rounded-xl p-3 mt-8 mb-4 text-center text-base sm:text-lg font-bold flex items-center justify-center"
       >
-        <Ticket className="mr-2" /> {admitCard.title}
+        <Ticket className="mr-2 size-auto" /> {admitCard.title}
       </h2>
       <div className="text-base">
         <span>
@@ -184,7 +184,7 @@ const DhakaAdmissionInfo = () => {
         id="ExamDate"
         className="bg-primary/10 text-primary rounded-xl p-3 mt-8 mb-4 text-center text-base sm:text-lg font-bold flex items-center justify-center"
       >
-        <Timer className="mr-2" /> {examDate.title}
+        <Timer className="mr-2 size-auto" /> {examDate.title}
       </h2>
       <span className="text-base">
         {examDate.dates.map((date, index) => (
@@ -206,7 +206,7 @@ const DhakaAdmissionInfo = () => {
         id="Location"
         className="bg-primary/10 text-primary rounded-xl p-3 mt-8 mb-4 text-center text-base sm:text-lg font-bold flex items-center justify-center"
       >
-        <MapPin className="mr-2" /> {examCenter.title}
+        <MapPin className="mr-2 size-auto" /> {examCenter.title}
       </h2>
       <span className="text-base">
         ➜ {examCenter.location}{" "}
@@ -223,7 +223,7 @@ const DhakaAdmissionInfo = () => {
 
       <div id="MarkDistributionAndOthers"></div>
       <h2 className="bg-primary/10 text-primary rounded-xl p-3 mt-8 mb-4 text-center text-base sm:text-lg font-bold flex items-center justify-center">
-        <Info className="mr-2" /> {generalInfo.title}
+        <Info className="mr-2 size-auto" /> {generalInfo.title}
       </h2>
 
       <div className="border border-border/80 rounded-xl p-4 mt-2.5 text-base">
@@ -242,7 +242,7 @@ const DhakaAdmissionInfo = () => {
         id="Result"
         className="bg-primary/10 text-primary rounded-xl p-3 mt-8 mb-4 text-center text-base sm:text-lg font-bold flex items-center justify-center"
       >
-        <BarChart3 className="mr-2" /> {result.title}
+        <BarChart3 className="mr-2 size-auto" /> {result.title}
       </h2>
       <span className="text-base">
         ● <b>ফলাফল প্রকাশ:</b> {result.date}
@@ -261,5 +261,3 @@ const DhakaAdmissionInfo = () => {
 };
 
 export default DhakaAdmissionInfo;
-
-    
