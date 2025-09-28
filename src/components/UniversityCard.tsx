@@ -28,8 +28,7 @@ const UniversityCard = React.memo(function UniversityCard({
     >
       <AccordionItem value={university.shortName} className="border-none">
         <AccordionTrigger
-          className="p-4 w-full flex justify-between items-center cursor-pointer hover:no-underline [&[data-state=open]>div>svg.chevron]:-rotate-180"
-          asChild
+          className="p-4 w-full flex justify-between items-center cursor-pointer hover:no-underline [&[data-state=open]>svg.chevron]:-rotate-180"
         >
           <div className="flex items-center gap-4 text-left w-full">
             <Image
