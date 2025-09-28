@@ -1,6 +1,5 @@
 
 'use client';
-import { motion } from 'framer-motion';
 import Link from 'next/link';
 
 import {
@@ -23,23 +22,10 @@ interface LinkListProps {
 }
 
 const LinkList = ({ links }: LinkListProps) => {
-    const itemVariants = {
-        hidden: { y: 20, opacity: 0 },
-        visible: {
-            y: 0,
-            opacity: 1,
-            transition: {
-                duration: 0.5,
-            },
-        },
-    };
 
     return (
-        <motion.div
+        <div
             id="Links"
-            variants={itemVariants}
-            initial="hidden"
-            animate="visible"
             className="mt-8 w-full border border-border bg-card rounded-2xl p-4 sm:p-6 shadow-lg text-center relative"
         >
             <div className="flex justify-center">
@@ -65,7 +51,7 @@ const LinkList = ({ links }: LinkListProps) => {
                     ))}
                 </TableBody>
             </Table>
-        </motion.div>
+        </div>
     );
 }
 
