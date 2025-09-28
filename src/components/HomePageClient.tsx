@@ -1,4 +1,3 @@
-
 'use client';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -16,9 +15,48 @@ interface HomePageClientProps {
 }
 
 const TypingAnimation = () => {
+  const texts = [
+    "একাডেমিক হোক,",
+    "এডমিশন হোক,",
+    "অথবা বেসিক গড়ার প্রচেষ্টা,",
+  ];
+  const [index, setIndex] = useState(0);
+  const [subIndex, setSubIndex] = useState(0);
+  const [reverse, setReverse] = useState(false);
+  const [text, setText] = useState('');
+
+  useEffect(() => {
+    if (index === texts.length) {
+        setIndex(0);
+        return;
+    };
+
+    if (subIndex === texts[index].length + 1 && !reverse) {
+      setReverse(true);
+      return;
+    }
+
+    if (subIndex === 0 && reverse) {
+      setReverse(false);
+      setIndex((prev) => (prev + 1) % texts.length);
+      return;
+    }
+
+    const timeout = setTimeout(() => {
+      setSubIndex((prev) => prev + (reverse ? -1 : 1));
+    }, Math.max(reverse ? 75 : subIndex === texts[index].length ? 1000 : 150, 75));
+
+    return () => clearTimeout(timeout);
+  }, [subIndex, index, reverse, texts]);
+  
+  useEffect(() => {
+    setText(texts[index].substring(0, subIndex))
+  }, [subIndex, index, texts]);
+
+
     return (
         <span className="typing-container">
-            <span className="typing-text"></span>
+            <span className="typing-text">{text}</span>
             <span className="cursor">|</span>
         </span>
     );
