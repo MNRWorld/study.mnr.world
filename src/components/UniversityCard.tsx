@@ -24,7 +24,7 @@ const UniversityCard = React.memo(function UniversityCard({ university }: Univer
             <span className="text-sm text-muted-foreground">{university.nameEn}</span>
           </div>
         </div>
-        <ChevronDown className="text-muted-foreground group-open:rotate-180 transition-transform" />
+        <ChevronDown className="text-muted-foreground group-open:rotate-180 transition-transform duration-300 ease-in-out" />
       </summary>
       <div className="px-4 pb-4 border-t border-border/50">
         <p className="text-muted-foreground my-3 text-sm">{university.description}</p>
