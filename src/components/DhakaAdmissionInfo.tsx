@@ -14,7 +14,7 @@ import {
   CircleCheck,
   Link as LinkIcon,
   CircleAlert,
-  Ticket,
+  Dock,
   Timer,
   MapPin,
   BarChart3,
@@ -150,7 +150,7 @@ const DhakaAdmissionInfo = () => {
         id="AdmitCard"
         className="bg-primary/10 text-primary rounded-xl p-3 mt-8 mb-4 text-center text-base sm:text-lg font-bold flex items-center justify-center"
       >
-        <Ticket className="mr-2 size-auto" /> {admitCard.title}
+        <Dock className="mr-2 size-auto" /> {admitCard.title}
       </h2>
       <div className="text-base">
         <span>
