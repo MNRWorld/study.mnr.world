@@ -10,4 +10,5 @@ export interface University {
   logo: string;
 }
 
-export const publicUniversities: University[] = publicUniversitiesData;
+export const publicUniversities: University[] =
+  publicUniversitiesData as University[];

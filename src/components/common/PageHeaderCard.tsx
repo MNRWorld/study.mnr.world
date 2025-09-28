@@ -96,7 +96,7 @@ const PageHeaderCard = ({
       {button && (
         <Button asChild className="rounded-[8px]">
           <Link href={button.href}>
-            {button.icon || <Info size={16} />} {button.label}
+            {button.icon ? button.icon : <Info size={16} />} {button.label}
           </Link>
         </Button>
       )}
