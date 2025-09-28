@@ -136,7 +136,7 @@ const DhakaAdmissionInfo = () => {
               <span>{unitRequirements.title}</span>
             </div>
           </AccordionTrigger>
-          <AccordionContent className="p-4 sm:p-5 border-t border-border/50 text-foreground">
+          <AccordionContent className="p-4 sm:p-5 border-t border-border/50 text-base text-foreground">
             {unitRequirements.units.map((unit, index) => (
               <div key={index} className="mb-2">
                 ❐ <b>"{unit.name}" ইউনিট:</b>
@@ -152,16 +152,16 @@ const DhakaAdmissionInfo = () => {
           </AccordionContent>
         </AccordionItem>
         <AccordionItem
-          value="info-2"
-          className="border border-border rounded-lg bg-card hover:bg-accent/50 transition-all duration-300 mt-4"
+          value="item-2"
+          className="bg-card border border-border rounded-2xl overflow-hidden mt-4"
         >
-          <AccordionTrigger className="p-3 text-base font-bold hover:no-underline">
+          <AccordionTrigger className="p-4 sm:p-5 w-full flex justify-between items-center text-lg font-bold cursor-pointer hover:no-underline">
             <div className="flex items-center">
-              <Info className="inline-block mr-2" />
+              <Info className="mr-2" />
               <span>{improvementPolicy.title}</span>
             </div>
           </AccordionTrigger>
-          <AccordionContent className="p-4 sm:p-5 border-t border-border/50 text-foreground">
+          <AccordionContent className="p-4 sm:p-5 border-t border-border/50 text-base text-foreground">
             <span
               dangerouslySetInnerHTML={{ __html: improvementPolicy.details }}
             />
