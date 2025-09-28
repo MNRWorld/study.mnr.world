@@ -37,7 +37,7 @@ const BackToTopButton = () => {
                 onClick={scrollToTop}
                 size="icon"
                 className={cn(
-                    "rounded-full shadow-lg h-12 w-12 bg-primary/90 backdrop-blur-sm hover:bg-primary transition-all duration-300",
+                    "rounded-full shadow-lg h-12 w-12 bg-primary/90 text-primary-foreground backdrop-blur-sm hover:bg-primary hover:text-primary-foreground hover:scale-110 transition-all duration-300",
                     isVisible ? "opacity-100 scale-100 translate-y-0" : "opacity-0 scale-80 translate-y-5 pointer-events-none"
                 )}
             >
