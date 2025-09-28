@@ -36,7 +36,7 @@ export default function SignupPage() {
 
   return (
     <div className="flex items-center justify-center min-h-[calc(100vh-10rem)] font-bengali px-4">
-      <div className="w-full max-w-md p-6 sm:p-8 space-y-6 sm:space-y-8 bg-card border border-border rounded-2xl shadow-lg">
+      <div className="w-full max-w-md p-6 sm:p-8 space-y-6 sm:space-y-8 bg-card border border-border rounded-2xl shadow-lg animate-fade-in-up">
         <div className="text-center">
             <div className="inline-block p-4 bg-primary/10 rounded-full mb-4">
                 <UserPlus className="h-8 w-8 sm:h-10 sm:w-10 text-primary" />
@@ -57,7 +57,7 @@ export default function SignupPage() {
             <Label htmlFor="password">পাসওয়ার্ড</Label>
             <Input id="password" type="password" placeholder="একটি শক্তিশালী পাসওয়ার্ড দিন" required value={password} onChange={(e) => setPassword(e.target.value)} className="text-sm" />
           </div>
-          <Button type="submit" className="w-full join-btn text-white font-semibold text-base" disabled={loading}>
+          <Button type="submit" className="w-full text-white font-semibold text-base transition-transform hover:scale-105" disabled={loading}>
             {loading ? 'প্রসেসিং...' : 'রেজিস্টার করুন'}
           </Button>
         </form>

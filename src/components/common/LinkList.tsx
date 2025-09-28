@@ -37,9 +37,9 @@ const LinkList = ({ links }: LinkListProps) => {
                         <TableRow key={rowIndex}>
                             {row.map((link, linkIndex) => (
                                 <TableCell key={linkIndex} className="text-center" colSpan={link.colSpan}>
-                                    <Link 
-                                        href={link.href} 
-                                        target={link.target} 
+                                    <Link
+                                        href={link.href}
+                                        target={link.target}
                                         rel={link.rel}
                                         className="block w-full hover:bg-accent rounded-md py-2 px-2"
                                     >
