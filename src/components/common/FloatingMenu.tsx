@@ -5,6 +5,7 @@ import { Button } from '@/components/ui/button';
 import { Menu } from 'lucide-react';
 import React, { useState } from 'react';
 import { cn } from '@/lib/utils';
+import Link from 'next/link';
 
 
 const FloatingMenu = () => {
@@ -37,7 +38,7 @@ const FloatingMenu = () => {
                 )}
             >
                 {menuItems.map((item, index) => (
-                    <a 
+                    <Link 
                         key={index}
                         href={item.href} 
                         className={cn(linkClasses, "transition-transform duration-200 ease-in-out")}
@@ -45,7 +46,7 @@ const FloatingMenu = () => {
                         onClick={() => setMenuOpen(false)}
                     >
                         {item.label}
-                    </a>
+                    </Link>
                 ))}
             </div>
         </div>
