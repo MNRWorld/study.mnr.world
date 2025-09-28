@@ -42,7 +42,7 @@ const Circular = ({
       <div className="flex flex-col sm:flex-row flex-wrap gap-2.5 mt-5 justify-center">
         <Button
           asChild
-          className="bg-primary text-primary-foreground flex-1 min-w-[150px] hover:bg-background hover:text-primary border hover:border-primary transition-transform hover:scale-105"
+          className="bg-primary text-primary-foreground flex-1 min-w-[150px] hover:bg-background hover:text-primary border hover:border-primary"
         >
           <Link href={downloadLink} target="_blank" rel="noopener noreferrer">
             <Download size={16} className="mr-2" /> ডাউনলোড করুন
