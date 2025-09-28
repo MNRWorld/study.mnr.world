@@ -1,68 +1,86 @@
 
 'use client';
-
-import { useState } from 'react';
+import { University, Filter } from 'lucide-react';
 import PageHeaderCard from '@/components/common/PageHeaderCard';
-import { publicUniversities, University } from '@/lib/data/public-universities';
+import { publicUniversities } from '@/lib/data/public-universities';
 import UniversityCard from '@/components/UniversityCard';
-import { University as UniversityIcon } from 'lucide-react';
+import { useSearchParams } from 'next/navigation';
+import Link from 'next/link';
 import { cn } from '@/lib/utils';
+import { Button } from '@/components/ui/button';
+import {
+    DropdownMenu,
+    DropdownMenuContent,
+    DropdownMenuRadioGroup,
+    DropdownMenuRadioItem,
+    DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu"
+import React from 'react';
 
-function PublicPage() {
-  const [filter, setFilter] = useState('সব');
+function PublicUniversityPage() {
+    const searchParams = useSearchParams();
+    const categoryFilter = searchParams.get('category') || 'all';
 
-  const categories = ['সব', ...Array.from(new Set(publicUniversities.map(u => u.category)))];
+    const categories = ['all', 'সাধারণ', 'বিজ্ঞান ও প্রযুক্তি', 'প্রকৌশল', 'কৃষি', 'মেডিকেল'];
 
-  const filteredUniversities = filter === 'সব'
-    ? publicUniversities
-    : publicUniversities.filter(u => u.category === filter);
+    const filteredUniversities = publicUniversities.filter(uni => 
+        categoryFilter === 'all' || uni.category === categoryFilter
+    );
 
-  return (
-    <div className="font-bengali bg-background py-8">
-      <div className="container mx-auto px-4">
-        <PageHeaderCard
-            icon={<UniversityIcon className="h-14 w-14 text-primary" />}
-            title="পাবলিক বিশ্ববিদ্যালয় ভর্তি"
-            subtitle="Public University Admission"
-            description="দেশের সকল পাবলিক বিশ্ববিদ্যালয়ের ভর্তি তথ্য, প্রশ্নব্যাংক ও সর্বশেষ আপডেট এক জায়গায়।"
-            stats={[
-                { value: "৫০+", label: "বিশ্ববিদ্যালয়" },
-                { value: "বিভিন্ন", label: "ক্যাটাগরি" },
-                { value: "হাজারো", label: "আসন", tooltip: "আসন সংখ্যা পরিবর্তনশীল" }
-            ]}
-        />
+    return (
+        <div className="font-bengali bg-background py-8">
+            <div className="container mx-auto px-4">
+                <PageHeaderCard
+                    icon={<University className="h-14 w-14 text-primary" />}
+                    title="পাবলিক বিশ্ববিদ্যালয়"
+                    subtitle="Public University"
+                    description="বাংলাদেশের সকল পাবলিক বিশ্ববিদ্যালয়ের ভর্তি তথ্য, সার্কুলার এবং প্রশ্নব্যাংক একটি প্ল্যাটফর্মে।"
+                    stats={[
+                        { value: '৫০+', label: 'বিশ্ববিদ্যালয়' },
+                        { value: 'বিভিন্ন', label: 'গ্রুপ' },
+                        { value: 'সকল', label: 'তথ্য', tooltip: 'এক জায়গায়' }
+                    ]}
+                />
 
-        <div className="my-8 flex justify-center flex-wrap gap-2">
-          {categories.map(category => (
-            <button
-              key={category}
-              onClick={() => setFilter(category)}
-              className={cn(
-                'px-4 py-2 rounded-full text-sm font-medium transition-colors duration-300',
-                filter === category
-                  ? 'bg-primary text-primary-foreground'
-                  : 'bg-card text-card-foreground border border-border hover:bg-accent'
-              )}
-            >
-              {category}
-            </button>
-          ))}
-        </div>
+                <div className="mt-8 flex justify-center items-center gap-2 flex-wrap">
+                    <DropdownMenu>
+                        <DropdownMenuTrigger asChild>
+                            <Button variant="outline"><Filter size={16} /> Filter by Category</Button>
+                        </DropdownMenuTrigger>
+                        <DropdownMenuContent>
+                            <DropdownMenuRadioGroup value={categoryFilter}>
+                                {categories.map(cat => (
+                                     <Link href={cat === 'all' ? '/public' : `/public?category=${cat}`} key={cat}>
+                                        <DropdownMenuRadioItem value={cat}>
+                                            {cat === 'all' ? 'All Universities' : cat}
+                                        </DropdownMenuRadioItem>
+                                    </Link>
+                                ))}
+                            </DropdownMenuRadioGroup>
+                        </DropdownMenuContent>
+                    </DropdownMenu>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {filteredUniversities.map((uni, index) => (
-             <div
-              key={uni.shortName}
-              className="animate-fade-in-up"
-              style={{ animationDelay: `${index * 50}ms`, animationFillMode: 'both' }}
-            >
-                <UniversityCard university={uni} />
+                    {categories.slice(1).map(cat => (
+                         <Button asChild key={cat} variant={categoryFilter === cat ? 'default' : 'ghost'} size="sm">
+                            <Link href={`/public?category=${cat}`}>{cat}</Link>
+                        </Button>
+                    ))}
+                </div>
+
+                <div className="mt-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    {filteredUniversities.map((uni, index) => (
+                        <div
+                          key={uni.shortName}
+                          className="animate-fade-in-up"
+                          style={{ animationDelay: `${index * 50}ms` }}
+                        >
+                            <UniversityCard university={uni} />
+                        </div>
+                    ))}
+                </div>
             </div>
-          ))}
         </div>
-      </div>
-    </div>
-  );
+    );
 }
 
-export default PublicPage;
+export default PublicUniversityPage;

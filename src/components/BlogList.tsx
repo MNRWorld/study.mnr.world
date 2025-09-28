@@ -18,7 +18,7 @@ const BlogList = () => {
                 return (
                     <div
                         key={post.id}
-                        className="bg-card border border-border rounded-xl shadow-lg overflow-hidden flex flex-col card-hover-effect"
+                        className="bg-card border border-border rounded-xl shadow-lg overflow-hidden flex flex-col transition-all duration-300 hover:-translate-y-1 hover:shadow-xl"
                     >
                         <Link href={`/blog/${post.id}`} className="block">
                             {image && (
