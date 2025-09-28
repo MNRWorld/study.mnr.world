@@ -19,6 +19,7 @@ import {
   MapPinned,
   BarChart3,
   Users,
+  CalendarClock,
 } from "lucide-react";
 import { duAdmissionInfo } from "@/lib/data/admission-info";
 import ExternalLink from "./common/ExternalLink";
@@ -50,14 +51,19 @@ const DhakaAdmissionInfo = () => {
         id="Apply"
         className="bg-primary/10 text-primary rounded-xl p-3 mt-4 mb-4 text-center text-base sm:text-lg font-bold flex items-center justify-center"
       >
-        <FilePenLine className="mr-2 size-auto" /> {apply.title}
+        <FilePenLine className="mr-2" size={16} /> {apply.title}
       </h2>
       <div className="text-base">
-        <span>
-          <b>➜ আবেদন শুরুঃ</b> {apply.startDate}
+        <div className="mt-2 mb-2">
+          <b>
+            <CalendarClock className="inline-block mr-2" />
+            আবেদনের সময়কাল:
+          </b>
           <br />
-          <b>➜ আবেদন শেষঃ</b> {apply.endDate}
-        </span>
+          <b>&nbsp;&nbsp;&nbsp; • শুরু:</b> {apply.startDate}
+          <br />
+          <b>&nbsp;&nbsp;&nbsp; • শেষ:</b> {apply.endDate}
+        </div>
         <div className="my-2">
           <b>
             <Banknote className="inline-block mr-2" />
@@ -150,7 +156,7 @@ const DhakaAdmissionInfo = () => {
         id="AdmitCard"
         className="bg-primary/10 text-primary rounded-xl p-3 mt-8 mb-4 text-center text-base sm:text-lg font-bold flex items-center justify-center"
       >
-        <Dock className="mr-2 size-auto" /> {admitCard.title}
+        <Dock className="mr-2" size={16} /> {admitCard.title}
       </h2>
       <div className="text-base">
         <span>
@@ -185,7 +191,7 @@ const DhakaAdmissionInfo = () => {
         id="ExamDate"
         className="bg-primary/10 text-primary rounded-xl p-3 mt-8 mb-4 text-center text-base sm:text-lg font-bold flex items-center justify-center"
       >
-        <Timer className="mr-2 size-auto" /> {examDate.title}
+        <Timer className="mr-2" size={16} /> {examDate.title}
       </h2>
       <span className="text-base">
         {examDate.dates.map((date, index) => (
@@ -207,7 +213,7 @@ const DhakaAdmissionInfo = () => {
         id="Location"
         className="bg-primary/10 text-primary rounded-xl p-3 mt-8 mb-4 text-center text-base sm:text-lg font-bold flex items-center justify-center"
       >
-        <MapPinned className="mr-2 size-auto" /> {examCenter.title}
+        <MapPinned className="mr-2" size={16} /> {examCenter.title}
       </h2>
       <span className="text-base">
         ➜ {examCenter.location}{" "}
@@ -224,7 +230,7 @@ const DhakaAdmissionInfo = () => {
 
       <div id="MarkDistributionAndOthers"></div>
       <h2 className="bg-primary/10 text-primary rounded-xl p-3 mt-8 mb-4 text-center text-base sm:text-lg font-bold flex items-center justify-center">
-        <Info className="mr-2 size-auto" /> {generalInfo.title}
+        <Info className="mr-2" size={16} /> {generalInfo.title}
       </h2>
 
       <div className="border border-border/80 rounded-xl p-4 mt-2.5 text-base">
@@ -243,7 +249,7 @@ const DhakaAdmissionInfo = () => {
         id="Result"
         className="bg-primary/10 text-primary rounded-xl p-3 mt-8 mb-4 text-center text-base sm:text-lg font-bold flex items-center justify-center"
       >
-        <BarChart3 className="mr-2 size-auto" /> {result.title}
+        <BarChart3 className="mr-2" size={16} /> {result.title}
       </h2>
       <span className="text-base">
         ● <b>ফলাফল প্রকাশ:</b> {result.date}
@@ -262,3 +268,4 @@ const DhakaAdmissionInfo = () => {
 };
 
 export default DhakaAdmissionInfo;
+
