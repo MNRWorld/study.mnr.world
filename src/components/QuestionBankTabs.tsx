@@ -3,7 +3,6 @@
 
 import React from 'react';
 import { useSearchParams } from 'next/navigation';
-import { motion } from 'framer-motion';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import DhakaUniversityTab from '@/components/DhakaUniversityTab';
 import { University, FlaskConical, Rocket, Atom } from 'lucide-react';
@@ -12,22 +11,8 @@ const QuestionBankTabs = () => {
   const searchParams = useSearchParams();
   const tab = searchParams.get('tab') || 'du';
 
-  const itemVariants = {
-    hidden: { y: 20, opacity: 0 },
-    visible: {
-      y: 0,
-      opacity: 1,
-      transition: {
-        duration: 0.5,
-      },
-    },
-  };
-
   return (
-    <motion.div
-      variants={itemVariants}
-      initial="hidden"
-      animate="visible"
+    <div
       id="QuestionBank"
       className="mt-8 w-full border border-border bg-card rounded-2xl p-4 sm:p-6 shadow-lg text-center relative"
     >
@@ -71,7 +56,7 @@ const QuestionBankTabs = () => {
           </p>
         </TabsContent>
       </Tabs>
-    </motion.div>
+    </div>
   );
 };
 

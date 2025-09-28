@@ -1,6 +1,5 @@
 
 'use client';
-import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
 import { Info } from 'lucide-react';
@@ -29,36 +28,22 @@ interface PageHeaderCardProps {
     }
 }
 
-const itemVariants = {
-    hidden: { y: 20, opacity: 0 },
-    visible: {
-        y: 0,
-        opacity: 1,
-        transition: {
-            duration: 0.5,
-        },
-    },
-};
-
 const PageHeaderCard = ({ icon, title, subtitle, description, stats, button }: PageHeaderCardProps) => {
     const [openTooltip, setOpenTooltip] = useState<string | null>(null);
     return (
-        <motion.div
-            variants={itemVariants}
-            initial="hidden"
-            animate="visible"
+        <div
             className="mt-20 w-full border border-border bg-card rounded-2xl p-4 sm:p-8 shadow-lg text-center relative"
         >
             <div className="w-20 h-20 sm:w-24 sm:h-24 absolute -top-10 sm:-top-12 left-1/2 -translate-x-1/2 bg-card rounded-2xl shadow-xl z-10 flex items-center justify-center p-1">
                 {icon}
             </div>
             <div className="pt-10 sm:pt-12">
-                <div className="text-xl sm:text-2xl md:text-3xl font-bold my-2 text-foreground">
+                <h1 className="text-xl sm:text-2xl md:text-3xl font-bold my-2 text-foreground">
                     {title}
-                </div>
-                <div className="text-xs sm:text-sm text-muted-foreground mb-4">
+                </h1>
+                <p className="text-xs sm:text-sm text-muted-foreground mb-4">
                     ({subtitle})
-                </div>
+                </p>
                 <p className="text-sm sm:text-base text-muted-foreground mb-6 max-w-2xl mx-auto">
                     {description}
                 </p>
@@ -100,7 +85,7 @@ const PageHeaderCard = ({ icon, title, subtitle, description, stats, button }: P
                     </Link>
                 </Button>
             )}
-        </motion.div>
+        </div>
     );
 };
 

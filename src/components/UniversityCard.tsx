@@ -6,24 +6,14 @@ import { Button } from '@/components/ui/button';
 import { ChevronDown, BookOpen, FileText, ArrowRight } from 'lucide-react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { motion } from 'framer-motion';
 
 interface UniversityCardProps {
   university: University;
 }
 
-const itemVariants = {
-    hidden: { y: 20, opacity: 0 },
-    visible: {
-      y: 0,
-      opacity: 1,
-    },
-};
-
 const UniversityCard = React.memo(function UniversityCard({ university }: UniversityCardProps) {
   return (
-    <motion.details
-        variants={itemVariants}
+    <details
         className="group bg-card border border-border rounded-xl shadow-sm transition-all duration-300 hover:border-primary/50 hover:shadow-lg open:shadow-xl open:border-primary/50"
     >
       <summary className="p-4 list-none flex justify-between items-center cursor-pointer">
@@ -50,7 +40,7 @@ const UniversityCard = React.memo(function UniversityCard({ university }: Univer
             </Button>
         </div>
       </div>
-    </motion.details>
+    </details>
   );
 });
 

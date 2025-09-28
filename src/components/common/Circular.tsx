@@ -1,6 +1,5 @@
 
 'use client';
-import { motion } from 'framer-motion';
 import { Download } from 'lucide-react';
 
 import { Button } from '@/components/ui/button';
@@ -14,23 +13,10 @@ interface CircularProps {
 }
 
 const Circular = ({ title, note, downloadLink, showPreviousYears = false }: CircularProps) => {
-    const itemVariants = {
-        hidden: { y: 20, opacity: 0 },
-        visible: {
-            y: 0,
-            opacity: 1,
-            transition: {
-                duration: 0.5,
-            },
-        },
-    };
 
     return (
-        <motion.div
+        <div
             id="Circular"
-            variants={itemVariants}
-            initial="hidden"
-            animate="visible"
             className="mt-8 w-full border border-border bg-card rounded-2xl p-4 sm:p-6 shadow-lg text-center relative"
         >
             <div className="flex justify-center">
@@ -48,7 +34,7 @@ const Circular = ({ title, note, downloadLink, showPreviousYears = false }: Circ
                 </Button>
                 {showPreviousYears && <PreviousYearCirculars />}
             </div>
-        </motion.div>
+        </div>
     );
 };
 

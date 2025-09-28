@@ -5,46 +5,19 @@ import { Calendar, User } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react';
-import { motion } from 'framer-motion';
 import { blogPosts } from '@/lib/data/blog-posts';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 
 const BlogList = () => {
-    const containerVariants = {
-        hidden: {},
-        visible: {
-            transition: {
-                staggerChildren: 0.1,
-                delayChildren: 0.3,
-            },
-        },
-    };
-
-    const itemVariants = {
-        hidden: { y: 20, opacity: 0 },
-        visible: {
-            y: 0,
-            opacity: 1,
-            transition: {
-                type: 'spring',
-                stiffness: 100
-            },
-        },
-    };
-
     return (
-        <motion.div
-            variants={containerVariants}
-            initial="hidden"
-            animate="visible"
+        <div
             className="mt-12 grid md:grid-cols-2 lg:grid-cols-3 gap-8"
         >
             {blogPosts.map((post) => {
                 const image = PlaceHolderImages.find(img => img.id === post.imageId);
                 return (
-                    <motion.div
+                    <div
                         key={post.id}
-                        variants={itemVariants}
                         className="bg-card border border-border rounded-xl shadow-lg overflow-hidden hover:shadow-primary/20 hover:-translate-y-2 transition-all duration-300 flex flex-col"
                     >
                         <Link href={`/blog/${post.id}`} className="block">
@@ -78,10 +51,10 @@ const BlogList = () => {
                                 <span>{post.author}</span>
                             </div>
                         </div>
-                    </motion.div>
+                    </div>
                 );
             })}
-        </motion.div>
+        </div>
     )
 }
 

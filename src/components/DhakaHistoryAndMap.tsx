@@ -1,6 +1,5 @@
 
 'use client';
-import { motion } from 'framer-motion';
 import Link from 'next/link';
 
 import {
@@ -20,25 +19,11 @@ import { duHistoryAndMapData } from '@/lib/data/admission-info';
 
 
 const DhakaHistoryAndMap = () => {
-    const itemVariants = {
-        hidden: { y: 20, opacity: 0 },
-        visible: {
-            y: 0,
-            opacity: 1,
-            transition: {
-                duration: 0.5,
-            },
-        },
-    };
 
     const { history, mapLocations } = duHistoryAndMapData;
 
     return (
-        <motion.div
-            variants={itemVariants}
-            initial="hidden"
-            animate="visible"
-        >
+        <div>
             <Accordion type="multiple" className="w-full mt-8 space-y-4">
                 <AccordionItem value="item-1" className="bg-card border border-border rounded-2xl overflow-hidden shadow-lg">
                     <AccordionTrigger className="p-4 sm:p-5 w-full flex justify-between items-center text-lg font-bold cursor-pointer hover:no-underline">
@@ -88,7 +73,7 @@ const DhakaHistoryAndMap = () => {
                     </AccordionContent>
                 </AccordionItem>
             </Accordion>
-        </motion.div>
+        </div>
     );
 }
 

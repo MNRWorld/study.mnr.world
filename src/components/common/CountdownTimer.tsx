@@ -1,8 +1,7 @@
 
 'use client';
 
-import React, { useState, useEffect, useRef } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import React, 'useState', useEffect, useRef } from 'react';
 import { admissionDeadlines } from '@/lib/data/deadlines';
 
 const CountdownTimer = () => {
@@ -88,13 +87,11 @@ const CountdownTimer = () => {
 
   if (currentIndex >= admissionDeadlines.length) {
     return (
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
+      <div
         className="text-center font-bold text-lg p-4 bg-card rounded-2xl"
       >
         সকল ভর্তি পরীক্ষার সময়সীমা শেষ হয়েছে। নতুন সময়সূচী শীঘ্রই যুক্ত করা হবে।
-      </motion.div>
+      </div>
     );
   }
 
@@ -107,21 +104,12 @@ const CountdownTimer = () => {
     const progress = isNaN(numValue) ? 1 : 1 - (numValue / max);
     const circumference = 2 * Math.PI * 45;
     const offset = circumference * progress;
-
-    const getTransition = () => {
-        if (unit === 'সেকেন্ড') {
-            return { duration: 1, ease: "linear" as const };
-        }
-        // For other units, only animate when the value changes.
-        // The `key` on the motion.circle will trigger this.
-        return { type: "spring" as const, stiffness: 50, damping: 15 };
-    };
     
     return (
       <div className="relative w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 shrink-0">
         <svg className="w-full h-full transform -rotate-90" viewBox="0 0 100 100">
           <circle className="text-muted/50 dark:text-muted/20" strokeWidth="6" stroke="currentColor" fill="transparent" r="45" cx="50" cy="50" />
-          <motion.circle
+          <circle
             key={unit === 'সেকেন্ড' ? undefined : value}
             className="text-primary"
             strokeWidth="6"
@@ -132,9 +120,7 @@ const CountdownTimer = () => {
             r="45"
             cx="50"
             cy="50"
-            initial={ unit !== 'সেকেন্ড' ? { strokeDashoffset: offset } : false}
-            animate={{ strokeDashoffset: isCurrentCompleted ? 0 : offset }}
-            transition={getTransition()}
+            style={{ strokeDashoffset: isCurrentCompleted ? 0 : offset, transition: unit === 'সেকেন্ড' ? 'stroke-dashoffset 1s linear' : 'stroke-dashoffset 0.5s ease-out'}}
           />
         </svg>
         <div className="absolute inset-0 flex flex-col items-center justify-center">
@@ -147,47 +133,30 @@ const CountdownTimer = () => {
 
   return (
     <div className="text-center p-2 sm:p-4 rounded-2xl bg-card">
-      <AnimatePresence mode="wait">
-        <motion.div
-          key={currentDeadline.title}
-          initial={{ opacity: 0, y: -10 }}
-          animate={{ opacity: 1, y: 0 }}
-          exit={{ opacity: 0, y: 10 }}
-          transition={{ duration: 0.3 }}
+      <div
           className="text-base sm:text-lg font-bold mb-3 text-foreground"
         >
           {currentDeadline.title}
           <div className="font-normal text-xs sm:text-sm mt-1 text-muted-foreground">
             {currentDeadline.date.toLocaleDateString('bn-BD', { year: 'numeric', month: 'long', day: 'numeric' })}
           </div>
-        </motion.div>
-      </AnimatePresence>
-      <AnimatePresence mode="wait">
+        </div>
       {isCurrentCompleted ? (
-        <motion.div
-          key="completed"
-          initial={{ y: 20, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          exit={{ y: -20, opacity: 0 }}
+        <div
           className="text-xl text-destructive font-bold mt-2.5"
         >
           সময় শেষ!
-        </motion.div>
+        </div>
       ) : (
-        <motion.div
-          key="timer"
-          initial={{ y: 20, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          exit={{ y: -20, opacity: 0 }}
+        <div
           className="flex gap-2 sm:gap-4 justify-center flex-nowrap"
         >
           <TimeCircle unit="দিন" value={timeLeft.days} max={365} />
           <TimeCircle unit="ঘন্টা" value={timeLeft.hours} max={24} />
           <TimeCircle unit="মিনিট" value={timeLeft.minutes} max={60} />
           <TimeCircle unit="সেকেন্ড" value={timeLeft.seconds} max={60} />
-        </motion.div>
+        </div>
       )}
-      </AnimatePresence>
     </div>
   );
 };

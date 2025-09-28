@@ -143,3 +143,59 @@ body, .no-scrollbar {
     transform: scale(1.15);
     color: hsl(var(--primary));
 }
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.floating-animation {
+  animation: float 4s ease-in-out infinite;
+}
+
+.floating-animation-reverse {
+  animation: float 4s ease-in-out infinite reverse;
+}
+
+.typing-container {
+  display: inline;
+}
+
+@keyframes typing {
+  from { width: 0 }
+  to { width: 100% }
+}
+
+@keyframes blink-caret {
+  from, to { border-color: transparent }
+  50% { border-color: hsl(var(--foreground)); }
+}
+
+.typing-text {
+  display: inline-block;
+  overflow: hidden;
+  white-space: nowrap;
+  vertical-align: bottom;
+  animation: 
+    typing 2s steps(40, end),
+    blink-caret .75s step-end infinite;
+  animation-iteration-count: infinite;
+}
+
+.typing-container .cursor {
+  display: inline-block;
+  animation: blink-caret .75s step-end infinite;
+}
+
+/* Dynamically set animation properties via style attribute if needed */
+.typing-text[data-text="একাডেমিক হোক,"] { animation-name: typing1; }
+.typing-text[data-text="এডমিশন হোক,"] { animation-name: typing2; }
+.typing-text[data-text="অথবা বেসিক গড়ার প্রচেষ্টা,"] { animation-name: typing3; }
+
+@keyframes typing1 { from { width: 0 } to { width: 100% } }
+@keyframes typing2 { from { width: 0 } to { width: 100% } }
+@keyframes typing3 { from { width: 0 } to { width: 100% } }

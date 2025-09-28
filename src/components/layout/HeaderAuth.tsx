@@ -10,7 +10,6 @@ import {
   LogIn,
   LogOut,
 } from 'lucide-react';
-import { AnimatePresence, motion } from 'framer-motion';
 
 interface AuthButtonProps {
     isHovered: boolean;
@@ -29,32 +28,27 @@ function AuthButton({ isHovered, label, icon, onClick, isDestructive = false }: 
             className={cn(
                 'relative flex cursor-pointer items-center justify-center rounded-full transition-colors duration-300',
                 'h-9 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background',
-                isHovered ? activeClasses : 'text-muted-foreground',
+                'text-muted-foreground',
                 'px-3'
             )}
         >
-             <AnimatePresence>
-                {isHovered && (
-                <motion.div
-                    layoutId="auth-hover-bg"
-                    className={cn("absolute inset-0 rounded-full", isDestructive ? 'bg-destructive/10' : 'bg-accent')}
-                    initial={{ opacity: 0, scale: 0.5 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    exit={{ opacity: 0, scale: 0.5 }}
-                />
+             <div
+                className={cn(
+                    "absolute inset-0 rounded-full transition-opacity duration-300",
+                    isHovered ? 'opacity-100' : 'opacity-0',
+                    isDestructive ? 'bg-destructive/10' : 'bg-accent'
                 )}
-            </AnimatePresence>
+             />
              <div className="relative z-10 flex items-center">
-                <div className="shrink-0">{icon}</div>
-                 <motion.div
-                    className="overflow-hidden"
-                    animate={{ width: isHovered ? 'auto' : 0, marginLeft: isHovered ? '0.5rem' : 0 }}
-                    transition={{ duration: 0.3, ease: 'easeInOut' }}
+                <div className={cn("shrink-0", isHovered && (isDestructive ? 'text-destructive' : 'text-accent-foreground'))}>{icon}</div>
+                 <div
+                    className="overflow-hidden transition-all duration-300 ease-in-out"
+                    style={{ width: isHovered ? 'auto' : 0, marginLeft: isHovered ? '0.5rem' : 0 }}
                 >
-                    <span className="whitespace-nowrap text-sm font-medium">
+                    <span className={cn("whitespace-nowrap text-sm font-medium", isHovered && (isDestructive ? 'text-destructive' : 'text-accent-foreground'))}>
                         {label}
                     </span>
-                </motion.div>
+                </div>
             </div>
         </button>
     )

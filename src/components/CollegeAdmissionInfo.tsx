@@ -1,6 +1,5 @@
 
 'use client';
-import { motion } from 'framer-motion';
 import {
   Link as LinkIcon,
   ArrowUpRightFromSquare,
@@ -13,24 +12,11 @@ import {
 import { collegeAdmissionInfo } from '@/lib/data/admission-info';
 
 const CollegeAdmissionInfo = () => {
-    const itemVariants = {
-        hidden: { y: 20, opacity: 0 },
-        visible: {
-            y: 0,
-            opacity: 1,
-            transition: {
-                duration: 0.5,
-            },
-        },
-    };
 
     const { apply, admitCard, examDate, result, generalInfo } = collegeAdmissionInfo;
 
     return (
-        <motion.div
-            variants={itemVariants}
-            initial="hidden"
-            animate="visible"
+        <div
             id="Info"
             className="mt-8 w-full border border-border bg-card rounded-2xl p-4 sm:p-6 shadow-lg relative text-left"
         >
@@ -38,7 +24,7 @@ const CollegeAdmissionInfo = () => {
                 <div className="inline-block px-6 py-2 bg-gradient-to-r from-primary to-blue-500 text-white rounded-full text-base sm:text-lg mb-4 font-bold shadow-md">{generalInfo.title}</div>
             </div>
             
-            <h5 id="Apply" className="bg-primary/10 text-primary rounded-xl p-3 my-4 text-center text-lg sm:text-xl font-bold flex items-center justify-center"><PenSquare className="mr-2"/> {apply.title}</h5>
+            <h2 id="Apply" className="bg-primary/10 text-primary rounded-xl p-3 my-4 text-center text-lg sm:text-xl font-bold flex items-center justify-center"><PenSquare className="mr-2"/> {apply.title}</h2>
             <span className="text-base"><b>➜ আবেদন শুরুঃ</b> {apply.startDate}<br/>
             <b>➜ আবেদন শেষঃ</b> {apply.endDate}</span>
             <div className="my-2">
@@ -56,22 +42,22 @@ const CollegeAdmissionInfo = () => {
             </div>
             <hr className="my-2 border-border/50" />
             
-            <h5 id="AdmitCard" className="bg-primary/10 text-primary rounded-xl p-3 my-4 text-center text-lg sm:text-xl font-bold flex items-center justify-center"><Ticket className="mr-2"/> {admitCard.title}</h5>
+            <h2 id="AdmitCard" className="bg-primary/10 text-primary rounded-xl p-3 my-4 text-center text-lg sm:text-xl font-bold flex items-center justify-center"><Ticket className="mr-2"/> {admitCard.title}</h2>
             <span className="text-base">{admitCard.details}</span>
             
-            <h5 id="ExamDate" className="bg-primary/10 text-primary rounded-xl p-3 my-4 text-center text-lg sm:text-xl font-bold flex items-center justify-center"><Timer className="mr-2"/> {examDate.title}</h5>
+            <h2 id="ExamDate" className="bg-primary/10 text-primary rounded-xl p-3 my-4 text-center text-lg sm:text-xl font-bold flex items-center justify-center"><Timer className="mr-2"/> {examDate.title}</h2>
              <span className="text-base">{examDate.details}</span>
             <hr className="my-2 border-border/50"/>
             <div className="border border-border/80 p-3 text-center rounded-md">
                 <span dangerouslySetInnerHTML={{ __html: examDate.note }} />
             </div>
 
-             <h5 id="Result" className="bg-primary/10 text-primary rounded-xl p-3 my-4 text-center text-lg sm:text-xl font-bold flex items-center justify-center"><BarChart3 className="mr-2"/> {result.title}</h5>
+             <h2 id="Result" className="bg-primary/10 text-primary rounded-xl p-3 my-4 text-center text-lg sm:text-xl font-bold flex items-center justify-center"><BarChart3 className="mr-2"/> {result.title}</h2>
              <span className="text-base">● <b>ফলাফল প্রকাশ:</b> {result.date}
                 <hr className="my-1 border-border/50" />
                 <b><LinkIcon className="inline-block mr-2" size={16}/>লিংকঃ</b> <a href={result.link} target="_blank" className="text-primary hover:underline">{result.link.replace('http://','').replace('/','')} <ArrowUpRightFromSquare size={11} className="inline-block"/></a>
             </span>
-        </motion.div>
+        </div>
     );
 };
 
