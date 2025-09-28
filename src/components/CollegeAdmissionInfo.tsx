@@ -2,7 +2,6 @@
 'use client';
 import {
   Link as LinkIcon,
-  ArrowUpRightFromSquare,
   Timer,
   BarChart3,
   PenSquare,
@@ -50,7 +49,7 @@ const CollegeAdmissionInfo = () => {
              <span className="text-base">{examDate.details}</span>
             <hr className="my-2 border-border/50"/>
             <div className="border border-border/80 p-3 text-center rounded-md">
-                <span dangerouslySetInnerHTML={{ __html: examDate.note }} />
+                সব কলেজের <b>ভর্তির তারিখ</b> জানতে ভিজিট করুন <b><ExternalLink href={examDate.note.link} text={examDate.note.text} /></b>
             </div>
 
              <h2 id="Result" className="bg-primary/10 text-primary rounded-xl p-3 my-4 text-center text-lg sm:text-xl font-bold flex items-center justify-center"><BarChart3 className="mr-2"/> {result.title}</h2>

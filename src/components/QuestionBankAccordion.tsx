@@ -2,7 +2,7 @@
 import React from 'react';
 import { AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
 import { File } from 'lucide-react';
-import Link from 'next/link';
+import ExternalLink from './common/ExternalLink';
 
 interface LinkItem {
   title: string;
@@ -37,9 +37,7 @@ const QuestionBankAccordion: React.FC<QuestionBankAccordionProps> = ({ value, ti
               {item.links.length > 0 ? (
                 item.links.map((link, linkIndex) => (
                   <div key={linkIndex}>
-                    ● <a href={link.url} target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">
-                      {link.title}
-                    </a>
+                    ● <ExternalLink href={link.url} text={link.title} />
                   </div>
                 ))
               ) : (

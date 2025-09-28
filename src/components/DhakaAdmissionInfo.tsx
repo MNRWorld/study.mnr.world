@@ -13,7 +13,6 @@ import {
   Banknote,
   CircleCheck,
   Link as LinkIcon,
-  ArrowUpRightFromSquare,
   CircleAlert,
   Ticket,
   Timer,
@@ -112,7 +111,7 @@ const DhakaAdmissionInfo = () => {
             </span>
             <hr className="my-3 border-border/50"/>
             <div className="border border-border/80 p-3 text-center rounded-md">
-                <span dangerouslySetInnerHTML={{ __html: examDate.note }} />
+                সব বিশ্ববিদ্যালয়ের <b>পরীক্ষার তারিখ ও কাউন্টডাউন</b> জানতে ভিজিট করুন আমাদের <b><ExternalLink href={examDate.note.link} text={examDate.note.text} /></b>
             </div>
 
             <h2 id="Location" className="bg-primary/10 text-primary rounded-xl p-3 my-4 text-center text-lg sm:text-xl font-bold flex items-center justify-center"><MapPin className="mr-2"/> {examCenter.title}</h2>
