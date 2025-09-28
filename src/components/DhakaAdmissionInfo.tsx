@@ -162,7 +162,6 @@ const DhakaAdmissionInfo = () => {
             </div>
           </AccordionTrigger>
           <AccordionContent className="p-4 sm:p-5 border-t border-border/50 text-foreground">
-            <hr className="my-3 border-border/50" />
             <span
               dangerouslySetInnerHTML={{ __html: improvementPolicy.details }}
             />
