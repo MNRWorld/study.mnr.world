@@ -1,11 +1,16 @@
-"use client";
-import React, { useState } from "react";
+import React from "react";
 import { University } from "@/lib/data/public-universities";
 import { Button } from "@/components/ui/button";
-import { ChevronDown, BookOpen, FileText, ArrowRight } from "lucide-react";
+import { BookOpen, FileText, ArrowRight } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
 import { cn } from "@/lib/utils";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
 
 interface UniversityCardProps {
   university: University;
@@ -14,51 +19,33 @@ interface UniversityCardProps {
 const UniversityCard = React.memo(function UniversityCard({
   university,
 }: UniversityCardProps) {
-  const [isOpen, setIsOpen] = useState(false);
-
   return (
-    <div
-      className={cn(
-        "bg-card border border-border rounded-xl shadow-sm transition-all duration-300 hover:border-primary/50 hover:shadow-lg overflow-hidden",
-        isOpen && "shadow-xl border-primary/50",
-      )}
+    <Accordion
+      type="single"
+      collapsible
+      className="bg-card border border-border rounded-xl shadow-sm transition-all duration-300 hover:border-primary/50 hover:shadow-lg overflow-hidden"
     >
-      <button
-        onClick={() => setIsOpen(!isOpen)}
-        className="p-4 w-full list-none flex justify-between items-center cursor-pointer"
-        aria-expanded={isOpen}
-      >
-        <div className="flex items-center gap-4 text-left">
-          <Image
-            src={university.logo}
-            alt={`${university.nameEn} logo`}
-            width={40}
-            height={40}
-            className="object-contain"
-          />
-          <div className="flex flex-col">
-            <span className="font-bold text-foreground">
-              {university.nameBn} ({university.shortName})
-            </span>
-            <span className="text-sm text-muted-foreground">
-              {university.nameEn}
-            </span>
+      <AccordionItem value={university.shortName} className="border-none">
+        <AccordionTrigger className="p-4 w-full flex justify-between items-center cursor-pointer hover:no-underline [&[data-state=open]>svg]:rotate-180">
+          <div className="flex items-center gap-4 text-left">
+            <Image
+              src={university.logo}
+              alt={`${university.nameEn} logo`}
+              width={40}
+              height={40}
+              className="object-contain"
+            />
+            <div className="flex flex-col">
+              <span className="font-bold text-foreground">
+                {university.nameBn} ({university.shortName})
+              </span>
+              <span className="text-sm text-muted-foreground">
+                {university.nameEn}
+              </span>
+            </div>
           </div>
-        </div>
-        <ChevronDown
-          className={cn(
-            "text-muted-foreground transition-transform duration-300 ease-in-out",
-            isOpen && "rotate-180",
-          )}
-        />
-      </button>
-      <div
-        className={cn(
-          "grid transition-[grid-template-rows] duration-500 ease-in-out",
-          isOpen ? "grid-rows-[1fr]" : "grid-rows-[0fr]",
-        )}
-      >
-        <div className="overflow-hidden">
+        </AccordionTrigger>
+        <AccordionContent>
           <div className="px-4 pb-4 border-t border-border/50">
             <p className="text-muted-foreground my-3 text-sm">
               {university.description}
@@ -81,9 +68,9 @@ const UniversityCard = React.memo(function UniversityCard({
               </Button>
             </div>
           </div>
-        </div>
-      </div>
-    </div>
+        </AccordionContent>
+      </AccordionItem>
+    </Accordion>
   );
 });
 
