@@ -9,7 +9,7 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import { Table, TableBody, TableCell, TableRow } from "@/components/ui/table";
-import { Landmark, University, ArrowUpRightFromSquare } from "lucide-react";
+import { Landmark, University, ArrowUpRightFromSquare, History, Map } from "lucide-react";
 import { duHistoryAndMapData } from "@/lib/data/admission-info";
 import ExternalLink from "./common/ExternalLink";
 
@@ -24,7 +24,10 @@ const DhakaHistoryAndMap = () => {
           className="bg-card border border-border rounded-2xl overflow-hidden shadow-lg"
         >
           <AccordionTrigger className="p-4 sm:p-5 w-full flex justify-between items-center text-lg font-bold cursor-pointer hover:no-underline">
-            <span>{history.title}</span>
+            <div className="flex items-center">
+              <History className="mr-2" />
+              <span>{history.title}</span>
+            </div>
           </AccordionTrigger>
           <AccordionContent className="p-4 sm:p-5 border-t border-border/50 text-base text-muted-foreground">
             <p className="mb-4 last:mb-0">
@@ -55,7 +58,10 @@ const DhakaHistoryAndMap = () => {
           className="bg-card border border-border rounded-2xl overflow-hidden shadow-lg mt-4"
         >
           <AccordionTrigger className="p-4 sm:p-5 w-full flex justify-between items-center text-lg font-bold cursor-pointer hover:no-underline">
-            <span>{mapLocations.title}</span>
+             <div className="flex items-center">
+              <Map className="mr-2" />
+              <span>{mapLocations.title}</span>
+            </div>
           </AccordionTrigger>
           <AccordionContent className="p-4 sm:p-5 border-t border-border/50 text-base text-muted-foreground">
             <Accordion type="multiple" className="w-full">

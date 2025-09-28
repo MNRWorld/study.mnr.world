@@ -36,7 +36,7 @@ const DhakaAdmissionInfo = () => {
   return (
     <div
       id="Info"
-      className="w-full border border-border bg-card rounded-2xl p-4 sm:p-6 shadow-lg relative text-left animate-fade-in-up"
+      className="mt-4 w-full border border-border bg-card rounded-2xl p-4 sm:p-6 shadow-lg relative text-left animate-fade-in-up"
     >
       <div className="flex justify-center">
         <div className="inline-block px-6 py-2 bg-gradient-to-r from-primary to-blue-500 text-white rounded-full text-base sm:text-lg mb-4 font-bold shadow-md">

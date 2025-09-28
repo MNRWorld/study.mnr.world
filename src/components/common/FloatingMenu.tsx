@@ -1,7 +1,19 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
-import { Menu } from "lucide-react";
+import {
+  Menu,
+  Link as LinkIcon,
+  FileText,
+  BookOpen,
+  PenSquare,
+  Ticket,
+  Timer,
+  MapPin,
+  Info,
+  BarChart3,
+  Users,
+} from "lucide-react";
 import React, { useState } from "react";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
@@ -13,19 +25,20 @@ const FloatingMenu = () => {
     "block p-2 text-foreground hover:bg-accent rounded-md transition-colors";
 
   const menuItems = [
-    { href: "#Links", label: "🔗 গুরুত্বপূর্ণ কিছু লিংক একত্রে" },
-    { href: "#Circular", label: "📄 সার্কুলার" },
-    { href: "#QuestionBank", label: "📚 প্রশ্নব্যাংক" },
-    { href: "#Apply", label: "📝 আবেদন" },
-    { href: "#AdmitCard", label: "🎟 প্রবেশপত্র" },
-    { href: "#ExamDate", label: "⏰ পরীক্ষার সময়কাল" },
-    { href: "#Location", label: "🗺️ ভর্তি পরীক্ষার কেন্দ্র" },
+    { href: "#Links", label: "গুরুত্বপূর্ণ কিছু লিংক একত্রে", Icon: LinkIcon },
+    { href: "#Circular", label: "সার্কুলার", Icon: FileText },
+    { href: "#QuestionBank", label: "প্রশ্নব্যাংক", Icon: BookOpen },
+    { href: "#Apply", label: "আবেদন", Icon: PenSquare },
+    { href: "#AdmitCard", label: "প্রবেশপত্র", Icon: Ticket },
+    { href: "#ExamDate", label: "পরীক্ষার সময়কাল", Icon: Timer },
+    { href: "#Location", label: "ভর্তি পরীক্ষার কেন্দ্র", Icon: MapPin },
     {
       href: "#MarkDistributionAndOthers",
-      label: "ℹ️ মানবণ্টন ও অন্যান্য তথ্য",
+      label: "মানবণ্টন ও অন্যান্য তথ্য",
+      Icon: Info,
     },
-    { href: "#Result", label: "📊 ভর্তি পরীক্ষার ফলাফল" },
-    { href: "#Subjects", label: "👤 সাবজেক্ট প্রতি সিট সংখ্যা" },
+    { href: "#Result", label: "ভর্তি পরীক্ষার ফলাফল", Icon: BarChart3 },
+    { href: "#Subjects", label: "সাবজেক্ট প্রতি সিট সংখ্যা", Icon: Users },
   ];
 
   return (
@@ -38,7 +51,7 @@ const FloatingMenu = () => {
       </Button>
       <div
         className={cn(
-          "absolute right-full top-1/2 -translate-y-1/2 w-56 bg-card border border-border rounded-lg shadow-lg p-2.5 transition-all duration-300 ease-in-out",
+          "absolute right-full top-1/2 -translate-y-1/2 w-64 bg-card border border-border rounded-lg shadow-lg p-2.5 transition-all duration-300 ease-in-out",
           menuOpen
             ? "opacity-100 translate-x-0"
             : "opacity-0 -translate-x-4 pointer-events-none",
@@ -50,7 +63,7 @@ const FloatingMenu = () => {
             href={item.href}
             className={cn(
               linkClasses,
-              "transition-transform duration-200 ease-in-out",
+              "transition-transform duration-200 ease-in-out flex items-center",
             )}
             style={{
               transitionDelay: `${index * 30}ms`,
@@ -58,6 +71,7 @@ const FloatingMenu = () => {
             }}
             onClick={() => setMenuOpen(false)}
           >
+            <item.Icon className="mr-2 h-4 w-4" />
             {item.label}
           </Link>
         ))}
