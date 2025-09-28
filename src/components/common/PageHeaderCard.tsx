@@ -2,13 +2,8 @@
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { Info } from "lucide-react";
-import {
-  Tooltip,
-  TooltipContent,
-  TooltipProvider,
-  TooltipTrigger,
-} from "@/components/ui/tooltip";
-import React, { useState } from "react";
+import React from "react";
+import StatsTooltipProvider from "./StatsTooltipProvider";
 
 interface PageHeaderCardProps {
   icon: React.ReactNode;
@@ -35,7 +30,6 @@ const PageHeaderCard = ({
   stats,
   button,
 }: PageHeaderCardProps) => {
-  const [openTooltip, setOpenTooltip] = useState<string | null>(null);
   return (
     <div className="mt-20 w-full border border-border bg-card rounded-2xl p-4 sm:p-8 shadow-lg text-center relative">
       <div className="w-20 h-20 sm:w-24 sm:h-24 absolute -top-10 sm:-top-12 left-1/2 -translate-x-1/2 bg-card rounded-2xl shadow-xl z-10 flex items-center justify-center p-1">
@@ -52,45 +46,7 @@ const PageHeaderCard = ({
           {description}
         </p>
       </div>
-      {stats && stats.length > 0 && (
-        <div className="flex justify-around items-center mb-6 text-sm max-w-md mx-auto">
-          <TooltipProvider>
-            {stats.map((stat, index) => (
-              <div key={index} className="text-center px-2">
-                <div className="text-lg sm:text-xl md:text-2xl font-bold text-foreground flex items-center justify-center">
-                  {stat.value}
-                  {stat.tooltip && (
-                    <Tooltip
-                      open={openTooltip === stat.label}
-                      onOpenChange={(isOpen) =>
-                        setOpenTooltip(isOpen ? stat.label : null)
-                      }
-                    >
-                      <TooltipTrigger
-                        className="ml-1.5 cursor-help"
-                        onClick={(e) => {
-                          e.preventDefault();
-                          setOpenTooltip(
-                            openTooltip === stat.label ? null : stat.label,
-                          );
-                        }}
-                      >
-                        <Info className="text-muted-foreground h-3 w-3" />
-                      </TooltipTrigger>
-                      <TooltipContent>
-                        <p dangerouslySetInnerHTML={{ __html: stat.tooltip }} />
-                      </TooltipContent>
-                    </Tooltip>
-                  )}
-                </div>
-                <div className="text-xs sm:text-sm text-muted-foreground whitespace-nowrap">
-                  {stat.label}
-                </div>
-              </div>
-            ))}
-          </TooltipProvider>
-        </div>
-      )}
+      {stats && stats.length > 0 && <StatsTooltipProvider stats={stats} />}
       {button && (
         <Button asChild className="rounded-[8px]">
           <Link href={button.href}>
