@@ -4,7 +4,6 @@ import { Button } from "@/components/ui/button";
 import { BookOpen, FileText, ArrowRight } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
-import { cn } from "@/lib/utils";
 import {
   Accordion,
   AccordionContent,
@@ -26,8 +25,11 @@ const UniversityCard = React.memo(function UniversityCard({
       className="bg-card border border-border rounded-xl shadow-sm transition-all duration-300 hover:border-primary/50 hover:shadow-lg overflow-hidden"
     >
       <AccordionItem value={university.shortName} className="border-none">
-        <AccordionTrigger className="p-4 w-full flex justify-between items-center cursor-pointer hover:no-underline [&[data-state=open]>svg]:rotate-180">
-          <div className="flex items-center gap-4 text-left">
+        <AccordionTrigger
+          className="p-4 w-full flex justify-between items-center cursor-pointer hover:no-underline [&[data-state=open]>svg]:-rotate-180"
+          asChild
+        >
+          <div className="flex items-center gap-4 text-left w-full">
             <Image
               src={university.logo}
               alt={`${university.nameEn} logo`}
