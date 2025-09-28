@@ -9,7 +9,7 @@ import {
 } from "@/components/ui/accordion";
 import {
   Info,
-  PenSquare,
+  FilePenLine,
   Banknote,
   CircleCheck,
   Link as LinkIcon,
@@ -18,6 +18,7 @@ import {
   Timer,
   MapPin,
   BarChart3,
+  Users,
 } from "lucide-react";
 import { duAdmissionInfo } from "@/lib/data/admission-info";
 import ExternalLink from "./common/ExternalLink";
@@ -49,7 +50,7 @@ const DhakaAdmissionInfo = () => {
         id="Apply"
         className="bg-primary/10 text-primary rounded-xl p-3 mt-4 mb-4 text-center text-base sm:text-lg font-bold flex items-center justify-center"
       >
-        <PenSquare className="mr-2 size-auto" /> {apply.title}
+        <FilePenLine className="mr-2 size-auto" /> {apply.title}
       </h2>
       <div className="text-base">
         <span>
