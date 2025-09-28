@@ -1,8 +1,12 @@
+
 {
   "du": [
     [
       { "href": "#Circular", "label": "সার্কুলার" },
-      { "href": "/question-bank?tab=du", "label": "প্রশ্নব্যাংক" }
+      {
+        "href": "/question-bank?tab=du",
+        "label": "প্রশ্নব্যাংক"
+      }
     ],
     [
       {
