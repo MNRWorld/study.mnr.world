@@ -7,6 +7,7 @@ import {
   Info,
   Link as LinkIcon
 } from 'lucide-react';
+import ExternalLink from './ExternalLink';
 
 const GeneralAdmissionInfo = () => {
 
@@ -21,7 +22,7 @@ const GeneralAdmissionInfo = () => {
             
             <h2 id="ExamDate" className="bg-primary/10 text-primary rounded-xl p-3 my-4 text-center text-lg sm:text-xl font-bold flex items-center justify-center"><Timer className="mr-2"/> পরীক্ষার সময়কাল</h2>
              <div className="border border-border/80 p-3 text-center rounded-md text-sm sm:text-base">
-                সব বিশ্ববিদ্যালয়ের <b>পরীক্ষার তারিখ ও কাউন্টডাউন</b> দেখতে ভিজিট করুন আমাদের <b><a href='https://mnr.world/ac/' target="_blank" className="text-primary hover:underline">অ্যাডমিশন ক্যালেন্ডার <ArrowUpRightFromSquare size={14} className="inline-block"/></a></b>
+                সব বিশ্ববিদ্যালয়ের <b>পরীক্ষার তারিখ ও কাউন্টডাউন</b> দেখতে ভিজিট করুন আমাদের <b><ExternalLink href='https://mnr.world/ac/' text='অ্যাডমিশন ক্যালেন্ডার' /></b>
             </div>
 
              <h2 id="Result" className="bg-primary/10 text-primary rounded-xl p-3 my-4 text-center text-lg sm:text-xl font-bold flex items-center justify-center"><BarChart3 className="mr-2"/> ভর্তি পরীক্ষার ফলাফল</h2>

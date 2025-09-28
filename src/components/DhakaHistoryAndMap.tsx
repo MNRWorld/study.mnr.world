@@ -16,6 +16,7 @@ import {
 } from '@/components/ui/table';
 import { Landmark, University, ArrowUpRightFromSquare } from 'lucide-react';
 import { duHistoryAndMapData } from '@/lib/data/admission-info';
+import ExternalLink from './common/ExternalLink';
 
 
 const DhakaHistoryAndMap = () => {
@@ -38,7 +39,7 @@ const DhakaHistoryAndMap = () => {
                         <b>{history.source.label}</b><br/>
                         {history.source.links.map((link, i) => (
                             <div key={i}>
-                                {String(i+1).padStart(2, '0')}. <a href={link.url} target="_blank" className="text-primary hover:underline">{link.text}</a>
+                                {String(i+1).padStart(2, '0')}. <ExternalLink href={link.url} text={link.text} />
                             </div>
                         ))}
                     </AccordionContent>
@@ -61,7 +62,9 @@ const DhakaHistoryAndMap = () => {
                                         {category.locations.map((loc, j) => (
                                             <TableRow key={j}>
                                                 <TableCell className="text-center">{loc.name}</TableCell>
-                                                <TableCell className="text-center"><Link href={loc.url} target="_blank" rel="noreferrer noopener" className="text-primary hover:underline inline-flex items-center gap-1">[দেখুন] <ArrowUpRightFromSquare size={14}/></Link></TableCell>
+                                                <TableCell className="text-center">
+                                                    <ExternalLink href={loc.url} text="[দেখুন]" />
+                                                </TableCell>
                                             </TableRow>
                                         ))}
                                         </TableBody>
