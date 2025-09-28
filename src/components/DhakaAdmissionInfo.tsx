@@ -21,6 +21,7 @@ import {
   Users,
   CalendarClock,
   PackageCheck,
+  Play,
 } from "lucide-react";
 import { duAdmissionInfo } from "@/lib/data/admission-info";
 import ExternalLink from "./common/ExternalLink";
@@ -61,10 +62,19 @@ const DhakaAdmissionInfo = () => {
             আবেদনের সময়কাল:
           </b>
           <br />
-          <b>&nbsp;&nbsp;&nbsp; • শুরু:</b> {apply.startDate}
-          <br />
-          <b>&nbsp;&nbsp;&nbsp; • শেষ:</b> {apply.endDate}
-        <br /><br />
+          <div className="flex items-center mt-2">
+            <Play className="mr-2 h-4 w-4 text-primary" />
+            <b>আবেদন শুরু:</b>
+            <span className="ml-1">{apply.startDate}</span>
+          </div>
+          <div className="flex items-center">
+            <Play className="mr-2 h-4 w-4 text-primary" />
+            <b>আবেদন শেষ:</b>
+            <span className="ml-1">{apply.endDate}</span>
+          </div>
+        </div>
+
+        <div className="mt-2">
           <b>
             <Banknote className="inline-block mr-2" />
             আবেদন ফিঃ
@@ -100,12 +110,14 @@ const DhakaAdmissionInfo = () => {
         />
         <br />
         <br />
-        <b><PackageCheck className="inline-block mr-2" size={24} />
+        <b>
+          <PackageCheck className="inline-block mr-2" size={24} />
           {apply.qualificationTitle}
-        </b><br />
-        <b>&nbsp;&nbsp;&nbsp; ⁃ SSC ব্যাচ:</b>{" "}
-        {apply.sscBatch}
-        <br /><b>&nbsp;&nbsp;&nbsp; ⁃ HSC ব্যাচ:</b> {apply.hscBatch}
+        </b>
+        <br />
+        <b>&nbsp;&nbsp;&nbsp; ⁃ SSC ব্যাচ:</b> {apply.sscBatch}
+        <br />
+        <b>&nbsp;&nbsp;&nbsp; ⁃ HSC ব্যাচ:</b> {apply.hscBatch}
         <br />
         <div className="text-red-500 flex items-center">
           <CircleAlert size={18} className="inline-block mr-1" />{" "}
@@ -114,7 +126,7 @@ const DhakaAdmissionInfo = () => {
       </div>
       <hr className="my-3 border-border/50" />
 
-      <Accordion type="multiple" className="w-full">
+      <Accordion type="multiple" className="w-full space-y-2">
         <AccordionItem
           value="info-1"
           className="border border-border rounded-lg bg-card hover:bg-accent/50 transition-all duration-300"
@@ -125,7 +137,7 @@ const DhakaAdmissionInfo = () => {
               <span>{unitRequirements.title}</span>
             </div>
           </AccordionTrigger>
-          <AccordionContent className="p-4 pt-0 text-muted-foreground text-base">
+          <AccordionContent className="p-4 pt-0 text-base">
             {unitRequirements.units.map((unit, index) => (
               <div key={index} className="mb-2">
                 ❐ <b>"{unit.name}" ইউনিট:</b>
@@ -142,7 +154,7 @@ const DhakaAdmissionInfo = () => {
         </AccordionItem>
         <AccordionItem
           value="info-2"
-          className="border border-border rounded-lg bg-card hover:bg-accent/50 transition-all duration-300 mt-2"
+          className="border border-border rounded-lg bg-card hover:bg-accent/50 transition-all duration-300"
         >
           <AccordionTrigger className="p-3 text-base font-bold hover:no-underline">
             <div className="flex items-center">
@@ -150,7 +162,7 @@ const DhakaAdmissionInfo = () => {
               <span>{improvementPolicy.title}</span>
             </div>
           </AccordionTrigger>
-          <AccordionContent className="p-4 pt-0 text-muted-foreground text-base">
+          <AccordionContent className="p-4 pt-0 text-base">
             <span
               dangerouslySetInnerHTML={{ __html: improvementPolicy.details }}
             />
@@ -165,7 +177,7 @@ const DhakaAdmissionInfo = () => {
         <Dock className="mr-2" size={16} /> {admitCard.title}
       </h2>
       <div className="text-base">
-      <div className="mt-2">
+        <div className="mt-2">
           <b>
             <CalendarClock className="inline-block mr-2" />
             ডাউনলোডের সময়কাল:
@@ -191,7 +203,8 @@ const DhakaAdmissionInfo = () => {
           <b>
             <div className="text-orange-500 flex items-center">
               <CircleAlert size={18} className="inline-block mr-1" />
-            নোটঃ</div>
+              নোটঃ
+            </div>
           </b>
           {admitCard.note}
         </div>
@@ -230,10 +243,11 @@ const DhakaAdmissionInfo = () => {
         <ExternalLink href={examCenter.locationLink} text="[তালিকা]" /> <br />
         <hr className="my-2 border-border/50" />
         <b>
-            <div className="text-orange-500 flex items-center">
-              <CircleAlert size={18} className="inline-block mr-1" />
-            নোটঃ</div>
-          </b>
+          <div className="text-orange-500 flex items-center">
+            <CircleAlert size={18} className="inline-block mr-1" />
+            নোটঃ
+          </div>
+        </b>
         {examCenter.note}
       </span>
 
@@ -278,5 +292,4 @@ const DhakaAdmissionInfo = () => {
 
 export default DhakaAdmissionInfo;
 
-
-
+    
