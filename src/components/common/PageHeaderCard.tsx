@@ -67,7 +67,7 @@ const PageHeaderCard = ({
                       }
                     >
                       <TooltipTrigger asChild>
-                        <button
+                        <span
                           className="ml-1.5 cursor-help"
                           onClick={(e) => {
                             e.preventDefault();
@@ -77,7 +77,7 @@ const PageHeaderCard = ({
                           }}
                         >
                           <Info className="text-muted-foreground h-3 w-3" />
-                        </button>
+                        </span>
                       </TooltipTrigger>
                       <TooltipContent>
                         <p dangerouslySetInnerHTML={{ __html: stat.tooltip }} />
