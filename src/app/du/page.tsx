@@ -22,34 +22,46 @@ const QuestionBank = dynamic(() => import("@/components/DhakaQuestionBank"), {
 function DhakaUniversityPage() {
   return (
     <div className="font-bengali bg-background py-8">
-      <div className="container mx-auto px-4 lg:px-[200px] grid gap-4">
-        <MainInfoCard />
-        <FloatingMenu />
+      <div className="container mx-auto px-4 lg:px-[200px]">
+        <div>
+          <MainInfoCard />
+          <FloatingMenu />
+        </div>
 
-        <LinkList links={duLinks} />
+        <div className="mt-4">
+          <LinkList links={duLinks} />
+        </div>
 
-        <Suspense fallback={<div>Loading history...</div>}>
-          <HistoryAndMap />
-        </Suspense>
+        <div className="mt-4">
+          <Suspense fallback={<div>Loading history...</div>}>
+            <HistoryAndMap />
+          </Suspense>
+        </div>
 
-        <div className="w-full border border-border bg-card rounded-2xl p-4 sm:p-6 shadow-lg relative">
+        <div className="mt-4 w-full border border-border bg-card rounded-2xl p-4 sm:p-6 shadow-lg relative">
           <Suspense fallback={<div>Loading timer...</div>}>
             <CountdownTimer />
           </Suspense>
         </div>
 
-        <Circular
-          title="HSC-24 ব্যাচের সার্কুলার"
-          note="(⚠ নোট: HSC-25 এর সার্কুলার এখনও প্রকাশিত হয়নি। আপাতত এটি দেখে আইডিয়া নিতে পারেন।)"
-          downloadLink="https://t.me/Study_on_Telegram/13215"
-          showPreviousYears={true}
-        />
+        <div className="mt-4">
+          <Circular
+            title="HSC-24 ব্যাচের সার্কুলার"
+            note="(⚠ নোট: HSC-25 এর সার্কুলার এখনও প্রকাশিত হয়নি। আপাতত এটি দেখে আইডিয়া নিতে পারেন।)"
+            downloadLink="https://t.me/Study_on_Telegram/13215"
+            showPreviousYears={true}
+          />
+        </div>
 
-        <Suspense fallback={<div>Loading question bank...</div>}>
-          <QuestionBank />
-        </Suspense>
+        <div className="mt-4">
+          <Suspense fallback={<div>Loading question bank...</div>}>
+            <QuestionBank />
+          </Suspense>
+        </div>
 
-        <AdmissionInfo />
+        <div className="mt-4">
+          <AdmissionInfo />
+        </div>
       </div>
     </div>
   );
