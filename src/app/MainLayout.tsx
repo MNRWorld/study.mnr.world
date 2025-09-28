@@ -26,7 +26,7 @@ export default function MainLayout({ children }: { children: React.ReactNode }) 
     <div className={cn("min-h-screen flex flex-col antialiased", inter.variable, hindSiliguri.variable)}>
       <Header />
         <main
-          className="flex-grow"
+          className="flex-grow animate-fade-in-up"
         >
           {children}
         </main>

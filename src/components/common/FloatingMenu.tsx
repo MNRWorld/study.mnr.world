@@ -42,6 +42,7 @@ const FloatingMenu = () => {
                         href={item.href} 
                         className={cn(linkClasses, "transition-transform duration-200 ease-in-out")}
                         style={{ transitionDelay: `${index * 30}ms`, transform: menuOpen ? 'translateX(0)' : 'translateX(20px)' }}
+                        onClick={() => setMenuOpen(false)}
                     >
                         {item.label}
                     </a>
