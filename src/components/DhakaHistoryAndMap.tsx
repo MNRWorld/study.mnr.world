@@ -1,3 +1,4 @@
+
 "use client";
 import Link from "next/link";
 
@@ -17,7 +18,7 @@ const DhakaHistoryAndMap = () => {
 
   return (
     <div>
-      <Accordion type="multiple" className="w-full mt-8 space-y-4">
+      <Accordion type="multiple" className="w-full space-y-4">
         <AccordionItem
           value="item-1"
           className="bg-card border border-border rounded-2xl overflow-hidden shadow-lg"

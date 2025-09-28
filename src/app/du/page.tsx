@@ -1,3 +1,4 @@
+
 "use client";
 
 import dynamic from "next/dynamic";
@@ -21,7 +22,7 @@ const QuestionBank = dynamic(() => import("@/components/DhakaQuestionBank"), {
 function DhakaUniversityPage() {
   return (
     <div className="font-bengali bg-background py-8">
-      <div className="container mx-auto px-4 lg:px-[200px]">
+      <div className="container mx-auto px-4 lg:px-[200px] grid gap-8">
         <MainInfoCard />
         <FloatingMenu />
 
@@ -31,7 +32,7 @@ function DhakaUniversityPage() {
           <HistoryAndMap />
         </Suspense>
 
-        <div className="mt-8 w-full border border-border bg-card rounded-2xl p-4 sm:p-6 shadow-lg relative">
+        <div className="w-full border border-border bg-card rounded-2xl p-4 sm:p-6 shadow-lg relative">
           <Suspense fallback={<div>Loading timer...</div>}>
             <CountdownTimer />
           </Suspense>
