@@ -35,6 +35,7 @@ const BackToTopButton = () => {
       <Button
         onClick={scrollToTop}
         size="icon"
+        aria-label="উপরে যান"
         className={cn(
           "rounded-full shadow-lg h-12 w-12 bg-primary/90 text-primary-foreground backdrop-blur-sm hover:bg-primary hover:text-primary-foreground hover:scale-110 transition-all duration-300",
           isVisible

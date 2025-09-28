@@ -114,6 +114,7 @@ const HomePageClient = ({ features }: HomePageClientProps) => {
                 alt={characterImage.description}
                 fill
                 className="object-contain"
+                sizes="(max-width: 768px) 100vw, 50vw"
               />
             </div>
           )}
@@ -127,6 +128,7 @@ const HomePageClient = ({ features }: HomePageClientProps) => {
                 priority
                 fetchPriority="high"
                 loading="eager"
+                sizes="(max-width: 768px) 100vw, 50vw"
               />
             </div>
           )}
@@ -137,6 +139,7 @@ const HomePageClient = ({ features }: HomePageClientProps) => {
                 alt={characterImage2.description}
                 fill
                 className="object-contain"
+                sizes="(max-width: 768px) 100vw, 50vw"
               />
             </div>
           )}
