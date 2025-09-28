@@ -66,18 +66,16 @@ const PageHeaderCard = ({
                         setOpenTooltip(isOpen ? stat.label : null)
                       }
                     >
-                      <TooltipTrigger asChild>
-                        <span
-                          className="ml-1.5 cursor-help"
-                          onClick={(e) => {
-                            e.preventDefault();
-                            setOpenTooltip(
-                              openTooltip === stat.label ? null : stat.label,
-                            );
-                          }}
-                        >
-                          <Info className="text-muted-foreground h-3 w-3" />
-                        </span>
+                      <TooltipTrigger
+                        className="ml-1.5 cursor-help"
+                        onClick={(e) => {
+                          e.preventDefault();
+                          setOpenTooltip(
+                            openTooltip === stat.label ? null : stat.label,
+                          );
+                        }}
+                      >
+                        <Info className="text-muted-foreground h-3 w-3" />
                       </TooltipTrigger>
                       <TooltipContent>
                         <p dangerouslySetInnerHTML={{ __html: stat.tooltip }} />
