@@ -137,7 +137,7 @@ const DhakaAdmissionInfo = () => {
               <span>{unitRequirements.title}</span>
             </div>
           </AccordionTrigger>
-          <AccordionContent className="p-4 pt-0 text-base">
+          <AccordionContent className="p-4 pt-0 text-base text-foreground">
             {unitRequirements.units.map((unit, index) => (
               <div key={index} className="mb-2">
                 ❐ <b>"{unit.name}" ইউনিট:</b>
@@ -162,7 +162,8 @@ const DhakaAdmissionInfo = () => {
               <span>{improvementPolicy.title}</span>
             </div>
           </AccordionTrigger>
-          <AccordionContent className="p-4 pt-0 text-base">
+          <AccordionContent className="p-4 pt-0 text-base text-foreground">
+            <hr className="my-3 border-border/50" />
             <span
               dangerouslySetInnerHTML={{ __html: improvementPolicy.details }}
             />
@@ -291,5 +292,3 @@ const DhakaAdmissionInfo = () => {
 };
 
 export default DhakaAdmissionInfo;
-
-    
