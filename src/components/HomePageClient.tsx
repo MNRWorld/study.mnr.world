@@ -3,7 +3,7 @@
 import { motion } from 'framer-motion';
 import Image from 'next/image';
 import Link from 'next/link';
-import { ImagePlaceholder } from '@/lib/placeholder-images';
+import { ImagePlaceholder, PlaceHolderImages } from '@/lib/placeholder-images';
 import React, { useState, useEffect } from 'react';
 
 interface Feature {
@@ -13,9 +13,6 @@ interface Feature {
 }
 
 interface HomePageClientProps {
-    studyPlatformImage: ImagePlaceholder | undefined;
-    characterImage: ImagePlaceholder | undefined;
-    characterImage2: ImagePlaceholder | undefined;
     features: Feature[];
 }
 
@@ -39,7 +36,6 @@ const TypingAnimation = () => {
                 if (displayText.length < currentText.length) {
                     setDisplayText(currentText.substring(0, displayText.length + 1));
                 } else {
-                    // Pause before deleting
                     setTimeout(() => setIsDeleting(true), 1500);
                 }
             }
@@ -66,7 +62,11 @@ const TypingAnimation = () => {
 };
 
 
-const HomePageClient = ({ studyPlatformImage, characterImage, characterImage2, features }: HomePageClientProps) => {
+const HomePageClient = ({ features }: HomePageClientProps) => {
+    const studyPlatformImage = PlaceHolderImages.find(p => p.id === 'study-platform');
+    const characterImage = PlaceHolderImages.find(p => p.id === 'study-platform-character');
+    const characterImage2 = PlaceHolderImages.find(p => p.id === 'study-platform-character-2');
+
     const containerVariants = {
         hidden: {},
         visible: {
@@ -129,9 +129,9 @@ const HomePageClient = ({ studyPlatformImage, characterImage, characterImage2, f
                              <Link href={feature.href} key={feature.href}>
                                 <motion.div variants={itemVariants} className="feature-card">
                                     {feature.icon}
-                                    <h3 className="font-bengali font-semibold text-sm sm:text-base text-card-foreground">
+                                    <p className="font-bengali font-semibold text-sm sm:text-base text-card-foreground">
                                     {feature.label}
-                                    </h3>
+                                    </p>
                                 </motion.div>
                             </Link>
                         ))}

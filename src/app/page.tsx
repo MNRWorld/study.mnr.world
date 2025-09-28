@@ -7,16 +7,9 @@ import {
   School,
   University,
 } from "lucide-react";
-import Image from "next/image";
-import Link from "next/link";
-import { PlaceHolderImages } from "@/lib/placeholder-images";
 import HomePageClient from "@/components/HomePageClient";
 
 export default function HomePage() {
-  const studyPlatformImage = PlaceHolderImages.find(p => p.id === 'study-platform');
-  const characterImage = PlaceHolderImages.find(p => p.id === 'study-platform-character');
-  const characterImage2 = PlaceHolderImages.find(p => p.id === 'study-platform-character-2');
-
   const features = [
     { href: "/calendar", icon: <CalendarDays className="h-10 w-10 sm:h-12 sm:w-12 mx-auto text-primary mb-2 sm:mb-3" />, label: "ক্যালেন্ডার" },
     { href: "/question-bank", icon: <BookOpen className="h-10 w-10 sm:h-12 sm:w-12 mx-auto text-primary mb-2 sm:mb-3" />, label: "প্রশ্নব্যাংক" },
@@ -28,9 +21,6 @@ export default function HomePage() {
 
   return (
     <HomePageClient 
-      studyPlatformImage={studyPlatformImage} 
-      characterImage={characterImage} 
-      characterImage2={characterImage2}
       features={features} 
     />
   );

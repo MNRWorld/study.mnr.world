@@ -40,10 +40,10 @@ export default function Footer() {
                   বাংলাদেশের সকল বিশ্ববিদ্যালয়, কলেজ ও ভর্তি পরীক্ষার তথ্য ও সহায়তার জন্য আপনার বিশ্বস্ত প্ল্যাটফর্ম।
                   </p>
                   <div className="flex items-center space-x-3 mt-6">
-                  <a href="#" className="social-icon"><Facebook /></a>
-                  <a href="#" className="social-icon"><Twitter /></a>
-                  <a href="#" className="social-icon"><Instagram /></a>
-                  <a href="#" className="social-icon"><Youtube /></a>
+                  <a href="#" className="social-icon" aria-label="Facebook"><Facebook /></a>
+                  <a href="#" className="social-icon" aria-label="Twitter"><Twitter /></a>
+                  <a href="#" className="social-icon" aria-label="Instagram"><Instagram /></a>
+                  <a href="#" className="social-icon" aria-label="Youtube"><Youtube /></a>
                   </div>
               </div>
 
