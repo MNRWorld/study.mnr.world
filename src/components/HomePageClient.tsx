@@ -86,7 +86,7 @@ const HomePageClient = ({ features }: HomePageClientProps) => {
                     className="mt-10 grid grid-cols-3 gap-4"
                 >
                     {features.map((feature) => (
-                         <Link href={feature.href} key={feature.href}>
+                         <Link href={feature.href} key={feature.href} aria-label={feature.label}>
                             <div className="feature-card">
                                 {feature.icon}
                                 <p className="font-bengali font-semibold text-sm sm:text-base text-card-foreground">
@@ -120,6 +120,8 @@ const HomePageClient = ({ features }: HomePageClientProps) => {
                                 fill
                                 className="object-contain"
                                 priority
+                                fetchPriority="high"
+                                loading="eager"
                             />
                         </div>
                     )}

@@ -27,7 +27,7 @@ const CourseList = () => {
             return (
                 <div
                     key={index}
-                    className="bg-card border border-border rounded-xl p-6 shadow-lg hover:shadow-primary/20 hover:-translate-y-2 transition-all duration-300"
+                    className="bg-card border border-border rounded-xl p-6 shadow-lg card-hover-effect"
                 >
                     <div className="flex items-center gap-4">
                         <Icon className="h-8 w-8 text-primary" />
