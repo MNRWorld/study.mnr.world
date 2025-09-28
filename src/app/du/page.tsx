@@ -18,6 +18,11 @@ const CountdownTimer = dynamic(
 const QuestionBank = dynamic(() => import("@/components/DhakaQuestionBank"), {
   ssr: false,
 });
+const DhakaSeatInfo = dynamic(
+  () => import("@/components/DhakaSeatInfo"),
+  { ssr: false },
+);
+
 
 function DhakaUniversityPage() {
   return (
@@ -63,6 +68,13 @@ function DhakaUniversityPage() {
           <div className="mt-4">
             <AdmissionInfo />
           </div>
+
+          <div className="mt-4">
+            <Suspense fallback={<div>Loading seat info...</div>}>
+              <DhakaSeatInfo />
+            </Suspense>
+          </div>
+
         </div>
       </div>
     </div>
