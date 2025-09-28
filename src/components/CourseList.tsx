@@ -1,32 +1,15 @@
 "use client";
 import { courses } from "@/lib/data/courses";
 import { Button } from "@/components/ui/button";
-import {
-  ArrowUpRightFromSquare,
-  University,
-  HeartPulse,
-  Cog,
-  Blocks,
-  BookMarked,
-  Briefcase,
-} from "lucide-react";
+import { ArrowUpRightFromSquare } from "lucide-react";
 import Link from "next/link";
 import React from "react";
-
-const icons: { [key: string]: React.ElementType } = {
-  University,
-  HeartPulse,
-  Cog,
-  Blocks,
-  BookMarked,
-  Briefcase,
-};
 
 const CourseList = () => {
   return (
     <div id="Info" className="mt-12 grid md:grid-cols-2 lg:grid-cols-3 gap-8">
       {courses.map((course, index) => {
-        const Icon = icons[course.icon] || University;
+        const Icon = course.Icon;
         return (
           <div
             key={index}
@@ -45,9 +28,7 @@ const CourseList = () => {
               asChild
               className="w-full bg-primary/10 text-primary border border-primary/20 hover:bg-primary hover:text-primary-foreground"
             >
-              <Link
-                href={`/courses/${encodeURIComponent(course.title.toLowerCase().replace(/ /g, "-"))}`}
-              >
+              <Link href={`/courses/${course.slug}`}>
                 বিস্তারিত দেখুন{" "}
                 <ArrowUpRightFromSquare size={14} className="ml-2" />
               </Link>
