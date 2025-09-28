@@ -29,7 +29,7 @@ function DhakaUniversityPage() {
             <FloatingMenu />
           </div>
 
-          <div className="mt-0">
+          <div className="mt-4">
             <LinkList links={duLinks} />
           </div>
 
