@@ -14,7 +14,7 @@ import {
     TableCell,
     TableRow,
 } from '@/components/ui/table';
-import { Landmark, University } from 'lucide-react';
+import { Landmark, University, ArrowUpRightFromSquare } from 'lucide-react';
 import { duHistoryAndMapData } from '@/lib/data/admission-info';
 
 
@@ -61,7 +61,7 @@ const DhakaHistoryAndMap = () => {
                                         {category.locations.map((loc, j) => (
                                             <TableRow key={j}>
                                                 <TableCell className="text-center">{loc.name}</TableCell>
-                                                <TableCell className="text-center"><Link href={loc.url} target="_blank" rel="noreferrer noopener" className="text-primary hover:underline">[লিঙ্ক]</Link></TableCell>
+                                                <TableCell className="text-center"><Link href={loc.url} target="_blank" rel="noreferrer noopener" className="text-primary hover:underline inline-flex items-center gap-1">[দেখুন] <ArrowUpRightFromSquare size={14}/></Link></TableCell>
                                             </TableRow>
                                         ))}
                                         </TableBody>

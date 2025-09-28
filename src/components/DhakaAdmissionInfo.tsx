@@ -58,7 +58,7 @@ const DhakaAdmissionInfo = () => {
             <hr className="my-3 border-border/50" />
 
             <div className="text-base">
-                <b><LinkIcon className="inline-block mr-2" size={16}/>লিংকঃ</b> <a href={apply.link} target="_blank" className="text-primary hover:underline">{apply.link.replace('https://','')} <ArrowUpRightFromSquare size={11} className="inline-block"/></a><br/><br/>
+                <b><LinkIcon className="inline-block mr-2" size={16}/>লিংকঃ</b> <a href={apply.link} target="_blank" className="text-primary hover:underline">{apply.link.replace('https://','')} <ArrowUpRightFromSquare size={14} className="inline-block"/></a><br/><br/>
                 
                 ✔ <b><u>{apply.qualificationTitle}</u></b>
                 <hr className="my-1 border-border/50" />
@@ -96,7 +96,7 @@ const DhakaAdmissionInfo = () => {
             <div className="text-base">
                 <span><b>➜ ডাউনলোড শুরু:</b> {admitCard.startDate}<br/>
                 <b>➜ ডাউনলোড শেষ:</b> {admitCard.endDate}<br/><br/>
-                <b><LinkIcon className="inline-block mr-2" size={16}/>লিংকঃ</b> <a href={admitCard.link} target="_blank" className="text-primary hover:underline">{admitCard.link.replace('https://','')} <ArrowUpRightFromSquare size={11} className="inline-block"/></a>
+                <b><LinkIcon className="inline-block mr-2" size={16}/>লিংকঃ</b> <a href={admitCard.link} target="_blank" className="text-primary hover:underline">{admitCard.link.replace('https://','')} <ArrowUpRightFromSquare size={14} className="inline-block"/></a>
                 <br/>(লগইন করে ডাউনলোড করতে হবে।)
                 <br/><br/>
                 <b><i className="text-orange-500 flex items-center"><CircleAlert size={16} className="inline-block mr-1"/></i> নোটঃ</b> {admitCard.note}
@@ -134,7 +134,7 @@ const DhakaAdmissionInfo = () => {
             <h2 id="Result" className="bg-primary/10 text-primary rounded-xl p-3 my-4 text-center text-lg sm:text-xl font-bold flex items-center justify-center"><BarChart3 className="mr-2"/> {result.title}</h2>
             <span className="text-base">● <b>ফলাফল প্রকাশ:</b> {result.date}
                 <hr className="my-1 border-border/50" />
-                <b><LinkIcon className="inline-block mr-2" size={16}/>লিংকঃ</b> <a href={result.link} target="_blank" className="text-primary hover:underline">{result.link.replace('https://','')} <ArrowUpRightFromSquare size={11} className="inline-block"/></a>
+                <b><LinkIcon className="inline-block mr-2" size={16}/>লিংকঃ</b> <a href={result.link} target="_blank" className="text-primary hover:underline">{result.link.replace('https://','')} <ArrowUpRightFromSquare size={14} className="inline-block"/></a>
             </span>
         </div>
     );
