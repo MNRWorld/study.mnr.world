@@ -6,6 +6,7 @@ import { Button } from '@/components/ui/button';
 import { ChevronDown, BookOpen, FileText, ArrowRight } from 'lucide-react';
 import Link from 'next/link';
 import Image from 'next/image';
+import { cn } from '@/lib/utils';
 
 interface UniversityCardProps {
   university: University;
@@ -14,7 +15,7 @@ interface UniversityCardProps {
 const UniversityCard = React.memo(function UniversityCard({ university }: UniversityCardProps) {
   return (
     <details
-        className="group bg-card border border-border rounded-xl shadow-sm transition-all duration-300 hover:border-primary/50 hover:shadow-lg open:shadow-xl open:border-primary/50"
+        className="group/details bg-card border border-border rounded-xl shadow-sm transition-all duration-300 hover:border-primary/50 hover:shadow-lg open:shadow-xl open:border-primary/50 overflow-hidden"
     >
       <summary className="p-4 list-none flex justify-between items-center cursor-pointer">
         <div className="flex items-center gap-4">
@@ -24,7 +25,7 @@ const UniversityCard = React.memo(function UniversityCard({ university }: Univer
             <span className="text-sm text-muted-foreground">{university.nameEn}</span>
           </div>
         </div>
-        <ChevronDown className="text-muted-foreground group-open:rotate-180 transition-transform duration-300 ease-in-out" />
+        <ChevronDown className="text-muted-foreground group-open/details:rotate-180 transition-transform duration-300 ease-in-out" />
       </summary>
       <div className="px-4 pb-4 border-t border-border/50">
         <p className="text-muted-foreground my-3 text-sm">{university.description}</p>
