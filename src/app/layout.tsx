@@ -17,6 +17,8 @@ export default function RootLayout({
   return (
     <html lang="bn">
       <head>
+        <link rel="preconnect" href="https://raw.githubusercontent.com" />
+        <link rel="preconnect" href="https://images.unsplash.com" />
       </head>
       <body>
           <AuthProvider>

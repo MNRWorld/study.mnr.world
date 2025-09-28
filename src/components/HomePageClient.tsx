@@ -165,6 +165,8 @@ const HomePageClient = ({ features }: HomePageClientProps) => {
                                     fill
                                     className="object-contain"
                                     priority
+                                    fetchPriority="high"
+                                    loading="eager"
                                 />
                             </div>
                         )}
