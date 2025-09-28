@@ -51,10 +51,10 @@ const DhakaAdmissionInfo = () => {
         id="Apply"
         className="bg-primary/10 text-primary rounded-xl p-3 mt-4 mb-4 text-center text-base sm:text-lg font-bold flex items-center justify-center"
       >
-        <FilePenLine className="mr-2" size={18} /> {apply.title}
+        <FilePenLine className="mr-2" size={16} /> {apply.title}
       </h2>
       <div className="text-base">
-        <div className="mt-2 mb-2">
+        <div className="mt-2">
           <b>
             <CalendarClock className="inline-block mr-2" />
             আবেদনের সময়কাল:
@@ -74,7 +74,7 @@ const DhakaAdmissionInfo = () => {
               &nbsp;&nbsp;&nbsp; ✓ {fee.unit}: {fee.amount}
             </div>
           ))}
-        </div><br />
+        </div>
         <div className="flex items-center gap-2 flex-wrap">
           <CircleCheck className="text-green-600" size={18} />
           {apply.helpfulLinks.map((link, index) => (
@@ -154,7 +154,7 @@ const DhakaAdmissionInfo = () => {
         id="AdmitCard"
         className="bg-primary/10 text-primary rounded-xl p-3 mt-8 mb-4 text-center text-base sm:text-lg font-bold flex items-center justify-center"
       >
-        <Dock className="mr-2" size={18} /> {admitCard.title}
+        <Dock className="mr-2" size={16} /> {admitCard.title}
       </h2>
       <div className="text-base">
         <span>
@@ -189,7 +189,7 @@ const DhakaAdmissionInfo = () => {
         id="ExamDate"
         className="bg-primary/10 text-primary rounded-xl p-3 mt-8 mb-4 text-center text-base sm:text-lg font-bold flex items-center justify-center"
       >
-        <Timer className="mr-2" size={18} /> {examDate.title}
+        <Timer className="mr-2" size={16} /> {examDate.title}
       </h2>
       <span className="text-base">
         {examDate.dates.map((date, index) => (
@@ -211,7 +211,7 @@ const DhakaAdmissionInfo = () => {
         id="Location"
         className="bg-primary/10 text-primary rounded-xl p-3 mt-8 mb-4 text-center text-base sm:text-lg font-bold flex items-center justify-center"
       >
-        <MapPinned className="mr-2" size={18} /> {examCenter.title}
+        <MapPinned className="mr-2" size={16} /> {examCenter.title}
       </h2>
       <span className="text-base">
         ➜ {examCenter.location}{" "}
@@ -228,7 +228,7 @@ const DhakaAdmissionInfo = () => {
 
       <div id="MarkDistributionAndOthers"></div>
       <h2 className="bg-primary/10 text-primary rounded-xl p-3 mt-8 mb-4 text-center text-base sm:text-lg font-bold flex items-center justify-center">
-        <Info className="mr-2" size={18} /> {generalInfo.title}
+        <Info className="mr-2" size={16} /> {generalInfo.title}
       </h2>
 
       <div className="border border-border/80 rounded-xl p-4 mt-2.5 text-base">
@@ -247,7 +247,7 @@ const DhakaAdmissionInfo = () => {
         id="Result"
         className="bg-primary/10 text-primary rounded-xl p-3 mt-8 mb-4 text-center text-base sm:text-lg font-bold flex items-center justify-center"
       >
-        <BarChart3 className="mr-2" size={18} /> {result.title}
+        <BarChart3 className="mr-2" size={16} /> {result.title}
       </h2>
       <span className="text-base">
         ● <b>ফলাফল প্রকাশ:</b> {result.date}
@@ -266,4 +266,5 @@ const DhakaAdmissionInfo = () => {
 };
 
 export default DhakaAdmissionInfo;
+
 
