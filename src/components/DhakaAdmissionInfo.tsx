@@ -1,3 +1,4 @@
+
 "use client";
 import React from "react";
 import {
@@ -46,7 +47,7 @@ const DhakaAdmissionInfo = () => {
 
       <h2
         id="Apply"
-        className="bg-primary/10 text-primary rounded-xl p-3 mb-4 text-center text-base sm:text-lg font-bold flex items-center justify-center"
+        className="bg-primary/10 text-primary rounded-xl p-3 mt-4 mb-4 text-center text-base sm:text-lg font-bold flex items-center justify-center"
       >
         <PenSquare className="mr-2" /> {apply.title}
       </h2>
@@ -146,7 +147,7 @@ const DhakaAdmissionInfo = () => {
 
       <h2
         id="AdmitCard"
-        className="bg-primary/10 text-primary rounded-xl p-3 my-4 text-center text-base sm:text-lg font-bold flex items-center justify-center"
+        className="bg-primary/10 text-primary rounded-xl p-3 mt-8 mb-4 text-center text-base sm:text-lg font-bold flex items-center justify-center"
       >
         <Ticket className="mr-2" /> {admitCard.title}
       </h2>
@@ -181,7 +182,7 @@ const DhakaAdmissionInfo = () => {
 
       <h2
         id="ExamDate"
-        className="bg-primary/10 text-primary rounded-xl p-3 my-4 text-center text-base sm:text-lg font-bold flex items-center justify-center"
+        className="bg-primary/10 text-primary rounded-xl p-3 mt-8 mb-4 text-center text-base sm:text-lg font-bold flex items-center justify-center"
       >
         <Timer className="mr-2" /> {examDate.title}
       </h2>
@@ -203,7 +204,7 @@ const DhakaAdmissionInfo = () => {
 
       <h2
         id="Location"
-        className="bg-primary/10 text-primary rounded-xl p-3 my-4 text-center text-base sm:text-lg font-bold flex items-center justify-center"
+        className="bg-primary/10 text-primary rounded-xl p-3 mt-8 mb-4 text-center text-base sm:text-lg font-bold flex items-center justify-center"
       >
         <MapPin className="mr-2" /> {examCenter.title}
       </h2>
@@ -221,7 +222,7 @@ const DhakaAdmissionInfo = () => {
       </span>
 
       <div id="MarkDistributionAndOthers"></div>
-      <h2 className="bg-primary/10 text-primary rounded-xl p-3 my-4 text-center text-base sm:text-lg font-bold flex items-center justify-center">
+      <h2 className="bg-primary/10 text-primary rounded-xl p-3 mt-8 mb-4 text-center text-base sm:text-lg font-bold flex items-center justify-center">
         <Info className="mr-2" /> {generalInfo.title}
       </h2>
 
@@ -239,7 +240,7 @@ const DhakaAdmissionInfo = () => {
 
       <h2
         id="Result"
-        className="bg-primary/10 text-primary rounded-xl p-3 my-4 text-center text-base sm:text-lg font-bold flex items-center justify-center"
+        className="bg-primary/10 text-primary rounded-xl p-3 mt-8 mb-4 text-center text-base sm:text-lg font-bold flex items-center justify-center"
       >
         <BarChart3 className="mr-2" /> {result.title}
       </h2>
@@ -260,3 +261,5 @@ const DhakaAdmissionInfo = () => {
 };
 
 export default DhakaAdmissionInfo;
+
+    
