@@ -18,7 +18,6 @@ const ExternalLink = ({ href, text, icon, className }: ExternalLinkProps) => {
     >
       {icon}
       {text}
-      <ArrowUpRightFromSquare size={14} />
     </Link>
   );
 };

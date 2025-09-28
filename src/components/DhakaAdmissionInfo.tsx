@@ -51,7 +51,7 @@ const DhakaAdmissionInfo = () => {
         id="Apply"
         className="bg-primary/10 text-primary rounded-xl p-3 mt-4 mb-4 text-center text-base sm:text-lg font-bold flex items-center justify-center"
       >
-        <FilePenLine className="mr-2" size={16} /> {apply.title}
+        <FilePenLine className="mr-2" size={18} /> {apply.title}
       </h2>
       <div className="text-base">
         <div className="mt-2 mb-2">
@@ -63,8 +63,7 @@ const DhakaAdmissionInfo = () => {
           <b>&nbsp;&nbsp;&nbsp; • শুরু:</b> {apply.startDate}
           <br />
           <b>&nbsp;&nbsp;&nbsp; • শেষ:</b> {apply.endDate}
-        </div>
-        <div className="my-2">
+        <br /><br />
           <b>
             <Banknote className="inline-block mr-2" />
             আবেদন ফিঃ
@@ -75,10 +74,9 @@ const DhakaAdmissionInfo = () => {
               &nbsp;&nbsp;&nbsp; ✓ {fee.unit}: {fee.amount}
             </div>
           ))}
-        </div>
-
+        </div><br />
         <div className="flex items-center gap-2 flex-wrap">
-          <CircleCheck className="text-green-600" size={16} />
+          <CircleCheck className="text-green-600" size={18} />
           {apply.helpfulLinks.map((link, index) => (
             <React.Fragment key={index}>
               <ExternalLink href={link.url} text={link.label} />
@@ -91,7 +89,7 @@ const DhakaAdmissionInfo = () => {
 
       <div className="text-base">
         <b>
-          <LinkIcon className="inline-block mr-2" size={16} />
+          <LinkIcon className="inline-block mr-2" size={18} />
           লিংকঃ
         </b>{" "}
         <ExternalLink
@@ -108,7 +106,7 @@ const DhakaAdmissionInfo = () => {
         <br />➤ <b>HSC ব্যাচ:</b> {apply.hscBatch}
         <br />
         <i className="text-orange-500 flex items-center">
-          <CircleAlert size={16} className="inline-block mr-1" />{" "}
+          <CircleAlert size={18} className="inline-block mr-1" />{" "}
           <b>সেকেন্ড টাইমঃ</b> {apply.secondTime}
         </i>
       </div>
@@ -156,7 +154,7 @@ const DhakaAdmissionInfo = () => {
         id="AdmitCard"
         className="bg-primary/10 text-primary rounded-xl p-3 mt-8 mb-4 text-center text-base sm:text-lg font-bold flex items-center justify-center"
       >
-        <Dock className="mr-2" size={16} /> {admitCard.title}
+        <Dock className="mr-2" size={18} /> {admitCard.title}
       </h2>
       <div className="text-base">
         <span>
@@ -166,7 +164,7 @@ const DhakaAdmissionInfo = () => {
           <br />
           <br />
           <b>
-            <LinkIcon className="inline-block mr-2" size={16} />
+            <LinkIcon className="inline-block mr-2" size={18} />
             লিংকঃ
           </b>{" "}
           <ExternalLink
@@ -179,7 +177,7 @@ const DhakaAdmissionInfo = () => {
           <br />
           <b>
             <i className="text-orange-500 flex items-center">
-              <CircleAlert size={16} className="inline-block mr-1" />
+              <CircleAlert size={18} className="inline-block mr-1" />
             </i>{" "}
             নোটঃ
           </b>{" "}
@@ -191,7 +189,7 @@ const DhakaAdmissionInfo = () => {
         id="ExamDate"
         className="bg-primary/10 text-primary rounded-xl p-3 mt-8 mb-4 text-center text-base sm:text-lg font-bold flex items-center justify-center"
       >
-        <Timer className="mr-2" size={16} /> {examDate.title}
+        <Timer className="mr-2" size={18} /> {examDate.title}
       </h2>
       <span className="text-base">
         {examDate.dates.map((date, index) => (
@@ -213,7 +211,7 @@ const DhakaAdmissionInfo = () => {
         id="Location"
         className="bg-primary/10 text-primary rounded-xl p-3 mt-8 mb-4 text-center text-base sm:text-lg font-bold flex items-center justify-center"
       >
-        <MapPinned className="mr-2" size={16} /> {examCenter.title}
+        <MapPinned className="mr-2" size={18} /> {examCenter.title}
       </h2>
       <span className="text-base">
         ➜ {examCenter.location}{" "}
@@ -221,7 +219,7 @@ const DhakaAdmissionInfo = () => {
         <hr className="my-2 border-border/50" />
         <b>
           <i className="text-orange-500 flex items-center">
-            <CircleAlert size={16} className="inline-block mr-1" />
+            <CircleAlert size={18} className="inline-block mr-1" />
           </i>{" "}
           নোটঃ
         </b>{" "}
@@ -230,7 +228,7 @@ const DhakaAdmissionInfo = () => {
 
       <div id="MarkDistributionAndOthers"></div>
       <h2 className="bg-primary/10 text-primary rounded-xl p-3 mt-8 mb-4 text-center text-base sm:text-lg font-bold flex items-center justify-center">
-        <Info className="mr-2" size={16} /> {generalInfo.title}
+        <Info className="mr-2" size={18} /> {generalInfo.title}
       </h2>
 
       <div className="border border-border/80 rounded-xl p-4 mt-2.5 text-base">
@@ -249,13 +247,13 @@ const DhakaAdmissionInfo = () => {
         id="Result"
         className="bg-primary/10 text-primary rounded-xl p-3 mt-8 mb-4 text-center text-base sm:text-lg font-bold flex items-center justify-center"
       >
-        <BarChart3 className="mr-2" size={16} /> {result.title}
+        <BarChart3 className="mr-2" size={18} /> {result.title}
       </h2>
       <span className="text-base">
         ● <b>ফলাফল প্রকাশ:</b> {result.date}
         <hr className="my-1 border-border/50" />
         <b>
-          <LinkIcon className="inline-block mr-2" size={16} />
+          <LinkIcon className="inline-block mr-2" size={18} />
           লিংকঃ
         </b>{" "}
         <ExternalLink
