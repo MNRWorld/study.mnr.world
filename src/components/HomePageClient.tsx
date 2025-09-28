@@ -1,7 +1,11 @@
+
 "use client";
 import Image from "next/image";
 import Link from "next/link";
-import { PlaceHolderImages, type ImagePlaceholder } from "@/lib/placeholder-images";
+import {
+  PlaceHolderImages,
+  type ImagePlaceholder,
+} from "@/lib/placeholder-images";
 import React, { useState, useEffect } from "react";
 
 interface Feature {
@@ -19,14 +23,8 @@ const TypingAnimation = () => {
   const [index, setIndex] = useState(0);
   const [subIndex, setSubIndex] = useState(0);
   const [reverse, setReverse] = useState(false);
-  const [text, setText] = useState("");
 
   useEffect(() => {
-    if (index === texts.length) {
-      setIndex(0);
-      return;
-    }
-
     if (subIndex === texts[index].length + 1 && !reverse) {
       setReverse(true);
       return;
@@ -51,13 +49,11 @@ const TypingAnimation = () => {
     return () => clearTimeout(timeout);
   }, [subIndex, index, reverse, texts]);
 
-  useEffect(() => {
-    setText(texts[index].substring(0, subIndex));
-  }, [subIndex, index, texts]);
-
   return (
-    <span className="typing-container inline-block">
-      <span className="typing-text animate-typing will-change-transform">{text}</span>
+    <span className="typing-container inline-block origin-left">
+      <span className="typing-text will-change-transform">
+        {texts[index].substring(0, subIndex)}
+      </span>
       <span className="cursor border-r-2 border-foreground animate-blink-caret"></span>
     </span>
   );
@@ -115,6 +111,7 @@ const HomePageClient = ({ features }: HomePageClientProps) => {
                 fill
                 className="object-contain"
                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                priority
               />
             </div>
           )}
@@ -126,8 +123,6 @@ const HomePageClient = ({ features }: HomePageClientProps) => {
                 fill
                 className="object-contain"
                 priority
-                fetchPriority="high"
-                loading="eager"
                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
               />
             </div>
@@ -140,6 +135,7 @@ const HomePageClient = ({ features }: HomePageClientProps) => {
                 fill
                 className="object-contain"
                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                priority
               />
             </div>
           )}
