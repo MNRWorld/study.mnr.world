@@ -4,6 +4,12 @@ import { PlaceHolderImages } from "@/lib/placeholder-images";
 import Image from "next/image";
 import { Calendar, User } from "lucide-react";
 
+export async function generateStaticParams() {
+  return blogPosts.map((post) => ({
+    slug: post.id.toString(),
+  }));
+}
+
 export default function BlogPostPage({ params }: { params: { slug: string } }) {
   const post = blogPosts.find((p) => p.id.toString() === params.slug);
 
