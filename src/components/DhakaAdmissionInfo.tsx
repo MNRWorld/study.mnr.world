@@ -268,7 +268,7 @@ const DhakaAdmissionInfo = () => {
             <hr className="my-1 border-border/50" />● <b>মোট সময়:</b> ১.৫ ঘন্টা
             <hr className="my-1 border-border/50" />●{" "}
             <b>প্রতিটি বিষয়ের প্রশ্ন সংখ্যা ও নাম্বার:</b>
-            <hr className="my-1 border-border/50" />
+            <br />
             &nbsp;&nbsp;&nbsp; ✓ <b>MCQ -</b> প্রশ্ন: ১৫টি, নাম্বার: ১৫
             <br />
             &nbsp;&nbsp;&nbsp; ✓ <b>লিখিত -</b> প্রশ্ন: ৪টি, নাম্বার: ১০
