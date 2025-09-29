@@ -9,7 +9,7 @@ const Table = React.forwardRef<
     <table
       ref={ref}
       className={cn(
-        "w-full text-sm text-left border-collapse border border-dotted border-gray-300",
+        "w-full text-sm text-left border-collapse border border-dotted border-gray-300 table-fixed",
         className,
       )}
       {...props}
@@ -87,7 +87,7 @@ const TableCell = React.forwardRef<
   <td
     ref={ref}
     className={cn(
-      "align-middle text-gray-600 border border-dotted border-gray-300",
+      "align-middle text-gray-600 border border-dotted border-gray-300 p-2",
       className,
     )}
     {...props}

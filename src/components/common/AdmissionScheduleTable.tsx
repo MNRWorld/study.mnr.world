@@ -23,9 +23,9 @@ const AdmissionScheduleTable = () => {
       <Table>
         <TableHeader>
           <TableRow>
-            <TableHead className="text-center">বিষয়</TableHead>
-            <TableHead className="text-center">তারিখ</TableHead>
-            <TableHead className="text-center">সময় বাকি</TableHead>
+            <TableHead className="text-center w-1/3">বিষয়</TableHead>
+            <TableHead className="text-center w-1/3">তারিখ</TableHead>
+            <TableHead className="text-center w-1/3">সময় বাকি</TableHead>
           </TableRow>
         </TableHeader>
         <TableBody>

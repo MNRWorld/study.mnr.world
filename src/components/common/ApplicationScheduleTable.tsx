@@ -26,11 +26,11 @@ const ApplicationScheduleTable = () => {
       <Table>
         <TableHeader>
           <TableRow>
-            <TableHead className="text-center">ভার্সিটি</TableHead>
-            <TableHead className="text-center">তারিখ</TableHead>
-            <TableHead className="text-center">সময় বাকি</TableHead>
-            <TableHead className="text-center">ফি</TableHead>
-            <TableHead className="text-center">লিংক</TableHead>
+            <TableHead className="text-center w-1/5">ভার্সিটি</TableHead>
+            <TableHead className="text-center w-1/5">তারিখ</TableHead>
+            <TableHead className="text-center w-1/5">সময় বাকি</TableHead>
+            <TableHead className="text-center w-1/5">ফি</TableHead>
+            <TableHead className="text-center w-1/5">লিংক</TableHead>
           </TableRow>
         </TableHeader>
         <TableBody>

@@ -29,9 +29,9 @@ const ResultScheduleTable = () => {
         <Table>
           <TableHeader>
             <TableRow>
-              <TableHead className="text-center">বিশ্ববিদ্যালয়</TableHead>
-              <TableHead className="text-center">তারিখ</TableHead>
-              <TableHead className="text-center">লিংক</TableHead>
+              <TableHead className="text-center w-1/3">বিশ্ববিদ্যালয়</TableHead>
+              <TableHead className="text-center w-1/3">তারিখ</TableHead>
+              <TableHead className="text-center w-1/3">লিংক</TableHead>
             </TableRow>
           </TableHeader>
           <TableBody>
@@ -65,9 +65,9 @@ const ResultScheduleTable = () => {
         <Table>
           <TableHeader>
             <TableRow>
-              <TableHead className="text-center">বিশ্ববিদ্যালয়</TableHead>
-              <TableHead className="text-center">তারিখ</TableHead>
-              <TableHead className="text-center">লিংক</TableHead>
+              <TableHead className="text-center w-1/3">বিশ্ববিদ্যালয়</TableHead>
+              <TableHead className="text-center w-1/3">তারিখ</TableHead>
+              <TableHead className="text-center w-1/3">লিংক</TableHead>
             </TableRow>
           </TableHeader>
           <TableBody>

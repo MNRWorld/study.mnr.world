@@ -15,15 +15,15 @@ import { Badge } from "@/components/ui/badge";
 const GeneralAdmissionInfoTable = () => {
   return (
     <div className="overflow-x-auto">
-      <Table className="min-w-full text-xs sm:text-sm">
+      <Table className="min-w-[800px] sm:min-w-full">
         <TableHeader>
           <TableRow>
-            <TableHead className="w-[150px]">বিশ্ববিদ্যালয়</TableHead>
-            <TableHead className="w-[150px]">তারিখ</TableHead>
-            <TableHead className="w-[200px]">মানবন্টন</TableHead>
-            <TableHead>সিলেবাস</TableHead>
-            <TableHead>সেকেন্ড টাইম</TableHead>
-            <TableHead>নেগেটিভ মার্কিং</TableHead>
+            <TableHead className="w-[15%]">বিশ্ববিদ্যালয়</TableHead>
+            <TableHead className="w-[15%]">তারিখ</TableHead>
+            <TableHead className="w-[25%]">মানবন্টন</TableHead>
+            <TableHead className="w-[15%]">সিলেবাস</TableHead>
+            <TableHead className="w-[15%]">সেকেন্ড টাইম</TableHead>
+            <TableHead className="w-[15%]">নেগেটিভ মার্কিং</TableHead>
           </TableRow>
         </TableHeader>
         <TableBody>
@@ -31,7 +31,7 @@ const GeneralAdmissionInfoTable = () => {
             <TableRow key={index}>
               <TableCell className="font-medium align-top whitespace-pre-wrap">
                 <div className="font-bold">{info.university}</div>
-                <div className="flex gap-2 mt-1">
+                <div className="flex gap-2 mt-1 flex-wrap">
                   {info.circularLink && (
                     <Badge variant="outline" asChild>
                       <ExternalLink href={info.circularLink}>

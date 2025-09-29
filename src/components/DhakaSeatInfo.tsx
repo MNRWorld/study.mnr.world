@@ -83,21 +83,25 @@ const SubjectTable: React.FC<SubjectTableProps> = ({ subjects }) => {
       <Table>
         <TableHeader>
           <TableRow>
-            <TableHead className="text-center">সংক্ষিপ্ত</TableHead>
-            <TableHead className="text-center">বিষয়ের নাম</TableHead>
-            <TableHead className="text-center">আসন</TableHead>
-            <TableHead className="text-center">রিভিউ</TableHead>
+            <TableHead className="text-center w-[25%]">সংক্ষিপ্ত</TableHead>
+            <TableHead className="text-center w-[45%]">বিষয়ের নাম</TableHead>
+            <TableHead className="text-center w-[15%]">আসন</TableHead>
+            <TableHead className="text-center w-[15%]">রিভিউ</TableHead>
           </TableRow>
         </TableHeader>
         <TableBody>
           {filteredSubjects.map((subject, index) => (
             <TableRow key={index} className="text-center">
-              <TableCell className="font-bold">{subject.short}</TableCell>
-              <TableCell className="text-left">{subject.fullName}</TableCell>
-              <TableCell>
+              <TableCell className="font-bold whitespace-pre-wrap break-words">
+                {subject.short}
+              </TableCell>
+              <TableCell className="text-left whitespace-pre-wrap break-words">
+                {subject.fullName}
+              </TableCell>
+              <TableCell className="whitespace-pre-wrap break-words">
                 <SeatCell seat={subject.seat} tooltip={subject.tooltip} />
               </TableCell>
-              <TableCell>
+              <TableCell className="whitespace-pre-wrap break-words">
                 <ExternalLink href={subject.reviewLink} text="[লিংক]" />
               </TableCell>
             </TableRow>
