@@ -1,3 +1,4 @@
+
 "use client";
 import { courses } from "@/lib/data/courses";
 import { Button } from "@/components/ui/button";

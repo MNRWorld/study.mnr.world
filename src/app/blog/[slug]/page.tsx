@@ -1,7 +1,7 @@
 
 "use client";
 import { notFound } from "next/navigation";
-import { blogPosts } from "@/lib/data/blog-posts";
+import { blogPosts } from "@/lib/data/blog";
 import { PlaceHolderImages } from "@/lib/placeholder-images";
 import Image from "next/image";
 import { Calendar, User } from "lucide-react";

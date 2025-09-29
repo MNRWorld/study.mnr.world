@@ -18,7 +18,7 @@ import {
 } from "@/components/ui/table";
 import { Input } from "@/components/ui/input";
 import { Users, Info } from "lucide-react";
-import { duSubjects, type Subject } from "@/lib/data/du-subjects";
+import { duSubjects, type Subject } from "@/lib/data/subjects";
 import ExternalLink from "./common/ExternalLink";
 import {
   Tooltip,

@@ -1,8 +1,9 @@
+
 import { Calendar, User } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
-import { blogPosts } from "@/lib/data/blog-posts";
+import { blogPosts } from "@/lib/data/blog";
 import { PlaceHolderImages } from "@/lib/placeholder-images";
 
 const BlogList = () => {

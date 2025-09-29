@@ -27,7 +27,7 @@ const DhakaSeatInfo = dynamic(
 function DhakaUniversityPage() {
   return (
     <div className="font-bengali bg-background py-8">
-      <div className="container mx-auto lg:px-[200px]">
+      <div className="container mx-auto px-4">
         <div>
           <div className="mx-2 sm:mx-4">
             <MainInfoCard />
@@ -38,7 +38,7 @@ function DhakaUniversityPage() {
             <LinkList links={duLinks} />
           </div>
 
-          <div className="mt-4 mx-2 sm:mx-4">
+          <div className="mt-4 mx-2 sm-mx-4">
             <Suspense fallback={<div>Loading history...</div>}>
               <HistoryAndMap />
             </Suspense>
@@ -84,4 +84,3 @@ function DhakaUniversityPage() {
 }
 
 export default DhakaUniversityPage;
-

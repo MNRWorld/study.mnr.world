@@ -1,3 +1,4 @@
+
 "use client";
 import {
   Link as LinkIcon,
@@ -7,7 +8,7 @@ import {
   Banknote,
   Ticket,
 } from "lucide-react";
-import { collegeAdmissionInfo } from "@/lib/data/admission-info";
+import { collegeAdmissionInfo } from "@/lib/data/admission";
 import ExternalLink from "./common/ExternalLink";
 
 const CollegeAdmissionInfo = () => {

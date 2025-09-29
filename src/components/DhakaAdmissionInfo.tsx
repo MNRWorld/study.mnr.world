@@ -32,7 +32,7 @@ import {
   HelpCircle,
   AlertTriangle,
 } from "lucide-react";
-import { duAdmissionInfo } from "@/lib/data/admission-info";
+import { duAdmissionInfo } from "@/lib/data/admission";
 import ExternalLink from "./common/ExternalLink";
 
 const DhakaAdmissionInfo = () => {

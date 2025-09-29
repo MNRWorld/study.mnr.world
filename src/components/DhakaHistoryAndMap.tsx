@@ -10,7 +10,7 @@ import {
 } from "@/components/ui/accordion";
 import { Table, TableBody, TableCell, TableRow } from "@/components/ui/table";
 import { Landmark, University, ArrowUpRightFromSquare, History, Map } from "lucide-react";
-import { duHistoryAndMapData } from "@/lib/data/admission-info";
+import { duHistoryAndMapData } from "@/lib/data/admission";
 import ExternalLink from "./common/ExternalLink";
 
 const DhakaHistoryAndMap = () => {

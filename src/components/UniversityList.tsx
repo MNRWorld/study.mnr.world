@@ -1,6 +1,7 @@
+
 "use client";
 
-import { University } from "@/lib/data/public-universities";
+import { University } from "@/lib/data/universities";
 import UniversityCard from "@/components/UniversityCard";
 
 interface UniversityListProps {

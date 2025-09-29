@@ -1,3 +1,4 @@
+
 "use client";
 
 import { School, Info } from "lucide-react";
