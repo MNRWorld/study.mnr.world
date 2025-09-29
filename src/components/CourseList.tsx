@@ -28,7 +28,7 @@ const CourseList = () => {
               asChild
               className="w-full bg-primary/10 text-primary border border-primary/20 hover:bg-primary hover:text-primary-foreground"
             >
-              <Link href={`/courses/${course.slug}`}>
+              <Link href={`/courses/${course.id}`}>
                 বিস্তারিত দেখুন{" "}
                 <ArrowUpRightFromSquare size={14} className="ml-2" />
               </Link>
