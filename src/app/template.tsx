@@ -1,3 +1,3 @@
 export default function Template({ children }: { children: React.ReactNode }) {
-  return <main className="flex-grow animate-fade-in-up">{children}</main>;
+  return <main className="flex-grow">{children}</main>;
 }

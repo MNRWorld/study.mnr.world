@@ -3,25 +3,19 @@ import { Landmark } from "lucide-react";
 import PageHeaderCard from "@/components/common/PageHeaderCard";
 import UniversityFilters from "@/components/UniversityFilters";
 import UniversityList from "@/components/UniversityList";
-import { useSearchParams } from "next/navigation";
 import { University } from "@/lib/data/universities";
 
 interface PublicPageClientProps {
   universities: University[];
   categories: string[];
+  selectedCategory: string | null;
 }
 
 export default function PublicPageClient({
   universities,
   categories,
+  selectedCategory,
 }: PublicPageClientProps) {
-  const searchParams = useSearchParams();
-  const selectedCategory = searchParams.get("category");
-
-  const filteredUniversities = selectedCategory
-    ? universities.filter((uni) => uni.category === selectedCategory)
-    : universities;
-
   return (
     <div className="font-bengali bg-background py-8">
       <div className="container mx-auto px-4">
@@ -44,7 +38,7 @@ export default function PublicPageClient({
           categories={categories}
           selectedCategory={selectedCategory || undefined}
         />
-        <UniversityList universities={filteredUniversities} />
+        <UniversityList universities={universities} />
       </div>
     </div>
   );
