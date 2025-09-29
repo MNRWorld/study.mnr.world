@@ -14,12 +14,13 @@ import {
   BarChart3,
   Users,
 } from "lucide-react";
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
 
 const FloatingMenu = () => {
   const [menuOpen, setMenuOpen] = useState(false);
+  const menuRef = useRef<HTMLDivElement>(null);
 
   const linkClasses =
     "block p-2 text-foreground hover:bg-accent rounded-md transition-colors";
@@ -41,11 +42,32 @@ const FloatingMenu = () => {
     { href: "#Subjects", label: "সাবজেক্ট প্রতি সিট সংখ্যা", Icon: Users },
   ];
 
+  useEffect(() => {
+    function handleClickOutside(event: MouseEvent) {
+      if (menuRef.current && !menuRef.current.contains(event.target as Node)) {
+        setMenuOpen(false);
+      }
+    }
+
+    if (menuOpen) {
+      document.addEventListener("mousedown", handleClickOutside);
+    } else {
+      document.removeEventListener("mousedown", handleClickOutside);
+    }
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [menuOpen]);
+
   return (
-    <div className="fixed top-1/2 right-0 transform -translate-y-1/2 z-50">
+    <div
+      ref={menuRef}
+      className="fixed top-1/2 right-0 transform -translate-y-1/2 z-50"
+    >
       <Button
         onClick={() => setMenuOpen(!menuOpen)}
-        className="bg-primary text-primary-foreground rounded-l-full rounded-r-none px-4 py-3 text-lg hover:bg-primary/90 hover:text-primary-foreground"
+        className="bg-primary text-primary-foreground rounded-l-full rounded-r-none px-4 py-3 text-lg hover:bg-primary hover:text-primary-foreground"
       >
         <Menu />
       </Button>
