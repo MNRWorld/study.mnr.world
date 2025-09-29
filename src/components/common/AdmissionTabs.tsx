@@ -13,6 +13,7 @@ import {
 } from "lucide-react";
 import ApplicationScheduleTable from "./ApplicationScheduleTable";
 import AdmitCardScheduleTable from "./AdmitCardScheduleTable";
+import ResultScheduleTable from "./ResultScheduleTable";
 
 const AdmissionTabs = () => {
   return (
@@ -48,11 +49,7 @@ const AdmissionTabs = () => {
           <AdmitCardScheduleTable />
         </TabsContent>
         <TabsContent value="result">
-          <div className="mt-4 w-full border border-border bg-card rounded-2xl p-6 shadow-lg text-center">
-            <p className="text-muted-foreground">
-              ফলাফল সংক্রান্ত তথ্য এখানে যুক্ত করা হবে।
-            </p>
-          </div>
+          <ResultScheduleTable />
         </TabsContent>
       </Tabs>
     </div>

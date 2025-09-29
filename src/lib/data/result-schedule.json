@@ -1,0 +1,63 @@
+
+{
+  "hsc24": [
+    { "university": "নিটোর", "date": "০২ মে", "link": "#" },
+    { "university": "কৃষি গুচ্ছ", "date": "১৫ এপ্রিল", "link": "#" },
+    { "university": "বুটেক্স", "date": "১৬ মার্চ", "link": "#" },
+    { "university": "সাস্ট", "date": "০৯ মার্চ", "link": "#" },
+    { "university": "চবি", "date": "০৬ মার্চ", "link": "#" },
+    { "university": "MIST", "date": "০৬ র্মাচ", "link": "#" },
+    { "university": "ডেন্টাল", "date": "২ মার্চ", "link": "#" },
+    { "university": "বুয়েট (লিখিত)", "date": "২৬ ফেব্রুয়ারী", "link": "#" },
+    { "university": "রুয়েট (লিখিত)", "date": "২৬ ফেব্রুয়ারী", "link": "#" },
+    { "university": "চুয়েট (লিখিত)", "date": "২০ ফেব্রুয়ারী", "link": "#" },
+    { "university": "জাবি", "date": "১৪ ফেব্রুয়ারী", "link": "#" },
+    { "university": "রুয়েট প্রিলি", "date": "১০ ফেব্রুয়ারী", "link": "#" },
+    { "university": "বুয়েট প্রিলি", "date": "২৭ জানুয়ারী", "link": "#" },
+    { "university": "AFMC", "date": "২৬ জানুয়ারী", "link": "#" },
+    { "university": "মেডিকেল", "date": "১৯ জানুয়ারী", "link": "#" },
+    { "university": "কুয়েট", "date": "১৫ জানুয়ারী", "link": "#" },
+    { "university": "ঢাবি IBA", "date": "২২ জানুয়ারী", "link": "#" },
+    { "university": "BSMRAAU", "date": "৭ জানুয়ারী", "link": "#" },
+    { "university": "মেরিটাইম", "date": "২ জানুয়ারী", "link": "#" },
+    { "university": "BUP", "date": "২৬ ডিসেম্বর", "link": "#" }
+  ],
+  "hsc23": [
+    {
+      "university": "বুয়েট",
+      "date": "১৩ ফেব্রুয়ারি<br/>(যোগ্য প্রার্থীর তালিকা)",
+      "link": "#"
+    },
+    {
+      "university": "BSMRAAU",
+      "date": "১৪ ফেব্রুয়ারি<br/>(যোগ্য প্রার্থীর তালিকা)",
+      "link": "#"
+    },
+    {
+      "university": "বুটেক্স",
+      "date": "২৫ ফেব্রুয়ারি<br/>(যোগ্য প্রার্থীর তালিকা)",
+      "link": "#"
+    },
+    {
+      "university": "বুয়েট",
+      "date": "২৯ ফেব্রুয়ারি<br/>(প্রাক-নির্বাচনী ফলাফল)",
+      "link": "#"
+    },
+    { "university": "রাবি", "date": "২৫ মার্চ", "link": "#" },
+    { "university": "বুটেক্স", "date": "২৮ মার্চ<br/>(সম্ভাব্য)", "link": "#" },
+    { "university": "বুয়েট", "date": "৩১ মার্চ", "link": "#" },
+    { "university": "ঢাবি", "date": "পরবর্তীতে জানানো হবে", "link": "#" },
+    { "university": "মেরিন", "date": "পরবর্তীতে জানানো হবে", "link": "#" },
+    {
+      "university": "● BUP",
+      "date": "০৭ জানুয়ারি<br/>(যোগ্য প্রার্থীর তালিকা)",
+      "link": "#"
+    },
+    { "university": "● BUP", "date": "২৩ জানুয়ারি", "link": "#" },
+    {
+      "university": "● মেরিটাইম",
+      "date": "১৮ জানুয়ারি<br/>(যোগ্য প্রার্থীর তালিকা)",
+      "link": "#"
+    }
+  ]
+}
