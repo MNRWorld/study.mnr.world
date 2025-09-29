@@ -24,7 +24,7 @@ const DhakaSeatInfo = dynamic(() => import("@/components/DhakaSeatInfo"), {
 function DhakaUniversityPage() {
   return (
     <div className="font-bengali bg-background py-8">
-      <div className="container mx-auto px-4 lg:px-[170px]">
+      <div className="container mx-auto px-2 lg:px-[170px]">
         <MainInfoCard />
         <FloatingMenu />
 
