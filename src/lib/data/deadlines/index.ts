@@ -1,6 +1,7 @@
 import deadlinesData from "./list.json";
 
 export interface Deadline {
+  id: string;
   title: string;
   date: Date;
 }

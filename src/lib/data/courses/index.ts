@@ -19,6 +19,7 @@ const icons: { [key: string]: LucideIcon } = {
 };
 
 export type Course = {
+  id: string;
   title: string;
   description: string;
   icon: string;
