@@ -253,12 +253,12 @@ const DhakaAdmissionInfo = () => {
       </h2>
 
       <Tabs defaultValue="ka-unit" className="w-full">
-        <TabsList className="grid w-full grid-cols-3 sm:grid-cols-5 h-auto bg-transparent gap-2">
-          <TabsTrigger value="ka-unit">"ক" ইউনিট</TabsTrigger>
-          <TabsTrigger value="kha-unit">"খ" ইউনিট</TabsTrigger>
-          <TabsTrigger value="ga-unit">"গ" ইউনিট</TabsTrigger>
-          <TabsTrigger value="cha-unit">“চ” ইউনিট</TabsTrigger>
-          <TabsTrigger value="iba-unit">DU IBA (বিশেষ)</TabsTrigger>
+        <TabsList className="flex flex-wrap w-full h-auto bg-transparent gap-2">
+          <TabsTrigger value="ka-unit" className="flex-grow">"ক" ইউনিট</TabsTrigger>
+          <TabsTrigger value="kha-unit" className="flex-grow">"খ" ইউনিট</TabsTrigger>
+          <TabsTrigger value="ga-unit" className="flex-grow">"গ" ইউনিট</TabsTrigger>
+          <TabsTrigger value="cha-unit" className="flex-grow">“চ” ইউনিট</TabsTrigger>
+          <TabsTrigger value="iba-unit" className="flex-grow">DU IBA (বিশেষ)</TabsTrigger>
         </TabsList>
         <TabsContent value="ka-unit">
           <div className="border border-border rounded-xl p-4 mt-2.5 text-base leading-relaxed">
@@ -701,5 +701,3 @@ const DhakaAdmissionInfo = () => {
 };
 
 export default DhakaAdmissionInfo;
-
-    
