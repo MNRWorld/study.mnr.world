@@ -3,8 +3,7 @@
 import { CalendarDays, Info } from "lucide-react";
 import dynamic from "next/dynamic";
 import PageHeaderCard from "@/components/common/PageHeaderCard";
-import GeneralAdmissionInfo from "@/components/common/GeneralAdmissionInfo";
-import AdmissionScheduleTable from "@/components/common/AdmissionScheduleTable";
+import AdmissionTabs from "@/components/common/AdmissionTabs";
 
 const CountdownTimer = dynamic(
   () => import("@/components/common/CountdownTimer"),
@@ -36,8 +35,7 @@ function CalendarPage() {
           <CountdownTimer />
         </div>
 
-        <AdmissionScheduleTable />
-        <GeneralAdmissionInfo />
+        <AdmissionTabs />
       </div>
     </div>
   );
