@@ -1,4 +1,3 @@
-
 import coursesData from "./list.json";
 import {
   University,

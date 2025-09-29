@@ -1,4 +1,3 @@
-
 import admissionInfo from "./info.json";
 
 export const duAdmissionInfo = admissionInfo.du;

@@ -1,4 +1,3 @@
-
 "use client";
 import Link from "next/link";
 import { cn } from "@/lib/utils";
@@ -74,7 +73,13 @@ const Header = memo(function Header() {
           aria-label="হোমপেজে যান"
           className="flex items-center space-x-2 pl-3 pr-2 shrink-0"
         >
-          <Image src="/logo.svg" alt="Study Platform Logo" width={28} height={25} className="h-7 w-7" />
+          <Image
+            src="/logo.svg"
+            alt="Study Platform Logo"
+            width={28}
+            height={25}
+            className="h-7 w-7"
+          />
         </Link>
 
         <div className="flex-grow flex items-center overflow-x-auto no-scrollbar">

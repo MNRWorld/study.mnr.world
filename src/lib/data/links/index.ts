@@ -1,4 +1,3 @@
-
 import linksData from "./list.json";
 
 interface LinkItem {

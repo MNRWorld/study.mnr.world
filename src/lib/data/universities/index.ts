@@ -1,11 +1,10 @@
-
 import publicUniversitiesData from "./public-universities.json";
 
 export interface University {
   nameBn: string;
   nameEn: string;
   shortName: string;
-  slug: string;
+  id: string;
   category: string;
   description: string;
   link: string;

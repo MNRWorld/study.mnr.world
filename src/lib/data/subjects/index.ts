@@ -1,4 +1,3 @@
-
 import duSubjectsData from "./du.json";
 
 export interface Subject {

@@ -1,4 +1,3 @@
-
 "use client";
 
 import React from "react";
@@ -7,7 +6,7 @@ import QuestionBankAccordion from "@/components/QuestionBankAccordion";
 import {
   duUnitA,
   duUnitB,
-duUnitC,
+  duUnitC,
   duUnitCha,
   duIBA,
 } from "@/lib/data/question-banks";

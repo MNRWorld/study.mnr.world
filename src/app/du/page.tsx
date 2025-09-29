@@ -1,4 +1,3 @@
-
 "use client";
 
 import dynamic from "next/dynamic";
@@ -18,11 +17,9 @@ const CountdownTimer = dynamic(
 const QuestionBank = dynamic(() => import("@/components/DhakaQuestionBank"), {
   ssr: false,
 });
-const DhakaSeatInfo = dynamic(
-  () => import("@/components/DhakaSeatInfo"),
-  { ssr: false },
-);
-
+const DhakaSeatInfo = dynamic(() => import("@/components/DhakaSeatInfo"), {
+  ssr: false,
+});
 
 function DhakaUniversityPage() {
   return (
@@ -76,7 +73,6 @@ function DhakaUniversityPage() {
               <DhakaSeatInfo />
             </Suspense>
           </div>
-
         </div>
       </div>
     </div>

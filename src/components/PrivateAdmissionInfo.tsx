@@ -1,4 +1,3 @@
-
 "use client";
 import { Info, PenSquare, Banknote, MapPin } from "lucide-react";
 import { privateAdmissionInfo } from "@/lib/data/admission";

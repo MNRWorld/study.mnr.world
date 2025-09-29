@@ -1,4 +1,3 @@
-
 "use client";
 
 import { University } from "@/lib/data/universities";

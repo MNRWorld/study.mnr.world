@@ -1,4 +1,3 @@
-
 {
   "duUnitA": [
     {
@@ -6,44 +5,143 @@
       "items": [
         {
           "links": [
-            { "text": "আসপেক্ট “ক” ইউনিট প্রশ্নব্যাংক", "url": "https://t.me/PDFHour/10357" },
-            { "text": "উদ্ভাস “ক” ইউনিট প্রশ্নব্যাংক", "url": "https://t.me/PDFHour/10357" },
-            { "text": "জয়কলি “ক” ইউনিট প্রশ্নব্যাংক", "url": "https://t.me/PDFHour/10357" },
-            { "text": "UCC “ক” ইউনিট প্রশ্নব্যাংক", "url": "https://t.me/PDFHour/10357" },
-            { "text": "ACS “ক” ইউনিট প্রশ্নব্যাংক", "url": "https://t.me/PDFHour/10357" }
+            {
+              "text": "আসপেক্ট “ক” ইউনিট প্রশ্নব্যাংক",
+              "url": "https://t.me/PDFHour/10357"
+            },
+            {
+              "text": "উদ্ভাস “ক” ইউনিট প্রশ্নব্যাংক",
+              "url": "https://t.me/PDFHour/10357"
+            },
+            {
+              "text": "জয়কলি “ক” ইউনিট প্রশ্নব্যাংক",
+              "url": "https://t.me/PDFHour/10357"
+            },
+            {
+              "text": "UCC “ক” ইউনিট প্রশ্নব্যাংক",
+              "url": "https://t.me/PDFHour/10357"
+            },
+            {
+              "text": "ACS “ক” ইউনিট প্রশ্নব্যাংক",
+              "url": "https://t.me/PDFHour/10357"
+            }
           ]
         },
         {
           "title": "সকল সালের প্রশ্ন একত্রে",
           "links": [
-            { "text": "Question of 1995-96", "url": "https://t.me/PDFHour/10297" },
-            { "text": "Question of 1996-97", "url": "https://t.me/PDFHour/10298" },
-            { "text": "Question of 1998-99", "url": "https://t.me/PDFHour/10299" },
-            { "text": "Question of 1999-00", "url": "https://t.me/PDFHour/10300" },
-            { "text": "Question of 2000-01", "url": "https://t.me/PDFHour/10303?single" },
-            { "text": "Question of 2001-02", "url": "https://t.me/PDFHour/10305?single" },
-            { "text": "Question of 2002-03", "url": "https://t.me/PDFHour/10307?single" },
-            { "text": "Question of 2003-04", "url": "https://t.me/PDFHour/10309?single" },
-            { "text": "Question of 2004-05", "url": "https://t.me/PDFHour/10311?single" },
-            { "text": "Question of 2005-06", "url": "https://t.me/PDFHour/10313?single" },
-            { "text": "Question of 2006-07", "url": "https://t.me/PDFHour/10315?single" },
-            { "text": "Question of 2007-08", "url": "https://t.me/PDFHour/10317?single" },
-            { "text": "Question of 2008-09", "url": "https://t.me/PDFHour/10319?single" },
-            { "text": "Question of 2009-10", "url": "https://t.me/PDFHour/10321?single" },
-            { "text": "Question of 2010-11", "url": "https://t.me/PDFHour/10323?single" },
-            { "text": "Question of 2011-12", "url": "https://t.me/PDFHour/10325?single" },
-            { "text": "Question of 2012-13", "url": "https://t.me/PDFHour/10328?single" },
-            { "text": "Question of 2013-14", "url": "https://t.me/PDFHour/10331?single" },
-            { "text": "Question of 2014-15", "url": "https://t.me/PDFHour/10334?single" },
-            { "text": "Question of 2015-16", "url": "https://t.me/PDFHour/10337?single" },
-            { "text": "Question of 2016-17", "url": "https://t.me/PDFHour/10340?single" },
-            { "text": "Question of 2017-18", "url": "https://t.me/PDFHour/10343?single" },
-            { "text": "Question of 2018-19", "url": "https://t.me/PDFHour/10346?single" },
-            { "text": "Question of 2019-20", "url": "https://t.me/PDFHour/10349?single" },
-            { "text": "Question of 2020-21", "url": "https://t.me/PDFHour/10350" },
-            { "text": "Question of 2021-22", "url": "https://t.me/PDFHour/10352?single" },
-            { "text": "Question of 2022-23", "url": "https://t.me/PDFHour/10355?single" },
-            { "text": "Question of 2023-24", "url": "https://t.me/PDFHour/10356" }
+            {
+              "text": "Question of 1995-96",
+              "url": "https://t.me/PDFHour/10297"
+            },
+            {
+              "text": "Question of 1996-97",
+              "url": "https://t.me/PDFHour/10298"
+            },
+            {
+              "text": "Question of 1998-99",
+              "url": "https://t.me/PDFHour/10299"
+            },
+            {
+              "text": "Question of 1999-00",
+              "url": "https://t.me/PDFHour/10300"
+            },
+            {
+              "text": "Question of 2000-01",
+              "url": "https://t.me/PDFHour/10303?single"
+            },
+            {
+              "text": "Question of 2001-02",
+              "url": "https://t.me/PDFHour/10305?single"
+            },
+            {
+              "text": "Question of 2002-03",
+              "url": "https://t.me/PDFHour/10307?single"
+            },
+            {
+              "text": "Question of 2003-04",
+              "url": "https://t.me/PDFHour/10309?single"
+            },
+            {
+              "text": "Question of 2004-05",
+              "url": "https://t.me/PDFHour/10311?single"
+            },
+            {
+              "text": "Question of 2005-06",
+              "url": "https://t.me/PDFHour/10313?single"
+            },
+            {
+              "text": "Question of 2006-07",
+              "url": "https://t.me/PDFHour/10315?single"
+            },
+            {
+              "text": "Question of 2007-08",
+              "url": "https://t.me/PDFHour/10317?single"
+            },
+            {
+              "text": "Question of 2008-09",
+              "url": "https://t.me/PDFHour/10319?single"
+            },
+            {
+              "text": "Question of 2009-10",
+              "url": "https://t.me/PDFHour/10321?single"
+            },
+            {
+              "text": "Question of 2010-11",
+              "url": "https://t.me/PDFHour/10323?single"
+            },
+            {
+              "text": "Question of 2011-12",
+              "url": "https://t.me/PDFHour/10325?single"
+            },
+            {
+              "text": "Question of 2012-13",
+              "url": "https://t.me/PDFHour/10328?single"
+            },
+            {
+              "text": "Question of 2013-14",
+              "url": "https://t.me/PDFHour/10331?single"
+            },
+            {
+              "text": "Question of 2014-15",
+              "url": "https://t.me/PDFHour/10334?single"
+            },
+            {
+              "text": "Question of 2015-16",
+              "url": "https://t.me/PDFHour/10337?single"
+            },
+            {
+              "text": "Question of 2016-17",
+              "url": "https://t.me/PDFHour/10340?single"
+            },
+            {
+              "text": "Question of 2017-18",
+              "url": "https://t.me/PDFHour/10343?single"
+            },
+            {
+              "text": "Question of 2018-19",
+              "url": "https://t.me/PDFHour/10346?single"
+            },
+            {
+              "text": "Question of 2019-20",
+              "url": "https://t.me/PDFHour/10349?single"
+            },
+            {
+              "text": "Question of 2020-21",
+              "url": "https://t.me/PDFHour/10350"
+            },
+            {
+              "text": "Question of 2021-22",
+              "url": "https://t.me/PDFHour/10352?single"
+            },
+            {
+              "text": "Question of 2022-23",
+              "url": "https://t.me/PDFHour/10355?single"
+            },
+            {
+              "text": "Question of 2023-24",
+              "url": "https://t.me/PDFHour/10356"
+            }
           ]
         }
       ]
@@ -53,14 +151,23 @@
       "items": [
         {
           "links": [
-            { "text": "রেটিনা ঢাবি “ক” ইউনিট প্রশ্নব্যাংক", "url": "https://t.me/PDFHour/10285" }
+            {
+              "text": "রেটিনা ঢাবি “ক” ইউনিট প্রশ্নব্যাংক",
+              "url": "https://t.me/PDFHour/10285"
+            }
           ]
         },
         {
           "title": "সহায়ক বই",
           "links": [
-            { "text": "উদ্ভাস ভার্সিটি “ক” প্রশ্নব্যাংক", "url": "https://t.me/PDFHour/10214" },
-            { "text": "উদ্ভাস ভার্সিটি “ক” প্রিপারেশন বুক", "url": "https://t.me/PDFHour/10478" }
+            {
+              "text": "উদ্ভাস ভার্সিটি “ক” প্রশ্নব্যাংক",
+              "url": "https://t.me/PDFHour/10214"
+            },
+            {
+              "text": "উদ্ভাস ভার্সিটি “ক” প্রিপারেশন বুক",
+              "url": "https://t.me/PDFHour/10478"
+            }
           ]
         }
       ]
@@ -70,14 +177,23 @@
       "items": [
         {
           "links": [
-            { "text": "জয়কলি ঢাবি “ক” ইউনিট মডেল টেস্ট", "url": "https://t.me/PDFHour/" }
+            {
+              "text": "জয়কলি ঢাবি “ক” ইউনিট মডেল টেস্ট",
+              "url": "https://t.me/PDFHour/"
+            }
           ]
         },
         {
           "title": "সহায়ক বই",
           "links": [
-            { "text": "জয়কলি ভার্সিটি “ক” মডেল টেস্ট", "url": "https://t.me/PDFHour/" },
-            { "text": "উদ্ভাস ভার্সিটি “ক” প্রাকটিস বুক", "url": "https://t.me/PDFHour/" }
+            {
+              "text": "জয়কলি ভার্সিটি “ক” মডেল টেস্ট",
+              "url": "https://t.me/PDFHour/"
+            },
+            {
+              "text": "উদ্ভাস ভার্সিটি “ক” প্রাকটিস বুক",
+              "url": "https://t.me/PDFHour/"
+            }
           ]
         }
       ]
@@ -87,7 +203,10 @@
       "items": [
         {
           "links": [
-            { "text": "BOB ঢাবি “ক” ইউনিট সাজেশন (MCQ ও লিখিত)", "url": "https://t.me/PDFHour/" }
+            {
+              "text": "BOB ঢাবি “ক” ইউনিট সাজেশন (MCQ ও লিখিত)",
+              "url": "https://t.me/PDFHour/"
+            }
           ]
         }
       ]
@@ -99,40 +218,127 @@
       "items": [
         {
           "links": [
-            { "text": "পানকৌড়ি “খ” ইউনিট প্রশ্নব্যাংক", "url": "https://t.me/PDFHour/10394" },
-            { "text": "আসপেক্ট “খ” ইউনিট প্রশ্নব্যাংক", "url": "https://t.me/PDFHour/10394" },
-            { "text": "জয়কলি “খ” ইউনিট প্রশ্নব্যাংক", "url": "https://t.me/PDFHour/10394" },
-            { "text": "UCC “খ” ইউনিট প্রশ্নব্যাংক", "url": "https://t.me/PDFHour/10394" }
+            {
+              "text": "পানকৌড়ি “খ” ইউনিট প্রশ্নব্যাংক",
+              "url": "https://t.me/PDFHour/10394"
+            },
+            {
+              "text": "আসপেক্ট “খ” ইউনিট প্রশ্নব্যাংক",
+              "url": "https://t.me/PDFHour/10394"
+            },
+            {
+              "text": "জয়কলি “খ” ইউনিট প্রশ্নব্যাংক",
+              "url": "https://t.me/PDFHour/10394"
+            },
+            {
+              "text": "UCC “খ” ইউনিট প্রশ্নব্যাংক",
+              "url": "https://t.me/PDFHour/10394"
+            }
           ]
         },
         {
           "title": "সকল সালের প্রশ্ন একত্রে",
           "links": [
-            { "text": "Question of 2000-01", "url": "https://t.me/PDFHour/10359" },
-            { "text": "Question of 2001-02", "url": "https://t.me/PDFHour/10360" },
-            { "text": "Question of 2002-03", "url": "https://t.me/PDFHour/10361" },
-            { "text": "Question of 2003-04", "url": "https://t.me/PDFHour/10362" },
-            { "text": "Question of 2004-05", "url": "https://t.me/PDFHour/10363" },
-            { "text": "Question of 2005-06", "url": "https://t.me/PDFHour/10364" },
-            { "text": "Question of 2006-07", "url": "https://t.me/PDFHour/10365" },
-            { "text": "Question of 2007-08", "url": "https://t.me/PDFHour/10366" },
-            { "text": "Question of 2008-09", "url": "https://t.me/PDFHour/10367" },
-            { "text": "Question of 2009-10", "url": "https://t.me/PDFHour/10368" },
-            { "text": "Question of 2010-11", "url": "https://t.me/PDFHour/10370?single" },
-            { "text": "Question of 2011-12", "url": "https://t.me/PDFHour/10372?single" },
-            { "text": "Question of 2012-13", "url": "https://t.me/PDFHour/10374?single" },
-            { "text": "Question of 2013-14", "url": "https://t.me/PDFHour/10376?single" },
-            { "text": "Question of 2014-15", "url": "https://t.me/PDFHour/10378?single" },
-            { "text": "Question of 2015-16", "url": "https://t.me/PDFHour/10380?single" },
-            { "text": "Question of 2016-17", "url": "https://t.me/PDFHour/10382?single" },
-            { "text": "Question of 2017-18", "url": "https://t.me/PDFHour/10384?single" },
-            { "text": "Question of 2018-19", "url": "https://t.me/PDFHour/10386?single" },
-            { "text": "Question of 2019-20", "url": "https://t.me/PDFHour/10388?single" },
-            { "text": "Question of 2020-21", "url": "https://t.me/PDFHour/10389" },
-            { "text": "Question of 2021-22", "url": "https://t.me/PDFHour/10390" },
-            { "text": "Question of 2022-23", "url": "https://t.me/PDFHour/10391" },
-            { "text": "Question of 2023-24", "url": "https://t.me/PDFHour/10392" },
-            { "text": "Question of 2024-25", "url": "https://t.me/PDFHour/10835?single" }
+            {
+              "text": "Question of 2000-01",
+              "url": "https://t.me/PDFHour/10359"
+            },
+            {
+              "text": "Question of 2001-02",
+              "url": "https://t.me/PDFHour/10360"
+            },
+            {
+              "text": "Question of 2002-03",
+              "url": "https://t.me/PDFHour/10361"
+            },
+            {
+              "text": "Question of 2003-04",
+              "url": "https://t.me/PDFHour/10362"
+            },
+            {
+              "text": "Question of 2004-05",
+              "url": "https://t.me/PDFHour/10363"
+            },
+            {
+              "text": "Question of 2005-06",
+              "url": "https://t.me/PDFHour/10364"
+            },
+            {
+              "text": "Question of 2006-07",
+              "url": "https://t.me/PDFHour/10365"
+            },
+            {
+              "text": "Question of 2007-08",
+              "url": "https://t.me/PDFHour/10366"
+            },
+            {
+              "text": "Question of 2008-09",
+              "url": "https://t.me/PDFHour/10367"
+            },
+            {
+              "text": "Question of 2009-10",
+              "url": "https://t.me/PDFHour/10368"
+            },
+            {
+              "text": "Question of 2010-11",
+              "url": "https://t.me/PDFHour/10370?single"
+            },
+            {
+              "text": "Question of 2011-12",
+              "url": "https://t.me/PDFHour/10372?single"
+            },
+            {
+              "text": "Question of 2012-13",
+              "url": "https://t.me/PDFHour/10374?single"
+            },
+            {
+              "text": "Question of 2013-14",
+              "url": "https://t.me/PDFHour/10376?single"
+            },
+            {
+              "text": "Question of 2014-15",
+              "url": "https://t.me/PDFHour/10378?single"
+            },
+            {
+              "text": "Question of 2015-16",
+              "url": "https://t.me/PDFHour/10380?single"
+            },
+            {
+              "text": "Question of 2016-17",
+              "url": "https://t.me/PDFHour/10382?single"
+            },
+            {
+              "text": "Question of 2017-18",
+              "url": "https://t.me/PDFHour/10384?single"
+            },
+            {
+              "text": "Question of 2018-19",
+              "url": "https://t.me/PDFHour/10386?single"
+            },
+            {
+              "text": "Question of 2019-20",
+              "url": "https://t.me/PDFHour/10388?single"
+            },
+            {
+              "text": "Question of 2020-21",
+              "url": "https://t.me/PDFHour/10389"
+            },
+            {
+              "text": "Question of 2021-22",
+              "url": "https://t.me/PDFHour/10390"
+            },
+            {
+              "text": "Question of 2022-23",
+              "url": "https://t.me/PDFHour/10391"
+            },
+            {
+              "text": "Question of 2023-24",
+              "url": "https://t.me/PDFHour/10392"
+            },
+            {
+              "text": "Question of 2024-25",
+              "url": "https://t.me/PDFHour/10835?single"
+            }
           ]
         }
       ]
@@ -142,8 +348,14 @@
       "items": [
         {
           "links": [
-            { "text": "উদ্ভাস “ঘ” ইউনিট প্রশ্নব্যাংক", "url": "https://t.me/Study_on_Telegram/2072" },
-            { "text": "UCC “ঘ” ইউনিট প্রশ্নব্যাংক", "url": "https://t.me/Study_on_Telegram/8882" }
+            {
+              "text": "উদ্ভাস “ঘ” ইউনিট প্রশ্নব্যাংক",
+              "url": "https://t.me/Study_on_Telegram/2072"
+            },
+            {
+              "text": "UCC “ঘ” ইউনিট প্রশ্নব্যাংক",
+              "url": "https://t.me/Study_on_Telegram/8882"
+            }
           ]
         }
       ]
@@ -153,7 +365,10 @@
       "items": [
         {
           "links": [
-            { "text": "Written Foundaton Book By iEducation", "url": "https://t.me/PDFHour/10731" }
+            {
+              "text": "Written Foundaton Book By iEducation",
+              "url": "https://t.me/PDFHour/10731"
+            }
           ]
         }
       ]
@@ -165,10 +380,22 @@
       "items": [
         {
           "links": [
-            { "text": "ফোকাস “গ” ইউনিট প্রশ্নব্যাংক", "url": "https://t.me/Study_on_Telegram/2072" },
-            { "text": "আইকন “গ” ইউনিট প্রশ্নব্যাংক", "url": "https://t.me/Study_on_Telegram/2072" },
-            { "text": "জয়কলি “গ” ইউনিট প্রশ্নব্যাংক", "url": "https://t.me/Study_on_Telegram/2072" },
-            { "text": "UCC “গ” ইউনিট প্রশ্নব্যাংক", "url": "https://t.me/Study_on_Telegram/8882" }
+            {
+              "text": "ফোকাস “গ” ইউনিট প্রশ্নব্যাংক",
+              "url": "https://t.me/Study_on_Telegram/2072"
+            },
+            {
+              "text": "আইকন “গ” ইউনিট প্রশ্নব্যাংক",
+              "url": "https://t.me/Study_on_Telegram/2072"
+            },
+            {
+              "text": "জয়কলি “গ” ইউনিট প্রশ্নব্যাংক",
+              "url": "https://t.me/Study_on_Telegram/2072"
+            },
+            {
+              "text": "UCC “গ” ইউনিট প্রশ্নব্যাংক",
+              "url": "https://t.me/Study_on_Telegram/8882"
+            }
           ]
         },
         {
@@ -192,7 +419,10 @@
             { "text": "Question of 2021-22", "url": "#" },
             { "text": "Question of 2022-23", "url": "#" },
             { "text": "Question of 2023-24", "url": "#" },
-            { "text": "Question of 2024-25", "url": "https://t.me/PDFHour/10359" }
+            {
+              "text": "Question of 2024-25",
+              "url": "https://t.me/PDFHour/10359"
+            }
           ]
         }
       ]
@@ -202,7 +432,10 @@
       "items": [
         {
           "links": [
-            { "text": "টেন মিনিট স্কুল ঢাবি “গ” ইউনিট প্রশ্নব্যাংক", "url": "https://t.me/PDFHour/10285" }
+            {
+              "text": "টেন মিনিট স্কুল ঢাবি “গ” ইউনিট প্রশ্নব্যাংক",
+              "url": "https://t.me/PDFHour/10285"
+            }
           ]
         }
       ]
@@ -214,8 +447,14 @@
       "items": [
         {
           "links": [
-            { "text": "Question of 2023-24", "url": "https://t.me/PDFHour/10638" },
-            { "text": "Question of 2024-25", "url": "https://t.me/PDFHour/10728" }
+            {
+              "text": "Question of 2023-24",
+              "url": "https://t.me/PDFHour/10638"
+            },
+            {
+              "text": "Question of 2024-25",
+              "url": "https://t.me/PDFHour/10728"
+            }
           ]
         }
       ]
@@ -227,8 +466,14 @@
       "items": [
         {
           "links": [
-            { "text": "DU IBA Question Bank", "url": "https://t.me/Study_on_Telegram/2069" },
-            { "text": "Dreams IBA Ex. MBA Book", "url": "https://t.me/Study_on_Telegram/2070" }
+            {
+              "text": "DU IBA Question Bank",
+              "url": "https://t.me/Study_on_Telegram/2069"
+            },
+            {
+              "text": "Dreams IBA Ex. MBA Book",
+              "url": "https://t.me/Study_on_Telegram/2070"
+            }
           ]
         }
       ]

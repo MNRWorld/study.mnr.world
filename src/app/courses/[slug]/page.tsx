@@ -1,4 +1,3 @@
-
 import { getCourseBySlug, courses } from "@/lib/data/courses";
 import { notFound } from "next/navigation";
 import { Button } from "@/components/ui/button";

@@ -1,4 +1,3 @@
-
 import deadlinesData from "./list.json";
 
 export interface Deadline {

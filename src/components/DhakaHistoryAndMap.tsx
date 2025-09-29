@@ -1,4 +1,3 @@
-
 "use client";
 import Link from "next/link";
 
@@ -9,7 +8,13 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import { Table, TableBody, TableCell, TableRow } from "@/components/ui/table";
-import { Landmark, University, ArrowUpRightFromSquare, History, Map } from "lucide-react";
+import {
+  Landmark,
+  University,
+  ArrowUpRightFromSquare,
+  History,
+  Map,
+} from "lucide-react";
 import { duHistoryAndMapData } from "@/lib/data/admission";
 import ExternalLink from "./common/ExternalLink";
 
@@ -58,7 +63,7 @@ const DhakaHistoryAndMap = () => {
           className="bg-card border border-border rounded-2xl overflow-hidden shadow-lg mt-4"
         >
           <AccordionTrigger className="p-4 sm:p-5 w-full flex justify-between items-center text-lg font-bold cursor-pointer hover:no-underline">
-             <div className="flex items-center">
+            <div className="flex items-center">
               <Map className="mr-2" />
               <span>{mapLocations.title}</span>
             </div>
