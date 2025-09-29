@@ -15,7 +15,7 @@ const AdmissionScheduleTable = () => {
   return (
     <div className="mt-8 w-full border border-border bg-card rounded-2xl p-4 sm:p-6 shadow-lg relative overflow-x-auto">
       <div className="flex justify-center">
-        <div className="inline-block px-6 py-2 bg-gradient-to-r from-primary to-blue-500 text-white rounded-full text-base sm:text-lg mb-4 font-bold shadow-md">
+        <div className="inline-block px-6 py-2 bg-gradient-to-r from-primary to-foreground text-white rounded-full text-base sm:text-lg mb-4 font-bold shadow-md">
           <CalendarDays className="inline-block mr-2" />
           ভর্তি পরীক্ষার সময়কাল
         </div>
