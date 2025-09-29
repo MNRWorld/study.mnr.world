@@ -64,15 +64,9 @@ const DhakaAdmissionInfo = () => {
             <CalendarClock className="inline-block mr-2" />
             আবেদনের সময়কাল:
           </b>
-          <div className="flex items-center mt-2">
-            <Play className="mr-2 h-4 w-4 text-primary" />
-            <b>আবেদন শুরু:</b>
-            <span className="ml-1">{apply.startDate}</span>
+            <b> শুরু:</b> {apply.startDate}
           </div>
-          <div className="flex items-center">
-            <Play className="mr-2 h-4 w-4 text-primary" />
-            <b>আবেদন শেষ:</b>
-            <span className="ml-1">{apply.endDate}</span>
+            <b> শেষ:</b> {apply.endDate}
           </div>
         </div>
 
