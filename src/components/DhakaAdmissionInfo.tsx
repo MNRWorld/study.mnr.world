@@ -111,9 +111,9 @@ const DhakaAdmissionInfo = () => {
           {apply.qualificationTitle}
         </b>
         <br />
-        &nbsp;&nbsp;&nbsp; ⁃ <b>SSC ব্যাচ:</b> {apply.sscBatch}
+        &nbsp;&nbsp;&nbsp; <b>- SSC ব্যাচ:</b> {apply.sscBatch}
         <br />
-        &nbsp;&nbsp;&nbsp; ⁃ <b>HSC ব্যাচ:</b> {apply.hscBatch}
+        &nbsp;&nbsp;&nbsp; <b>- HSC ব্যাচ:</b> {apply.hscBatch}
         <br />
         <div className="text-red-500 flex items-center">
           <CircleAlert size={18} className="inline-block mr-1" />{" "}

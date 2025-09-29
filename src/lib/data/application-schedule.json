@@ -1,0 +1,316 @@
+
+[
+  {
+    "university": "৭ কলেজ",
+    "detailsLink": "#",
+    "date": "স্থগিত",
+    "status": "স্থগিত",
+    "fee": "৮০০ টাকা",
+    "applyLink": "#"
+  },
+  {
+    "university": "জাতীয়",
+    "detailsLink": null,
+    "date": "২১ জানুয়ারি - ২৫ এপ্রিল",
+    "status": "সময় শেষ",
+    "fee": "৭০০ টাকা",
+    "applyLink": "#"
+  },
+  {
+    "university": "BUP",
+    "detailsLink": null,
+    "date": "০৮ নভেম্বর – ২৩ নভেম্বর",
+    "status": "সময় শেষ",
+    "fee": "১১০০ টাকা",
+    "applyLink": "#"
+  },
+  {
+    "university": "ঢাবি",
+    "detailsLink": null,
+    "date": "০৪ নভেম্বর – ২৭ নভেম্বর",
+    "status": "সময় শেষ",
+    "fee": "১,০৫০ টাকা",
+    "applyLink": "#"
+  },
+  {
+    "university": "ঢাবি IBA",
+    "detailsLink": null,
+    "date": "০৪ নভেম্বর – ২৭ নভেম্বর",
+    "status": "সময় শেষ",
+    "fee": "১,৫০০ টাকা",
+    "applyLink": "#"
+  },
+  {
+    "university": "মেরিটাইম",
+    "detailsLink": null,
+    "date": "১০ নভেম্বর – ০৭ ডিসেম্বর",
+    "status": "সময় শেষ",
+    "fee": "৮০০ টাকা",
+    "applyLink": "#"
+  },
+  {
+    "university": "বুয়েট (চূড়ান্ত)",
+    "detailsLink": null,
+    "date": "২৯ ডিসেম্বর হতে",
+    "status": "সময় শেষ",
+    "fee": "কঃ ৮০০ টাকা\nখঃ ১০০০ টাকা",
+    "applyLink": "#"
+  },
+  {
+    "university": "বুয়েট (প্রাথমিক)",
+    "detailsLink": null,
+    "date": "৩০ নভেম্বর - ১৪ ডিসেম্বর",
+    "status": "সময় শেষ",
+    "fee": "৫০০ টাকা",
+    "applyLink": "#"
+  },
+  {
+    "university": "কুয়েট",
+    "detailsLink": null,
+    "date": "০৪ ডিসেম্বর – ১৪ ডিসেম্বর",
+    "status": "সময় শেষ",
+    "fee": "কঃ ১১০০ টাকা\nখঃ ১২০০ টাকা",
+    "applyLink": "#"
+  },
+  {
+    "university": "জবি (প্রাথমিক)",
+    "detailsLink": null,
+    "date": "০১ ডিসেম্বর – ১৫ ডিসেম্বর",
+    "status": "সময় শেষ",
+    "fee": "১০০ টাকা",
+    "applyLink": "#"
+  },
+  {
+    "university": "BSMRAAU",
+    "detailsLink": null,
+    "date": "১৮ নভেম্বর – ১৫ ডিসেম্বর",
+    "status": "সময় শেষ",
+    "fee": "৭৫০ টাকা",
+    "applyLink": "#"
+  },
+  {
+    "university": "মেডিকেল",
+    "detailsLink": null,
+    "date": "১০ ডিসেম্বর – ২৭ ডিসেম্বর",
+    "status": "সময় শেষ",
+    "fee": "১০০০ টাকা",
+    "applyLink": "#"
+  },
+  {
+    "university": "AFMC",
+    "detailsLink": null,
+    "date": "১০ ডিসেম্বর – ২৭ ডিসেম্বর",
+    "status": "সময় শেষ",
+    "fee": "১০০০ টাকা",
+    "applyLink": "#"
+  },
+  {
+    "university": "জবি (চূড়ান্ত)",
+    "detailsLink": null,
+    "date": "১৭ ডিসেম্বর - ৩০ ডিসেম্বর",
+    "status": "সময় শেষ",
+    "fee": "৭০০ টাকা",
+    "applyLink": "#"
+  },
+  {
+    "university": "রুয়েট",
+    "detailsLink": null,
+    "date": "০৪ জানুয়ারি - ১৪ জানুয়ারি",
+    "status": "সময় শেষ",
+    "fee": "কঃ ১২৫০ টাকা\nখঃ ১৪৫০ টাকা",
+    "applyLink": "#"
+  },
+  {
+    "university": "চুয়েট",
+    "detailsLink": null,
+    "date": "০৫ জানুয়ারি - ১৮ জানুয়ারি",
+    "status": "সময় শেষ",
+    "fee": "কঃ ১২০০ টাকা\nখঃ ১৪০০ টাকা",
+    "applyLink": "#"
+  },
+  {
+    "university": "চবি",
+    "detailsLink": null,
+    "date": "০২ জানুয়ারি - ২০ জানুয়ারি",
+    "status": "সময় শেষ",
+    "fee": "১০০০ টাকা",
+    "applyLink": "#"
+  },
+  {
+    "university": "ডেন্টাল",
+    "detailsLink": null,
+    "date": "২৯ ডিসেম্বর – ২০ জানুয়ারি",
+    "status": "সময় শেষ",
+    "fee": "১০০০ টাকা",
+    "applyLink": "#"
+  },
+  {
+    "university": "MIST",
+    "detailsLink": null,
+    "date": "৩০ ডিসেম্বর – ২০ জানুয়ারি",
+    "status": "সময় শেষ",
+    "fee": "কঃ ১০০০ টাকা\nখঃ ১২০০ টাকা",
+    "applyLink": "#"
+  },
+  {
+    "university": "শাবিপ্রবি",
+    "detailsLink": null,
+    "date": "০৫ জানুয়ারি - ৩১ জানুয়ারি",
+    "status": "সময় শেষ",
+    "fee": "A1 ১২৫০ টাকা\nA2 ১৪০০ টাকা\nB ১২০০ টাকা",
+    "applyLink": "#"
+  },
+  {
+    "university": "রাবি (প্রাথমিক)",
+    "detailsLink": null,
+    "date": "২৭ জানুয়ারি হতে ৫ ফেব্রুয়ারী",
+    "status": "সময় শেষ",
+    "fee": "২২ টাকা",
+    "applyLink": "#"
+  },
+  {
+    "university": "খুবি",
+    "detailsLink": null,
+    "date": "১০ জানুয়ারি - ১০ ফেব্রুয়ারি",
+    "status": "সময় শেষ",
+    "fee": "A,B,C: ১০০০ টাকা\nD: ৭০০ টাকা",
+    "applyLink": "#"
+  },
+  {
+    "university": "বুটেক্স",
+    "detailsLink": "#",
+    "detailsLinkText": "পদ্ধুতি",
+    "date": "০১ জানুয়ারি - ১০ ফেব্রুয়ারি",
+    "status": "সময় শেষ",
+    "fee": "৩০০ টাকা",
+    "applyLink": null
+  },
+  {
+    "university": "রাবি (চুড়ান্ত ১ম পর্যায়)",
+    "detailsLink": null,
+    "date": "১১ -১৫ ফেব্রুয়ারী",
+    "status": "সময় শেষ",
+    "fee": "A ১৩২০ টাকা\nB ১২০০ টাকা\nC ১৩২০ টাকা",
+    "applyLink": "#"
+  },
+  {
+    "university": "রাবি (চুড়ান্ত ২য় পর্যায়)",
+    "detailsLink": null,
+    "date": "১৮-২০ ফেব্রুয়ারী",
+    "status": "সময় শেষ",
+    "fee": "A ১৩২০ টাকা\nB ১২০০ টাকা\nC ১৩২০ টাকা",
+    "applyLink": "#"
+  },
+  {
+    "university": "রাবি (চুড়ান্ত ৩য় পর্যায়)",
+    "detailsLink": null,
+    "date": "২৩-২৪ ফেব্রুয়ারী",
+    "status": "সময় শেষ",
+    "fee": "A ১৩২০ টাকা\nB ১২০০ টাকা\nC ১৩২০ টাকা",
+    "applyLink": "#"
+  },
+  {
+    "university": "NITOR",
+    "detailsLink": null,
+    "date": "১৬ জানুয়ারি - ২৬ ফেব্রুয়ারি",
+    "status": "সময় শেষ",
+    "fee": "১০০০ টাকা",
+    "applyLink": "#"
+  },
+  {
+    "university": "কুবি",
+    "detailsLink": null,
+    "date": "০২ ফেব্রুয়ারী হতে ২৮ ফেব্রুয়ারী",
+    "status": "সময় শেষ",
+    "fee": "১০০০ টাকা",
+    "applyLink": "#"
+  },
+  {
+    "university": "হাবিপ্রবি",
+    "detailsLink": null,
+    "date": "০৯ ফেব্রুয়ারী - ১৩ মার্চ",
+    "status": "সময় শেষ",
+    "fee": "১০০০ টাকা\nআর্কি-১২০০ টাকা",
+    "applyLink": "#"
+  },
+  {
+    "university": "IUT প্রাথমিক",
+    "detailsLink": null,
+    "date": "২৭ ফেব্রুয়ারী হতে ১৩ মার্চ",
+    "status": "সময় শেষ",
+    "fee": "প্রাথমিক :৩০০ টাকা",
+    "applyLink": "#"
+  },
+  {
+    "university": "কৃষি গুচ্ছ",
+    "detailsLink": null,
+    "date": "১৫ ফেব্রুয়ারী হতে ১৬ মার্চ",
+    "status": "সময় শেষ",
+    "fee": "১২০০ টাকা + চার্জ",
+    "applyLink": "#"
+  },
+  {
+    "university": "গুচ্ছ",
+    "detailsLink": null,
+    "date": "০৫ মার্চ হতে ১৭ মার্চ",
+    "status": "সময় শেষ",
+    "fee": "১৫০০ টাকা\nআর্কি ২০০০ টাকা",
+    "applyLink": "#"
+  },
+  {
+    "university": "ইবি \"ডি\"",
+    "detailsLink": null,
+    "date": "১৬ মার্চ - ২৮ মার্চ",
+    "status": "সময় শেষ",
+    "fee": "১৫০০ টাকা",
+    "applyLink": "#"
+  },
+  {
+    "university": "নার্সিং",
+    "detailsLink": null,
+    "date": "১২ ফেব্রুয়ারি - ০৬ এপ্রিল",
+    "status": "সময় শেষ",
+    "fee": "নার্সিং- ৭০০ টাকা\nমিডওয়াইফারি- ৫০০ টাকা",
+    "applyLink": "#"
+  },
+  {
+    "university": "প্রযুক্তি ইউনিট",
+    "detailsLink": null,
+    "date": "০৬ জানুয়ারি - ০৭ এপ্রিল",
+    "status": "সময় শেষ",
+    "fee": "৮৫০ টাকা",
+    "applyLink": "#"
+  },
+  {
+    "university": "গার্হস্থ্য অর্থনীতি ইউনিট",
+    "detailsLink": null,
+    "date": "০৬ জানুয়ারি - ০৭ এপ্রিল",
+    "status": "সময় শেষ",
+    "fee": "৮৫০ টাকা",
+    "applyLink": "#"
+  },
+  {
+    "university": "IUT চুড়ান্ত",
+    "detailsLink": null,
+    "date": "০৭ এপ্রিল হতে ১৫ এপ্রিল",
+    "status": "সময় শেষ",
+    "fee": "চুড়ান্ত :১০০০ টাকা",
+    "applyLink": "#"
+  },
+  {
+    "university": "টেক্সটাইল কলেজ",
+    "detailsLink": null,
+    "date": "১৭ ফেব্রুয়ারী - ২০ এপ্রিল",
+    "status": "সময় শেষ",
+    "fee": "১০০০ টাকা",
+    "applyLink": "#"
+  },
+  {
+    "university": "SEC",
+    "detailsLink": null,
+    "date": "১৩ মার্চ হতে ১৫ জুন",
+    "status": "সময় শেষ",
+    "fee": "১৫০০ টাকা",
+    "applyLink": "#"
+  }
+]

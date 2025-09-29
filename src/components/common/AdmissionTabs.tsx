@@ -1,3 +1,4 @@
+
 "use client";
 
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
@@ -10,6 +11,7 @@ import {
   Ticket,
   BarChart3,
 } from "lucide-react";
+import ApplicationScheduleTable from "./ApplicationScheduleTable";
 
 const AdmissionTabs = () => {
   return (
@@ -39,11 +41,7 @@ const AdmissionTabs = () => {
           <GeneralAdmissionInfo />
         </TabsContent>
         <TabsContent value="application">
-          <div className="mt-4 w-full border border-border bg-card rounded-2xl p-6 shadow-lg text-center">
-            <p className="text-muted-foreground">
-              আবেদন সংক্রান্ত তথ্য এখানে যুক্ত করা হবে।
-            </p>
-          </div>
+          <ApplicationScheduleTable />
         </TabsContent>
         <TabsContent value="admit-card">
           <div className="mt-4 w-full border border-border bg-card rounded-2xl p-6 shadow-lg text-center">
