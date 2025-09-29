@@ -35,7 +35,7 @@ function DhakaUniversityPage() {
             <LinkList links={duLinks} />
           </div>
 
-          <div className="mt-4 mx-2 sm-mx-4">
+          <div className="mt-4 mx-2 sm:mx-4">
             <Suspense fallback={<div>Loading history...</div>}>
               <HistoryAndMap />
             </Suspense>
