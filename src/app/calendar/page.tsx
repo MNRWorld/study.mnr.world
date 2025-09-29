@@ -4,6 +4,7 @@ import { CalendarDays, Info } from "lucide-react";
 import dynamic from "next/dynamic";
 import PageHeaderCard from "@/components/common/PageHeaderCard";
 import GeneralAdmissionInfo from "@/components/common/GeneralAdmissionInfo";
+import AdmissionScheduleTable from "@/components/common/AdmissionScheduleTable";
 
 const CountdownTimer = dynamic(
   () => import("@/components/common/CountdownTimer"),
@@ -13,7 +14,7 @@ const CountdownTimer = dynamic(
 function CalendarPage() {
   return (
     <div className="font-bengali bg-background py-8">
-      <div className="container mx-auto px-4">
+      <div className="container mx-auto px-2 lg:px-[170px]">
         <PageHeaderCard
           icon={<CalendarDays className="h-14 w-14 text-primary" />}
           title="অ্যাডমিশন ক্যালেন্ডার"
@@ -35,6 +36,7 @@ function CalendarPage() {
           <CountdownTimer />
         </div>
 
+        <AdmissionScheduleTable />
         <GeneralAdmissionInfo />
       </div>
     </div>

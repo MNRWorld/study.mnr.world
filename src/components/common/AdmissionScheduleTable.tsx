@@ -1,0 +1,57 @@
+"use client";
+
+import { admissionSchedule } from "@/lib/data/admission-schedule";
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from "@/components/ui/table";
+import { CalendarDays } from "lucide-react";
+
+const AdmissionScheduleTable = () => {
+  return (
+    <div className="mt-8 w-full border border-border bg-card rounded-2xl p-4 sm:p-6 shadow-lg relative">
+      <div className="flex justify-center">
+        <div className="inline-block px-6 py-2 bg-gradient-to-r from-primary to-blue-500 text-white rounded-full text-base sm:text-lg mb-4 font-bold shadow-md">
+          <CalendarDays className="inline-block mr-2" />
+          ভর্তি পরীক্ষার সময়কাল
+        </div>
+      </div>
+      <Table>
+        <TableHeader>
+          <TableRow>
+            <TableHead className="text-center">বিষয়</TableHead>
+            <TableHead className="text-center">তারিখ</TableHead>
+            <TableHead className="text-center">সময় বাকি</TableHead>
+          </TableRow>
+        </TableHeader>
+        <TableBody>
+          {admissionSchedule.map((item, index) => (
+            <TableRow key={index}>
+              <TableCell className="text-center font-medium">
+                {item.subject}
+              </TableCell>
+              <TableCell className="text-center">{item.date}</TableCell>
+              <TableCell
+                className={`text-center font-semibold ${
+                  item.status.includes("স্থগিত")
+                    ? "text-yellow-500"
+                    : item.status.includes("হয়ে গেছে")
+                      ? "text-red-500"
+                      : "text-green-500"
+                }`}
+              >
+                {item.status}
+              </TableCell>
+            </TableRow>
+          ))}
+        </TableBody>
+      </Table>
+    </div>
+  );
+};
+
+export default AdmissionScheduleTable;
