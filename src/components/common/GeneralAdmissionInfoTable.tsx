@@ -29,7 +29,7 @@ const GeneralAdmissionInfoTable = () => {
         <TableBody>
           {generalAdmissionInfo.map((info, index) => (
             <TableRow key={index}>
-              <TableCell className="font-medium align-top">
+              <TableCell className="font-medium align-top whitespace-pre-wrap">
                 <div className="font-bold">{info.university}</div>
                 <div className="flex gap-2 mt-1">
                   {info.circularLink && (
@@ -56,9 +56,9 @@ const GeneralAdmissionInfoTable = () => {
                 className="align-top whitespace-pre-wrap cell-content"
                 dangerouslySetInnerHTML={{ __html: info.marksDistribution }}
               ></TableCell>
-              <TableCell className="align-top">{info.syllabus}</TableCell>
-              <TableCell className="align-top">{info.secondTime}</TableCell>
-              <TableCell className="align-top">
+              <TableCell className="align-top whitespace-pre-wrap">{info.syllabus}</TableCell>
+              <TableCell className="align-top whitespace-pre-wrap">{info.secondTime}</TableCell>
+              <TableCell className="align-top whitespace-pre-wrap">
                 {info.negativeMarking}
               </TableCell>
             </TableRow>

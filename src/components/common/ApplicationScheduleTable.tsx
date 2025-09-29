@@ -16,7 +16,7 @@ import { FilePenLine } from "lucide-react";
 
 const ApplicationScheduleTable = () => {
   return (
-    <div className="mt-8 w-full border border-border bg-card rounded-2xl p-4 sm:p-6 shadow-lg relative">
+    <div className="mt-8 w-full border border-border bg-card rounded-2xl p-4 sm:p-6 shadow-lg relative overflow-x-auto">
       <div className="flex justify-center">
         <div className="inline-block px-6 py-2 bg-gradient-to-r from-primary to-blue-500 text-white rounded-full text-base sm:text-lg mb-4 font-bold shadow-md">
           <FilePenLine className="inline-block mr-2" />
@@ -36,7 +36,7 @@ const ApplicationScheduleTable = () => {
         <TableBody>
           {applicationSchedule.map((item, index) => (
             <TableRow key={index}>
-              <TableCell className="text-center font-medium">
+              <TableCell className="text-center font-medium whitespace-pre-wrap">
                 {item.university}
                 {item.detailsLink && (
                   <div className="mt-1">
@@ -54,7 +54,7 @@ const ApplicationScheduleTable = () => {
                 dangerouslySetInnerHTML={{ __html: item.date }}
               ></TableCell>
               <TableCell
-                className={`text-center font-semibold ${
+                className={`text-center font-semibold whitespace-pre-wrap ${
                   item.status.includes("স্থগিত")
                     ? "text-yellow-500"
                     : item.status.includes("শেষ")

@@ -36,10 +36,10 @@ const PageHeaderCard = ({
         {icon}
       </div>
       <div className="pt-10 sm:pt-12">
-        <h1 className="text-xl sm:text-2xl md:text-3xl font-bold my-2 text-foreground">
+        <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold my-2 text-foreground">
           {title}
         </h1>
-        <p className="text-xs sm:text-sm text-muted-foreground mb-4">
+        <p className="text-sm sm:text-base text-muted-foreground mb-4">
           ({subtitle})
         </p>
         <p className="text-sm sm:text-base text-muted-foreground mb-6 max-w-2xl mx-auto">

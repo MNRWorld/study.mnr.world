@@ -19,7 +19,7 @@ const ResultScheduleTable = () => {
   return (
     <div className="mt-8 space-y-8">
       {/* HSC-24 Results */}
-      <div className="w-full border border-border bg-card rounded-2xl p-4 sm:p-6 shadow-lg relative">
+      <div className="w-full border border-border bg-card rounded-2xl p-4 sm:p-6 shadow-lg relative overflow-x-auto">
         <div className="flex justify-center">
           <div className="inline-block px-6 py-2 bg-gradient-to-r from-primary to-blue-500 text-white rounded-full text-base sm:text-lg mb-4 font-bold shadow-md">
             <BarChart3 className="inline-block mr-2" />
@@ -38,7 +38,7 @@ const ResultScheduleTable = () => {
             {hsc24.map((item, index) => (
               <TableRow key={index}>
                 <TableCell
-                  className="text-center font-medium"
+                  className="text-center font-medium whitespace-pre-wrap"
                   dangerouslySetInnerHTML={{ __html: item.university }}
                 ></TableCell>
                 <TableCell
@@ -55,7 +55,7 @@ const ResultScheduleTable = () => {
       </div>
 
       {/* HSC-23 Results */}
-      <div className="w-full border border-border bg-card rounded-2xl p-4 sm:p-6 shadow-lg relative">
+      <div className="w-full border border-border bg-card rounded-2xl p-4 sm:p-6 shadow-lg relative overflow-x-auto">
         <div className="flex justify-center">
           <div className="inline-block px-6 py-2 bg-gradient-to-r from-blue-500 to-primary text-white rounded-full text-base sm:text-lg mb-4 font-bold shadow-md">
             <Clock className="inline-block mr-2" />
@@ -74,7 +74,7 @@ const ResultScheduleTable = () => {
             {hsc23.map((item, index) => (
               <TableRow key={index}>
                 <TableCell
-                  className="text-center font-medium"
+                  className="text-center font-medium whitespace-pre-wrap"
                   dangerouslySetInnerHTML={{ __html: item.university }}
                 ></TableCell>
                 <TableCell

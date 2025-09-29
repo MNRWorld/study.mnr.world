@@ -152,10 +152,10 @@ const CountdownTimer = () => {
           />
         </svg>
         <div className="absolute inset-0 flex flex-col items-center justify-center">
-          <div className="text-lg sm:text-2xl font-bold text-foreground">
+          <div className="text-lg sm:text-xl md:text-2xl font-bold text-foreground">
             {value}
           </div>
-          <div className="text-[10px] sm:text-sm text-muted-foreground">
+          <div className="text-xs sm:text-sm text-muted-foreground">
             {unit}
           </div>
         </div>
