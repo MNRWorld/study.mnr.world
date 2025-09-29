@@ -83,10 +83,10 @@ const SubjectTable: React.FC<SubjectTableProps> = ({ subjects }) => {
       <Table>
         <TableHeader>
           <TableRow>
-            <TableHead className="text-center w-[25%]">সংক্ষিপ্ত</TableHead>
-            <TableHead className="text-center w-[45%]">বিষয়ের নাম</TableHead>
-            <TableHead className="text-center w-[15%]">আসন</TableHead>
-            <TableHead className="text-center w-[15%]">রিভিউ</TableHead>
+            <TableHead className="text-center w-[25%]">Short</TableHead>
+            <TableHead className="text-center w-[45%]">Full Form</TableHead>
+            <TableHead className="text-center w-[15%]">Seat</TableHead>
+            <TableHead className="text-center w-[15%]">Review</TableHead>
           </TableRow>
         </TableHeader>
         <TableBody>
