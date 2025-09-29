@@ -1,4 +1,3 @@
-"use client";
 import { notFound } from "next/navigation";
 import { blogPosts } from "@/lib/data/blog";
 import { PlaceHolderImages } from "@/lib/placeholder-images";
