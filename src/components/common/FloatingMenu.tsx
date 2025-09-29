@@ -61,44 +61,52 @@ const FloatingMenu = () => {
   }, [menuOpen]);
 
   return (
-    <div
-      ref={menuRef}
-      className="fixed top-1/2 right-0 transform -translate-y-1/2 z-50"
-    >
-      <Button
-        onClick={() => setMenuOpen(!menuOpen)}
-        className="bg-primary text-primary-foreground rounded-l-full rounded-r-none px-4 py-3 text-lg hover:bg-primary hover:text-primary-foreground"
-      >
-        <Menu />
-      </Button>
+    <>
+      {menuOpen && (
+        <div
+          className="fixed inset-0 bg-black/20 z-40"
+          onClick={() => setMenuOpen(false)}
+        />
+      )}
       <div
-        className={cn(
-          "absolute right-full top-1/2 -translate-y-1/2 w-64 bg-card border border-border rounded-lg shadow-lg p-2.5 transition-all duration-300 ease-in-out",
-          menuOpen
-            ? "opacity-100 translate-x-0"
-            : "opacity-0 -translate-x-4 pointer-events-none",
-        )}
+        ref={menuRef}
+        className="fixed top-1/2 right-0 transform -translate-y-1/2 z-50"
       >
-        {menuItems.map((item, index) => (
-          <Link
-            key={index}
-            href={item.href}
-            className={cn(
-              linkClasses,
-              "transition-transform duration-200 ease-in-out flex items-center",
-            )}
-            style={{
-              transitionDelay: `${index * 30}ms`,
-              transform: menuOpen ? "translateX(0)" : "translateX(20px)",
-            }}
-            onClick={() => setMenuOpen(false)}
-          >
-            <item.Icon className="mr-2 h-4 w-4" />
-            {item.label}
-          </Link>
-        ))}
+        <Button
+          onClick={() => setMenuOpen(!menuOpen)}
+          className="bg-primary text-primary-foreground rounded-l-full rounded-r-none px-4 py-3 text-lg hover:bg-primary hover:text-primary-foreground"
+        >
+          <Menu />
+        </Button>
+        <div
+          className={cn(
+            "absolute right-full top-1/2 -translate-y-1/2 w-64 bg-card border border-border rounded-lg shadow-lg p-2.5 transition-all duration-300 ease-in-out",
+            menuOpen
+              ? "opacity-100 translate-x-0"
+              : "opacity-0 -translate-x-4 pointer-events-none",
+          )}
+        >
+          {menuItems.map((item, index) => (
+            <Link
+              key={index}
+              href={item.href}
+              className={cn(
+                linkClasses,
+                "transition-transform duration-200 ease-in-out flex items-center",
+              )}
+              style={{
+                transitionDelay: `${index * 30}ms`,
+                transform: menuOpen ? "translateX(0)" : "translateX(20px)",
+              }}
+              onClick={() => setMenuOpen(false)}
+            >
+              <item.Icon className="mr-2 h-4 w-4" />
+              {item.label}
+            </Link>
+          ))}
+        </div>
       </div>
-    </div>
+    </>
   );
 };
 
