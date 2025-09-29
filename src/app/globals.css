@@ -73,3 +73,7 @@ body,
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
+
+.cell-content b {
+  @apply font-bold text-foreground;
+}
