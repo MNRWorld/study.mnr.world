@@ -121,7 +121,7 @@ const DhakaSeatInfo = () => {
         </div>
       </div>
       <Tabs defaultValue="ka-unit" className="w-full">
-        <TabsList className="grid w-full grid-cols-3 sm:grid-cols-5 h-auto bg-muted/50">
+        <TabsList className="grid w-full grid-cols-3 sm:grid-cols-5 h-auto bg-transparent gap-2">
           <TabsTrigger value="ka-unit">"ক" ইউনিট</TabsTrigger>
           <TabsTrigger value="kha-unit">"খ" ইউনিট</TabsTrigger>
           <TabsTrigger value="ga-unit">"গ" ইউনিট</TabsTrigger>
@@ -149,3 +149,5 @@ const DhakaSeatInfo = () => {
 };
 
 export default DhakaSeatInfo;
+
+    

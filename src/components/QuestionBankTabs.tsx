@@ -21,7 +21,7 @@ const QuestionBankTabs = () => {
         </div>
       </div>
       <Tabs defaultValue={tab} className="w-full">
-        <TabsList className="grid w-full grid-cols-2 md:grid-cols-4 h-auto bg-muted/50">
+        <TabsList className="grid w-full grid-cols-2 md:grid-cols-4 h-auto bg-transparent gap-2">
           <TabsTrigger value="du">
             <University className="mr-2" /> ঢাকা বিশ্ববিদ্যালয়
           </TabsTrigger>
@@ -61,3 +61,5 @@ const QuestionBankTabs = () => {
 };
 
 export default QuestionBankTabs;
+
+    

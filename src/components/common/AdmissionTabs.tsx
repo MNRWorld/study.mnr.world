@@ -19,7 +19,7 @@ const AdmissionTabs = () => {
   return (
     <div className="mt-8">
       <Tabs defaultValue="schedule" className="w-full">
-        <TabsList className="grid w-full grid-cols-2 sm:grid-cols-3 md:grid-cols-5 h-auto bg-muted/50">
+        <TabsList className="grid w-full grid-cols-2 sm:grid-cols-3 md:grid-cols-5 h-auto bg-transparent gap-2">
           <TabsTrigger value="schedule">
             <CalendarClock className="mr-2 h-4 w-4" /> সময়কাল
           </TabsTrigger>
@@ -57,3 +57,5 @@ const AdmissionTabs = () => {
 };
 
 export default AdmissionTabs;
+
+    
