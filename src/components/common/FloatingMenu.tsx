@@ -45,7 +45,7 @@ const FloatingMenu = () => {
     <div className="fixed top-1/2 right-0 transform -translate-y-1/2 z-50">
       <Button
         onClick={() => setMenuOpen(!menuOpen)}
-        className="bg-primary text-primary-foreground rounded-l-full rounded-r-none px-4 py-3 text-lg hover:bg-primary/90"
+        className="bg-primary text-primary-foreground rounded-l-full rounded-r-none px-4 py-3 text-lg hover:bg-primary/90 hover:text-primary-foreground"
       >
         <Menu />
       </Button>
