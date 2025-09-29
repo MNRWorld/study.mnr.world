@@ -5,6 +5,7 @@ export interface University {
   nameBn: string;
   nameEn: string;
   shortName: string;
+  slug: string;
   category: string;
   description: string;
   link: string;
