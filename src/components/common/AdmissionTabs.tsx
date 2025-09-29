@@ -12,6 +12,7 @@ import {
   BarChart3,
 } from "lucide-react";
 import ApplicationScheduleTable from "./ApplicationScheduleTable";
+import AdmitCardScheduleTable from "./AdmitCardScheduleTable";
 
 const AdmissionTabs = () => {
   return (
@@ -44,11 +45,7 @@ const AdmissionTabs = () => {
           <ApplicationScheduleTable />
         </TabsContent>
         <TabsContent value="admit-card">
-          <div className="mt-4 w-full border border-border bg-card rounded-2xl p-6 shadow-lg text-center">
-            <p className="text-muted-foreground">
-              প্রবেশপত্র সংক্রান্ত তথ্য এখানে যুক্ত করা হবে।
-            </p>
-          </div>
+          <AdmitCardScheduleTable />
         </TabsContent>
         <TabsContent value="result">
           <div className="mt-4 w-full border border-border bg-card rounded-2xl p-6 shadow-lg text-center">
