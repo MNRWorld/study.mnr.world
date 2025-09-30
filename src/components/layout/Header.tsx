@@ -5,7 +5,6 @@ import {
   BookOpen,
   CalendarDays,
   GraduationCap,
-  Newspaper,
   Home,
 } from "lucide-react";
 import { navItems } from "@/lib/data/navigation";
@@ -19,7 +18,6 @@ const icons: { [key: string]: React.ElementType } = {
   BookOpen,
   CalendarDays,
   GraduationCap,
-  Newspaper,
 };
 
 interface NavItemProps {
