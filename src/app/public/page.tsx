@@ -1,12 +1,15 @@
+import { publicUniversities, University } from "@/lib/data/universities";
 import PublicPageClient from "@/components/PublicPageClient";
-import { publicUniversities, type University } from "@/lib/data/universities";
 
-export default function PublicPage({
+export default function PublicUniversityPage({
   searchParams,
 }: {
-  searchParams?: { category?: string };
+  searchParams?: { [key: string]: string | string[] | undefined };
 }) {
-  const selectedCategory = searchParams?.category || null;
+  const selectedCategory =
+    typeof searchParams?.category === "string"
+      ? searchParams.category
+      : undefined;
 
   const categories = Array.from(
     new Set(publicUniversities.map((u) => u.category)),
