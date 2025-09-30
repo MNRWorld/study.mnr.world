@@ -1,16 +1,17 @@
-"use client";
-import { publicUniversities, type University } from "@/lib/data/universities";
+import { publicUniversities } from "@/lib/data/universities";
 import PublicPageClient from "@/components/PublicPageClient";
+
+interface PublicUniversityPageProps {
+  searchParams: { [key: string]: string | string[] | undefined };
+}
 
 export default function PublicUniversityPage({
   searchParams,
-}: {
-  searchParams: { category?: string };
-}) {
+}: PublicUniversityPageProps) {
   const categories = Array.from(
     new Set(publicUniversities.map((uni) => uni.category)),
   );
-  const selectedCategory = searchParams.category || null;
+  const selectedCategory = (searchParams.category as string) || null;
 
   return (
     <PublicPageClient
