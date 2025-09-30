@@ -1,2 +1,0 @@
-./unused_files.txt
-./find_unused_files.sh

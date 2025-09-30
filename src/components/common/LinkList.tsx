@@ -41,7 +41,7 @@ const LinkList = ({ links }: LinkListProps) => {
                     href={link.href}
                     target={link.target}
                     rel={link.rel}
-                    className="block w-full hover:bg-accent rounded-md py-2 px-2"
+                    className="block w-full hover:bg-accent rounded-md py-2"
                   >
                     <div
                       className="text-base"
