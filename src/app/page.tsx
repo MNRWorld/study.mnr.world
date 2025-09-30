@@ -4,7 +4,7 @@ import {
   CalendarDays,
   GraduationCap,
   School,
-  University,
+  Landmark,
 } from "lucide-react";
 import HomePageClient from "@/components/HomePageClient";
 
@@ -34,7 +34,7 @@ export default function HomePage() {
     {
       href: "/public",
       icon: (
-        <University className="h-10 w-10 sm:h-12 sm_w-12 mx-auto text-primary mb-2 sm:mb-3" />
+        <Landmark className="h-10 w-10 sm:h-12 sm:w-12 mx-auto text-primary mb-2 sm:mb-3" />
       ),
       label: "পাবলিক",
     },

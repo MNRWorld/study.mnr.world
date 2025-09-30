@@ -20,6 +20,7 @@ interface UniversityCardProps {
 const UniversityCard = React.memo(function UniversityCard({
   university,
 }: UniversityCardProps) {
+  const universityLink = `/public/${university.id}`;
   return (
     <Accordion
       type="single"
@@ -53,17 +54,17 @@ const UniversityCard = React.memo(function UniversityCard({
             </p>
             <div className="flex flex-wrap gap-2">
               <Button asChild variant="outline" size="sm">
-                <Link href={`${university.link}#Circular`}>
+                <Link href={`${universityLink}#Circular`}>
                   <FileText /> সার্কুলার
                 </Link>
               </Button>
               <Button asChild variant="outline" size="sm">
-                <Link href={`${university.link}#QuestionBank`}>
+                <Link href={`${universityLink}#QuestionBank`}>
                   <BookOpen /> প্রশ্নব্যাংক
                 </Link>
               </Button>
               <Button asChild variant="default" size="sm">
-                <Link href={university.link}>
+                <Link href={universityLink}>
                   বিস্তারিত <ArrowRight />
                 </Link>
               </Button>
