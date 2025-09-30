@@ -58,7 +58,7 @@ export default function PublicPageClient({
             <Input
               type="text"
               placeholder="বিশ্ববিদ্যালয় খুঁজুন..."
-              className="w-full pl-10 h-12 text-base"
+              className="w-full pl-10 h-12 text-base bg-card"
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
             />
