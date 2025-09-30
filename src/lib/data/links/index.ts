@@ -1,4 +1,5 @@
 import linksData from "./list.json";
+import { duData } from "@/lib/data/universities/du";
 
 interface LinkItem {
   href: string;
@@ -8,6 +9,6 @@ interface LinkItem {
   colSpan?: number;
 }
 
-export const duLinks: LinkItem[][] = linksData.du;
+export const duLinks: LinkItem[][] = duData.links;
 export const collegeLinks: LinkItem[][] = linksData.college;
 export const privateLinks: LinkItem[][] = linksData.private;

@@ -12,7 +12,8 @@ import {
 } from "@/components/ui/table";
 import { Input } from "@/components/ui/input";
 import { Users, Info } from "lucide-react";
-import { duSubjects, type Subject } from "@/lib/data/subjects";
+import { duData } from "@/lib/data/universities/du";
+import { type Subject } from "@/lib/data/subjects";
 import ExternalLink from "./common/ExternalLink";
 import {
   Tooltip,
@@ -113,6 +114,8 @@ const SubjectTable: React.FC<SubjectTableProps> = ({ subjects }) => {
 };
 
 const DhakaSeatInfo = () => {
+  const { subjects } = duData;
+
   return (
     <div
       id="Subjects"
@@ -133,19 +136,19 @@ const DhakaSeatInfo = () => {
           <TabsTrigger value="iba-unit" className="flex-grow">DU IBA (বিশেষ)</TabsTrigger>
         </TabsList>
         <TabsContent value="ka-unit" className="mt-4">
-          <SubjectTable subjects={duSubjects.unitA} />
+          <SubjectTable subjects={subjects.unitA} />
         </TabsContent>
         <TabsContent value="kha-unit" className="mt-4">
-          <SubjectTable subjects={duSubjects.unitB} />
+          <SubjectTable subjects={subjects.unitB} />
         </TabsContent>
         <TabsContent value="ga-unit" className="mt-4">
-          <SubjectTable subjects={duSubjects.unitC} />
+          <SubjectTable subjects={subjects.unitC} />
         </TabsContent>
         <TabsContent value="cha-unit" className="mt-4">
-          <SubjectTable subjects={duSubjects.unitCha} />
+          <SubjectTable subjects={subjects.unitCha} />
         </TabsContent>
         <TabsContent value="iba-unit" className="mt-4">
-          <SubjectTable subjects={duSubjects.unitIBA} />
+          <SubjectTable subjects={subjects.unitIBA} />
         </TabsContent>
       </Tabs>
     </div>

@@ -1,3 +1,5 @@
-import questionBanks from "./du.json";
+import { duData } from "@/lib/data/universities/du";
 
-export const { duUnitA, duUnitB, duUnitC, duUnitCha, duIBA } = questionBanks;
+const { duUnitA, duUnitB, duUnitC, duUnitCha, duIBA } = duData.questionBanks;
+
+export { duUnitA, duUnitB, duUnitC, duUnitCha, duIBA };

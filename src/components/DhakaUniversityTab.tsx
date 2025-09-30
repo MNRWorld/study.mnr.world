@@ -3,16 +3,11 @@
 import React from "react";
 import { Accordion } from "@/components/ui/accordion";
 import QuestionBankAccordion from "@/components/QuestionBankAccordion";
-import {
-  duUnitA,
-  duUnitB,
-  duUnitC,
-  duUnitCha,
-  duIBA,
-} from "@/lib/data/question-banks";
+import { duData } from "@/lib/data/universities/du";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 const DhakaUniversityTab = () => {
+  const { duUnitA, duUnitB, duUnitC, duUnitCha, duIBA } = duData.questionBanks;
   return (
     <Tabs defaultValue="ka-unit" className="w-full">
       <TabsList className="flex flex-wrap w-full h-auto bg-transparent gap-2">
@@ -59,7 +54,7 @@ const DhakaUniversityTab = () => {
         </Accordion>
       </TabsContent>
       <TabsContent value="cha-unit">
-        <Accordion type="multiple" className="w-full text-left space-y-2">
+        <Accordion type="multiple" className="w-full text" space-y-2>
           {duUnitCha.map((item, index) => (
             <QuestionBankAccordion
               key={index}

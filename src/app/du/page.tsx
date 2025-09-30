@@ -4,7 +4,7 @@ import dynamic from "next/dynamic";
 import MainInfoCard from "@/components/DhakaMainInfoCard";
 import { Suspense } from "react";
 import LinkList from "@/components/common/LinkList";
-import { duLinks } from "@/lib/data/links";
+import { duData } from "@/lib/data/universities/du";
 import Circular from "@/components/common/Circular";
 import AdmissionInfo from "@/components/DhakaAdmissionInfo";
 import FloatingMenu from "@/components/common/FloatingMenu";
@@ -29,7 +29,7 @@ function DhakaUniversityPage() {
         <FloatingMenu />
 
         <div className="mt-4">
-          <LinkList links={duLinks} />
+          <LinkList links={duData.links} />
         </div>
 
         <div className="mt-4">
