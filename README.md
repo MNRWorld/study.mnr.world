@@ -8,11 +8,11 @@ The "Study Platform" provides comprehensive information and resources for variou
 
 ### Key Features:
 
-- **University Information:** Detailed pages for specific universities (like Dhaka University) with admission info, circulars, and question banks.
-- **Admission Calendar:** A countdown timer for upcoming admission deadlines.
+- **University Information:** Dynamically generated pages for all public universities, with detailed admission info, circulars, and question banks available for universities with complete data (like Dhaka University).
+- **Public University Hub:** A dedicated page to browse and filter all public universities by category.
+- **Admission Calendar:** A countdown timer for upcoming admission deadlines and a comprehensive schedule for various exams.
 - **Question Bank:** A collection of past exam questions, organized by university and subject.
 - **Courses:** A showcase of preparatory courses available for students.
-- **Blog:** Informative articles and tips related to admission preparation and career guidance.
 - **Authentication:** A simple email/password login and signup flow for users.
 
 ## 🛠️ Tech Stack
@@ -24,7 +24,6 @@ This project is built with a modern tech stack:
 - **UI:** [React](https://react.dev/)
 - **Styling:** [Tailwind CSS](https://tailwindcss.com/)
 - **UI Components:** [ShadCN UI](https://ui.shadcn.com/)
-- **Animations:** [Framer Motion](https://www.framer.com/motion/)
 
 ## 🏃‍♂️ Getting Started
 
