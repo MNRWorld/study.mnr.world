@@ -1,7 +1,7 @@
 
 "use client";
 
-import { applicationSchedule } from "@/lib/data/application-schedule";
+import { applicationSchedule } from "@/lib/data/schedules/application";
 import {
   Table,
   TableBody,

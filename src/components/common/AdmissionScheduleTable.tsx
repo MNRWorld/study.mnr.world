@@ -1,6 +1,6 @@
 "use client";
 
-import { admissionSchedule } from "@/lib/data/admission-schedule";
+import { admissionSchedule } from "@/lib/data/schedules/admission";
 import {
   Table,
   TableBody,

@@ -1,4 +1,4 @@
-import duSubjectsData from "./du.json";
+import { duData } from "@/lib/data/universities/du";
 
 export interface Subject {
   short: string;
@@ -16,4 +16,4 @@ interface DuSubjects {
   unitIBA: Subject[];
 }
 
-export const duSubjects: DuSubjects = duSubjectsData;
+export const duSubjects: DuSubjects = duData.subjects;

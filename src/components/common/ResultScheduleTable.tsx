@@ -1,7 +1,7 @@
 
 "use client";
 
-import { resultSchedule } from "@/lib/data/result-schedule";
+import { resultSchedule } from "@/lib/data/schedules/result";
 import {
   Table,
   TableBody,

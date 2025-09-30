@@ -1,6 +1,6 @@
 "use client";
 import { Info, PenSquare, Banknote, MapPin } from "lucide-react";
-import { privateAdmissionInfo } from "@/lib/data/admission";
+import { privateAdmissionInfo } from "@/lib/data/schedules/others";
 
 const PrivateAdmissionInfo = () => {
   const { apply, examDate, examCenter, generalInfo, title } =

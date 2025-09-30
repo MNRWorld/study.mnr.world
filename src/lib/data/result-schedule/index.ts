@@ -1,14 +1,3 @@
-import scheduleData from "./list.json";
-
-export interface ResultScheduleItem {
-  university: string;
-  date: string;
-  link: string;
-}
-
-interface ResultScheduleData {
-  hsc24: ResultScheduleItem[];
-  hsc23: ResultScheduleItem[];
-}
-
-export const resultSchedule: ResultScheduleData = scheduleData;
+// This file is deprecated and will be removed in a future update.
+// Data has been moved to src/lib/data/schedules/result.ts
+export {};

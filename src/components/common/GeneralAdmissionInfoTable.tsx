@@ -8,7 +8,7 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
-import { generalAdmissionInfo } from "@/lib/data/general-admission-info";
+import { generalAdmissionInfo } from "@/lib/data/schedules/general";
 import ExternalLink from "./ExternalLink";
 import { Badge } from "@/components/ui/badge";
 

@@ -26,7 +26,7 @@ import {
   HelpCircle,
   AlertTriangle,
 } from "lucide-react";
-import { duAdmissionInfo } from "@/lib/data/admission";
+import { duData } from "@/lib/data/universities/du";
 import ExternalLink from "./common/ExternalLink";
 
 const DhakaAdmissionInfo = () => {
@@ -39,7 +39,7 @@ const DhakaAdmissionInfo = () => {
     examCenter,
     generalInfo,
     result,
-  } = duAdmissionInfo;
+  } = duData.admissionInfo;
 
   return (
     <div
@@ -48,7 +48,7 @@ const DhakaAdmissionInfo = () => {
     >
       <div className="flex justify-center">
         <div className="inline-block px-6 py-2 bg-gradient-to-r from-primary to-foreground text-white rounded-full text-base sm:text-lg mb-4 font-bold shadow-md">
-          {duAdmissionInfo.title}
+          {duData.admissionInfo.title}
         </div>
       </div>
 
@@ -93,7 +93,6 @@ const DhakaAdmissionInfo = () => {
           ))}
         </div>
       </div>
-      <hr className="my-2 border-border/50" />
 
       <div className="text-base">
         <b>
@@ -270,7 +269,7 @@ const DhakaAdmissionInfo = () => {
             <b>প্রতিটি বিষয়ের প্রশ্ন সংখ্যা ও নাম্বার:</b>
             <br />
             &nbsp;&nbsp;&nbsp; ✓ <b>MCQ -</b> প্রশ্ন: ১৫টি, নাম্বার: ১৫
-            <br />
+            <hr className="my-1 border-border/50" />
             &nbsp;&nbsp;&nbsp; ✓ <b>লিখিত -</b> প্রশ্ন: ৪টি, নাম্বার: ১০
           </div>
           <Accordion type="multiple" className="w-full space-y-2 mt-2">

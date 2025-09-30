@@ -15,11 +15,11 @@ import {
   History,
   Map,
 } from "lucide-react";
-import { duHistoryAndMapData } from "@/lib/data/admission";
+import { duData } from "@/lib/data/universities/du";
 import ExternalLink from "./common/ExternalLink";
 
 const DhakaHistoryAndMap = () => {
-  const { history, mapLocations } = duHistoryAndMapData;
+  const { history, mapLocations } = duData.historyAndMap;
 
   return (
     <div className="mt-4">

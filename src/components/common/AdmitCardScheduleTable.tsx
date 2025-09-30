@@ -1,7 +1,7 @@
 
 "use client";
 
-import { admitCardSchedule } from "@/lib/data/admit-card-schedule";
+import { admitCardSchedule } from "@/lib/data/schedules/admit-card";
 import {
   Table,
   TableBody,

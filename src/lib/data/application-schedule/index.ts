@@ -1,13 +1,3 @@
-import scheduleData from "./list.json";
-
-export interface ApplicationScheduleItem {
-  university: string;
-  detailsLink: string | null;
-  detailsLinkText?: string;
-  date: string;
-  status: string;
-  fee: string;
-  applyLink: string | null;
-}
-
-export const applicationSchedule: ApplicationScheduleItem[] = scheduleData;
+// This file is deprecated and will be removed in a future update.
+// Data has been moved to src/lib/data/schedules/application.ts
+export {};

@@ -1,9 +1,3 @@
-import scheduleData from "./list.json";
-
-export interface AdmissionScheduleItem {
-  subject: string;
-  date: string;
-  status: string;
-}
-
-export const admissionSchedule: AdmissionScheduleItem[] = scheduleData;
+// This file is deprecated and will be removed in a future update.
+// Data has been moved to src/lib/data/schedules/admission.ts
+export {};
