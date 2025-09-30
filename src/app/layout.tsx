@@ -3,7 +3,7 @@ import "./globals.css";
 import { Toaster } from "@/components/ui/toaster";
 import { AuthProvider } from "@/hooks/use-auth";
 import Header from "@/components/layout/Header";
-import DynamicFooter from "@/components/layout/DynamicFooter";
+import Footer from "@/components/layout/Footer";
 import BackToTopButton from "@/components/common/BackToTopButton";
 import { Inter, Hind_Siliguri } from "next/font/google";
 import { cn } from "@/lib/utils";
@@ -55,7 +55,7 @@ export default function RootLayout({
         <AuthProvider>
           <Header />
           <main className="flex-grow">{children}</main>
-          <DynamicFooter />
+          <Footer />
           <BackToTopButton />
           <Toaster />
         </AuthProvider>
