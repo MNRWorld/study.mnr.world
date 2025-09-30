@@ -1,12 +1,11 @@
 "use client";
 
-import { School, Info } from "lucide-react";
 import dynamic from "next/dynamic";
-import PageHeaderCard from "@/components/common/PageHeaderCard";
 import LinkList from "@/components/common/LinkList";
 import Circular from "@/components/common/Circular";
 import CollegeAdmissionInfo from "@/components/CollegeAdmissionInfo";
 import { collegeLinks } from "@/lib/data/links";
+import SimplePageHeader from "@/components/common/SimplePageHeader";
 
 const CountdownTimer = dynamic(
   () => import("@/components/common/CountdownTimer"),
@@ -15,27 +14,11 @@ const CountdownTimer = dynamic(
 
 function CollegePage() {
   return (
-    <div className="font-bengali bg-background py-8">
+    <div className="font-bengali bg-background">
       <div className="container mx-auto px-4">
-        <PageHeaderCard
-          icon={<School className="h-14 w-14 text-primary" />}
+        <SimplePageHeader
           title="কলেজ ভর্তি তথ্য"
-          subtitle="College Admission"
-          description="দেশের সেরা কলেজগুলোতে ভর্তির জন্য প্রয়োজনীয় সব তথ্য ও সর্বশেষ আপডেট এখানেই পাবেন।"
-          stats={[
-            { value: "১০০+", label: "কলেজ" },
-            { value: "বিভিন্ন", label: "বিভাগ" },
-            {
-              value: "হাজারো",
-              label: "আসন",
-              tooltip: "প্রতি বছর আসন সংখ্যা পরিবর্তিত হয়",
-            },
-          ]}
-          button={{
-            href: "#Info",
-            label: "মূল তথ্য",
-            icon: <Info size={16} />,
-          }}
+          description="বাংলাদেশের সকল বিশ্ববিদ্যালয়, কলেজ ও ভর্তি পরীক্ষার তথ্য ও সহায়তার জন্য আপনার বিশ্বস্ত প্ল্যাটফর্ম।"
         />
 
         <LinkList links={collegeLinks} />

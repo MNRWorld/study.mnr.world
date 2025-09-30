@@ -1,24 +1,20 @@
-import { publicUniversities } from "@/lib/data/universities";
+"use client";
+import { publicUniversities, type University } from "@/lib/data/universities";
 import PublicPageClient from "@/components/PublicPageClient";
-import { University } from "@/lib/data/universities";
 
-// Revalidate every hour
-export const revalidate = 3600;
-
-export default async function PublicPage({
+export default function PublicUniversityPage({
   searchParams,
 }: {
-  searchParams?: { [key: string]: string | string[] | undefined };
+  searchParams: { category?: string };
 }) {
-  const universities: University[] = publicUniversities;
-  const categories = [
-    ...new Set(universities.map((uni) => uni.category)),
-  ].sort();
-  const selectedCategory = searchParams?.category as string | null;
+  const categories = Array.from(
+    new Set(publicUniversities.map((uni) => uni.category)),
+  );
+  const selectedCategory = searchParams.category || null;
 
   return (
     <PublicPageClient
-      universities={universities}
+      universities={publicUniversities}
       categories={categories}
       selectedCategory={selectedCategory}
     />

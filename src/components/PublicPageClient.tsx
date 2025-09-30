@@ -1,11 +1,11 @@
 "use client";
 import { useState } from "react";
-import { Landmark, Search } from "lucide-react";
-import PageHeaderCard from "@/components/common/PageHeaderCard";
+import { Search } from "lucide-react";
 import UniversityFilters from "@/components/UniversityFilters";
 import UniversityList from "@/components/UniversityList";
 import { University } from "@/lib/data/universities";
 import { Input } from "@/components/ui/input";
+import SimplePageHeader from "./common/SimplePageHeader";
 
 interface PublicPageClientProps {
   universities: University[];
@@ -35,22 +35,11 @@ export default function PublicPageClient({
     });
 
   return (
-    <div className="font-bengali bg-background py-8">
+    <div className="font-bengali bg-background">
       <div className="container mx-auto px-4">
-        <PageHeaderCard
-          icon={<Landmark className="h-14 w-14 text-primary" />}
+        <SimplePageHeader
           title="পাবলিক বিশ্ববিদ্যালয়"
-          subtitle="Public University"
           description="বাংলাদেশের সকল পাবলিক বিশ্ববিদ্যালয়ের ভর্তি তথ্য, সার্কুলার এবং প্রশ্নব্যাংক একটি মাত্র প্ল্যাটফর্মে।"
-          stats={[
-            { value: "৫০+", label: "বিশ্ববিদ্যালয়" },
-            { value: "বিভিন্ন", label: "ক্যাটাগরি" },
-            {
-              value: "লক্ষাধিক",
-              label: "আসন",
-              tooltip: "প্রতি বছর আসন সংখ্যা পরিবর্তিত হয়",
-            },
-          ]}
         />
         <div className="mt-8 space-y-4">
           <div className="relative">

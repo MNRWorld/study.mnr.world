@@ -1,9 +1,8 @@
 "use client";
 
 import React from "react";
-import { BookOpen } from "lucide-react";
-import PageHeaderCard from "@/components/common/PageHeaderCard";
 import dynamic from "next/dynamic";
+import SimplePageHeader from "@/components/common/SimplePageHeader";
 
 const QuestionBankTabs = dynamic(
   () => import("@/components/QuestionBankTabs"),
@@ -12,18 +11,11 @@ const QuestionBankTabs = dynamic(
 
 export default function QuestionBankPage() {
   return (
-    <div className="font-bengali bg-background py-8">
+    <div className="font-bengali bg-background">
       <div className="container mx-auto px-4">
-        <PageHeaderCard
-          icon={<BookOpen className="h-14 w-14 text-primary" />}
+        <SimplePageHeader
           title="প্রশ্নব্যাংক ও সমাধান"
-          subtitle="Question Bank & Solutions"
           description="বিগত বছরের প্রশ্ন সমাধান করে ভর্তি প্রস্তুতিতে এগিয়ে থাকো। এখানেই পাবে সব বিশ্ববিদ্যালয় ও ইউনিটের প্রশ্নব্যাংক।"
-          stats={[
-            { value: "২০+", label: "বিশ্ববিদ্যালয়" },
-            { value: "১৫+", label: "বছর" },
-            { value: "PDF", label: "ফরম্যাট", tooltip: "সহজে ডাউনলোডযোগ্য" },
-          ]}
         />
 
         <QuestionBankTabs />
