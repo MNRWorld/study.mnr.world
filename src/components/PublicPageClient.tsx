@@ -85,7 +85,9 @@ export default function PublicPageClient({
               const Icon = categoryIcons[category];
               return(
                 <div key={category}>
-                  <h2 className="text-2xl font-bold mb-4 text-center pb-2 border-b-2 border-primary/20 flex items-center justify-center gap-2">
+                  <h2 
+                    id={category.replace(/\s+/g, '-')}
+                    className="text-2xl font-bold mb-4 text-center pb-2 border-b-2 border-primary/20 flex items-center justify-center gap-2 scroll-mt-24">
                     {Icon && <Icon className="h-6 w-6 text-primary/80" />}
                     {category}
                   </h2>
@@ -108,6 +110,7 @@ export default function PublicPageClient({
     </div>
   );
 }
+
 
 
 
