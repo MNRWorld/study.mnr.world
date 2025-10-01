@@ -20,6 +20,16 @@ const categoryIcons: { [key: string]: React.FC<React.ComponentProps<'svg'>> } = 
     "মেডিকেল": HeartPulse,
 };
 
+const categoryIdMap: { [key: string]: string } = {
+    "গুচ্ছ সিস্টেম": "cluster-system",
+    "সাধারণ": "general",
+    "কৃষি": "agriculture",
+    "প্রকৌশল": "engineering",
+    "বিজ্ঞান ও প্রযুক্তি": "science-and-technology",
+    "মেডিকেল": "medical",
+};
+
+
 export default function PublicPageClient({
   universities,
 }: PublicPageClientProps) {
@@ -83,10 +93,11 @@ export default function PublicPageClient({
         <div className="mt-12 space-y-12">
           {sortedCategories.map((category) => {
               const Icon = categoryIcons[category];
+              const categoryId = categoryIdMap[category];
               return(
                 <div key={category}>
                   <h2 
-                    id={category.replace(/\s+/g, '-')}
+                    id={categoryId}
                     className="text-2xl font-bold mb-4 text-center pb-2 border-b-2 border-primary/20 flex items-center justify-center gap-2 scroll-mt-24">
                     {Icon && <Icon className="h-6 w-6 text-primary/80" />}
                     {category}
@@ -110,7 +121,3 @@ export default function PublicPageClient({
     </div>
   );
 }
-
-
-
-
