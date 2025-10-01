@@ -1,38 +1,53 @@
 "use client";
 import { useState } from "react";
 import { Search } from "lucide-react";
-import UniversityFilters from "@/components/UniversityFilters";
-import UniversityList from "@/components/UniversityList";
+import UniversityCard from "@/components/UniversityCard";
 import { University } from "@/lib/data/universities";
 import { Input } from "@/components/ui/input";
 import SimplePageHeader from "./common/SimplePageHeader";
 
 interface PublicPageClientProps {
   universities: University[];
-  categories: string[];
-  selectedCategory: string | null;
 }
 
 export default function PublicPageClient({
   universities,
-  categories,
-  selectedCategory,
 }: PublicPageClientProps) {
   const [searchTerm, setSearchTerm] = useState("");
 
-  const filteredUniversities = universities
-    .filter((uni) =>
-      selectedCategory ? uni.category === selectedCategory : true,
-    )
-    .filter((uni) => {
-      if (searchTerm === "") return true;
-      const lowercasedTerm = searchTerm.toLowerCase();
-      return (
-        uni.nameBn.toLowerCase().includes(lowercasedTerm) ||
-        uni.nameEn.toLowerCase().includes(lowercasedTerm) ||
-        uni.shortName.toLowerCase().includes(lowercasedTerm)
-      );
-    });
+  const filteredUniversities = universities.filter((uni) => {
+    if (searchTerm === "") return true;
+    const lowercasedTerm = searchTerm.toLowerCase();
+    return (
+      uni.nameBn.toLowerCase().includes(lowercasedTerm) ||
+      uni.nameEn.toLowerCase().includes(lowercasedTerm) ||
+      uni.shortName.toLowerCase().includes(lowercasedTerm)
+    );
+  });
+
+  const groupedUniversities = filteredUniversities.reduce(
+    (acc, uni) => {
+      const category = uni.category;
+      if (!acc[category]) {
+        acc[category] = [];
+      }
+      acc[category].push(uni);
+      return acc;
+    },
+    {} as Record<string, University[]>,
+  );
+
+  const categoryOrder = [
+    "সাধারণ",
+    "কৃষি",
+    "প্রকৌশল",
+    "বিজ্ঞান ও প্রযুক্তি",
+    "মেডিকেল",
+  ];
+
+  const sortedCategories = Object.keys(groupedUniversities).sort(
+    (a, b) => categoryOrder.indexOf(a) - categoryOrder.indexOf(b),
+  );
 
   return (
     <div className="font-bengali bg-background">
@@ -52,12 +67,28 @@ export default function PublicPageClient({
               onChange={(e) => setSearchTerm(e.target.value)}
             />
           </div>
-          <UniversityFilters
-            categories={categories}
-            selectedCategory={selectedCategory || undefined}
-          />
         </div>
-        <UniversityList universities={filteredUniversities} />
+
+        <div className="mt-12 space-y-8">
+          {sortedCategories.map((category) => (
+            <div key={category}>
+              <h2 className="text-2xl font-bold mb-4 text-center pb-2 border-b-2 border-primary/20">
+                {category} বিশ্ববিদ্যালয়
+              </h2>
+              <div className="space-y-4">
+                {groupedUniversities[category].map((university, index) => (
+                  <div
+                    key={university.shortName}
+                    className="animate-fade-in-up"
+                    style={{ animationDelay: `${index * 50}ms` }}
+                  >
+                    <UniversityCard university={university} />
+                  </div>
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   );
