@@ -1,7 +1,7 @@
 
 "use client";
 import { useState } from "react";
-import { Search, University as UniversityIcon, Leaf, Cog, Atom, HeartPulse } from "lucide-react";
+import { Search, University as UniversityIcon, Leaf, Cog, Atom, HeartPulse, Blocks } from "lucide-react";
 import UniversityCard from "@/components/UniversityCard";
 import { University } from "@/lib/data/universities";
 import { Input } from "@/components/ui/input";
@@ -12,6 +12,7 @@ interface PublicPageClientProps {
 }
 
 const categoryIcons: { [key: string]: React.FC<React.ComponentProps<'svg'>> } = {
+    "গুচ্ছ সিস্টেম": Blocks,
     "সাধারণ": UniversityIcon,
     "কৃষি": Leaf,
     "প্রকৌশল": Cog,
@@ -47,6 +48,7 @@ export default function PublicPageClient({
   );
 
   const categoryOrder = [
+    "গুচ্ছ সিস্টেম",
     "সাধারণ",
     "কৃষি",
     "প্রকৌশল",
@@ -85,7 +87,7 @@ export default function PublicPageClient({
                 <div key={category}>
                   <h2 className="text-2xl font-bold mb-4 text-center pb-2 border-b-2 border-primary/20 flex items-center justify-center gap-2">
                     {Icon && <Icon className="h-6 w-6 text-primary/80" />}
-                    {category} বিশ্ববিদ্যালয়
+                    {category}
                   </h2>
                   <div className="space-y-4">
                     {groupedUniversities[category].map((university, index) => (
@@ -106,5 +108,6 @@ export default function PublicPageClient({
     </div>
   );
 }
+
 
 
