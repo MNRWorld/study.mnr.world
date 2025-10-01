@@ -1,6 +1,7 @@
+
 "use client";
 import { useState } from "react";
-import { Search } from "lucide-react";
+import { Search, University as UniversityIcon, Leaf, Cog, Atom, HeartPulse } from "lucide-react";
 import UniversityCard from "@/components/UniversityCard";
 import { University } from "@/lib/data/universities";
 import { Input } from "@/components/ui/input";
@@ -9,6 +10,14 @@ import SimplePageHeader from "./common/SimplePageHeader";
 interface PublicPageClientProps {
   universities: University[];
 }
+
+const categoryIcons: { [key: string]: React.FC<React.ComponentProps<'svg'>> } = {
+    "সাধারণ": UniversityIcon,
+    "কৃষি": Leaf,
+    "প্রকৌশল": Cog,
+    "বিজ্ঞান ও প্রযুক্তি": Atom,
+    "মেডিকেল": HeartPulse,
+};
 
 export default function PublicPageClient({
   universities,
@@ -70,26 +79,31 @@ export default function PublicPageClient({
         </div>
 
         <div className="mt-12 space-y-8">
-          {sortedCategories.map((category) => (
-            <div key={category}>
-              <h2 className="text-2xl font-bold mb-4 text-center pb-2 border-b-2 border-primary/20">
-                {category} বিশ্ববিদ্যালয়
-              </h2>
-              <div className="space-y-4">
-                {groupedUniversities[category].map((university, index) => (
-                  <div
-                    key={university.shortName}
-                    className="animate-fade-in-up"
-                    style={{ animationDelay: `${index * 50}ms` }}
-                  >
-                    <UniversityCard university={university} />
+          {sortedCategories.map((category) => {
+              const Icon = categoryIcons[category];
+              return(
+                <div key={category}>
+                  <h2 className="text-2xl font-bold mb-4 text-center pb-2 border-b-2 border-primary/20 flex items-center justify-center gap-2">
+                    {Icon && <Icon className="h-6 w-6 text-primary/80" />}
+                    {category} বিশ্ববিদ্যালয়
+                  </h2>
+                  <div className="space-y-4">
+                    {groupedUniversities[category].map((university, index) => (
+                      <div
+                        key={university.shortName}
+                        className="animate-fade-in-up"
+                        style={{ animationDelay: `${index * 50}ms` }}
+                      >
+                        <UniversityCard university={university} />
+                      </div>
+                    ))}
                   </div>
-                ))}
-              </div>
-            </div>
-          ))}
+                </div>
+              )
+          })}
         </div>
       </div>
     </div>
   );
 }
+
