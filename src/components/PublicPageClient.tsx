@@ -6,6 +6,7 @@ import UniversityCard from "@/components/UniversityCard";
 import { University } from "@/lib/data/universities";
 import { Input } from "@/components/ui/input";
 import SimplePageHeader from "./common/SimplePageHeader";
+import PublicPageFloatingMenu from "./common/PublicPageFloatingMenu";
 
 interface PublicPageClientProps {
   universities: University[];
@@ -72,6 +73,7 @@ export default function PublicPageClient({
 
   return (
     <div className="font-bengali bg-background">
+      <PublicPageFloatingMenu />
       <div className="container mx-auto px-4">
         <SimplePageHeader
           title="পাবলিক বিশ্ববিদ্যালয়"
