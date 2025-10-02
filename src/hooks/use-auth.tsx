@@ -36,7 +36,7 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
   const router = useRouter();
   const { toast } = useToast();
 
-  const getDeviceId = useCallback(() => {
+  const getOrCreateDeviceId = useCallback(() => {
     try {
       let deviceId = localStorage.getItem(DEVICE_ID_KEY);
       if (!deviceId) {
@@ -61,12 +61,10 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
       const storedUserData = localStorage.getItem(USER_DATA_KEY);
       if (storedUserData) {
         const parsedUser = JSON.parse(storedUserData);
-        // Ensure deviceId is consistent
-        const deviceId = getDeviceId();
+        const deviceId = localStorage.getItem(DEVICE_ID_KEY);
         if (deviceId && parsedUser.deviceId === deviceId) {
           setUser(parsedUser);
         } else {
-          // Clear inconsistent data
           localStorage.removeItem(USER_DATA_KEY);
         }
       }
@@ -76,35 +74,40 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
     } finally {
       setLoading(false);
     }
-  }, [getDeviceId]);
+  }, []);
 
   const login = async () => {
     setLoading(true);
     try {
       await new Promise((res) => setTimeout(res, 500));
 
-      const deviceId = getDeviceId();
+      const deviceId = getOrCreateDeviceId();
       if (!deviceId) {
         throw new Error("Device could not be identified.");
       }
 
-      // Check if user data already exists for this deviceId
       const storedUserData = localStorage.getItem(USER_DATA_KEY);
       if (storedUserData) {
-        const parsedUser = JSON.parse(storedUserData);
-        if (parsedUser.deviceId === deviceId) {
-          setUser({ ...parsedUser, loginTime: new Date().toISOString() });
-          localStorage.setItem(
-            USER_DATA_KEY,
-            JSON.stringify({ ...parsedUser, loginTime: new Date().toISOString() }),
-          );
-          toast({
-            title: "লগইন সফল হয়েছে",
-            description: `আবারো স্বাগতম, ${parsedUser.name}!`,
-          });
-          router.push("/profile");
-          setLoading(false);
-          return;
+        try {
+          const parsedUser = JSON.parse(storedUserData);
+          if (parsedUser.deviceId === deviceId) {
+            const updatedUser = {
+              ...parsedUser,
+              loginTime: new Date().toISOString(),
+            };
+            setUser(updatedUser);
+            localStorage.setItem(USER_DATA_KEY, JSON.stringify(updatedUser));
+            toast({
+              title: "লগইন সফল হয়েছে",
+              description: `আবারো স্বাগতম, ${parsedUser.name}!`,
+            });
+            router.push("/profile");
+            setLoading(false);
+            return;
+          }
+        } catch (e) {
+          // If parsing fails, proceed to create a new user
+          localStorage.removeItem(USER_DATA_KEY);
         }
       }
 
@@ -139,7 +142,6 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
     await new Promise((res) => setTimeout(res, 500));
     setUser(null);
     try {
-      // We only remove the session data, not the device ID
       localStorage.removeItem(USER_DATA_KEY);
     } catch (error) {
       console.error("Could not access localStorage", error);
@@ -171,7 +173,7 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
     setUser(null);
     try {
       localStorage.removeItem(USER_DATA_KEY);
-      localStorage.removeItem(DEVICE_ID_KEY); // Permanently delete device id
+      localStorage.removeItem(DEVICE_ID_KEY);
     } catch (error) {
       console.error("Could not access localStorage", error);
     }
