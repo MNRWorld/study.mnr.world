@@ -66,7 +66,7 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
         title: "লগইন সফল হয়েছে",
         description: "MNR Study-তে স্বাগতম!",
       });
-      router.push("/dashboard");
+      router.push("/profile");
     } finally {
       setLoading(false);
     }

@@ -75,7 +75,7 @@ export default function HeaderAuth() {
           className="flex items-center gap-x-1"
           onMouseEnter={() => setHoveredId("profile")}
         >
-          <Link href="/dashboard">
+          <Link href="/profile">
             <AuthButton
               isHovered={hoveredId === "profile"}
               label={user.name}
