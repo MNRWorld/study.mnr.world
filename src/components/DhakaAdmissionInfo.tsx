@@ -636,30 +636,30 @@ const DhakaAdmissionInfo = () => {
                 <br />
                 &nbsp;&nbsp;&nbsp; ➤ ইংরেজী
                 <br />
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ○ মোট নাম্বার: ৩০
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ○ <b>মোট নাম্বার:</b> ৩০
                 <br />
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ○ নুন্যতম পেতে হবে: ১০
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ○ <b>নুন্যতম পেতে হবে:</b> ১০
                 <br />
                 &nbsp;&nbsp;&nbsp; ➤ গণিত
                 <br />
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ○ মোট নাম্বার: ২৫
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ○ <b>মোট নাম্বার:</b> ২৫
                 <br />
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ○ নুন্যতম পেতে হবে: ৮.৩৩
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ○ <b>নুন্যতম পেতে হবে:</b> ৮.৩৩
                 <br />
                 &nbsp;&nbsp;&nbsp; ➤ বিশ্লেষণাত্মক দক্ষতা
                 <br />
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ○ মোট নাম্বার: ১৫
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ○ <b>মোট নাম্বার:</b> ১৫
                 <br />
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ○ নুন্যতম পেতে হবে: ৫<br />
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ○ <b>নুন্যতম পেতে হবে:</b> ৫<br />
                 <br />
                 <b>✓ বর্ণনামূলক –</b>
                 <br />
                 &nbsp;&nbsp;&nbsp; ➤ Argumentative writing/Descriptive
                 writing/Critical writing/Thematic writeup etc.
                 <br />
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ○ মোট নাম্বার: ৩০
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ○ <b>মোট নাম্বার:</b> ৩০
                 <br />
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ○ নুন্যতম পেতে হবে: ১৫
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ○ <b>নুন্যতম পেতে হবে:</b> ১৫
               </AccordionContent>
             </AccordionItem>
           </Accordion>

@@ -22,10 +22,6 @@ function AuthButton({
   onClick,
   isDestructive = false,
 }: AuthButtonProps) {
-  const activeClasses = isDestructive
-    ? "bg-destructive/10 text-destructive"
-    : "bg-accent text-accent-foreground";
-
   return (
     <button
       onClick={onClick}
@@ -33,26 +29,15 @@ function AuthButton({
         "relative flex cursor-pointer items-center justify-center rounded-full transition-colors duration-300",
         "h-9 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background",
         "text-muted-foreground",
-        "px-3",
+        "px-3 font-bengali",
+        isHovered &&
+          (isDestructive
+            ? "bg-destructive/10 text-destructive"
+            : "bg-accent text-accent-foreground"),
       )}
     >
-      <div
-        className={cn(
-          "absolute inset-0 rounded-full transition-opacity duration-300",
-          isHovered ? "opacity-100" : "opacity-0",
-          isDestructive ? "bg-destructive/10" : "bg-accent",
-        )}
-      />
       <div className="relative z-10 flex items-center">
-        <div
-          className={cn(
-            "shrink-0 transition-colors",
-            isHovered &&
-              (isDestructive ? "text-destructive" : "text-accent-foreground"),
-          )}
-        >
-          {icon}
-        </div>
+        <div className="shrink-0">{icon}</div>
         <div
           className="overflow-hidden transition-all duration-300 ease-in-out"
           style={{
@@ -60,13 +45,7 @@ function AuthButton({
             marginLeft: isHovered ? "0.5rem" : "0",
           }}
         >
-          <span
-            className={cn(
-              "whitespace-nowrap text-sm font-medium transition-colors",
-              isHovered &&
-                (isDestructive ? "text-destructive" : "text-accent-foreground"),
-            )}
-          >
+          <span className="whitespace-nowrap text-sm font-medium">
             {label}
           </span>
         </div>
@@ -105,7 +84,7 @@ export default function HeaderAuth() {
         <Link href="/login" onMouseEnter={() => setHoveredId("login")}>
           <AuthButton
             isHovered={hoveredId === "login"}
-            label="লগিন"
+            label="লগইন"
             icon={<LogIn size={20} />}
           />
         </Link>
