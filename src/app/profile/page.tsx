@@ -22,7 +22,25 @@ import {
   Save,
   Trash2,
   AlertTriangle,
+  Sparkles,
+  ArrowRight,
 } from "lucide-react";
+import Link from "next/link";
+
+const suggestions = [
+  {
+    title: "ঢাকা বিশ্ববিদ্যালয় প্রশ্নব্যাংক",
+    href: "/question-bank?tab=du",
+  },
+  {
+    title: "গুচ্ছ প্রস্তুতি কোর্স",
+    href: "/courses/gst-admission",
+  },
+  {
+    title: "অ্যাডমিশন ক্যালেন্ডার দেখুন",
+    href: "/calendar",
+  },
+];
 
 export default function ProfilePage() {
   const { user, loading, logout, updateName, deleteAccount } = useAuth();
@@ -117,6 +135,33 @@ export default function ProfilePage() {
             আপনার প্রোফাইল এবং অ্যাকাউন্ট পরিচালনা করুন।
           </CardDescription>
         </CardHeader>
+      </Card>
+
+      <Card className="mb-8 shadow-lg">
+        <CardHeader>
+          <div className="flex items-center gap-2">
+            <Sparkles className="text-primary h-6 w-6" />
+            <CardTitle>আপনার জন্য প্রস্তাবিত</CardTitle>
+          </div>
+          <CardDescription>
+            আপনার আগ্রহের উপর ভিত্তি করে কিছু গুরুত্বপূর্ণ লিংক।
+          </CardDescription>
+        </CardHeader>
+        <CardContent className="grid sm:grid-cols-2 md:grid-cols-3 gap-4">
+          {suggestions.map((suggestion) => (
+            <Button
+              key={suggestion.href}
+              asChild
+              variant="outline"
+              className="justify-between"
+            >
+              <Link href={suggestion.href}>
+                {suggestion.title}
+                <ArrowRight />
+              </Link>
+            </Button>
+          ))}
+        </CardContent>
       </Card>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
