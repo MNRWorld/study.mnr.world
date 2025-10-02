@@ -183,14 +183,13 @@ export default function ProfilePage() {
             <CardTitle className="text-destructive">ডেঞ্জার জোন</CardTitle>
           </div>
           <CardDescription className="text-destructive/80">
-            এই অংশের কাজগুলো необратиযোগ্য। অনুগ্রহ করে সতর্কতার সাথে ব্যবহার
-            করুন।
+            এই অংশের কাজগুলো необратиযোগ্য। অনুগ্রহ করে সতর্কতার সাথে ব্যবহার করুন।
           </CardDescription>
         </CardHeader>
         <CardContent>
           <div className="flex justify-between items-center p-4 border border-destructive/20 rounded-lg">
             <div>
-              <h4 className="font-bold">অ্যাকাউন্ট মুছে ফেলুন</h4>
+              <h4 className="font-bold">অ্যাকাউন্ট মুছুন</h4>
               <p className="text-sm text-muted-foreground">
                 আপনার সমস্ত ডেটা স্থায়ীভাবে মুছে ফেলা হবে।
               </p>
