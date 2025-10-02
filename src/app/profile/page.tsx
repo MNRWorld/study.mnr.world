@@ -71,7 +71,7 @@ export default function ProfilePage() {
     } catch (error: any) {
       toast({
         variant: "destructive",
-        title: "নাম পরিবর্তন করা যায়নি",
+        title: "একটি সমস্যা হয়েছে",
         description: error.message,
       });
     }
@@ -187,7 +187,7 @@ export default function ProfilePage() {
           </CardDescription>
         </CardHeader>
         <CardContent>
-          <div className="flex justify-between items-center p-4 border border-destructive/20 rounded-lg">
+          <div className="flex flex-col sm:flex-row justify-between items-center text-center sm:text-left p-4 border border-destructive/20 rounded-lg gap-4">
             <div>
               <h4 className="font-bold">অ্যাকাউন্ট মুছুন</h4>
               <p className="text-sm text-muted-foreground">
@@ -197,6 +197,7 @@ export default function ProfilePage() {
             <Button
               onClick={handleDeleteAccount}
               variant="destructive"
+              className="w-full sm:w-auto"
             >
               <Trash2 className="mr-2" />
               অ্যাকাউন্ট মুছুন
