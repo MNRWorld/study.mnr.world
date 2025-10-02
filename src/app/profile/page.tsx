@@ -56,23 +56,23 @@ export default function ProfilePage() {
   const handleNameUpdate = async () => {
     if (!name.trim()) {
       toast({
-        title: "অবৈধ নাম",
-        description: "অনুগ্রহ করে একটি সঠিক নাম লিখুন।",
         variant: "destructive",
+        title: "নাম লেখা হয়নি",
+        description: "অনুগ্রহ করে একটি সঠিক নাম লিখুন।",
       });
       return;
     }
     try {
       await updateName(name);
       toast({
-        title: "সফল",
-        description: "আপনার নাম সফলভাবে পরিবর্তন করা হয়েছে।",
+        title: "নাম পরিবর্তিত হয়েছে",
+        description: `আপনার নতুন নাম "${name}" সফলভাবে সেভ হয়েছে।`,
       });
     } catch (error: any) {
       toast({
-        title: "ত্রুটি",
-        description: error.message,
         variant: "destructive",
+        title: "নাম পরিবর্তন করা যায়নি",
+        description: error.message,
       });
     }
   };
@@ -87,14 +87,14 @@ export default function ProfilePage() {
         await deleteAccount();
         toast({
           title: "অ্যাকাউন্ট মুছে ফেলা হয়েছে",
-          description: "আপনার অ্যাকাউন্ট সফলভাবে মুছে ফেলা হয়েছে।",
+          description: "আপনার অ্যাকাউন্ট এবং ডেটা স্থায়ীভাবে মুছে ফেলা হয়েছে।",
         });
         router.push("/");
       } catch (error: any) {
         toast({
-          title: "ত্রুটি",
-          description: error.message,
           variant: "destructive",
+          title: "একটি সমস্যা হয়েছে",
+          description: error.message,
         });
       }
     }
