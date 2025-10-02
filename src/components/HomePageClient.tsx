@@ -3,9 +3,8 @@ import Image from "next/image";
 import Link from "next/link";
 import {
   PlaceHolderImages,
-  type ImagePlaceholder,
 } from "@/lib/placeholder-images";
-import React, { useState, useEffect } from "react";
+import React from "react";
 
 interface Feature {
   href: string;
@@ -18,43 +17,18 @@ interface HomePageClientProps {
 }
 
 const TypingAnimation = () => {
-  const texts = ["একাডেমিক হোক,", "এডমিশন হোক,", "অথবা বেসিক গড়ার প্রচেষ্টা,"];
-  const [index, setIndex] = useState(0);
-  const [subIndex, setSubIndex] = useState(0);
-  const [reverse, setReverse] = useState(false);
-
-  useEffect(() => {
-    if (subIndex === texts[index].length + 1 && !reverse) {
-      setReverse(true);
-      return;
-    }
-
-    if (subIndex === 0 && reverse) {
-      setReverse(false);
-      setIndex((prev) => (prev + 1) % texts.length);
-      return;
-    }
-
-    const timeout = setTimeout(
-      () => {
-        setSubIndex((prev) => prev + (reverse ? -1 : 1));
-      },
-      Math.max(
-        reverse ? 75 : subIndex === texts[index].length ? 1000 : 150,
-        75,
-      ),
-    );
-
-    return () => clearTimeout(timeout);
-  }, [subIndex, index, reverse, texts]);
-
   return (
-    <span className="typing-container inline-block origin-left">
-      <span className="typing-text will-change-transform">
-        {texts[index].substring(0, subIndex)}
+    <div className="inline-grid">
+      <span className="typing-text col-start-1 row-start-1">
+        একাডেমিক হোক,&nbsp;
       </span>
-      <span className="cursor border-r-2 border-foreground animate-blink-caret"></span>
-    </span>
+      <span className="typing-text col-start-1 row-start-1">
+        এডমিশন হোক,&nbsp;
+      </span>
+      <span className="typing-text col-start-1 row-start-1">
+        অথবা বেসিক গড়ার প্রচেষ্টা,&nbsp;
+      </span>
+    </div>
   );
 };
 

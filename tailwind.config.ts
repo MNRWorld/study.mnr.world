@@ -96,8 +96,42 @@ export default {
           },
         },
         typing: {
-          from: { transform: "scaleX(0)" },
-          to: { transform: "scaleX(1)" },
+          "0%": {
+            transform: "translateX(0)",
+            opacity: "1",
+          },
+          "28%": {
+            transform: "translateX(0)",
+            opacity: "1",
+          },
+          "33%": {
+            transform: "translateX(100%)",
+            opacity: "0",
+          },
+          "34%": {
+            transform: "translateX(-100%)",
+            opacity: "0",
+          },
+          "61%": {
+            transform: "translateX(0)",
+            opacity: "1",
+          },
+          "66%": {
+            transform: "translateX(100%)",
+            opacity: "0",
+          },
+          "67%": {
+            transform: "translateX(-100%)",
+            opacity: "0",
+          },
+          "94%": {
+            transform: "translateX(0)",
+            opacity: "1",
+          },
+          "100%": {
+            transform: "translateX(0)",
+            opacity: "1",
+          },
         },
         "blink-caret": {
           "0%, 100%": { opacity: "1" },
@@ -109,7 +143,7 @@ export default {
         "accordion-up": "accordion-up 0.2s ease-out",
         float: "float 4s ease-in-out infinite",
         "fade-in-up": "fade-in-up 0.6s ease-out forwards",
-        typing: "typing 2s steps(20, end)",
+        typing: "typing 9s infinite",
         "blink-caret": "blink-caret .75s step-end infinite",
       },
     },

@@ -98,12 +98,13 @@ export default function PublicPageClient({
               const categoryId = categoryIdMap[category];
               return(
                 <div key={category}>
-                  <h2 
-                    id={categoryId}
-                    className="text-2xl font-bold mb-4 text-center pb-2 border-b-2 border-primary/20 flex items-center justify-center gap-2 scroll-mt-24">
-                    {Icon && <Icon className="h-6 w-6 text-primary/80" />}
-                    {category}
-                  </h2>
+                   <a href={`#${categoryId}`} id={categoryId} className="scroll-mt-24">
+                    <h2 
+                      className="text-2xl font-bold mb-4 text-center pb-2 border-b-2 border-primary/20 flex items-center justify-center gap-2">
+                      {Icon && <Icon className="h-6 w-6 text-primary/80" />}
+                      {category}
+                    </h2>
+                  </a>
                   <div className="space-y-4">
                     {groupedUniversities[category].map((university, index) => (
                       <div
