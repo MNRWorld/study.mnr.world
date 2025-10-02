@@ -31,8 +31,7 @@ const AccordionTrigger = React.forwardRef<
   const hasCustomIcon =
     React.isValidElement(lastChild) &&
     typeof lastChild.type !== "string" &&
-    (lastChild.type === Download ||
-      lastChild.type.displayName?.includes("Icon"));
+    (lastChild.type === Download || (lastChild.type as any).render?.displayName?.includes("Icon"));
 
   return (
     <AccordionPrimitive.Header className="flex">

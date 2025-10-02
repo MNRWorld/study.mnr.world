@@ -22,6 +22,10 @@ const StatsTooltipProvider: React.FC<StatsTooltipProviderProps> = ({
 }) => {
   const [openTooltip, setOpenTooltip] = useState<string | null>(null);
 
+  const handleOpenChange = (isOpen: boolean, label: string) => {
+    setOpenTooltip(isOpen ? label : null);
+  };
+
   return (
     <div className="flex justify-around items-center mb-6 text-sm max-w-md mx-auto">
       <TooltipProvider>
@@ -32,18 +36,11 @@ const StatsTooltipProvider: React.FC<StatsTooltipProviderProps> = ({
               {stat.tooltip && (
                 <Tooltip
                   open={openTooltip === stat.label}
-                  onOpenChange={(isOpen) =>
-                    setOpenTooltip(isOpen ? stat.label : null)
-                  }
+                  onOpenChange={(isOpen) => handleOpenChange(isOpen, stat.label)}
                 >
                   <TooltipTrigger
                     className="ml-1.5 cursor-help"
-                    onClick={(e) => {
-                      e.preventDefault();
-                      setOpenTooltip(
-                        openTooltip === stat.label ? null : stat.label,
-                      );
-                    }}
+                    onClick={(e) => e.preventDefault()} // Prevents page jump
                   >
                     <Info className="text-muted-foreground h-3 w-3" />
                   </TooltipTrigger>
