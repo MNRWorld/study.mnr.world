@@ -91,7 +91,7 @@ const HomePageClient = ({ features }: HomePageClientProps) => {
                 key={feature.href}
                 aria-label={feature.label}
               >
-                <div className="feature-card">
+                <div className="feature-card dark:hover:bg-accent">
                   {feature.icon}
                   <p className="font-bengali font-semibold text-sm sm:text-base text-card-foreground">
                     {feature.label}
