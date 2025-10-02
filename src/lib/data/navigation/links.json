@@ -36,7 +36,6 @@
     ],
     "shortcuts": [
       { "href": "/", "label": "হোম", "icon": "Home" },
-      { "href": "/profile", "label": "প্রোফাইল", "icon": "User" },
       { "href": "/#about", "label": "আমাদের সম্পর্কে", "icon": "Info" },
       { "href": "/#contact", "label": "যোগাযোগ", "icon": "Mail" }
     ]
