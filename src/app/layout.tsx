@@ -7,6 +7,7 @@ import Footer from "@/components/layout/Footer";
 import BackToTopButton from "@/components/common/BackToTopButton";
 import { Inter, Hind_Siliguri } from "next/font/google";
 import { cn } from "@/lib/utils";
+import { ThemeProvider } from "@/components/ThemeProvider";
 
 export const metadata: Metadata = {
   title: "স্টাডি প্ল্যাটফর্ম",
@@ -32,7 +33,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="bn">
+    <html lang="bn" suppressHydrationWarning>
       <head>
         <link
           rel="preconnect"
@@ -52,13 +53,20 @@ export default function RootLayout({
           hindSiliguri.variable,
         )}
       >
-        <AuthProvider>
-          <Header />
-          <main className="flex-grow">{children}</main>
-          <Footer />
-          <BackToTopButton />
-          <Toaster />
-        </AuthProvider>
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
+          <AuthProvider>
+            <Header />
+            <main className="flex-grow">{children}</main>
+            <Footer />
+            <BackToTopButton />
+            <Toaster />
+          </AuthProvider>
+        </ThemeProvider>
       </body>
     </html>
   );

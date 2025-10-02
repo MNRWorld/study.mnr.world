@@ -12,6 +12,7 @@ import HeaderAuth from "./HeaderAuth";
 import React, { memo } from "react";
 import { usePathname } from "next/navigation";
 import Image from "next/image";
+import { ThemeToggle } from "./ThemeToggle";
 
 const icons: { [key: string]: React.ElementType } = {
   Home,
@@ -94,7 +95,7 @@ const Header = memo(function Header() {
         </div>
 
         <div className="h-6 w-px bg-border/50"></div>
-
+        <ThemeToggle />
         <HeaderAuth />
       </div>
     </header>
