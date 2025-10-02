@@ -7,6 +7,7 @@ import { Button } from "@/components/ui/button";
 import {
   Card,
   CardContent,
+  CardDescription,
   CardFooter,
   CardHeader,
   CardTitle,
@@ -20,6 +21,7 @@ import {
   UserCircle,
   Save,
   Trash2,
+  AlertTriangle,
 } from "lucide-react";
 
 export default function ProfilePage() {
@@ -76,7 +78,6 @@ export default function ProfilePage() {
   };
 
   const handleDeleteAccount = async () => {
-    // A confirmation dialog would be ideal here in a real app
     if (
       window.confirm(
         "আপনি কি নিশ্চিতভাবে আপনার অ্যাকাউন্ট মুছে ফেলতে চান? এই কাজটি আর ফেরানো যাবে না।",
@@ -100,26 +101,33 @@ export default function ProfilePage() {
   };
 
   return (
-    <div className="flex items-center justify-center min-h-[calc(100vh-10rem)] font-bengali px-4 py-8">
-      <Card className="w-full max-w-md p-4 sm:p-6 text-center shadow-lg animate-fade-in-up">
+    <div className="container mx-auto px-4 py-8 max-w-2xl font-bengali">
+      <Card className="w-full p-4 sm:p-6 text-center shadow-lg animate-fade-in-up mb-8">
         <CardHeader>
           <div className="flex justify-center mb-4">
             <div className="relative">
-              <UserCircle className="h-20 w-20 text-primary" />
-              <ShieldCheck className="absolute bottom-1 right-1 h-6 w-6 text-green-500 bg-card rounded-full p-0.5" />
+              <UserCircle className="h-24 w-24 text-primary" />
+              <ShieldCheck className="absolute bottom-1 right-1 h-8 w-8 text-green-500 bg-card rounded-full p-1" />
             </div>
           </div>
-          <CardTitle className="text-2xl font-bold">
+          <CardTitle className="text-2xl sm:text-3xl font-bold">
             স্বাগতম, {user.name}
           </CardTitle>
-          <p className="text-sm text-muted-foreground pt-1">
+          <CardDescription className="text-sm sm:text-base pt-1">
             আপনার প্রোফাইল এবং অ্যাকাউন্ট পরিচালনা করুন।
-          </p>
+          </CardDescription>
         </CardHeader>
-        <CardContent className="space-y-6">
-          <div className="text-left space-y-4">
+      </Card>
+
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <Card className="shadow-lg">
+          <CardHeader>
+            <CardTitle>প্রোফাইল তথ্য</CardTitle>
+            <CardDescription>আপনার ব্যক্তিগত তথ্য পরিবর্তন করুন</CardDescription>
+          </CardHeader>
+          <CardContent className="space-y-4">
             <div className="space-y-2">
-              <Label htmlFor="name">নাম পরিবর্তন করুন</Label>
+              <Label htmlFor="name">নাম</Label>
               <Input
                 id="name"
                 value={name}
@@ -127,47 +135,75 @@ export default function ProfilePage() {
                 placeholder="আপনার নতুন নাম দিন"
               />
             </div>
+          </CardContent>
+          <CardFooter>
             <Button onClick={handleNameUpdate} className="w-full">
               <Save className="mr-2" />
               পরিবর্তন সেভ করুন
             </Button>
+          </CardFooter>
+        </Card>
+
+        <div className="space-y-8">
+          <Card className="shadow-lg">
+            <CardHeader>
+              <CardTitle>ডিভাইস ও সেশন</CardTitle>
+              <CardDescription>আপনার বর্তমান লগইন সেশনের তথ্য</CardDescription>
+            </CardHeader>
+            <CardContent className="text-sm space-y-2">
+              <p>
+                <span className="font-medium text-muted-foreground">
+                  ডিভাইস আইডি:
+                </span>{" "}
+                <span className="font-mono text-primary text-xs break-all">
+                  {user.deviceId}
+                </span>
+              </p>
+              <p>
+                <span className="font-medium text-muted-foreground">
+                  লগইন সময়:
+                </span>{" "}
+                {new Date(user.loginTime).toLocaleString("bn-BD")}
+              </p>
+            </CardContent>
+            <CardFooter>
+              <Button onClick={handleLogout} variant="outline" className="w-full">
+                <LogOut className="mr-2" />
+                লগ আউট
+              </Button>
+            </CardFooter>
+          </Card>
+        </div>
+      </div>
+
+      <Card className="mt-8 shadow-lg border-destructive/50 bg-destructive/5">
+        <CardHeader>
+          <div className="flex items-center gap-2">
+            <AlertTriangle className="text-destructive h-6 w-6" />
+            <CardTitle className="text-destructive">ডেঞ্জার জোন</CardTitle>
           </div>
-          <div className="text-left bg-accent/50 dark:bg-accent/20 p-4 rounded-lg border border-border/50">
-            <h3 className="font-semibold mb-2 border-b border-border/50 pb-2">
-              ডিভাইস তথ্য
-            </h3>
-            <p className="text-sm">
-              <span className="font-medium text-muted-foreground">
-                ডিভাইস আইডি:
-              </span>{" "}
-              <span className="font-mono text-primary text-xs break-all">
-                {user.deviceId}
-              </span>
-            </p>
-            <p className="text-sm">
-              <span className="font-medium text-muted-foreground">লগইন সময়:</span>{" "}
-              {new Date(user.loginTime).toLocaleString("bn-BD")}
-            </p>
+          <CardDescription className="text-destructive/80">
+            এই অংশের কাজগুলো необратиযোগ্য। অনুগ্রহ করে সতর্কতার সাথে ব্যবহার
+            করুন।
+          </CardDescription>
+        </CardHeader>
+        <CardContent>
+          <div className="flex justify-between items-center p-4 border border-destructive/20 rounded-lg">
+            <div>
+              <h4 className="font-bold">অ্যাকাউন্ট মুছে ফেলুন</h4>
+              <p className="text-sm text-muted-foreground">
+                আপনার সমস্ত ডেটা স্থায়ীভাবে মুছে ফেলা হবে।
+              </p>
+            </div>
+            <Button
+              onClick={handleDeleteAccount}
+              variant="destructive"
+            >
+              <Trash2 className="mr-2" />
+              অ্যাকাউন্ট মুছুন
+            </Button>
           </div>
         </CardContent>
-        <CardFooter className="flex flex-col sm:flex-row gap-2">
-          <Button
-            onClick={handleLogout}
-            variant="outline"
-            className="w-full"
-          >
-            <LogOut className="mr-2" />
-            লগ আউট
-          </Button>
-          <Button
-            onClick={handleDeleteAccount}
-            variant="destructive"
-            className="w-full"
-          >
-            <Trash2 className="mr-2" />
-            অ্যাকাউন্ট মুছুন
-          </Button>
-        </CardFooter>
       </Card>
     </div>
   );
