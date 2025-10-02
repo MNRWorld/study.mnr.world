@@ -9,7 +9,6 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
-import { Badge } from "../ui/badge";
 import ExternalLink from "./ExternalLink";
 import { FilePenLine } from "lucide-react";
 
@@ -39,12 +38,11 @@ const ApplicationScheduleTable = () => {
                 {item.university}
                 {item.detailsLink && (
                   <div className="mt-1">
-                    <Badge variant="outline" asChild>
-                      <ExternalLink
-                        href={item.detailsLink}
-                        text={item.detailsLinkText || "[বিস্তারিত]"}
-                      />
-                    </Badge>
+                    <ExternalLink
+                      href={item.detailsLink}
+                      text={item.detailsLinkText || "[বিস্তারিত]"}
+                      className="text-xs"
+                    />
                   </div>
                 )}
               </TableCell>

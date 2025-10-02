@@ -25,13 +25,14 @@ const AccordionTrigger = React.forwardRef<
   React.ComponentPropsWithoutRef<typeof AccordionPrimitive.Trigger>
 >(({ className, children, ...props }, ref) => {
   const childrenArray = React.Children.toArray(children);
-  const mainContent = childrenArray.slice(0, -1);
   const lastChild = childrenArray[childrenArray.length - 1];
 
   const hasCustomIcon =
     React.isValidElement(lastChild) &&
     typeof lastChild.type !== "string" &&
-    (lastChild.type === Download || (lastChild.type as any).render?.displayName?.includes("Icon"));
+    lastChild.type === Download;
+
+  const mainContent = hasCustomIcon ? childrenArray.slice(0, -1) : children;
 
   return (
     <AccordionPrimitive.Header className="flex">
@@ -43,7 +44,7 @@ const AccordionTrigger = React.forwardRef<
         )}
         {...props}
       >
-        {hasCustomIcon ? mainContent : children}
+        {mainContent}
         {hasCustomIcon ? (
           lastChild
         ) : (
