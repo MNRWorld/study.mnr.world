@@ -84,7 +84,7 @@ const DhakaAdmissionInfo = () => {
         </div>
         <br />
         <div className="flex items-center gap-2 flex-wrap">
-          <CircleCheck className="text-green-600" size={18} />
+          <CircleCheck className="text-green-600 dark:text-green-500" size={18} />
           {apply.helpfulLinks.map((link, index) => (
             <React.Fragment key={index}>
               <ExternalLink href={link.url} text={link.label} />
@@ -114,7 +114,7 @@ const DhakaAdmissionInfo = () => {
         <br />
         &nbsp;&nbsp;&nbsp; <b>- HSC ব্যাচ:</b> {apply.hscBatch}
         <br />
-        <div className="text-red-500 flex items-center">
+        <div className="text-red-500 dark:text-red-400 flex items-center">
           <CircleAlert size={18} className="inline-block mr-1" />{" "}
           <b>সেকেন্ড টাইম:</b>&nbsp;{apply.secondTime}
         </div>
@@ -196,7 +196,7 @@ const DhakaAdmissionInfo = () => {
           <br />
           <br />
           <b>
-            <div className="text-orange-500 flex items-center">
+            <div className="text-orange-500 dark:text-orange-400 flex items-center">
               <CircleAlert size={18} className="inline-block mr-1" />
               নোটঃ
             </div>
@@ -238,7 +238,7 @@ const DhakaAdmissionInfo = () => {
         <ExternalLink href={examCenter.locationLink} text="[তালিকা]" /> <br />
         <hr className="my-2 border-border/50" />
         <b>
-          <div className="text-orange-500 flex items-center">
+          <div className="text-orange-500 dark:text-orange-400 flex items-center">
             <CircleAlert size={18} className="inline-block mr-1" />
             নোটঃ
           </div>
@@ -529,7 +529,7 @@ const DhakaAdmissionInfo = () => {
             <div className="flex items-start text-sm mt-1">
               <AlertTriangle
                 size={20}
-                className="mr-1 text-orange-500 shrink-0 mt-0.5"
+                className="mr-1 text-orange-500 dark:text-orange-400 shrink-0 mt-0.5"
               />
               <b>নোট:</b> পরীক্ষায় মাধ্যমিক ও উচ্চ মাধ্যমিক পর্যায়ে পঠিত বাংলা ও
               ইংরেজিসহ চারুকলার বিভিন্ন বিভাগ সম্পর্কিত বা বিষয় ভিত্তিক প্রশ্ন

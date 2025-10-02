@@ -38,10 +38,10 @@ const AdmissionScheduleTable = () => {
               <TableCell
                 className={`text-center font-semibold whitespace-pre-wrap ${
                   item.status.includes("স্থগিত")
-                    ? "text-yellow-500"
+                    ? "text-yellow-500 dark:text-yellow-400"
                     : item.status.includes("হয়ে গেছে")
-                      ? "text-red-500"
-                      : "text-green-500"
+                      ? "text-red-500 dark:text-red-400"
+                      : "text-green-500 dark:text-green-400"
                 }`}
               >
                 {item.status}
