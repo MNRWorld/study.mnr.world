@@ -1,13 +1,16 @@
 "use client";
 
 import dynamic from "next/dynamic";
-import AdmissionTabs from "@/components/common/AdmissionTabs";
 import SimplePageHeader from "@/components/common/SimplePageHeader";
 
 const CountdownTimer = dynamic(
   () => import("@/components/common/CountdownTimer"),
   { ssr: false },
 );
+
+const AdmissionTabs = dynamic(() => import("@/components/common/AdmissionTabs"), {
+  ssr: false,
+});
 
 function CalendarPage() {
   return (

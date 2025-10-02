@@ -30,8 +30,8 @@ const AuthContext = createContext<AuthContextType | undefined>(undefined);
 const USER_DATA_KEY = "deviceAuthUserData";
 const DEVICE_ID_KEY = "deviceAuthDeviceId";
 
-const getOrCreateDeviceId = (): string | null => {
-  if (typeof window === "undefined") return null;
+const getOrCreateDeviceId = (): string => {
+  if (typeof window === "undefined") return "";
   try {
     let deviceId = localStorage.getItem(DEVICE_ID_KEY);
     if (!deviceId) {
@@ -41,7 +41,7 @@ const getOrCreateDeviceId = (): string | null => {
     return deviceId;
   } catch (error) {
     console.error("Could not access localStorage", error);
-    return null;
+    return "";
   }
 };
 
@@ -55,12 +55,14 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
     setLoading(true);
     try {
       const storedUserData = localStorage.getItem(USER_DATA_KEY);
-      if (storedUserData) {
+      const permanentDeviceId = getOrCreateDeviceId();
+
+      if (storedUserData && permanentDeviceId) {
         const parsedUser: User = JSON.parse(storedUserData);
-        const permanentDeviceId = getOrCreateDeviceId();
-        if (permanentDeviceId && parsedUser.deviceId === permanentDeviceId) {
+        if (parsedUser.deviceId === permanentDeviceId) {
           setUser(parsedUser);
         } else {
+          // Device ID mismatch, clear stale user data
           localStorage.removeItem(USER_DATA_KEY);
           setUser(null);
         }
@@ -92,12 +94,13 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
         throw new Error("Device could not be identified.");
       }
 
-      const storedData = localStorage.getItem(USER_DATA_KEY);
       let name = "ব্যবহারকারী";
+      const storedData = localStorage.getItem(USER_DATA_KEY);
 
       if (storedData) {
         try {
           const parsed = JSON.parse(storedData);
+          // If a user profile existed for this deviceId, retain the name
           if (parsed.deviceId === deviceId && parsed.name) {
             name = parsed.name;
           }
@@ -138,6 +141,7 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
     setLoading(true);
     await new Promise((res) => setTimeout(res, 300));
     try {
+      // Only remove the user session, keep the deviceId
       localStorage.removeItem(USER_DATA_KEY);
       setUser(null);
       toast({
@@ -175,7 +179,7 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
     await new Promise((res) => setTimeout(res, 500));
     try {
       localStorage.removeItem(USER_DATA_KEY);
-      localStorage.removeItem(DEVICE_ID_KEY);
+      localStorage.removeItem(DEVICE_ID_KEY); // Also remove the permanent device ID
       setUser(null);
     } catch (error) {
       console.error("Could not access localStorage", error);
