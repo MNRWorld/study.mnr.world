@@ -12,7 +12,7 @@ const PrivateAdmissionInfo = () => {
       className="mt-8 w-full border border-border bg-card rounded-2xl p-4 sm:p-6 shadow-lg relative text-left"
     >
       <div className="flex justify-center">
-        <div className="inline-block px-6 py-2 bg-gradient-to-r from-primary to-foreground text-white rounded-full text-base sm:text-lg mb-4 font-bold shadow-md">
+        <div className="inline-block px-6 py-2 bg-gradient-to-r from-primary to-foreground text-primary-foreground rounded-full text-base sm:text-lg mb-4 font-bold shadow-md">
           {title}
         </div>
       </div>
