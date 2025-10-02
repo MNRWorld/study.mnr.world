@@ -95,7 +95,6 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
       }
 
       // Check if a user session already exists for this device.
-      // This handles the case where the user is already logged in.
       if (user && user.deviceId === deviceId) {
         router.push("/profile");
         return;
@@ -103,7 +102,6 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
       
       let name = "ব্যবহারকারী";
       // Try to find if there was a previous user session on this device to restore the name.
-      // This is useful if they logged out but didn't delete the account.
       const storedUserData = localStorage.getItem(USER_DATA_KEY);
       if(storedUserData){
         try {
@@ -127,7 +125,6 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
 
       toast({
         title: "লগইন সফল হয়েছে",
-        description: `স্বাগতম, ${newUser.name}!`,
       });
       router.push("/profile");
     } catch (error: any) {
@@ -149,7 +146,6 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
     await new Promise((res) => setTimeout(res, 300));
     setUser(null);
     try {
-      // Only remove the session data, NOT the permanent device ID
       localStorage.removeItem(USER_DATA_KEY);
     } catch (error) {
       console.error("Could not access localStorage during logout", error);
