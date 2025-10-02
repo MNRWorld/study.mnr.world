@@ -62,7 +62,6 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
         if (parsedUser.deviceId === permanentDeviceId) {
           setUser(parsedUser);
         } else {
-          // Device ID mismatch, clear stale user data
           localStorage.removeItem(USER_DATA_KEY);
           setUser(null);
         }
@@ -100,12 +99,11 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
       if (storedData) {
         try {
           const parsed = JSON.parse(storedData);
-          // If a user profile existed for this deviceId, retain the name
           if (parsed.deviceId === deviceId && parsed.name) {
             name = parsed.name;
           }
         } catch (e) {
-          // Ignore parsing errors, default name will be used
+          console.error("Could not parse existing user data, using default.");
         }
       }
 
@@ -141,7 +139,6 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
     setLoading(true);
     await new Promise((res) => setTimeout(res, 300));
     try {
-      // Only remove the user session, keep the deviceId
       localStorage.removeItem(USER_DATA_KEY);
       setUser(null);
       toast({
@@ -162,12 +159,21 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
 
   const updateName = async (newName: string) => {
     if (!user) {
-      throw new Error("আপনাকে অবশ্যই লগইন করতে হবে।");
+      toast({
+        variant: "destructive",
+        title: "অনুমতি নেই",
+        description: "নাম পরিবর্তন করতে আপনাকে অবশ্যই লগইন করতে হবে।",
+      });
+      return;
     }
     const updatedUser = { ...user, name: newName };
     try {
       localStorage.setItem(USER_DATA_KEY, JSON.stringify(updatedUser));
       setUser(updatedUser);
+      toast({
+        title: "নাম পরিবর্তিত হয়েছে",
+        description: `আপনার নতুন নাম "${newName}" সফলভাবে সেভ হয়েছে।`,
+      });
     } catch (error) {
       console.error("Could not access localStorage", error);
       throw new Error("ডিভাইসে আপনার নাম সেভ করা যায়নি।");
@@ -175,15 +181,32 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
   };
 
   const deleteAccount = async () => {
+    if (
+      !window.confirm(
+        "আপনি কি নিশ্চিতভাবে আপনার অ্যাকাউন্ট মুছে ফেলতে চান? এই কাজটি আর ফেরানো যাবে না।",
+      )
+    ) {
+      return;
+    }
+
     setLoading(true);
     await new Promise((res) => setTimeout(res, 500));
     try {
       localStorage.removeItem(USER_DATA_KEY);
-      localStorage.removeItem(DEVICE_ID_KEY); // Also remove the permanent device ID
+      localStorage.removeItem(DEVICE_ID_KEY);
       setUser(null);
+      toast({
+        title: "অ্যাকাউন্ট মুছে ফেলা হয়েছে",
+        description: "আপনার অ্যাকাউন্ট এবং ডেটা স্থায়ীভাবে মুছে ফেলা হয়েছে।",
+      });
+      router.push("/");
     } catch (error) {
       console.error("Could not access localStorage", error);
-      throw new Error("অ্যাকাউন্ট মুছে ফেলার সময় একটি সমস্যা হয়েছে।");
+      toast({
+        variant: "destructive",
+        title: "একটি সমস্যা হয়েছে",
+        description: "অ্যাকাউন্ট মুছে ফেলার সময় একটি সমস্যা হয়েছে।",
+      });
     } finally {
       setLoading(false);
     }

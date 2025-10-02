@@ -39,10 +39,13 @@ const StatsTooltipProvider: React.FC<StatsTooltipProviderProps> = ({
                   onOpenChange={(isOpen) => handleOpenChange(isOpen, stat.label)}
                 >
                   <TooltipTrigger
+                    asChild
                     className="ml-1.5 cursor-help"
-                    onClick={(e) => e.preventDefault()} // Prevents page jump
+                    onClick={(e) => e.preventDefault()}
                   >
-                    <Info className="text-muted-foreground h-3 w-3" />
+                    <span>
+                      <Info className="text-muted-foreground h-3 w-3" />
+                    </span>
                   </TooltipTrigger>
                   <TooltipContent>
                     <p dangerouslySetInnerHTML={{ __html: stat.tooltip }} />

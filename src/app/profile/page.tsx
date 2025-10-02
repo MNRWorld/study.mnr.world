@@ -80,42 +80,11 @@ export default function ProfilePage() {
       });
       return;
     }
-    try {
-      await updateName(name);
-      toast({
-        title: "নাম পরিবর্তিত হয়েছে",
-        description: `আপনার নতুন নাম "${name}" সফলভাবে সেভ হয়েছে।`,
-      });
-    } catch (error: any) {
-      toast({
-        variant: "destructive",
-        title: "একটি সমস্যা হয়েছে",
-        description: error.message,
-      });
-    }
+    await updateName(name);
   };
 
   const handleDeleteAccount = async () => {
-    if (
-      window.confirm(
-        "আপনি কি নিশ্চিতভাবে আপনার অ্যাকাউন্ট মুছে ফেলতে চান? এই কাজটি আর ফেরানো যাবে না।",
-      )
-    ) {
-      try {
-        await deleteAccount();
-        toast({
-          title: "অ্যাকাউন্ট মুছে ফেলা হয়েছে",
-          description: "আপনার অ্যাকাউন্ট এবং ডেটা স্থায়ীভাবে মুছে ফেলা হয়েছে।",
-        });
-        router.push("/");
-      } catch (error: any) {
-        toast({
-          variant: "destructive",
-          title: "একটি সমস্যা হয়েছে",
-          description: error.message,
-        });
-      }
-    }
+    await deleteAccount();
   };
 
   return (

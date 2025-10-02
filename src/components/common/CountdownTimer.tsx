@@ -12,10 +12,9 @@ const CountdownTimer = () => {
     seconds: "--",
   });
   const [isCurrentCompleted, setIsCurrentCompleted] = useState(false);
-  const intervalRef = useRef<NodeJS.Timeout | null>(null);
+  const animationFrameId = useRef<number | null>(null);
 
   useEffect(() => {
-    // Find the first upcoming deadline on initial load
     const upcomingDeadlines = admissionDeadlines
       .filter((d) => d.date > new Date())
       .sort((a, b) => a.date.getTime() - b.date.getTime());
@@ -26,17 +25,22 @@ const CountdownTimer = () => {
       );
       setCurrentIndex(firstUpcomingIndex);
     } else {
-      // If no upcoming deadlines, show the last one as completed
       setCurrentIndex(admissionDeadlines.length - 1);
       setIsCurrentCompleted(true);
       setTimeLeft({ days: "00", hours: "00", minutes: "00", seconds: "00" });
     }
+
+    return () => {
+      if (animationFrameId.current) {
+        cancelAnimationFrame(animationFrameId.current);
+      }
+    };
   }, []);
 
   useEffect(() => {
-    if (currentIndex < 0) return;
-
     const updateTimer = () => {
+      if (currentIndex < 0 || isCurrentCompleted) return;
+
       const now = new Date();
       const difference =
         admissionDeadlines[currentIndex].date.getTime() - now.getTime();
@@ -44,9 +48,9 @@ const CountdownTimer = () => {
       if (difference <= 0) {
         setIsCurrentCompleted(true);
         setTimeLeft({ days: "00", hours: "00", minutes: "00", seconds: "00" });
-        if (intervalRef.current) clearInterval(intervalRef.current);
-
-        // Wait for a bit before showing the next timer
+        if (animationFrameId.current) {
+          cancelAnimationFrame(animationFrameId.current);
+        }
         setTimeout(() => {
           const nextUpcomingIndex = admissionDeadlines.findIndex(
             (d) => d.date > new Date(),
@@ -55,33 +59,33 @@ const CountdownTimer = () => {
             setCurrentIndex(nextUpcomingIndex);
             setIsCurrentCompleted(false);
           } else {
-            // To show "All deadlines passed" message, we can set index out of bounds
             setCurrentIndex(admissionDeadlines.length);
           }
-        }, 2000); // 2-second delay
-        return;
+        }, 2000);
+      } else {
+        const days = Math.floor(difference / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((difference / (1000 * 60 * 60)) % 24);
+        const minutes = Math.floor((difference / 1000 / 60) % 60);
+        const seconds = Math.floor((difference / 1000) % 60);
+
+        setTimeLeft({
+          days: String(days).padStart(2, "0"),
+          hours: String(hours).padStart(2, "0"),
+          minutes: String(minutes).padStart(2, "0"),
+          seconds: String(seconds).padStart(2, "0"),
+        });
+        animationFrameId.current = requestAnimationFrame(updateTimer);
       }
-
-      const days = Math.floor(difference / (1000 * 60 * 60 * 24));
-      const hours = Math.floor((difference / (1000 * 60 * 60)) % 24);
-      const minutes = Math.floor((difference / 1000 / 60) % 60);
-      const seconds = Math.floor((difference / 1000) % 60);
-
-      setTimeLeft({
-        days: String(days).padStart(2, "0"),
-        hours: String(hours).padStart(2, "0"),
-        minutes: String(minutes).padStart(2, "0"),
-        seconds: String(seconds).padStart(2, "0"),
-      });
     };
 
     if (!isCurrentCompleted) {
-      updateTimer();
-      intervalRef.current = setInterval(updateTimer, 1000);
+      animationFrameId.current = requestAnimationFrame(updateTimer);
     }
 
     return () => {
-      if (intervalRef.current) clearInterval(intervalRef.current);
+      if (animationFrameId.current) {
+        cancelAnimationFrame(animationFrameId.current);
+      }
     };
   }, [currentIndex, isCurrentCompleted]);
 
@@ -146,7 +150,7 @@ const CountdownTimer = () => {
               strokeDashoffset: isCurrentCompleted ? 0 : offset,
               transition:
                 unit === "সেকেন্ড"
-                  ? "stroke-dashoffset 1s linear"
+                  ? "none"
                   : "stroke-dashoffset 0.5s ease-out",
             }}
           />

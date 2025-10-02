@@ -12,8 +12,9 @@ const QuestionBankTabs = () => {
   const [activeTab, setActiveTab] = useState(initialTab);
 
   useEffect(() => {
-    setActiveTab(initialTab);
-  }, [initialTab]);
+    const tab = searchParams.get("tab") || "du";
+    setActiveTab(tab);
+  }, [searchParams]);
 
   return (
     <div

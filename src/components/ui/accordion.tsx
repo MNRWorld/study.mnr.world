@@ -27,12 +27,18 @@ const AccordionTrigger = React.forwardRef<
   const childrenArray = React.Children.toArray(children);
   const lastChild = childrenArray[childrenArray.length - 1];
 
-  const hasCustomIcon =
-    React.isValidElement(lastChild) &&
-    typeof lastChild.type !== "string" &&
-    lastChild.type === Download;
+  const isCustomIcon = (child: React.ReactNode): child is React.ReactElement =>
+    React.isValidElement(child) &&
+    typeof child.type !== "string" &&
+    (child.type === Download || child.type === ChevronDown);
 
+  const hasCustomIcon = isCustomIcon(lastChild);
   const mainContent = hasCustomIcon ? childrenArray.slice(0, -1) : children;
+  const icon = hasCustomIcon ? (
+    lastChild
+  ) : (
+    <ChevronDown className="h-4 w-4 shrink-0 transition-transform duration-200 chevron" />
+  );
 
   return (
     <AccordionPrimitive.Header className="flex">
@@ -45,11 +51,7 @@ const AccordionTrigger = React.forwardRef<
         {...props}
       >
         {mainContent}
-        {hasCustomIcon ? (
-          lastChild
-        ) : (
-          <ChevronDown className="h-4 w-4 shrink-0 transition-transform duration-200 chevron" />
-        )}
+        {icon}
       </AccordionPrimitive.Trigger>
     </AccordionPrimitive.Header>
   );
