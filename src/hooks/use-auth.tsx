@@ -32,16 +32,16 @@ const DEVICE_ID_KEY = "deviceAuthDeviceId";
 
 // This function now ONLY gets or creates the device ID. It is permanent.
 const getOrCreateDeviceId = (): string | null => {
+  if (typeof window === "undefined") return null;
   try {
     let deviceId = localStorage.getItem(DEVICE_ID_KEY);
     if (!deviceId) {
-      deviceId = `device-${new Date().getTime()}-${Math.random().toString(36).substring(2, 10)}`;
+      deviceId = `device-${Date.now()}-${Math.random().toString(36).substring(2, 10)}`;
       localStorage.setItem(DEVICE_ID_KEY, deviceId);
     }
     return deviceId;
   } catch (error) {
     console.error("Could not access localStorage", error);
-    // This case will be handled in the calling function with a toast.
     return null;
   }
 };
@@ -57,25 +57,23 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
       const storedUserData = localStorage.getItem(USER_DATA_KEY);
       if (storedUserData) {
         const parsedUser: User = JSON.parse(storedUserData);
-        // Ensure the device ID from the session matches the device's permanent ID
         const permanentDeviceId = getOrCreateDeviceId();
         if (permanentDeviceId && parsedUser.deviceId === permanentDeviceId) {
           setUser(parsedUser);
         } else {
-          // If mismatch, something is wrong. Clear session.
+          // Mismatch or error, clear the session for security
           localStorage.removeItem(USER_DATA_KEY);
         }
       }
     } catch (error) {
       console.error("Failed to parse user data from localStorage", error);
-      // Clear corrupted data
       localStorage.removeItem(USER_DATA_KEY);
     } finally {
       setLoading(false);
     }
   }, []);
 
-  const login = async () => {
+  const login = useCallback(async () => {
     setLoading(true);
     try {
       await new Promise((res) => setTimeout(res, 500));
@@ -90,33 +88,34 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
         throw new Error("Device could not be identified.");
       }
 
-      // Check if the user is already logged in. If so, do nothing.
+      // If user is already logged in on this device, just go to profile.
       if (user && user.deviceId === deviceId) {
         router.push("/profile");
-        setLoading(false);
         return;
       }
       
+      // Try to find if there was a previous user session to restore the name.
+      // This is useful if they logged out but didn't delete the account.
       let name = "ব্যবহারকারী";
-      // Try to find if there was a previous user session to restore the name
       const storedUserData = localStorage.getItem(USER_DATA_KEY);
       if(storedUserData){
         try {
-            const parsed = JSON.parse(storedUserData)
-            if(parsed.name) name = parsed.name
+            const parsed = JSON.parse(storedUserData);
+            // This case should not happen often if logout is used correctly, but it's a good fallback
+            if(parsed.name && parsed.deviceId === deviceId) name = parsed.name;
         } catch(e){
             // ignore parsing errors
         }
       }
 
       const newUser: User = {
-        name: name,
+        name,
         deviceId: deviceId,
         loginTime: new Date().toISOString(),
       };
 
-      setUser(newUser);
       localStorage.setItem(USER_DATA_KEY, JSON.stringify(newUser));
+      setUser(newUser);
 
       toast({
         title: "লগইন সফল হয়েছে",
@@ -135,9 +134,9 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
     } finally {
       setLoading(false);
     }
-  };
+  }, [user, router, toast]);
 
-  const logout = async () => {
+  const logout = useCallback(async () => {
     setLoading(true);
     await new Promise((res) => setTimeout(res, 300));
     setUser(null);
@@ -145,14 +144,14 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
       // Only remove the session data, NOT the permanent device ID
       localStorage.removeItem(USER_DATA_KEY);
     } catch (error) {
-      console.error("Could not access localStorage", error);
+      console.error("Could not access localStorage during logout", error);
     }
     toast({
       title: "সফলভাবে লগ আউট হয়েছে",
     });
     setLoading(false);
     router.push("/");
-  };
+  }, [router, toast]);
 
   const updateName = async (newName: string) => {
     if (!user) {
