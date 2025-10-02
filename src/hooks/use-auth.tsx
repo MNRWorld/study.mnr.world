@@ -4,25 +4,22 @@ import React, { createContext, useContext, useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import { useToast } from "./use-toast";
 
-// A simple mock of a User object
 interface User {
-  email: string;
+  name: string;
+  deviceId: string;
+  loginTime: string;
 }
 
 interface AuthContextType {
   user: User | null;
   loading: boolean;
-  login: (email: string, pass: string) => Promise<void>;
+  login: () => Promise<void>;
   logout: () => Promise<void>;
 }
 
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
 
-// Hardcoded credentials for demonstration
-const MOCK_EMAIL = "user@example.com";
-const MOCK_PASSWORD = "password123";
-const MOCK_USER = { email: MOCK_EMAIL };
-const AUTH_TOKEN_KEY = "authToken";
+const USER_DATA_KEY = "deviceAuthUserData";
 
 export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
   const [user, setUser] = useState<User | null>(null);
@@ -31,42 +28,45 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
   const { toast } = useToast();
 
   useEffect(() => {
-    // Check for a token in localStorage on initial load
     try {
-      const token = localStorage.getItem(AUTH_TOKEN_KEY);
-      if (token) {
-        // In a real app, you'd validate the token with a server
-        // For this mock, we'll just assume the token is valid
-        setUser(MOCK_USER);
+      const storedUserData = localStorage.getItem(USER_DATA_KEY);
+      if (storedUserData) {
+        setUser(JSON.parse(storedUserData));
       }
     } catch (error) {
       console.error("Could not access localStorage", error);
+    } finally {
+      setLoading(false);
     }
-    setLoading(false);
   }, []);
 
-  const login = async (email: string, pass: string) => {
+  const login = async () => {
     setLoading(true);
     try {
-      // Simulate an API call
       await new Promise((res) => setTimeout(res, 500));
 
-      if (email === MOCK_EMAIL && pass === MOCK_PASSWORD) {
-        setUser(MOCK_USER);
-        try {
-          // Store a mock token
-          localStorage.setItem(AUTH_TOKEN_KEY, "mock-jwt-token");
-        } catch (error) {
-          console.error("Could not access localStorage", error);
-        }
-        toast({
-          title: "লগইন সফল হয়েছে",
-          description: "MNR Study-তে স্বাগতম!",
-        });
-        router.push("/");
-      } else {
-        throw new Error("ভুল ইমেইল অথবা পাসওয়ার্ড");
+      const deviceId =
+        `device-${new Date().getTime()}-${Math.random().toString(36).substring(2, 10)}`;
+      const newUser: User = {
+        name: "ব্যবহারকারী",
+        deviceId: deviceId,
+        loginTime: new Date().toISOString(),
+      };
+
+      setUser(newUser);
+      try {
+        localStorage.setItem(USER_DATA_KEY, JSON.stringify(newUser));
+      } catch (error) {
+        console.error("Could not access localStorage", error);
+        throw new Error(
+          "Local storage is not accessible. Please enable it in your browser.",
+        );
       }
+      toast({
+        title: "লগইন সফল হয়েছে",
+        description: "MNR Study-তে স্বাগতম!",
+      });
+      router.push("/dashboard");
     } finally {
       setLoading(false);
     }
@@ -74,14 +74,16 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
 
   const logout = async () => {
     setLoading(true);
-    // Simulate an API call
     await new Promise((res) => setTimeout(res, 500));
     setUser(null);
     try {
-      localStorage.removeItem(AUTH_TOKEN_KEY);
+      localStorage.removeItem(USER_DATA_KEY);
     } catch (error) {
       console.error("Could not access localStorage", error);
     }
+    toast({
+      title: "সফলভাবে লগ আউট হয়েছে",
+    });
     setLoading(false);
     router.push("/");
   };

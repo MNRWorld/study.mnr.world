@@ -5,7 +5,7 @@ import Link from "next/link";
 import { useAuth } from "@/hooks/use-auth";
 import { useRouter } from "next/navigation";
 import { cn } from "@/lib/utils";
-import { LogIn, LogOut } from "lucide-react";
+import { LogIn, LogOut, UserCircle } from "lucide-react";
 
 interface AuthButtonProps {
   isHovered: boolean;
@@ -65,20 +65,33 @@ export default function HeaderAuth() {
   };
 
   if (loading) {
-    return <div className="w-20 h-9" />; // Placeholder to prevent layout shift
+    return <div className="w-9 h-9" />; // Placeholder to prevent layout shift
   }
 
   return (
     <div onMouseLeave={() => setHoveredId(null)}>
       {user ? (
-        <div onMouseEnter={() => setHoveredId("logout")}>
-          <AuthButton
-            isHovered={hoveredId === "logout"}
-            onClick={handleLogout}
-            label="লগ আউট"
-            icon={<LogOut size={20} />}
-            isDestructive
-          />
+        <div
+          className="flex items-center gap-x-1"
+          onMouseEnter={() => setHoveredId("profile")}
+        >
+          <Link href="/dashboard">
+            <AuthButton
+              isHovered={hoveredId === "profile"}
+              label={user.name}
+              icon={<UserCircle size={20} />}
+            />
+          </Link>
+          <div className="h-6 w-px bg-border/50"></div>
+          <div onMouseEnter={() => setHoveredId("logout")}>
+            <AuthButton
+              isHovered={hoveredId === "logout"}
+              onClick={handleLogout}
+              label="লগ আউট"
+              icon={<LogOut size={20} />}
+              isDestructive
+            />
+          </div>
         </div>
       ) : (
         <Link href="/login" onMouseEnter={() => setHoveredId("login")}>

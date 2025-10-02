@@ -1,24 +1,26 @@
 "use client";
 
-import { useState } from "react";
 import { useAuth } from "@/hooks/use-auth";
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
 import { useToast } from "@/hooks/use-toast";
-import { LogIn } from "lucide-react";
-import Link from "next/link";
+import { Fingerprint } from "lucide-react";
+import { useRouter } from "next/navigation";
+import { useEffect } from "react";
 
 export default function LoginPage() {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const { login, loading } = useAuth();
+  const { login, loading, user } = useAuth();
   const { toast } = useToast();
+  const router = useRouter();
 
-  const handleLogin = async (e: React.FormEvent) => {
-    e.preventDefault();
+  useEffect(() => {
+    if (!loading && user) {
+      router.push("/dashboard");
+    }
+  }, [user, loading, router]);
+
+  const handleLogin = async () => {
     try {
-      await login(email, password);
+      await login();
     } catch (error: any) {
       console.error(error);
       toast({
@@ -31,57 +33,30 @@ export default function LoginPage() {
 
   return (
     <div className="flex items-center justify-center min-h-[calc(100vh-10rem)] font-bengali px-4">
-      <div className="w-full max-w-md p-6 sm:p-8 space-y-6 sm:space-y-8 bg-card border border-border rounded-2xl shadow-lg animate-fade-in-up">
-        <div className="text-center">
+      <div className="w-full max-w-md p-6 sm:p-8 space-y-6 sm:space-y-8 bg-card border border-border rounded-2xl shadow-lg animate-fade-in-up text-center">
+        <div>
           <div className="inline-block p-4 bg-primary/10 rounded-full mb-4">
-            <LogIn className="h-8 w-8 sm:h-10 sm:w-10 text-primary" />
+            <Fingerprint className="h-8 w-8 sm:h-10 sm:w-10 text-primary" />
           </div>
           <h1 className="text-xl sm:text-2xl font-bold text-foreground">
-            লগইন করুন
+            ডিভাইস দিয়ে লগইন করুন
           </h1>
-          <p className="text-sm text-muted-foreground">
-            আপনার অ্যাকাউন্টে প্রবেশ করে শুরু করুন।
+          <p className="text-sm text-muted-foreground mt-2">
+            কোনো পাসওয়ার্ডের প্রয়োজন নেই। একটি ক্লিকেই আপনার অ্যাকাউন্টে প্রবেশ
+            করুন।
           </p>
         </div>
-        <form onSubmit={handleLogin} className="space-y-6">
-          <div className="space-y-2">
-            <Label htmlFor="email">ইমেইল</Label>
-            <Input
-              id="email"
-              type="email"
-              placeholder="user@example.com"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              required
-              className="text-sm"
-            />
-          </div>
-          <div className="space-y-2">
-            <Label htmlFor="password">পাসওয়ার্ড</Label>
-            <Input
-              id="password"
-              type="password"
-              placeholder="password123"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              required
-              className="text-sm"
-            />
-          </div>
-          <Button
-            type="submit"
-            className="w-full text-white font-semibold text-base transition-transform hover:scale-105"
-            disabled={loading}
-          >
-            {loading ? "প্রসেসিং..." : "লগইন"}
-          </Button>
-        </form>
-        <div className="text-center text-sm text-muted-foreground">
+        <Button
+          onClick={handleLogin}
+          size="lg"
+          className="w-full text-white font-semibold text-base transition-transform hover:scale-105"
+          disabled={loading}
+        >
+          {loading ? "প্রসেসিং..." : "ডিভাইস দিয়ে লগইন করুন"}
+        </Button>
+        <div className="text-xs text-muted-foreground">
           <p>
-            কোনো অ্যাকাউন্ট নেই?{" "}
-            <Link href="/signup" className="text-primary hover:underline">
-              এখনি তৈরি করুন
-            </Link>
+            আপনার ডিভাইসের তথ্যের ভিত্তিতে একটি সুরক্ষিত সেশন তৈরি করা হবে।
           </p>
         </div>
       </div>
