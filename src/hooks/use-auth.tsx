@@ -20,6 +20,7 @@ interface AuthContextType {
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
 
 const USER_DATA_KEY = "deviceAuthUserData";
+const DEVICE_ID_KEY = "deviceAuthDeviceId";
 
 export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
   const [user, setUser] = useState<User | null>(null);
@@ -45,8 +46,13 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
     try {
       await new Promise((res) => setTimeout(res, 500));
 
-      const deviceId =
-        `device-${new Date().getTime()}-${Math.random().toString(36).substring(2, 10)}`;
+      let deviceId = localStorage.getItem(DEVICE_ID_KEY);
+      if (!deviceId) {
+        deviceId =
+          `device-${new Date().getTime()}-${Math.random().toString(36).substring(2, 10)}`;
+        localStorage.setItem(DEVICE_ID_KEY, deviceId);
+      }
+
       const newUser: User = {
         name: "ব্যবহারকারী",
         deviceId: deviceId,
