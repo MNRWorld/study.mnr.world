@@ -30,112 +30,108 @@ const AuthContext = createContext<AuthContextType | undefined>(undefined);
 const USER_DATA_KEY = "deviceAuthUserData";
 const DEVICE_ID_KEY = "deviceAuthDeviceId";
 
+// This function now ONLY gets or creates the device ID. It is permanent.
+const getOrCreateDeviceId = (): string | null => {
+  try {
+    let deviceId = localStorage.getItem(DEVICE_ID_KEY);
+    if (!deviceId) {
+      deviceId = `device-${new Date().getTime()}-${Math.random().toString(36).substring(2, 10)}`;
+      localStorage.setItem(DEVICE_ID_KEY, deviceId);
+    }
+    return deviceId;
+  } catch (error) {
+    console.error("Could not access localStorage", error);
+    // This case will be handled in the calling function with a toast.
+    return null;
+  }
+};
+
 export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
   const [user, setUser] = useState<User | null>(null);
   const [loading, setLoading] = useState(true);
   const router = useRouter();
   const { toast } = useToast();
 
-  const getOrCreateDeviceId = useCallback(() => {
-    try {
-      let deviceId = localStorage.getItem(DEVICE_ID_KEY);
-      if (!deviceId) {
-        deviceId = `device-${new Date().getTime()}-${Math.random().toString(36).substring(2, 10)}`;
-        localStorage.setItem(DEVICE_ID_KEY, deviceId);
-      }
-      return deviceId;
-    } catch (error) {
-      console.error("Could not access localStorage", error);
-      toast({
-        title: "Local Storage Error",
-        description:
-          "Could not access local storage. Please enable it in your browser settings.",
-        variant: "destructive",
-      });
-      return null;
-    }
-  }, [toast]);
-
   useEffect(() => {
     try {
       const storedUserData = localStorage.getItem(USER_DATA_KEY);
       if (storedUserData) {
-        const parsedUser = JSON.parse(storedUserData);
-        const deviceId = getOrCreateDeviceId();
-        if (deviceId && parsedUser.deviceId === deviceId) {
+        const parsedUser: User = JSON.parse(storedUserData);
+        // Ensure the device ID from the session matches the device's permanent ID
+        const permanentDeviceId = getOrCreateDeviceId();
+        if (permanentDeviceId && parsedUser.deviceId === permanentDeviceId) {
           setUser(parsedUser);
         } else {
-          // Mismatch or no deviceId, clear stale user data
+          // If mismatch, something is wrong. Clear session.
           localStorage.removeItem(USER_DATA_KEY);
         }
       }
     } catch (error) {
       console.error("Failed to parse user data from localStorage", error);
+      // Clear corrupted data
       localStorage.removeItem(USER_DATA_KEY);
     } finally {
       setLoading(false);
     }
-  }, [getOrCreateDeviceId]);
+  }, []);
 
   const login = async () => {
     setLoading(true);
     try {
       await new Promise((res) => setTimeout(res, 500));
-  
+
       const deviceId = getOrCreateDeviceId();
       if (!deviceId) {
+        toast({
+          title: "Local Storage Error",
+          description: "Could not access local storage. Please enable it in your browser settings.",
+          variant: "destructive",
+        });
         throw new Error("Device could not be identified.");
       }
-  
-      // Check if there is user data for this device ID already
-      const storedUserData = localStorage.getItem(USER_DATA_KEY);
+
+      // Check if the user is already logged in. If so, do nothing.
+      if (user && user.deviceId === deviceId) {
+        router.push("/profile");
+        setLoading(false);
+        return;
+      }
+      
       let name = "ব্যবহারকারী";
-      if (storedUserData) {
+      // Try to find if there was a previous user session to restore the name
+      const storedUserData = localStorage.getItem(USER_DATA_KEY);
+      if(storedUserData){
         try {
-          const parsedUser = JSON.parse(storedUserData);
-          if (parsedUser.deviceId === deviceId) {
-             // User is already logged in, just update login time
-            const updatedUser: User = {
-                ...parsedUser,
-                loginTime: new Date().toISOString(),
-            };
-            setUser(updatedUser);
-            localStorage.setItem(USER_DATA_KEY, JSON.stringify(updatedUser));
-            toast({
-                title: "লগইন সফল হয়েছে",
-                description: `আবারো স্বাগতম, ${updatedUser.name}!`,
-            });
-            router.push("/profile");
-            setLoading(false);
-            return;
-          }
-        } catch(e) {
-            localStorage.removeItem(USER_DATA_KEY);
+            const parsed = JSON.parse(storedUserData)
+            if(parsed.name) name = parsed.name
+        } catch(e){
+            // ignore parsing errors
         }
       }
-  
-      // If no user data, create a new session for this device
+
       const newUser: User = {
-        name: name, // Default name
+        name: name,
         deviceId: deviceId,
         loginTime: new Date().toISOString(),
       };
-  
+
       setUser(newUser);
       localStorage.setItem(USER_DATA_KEY, JSON.stringify(newUser));
-  
+
       toast({
         title: "লগইন সফল হয়েছে",
-        description: "MNR Study-তে স্বাগতম!",
+        description: `স্বাগতম, ${newUser.name}!`,
       });
       router.push("/profile");
     } catch (error: any) {
       console.error("Login failed:", error);
-      toast({
-        title: "লগইন ব্যর্থ হয়েছে",
-        description: error.message || "একটি অপ্রত্যাশিত সমস্যা হয়েছে।",
-        variant: "destructive",
-      });
+      if (error.message !== "Device could not be identified.") {
+        toast({
+          title: "লগইন ব্যর্থ হয়েছে",
+          description: "একটি অপ্রত্যাশিত সমস্যা হয়েছে।",
+          variant: "destructive",
+        });
+      }
     } finally {
       setLoading(false);
     }
@@ -143,9 +139,10 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
 
   const logout = async () => {
     setLoading(true);
-    await new Promise((res) => setTimeout(res, 500));
+    await new Promise((res) => setTimeout(res, 300));
     setUser(null);
     try {
+      // Only remove the session data, NOT the permanent device ID
       localStorage.removeItem(USER_DATA_KEY);
     } catch (error) {
       console.error("Could not access localStorage", error);
@@ -176,6 +173,7 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
     await new Promise((res) => setTimeout(res, 500));
     setUser(null);
     try {
+      // On deletion, remove BOTH session and the permanent device ID
       localStorage.removeItem(USER_DATA_KEY);
       localStorage.removeItem(DEVICE_ID_KEY);
     } catch (error) {

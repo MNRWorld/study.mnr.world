@@ -26,7 +26,7 @@ export default function ProfilePage() {
   const { user, loading, logout, updateName, deleteAccount } = useAuth();
   const router = useRouter();
   const { toast } = useToast();
-  const [name, setName] = useState(user?.name || "");
+  const [name, setName] = useState("");
 
   useEffect(() => {
     if (!loading && !user) {
@@ -49,7 +49,6 @@ export default function ProfilePage() {
 
   const handleLogout = async () => {
     await logout();
-    router.push("/");
   };
 
   const handleNameUpdate = async () => {
