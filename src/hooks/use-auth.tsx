@@ -30,7 +30,6 @@ const AuthContext = createContext<AuthContextType | undefined>(undefined);
 const USER_DATA_KEY = "deviceAuthUserData";
 const DEVICE_ID_KEY = "deviceAuthDeviceId";
 
-// This function now ONLY gets or creates the device ID. It is permanent.
 const getOrCreateDeviceId = (): string | null => {
   if (typeof window === "undefined") return null;
   try {
@@ -53,21 +52,28 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
   const { toast } = useToast();
 
   useEffect(() => {
+    setLoading(true);
     try {
       const storedUserData = localStorage.getItem(USER_DATA_KEY);
       if (storedUserData) {
         const parsedUser: User = JSON.parse(storedUserData);
-        const permanentDeviceId = getOrCreateDeviceId();
+        const permanentDeviceId = localStorage.getItem(DEVICE_ID_KEY);
+        // Ensure the stored user data corresponds to the current device
         if (permanentDeviceId && parsedUser.deviceId === permanentDeviceId) {
           setUser(parsedUser);
         } else {
-          // Mismatch or error, clear the session for security
+          // If there's a mismatch, clear the invalid session data for security.
           localStorage.removeItem(USER_DATA_KEY);
+          setUser(null);
         }
+      } else {
+        setUser(null);
       }
     } catch (error) {
       console.error("Failed to parse user data from localStorage", error);
+      // Clear potentially corrupted data
       localStorage.removeItem(USER_DATA_KEY);
+      setUser(null);
     } finally {
       setLoading(false);
     }
@@ -88,23 +94,25 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
         throw new Error("Device could not be identified.");
       }
 
-      // If user is already logged in on this device, just go to profile.
+      // Check if a user session already exists for this device.
+      // This handles the case where the user is already logged in.
       if (user && user.deviceId === deviceId) {
         router.push("/profile");
         return;
       }
       
-      // Try to find if there was a previous user session to restore the name.
-      // This is useful if they logged out but didn't delete the account.
       let name = "ব্যবহারকারী";
+      // Try to find if there was a previous user session on this device to restore the name.
+      // This is useful if they logged out but didn't delete the account.
       const storedUserData = localStorage.getItem(USER_DATA_KEY);
       if(storedUserData){
         try {
             const parsed = JSON.parse(storedUserData);
-            // This case should not happen often if logout is used correctly, but it's a good fallback
-            if(parsed.name && parsed.deviceId === deviceId) name = parsed.name;
+            if(parsed.name && parsed.deviceId === deviceId) {
+              name = parsed.name;
+            }
         } catch(e){
-            // ignore parsing errors
+            // ignore parsing errors and use default name
         }
       }
 
