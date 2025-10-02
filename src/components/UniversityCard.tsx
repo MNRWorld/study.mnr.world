@@ -25,7 +25,7 @@ const UniversityCard = React.memo(function UniversityCard({
     <Accordion
       type="single"
       collapsible
-      className="bg-card border border-border rounded-xl shadow-sm transition-all duration-300 hover:border-primary/50 hover:shadow-lg overflow-hidden"
+      className="bg-card border border-border rounded-xl shadow-sm transition-all duration-300 hover:border-primary/50 hover:shadow-lg hover:shadow-primary/10 overflow-hidden"
     >
       <AccordionItem value={university.shortName} className="border-none">
         <AccordionTrigger className="p-4 w-full flex justify-between items-center cursor-pointer hover:no-underline [&[data-state=open]>svg.chevron]:-rotate-180 text-foreground">

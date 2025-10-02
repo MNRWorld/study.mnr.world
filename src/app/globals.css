@@ -27,23 +27,23 @@
   }
 
   .dark {
-    --background: 224 71.4% 4.1%;
+    --background: 220 13% 9%;
     --foreground: 210 20% 98%;
-    --card: 215 27.9% 11.9%;
+    --card: 220 13% 13%;
     --card-foreground: 210 20% 98%;
     --popover: 224 71.4% 4.1%;
     --popover-foreground: 210 20% 98%;
     --primary: 210 20% 98%;
     --primary-foreground: 221 83% 53%;
-    --secondary: 215 27.9% 11.9%;
+    --secondary: 215 27.9% 17%;
     --secondary-foreground: 210 20% 98%;
-    --muted: 215 27.9% 11.9%;
+    --muted: 215 27.9% 17%;
     --muted-foreground: 215 25% 65.1%;
-    --accent: 215 27.9% 11.9%;
+    --accent: 215 27.9% 17%;
     --accent-foreground: 210 20% 98%;
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 210 20% 98%;
-    --border: 215 27.9% 17%;
+    --border: 215 27.9% 20%;
     --input: 215 27.9% 17%;
     --ring: 210 20% 98%;
   }
@@ -61,6 +61,10 @@
 @layer components {
   .size-auto {
     @apply w-[1em] h-[1em];
+  }
+  .feature-card {
+    @apply flex flex-col items-center justify-center p-3 sm:p-4 rounded-xl border border-border bg-card shadow-sm transition-all duration-300;
+    @apply hover:border-primary/50 hover:shadow-lg hover:shadow-primary/10 hover:-translate-y-1;
   }
 }
 
@@ -91,6 +95,16 @@ body,
     to right,
     hsl(var(--primary)),
     hsl(var(--foreground))
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.dark .gradient-text {
+  background: linear-gradient(
+    to right,
+    hsl(var(--primary)),
+    hsl(var(--foreground) / 0.8)
   );
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
