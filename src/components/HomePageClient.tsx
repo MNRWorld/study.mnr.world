@@ -66,7 +66,7 @@ const HomePageClient = ({ features }: HomePageClientProps) => {
           <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold font-bengali leading-tight gradient-text">
             স্বপ্ন পূরণের পথে, সকল কিছু একসাথে
           </h1>
-          <div className="mt-4 text-base sm:text-lg text-muted-foreground font-bengali">
+          <div className="mt-4 text-lg text-muted-foreground font-bengali">
             <TypingAnimation />
             <p>
               সকল কিছুর জন্যে পাশে আছে{" "}
@@ -99,7 +99,6 @@ const HomePageClient = ({ features }: HomePageClientProps) => {
                 alt={characterImage.description}
                 fill
                 className="object-contain"
-                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                 priority
               />
             </div>
@@ -112,7 +111,6 @@ const HomePageClient = ({ features }: HomePageClientProps) => {
                 fill
                 className="object-contain"
                 priority
-                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
               />
             </div>
           )}
@@ -123,7 +121,6 @@ const HomePageClient = ({ features }: HomePageClientProps) => {
                 alt={characterImage2.description}
                 fill
                 className="object-contain"
-                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                 priority
               />
             </div>

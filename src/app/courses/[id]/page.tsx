@@ -19,7 +19,7 @@ export default function CoursePage({ params }: { params: { id: string } }) {
     notFound();
   }
 
-  const relatedCourses = courses.filter((c) => c.id !== params.id).slice(0, 3);
+  const relatedCourses = courses.filter((c) => c.id !== params.id);
 
   const CourseIcon = React.createElement(course.Icon, {
     className: "h-14 w-14 text-primary",
