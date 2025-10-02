@@ -6,6 +6,11 @@ import {
   CalendarDays,
   GraduationCap,
   Home,
+  Info,
+  ChevronDown,
+  University,
+  Building,
+  School,
 } from "lucide-react";
 import { navItems } from "@/lib/data/navigation";
 import HeaderAuth from "./HeaderAuth";
@@ -13,12 +18,22 @@ import React, { memo } from "react";
 import { usePathname } from "next/navigation";
 import Image from "next/image";
 import { ThemeToggle } from "./ThemeToggle";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
 
 const icons: { [key: string]: React.ElementType } = {
   Home,
   BookOpen,
   CalendarDays,
   GraduationCap,
+  Info,
+  University,
+  Building,
+  School,
 };
 
 interface NavItemProps {
@@ -27,12 +42,64 @@ interface NavItemProps {
     label: string;
     icon: string;
     href: string;
+    subItems?: { id: string; label: string; icon: string; href: string }[];
   };
   isActive: boolean;
 }
 
 const NavItem = memo(function NavItem({ item, isActive }: NavItemProps) {
   const Icon = icons[item.icon];
+
+  if (item.subItems) {
+    const SubItemIcon = ({ name }: { name: string }) => {
+      const IconComp = icons[name];
+      return IconComp ? <IconComp size={16} /> : null;
+    };
+    return (
+      <DropdownMenu>
+        <DropdownMenuTrigger asChild>
+          <button
+            className={cn(
+              "relative flex cursor-pointer items-center justify-center rounded-full transition-colors duration-300",
+              "h-9 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background",
+              "text-muted-foreground hover:bg-accent hover:text-accent-foreground",
+              isActive && "bg-accent text-accent-foreground",
+              "px-3 font-bengali",
+            )}
+          >
+            <div className="relative z-10 flex items-center">
+              <div className="shrink-0">{Icon && <Icon size={20} />}</div>
+              <div
+                className={cn("ml-2 hidden sm:block", { "sm:block": isActive })}
+              >
+                <span className="whitespace-nowrap text-sm font-medium">
+                  {item.label}
+                </span>
+              </div>
+              <ChevronDown
+                size={16}
+                className="ml-1 hidden sm:block shrink-0"
+              />
+            </div>
+          </button>
+        </DropdownMenuTrigger>
+        <DropdownMenuContent className="font-bengali">
+          {item.subItems.map((subItem) => (
+            <DropdownMenuItem key={subItem.id} asChild>
+              <Link
+                href={subItem.href}
+                className="flex items-center gap-2 cursor-pointer"
+              >
+                <SubItemIcon name={subItem.icon} />
+                <span>{subItem.label}</span>
+              </Link>
+            </DropdownMenuItem>
+          ))}
+        </DropdownMenuContent>
+      </DropdownMenu>
+    );
+  }
+
   return (
     <Link
       href={item.href}
@@ -88,7 +155,11 @@ const Header = memo(function Header() {
               <NavItem
                 key={item.id}
                 item={item}
-                isActive={pathname === item.href}
+                isActive={
+                  item.href === "/"
+                    ? pathname === item.href
+                    : pathname.startsWith(item.href)
+                }
               />
             ))}
           </div>
