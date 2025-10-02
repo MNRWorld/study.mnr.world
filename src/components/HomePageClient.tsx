@@ -19,8 +19,8 @@ interface HomePageClientProps {
 
 const TypingAnimation = () => {
   return (
-    <div className="h-12 md:h-14 lg:h-7">
-      <h1 className="text-lg text-muted-foreground font-bengali w-max animate-typing overflow-hidden whitespace-nowrap border-r-4 border-r-primary pr-2">
+    <div className="h-12 md:h-14 lg:h-7 flex items-center justify-center">
+      <h1 className="text-lg text-muted-foreground font-bengali">
         একাডেমিক হোক, এডমিশন হোক, অথবা বেসিক গড়ার প্রচেষ্টা,
       </h1>
     </div>
