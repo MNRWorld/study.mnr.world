@@ -61,10 +61,11 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
       const storedUserData = localStorage.getItem(USER_DATA_KEY);
       if (storedUserData) {
         const parsedUser = JSON.parse(storedUserData);
-        const deviceId = localStorage.getItem(DEVICE_ID_KEY);
+        const deviceId = getOrCreateDeviceId();
         if (deviceId && parsedUser.deviceId === deviceId) {
           setUser(parsedUser);
         } else {
+          // Mismatch or no deviceId, clear stale user data
           localStorage.removeItem(USER_DATA_KEY);
         }
       }
@@ -74,52 +75,55 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
     } finally {
       setLoading(false);
     }
-  }, []);
+  }, [getOrCreateDeviceId]);
 
   const login = async () => {
     setLoading(true);
     try {
       await new Promise((res) => setTimeout(res, 500));
-
+  
       const deviceId = getOrCreateDeviceId();
       if (!deviceId) {
         throw new Error("Device could not be identified.");
       }
-
+  
+      // Check if there is user data for this device ID already
       const storedUserData = localStorage.getItem(USER_DATA_KEY);
+      let name = "ব্যবহারকারী";
       if (storedUserData) {
         try {
           const parsedUser = JSON.parse(storedUserData);
           if (parsedUser.deviceId === deviceId) {
-            const updatedUser = {
-              ...parsedUser,
-              loginTime: new Date().toISOString(),
+             // User is already logged in, just update login time
+            const updatedUser: User = {
+                ...parsedUser,
+                loginTime: new Date().toISOString(),
             };
             setUser(updatedUser);
             localStorage.setItem(USER_DATA_KEY, JSON.stringify(updatedUser));
             toast({
-              title: "লগইন সফল হয়েছে",
-              description: `আবারো স্বাগতম, ${parsedUser.name}!`,
+                title: "লগইন সফল হয়েছে",
+                description: `আবারো স্বাগতম, ${updatedUser.name}!`,
             });
             router.push("/profile");
             setLoading(false);
             return;
           }
-        } catch (e) {
-          // If parsing fails, proceed to create a new user
-          localStorage.removeItem(USER_DATA_KEY);
+        } catch(e) {
+            localStorage.removeItem(USER_DATA_KEY);
         }
       }
-
+  
+      // If no user data, create a new session for this device
       const newUser: User = {
-        name: "ব্যবহারকারী",
+        name: name, // Default name
         deviceId: deviceId,
         loginTime: new Date().toISOString(),
       };
-
+  
       setUser(newUser);
       localStorage.setItem(USER_DATA_KEY, JSON.stringify(newUser));
-
+  
       toast({
         title: "লগইন সফল হয়েছে",
         description: "MNR Study-তে স্বাগতম!",
