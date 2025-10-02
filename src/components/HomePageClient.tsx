@@ -19,31 +19,10 @@ interface HomePageClientProps {
 
 const TypingAnimation = () => {
   return (
-    <div className="inline-grid h-12 md:h-7">
-      <span
-        className={cn(
-          "typing-text col-start-1 row-start-1",
-          "[animation-delay:0s] text-left",
-        )}
-      >
-        একাডেমিক হোক,&nbsp;
-      </span>
-      <span
-        className={cn(
-          "typing-text col-start-1 row-start-1",
-          "[animation-delay:3s] text-left",
-        )}
-      >
-        এডমিশন হোক,&nbsp;
-      </span>
-      <span
-        className={cn(
-          "typing-text col-start-1 row-start-1",
-          "[animation-delay:6s] text-left",
-        )}
-      >
-        অথবা বেসিক গড়ার প্রচেষ্টা,&nbsp;
-      </span>
+    <div className="h-12 md:h-14 lg:h-7">
+      <h1 className="text-lg text-muted-foreground font-bengali w-max animate-typing overflow-hidden whitespace-nowrap border-r-4 border-r-primary pr-2">
+        একাডেমিক হোক, এডমিশন হোক, অথবা বেসিক গড়ার প্রচেষ্টা,
+      </h1>
     </div>
   );
 };
@@ -66,9 +45,9 @@ const HomePageClient = ({ features }: HomePageClientProps) => {
           <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold font-bengali leading-tight gradient-text">
             স্বপ্ন পূরণের পথে, সকল কিছু একসাথে
           </h1>
-          <div className="mt-4 text-lg text-muted-foreground font-bengali">
+          <div className="mt-4">
             <TypingAnimation />
-            <p>
+            <p className="text-lg text-muted-foreground font-bengali">
               সকল কিছুর জন্যে পাশে আছে{" "}
               <b className="text-primary">“MNR Study”</b>
             </p>
