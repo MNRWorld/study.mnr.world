@@ -1,4 +1,3 @@
-
 "use client";
 
 import { resultSchedule } from "@/lib/data/schedules/result";
@@ -21,7 +20,7 @@ const ResultScheduleTable = () => {
       {/* HSC-24 Results */}
       <div className="w-full border border-border bg-card rounded-2xl p-4 sm:p-6 shadow-lg relative overflow-x-auto">
         <div className="flex justify-center">
-          <div className="inline-block px-6 py-2 bg-gradient-to-r from-primary to-foreground text-primary-foreground rounded-full text-base sm:text-lg mb-4 font-bold shadow-md">
+          <div className="inline-block px-6 py-2 bg-gradient-to-r from-primary to-foreground text-primary-foreground rounded-full text-lg mb-4 font-bold shadow-md">
             <BarChart3 className="inline-block mr-2" />
             এডমিশন সময়ে প্রকাশিত ফলাফল (HSC-24)
           </div>
@@ -57,7 +56,7 @@ const ResultScheduleTable = () => {
       {/* HSC-23 Results */}
       <div className="w-full border border-border bg-card rounded-2xl p-4 sm:p-6 shadow-lg relative overflow-x-auto">
         <div className="flex justify-center">
-          <div className="inline-block px-6 py-2 bg-gradient-to-r from-primary to-foreground text-primary-foreground rounded-full text-base sm:text-lg mb-4 font-bold shadow-md">
+          <div className="inline-block px-6 py-2 bg-gradient-to-r from-primary to-foreground text-primary-foreground rounded-full text-lg mb-4 font-bold shadow-md">
             <Clock className="inline-block mr-2" />
             বিগত এডমিশন (HSC-23)
           </div>

@@ -7,7 +7,7 @@ import {
   Banknote,
   Ticket,
 } from "lucide-react";
-import { collegeAdmissionInfo, privateAdmissionInfo } from "@/lib/data/schedules/others";
+import { collegeAdmissionInfo } from "@/lib/data/schedules/others";
 import ExternalLink from "./common/ExternalLink";
 
 const CollegeAdmissionInfo = () => {
@@ -20,14 +20,14 @@ const CollegeAdmissionInfo = () => {
       className="mt-8 w-full border border-border bg-card rounded-2xl p-4 sm:p-6 shadow-lg relative text-left"
     >
       <div className="flex justify-center">
-        <div className="inline-block px-6 py-2 bg-gradient-to-r from-primary to-foreground text-primary-foreground rounded-full text-base sm:text-lg mb-4 font-bold shadow-md">
+        <div className="inline-block px-6 py-2 bg-gradient-to-r from-primary to-foreground text-primary-foreground rounded-full text-lg mb-4 font-bold shadow-md">
           {generalInfo.title}
         </div>
       </div>
 
       <h2
         id="Apply"
-        className="bg-primary/10 text-primary rounded-xl p-3 my-4 text-center text-lg sm:text-xl font-bold flex items-center justify-center"
+        className="bg-primary/10 text-primary rounded-xl p-3 my-4 text-center text-lg font-bold flex items-center justify-center"
       >
         <PenSquare className="mr-2" /> {apply.title}
       </h2>
@@ -67,7 +67,7 @@ const CollegeAdmissionInfo = () => {
 
       <h2
         id="AdmitCard"
-        className="bg-primary/10 text-primary rounded-xl p-3 my-4 text-center text-lg sm:text-xl font-bold flex items-center justify-center"
+        className="bg-primary/10 text-primary rounded-xl p-3 my-4 text-center text-lg font-bold flex items-center justify-center"
       >
         <Ticket className="mr-2" /> {admitCard.title}
       </h2>
@@ -75,7 +75,7 @@ const CollegeAdmissionInfo = () => {
 
       <h2
         id="ExamDate"
-        className="bg-primary/10 text-primary rounded-xl p-3 my-4 text-center text-lg sm:text-xl font-bold flex items-center justify-center"
+        className="bg-primary/10 text-primary rounded-xl p-3 my-4 text-center text-lg font-bold flex items-center justify-center"
       >
         <Timer className="mr-2" /> {examDate.title}
       </h2>
@@ -90,7 +90,7 @@ const CollegeAdmissionInfo = () => {
 
       <h2
         id="Result"
-        className="bg-primary/10 text-primary rounded-xl p-3 my-4 text-center text-lg sm:text-xl font-bold flex items-center justify-center"
+        className="bg-primary/10 text-primary rounded-xl p-3 my-4 text-center text-lg font-bold flex items-center justify-center"
       >
         <BarChart3 className="mr-2" /> {result.title}
       </h2>

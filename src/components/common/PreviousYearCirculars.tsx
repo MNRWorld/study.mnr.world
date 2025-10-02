@@ -34,7 +34,7 @@ const PreviousYearCirculars = () => {
         পূর্ববর্তী বছরের সার্কুলার <ChevronRight size={16} className="ml-2" />
       </Button>
       {infoBoxVisible && (
-        <div className="mt-[15px] p-[15px] border border-border border-l-4 border-l-primary bg-accent rounded-md text-left w-full text-sm sm:text-base animate-accordion-down">
+        <div className="mt-[15px] p-[15px] border border-border border-l-4 border-l-primary bg-accent rounded-md text-left w-full text-base animate-accordion-down">
           {circulars.map((circular, index) => (
             <React.Fragment key={index}>
               ● <ExternalLink href={circular.href} text={circular.text} />

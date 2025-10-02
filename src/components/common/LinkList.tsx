@@ -22,7 +22,7 @@ const LinkList = ({ links }: LinkListProps) => {
       className="w-full border border-border bg-card rounded-2xl p-4 sm:p-6 shadow-lg text-center relative"
     >
       <div className="flex justify-center">
-        <div className="inline-flex items-center gap-2 px-6 py-2 bg-gradient-to-r from-primary to-foreground text-primary-foreground rounded-full text-base sm:text-lg mb-4 font-bold shadow-md">
+        <div className="inline-flex items-center gap-2 px-6 py-2 bg-gradient-to-r from-primary to-foreground text-primary-foreground rounded-full text-lg mb-4 font-bold shadow-md">
           <LinkIcon className="h-5 w-5" />
           গুরুত্বপূর্ণ লিঙ্ক
         </div>

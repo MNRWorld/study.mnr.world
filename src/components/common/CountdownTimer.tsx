@@ -165,9 +165,9 @@ const CountdownTimer = () => {
 
   return (
     <div className="text-center p-2 sm:p-4 rounded-2xl bg-card">
-      <div className="text-base sm:text-lg font-bold mb-3 text-foreground">
+      <div className="text-lg font-bold mb-3 text-foreground">
         {currentDeadline.title}
-        <div className="font-normal text-xs sm:text-sm mt-1 text-muted-foreground">
+        <div className="font-normal text-sm mt-1 text-muted-foreground">
           {currentDeadline.date.toLocaleDateString("bn-BD", {
             year: "numeric",
             month: "long",

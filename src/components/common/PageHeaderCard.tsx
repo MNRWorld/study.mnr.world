@@ -39,10 +39,10 @@ const PageHeaderCard = ({
         <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold my-2 text-foreground">
           {title}
         </h1>
-        <p className="text-sm sm:text-base text-muted-foreground mb-4">
+        <p className="text-sm text-muted-foreground mb-4">
           ({subtitle})
         </p>
-        <p className="text-sm sm:text-base text-muted-foreground mb-6 max-w-2xl mx-auto">
+        <p className="text-base text-muted-foreground mb-6 max-w-2xl mx-auto">
           {description}
         </p>
       </div>

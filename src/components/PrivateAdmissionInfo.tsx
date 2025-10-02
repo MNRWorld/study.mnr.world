@@ -12,14 +12,14 @@ const PrivateAdmissionInfo = () => {
       className="mt-8 w-full border border-border bg-card rounded-2xl p-4 sm:p-6 shadow-lg relative text-left"
     >
       <div className="flex justify-center">
-        <div className="inline-block px-6 py-2 bg-gradient-to-r from-primary to-foreground text-primary-foreground rounded-full text-base sm:text-lg mb-4 font-bold shadow-md">
+        <div className="inline-block px-6 py-2 bg-gradient-to-r from-primary to-foreground text-primary-foreground rounded-full text-lg mb-4 font-bold shadow-md">
           {title}
         </div>
       </div>
 
       <h2
         id="Apply"
-        className="bg-primary/10 text-primary rounded-xl p-3 my-4 text-center text-lg sm:text-xl font-bold flex items-center justify-center"
+        className="bg-primary/10 text-primary rounded-xl p-3 my-4 text-center text-lg font-bold flex items-center justify-center"
       >
         <PenSquare className="mr-2" /> {apply.title}
       </h2>
@@ -47,7 +47,7 @@ const PrivateAdmissionInfo = () => {
 
       <h2
         id="ExamDate"
-        className="bg-primary/10 text-primary rounded-xl p-3 my-4 text-center text-lg sm:text-xl font-bold flex items-center justify-center"
+        className="bg-primary/10 text-primary rounded-xl p-3 my-4 text-center text-lg font-bold flex items-center justify-center"
       >
         <Info className="mr-2" /> {examDate.title}
       </h2>
@@ -56,14 +56,14 @@ const PrivateAdmissionInfo = () => {
 
       <h2
         id="Location"
-        className="bg-primary/10 text-primary rounded-xl p-3 my-4 text-center text-lg sm:text-xl font-bold flex items-center justify-center"
+        className="bg-primary/10 text-primary rounded-xl p-3 my-4 text-center text-lg font-bold flex items-center justify-center"
       >
         <MapPin className="mr-2" /> {examCenter.title}
       </h2>
       <span className="text-base">{examCenter.details}</span>
 
       <div id="MarkDistributionAndOthers"></div>
-      <h2 className="bg-primary/10 text-primary rounded-xl p-3 my-4 text-center text-lg sm:text-xl font-bold flex items-center justify-center">
+      <h2 className="bg-primary/10 text-primary rounded-xl p-3 my-4 text-center text-lg font-bold flex items-center justify-center">
         <Info className="mr-2" /> {generalInfo.title}
       </h2>
       <p className="text-base">{generalInfo.details}</p>

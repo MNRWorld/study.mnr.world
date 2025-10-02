@@ -17,11 +17,11 @@ const CourseList = () => {
           >
             <div className="flex items-center gap-4">
               <Icon className="h-8 w-8 text-primary" />
-              <h3 className="text-lg sm:text-xl font-bold text-foreground">
+              <h3 className="text-lg font-bold text-foreground">
                 {course.title}
               </h3>
             </div>
-            <p className="text-muted-foreground mt-3 mb-4 text-sm sm:text-base">
+            <p className="text-muted-foreground mt-3 mb-4 text-sm">
               {course.description}
             </p>
             <Button

@@ -19,11 +19,11 @@ function CoursesPage() {
 
         <div className="mt-8 w-full border border-border bg-card rounded-2xl p-6 sm:p-8 shadow-lg text-center relative">
           <div className="flex justify-center">
-            <div className="inline-block px-6 py-2 bg-gradient-to-r from-primary to-foreground text-primary-foreground rounded-full text-base sm:text-lg mb-4 font-bold shadow-md">
+            <div className="inline-block px-6 py-2 bg-gradient-to-r from-primary to-foreground text-primary-foreground rounded-full text-base mb-4 font-bold shadow-md">
               আমাদের বইসমূহ
             </div>
           </div>
-          <p className="text-muted-foreground mb-4 text-sm sm:text-base">
+          <p className="text-muted-foreground mb-4 text-sm">
             কোর্সের পাশাপাশি তোমার প্রস্তুতিকে আরও শাণিত করতে সংগ্রহ করতে পারো
             আমাদের নিজস্ব প্রকাশনার বইগুলো।
           </p>

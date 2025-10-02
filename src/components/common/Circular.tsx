@@ -24,17 +24,17 @@ const Circular = ({
       className="mt-4 w-full border border-border bg-card rounded-2xl p-4 sm:p-6 shadow-lg text-center relative"
     >
       <div className="flex justify-center">
-        <div className="inline-block px-6 py-2 bg-gradient-to-r from-primary to-foreground text-primary-foreground rounded-full text-base sm:text-lg mb-4 font-bold shadow-md">
+        <div className="inline-block px-6 py-2 bg-gradient-to-r from-primary to-foreground text-primary-foreground rounded-full text-lg mb-4 font-bold shadow-md">
           সার্কুলার
         </div>
       </div>
       <div className="text-center">
-        <span className="text-base sm:text-lg">
+        <span className="text-lg">
           <b>{title}</b>
         </span>
         <br />
         {note && (
-          <span className="text-muted-foreground text-xs sm:text-sm">
+          <span className="text-muted-foreground text-sm">
             {note}
           </span>
         )}
