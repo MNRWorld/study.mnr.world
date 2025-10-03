@@ -65,7 +65,7 @@
     "nameEn": "Medical Guccho",
     "shortName": "Medical",
     "id": "Medical",
-    "category": "গুচ্ছ",
+    "category": "মেডিকেল",
     "description": "বাংলাদেশে সরকারি মেডিকেল কলেজ প্রায় ৩৭টি",
     "link": "/public/Medical",
     "logo": "https://raw.githubusercontent.com/MNRfrom2020/logo-and-icon-cdn/refs/heads/main/University/Medical.png"
@@ -75,7 +75,7 @@
     "nameEn": "Dental Guccho",
     "shortName": "Dental",
     "id": "Dental",
-    "category": "গুচ্ছ",
+    "category": "মেডিকেল",
     "description": "বাংলাদেশে সরকারি ডেন্টাল কলেজ ও ডেন্টাল ইউনিট প্রায় ৮টি",
     "link": "/public/Dental",
     "logo": "https://raw.githubusercontent.com/MNRfrom2020/logo-and-icon-cdn/refs/heads/main/University/Dental.png"
@@ -85,10 +85,20 @@
     "nameEn": "Nursing Guccho",
     "shortName": "Nursing",
     "id": "Nursing",
-    "category": "গুচ্ছ",
+    "category": "মেডিকেল",
     "description": "বাংলাদেশ সরকারি নার্সিং ও মিডওয়াইফারি শিক্ষাপ্রতিষ্ঠানসমূহ প্রায় ২৭টি",
     "link": "/public/Nursing",
     "logo": "https://raw.githubusercontent.com/MNRfrom2020/logo-and-icon-cdn/refs/heads/main/University/Nursing.png"
+  },
+  {
+    "nameBn": "নিটোর",
+    "nameEn": "NITOR",
+    "shortName": "NITOR",
+    "id": "NITOR",
+    "category": "মেডিকেল",
+    "description": "National Institute Of Traumatology And Orthopaedic Rehabilitation (NITOR)-কে পুরো বাংলাদেশের মানুষ বাংলাদেশ পঙ্গু হাসপাতাল নামে চিনে থাকে",
+    "link": "/public/NITOR",
+    "logo": "https://raw.githubusercontent.com/MNRfrom2020/logo-and-icon-cdn/refs/heads/main/University/NITOR.png"
   },
   {
     "nameBn": "জাতীয় গুচ্ছ (কলেজ)",
