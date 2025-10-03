@@ -1,15 +1,13 @@
-"use client";
-
-import dynamic from "next/dynamic";
 import DhakaMainInfoCard from "@/components/DhakaMainInfoCard";
+import FloatingMenu from "@/components/common/FloatingMenu";
 import LinkList from "@/components/common/LinkList";
 import { duLinks } from "@/lib/data/links";
 import Circular from "@/components/common/Circular";
 import DhakaAdmissionInfo from "@/components/DhakaAdmissionInfo";
 import DhakaSeatInfo from "@/components/DhakaSeatInfo";
 import DhakaQuestionBank from "@/components/DhakaQuestionBank";
+import dynamic from "next/dynamic";
 import DhakaHistoryAndMap from "@/components/DhakaHistoryAndMap";
-import FloatingMenu from "@/components/common/FloatingMenu";
 
 const CountdownTimer = dynamic(
   () => import("@/components/common/CountdownTimer"),
@@ -19,10 +17,12 @@ const CountdownTimer = dynamic(
 export default function DuPage() {
   return (
     <div className="font-bengali bg-background">
-      <FloatingMenu />
       <div className="container mx-auto px-4">
         <DhakaMainInfoCard />
-        <LinkList links={duLinks} />
+        <FloatingMenu />
+        <div className="mt-8">
+          <LinkList links={duLinks} />
+        </div>
         <DhakaHistoryAndMap />
         <div className="mt-8 w-full border border-border bg-card rounded-2xl p-4 sm:p-6 shadow-lg relative">
           <CountdownTimer />
@@ -30,12 +30,12 @@ export default function DuPage() {
         <Circular
           title="সম্পূর্ণ সার্কুলার"
           note="(⚠ নোট: সর্বশেষ সার্কুলার এখনও প্রকাশিত হয়নি। পূর্ববর্তী বছরের সার্কুলার দেখে আইডিয়া নিতে পারেন।)"
-          downloadLink="#"
+          downloadLink="https://t.me/Study_on_Telegram/13204"
           showPreviousYears={true}
         />
         <DhakaAdmissionInfo />
-        <DhakaSeatInfo />
         <DhakaQuestionBank />
+        <DhakaSeatInfo />
       </div>
     </div>
   );
