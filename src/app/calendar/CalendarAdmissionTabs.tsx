@@ -11,7 +11,7 @@ import {
   BarChart3,
 } from "lucide-react";
 import CalendarApplicationScheduleTable from "@/app/calendar/CalendarApplicationScheduleTable";
-import AdmitCardScheduleTable from "@/components/common/AdmitCardScheduleTable";
+import CalendarAdmitCardScheduleTable from "@/app/calendar/CalendarAdmitCardScheduleTable";
 import CalendarResultScheduleTable from "@/app/calendar/CalendarResultScheduleTable";
 
 const CalendarAdmissionTabs = () => {
@@ -45,7 +45,7 @@ const CalendarAdmissionTabs = () => {
           <CalendarApplicationScheduleTable />
         </TabsContent>
         <TabsContent value="admit-card" className="mt-1">
-          <AdmitCardScheduleTable />
+          <CalendarAdmitCardScheduleTable />
         </TabsContent>
         <TabsContent value="result" className="mt-1">
           <CalendarResultScheduleTable />
