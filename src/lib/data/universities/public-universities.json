@@ -61,6 +61,56 @@
     "logo": "https://raw.githubusercontent.com/MNRfrom2020/logo-and-icon-cdn/refs/heads/main/University/GST.png"
   },
   {
+    "nameBn": "মেডিকেল গুচ্ছ",
+    "nameEn": "Medical Guccho",
+    "shortName": "Medical",
+    "id": "Medical",
+    "category": "গুচ্ছ",
+    "description": "বাংলাদেশে সরকারি মেডিকেল কলেজ প্রায় ৩৭টি",
+    "link": "/public/Medical",
+    "logo": "https://raw.githubusercontent.com/MNRfrom2020/logo-and-icon-cdn/refs/heads/main/University/Medical.png"
+  },
+  {
+    "nameBn": "ডেন্টাল গুচ্ছ",
+    "nameEn": "Dental Guccho",
+    "shortName": "Dental",
+    "id": "Dental",
+    "category": "গুচ্ছ",
+    "description": "বাংলাদেশে সরকারি ডেন্টাল কলেজ ও ডেন্টাল ইউনিট প্রায় ৮টি",
+    "link": "/public/Dental",
+    "logo": "https://raw.githubusercontent.com/MNRfrom2020/logo-and-icon-cdn/refs/heads/main/University/Dental.png"
+  },
+  {
+    "nameBn": "নার্সিং গুচ্ছ",
+    "nameEn": "Nursing Guccho",
+    "shortName": "Nursing",
+    "id": "Nursing",
+    "category": "গুচ্ছ",
+    "description": "বাংলাদেশ সরকারি নার্সিং ও মিডওয়াইফারি শিক্ষাপ্রতিষ্ঠানসমূহ প্রায় ২৭টি",
+    "link": "/public/Nursing",
+    "logo": "https://raw.githubusercontent.com/MNRfrom2020/logo-and-icon-cdn/refs/heads/main/University/Nursing.png"
+  },
+  {
+    "nameBn": "জাতীয় গুচ্ছ (কলেজ)",
+    "nameEn": "NU Guccho",
+    "shortName": "NU",
+    "id": "NU",
+    "category": "গুচ্ছ",
+    "description": "জাতীয় বিশ্ববিদ্যালয়ের অধিভুক্ত ২৬৪টি সরকারি কলেজ রয়েছে",
+    "link": "/public/NU",
+    "logo": "https://raw.githubusercontent.com/MNRfrom2020/logo-and-icon-cdn/refs/heads/main/University/NU.png"
+  },
+  {
+    "nameBn": "ঢাকা কেন্দ্রীয় বিশ্ববিদ্যালয় (কলেজ)",
+    "nameEn": "Dhaka Central University",
+    "shortName": "DCU",
+    "id": "DCU",
+    "category": "গুচ্ছ",
+    "description": "ঢাকা কেন্দ্রীয় বিশ্ববিদ্যালয় অধিভুক্ত ৭টি সরকারি কলেজ রয়েছে",
+    "link": "/public/DCU",
+    "logo": "https://raw.githubusercontent.com/MNRfrom2020/logo-and-icon-cdn/refs/heads/main/University/DCU.png"
+  },
+  {
     "nameBn": "বাংলাদেশ কৃষি বিশ্ববিদ্যালয়",
     "nameEn": "Bangladesh Agricultural University",
     "shortName": "BAU",
