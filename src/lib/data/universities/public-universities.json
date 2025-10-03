@@ -51,6 +51,16 @@
     "logo": "https://raw.githubusercontent.com/MNRfrom2020/logo-and-icon-cdn/refs/heads/main/University/Agri.png"
   },
   {
+    "nameBn": "GST গুচ্ছ",
+    "nameEn": "GST Guccho",
+    "shortName": "GST",
+    "id": "gst",
+    "category": "গুচ্ছ",
+    "description": "GST গুচ্ছভুক্ত বিশ্ববিদ্যালয় মোট ১৯টি (সাধারণ+বিজ্ঞান ও প্রযুক্তি)",
+    "link": "/public/gst",
+    "logo": "https://raw.githubusercontent.com/MNRfrom2020/logo-and-icon-cdn/refs/heads/main/University/GST.png"
+  },
+  {
     "nameBn": "বাংলাদেশ কৃষি বিশ্ববিদ্যালয়",
     "nameEn": "Bangladesh Agricultural University",
     "shortName": "BAU",
