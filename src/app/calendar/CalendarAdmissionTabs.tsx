@@ -12,7 +12,7 @@ import {
 } from "lucide-react";
 import ApplicationScheduleTable from "@/components/common/ApplicationScheduleTable";
 import AdmitCardScheduleTable from "@/components/common/AdmitCardScheduleTable";
-import ResultScheduleTable from "@/components/common/ResultScheduleTable";
+import CalendarResultScheduleTable from "@/app/calendar/CalendarResultScheduleTable";
 
 const CalendarAdmissionTabs = () => {
   return (
@@ -48,7 +48,7 @@ const CalendarAdmissionTabs = () => {
           <AdmitCardScheduleTable />
         </TabsContent>
         <TabsContent value="result" className="mt-1">
-          <ResultScheduleTable />
+          <CalendarResultScheduleTable />
         </TabsContent>
       </Tabs>
     </div>
