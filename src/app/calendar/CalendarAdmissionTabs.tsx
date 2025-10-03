@@ -20,19 +20,20 @@ const CalendarAdmissionTabs = () => {
       <Tabs defaultValue="schedule" className="w-full">
         <TabsList className="flex w-full overflow-x-auto no-scrollbar h-auto bg-transparent">
           <TabsTrigger value="schedule" className="px-2">
-            <CalendarClock className="mr-2 h-4 w-4" /> সময়কাল
+            <CalendarClock className="mr-2 h-4 w-4 hidden sm:inline-block" />{" "}
+            সময়কাল
           </TabsTrigger>
           <TabsTrigger value="info" className="px-2">
-            <Info className="mr-2 h-4 w-4" /> তথ্য
+            <Info className="mr-2 h-4 w-4 hidden sm:inline-block" /> তথ্য
           </TabsTrigger>
           <TabsTrigger value="application" className="px-2">
-            <FilePenLine className="mr-2 h-4 w-4" /> আবেদন
+            <FilePenLine className="mr-2 h-4 w-4 hidden sm:inline-block" /> আবেদন
           </TabsTrigger>
           <TabsTrigger value="admit-card" className="px-2">
-            <Ticket className="mr-2 h-4 w-4" /> প্রবেশপত্র
+            <Ticket className="mr-2 h-4 w-4 hidden sm:inline-block" /> প্রবেশপত্র
           </TabsTrigger>
           <TabsTrigger value="result" className="px-2">
-            <BarChart3 className="mr-2 h-4 w-4" /> ফলাফল
+            <BarChart3 className="mr-2 h-4 w-4 hidden sm:inline-block" /> ফলাফল
           </TabsTrigger>
         </TabsList>
         <TabsContent value="schedule" className="mt-1">
