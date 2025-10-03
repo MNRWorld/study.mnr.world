@@ -4,7 +4,7 @@ import Link from "next/link";
 import {
   PlaceHolderImages,
 } from "@/lib/placeholder-images";
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { cn } from "@/lib/utils";
 
 interface Feature {
@@ -18,10 +18,56 @@ interface HomePageClientProps {
 }
 
 const TypingAnimation = () => {
+  const phrases = [
+    "একাডেমিক হোক,",
+    "এডমিশন হোক,",
+    "অথবা বেসিক গড়ার প্রচেষ্টা,",
+  ];
+  const [index, setIndex] = useState(0);
+  const [subIndex, setSubIndex] = useState(0);
+  const [isDeleting, setIsDeleting] = useState(false);
+  const [text, setText] = useState("");
+  const typingSpeed = 150;
+  const deletingSpeed = 75;
+  const delay = 2000;
+
+  useEffect(() => {
+    if (index === phrases.length) {
+      setIndex(0);
+      return;
+    }
+
+    const currentPhrase = phrases[index];
+
+    if (isDeleting) {
+      if (subIndex === 0) {
+        setIsDeleting(false);
+        setIndex((prev) => (prev + 1) % phrases.length);
+        return;
+      }
+      const timeout = setTimeout(() => {
+        setText(currentPhrase.substring(0, subIndex - 1));
+        setSubIndex(subIndex - 1);
+      }, deletingSpeed);
+      return () => clearTimeout(timeout);
+    } else {
+      if (subIndex === currentPhrase.length) {
+        const timeout = setTimeout(() => setIsDeleting(true), delay);
+        return () => clearTimeout(timeout);
+      }
+      const timeout = setTimeout(() => {
+        setText(currentPhrase.substring(0, subIndex + 1));
+        setSubIndex(subIndex + 1);
+      }, typingSpeed);
+      return () => clearTimeout(timeout);
+    }
+  }, [subIndex, index, isDeleting, phrases]);
+
   return (
-    <div className="h-12 md:h-14 lg:h-7 flex items-center justify-center">
-      <h1 className="text-lg text-muted-foreground font-bengali">
-        একাডেমিক হোক, এডমিশন হোক, অথবা বেসিক গড়ার প্রচেষ্টা,
+    <div className="h-12 md:h-14 lg:h-7 flex items-center justify-center font-bengali">
+      <h1 className="text-lg text-muted-foreground">
+        <span className="typing-animation">{text}</span>
+        <span className="animate-blink-caret border-r-2 border-primary"></span>
       </h1>
     </div>
   );
