@@ -3,9 +3,12 @@
 import dynamic from "next/dynamic";
 import SimplePageHeader from "@/components/common/SimplePageHeader";
 
-const AdmissionTabs = dynamic(() => import("@/components/common/AdmissionTabs"), {
-  ssr: false,
-});
+const AdmissionTabs = dynamic(
+  () => import("@/app/calendar/CalendarAdmissionTabs"),
+  {
+    ssr: false,
+  },
+);
 
 function CalendarPage() {
   return (
