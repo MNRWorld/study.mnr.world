@@ -16,7 +16,7 @@ const CalendarResultScheduleTable = () => {
   const { hsc24, hsc23 } = resultSchedule;
 
   return (
-    <div className="mt-8 space-y-8">
+    <div className="mt-4 space-y-8">
       {/* HSC-24 Results */}
       <div className="w-full border border-border bg-card rounded-2xl shadow-lg relative overflow-x-auto">
         <Table>
