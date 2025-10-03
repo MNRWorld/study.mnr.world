@@ -18,11 +18,11 @@ const CalendarApplicationScheduleTable = () => {
       <Table>
         <TableHeader>
           <TableRow>
-            <TableHead className="text-center w-1/5">ভার্সিটি</TableHead>
-            <TableHead className="text-center w-1/5">তারিখ</TableHead>
-            <TableHead className="text-center w-1/5">সময় বাকি</TableHead>
-            <TableHead className="text-center w-1/5">ফি</TableHead>
-            <TableHead className="text-center w-1/5">লিংক</TableHead>
+            <TableHead className="text-center w-1/5 font-bold">ভার্সিটি</TableHead>
+            <TableHead className="text-center w-1/5 font-bold">তারিখ</TableHead>
+            <TableHead className="text-center w-1/5 font-bold">সময় বাকি</TableHead>
+            <TableHead className="text-center w-1/5 font-bold">ফি</TableHead>
+            <TableHead className="text-center w-1/5 font-bold">লিংক</TableHead>
           </TableRow>
         </TableHeader>
         <TableBody>

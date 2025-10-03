@@ -22,9 +22,9 @@ const CalendarResultScheduleTable = () => {
         <Table>
           <TableHeader>
             <TableRow>
-              <TableHead className="text-center w-1/3">বিশ্ববিদ্যালয়</TableHead>
-              <TableHead className="text-center w-1/3">তারিখ</TableHead>
-              <TableHead className="text-center w-1/3">লিংক</TableHead>
+              <TableHead className="text-center w-1/3 font-bold">বিশ্ববিদ্যালয়</TableHead>
+              <TableHead className="text-center w-1/3 font-bold">তারিখ</TableHead>
+              <TableHead className="text-center w-1/3 font-bold">লিংক</TableHead>
             </TableRow>
           </TableHeader>
           <TableBody>
@@ -58,9 +58,9 @@ const CalendarResultScheduleTable = () => {
         <Table>
           <TableHeader>
             <TableRow>
-              <TableHead className="text-center w-1/3">বিশ্ববিদ্যালয়</TableHead>
-              <TableHead className="text-center w-1/3">তারিখ</TableHead>
-              <TableHead className="text-center w-1/3">লিংক</TableHead>
+              <TableHead className="text-center w-1/3 font-bold">বিশ্ববিদ্যালয়</TableHead>
+              <TableHead className="text-center w-1/3 font-bold">তারিখ</TableHead>
+              <TableHead className="text-center w-1/3 font-bold">লিংক</TableHead>
             </TableRow>
           </TableHeader>
           <TableBody>
