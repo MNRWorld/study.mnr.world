@@ -44,11 +44,11 @@
     "nameBn": "কৃষি গুচ্ছ",
     "nameEn": "Cluster Agri",
     "shortName": "ACAS",
-    "id": "acas",
+    "id": "agri",
     "category": "গুচ্ছ",
     "description": "কৃষি গুচ্ছভুক্ত বিশ্ববিদ্যালয় মোট ৮টি (সাধারণ+ভেটেরিনারি)",
-    "link": "/agri",
-    "logo": "https://raw.githubusercontent.com/MNRfrom2020/logo-and-icon-cdn/refs/heads/main/University/ACAS.png"
+    "link": "/public/agri",
+    "logo": "https://raw.githubusercontent.com/MNRfrom2020/logo-and-icon-cdn/refs/heads/main/University/Agri.png"
   },
   {
     "nameBn": "বাংলাদেশ কৃষি বিশ্ববিদ্যালয়",
