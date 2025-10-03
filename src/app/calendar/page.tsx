@@ -16,7 +16,7 @@ function CalendarPage() {
       <div className="container mx-auto px-2 lg:px-[170px]">
         <SimplePageHeader
           title="অ্যাডমিশন ক্যালেন্ডার"
-          description="বাংলাদেশের সকল বিশ্ববিদ্যালয়, কলেজ ও ভর্তি পরীক্ষার তথ্য ও সহায়তার জন্য আপনার বিশ্বস্ত প্ল্যাটফর্ম।"
+          description="সকল বিশ্ববিদ্যালয় ও অধিভুক্ত কলেজের ভর্তি পরীক্ষার সকল তথ্য একত্রে এক যায়গায়"
         />
 
         <AdmissionTabs />
