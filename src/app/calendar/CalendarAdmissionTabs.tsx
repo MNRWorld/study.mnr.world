@@ -19,19 +19,19 @@ const CalendarAdmissionTabs = () => {
     <div className="mt-8">
       <Tabs defaultValue="schedule" className="w-full">
         <TabsList className="grid w-full grid-cols-2 sm:grid-cols-3 md:grid-cols-5 h-auto bg-transparent gap-2">
-          <TabsTrigger value="schedule">
+          <TabsTrigger value="schedule" className="px-2">
             <CalendarClock className="mr-2 h-4 w-4" /> সময়কাল
           </TabsTrigger>
-          <TabsTrigger value="info">
+          <TabsTrigger value="info" className="px-2">
             <Info className="mr-2 h-4 w-4" /> তথ্য
           </TabsTrigger>
-          <TabsTrigger value="application">
+          <TabsTrigger value="application" className="px-2">
             <FilePenLine className="mr-2 h-4 w-4" /> আবেদন
           </TabsTrigger>
-          <TabsTrigger value="admit-card">
+          <TabsTrigger value="admit-card" className="px-2">
             <Ticket className="mr-2 h-4 w-4" /> প্রবেশপত্র
           </TabsTrigger>
-          <TabsTrigger value="result">
+          <TabsTrigger value="result" className="px-2">
             <BarChart3 className="mr-2 h-4 w-4" /> ফলাফল
           </TabsTrigger>
         </TabsList>
