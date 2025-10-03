@@ -41,6 +41,16 @@
     "logo": "https://raw.githubusercontent.com/MNRfrom2020/logo-and-icon-cdn/refs/heads/main/University/JU.png"
   },
   {
+    "nameBn": "GST গুচ্ছ",
+    "nameEn": "GST Guccho",
+    "shortName": "GST",
+    "id": "gst",
+    "category": "গুচ্ছ",
+    "description": "GST গুচ্ছভুক্ত বিশ্ববিদ্যালয় মোট ১৯টি (সাধারণ+বিজ্ঞান ও প্রযুক্তি)",
+    "link": "/public/gst",
+    "logo": "https://raw.githubusercontent.com/MNRfrom2020/logo-and-icon-cdn/refs/heads/main/University/GST.png"
+  },
+  {
     "nameBn": "কৃষি গুচ্ছ",
     "nameEn": "Cluster Agri",
     "shortName": "ACAS",
@@ -51,14 +61,24 @@
     "logo": "https://raw.githubusercontent.com/MNRfrom2020/logo-and-icon-cdn/refs/heads/main/University/Agri.png"
   },
   {
-    "nameBn": "GST গুচ্ছ",
-    "nameEn": "GST Guccho",
-    "shortName": "GST",
-    "id": "gst",
+    "nameBn": "জাতীয় গুচ্ছ (কলেজ)",
+    "nameEn": "NU Guccho",
+    "shortName": "NU",
+    "id": "NU",
     "category": "গুচ্ছ",
-    "description": "GST গুচ্ছভুক্ত বিশ্ববিদ্যালয় মোট ১৯টি (সাধারণ+বিজ্ঞান ও প্রযুক্তি)",
-    "link": "/public/gst",
-    "logo": "https://raw.githubusercontent.com/MNRfrom2020/logo-and-icon-cdn/refs/heads/main/University/GST.png"
+    "description": "জাতীয় বিশ্ববিদ্যালয়ের অধিভুক্ত ২৬৪টি সরকারি কলেজ রয়েছে",
+    "link": "/public/NU",
+    "logo": "https://raw.githubusercontent.com/MNRfrom2020/logo-and-icon-cdn/refs/heads/main/University/NU.png"
+  },
+  {
+    "nameBn": "ঢাকা কেন্দ্রীয় বিশ্ববিদ্যালয় (কলেজ)",
+    "nameEn": "Dhaka Central University",
+    "shortName": "DCU",
+    "id": "DCU",
+    "category": "গুচ্ছ",
+    "description": "ঢাকা কেন্দ্রীয় বিশ্ববিদ্যালয় অধিভুক্ত ৭টি সরকারি কলেজ রয়েছে",
+    "link": "/public/DCU",
+    "logo": "https://raw.githubusercontent.com/MNRfrom2020/logo-and-icon-cdn/refs/heads/main/University/DCU.png"
   },
   {
     "nameBn": "মেডিকেল গুচ্ছ",
@@ -99,26 +119,6 @@
     "description": "National Institute Of Traumatology And Orthopaedic Rehabilitation (NITOR)-কে পুরো বাংলাদেশের মানুষ বাংলাদেশ পঙ্গু হাসপাতাল নামে চিনে থাকে",
     "link": "/public/NITOR",
     "logo": "https://raw.githubusercontent.com/MNRfrom2020/logo-and-icon-cdn/refs/heads/main/University/NITOR.png"
-  },
-  {
-    "nameBn": "জাতীয় গুচ্ছ (কলেজ)",
-    "nameEn": "NU Guccho",
-    "shortName": "NU",
-    "id": "NU",
-    "category": "গুচ্ছ",
-    "description": "জাতীয় বিশ্ববিদ্যালয়ের অধিভুক্ত ২৬৪টি সরকারি কলেজ রয়েছে",
-    "link": "/public/NU",
-    "logo": "https://raw.githubusercontent.com/MNRfrom2020/logo-and-icon-cdn/refs/heads/main/University/NU.png"
-  },
-  {
-    "nameBn": "ঢাকা কেন্দ্রীয় বিশ্ববিদ্যালয় (কলেজ)",
-    "nameEn": "Dhaka Central University",
-    "shortName": "DCU",
-    "id": "DCU",
-    "category": "গুচ্ছ",
-    "description": "ঢাকা কেন্দ্রীয় বিশ্ববিদ্যালয় অধিভুক্ত ৭টি সরকারি কলেজ রয়েছে",
-    "link": "/public/DCU",
-    "logo": "https://raw.githubusercontent.com/MNRfrom2020/logo-and-icon-cdn/refs/heads/main/University/DCU.png"
   },
   {
     "nameBn": "বাংলাদেশ কৃষি বিশ্ববিদ্যালয়",
