@@ -35,19 +35,19 @@ const CalendarAdmissionTabs = () => {
             <BarChart3 className="mr-2 h-4 w-4" /> ফলাফল
           </TabsTrigger>
         </TabsList>
-        <TabsContent value="schedule">
+        <TabsContent value="schedule" className="mt-1">
           <CalendarAdmissionScheduleTable />
         </TabsContent>
-        <TabsContent value="info">
+        <TabsContent value="info" className="mt-1">
           <GeneralAdmissionInfo />
         </TabsContent>
-        <TabsContent value="application">
+        <TabsContent value="application" className="mt-1">
           <ApplicationScheduleTable />
         </TabsContent>
-        <TabsContent value="admit-card">
+        <TabsContent value="admit-card" className="mt-1">
           <AdmitCardScheduleTable />
         </TabsContent>
-        <TabsContent value="result">
+        <TabsContent value="result" className="mt-1">
           <ResultScheduleTable />
         </TabsContent>
       </Tabs>
