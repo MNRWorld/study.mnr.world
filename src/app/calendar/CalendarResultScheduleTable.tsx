@@ -10,7 +10,7 @@ import {
   TableRow,
 } from "@/components/ui/table";
 import ExternalLink from "@/components/common/ExternalLink";
-import { BarChart3, Clock } from "lucide-react";
+import { Clock } from "lucide-react";
 
 const CalendarResultScheduleTable = () => {
   const { hsc24, hsc23 } = resultSchedule;
@@ -18,7 +18,7 @@ const CalendarResultScheduleTable = () => {
   return (
     <div className="mt-8 space-y-8">
       {/* HSC-24 Results */}
-      <div className="w-full border border-border bg-card rounded-2xl p-4 sm:p-6 shadow-lg relative overflow-x-auto">
+      <div className="w-full border border-border bg-card rounded-2xl shadow-lg relative overflow-x-auto">
         <Table>
           <TableHeader>
             <TableRow>
@@ -48,8 +48,8 @@ const CalendarResultScheduleTable = () => {
       </div>
 
       {/* HSC-23 Results */}
-      <div className="w-full border border-border bg-card rounded-2xl p-4 sm:p-6 shadow-lg relative overflow-x-auto">
-        <div className="flex justify-center">
+      <div className="w-full border border-border bg-card rounded-2xl shadow-lg relative overflow-x-auto">
+        <div className="flex justify-center p-4 sm:p-6">
           <div className="inline-block px-6 py-2 bg-gradient-to-r from-primary to-foreground text-primary-foreground rounded-full text-lg mb-4 font-bold shadow-md">
             <Clock className="inline-block mr-2" />
             বিগত এডমিশন (HSC-23)
