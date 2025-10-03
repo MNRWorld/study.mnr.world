@@ -1,25 +1,32 @@
-"use client";
-import React from "react";
-import { ArrowLeft, BookOpen, FileText } from "lucide-react";
-import LinkList from "@/components/common/LinkList";
-import DhakaMainInfoCard from "@/components/DhakaMainInfoCard";
-import DhakaAdmissionInfo from "@/components/DhakaAdmissionInfo";
-import DhakaSeatInfo from "@/components/DhakaSeatInfo";
-import DhakaQuestionBank from "@/components/DhakaQuestionBank";
-import Circular from "@/components/common/Circular";
-import FloatingMenu from "@/components/common/FloatingMenu";
+import { ArrowLeft } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
-import DhakaHistoryAndMap from "@/components/DhakaHistoryAndMap";
+import DhakaMainInfoCard from "@/components/DhakaMainInfoCard";
+import LinkList from "@/components/common/LinkList";
 import { duLinks } from "@/lib/data/links";
+import Circular from "@/components/common/Circular";
+import DhakaQuestionBank from "@/components/DhakaQuestionBank";
+import DhakaAdmissionInfo from "@/components/DhakaAdmissionInfo";
+import DhakaSeatInfo from "@/components/DhakaSeatInfo";
+import DhakaHistoryAndMap from "@/components/DhakaHistoryAndMap";
+import FloatingMenu from "@/components/common/FloatingMenu";
 
-export default function UniversityPage() {
+function DhakaUniversityPage() {
   return (
-    <div className="font-bengali bg-background py-8">
+    <div className="font-bengali bg-background">
       <FloatingMenu />
       <div className="container mx-auto px-4 max-w-4xl">
+        <div className="my-6">
+          <Button asChild variant="outline">
+            <Link href="/public">
+              <ArrowLeft className="mr-2" /> সব পাবলিক বিশ্ববিদ্যালয়
+            </Link>
+          </Button>
+        </div>
         <DhakaMainInfoCard />
-        <LinkList links={duLinks} />
+        <div className="mt-4">
+          <LinkList links={duLinks} />
+        </div>
         <DhakaHistoryAndMap />
         <Circular
           title="সম্পূর্ণ সার্কুলার"
@@ -34,3 +41,4 @@ export default function UniversityPage() {
     </div>
   );
 }
+export default DhakaUniversityPage;
