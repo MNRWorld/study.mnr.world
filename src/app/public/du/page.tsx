@@ -1,28 +1,18 @@
-import { ArrowLeft } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import Link from "next/link";
+import DhakaAdmissionInfo from "@/components/DhakaAdmissionInfo";
+import DhakaHistoryAndMap from "@/components/DhakaHistoryAndMap";
 import DhakaMainInfoCard from "@/components/DhakaMainInfoCard";
+import DhakaQuestionBank from "@/components/DhakaQuestionBank";
+import DhakaSeatInfo from "@/components/DhakaSeatInfo";
+import Circular from "@/components/common/Circular";
+import FloatingMenu from "@/components/common/FloatingMenu";
 import LinkList from "@/components/common/LinkList";
 import { duLinks } from "@/lib/data/links";
-import Circular from "@/components/common/Circular";
-import DhakaQuestionBank from "@/components/DhakaQuestionBank";
-import DhakaAdmissionInfo from "@/components/DhakaAdmissionInfo";
-import DhakaSeatInfo from "@/components/DhakaSeatInfo";
-import DhakaHistoryAndMap from "@/components/DhakaHistoryAndMap";
-import FloatingMenu from "@/components/common/FloatingMenu";
 
 function DhakaUniversityPage() {
   return (
     <div className="font-bengali bg-background">
-      <FloatingMenu />
       <div className="container mx-auto px-4 max-w-4xl">
-        <div className="my-6">
-          <Button asChild variant="outline">
-            <Link href="/public">
-              <ArrowLeft className="mr-2" /> সব পাবলিক বিশ্ববিদ্যালয়
-            </Link>
-          </Button>
-        </div>
+        <FloatingMenu />
         <DhakaMainInfoCard />
         <div className="mt-4">
           <LinkList links={duLinks} />
@@ -41,4 +31,5 @@ function DhakaUniversityPage() {
     </div>
   );
 }
+
 export default DhakaUniversityPage;
