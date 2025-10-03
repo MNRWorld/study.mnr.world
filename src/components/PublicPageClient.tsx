@@ -13,7 +13,7 @@ interface PublicPageClientProps {
 }
 
 const categoryIcons: { [key: string]: React.FC<React.ComponentProps<'svg'>> } = {
-    "গুচ্ছ সিস্টেম": Blocks,
+    "গুচ্ছ": Blocks,
     "সাধারণ": UniversityIcon,
     "কৃষি": Leaf,
     "প্রকৌশল": Cog,
@@ -22,7 +22,7 @@ const categoryIcons: { [key: string]: React.FC<React.ComponentProps<'svg'>> } = 
 };
 
 const categoryIdMap: { [key: string]: string } = {
-    "গুচ্ছ সিস্টেম": "cluster-system",
+    "গুচ্ছ": "cluster-system",
     "সাধারণ": "general",
     "কৃষি": "agriculture",
     "প্রকৌশল": "engineering",
@@ -59,7 +59,7 @@ export default function PublicPageClient({
   );
 
   const categoryOrder = [
-    "গুচ্ছ সিস্টেম",
+    "গুচ্ছ",
     "সাধারণ",
     "কৃষি",
     "প্রকৌশল",

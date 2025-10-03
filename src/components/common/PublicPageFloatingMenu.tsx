@@ -22,7 +22,7 @@ const PublicPageFloatingMenu = () => {
     "block p-2 text-foreground hover:bg-accent rounded-md transition-colors";
 
   const menuItems = [
-    { href: "#cluster-system", label: "গুচ্ছ সিস্টেম", Icon: Blocks },
+    { href: "#cluster-system", label: "গুচ্ছ", Icon: Blocks },
     { href: "#general", label: "সাধারণ", Icon: University },
     { href: "#agriculture", label: "কৃষি", Icon: Leaf },
     { href: "#engineering", label: "প্রকৌশল", Icon: Cog },
