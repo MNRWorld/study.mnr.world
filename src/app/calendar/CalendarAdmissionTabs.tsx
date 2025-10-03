@@ -2,7 +2,7 @@
 
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import CalendarAdmissionScheduleTable from "@/app/calendar/CalendarAdmissionScheduleTable";
-import GeneralAdmissionInfo from "@/components/common/GeneralAdmissionInfo";
+import CalendarGeneralAdmissionInfo from "@/app/calendar/CalendarGeneralAdmissionInfo";
 import {
   CalendarClock,
   Info,
@@ -39,7 +39,7 @@ const CalendarAdmissionTabs = () => {
           <CalendarAdmissionScheduleTable />
         </TabsContent>
         <TabsContent value="info" className="mt-1">
-          <GeneralAdmissionInfo />
+          <CalendarGeneralAdmissionInfo />
         </TabsContent>
         <TabsContent value="application" className="mt-1">
           <ApplicationScheduleTable />
