@@ -12,7 +12,7 @@ const QuestionBankCards = () => {
         <Link href={card.href} key={index}>
           <div
             className={cn(
-              "p-4 rounded-2xl shadow-lg text-center text-white font-bold transition-all duration-300 hover:-translate-y-1 hover:shadow-xl aspect-square flex flex-col justify-center items-center",
+              "p-4 rounded-2xl shadow-lg text-center font-bold transition-all duration-300 hover:-translate-y-1 hover:shadow-xl aspect-square flex flex-col justify-center items-center",
               card.bgColor,
             )}
           >
@@ -25,7 +25,9 @@ const QuestionBankCards = () => {
                 className="object-contain w-full h-full"
               />
             </div>
-            <h3 className="text-sm sm:text-base md:text-lg">{card.title}</h3>
+            <h3 className="text-sm sm:text-base md:text-lg text-black">
+              {card.title}
+            </h3>
           </div>
         </Link>
       ))}
