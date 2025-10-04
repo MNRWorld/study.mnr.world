@@ -106,3 +106,19 @@ body {
 .cell-content b {
   @apply font-bold text-foreground;
 }
+
+.gradient-background {
+  background: linear-gradient(
+    to right,
+    hsl(var(--primary)),
+    theme(colors.blue.500)
+  );
+}
+
+.dark .gradient-background {
+  background: linear-gradient(
+    to right,
+    hsl(var(--primary)),
+    theme(colors.blue.400)
+  );
+}
