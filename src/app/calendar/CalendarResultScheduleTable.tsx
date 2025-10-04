@@ -50,7 +50,7 @@ const CalendarResultScheduleTable = () => {
       {/* HSC-23 Results */}
       <div className="w-full border border-border bg-card rounded-2xl shadow-lg relative overflow-x-auto">
         <div className="flex justify-center p-4 sm:p-6">
-          <div className="inline-block px-6 py-2 bg-gradient-to-r from-primary to-foreground text-primary-foreground rounded-full text-lg mb-4 font-bold shadow-md">
+          <div className="gradient-background inline-block px-6 py-2 text-primary-foreground rounded-full text-lg mb-4 font-bold shadow-md">
             <Clock className="inline-block mr-2" />
             বিগত এডমিশন (HSC-23)
           </div>
