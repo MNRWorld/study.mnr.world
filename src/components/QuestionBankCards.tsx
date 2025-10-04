@@ -4,6 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { questionBankCards } from "@/lib/data/question-bank-cards";
 import { cn } from "@/lib/utils";
+import { BookUp } from "lucide-react";
 
 const QuestionBankCards = () => {
   return (
@@ -11,14 +12,18 @@ const QuestionBankCards = () => {
       {questionBankCards.map((card, index) => (
         <Link href={card.href} key={index} className="group">
           <div
-            className={cn(
-              "relative w-full h-56 sm:h-64 rounded-lg shadow-lg text-center font-bold transition-transform duration-500 [transform-style:preserve-3d] group-hover:[transform:rotateY(-20deg)]",
-            )}
+            className="relative w-full h-56 sm:h-64 text-center font-bold transition-transform duration-700 [transform-style:preserve-3d] group-hover:[transform:rotateY(-30deg)]"
           >
+            {/* Page behind the cover */}
+            <div className="absolute w-full h-full rounded-lg bg-card border border-border p-4 flex flex-col justify-center items-center">
+              <BookUp className="w-12 h-12 text-primary" />
+              <p className="mt-2 text-sm text-foreground">এখনই পড়ুন</p>
+            </div>
             {/* Book Cover */}
             <div
               className={cn(
-                "absolute w-full h-full rounded-lg p-4 flex flex-col justify-center items-center [backface-visibility:hidden]",
+                "absolute w-full h-full rounded-lg p-4 flex flex-col justify-center items-center transition-transform duration-700 origin-left [transform-style:preserve-3d] [backface-visibility:hidden]",
+                "group-hover:[transform:rotateY(-140deg)]",
                 card.bgColor,
               )}
             >
@@ -35,13 +40,6 @@ const QuestionBankCards = () => {
                 {card.title}
               </h3>
             </div>
-            {/* Book Spine */}
-            <div
-              className={cn(
-                "absolute w-6 h-full left-0 top-0 rounded-l-lg [transform:rotateY(90deg)_translateX(-12px)] [transform-origin:left_center]",
-                "bg-gray-800 dark:bg-gray-900",
-              )}
-            ></div>
           </div>
         </Link>
       ))}
