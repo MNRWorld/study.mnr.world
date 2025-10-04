@@ -1,14 +1,8 @@
 "use client";
 
 import React from "react";
-import dynamic from "next/dynamic";
 import SimplePageHeader from "@/components/common/SimplePageHeader";
 import QuestionBankCards from "@/components/QuestionBankCards";
-
-const QuestionBankTabs = dynamic(
-  () => import("@/components/QuestionBankTabs"),
-  { ssr: false },
-);
 
 export default function QuestionBankPage() {
   return (
@@ -20,7 +14,6 @@ export default function QuestionBankPage() {
         />
 
         <QuestionBankCards />
-        <QuestionBankTabs />
       </div>
     </div>
   );
