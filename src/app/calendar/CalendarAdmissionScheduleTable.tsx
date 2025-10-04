@@ -16,9 +16,9 @@ const CalendarAdmissionScheduleTable = () => {
       <Table>
         <TableHeader>
           <TableRow>
-            <TableHead className="text-center w-1/3 font-bold bg-muted text-foreground">বিষয়</TableHead>
-            <TableHead className="text-center w-1/3 font-bold bg-muted text-foreground">তারিখ</TableHead>
-            <TableHead className="text-center w-1/3 font-bold bg-muted text-foreground">সময় বাকি</TableHead>
+            <TableHead className="text-center w-1/3 font-bold bg-black text-white">বিষয়</TableHead>
+            <TableHead className="text-center w-1/3 font-bold bg-black text-white">তারিখ</TableHead>
+            <TableHead className="text-center w-1/3 font-bold bg-black text-white">সময় বাকি</TableHead>
           </TableRow>
         </TableHeader>
         <TableBody>
