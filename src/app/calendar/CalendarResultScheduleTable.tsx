@@ -29,7 +29,7 @@ const CalendarResultScheduleTable = () => {
           </TableHeader>
           <TableBody>
             {hsc24.map((item, index) => (
-              <TableRow key={index}>
+              <TableRow key={index} className="even:bg-muted/50">
                 <TableCell
                   className="text-center font-medium whitespace-pre-wrap"
                   dangerouslySetInnerHTML={{ __html: item.university }}
@@ -65,7 +65,7 @@ const CalendarResultScheduleTable = () => {
           </TableHeader>
           <TableBody>
             {hsc23.map((item, index) => (
-              <TableRow key={index}>
+              <TableRow key={index} className="even:bg-muted/50">
                 <TableCell
                   className="text-center font-medium whitespace-pre-wrap"
                   dangerouslySetInnerHTML={{ __html: item.university }}

@@ -25,7 +25,7 @@ const CalendarAdmitCardScheduleTable = () => {
         </TableHeader>
         <TableBody>
           {admitCardSchedule.map((item, index) => (
-            <TableRow key={index}>
+            <TableRow key={index} className="even:bg-muted/50">
               <TableCell className="text-center font-medium whitespace-pre-wrap">
                 {item.university}
               </TableCell>
