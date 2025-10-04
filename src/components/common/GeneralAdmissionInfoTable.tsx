@@ -18,20 +18,20 @@ const GeneralAdmissionInfoTable = () => {
       <Table className="min-w-[800px] sm:min-w-full">
         <TableHeader>
           <TableRow>
-            <TableHead className="w-[15%]">বিশ্ববিদ্যালয়</TableHead>
-            <TableHead className="w-[15%]">তারিখ</TableHead>
-            <TableHead className="w-[25%]">মানবন্টন</TableHead>
-            <TableHead className="w-[15%]">সিলেবাস</TableHead>
-            <TableHead className="w-[15%]">সেকেন্ড টাইম</TableHead>
-            <TableHead className="w-[15%]">নেগেটিভ মার্কিং</TableHead>
+            <TableHead className="w-[15%] font-bold bg-primary text-primary-foreground text-center">বিশ্ববিদ্যালয়</TableHead>
+            <TableHead className="w-[15%] font-bold bg-primary text-primary-foreground text-center">তারিখ</TableHead>
+            <TableHead className="w-[25%] font-bold bg-primary text-primary-foreground text-center">মানবন্টন</TableHead>
+            <TableHead className="w-[15%] font-bold bg-primary text-primary-foreground text-center">সিলেবাস</TableHead>
+            <TableHead className="w-[15%] font-bold bg-primary text-primary-foreground text-center">সেকেন্ড টাইম</TableHead>
+            <TableHead className="w-[15%] font-bold bg-primary text-primary-foreground text-center">নেগেটিভ মার্কিং</TableHead>
           </TableRow>
         </TableHeader>
         <TableBody>
           {generalAdmissionInfo.map((info, index) => (
-            <TableRow key={index}>
+            <TableRow key={index} className="even:bg-muted/50">
               <TableCell className="font-medium align-top whitespace-pre-wrap">
-                <div className="font-bold">{info.university}</div>
-                <div className="flex gap-2 mt-1 flex-wrap">
+                <div className="font-bold text-center">{info.university}</div>
+                <div className="flex gap-2 mt-1 flex-wrap justify-center">
                   {info.circularLink && (
                     <Badge variant="outline" asChild>
                       <ExternalLink href={info.circularLink}>
@@ -49,16 +49,16 @@ const GeneralAdmissionInfoTable = () => {
                 </div>
               </TableCell>
               <TableCell
-                className="align-top whitespace-pre-wrap"
+                className="align-top whitespace-pre-wrap text-center"
                 dangerouslySetInnerHTML={{ __html: info.date }}
               ></TableCell>
               <TableCell
-                className="align-top whitespace-pre-wrap cell-content"
+                className="align-top whitespace-pre-wrap cell-content text-center"
                 dangerouslySetInnerHTML={{ __html: info.marksDistribution }}
               ></TableCell>
-              <TableCell className="align-top whitespace-pre-wrap">{info.syllabus}</TableCell>
-              <TableCell className="align-top whitespace-pre-wrap">{info.secondTime}</TableCell>
-              <TableCell className="align-top whitespace-pre-wrap">
+              <TableCell className="align-top whitespace-pre-wrap text-center">{info.syllabus}</TableCell>
+              <TableCell className="align-top whitespace-pre-wrap text-center">{info.secondTime}</TableCell>
+              <TableCell className="align-top whitespace-pre-wrap text-center">
                 {info.negativeMarking}
               </TableCell>
             </TableRow>
