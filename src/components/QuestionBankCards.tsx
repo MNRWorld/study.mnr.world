@@ -8,11 +8,14 @@ import { BookUp } from "lucide-react";
 
 const QuestionBankCards = () => {
   return (
-    <div className="mt-8 grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-8 [perspective:1000px]">
+    <div className="mt-8 grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-4 sm:gap-8 [perspective:1000px]">
       {questionBankCards.map((card, index) => (
         <Link href={card.href} key={index} className="group">
           <div
-            className="relative w-full h-56 sm:h-64 text-center font-bold transition-transform duration-700 [transform-style:preserve-3d] group-hover:[transform:rotateY(-30deg)]"
+            className={cn(
+              "relative w-full h-56 sm:h-64 text-center font-bold transition-transform duration-700 [transform-style:preserve-3d]",
+              "group-hover:[transform:rotateY(-30deg)]",
+            )}
           >
             {/* Page behind the cover */}
             <div className="absolute w-full h-full rounded-lg bg-card border border-border p-4 flex flex-col justify-center items-center">
