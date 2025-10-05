@@ -17,13 +17,6 @@ export default function QuestionBankPage() {
           description="বিগত বছরের প্রশ্ন সমাধান করে ভর্তি প্রস্তুতিতে এগিয়ে থাকো। এখানেই পাবে সব বিশ্ববিদ্যালয় ও ইউনিটের প্রশ্নব্যাংক।"
         />
 
-        <div className="mt-12">
-          <h2 className="text-2xl font-bold mb-4 text-center pb-2 border-b-2 border-primary/20 flex items-center justify-center gap-2">
-            <Blocks className="h-6 w-6 text-primary/80" />
-            গুচ্ছ
-          </h2>
-        </div>
-
         <div className="mt-8 space-y-4">
           <div className="relative">
             <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground" />
@@ -33,6 +26,13 @@ export default function QuestionBankPage() {
               className="w-full pl-10 h-12 text-base bg-card"
             />
           </div>
+        </div>
+
+        <div className="mt-12">
+          <h2 className="text-2xl font-bold mb-4 text-center pb-2 border-b-2 border-primary/20 flex items-center justify-center gap-2">
+            <Blocks className="h-6 w-6 text-primary/80" />
+            গুচ্ছ
+          </h2>
         </div>
 
         <QuestionBankCards />
