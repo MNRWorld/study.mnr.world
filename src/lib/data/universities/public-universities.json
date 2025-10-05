@@ -281,6 +281,26 @@
     "logo": "https://raw.githubusercontent.com/MNRfrom2020/logo-and-icon-cdn/refs/heads/main/University/MIST.png"
   },
   {
+    "nameBn": "অ্যাভিয়েশন অ্যান্ড অ্যারোস্পেস ইউনিভার্সিটি, বাংলাদেশ",
+    "nameEn": "Aviation and Aerospace University, Bangladesh",
+    "shortName": "AAUB",
+    "id": "aaub",
+    "category": "প্রকৌশল",
+    "description": "এটি বাংলাদেশের একটি সরকারি, স্বনামধন্য এবং মহাকাশ প্রকৌশল বিষয়ক প্রথম উচ্চশিক্ষা প্রতিষ্ঠান, যেখানে বিমান চলাচল ও মহাকাশ প্রযুক্তির ওপর বিশেষায়িত কোর্স করানো হয়",
+    "link": "/aaub",
+    "logo": "https://raw.githubusercontent.com/MNRfrom2020/logo-and-icon-cdn/refs/heads/main/University/AAUB.png"
+  },
+  {
+    "nameBn": "ইসলামিক ইউনিভার্সিটি অব টেকনোলজি",
+    "nameEn": "Islamic University of Technology",
+    "shortName": "IUT",
+    "id": "iut",
+    "category": "প্রকৌশল",
+    "description": "এটি মূলত একটি শিক্ষা ও গবেষণা প্রতিষ্ঠান হিসেবে প্রতিষ্ঠা লাভ করেছিল এবং বর্তমানে বাংলাদেশের একমাত্র আন্তর্জাতিক প্রকৌশল বিশ্ববিদ্যালয় হিসেবে স্বীকৃত হয়েছে",
+    "link": "/iut",
+    "logo": "https://raw.githubusercontent.com/MNRfrom2020/logo-and-icon-cdn/refs/heads/main/University/IUT.png"
+  },
+  {
     "nameBn": "শাহজালাল বিজ্ঞান ও প্রযুক্তি বিশ্ববিদ্যালয়",
     "nameEn": "Shahjalal University of Science and Technology",
     "shortName": "SUST",
