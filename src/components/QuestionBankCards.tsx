@@ -41,7 +41,7 @@ const QuestionBankCards = () => {
                 <hr className="my-2 border-border/50" />
                 <p className="text-xs text-muted-foreground mt-1 flex items-center justify-center gap-1.5 font-normal">
                   <UserPen size={12} />
-                  লেখক: {card.author}
+                  {card.author}
                 </p>
               </div>
             )}
