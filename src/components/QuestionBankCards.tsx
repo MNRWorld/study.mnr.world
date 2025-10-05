@@ -17,7 +17,7 @@ const QuestionBankCards = () => {
               card.bgColor,
               `border-${card.bgColor.split("-")[1]}-600`,
               "dark:border-opacity-80",
-              "border border-slate-200",
+              "border border-border",
             )}
           >
             <div className="bg-white/80 backdrop-blur-sm rounded-full p-2 w-16 h-16 sm:w-20 sm:h-20 flex items-center justify-center mb-3 shadow-inner">
