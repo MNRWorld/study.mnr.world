@@ -55,7 +55,7 @@
     "nameEn": "Cluster Agri",
     "shortName": "ACAS",
     "id": "agri",
-    "category": ["গুচ্ছ"],
+    "category": ["গুচ্ছ", "কৃষি"],
     "description": "কৃষি গুচ্ছভুক্ত বিশ্ববিদ্যালয় মোট ৮টি (সাধারণ+ভেটেরিনারি)",
     "link": "/public/agri",
     "logo": "https://raw.githubusercontent.com/MNRfrom2020/logo-and-icon-cdn/refs/heads/main/University/Agri.png"
@@ -65,7 +65,7 @@
     "nameEn": "Medical Guccho",
     "shortName": "Medical",
     "id": "Medical",
-    "category": ["মেডিকেল"],
+    "category": ["মেডিকেল", "গুচ্ছ"],
     "description": "বাংলাদেশে সরকারি মেডিকেল কলেজ প্রায় ৩৭টি",
     "link": "/public/Medical",
     "logo": "https://raw.githubusercontent.com/MNRfrom2020/logo-and-icon-cdn/refs/heads/main/University/Medical.png"
@@ -75,7 +75,7 @@
     "nameEn": "Dental Guccho",
     "shortName": "Dental",
     "id": "Dental",
-    "category": ["মেডিকেল"],
+    "category": ["মেডিকেল", "গুচ্ছ"],
     "description": "বাংলাদেশে সরকারি ডেন্টাল কলেজ ও ডেন্টাল ইউনিট প্রায় ৮টি",
     "link": "/public/Dental",
     "logo": "https://raw.githubusercontent.com/MNRfrom2020/logo-and-icon-cdn/refs/heads/main/University/Dental.png"
@@ -95,7 +95,7 @@
     "nameEn": "Nursing Guccho",
     "shortName": "Nursing",
     "id": "Nursing",
-    "category": ["মেডিকেল"],
+    "category": ["মেডিকেল", "গুচ্ছ"],
     "description": "বাংলাদেশ সরকারি নার্সিং ও মিডওয়াইফারি শিক্ষাপ্রতিষ্ঠানসমূহ প্রায় ২৭টি",
     "link": "/public/Nursing",
     "logo": "https://raw.githubusercontent.com/MNRfrom2020/logo-and-icon-cdn/refs/heads/main/University/Nursing.png"
@@ -555,7 +555,7 @@
     "nameEn": "National University",
     "shortName": "NU",
     "id": "NU",
-    "category": ["বিশেষ", "অধিভুক্ত"],
+    "category": ["বিশেষ", "অধিভুক্ত", "গুচ্ছ"],
     "description": "জাতীয় বিশ্ববিদ্যালয় বাংলাদেশের একটি পাবলিক কলেজিয়েট বিশ্ববিদ্যালয় যেখানে অধিভুক্ত ২৬৪টি সরকারি কলেজ ও নিজ ক্যাম্পাসে অনার্স প্রদান কার্যক্রম রয়েছে",
     "link": "/public/NU",
     "logo": "https://raw.githubusercontent.com/MNRfrom2020/logo-and-icon-cdn/refs/heads/main/University/NU.png"
@@ -565,7 +565,7 @@
     "nameEn": "Dhaka Central University",
     "shortName": "DCU",
     "id": "DCU",
-    "category": ["অধিভুক্ত"],
+    "category": ["অধিভুক্ত", "গুচ্ছ"],
     "description": "ঢাকা কেন্দ্রীয় বিশ্ববিদ্যালয় অধিভুক্ত ৭টি সরকারি কলেজ রয়েছে",
     "link": "/public/DCU",
     "logo": "https://raw.githubusercontent.com/MNRfrom2020/logo-and-icon-cdn/refs/heads/main/University/DCU.png"
