@@ -34,6 +34,7 @@ const PublicPageFloatingMenu = () => {
     },
     { href: "#medical", label: "মেডিকেল", Icon: HeartPulse },
     { href: "#special", label: "বিশেষ", Icon: Sparkles },
+    { href: "#affiliated", label: "অধিভুক্ত", Icon: University },
   ];
 
   useEffect(() => {

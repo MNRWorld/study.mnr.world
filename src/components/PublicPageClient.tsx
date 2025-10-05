@@ -20,6 +20,7 @@ const categoryIcons: { [key: string]: React.FC<React.ComponentProps<'svg'>> } = 
     "বিজ্ঞান ও প্রযুক্তি": Atom,
     "মেডিকেল": HeartPulse,
     "বিশেষ": Sparkles,
+    "অধিভুক্ত": UniversityIcon,
 };
 
 const categoryIdMap: { [key: string]: string } = {
@@ -30,6 +31,7 @@ const categoryIdMap: { [key: string]: string } = {
     "বিজ্ঞান ও প্রযুক্তি": "science-and-technology",
     "মেডিকেল": "medical",
     "বিশেষ": "special",
+    "অধিভুক্ত": "affiliated",
 };
 
 
@@ -68,6 +70,7 @@ export default function PublicPageClient({
     "বিজ্ঞান ও প্রযুক্তি",
     "মেডিকেল",
     "বিশেষ",
+    "অধিভুক্ত",
   ];
 
   const sortedCategories = Object.keys(groupedUniversities).sort(

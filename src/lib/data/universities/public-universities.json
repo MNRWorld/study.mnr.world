@@ -61,16 +61,6 @@
     "logo": "https://raw.githubusercontent.com/MNRfrom2020/logo-and-icon-cdn/refs/heads/main/University/Agri.png"
   },
   {
-    "nameBn": "ঢাকা কেন্দ্রীয় বিশ্ববিদ্যালয় (কলেজ)",
-    "nameEn": "Dhaka Central University",
-    "shortName": "DCU",
-    "id": "DCU",
-    "category": "গুচ্ছ",
-    "description": "ঢাকা কেন্দ্রীয় বিশ্ববিদ্যালয় অধিভুক্ত ৭টি সরকারি কলেজ রয়েছে",
-    "link": "/public/DCU",
-    "logo": "https://raw.githubusercontent.com/MNRfrom2020/logo-and-icon-cdn/refs/heads/main/University/DCU.png"
-  },
-  {
     "nameBn": "মেডিকেল গুচ্ছ",
     "nameEn": "Medical Guccho",
     "shortName": "Medical",
@@ -507,7 +497,7 @@
     "id": "aaub",
     "category": "বিশেষ",
     "description": "এটি বাংলাদেশের একটি সরকারি, স্বনামধন্য এবং মহাকাশ প্রকৌশল বিষয়ক প্রথম উচ্চশিক্ষা প্রতিষ্ঠান, যেখানে বিমান চলাচল ও মহাকাশ প্রযুক্তির ওপর বিশেষায়িত কোর্স করানো হয়",
-    "link": "/aaub",
+    "link": "/public/aaub",
     "logo": "https://raw.githubusercontent.com/MNRfrom2020/logo-and-icon-cdn/refs/heads/main/University/AAUB.png"
   },
   {
@@ -517,7 +507,7 @@
     "id": "iut",
     "category": "বিশেষ",
     "description": "এটি মূলত একটি শিক্ষা ও গবেষণা প্রতিষ্ঠান হিসেবে প্রতিষ্ঠা লাভ করেছিল এবং বর্তমানে বাংলাদেশের একমাত্র আন্তর্জাতিক প্রকৌশল বিশ্ববিদ্যালয় হিসেবে স্বীকৃত হয়েছে",
-    "link": "/iut",
+    "link": "/public/iut",
     "logo": "https://raw.githubusercontent.com/MNRfrom2020/logo-and-icon-cdn/refs/heads/main/University/IUT.png"
   },
   {
@@ -541,16 +531,6 @@
     "logo": "https://raw.githubusercontent.com/MNRfrom2020/logo-and-icon-cdn/refs/heads/main/University/BUP.png"
   },
   {
-    "nameBn": "জাতীয় বিশ্ববিদ্যালয়",
-    "nameEn": "National University",
-    "shortName": "NU",
-    "id": "NU",
-    "category": "বিশেষ",
-    "description": "জাতীয় বিশ্ববিদ্যালয় বাংলাদেশের একটি পাবলিক কলেজিয়েট বিশ্ববিদ্যালয় যেখানে অধিভুক্ত ২৬৪টি সরকারি কলেজ ও নিজ ক্যাম্পাসে অনার্স প্রদান কার্যক্রম রয়েছে",
-    "link": "/public/NU",
-    "logo": "https://raw.githubusercontent.com/MNRfrom2020/logo-and-icon-cdn/refs/heads/main/University/NU.png"
-  },
-  {
     "nameBn": "ইউনিভার্সিটি অফ ফ্রন্টিয়ার টেকনোলজি, বাংলাদেশ",
     "nameEn": "University of Frontier Technology, Bangladesh",
     "shortName": "UFTB",
@@ -569,5 +549,55 @@
     "description": "নীল অর্থনীতি (ব্লু ইকোনমি) অর্জনের লক্ষ্যে মেরিটাইম বিষয়ক উচ্চতর পড়াশুনার জন্য প্রতিষ্ঠিত বাংলাদেশের প্রথম 'বিশেষায়িত' বিশ্ববিদ্যালয় এটি এবং পাশাপাশি এখান থেকে মেরিন ক্যাডেটদের আন্তর্জাতিক মানসম্পন্ন 'ব্যাচেলর অব মেরিটাইম সায়েন্স' ডিগ্রি দেয়া হয়",
     "link": "/bmu",
     "logo": "https://raw.githubusercontent.com/MNRfrom2020/logo-and-icon-cdn/refs/heads/main/University/BMU.png"
+  },
+  {
+    "nameBn": "জাতীয় বিশ্ববিদ্যালয়",
+    "nameEn": "National University",
+    "shortName": "NU",
+    "id": "NU",
+    "category": "অধিভুক্ত",
+    "description": "জাতীয় বিশ্ববিদ্যালয় বাংলাদেশের একটি পাবলিক কলেজিয়েট বিশ্ববিদ্যালয় যেখানে অধিভুক্ত ২৬৪টি সরকারি কলেজ ও নিজ ক্যাম্পাসে অনার্স প্রদান কার্যক্রম রয়েছে",
+    "link": "/public/NU",
+    "logo": "https://raw.githubusercontent.com/MNRfrom2020/logo-and-icon-cdn/refs/heads/main/University/NU.png"
+  },
+  {
+    "nameBn": "ঢাকা কেন্দ্রীয় বিশ্ববিদ্যালয় (কলেজ)",
+    "nameEn": "Dhaka Central University",
+    "shortName": "DCU",
+    "id": "DCU",
+    "category": "অধিভুক্ত",
+    "description": "ঢাকা কেন্দ্রীয় বিশ্ববিদ্যালয় অধিভুক্ত ৭টি সরকারি কলেজ রয়েছে",
+    "link": "/public/DCU",
+    "logo": "https://raw.githubusercontent.com/MNRfrom2020/logo-and-icon-cdn/refs/heads/main/University/DCU.png"
+  },
+  {
+    "nameBn": "ঢাকা বিশ্ববিদ্যালয় অধিভুক্ত",
+    "nameEn": "Dhaka University Affiliated",
+    "shortName": "DU-Affiliated",
+    "id": "du-affiliated",
+    "category": "অধিভুক্ত",
+    "description": "ঢাকা বিশ্ববিদ্যালয় অধিভুক্ত কলেজের প্রযুক্তি ও গার্হস্থ্য ইউনিট নিয়ে এখানে বিস্তারিত তথ্য আছে",
+    "link": "/public/du-affiliated",
+    "logo": "https://raw.githubusercontent.com/MNRfrom2020/logo-and-icon-cdn/refs/heads/main/University/DU.png"
+  },
+  {
+    "nameBn": "বুটেক্স অধিভুক্ত",
+    "nameEn": "BUTex Affiliated",
+    "shortName": "BUTex-Affiliated",
+    "id": "butex-affiliated",
+    "category": "অধিভুক্ত",
+    "description": "বুটেক্স অধিভুক্ত সরকারি ১০ টেক্সটাইল ইঞ্জিনিয়ারিং কলেজ রয়েছে",
+    "link": "/public/butex-affiliated",
+    "logo": "https://raw.githubusercontent.com/MNRfrom2020/logo-and-icon-cdn/refs/heads/main/University/BUTex.png"
+  },
+  {
+    "nameBn": "শাবিপ্রবি বা সাস্ট অধিভুক্ত",
+    "nameEn": "SUST Affiliated",
+    "shortName": "SUST-Affiliated",
+    "id": "sust-affiliated",
+    "category": "অধিভুক্ত",
+    "description": "শাহজালাল বিজ্ঞান ও প্রযুক্তি বিশ্ববিদ্যালয় এর অধিভুক্ত একটি প্রকৌশল কলেজ রয়েছে যার নাম সিলেট ইঞ্জিনিয়ারিং কলেজ",
+    "link": "/public/sust-affiliated",
+    "logo": "https://raw.githubusercontent.com/MNRfrom2020/logo-and-icon-cdn/refs/heads/main/University/SUST.png"
   }
 ]
