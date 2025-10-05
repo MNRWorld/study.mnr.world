@@ -55,7 +55,7 @@
     "nameEn": "Cluster Agri",
     "shortName": "ACAS",
     "id": "agri",
-    "category": ["গুচ্ছ", "কৃষি"],
+    "category": ["গুচ্ছ"],
     "description": "কৃষি গুচ্ছভুক্ত বিশ্ববিদ্যালয় মোট ৮টি (সাধারণ+ভেটেরিনারি)",
     "link": "/public/agri",
     "logo": "https://raw.githubusercontent.com/MNRfrom2020/logo-and-icon-cdn/refs/heads/main/University/Agri.png"
