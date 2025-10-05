@@ -101,6 +101,16 @@
     "logo": "https://raw.githubusercontent.com/MNRfrom2020/logo-and-icon-cdn/refs/heads/main/University/Dental.png"
   },
   {
+    "nameBn": "আর্মড ফোর্সেস মেডিকেল কলেজ",
+    "nameEn": "Armed Forces Medical College",
+    "shortName": "AFMC",
+    "id": "afmc",
+    "category": "মেডিকেল",
+    "description": "আর্মড ফোর্সেস মেডিক্যাল কলেজ (এএফএমসি) ঢাকা ক্যান্টনমেন্টের অভ্যন্তরে অবস্থিত একটি সরকারি মেডিকেল কলেজ",
+    "link": "/public/afmc",
+    "logo": "https://raw.githubusercontent.com/MNRfrom2020/logo-and-icon-cdn/refs/heads/main/University/AFMC.png"
+  },
+  {
     "nameBn": "নার্সিং গুচ্ছ",
     "nameEn": "Nursing Guccho",
     "shortName": "Nursing",
