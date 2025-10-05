@@ -5,6 +5,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { questionBankCards } from "@/lib/data/question-bank-cards";
 import { cn } from "@/lib/utils";
+import { UserPen } from "lucide-react";
 
 const QuestionBankCards = () => {
   return (
@@ -34,7 +35,8 @@ const QuestionBankCards = () => {
               {card.title}
             </h3>
             {card.author && (
-              <p className="text-xs text-muted-foreground mt-1">
+              <p className="text-xs text-muted-foreground mt-1 flex items-center justify-center gap-1.5 font-normal">
+                <UserPen size={12} />
                 লেখক: {card.author}
               </p>
             )}
