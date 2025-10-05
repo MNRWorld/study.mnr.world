@@ -4,7 +4,7 @@ import React from "react";
 import SimplePageHeader from "@/components/common/SimplePageHeader";
 import QuestionBankCards from "@/components/QuestionBankCards";
 import { Input } from "@/components/ui/input";
-import { Search, Blocks } from "lucide-react";
+import { Search, Book } from "lucide-react";
 import PublicPageFloatingMenu from "@/components/common/PublicPageFloatingMenu";
 
 export default function QuestionBankPage() {
@@ -29,9 +29,12 @@ export default function QuestionBankPage() {
         </div>
 
         <div className="mt-12">
-          <h2 className="text-2xl font-bold mb-4 text-center pb-2 border-b-2 border-primary/20 flex items-center justify-center gap-2">
-            <Blocks className="h-6 w-6 text-primary/80" />
-            গুচ্ছ
+          <h2
+            id="master-question-bank"
+            className="text-2xl font-bold mb-4 text-center pb-2 border-b-2 border-primary/20 flex items-center justify-center gap-2"
+          >
+            <Book className="h-6 w-6 text-primary/80" />
+            মাস্টার প্রশ্নব্যাংক
           </h2>
         </div>
 
