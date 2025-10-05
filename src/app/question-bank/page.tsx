@@ -1,3 +1,4 @@
+
 "use client";
 
 import React from "react";
@@ -6,6 +7,8 @@ import QuestionBankCards from "@/components/QuestionBankCards";
 import { Input } from "@/components/ui/input";
 import { Search, Book } from "lucide-react";
 import PublicPageFloatingMenu from "@/components/common/PublicPageFloatingMenu";
+import { publicUniversities } from "@/lib/data/universities";
+import PublicPageClient from "@/components/PublicPageClient";
 
 export default function QuestionBankPage() {
   return (
@@ -39,6 +42,11 @@ export default function QuestionBankPage() {
         </div>
 
         <QuestionBankCards />
+
+        <div className="mt-12">
+            <PublicPageClient universities={publicUniversities} />
+        </div>
+
       </div>
     </div>
   );
