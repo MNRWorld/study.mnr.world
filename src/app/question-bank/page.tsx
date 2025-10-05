@@ -8,7 +8,7 @@ import { Input } from "@/components/ui/input";
 import { Search, Book } from "lucide-react";
 import PublicPageFloatingMenu from "@/components/common/PublicPageFloatingMenu";
 import { publicUniversities } from "@/lib/data/universities";
-import PublicPageClient from "@/components/PublicPageClient";
+import QuestionBankClient from "@/components/QuestionBankClient";
 
 export default function QuestionBankPage() {
   return (
@@ -44,7 +44,7 @@ export default function QuestionBankPage() {
         <QuestionBankCards />
 
         <div className="mt-12">
-            <PublicPageClient universities={publicUniversities} />
+            <QuestionBankClient universities={publicUniversities} />
         </div>
 
       </div>
