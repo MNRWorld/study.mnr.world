@@ -1,3 +1,4 @@
+
 "use client";
 import React from "react";
 import Link from "next/link";
@@ -32,6 +33,11 @@ const QuestionBankCards = () => {
             <h3 className="text-sm sm:text-base text-card-foreground">
               {card.title}
             </h3>
+            {card.author && (
+              <p className="text-xs text-muted-foreground mt-1">
+                লেখক: {card.author}
+              </p>
+            )}
           </div>
         </Link>
       ))}

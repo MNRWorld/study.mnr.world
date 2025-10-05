@@ -1,7 +1,9 @@
+
 import cardData from "./question-bank-cards.json";
 
 export type QuestionBankCard = {
   title: string;
+  author?: string;
   description: string;
   logo: string;
   href: string;
