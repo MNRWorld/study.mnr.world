@@ -13,7 +13,6 @@ const QuestionBankCards = () => {
           <div
             className={cn(
               "relative w-full h-56 sm:h-64 text-center font-bold rounded-md p-4 flex flex-col justify-center items-center transition-all duration-300 hover:-translate-y-1 hover:shadow-xl border-l-8",
-              "shadow-md",
               card.bgColor,
               `border-${card.bgColor.split("-")[1]}-600`,
               "dark:border-opacity-80",
@@ -21,7 +20,7 @@ const QuestionBankCards = () => {
               "border-border",
             )}
           >
-            <div className="bg-white/80 backdrop-blur-sm rounded-full p-2 w-16 h-16 sm:w-20 sm:h-20 flex items-center justify-center mb-3 shadow-inner">
+            <div className="bg-accent rounded-full p-2 w-16 h-16 sm:w-20 sm:h-20 flex items-center justify-center mb-3 shadow-inner">
               <Image
                 src={card.logo}
                 alt={`${card.title} logo`}
