@@ -20,7 +20,7 @@ const QuestionBankCards = () => {
               "border-border",
             )}
           >
-            <div className="bg-accent rounded-full p-2 w-16 h-16 sm:w-20 sm:h-20 flex items-center justify-center mb-3 shadow-inner">
+            <div className="bg-accent dark:bg-[#757575] rounded-full p-2 w-16 h-16 sm:w-20 sm:h-20 flex items-center justify-center mb-3 shadow-inner">
               <Image
                 src={card.logo}
                 alt={`${card.title} logo`}
