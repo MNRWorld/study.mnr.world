@@ -25,10 +25,10 @@
     "bgColor": "bg-yellow-500"
   },
   {
-    "title": "উন্মেষ মেডিকেল প্রশ্নব্যাংক",
+    "title": "মেডিকেল মাস্টার প্রশ্নব্যাংক",
     "author": "উন্মেষ",
     "description": "মেডিকেল ও ডেন্টাল ভর্তি পরীক্ষার জন্য বিশেষায়িত প্রশ্নব্যাংক।",
-    "logo": "https://raw.githubusercontent.com/MNRfrom2020/logo-and-icon-cdn/main/Boi/Unmesh-Medical.png",
+    "logo": "https://raw.githubusercontent.com/MNRfrom2020/logo-and-icon-cdn/refs/heads/main/Icon/Unmesh.png",
     "href": "#",
     "bgColor": "bg-green-500"
   }
