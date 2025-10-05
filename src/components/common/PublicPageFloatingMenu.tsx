@@ -9,6 +9,7 @@ import {
   Cog,
   Atom,
   HeartPulse,
+  Sparkles,
 } from "lucide-react";
 import React, { useState, useEffect, useRef } from "react";
 import { cn } from "@/lib/utils";
@@ -32,6 +33,7 @@ const PublicPageFloatingMenu = () => {
       Icon: Atom,
     },
     { href: "#medical", label: "মেডিকেল", Icon: HeartPulse },
+    { href: "#special", label: "বিশেষ", Icon: Sparkles },
   ];
 
   useEffect(() => {

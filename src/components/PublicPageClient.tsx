@@ -1,7 +1,7 @@
 
 "use client";
 import { useState } from "react";
-import { Search, University as UniversityIcon, Leaf, Cog, Atom, HeartPulse, Blocks } from "lucide-react";
+import { Search, University as UniversityIcon, Leaf, Cog, Atom, HeartPulse, Blocks, Sparkles } from "lucide-react";
 import UniversityCard from "@/components/UniversityCard";
 import { University } from "@/lib/data/universities";
 import { Input } from "@/components/ui/input";
@@ -19,6 +19,7 @@ const categoryIcons: { [key: string]: React.FC<React.ComponentProps<'svg'>> } = 
     "প্রকৌশল": Cog,
     "বিজ্ঞান ও প্রযুক্তি": Atom,
     "মেডিকেল": HeartPulse,
+    "বিশেষ": Sparkles,
 };
 
 const categoryIdMap: { [key: string]: string } = {
@@ -28,6 +29,7 @@ const categoryIdMap: { [key: string]: string } = {
     "প্রকৌশল": "engineering",
     "বিজ্ঞান ও প্রযুক্তি": "science-and-technology",
     "মেডিকেল": "medical",
+    "বিশেষ": "special",
 };
 
 
@@ -65,6 +67,7 @@ export default function PublicPageClient({
     "প্রকৌশল",
     "বিজ্ঞান ও প্রযুক্তি",
     "মেডিকেল",
+    "বিশেষ",
   ];
 
   const sortedCategories = Object.keys(groupedUniversities).sort(

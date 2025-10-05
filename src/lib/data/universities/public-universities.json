@@ -61,16 +61,6 @@
     "logo": "https://raw.githubusercontent.com/MNRfrom2020/logo-and-icon-cdn/refs/heads/main/University/Agri.png"
   },
   {
-    "nameBn": "জাতীয় বিশ্ববিদ্যালয়",
-    "nameEn": "National University",
-    "shortName": "NU",
-    "id": "NU",
-    "category": "গুচ্ছ",
-    "description": "জাতীয় বিশ্ববিদ্যালয় বাংলাদেশের একটি পাবলিক কলেজিয়েট বিশ্ববিদ্যালয় যেখানে অধিভুক্ত ২৬৪টি সরকারি কলেজ ও নিজ ক্যাম্পাসে অনার্স প্রদান কার্যক্রম রয়েছে",
-    "link": "/public/NU",
-    "logo": "https://raw.githubusercontent.com/MNRfrom2020/logo-and-icon-cdn/refs/heads/main/University/NU.png"
-  },
-  {
     "nameBn": "ঢাকা কেন্দ্রীয় বিশ্ববিদ্যালয় (কলেজ)",
     "nameEn": "Dhaka Central University",
     "shortName": "DCU",
@@ -261,16 +251,6 @@
     "logo": "https://raw.githubusercontent.com/MNRfrom2020/logo-and-icon-cdn/refs/heads/main/University/DUET.png"
   },
   {
-    "nameBn": "বাংলাদেশ টেক্সটাইল বিশ্ববিদ্যালয়",
-    "nameEn": "Bangladesh University of Textiles",
-    "shortName": "BUTEX",
-    "id": "butex",
-    "category": "প্রকৌশল",
-    "description": "টেক্সটাইল ইঞ্জিনিয়ারিং শিক্ষার জন্য দেশের একমাত্র সরকারি বিশ্ববিদ্যালয়।",
-    "link": "/butex",
-    "logo": "https://raw.githubusercontent.com/MNRfrom2020/logo-and-icon-cdn/refs/heads/main/University/BUTex.png"
-  },
-  {
     "nameBn": "সামরিক বিজ্ঞান ও প্রযুক্তি ইনস্টিটিউট",
     "nameEn": "Military Institute of Science and Technology",
     "shortName": "MIST",
@@ -279,26 +259,6 @@
     "description": "বাংলাদেশ সশস্ত্র বাহিনী দ্বারা পরিচালিত একটি উন্নত প্রযুক্তিগত শিক্ষা প্রতিষ্ঠান।",
     "link": "/mist",
     "logo": "https://raw.githubusercontent.com/MNRfrom2020/logo-and-icon-cdn/refs/heads/main/University/MIST.png"
-  },
-  {
-    "nameBn": "অ্যাভিয়েশন অ্যান্ড অ্যারোস্পেস ইউনিভার্সিটি, বাংলাদেশ",
-    "nameEn": "Aviation and Aerospace University, Bangladesh",
-    "shortName": "AAUB",
-    "id": "aaub",
-    "category": "প্রকৌশল",
-    "description": "এটি বাংলাদেশের একটি সরকারি, স্বনামধন্য এবং মহাকাশ প্রকৌশল বিষয়ক প্রথম উচ্চশিক্ষা প্রতিষ্ঠান, যেখানে বিমান চলাচল ও মহাকাশ প্রযুক্তির ওপর বিশেষায়িত কোর্স করানো হয়",
-    "link": "/aaub",
-    "logo": "https://raw.githubusercontent.com/MNRfrom2020/logo-and-icon-cdn/refs/heads/main/University/AAUB.png"
-  },
-  {
-    "nameBn": "ইসলামিক ইউনিভার্সিটি অব টেকনোলজি",
-    "nameEn": "Islamic University of Technology",
-    "shortName": "IUT",
-    "id": "iut",
-    "category": "প্রকৌশল",
-    "description": "এটি মূলত একটি শিক্ষা ও গবেষণা প্রতিষ্ঠান হিসেবে প্রতিষ্ঠা লাভ করেছিল এবং বর্তমানে বাংলাদেশের একমাত্র আন্তর্জাতিক প্রকৌশল বিশ্ববিদ্যালয় হিসেবে স্বীকৃত হয়েছে",
-    "link": "/iut",
-    "logo": "https://raw.githubusercontent.com/MNRfrom2020/logo-and-icon-cdn/refs/heads/main/University/IUT.png"
   },
   {
     "nameBn": "শাহজালাল বিজ্ঞান ও প্রযুক্তি বিশ্ববিদ্যালয়",
@@ -491,16 +451,6 @@
     "logo": "https://raw.githubusercontent.com/MNRfrom2020/logo-and-icon-cdn/refs/heads/main/University/JKKNIU.png"
   },
   {
-    "nameBn": "বাংলাদেশ ইউনিভার্সিটি অব প্রফেশনালস",
-    "nameEn": "Bangladesh University of Professionals",
-    "shortName": "BUP",
-    "id": "bup",
-    "category": "সাধারণ",
-    "description": "বাংলাদেশ সশস্ত্র বাহিনী দ্বারা পরিচালিত একটি মানসম্পন্ন শিক্ষা প্রতিষ্ঠান।",
-    "link": "/bup",
-    "logo": "https://raw.githubusercontent.com/MNRfrom2020/logo-and-icon-cdn/refs/heads/main/University/BUP.png"
-  },
-  {
     "nameBn": "বেগম রোকেয়া বিশ্ববিদ্যালয়, রংপুর",
     "nameEn": "Begum Rokeya University, Rangpur",
     "shortName": "BRUR",
@@ -549,5 +499,75 @@
     "description": "বিশ্বকবি রবীন্দ্রনাথ ঠাকুরের নামে প্রতিষ্ঠিত একটি সাংস্কৃতিক ও সাধারণ বিশ্ববিদ্যালয়।",
     "link": "/rub",
     "logo": "https://raw.githubusercontent.com/MNRfrom2020/logo-and-icon-cdn/refs/heads/main/University/RUB.png"
+  },
+  {
+    "nameBn": "অ্যাভিয়েশন অ্যান্ড অ্যারোস্পেস ইউনিভার্সিটি, বাংলাদেশ",
+    "nameEn": "Aviation and Aerospace University, Bangladesh",
+    "shortName": "AAUB",
+    "id": "aaub",
+    "category": "বিশেষ",
+    "description": "এটি বাংলাদেশের একটি সরকারি, স্বনামধন্য এবং মহাকাশ প্রকৌশল বিষয়ক প্রথম উচ্চশিক্ষা প্রতিষ্ঠান, যেখানে বিমান চলাচল ও মহাকাশ প্রযুক্তির ওপর বিশেষায়িত কোর্স করানো হয়",
+    "link": "/aaub",
+    "logo": "https://raw.githubusercontent.com/MNRfrom2020/logo-and-icon-cdn/refs/heads/main/University/AAUB.png"
+  },
+  {
+    "nameBn": "ইসলামিক ইউনিভার্সিটি অব টেকনোলজি",
+    "nameEn": "Islamic University of Technology",
+    "shortName": "IUT",
+    "id": "iut",
+    "category": "বিশেষ",
+    "description": "এটি মূলত একটি শিক্ষা ও গবেষণা প্রতিষ্ঠান হিসেবে প্রতিষ্ঠা লাভ করেছিল এবং বর্তমানে বাংলাদেশের একমাত্র আন্তর্জাতিক প্রকৌশল বিশ্ববিদ্যালয় হিসেবে স্বীকৃত হয়েছে",
+    "link": "/iut",
+    "logo": "https://raw.githubusercontent.com/MNRfrom2020/logo-and-icon-cdn/refs/heads/main/University/IUT.png"
+  },
+  {
+    "nameBn": "বাংলাদেশ টেক্সটাইল বিশ্ববিদ্যালয়",
+    "nameEn": "Bangladesh University of Textiles",
+    "shortName": "BUTEX",
+    "id": "butex",
+    "category": "বিশেষ",
+    "description": "টেক্সটাইল ইঞ্জিনিয়ারিং শিক্ষার জন্য দেশের একমাত্র সরকারি বিশ্ববিদ্যালয়।",
+    "link": "/butex",
+    "logo": "https://raw.githubusercontent.com/MNRfrom2020/logo-and-icon-cdn/refs/heads/main/University/BUTex.png"
+  },
+  {
+    "nameBn": "বাংলাদেশ ইউনিভার্সিটি অব প্রফেশনালস",
+    "nameEn": "Bangladesh University of Professionals",
+    "shortName": "BUP",
+    "id": "bup",
+    "category": "বিশেষ",
+    "description": "বাংলাদেশ সশস্ত্র বাহিনী দ্বারা পরিচালিত একটি মানসম্পন্ন শিক্ষা প্রতিষ্ঠান।",
+    "link": "/bup",
+    "logo": "https://raw.githubusercontent.com/MNRfrom2020/logo-and-icon-cdn/refs/heads/main/University/BUP.png"
+  },
+  {
+    "nameBn": "জাতীয় বিশ্ববিদ্যালয়",
+    "nameEn": "National University",
+    "shortName": "NU",
+    "id": "NU",
+    "category": "বিশেষ",
+    "description": "জাতীয় বিশ্ববিদ্যালয় বাংলাদেশের একটি পাবলিক কলেজিয়েট বিশ্ববিদ্যালয় যেখানে অধিভুক্ত ২৬৪টি সরকারি কলেজ ও নিজ ক্যাম্পাসে অনার্স প্রদান কার্যক্রম রয়েছে",
+    "link": "/public/NU",
+    "logo": "https://raw.githubusercontent.com/MNRfrom2020/logo-and-icon-cdn/refs/heads/main/University/NU.png"
+  },
+  {
+    "nameBn": "ইউনিভার্সিটি অফ ফ্রন্টিয়ার টেকনোলজি, বাংলাদেশ",
+    "nameEn": "University of Frontier Technology, Bangladesh",
+    "shortName": "UFTB",
+    "id": "uftb",
+    "category": "বিশেষ",
+    "description": "একটি বিশেষায়িত সরকারি বিশ্ববিদ্যালয় যা গাজীপুর জেলার কালিয়াকৈরে অবস্থিত এবং এটি প্রযুক্তি শিক্ষায় গ্লোবাল ট্রেন্ড অনুসরণ করে থাকে",
+    "link": "/uftb",
+    "logo": "https://raw.githubusercontent.com/MNRfrom2020/logo-and-icon-cdn/refs/heads/main/University/UFTB.png"
+  },
+  {
+    "nameBn": "বাংলাদেশ মেরিটাইম বিশ্ববিদ্যালয়",
+    "nameEn": "Bangladesh Maritime University",
+    "shortName": "BMU",
+    "id": "bmu",
+    "category": "বিশেষ",
+    "description": "নীল অর্থনীতি (ব্লু ইকোনমি) অর্জনের লক্ষ্যে মেরিটাইম বিষয়ক উচ্চতর পড়াশুনার জন্য প্রতিষ্ঠিত বাংলাদেশের প্রথম 'বিশেষায়িত' বিশ্ববিদ্যালয় এটি এবং পাশাপাশি এখান থেকে মেরিন ক্যাডেটদের আন্তর্জাতিক মানসম্পন্ন 'ব্যাচেলর অব মেরিটাইম সায়েন্স' ডিগ্রি দেয়া হয়",
+    "link": "/bmu",
+    "logo": "https://raw.githubusercontent.com/MNRfrom2020/logo-and-icon-cdn/refs/heads/main/University/BMU.png"
   }
 ]
