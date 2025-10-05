@@ -5,7 +5,7 @@ export interface University {
   nameEn: string;
   shortName: string;
   id: string;
-  category: string;
+  category: string[];
   description: string;
   link: string;
   logo: string;

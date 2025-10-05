@@ -52,11 +52,12 @@ export default function PublicPageClient({
 
   const groupedUniversities = filteredUniversities.reduce(
     (acc, uni) => {
-      const category = uni.category;
-      if (!acc[category]) {
-        acc[category] = [];
-      }
-      acc[category].push(uni);
+      uni.category.forEach(category => {
+        if (!acc[category]) {
+          acc[category] = [];
+        }
+        acc[category].push(uni);
+      });
       return acc;
     },
     {} as Record<string, University[]>,
