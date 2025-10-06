@@ -1,4 +1,3 @@
-
 "use client";
 
 import { useRouter } from "next/navigation";
@@ -27,9 +26,8 @@ import {
   ArrowRight,
 } from "lucide-react";
 import Link from "next/link";
-import { useUser, useFirestore, useAuth, useDoc } from "@/firebase";
-import { deleteUser, updateProfile, type User } from "firebase/auth";
-import { doc, updateDoc } from "firebase/firestore";
+import { useUser, useSupabase } from "@/lib/supabase/hooks";
+import { User } from "@supabase/supabase-js";
 
 const suggestions = [
   {
@@ -47,43 +45,47 @@ const suggestions = [
 ];
 
 const getCreationTime = (user: User | null) => {
-  if (user?.metadata?.creationTime) {
-    const date = new Date(user.metadata.creationTime);
+  if (user?.created_at) {
+    const date = new Date(user.created_at);
     return date.toLocaleString("bn-BD");
   }
   return "N/A";
 };
 
-// This is a separate component to conditionally use the useDoc hook
+// This is a separate component to conditionally use the database
 function RegisteredUserProfile() {
-  const { user } = useUser();
-  const firestore = useFirestore();
-  const auth = useAuth();
+  const supabase = useSupabase();
+  const user = useUser();
   const { toast } = useToast();
-
-  const { data: userProfile, loading: profileLoading } = useDoc<any>(
-    "users",
-    user?.uid
-  );
 
   const [name, setName] = useState("");
   const [displayName, setDisplayName] = useState("ব্যবহারকারী");
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    if (!profileLoading && userProfile) {
-        const firestoreName = userProfile.displayName || user?.displayName || "";
-        setName(firestoreName);
-        setDisplayName(firestoreName || "ব্যবহারকারী");
-    } else if (!profileLoading && !userProfile && user?.displayName) {
-        // Fallback to auth display name if firestore profile doesn't exist yet
-        const authName = user.displayName;
-        setName(authName);
-        setDisplayName(authName);
-    }
-  }, [user, userProfile, profileLoading]);
+    const fetchProfile = async () => {
+      if (!user || !supabase) return;
+      setLoading(true);
+      const { data, error } = await supabase
+        .from("profiles")
+        .select("display_name")
+        .eq("id", user.id)
+        .single();
+      
+      if (error && error.code !== "PGRST116") { // PGRST116: "exact one row expected"
+        console.error("Error fetching profile:", error);
+      } else {
+        const currentName = data?.display_name || user.user_metadata?.full_name || user.user_metadata?.user_name || "ব্যবহারকারী";
+        setName(currentName);
+        setDisplayName(currentName);
+      }
+      setLoading(false);
+    };
+    fetchProfile();
+  }, [user, supabase]);
 
   const handleNameUpdate = async () => {
-    if (!auth.currentUser || !firestore) return;
+    if (!user || !supabase) return;
     if (!name.trim()) {
       toast({
         variant: "destructive",
@@ -93,25 +95,31 @@ function RegisteredUserProfile() {
       return;
     }
     try {
-      await updateProfile(auth.currentUser, { displayName: name });
-      const userRef = doc(firestore, "users", auth.currentUser.uid);
-      await updateDoc(userRef, { displayName: name });
+      const { error } = await supabase
+        .from("profiles")
+        .upsert({ id: user.id, display_name: name });
+
+      if (error) throw error;
+      
+      // also update the user metadata
+      await supabase.auth.updateUser({ data: { full_name: name } });
+
       setDisplayName(name);
       toast({
         title: "নাম পরিবর্তিত হয়েছে",
         description: `আপনার নতুন নাম "${name}" সফলভাবে সেভ হয়েছে।`,
       });
-    } catch (error) {
+    } catch (error: any) {
       console.error("Error updating name:", error);
       toast({
         variant: "destructive",
         title: "নাম পরিবর্তন ব্যর্থ হয়েছে",
-        description: "একটি সমস্যা হয়েছে। আবার চেষ্টা করুন।",
+        description: error.message || "একটি সমস্যা হয়েছে। আবার চেষ্টা করুন।",
       });
     }
   };
 
-  if (profileLoading) {
+  if (loading) {
     return <div className="text-lg text-center font-bengali">প্রোফাইল লোড হচ্ছে...</div>;
   }
 
@@ -121,9 +129,9 @@ function RegisteredUserProfile() {
         <CardHeader>
           <div className="flex justify-center mb-4">
             <div className="relative h-24 w-24">
-              {user?.photoURL ? (
+              {user?.user_metadata?.avatar_url ? (
                 <Image
-                  src={user.photoURL}
+                  src={user.user_metadata.avatar_url}
                   alt={displayName}
                   width={96}
                   height={96}
@@ -170,7 +178,6 @@ function RegisteredUserProfile() {
     </>
   );
 }
-
 
 function AnonymousUserProfile() {
     const { toast } = useToast();
@@ -247,26 +254,26 @@ function AnonymousUserProfile() {
 }
 
 export default function ProfilePage() {
-  const { user, loading: userLoading } = useUser();
-  const auth = useAuth();
+  const user = useUser();
+  const supabase = useSupabase();
   const router = useRouter();
   const { toast } = useToast();
 
   useEffect(() => {
-    if (!userLoading && !user) {
+    if (!user) {
       router.push("/login");
     }
-  }, [user, userLoading, router]);
+  }, [user, router]);
 
   const logout = async () => {
-    if (auth) {
-      await auth.signOut();
+    if (supabase) {
+      await supabase.auth.signOut();
     }
     router.push("/");
   };
   
   const handleDeleteAccount = async () => {
-    if (!auth.currentUser) return;
+    if (!user || !supabase) return;
     if (
       !window.confirm(
         "আপনি কি নিশ্চিতভাবে আপনার অ্যাকাউন্ট মুছে ফেলতে চান? এই কাজটি আর ফেরানো যাবে না।",
@@ -276,24 +283,25 @@ export default function ProfilePage() {
     }
 
     try {
-      await deleteUser(auth.currentUser);
+      const { error } = await supabase.rpc('delete_user');
+      if (error) throw error;
+      await supabase.auth.signOut();
       toast({
         title: "অ্যাকাউন্ট মুছে ফেলা হয়েছে",
         description: "আপনার অ্যাকাউন্ট এবং ডেটা স্থায়ীভাবে মুছে ফেলা হয়েছে।",
       });
       router.push("/");
-    } catch (error) {
+    } catch (error: any) {
       console.error("Error deleting account:", error);
       toast({
         variant: "destructive",
         title: "একটি সমস্যা হয়েছে",
-        description: "অ্যাকাউন্ট মুছে ফেলার সময় একটি সমস্যা হয়েছে।",
+        description: error.message || "অ্যাকাউন্ট মুছে ফেলার সময় একটি সমস্যা হয়েছে।",
       });
     }
   };
 
-
-  if (userLoading || !user) {
+  if (!user) {
     return (
       <div className="flex items-center justify-center min-h-[calc(100vh-10rem)]">
         <div className="text-center font-bengali">
@@ -303,7 +311,7 @@ export default function ProfilePage() {
     );
   }
   
-  const isAnonymous = user.isAnonymous;
+  const isAnonymous = user.is_anonymous;
 
   return (
     <div className="container mx-auto px-4 py-8 max-w-2xl font-bengali">
@@ -353,9 +361,9 @@ export default function ProfilePage() {
                   প্রোভাইডার:
                 </span>{" "}
                 <span className="font-mono text-primary text-xs break-all">
-                  {user.isAnonymous
+                  {user.is_anonymous
                     ? "অতিথি"
-                    : user.providerData[0]?.providerId.replace(".com", "") ||
+                    : user.app_metadata.provider?.replace(".com", "") ||
                       "অজানা"}
                 </span>
               </p>
@@ -364,7 +372,7 @@ export default function ProfilePage() {
                   ডিভাইস আইডি:
                 </span>{" "}
                 <span className="font-mono text-primary text-xs break-all">
-                  {user.uid}
+                  {user.id}
                 </span>
               </p>
               <p>
@@ -384,37 +392,37 @@ export default function ProfilePage() {
         </div>
       </div>
 
-      <Card className="mt-8 shadow-lg border-destructive/50 bg-destructive/5">
-        <CardHeader>
-          <div className="flex items-center gap-2">
-            <AlertTriangle className="text-destructive h-6 w-6" />
-            <CardTitle className="text-destructive">ডেঞ্জার জোন</CardTitle>
-          </div>
-          <CardDescription className="text-destructive/80">
-            এই অংশের কাজগুলো необратиযোগ্য। অনুগ্রহ করে সতর্কতার সাথে ব্যবহার করুন।
-          </CardDescription>
-        </CardHeader>
-        <CardContent>
-          <div className="flex flex-col sm:flex-row justify-between items-center text-center sm:text-left p-4 border border-destructive/20 rounded-lg gap-4">
-            <div>
-              <h4 className="font-bold">অ্যাকাউন্ট মুছুন</h4>
-              <p className="text-sm text-muted-foreground">
-                আপনার সমস্ত ডেটা স্থায়ীভাবে মুছে ফেলা হবে।
-              </p>
+      {!isAnonymous && (
+        <Card className="mt-8 shadow-lg border-destructive/50 bg-destructive/5">
+            <CardHeader>
+            <div className="flex items-center gap-2">
+                <AlertTriangle className="text-destructive h-6 w-6" />
+                <CardTitle className="text-destructive">ডেঞ্জার জোন</CardTitle>
             </div>
-            <Button
-              onClick={handleDeleteAccount}
-              variant="destructive"
-              className="w-full sm:w-auto"
-            >
-              <Trash2 className="mr-2" />
-              অ্যাকাউন্ট মুছুন
-            </Button>
-          </div>
-        </CardContent>
-      </Card>
+            <CardDescription className="text-destructive/80">
+                এই অংশের কাজগুলো необратиযোগ্য। অনুগ্রহ করে সতর্কতার সাথে ব্যবহার করুন।
+            </CardDescription>
+            </CardHeader>
+            <CardContent>
+            <div className="flex flex-col sm:flex-row justify-between items-center text-center sm:text-left p-4 border border-destructive/20 rounded-lg gap-4">
+                <div>
+                <h4 className="font-bold">অ্যাকাউন্ট মুছুন</h4>
+                <p className="text-sm text-muted-foreground">
+                    আপনার সমস্ত ডেটা স্থায়ীভাবে মুছে ফেলা হবে।
+                </p>
+                </div>
+                <Button
+                onClick={handleDeleteAccount}
+                variant="destructive"
+                className="w-full sm:w-auto"
+                >
+                <Trash2 className="mr-2" />
+                অ্যাকাউন্ট মুছুন
+                </Button>
+            </div>
+            </CardContent>
+        </Card>
+      )}
     </div>
   );
 }
-
-    

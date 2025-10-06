@@ -6,7 +6,7 @@ import { useRouter } from "next/navigation";
 import Image from "next/image";
 import { cn } from "@/lib/utils";
 import { LogIn, LogOut, UserCircle } from "lucide-react";
-import { useUser, useAuth as useFirebaseAuth } from "@/firebase";
+import { useUser, useSupabase } from "@/lib/supabase/hooks";
 
 interface AuthButtonProps {
   isHovered: boolean;
@@ -57,23 +57,20 @@ function AuthButton({
 
 export default function HeaderAuth() {
   const [hoveredId, setHoveredId] = useState<string | null>(null);
-  const { user, loading } = useUser();
-  const auth = useFirebaseAuth();
+  const user = useUser();
+  const supabase = useSupabase();
   const router = useRouter();
 
   const handleLogout = async () => {
-    await auth.signOut();
+    if (!supabase) return;
+    await supabase.auth.signOut();
     router.push("/");
   };
 
-  if (loading) {
-    return <div className="w-9 h-9" />; // Placeholder to prevent layout shift
-  }
-
-  const profileIcon = user?.photoURL ? (
+  const profileIcon = user?.user_metadata?.avatar_url ? (
     <Image
-      src={user.photoURL}
-      alt={user.displayName || "Profile"}
+      src={user.user_metadata.avatar_url}
+      alt={user.user_metadata?.full_name || "Profile"}
       width={24}
       height={24}
       className="rounded-full"
@@ -92,7 +89,7 @@ export default function HeaderAuth() {
           <Link href="/profile">
             <AuthButton
               isHovered={hoveredId === "profile"}
-              label={user.displayName || "প্রোফাইল"}
+              label={user.user_metadata?.full_name || (user.is_anonymous ? "অতিথি" : "প্রোফাইল")}
               icon={profileIcon}
             />
           </Link>

@@ -1,4 +1,3 @@
-
 "use client";
 
 import { Button } from "@/components/ui/button";
@@ -6,111 +5,68 @@ import { User, Fingerprint, Github } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { useAuth, useFirestore, useUser } from "@/firebase";
-import {
-  signInAnonymously,
-  GithubAuthProvider,
-  signInWithPopup,
-  type UserCredential,
-  type FirebaseError,
-} from "firebase/auth";
-import { doc, setDoc, getDoc, serverTimestamp } from "firebase/firestore";
+import { useSupabase, useUser } from "@/lib/supabase/hooks";
 import { useToast } from "@/hooks/use-toast";
 
 export default function LoginPage() {
-  const auth = useAuth();
-  const firestore = useFirestore();
-  const { user, loading: userLoading } = useUser();
+  const supabase = useSupabase();
+  const user = useUser();
   const [anonymousLoading, setAnonymousLoading] = useState(false);
   const [githubLoading, setGithubLoading] = useState(false);
   const router = useRouter();
   const { toast } = useToast();
 
   useEffect(() => {
-    if (!userLoading && user) {
+    if (user) {
       router.push("/profile");
     }
-  }, [user, userLoading, router]);
+  }, [user, router]);
 
-  const handleLoginSuccess = async (userCredential: UserCredential) => {
-    const user = userCredential.user;
-    if (!user || !firestore) return;
-
-    // Only create Firestore profile for non-anonymous (i.e., registered) users
-    if (!user.isAnonymous) {
-      const userRef = doc(firestore, "users", user.uid);
-      const userDoc = await getDoc(userRef);
-
-      if (!userDoc.exists()) {
-        // Create a new profile if it doesn't exist for a real user
-        await setDoc(userRef, {
-          uid: user.uid,
-          email: user.email,
-          displayName: user.displayName,
-          photoURL: user.photoURL,
-          providerId: user.providerData[0]?.providerId || "github.com",
-          createdAt: serverTimestamp(),
-        });
-      }
-    }
-
-    toast({
-      title: "লগইন সফল হয়েছে",
-      description: "আপনার প্রোফাইলে স্বাগতম!",
+  const handleGithubLogin = async () => {
+    if (!supabase) return;
+    setGithubLoading(true);
+    const { error } = await supabase.auth.signInWithOAuth({
+      provider: "github",
+      options: {
+        redirectTo: `${window.location.origin}/auth/callback`,
+      },
     });
-    router.push("/profile");
+    if (error) {
+      console.error("GitHub login failed:", error);
+      toast({
+        variant: "destructive",
+        title: "GitHub লগইন ব্যর্থ হয়েছে",
+        description: "একটি সমস্যা হয়েছে। আবার চেষ্টা করুন।",
+      });
+    }
+    // No need to set loading to false here, as the page will redirect
   };
 
   const handleAnonymousLogin = async () => {
-    if (!auth) return;
+    if (!supabase) return;
     setAnonymousLoading(true);
     try {
-      // For anonymous users, we don't create a Firestore doc, just go to profile
-      await signInAnonymously(auth);
+      const { data, error } = await supabase.auth.signInAnonymously();
+      if (error) throw error;
+      
       toast({
         title: "অতিথি হিসেবে লগইন সফল হয়েছে",
         description: "আপনার প্রোফাইলে স্বাগতম!",
       });
       router.push("/profile");
-    } catch (error) {
+    } catch (error: any) {
       console.error("Anonymous login failed:", error);
-      const firebaseError = error as FirebaseError;
       toast({
         variant: "destructive",
         title: "লগইন ব্যর্থ হয়েছে",
-        description:
-          firebaseError.code === "auth/admin-restricted-operation"
-            ? "বেনামী লগইন এই প্রজেক্টের জন্য সক্রিয় করা নেই।"
-            : "একটি অপ্রত্যাশিত সমস্যা হয়েছে। আবার চেষ্টা করুন।",
+        description: error.message || "একটি অপ্রত্যাশিত সমস্যা হয়েছে। আবার চেষ্টা করুন।",
       });
     } finally {
       setAnonymousLoading(false);
     }
   };
 
-  const handleGithubLogin = async () => {
-    if (!auth) return;
-    setGithubLoading(true);
-    const provider = new GithubAuthProvider();
-    try {
-      const userCredential = await signInWithPopup(auth, provider);
-      await handleLoginSuccess(userCredential);
-    } catch (error) {
-      const firebaseError = error as FirebaseError;
-      if (firebaseError.code !== "auth/popup-closed-by-user") {
-        console.error("GitHub login failed:", error);
-        toast({
-          variant: "destructive",
-          title: "GitHub লগইন ব্যর্থ হয়েছে",
-          description: "একটি সমস্যা হয়েছে। আবার চেষ্টা করুন।",
-        });
-      }
-    } finally {
-      setGithubLoading(false);
-    }
-  };
-
-  const isLoading = userLoading || anonymousLoading || githubLoading;
+  const isLoading = anonymousLoading || githubLoading;
 
   return (
     <div className="flex items-center justify-center min-h-[calc(100vh-10rem)] font-bengali px-4">
@@ -157,5 +113,3 @@ export default function LoginPage() {
     </div>
   );
 }
-
-    
