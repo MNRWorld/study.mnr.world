@@ -6,7 +6,8 @@ import { useRouter } from "next/navigation";
 import Image from "next/image";
 import { cn } from "@/lib/utils";
 import { LogIn, LogOut, UserCircle } from "lucide-react";
-import { useUser, useSupabase } from "@/lib/supabase/hooks";
+import { useUser } from "@/lib/supabase/hooks"; // Corrected import
+import { useSupabase } from "@/lib/supabase/hooks";
 
 interface AuthButtonProps {
   isHovered: boolean;
@@ -57,7 +58,7 @@ function AuthButton({
 
 export default function HeaderAuth() {
   const [hoveredId, setHoveredId] = useState<string | null>(null);
-  const { user } = useUser();
+  const { user, loading } = useUser();
   const supabase = useSupabase();
   const router = useRouter();
 
@@ -66,6 +67,12 @@ export default function HeaderAuth() {
     await supabase.auth.signOut();
     router.push("/");
   };
+
+  if (loading) {
+    return (
+       <div className="h-9 w-20 rounded-full bg-muted animate-pulse" />
+    );
+  }
 
   const profileIcon = user?.user_metadata?.avatar_url ? (
     <Image

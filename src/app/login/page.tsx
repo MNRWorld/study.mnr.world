@@ -11,17 +11,17 @@ import { useUser } from "@/lib/supabase/hooks";
 
 export default function LoginPage() {
   const supabase = createClient();
-  const user = useUser();
+  const { user, loading: userLoading } = useUser();
   const [anonymousLoading, setAnonymousLoading] = useState(false);
   const [githubLoading, setGithubLoading] = useState(false);
   const router = useRouter();
   const { toast } = useToast();
 
   useEffect(() => {
-    if (user) {
+    if (!userLoading && user) {
       router.push("/profile");
     }
-  }, [user, router]);
+  }, [user, userLoading, router]);
 
   const handleGithubLogin = async () => {
     setGithubLoading(true);
@@ -46,10 +46,10 @@ export default function LoginPage() {
     setAnonymousLoading(true);
     try {
       // Force re-initialization to fetch latest provider settings
-      const supabaseClient = createClient(); 
+      const supabaseClient = createClient();
       const { data, error } = await supabaseClient.auth.signInAnonymously();
       if (error) throw error;
-      
+
       toast({
         title: "অতিথি হিসেবে লগইন সফল হয়েছে",
         description: "আপনার প্রোফাইলে স্বাগতম!",
@@ -60,14 +60,25 @@ export default function LoginPage() {
       toast({
         variant: "destructive",
         title: "লগইন ব্যর্থ হয়েছে",
-        description: error.message || "একটি অপ্রত্যাশিত সমস্যা হয়েছে। আবার চেষ্টা করুন।",
+        description:
+          error.message || "একটি অপ্রত্যাশিত সমস্যা হয়েছে। আবার চেষ্টা করুন।",
       });
     } finally {
       setAnonymousLoading(false);
     }
   };
 
-  const isLoading = anonymousLoading || githubLoading;
+  const isLoading = anonymousLoading || githubLoading || userLoading;
+
+  if (user) {
+    return (
+       <div className="flex items-center justify-center min-h-[calc(100vh-10rem)]">
+        <div className="text-center font-bengali">
+          <p className="text-lg">প্রোফাইলে নিয়ে যাওয়া হচ্ছে...</p>
+        </div>
+      </div>
+    )
+  }
 
   return (
     <div className="flex items-center justify-center min-h-[calc(100vh-10rem)] font-bengali px-4">
