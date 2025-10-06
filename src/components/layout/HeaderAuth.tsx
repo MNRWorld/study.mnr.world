@@ -57,7 +57,7 @@ function AuthButton({
 
 export default function HeaderAuth() {
   const [hoveredId, setHoveredId] = useState<string | null>(null);
-  const user = useUser();
+  const { user } = useUser();
   const supabase = useSupabase();
   const router = useRouter();
 
