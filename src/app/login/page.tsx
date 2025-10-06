@@ -1,7 +1,7 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
-import { Fingerprint } from "lucide-react";
+import { User, Fingerprint } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -50,14 +50,14 @@ export default function LoginPage() {
       <Card className="w-full max-w-md p-6 sm:p-8 space-y-6 sm:space-y-8 shadow-lg animate-fade-in-up text-center">
         <CardHeader>
           <div className="inline-block p-4 bg-primary/10 rounded-full mb-4 mx-auto w-fit">
-            <Fingerprint className="h-8 w-8 sm:h-10 sm:w-10 text-primary" />
+            <User className="h-8 w-8 sm:h-10 sm:w-10 text-primary" />
           </div>
           <CardTitle className="text-xl sm:text-2xl font-bold text-foreground">
-            ডিভাইস দিয়ে লগইন করুন
+            অতিথি হিসেবে লগইন করুন
           </CardTitle>
           <p className="text-sm text-muted-foreground mt-2">
-            কোনো পাসওয়ার্ডের প্রয়োজন নেই। একটি ক্লিকেই আপনার অ্যাকাউন্টে প্রবেশ
-            করুন।
+            কোনো পাসওয়ার্ড বা ব্যক্তিগত তথ্যের প্রয়োজন নেই। একটি ক্লিকেই আপনার
+            অ্যাকাউন্টে প্রবেশ করুন।
           </p>
         </CardHeader>
         <CardContent>
@@ -67,11 +67,11 @@ export default function LoginPage() {
             className="w-full font-semibold text-base transition-transform hover:scale-105"
             disabled={isLoading}
           >
-            {isLoading ? "প্রসেসিং..." : "ডিভাইস দিয়ে লগইন করুন"}
+            {isLoading ? "প্রসেসিং..." : "অতিথি হিসেবে লগইন করুন"}
           </Button>
           <div className="text-xs text-muted-foreground mt-6">
             <p>
-              আপনার ডিভাইসের তথ্যের ভিত্তিতে একটি সুরক্ষিত সেশন তৈরি করা হবে।
+              আপনার জন্য একটি অস্থায়ী ও সুরক্ষিত সেশন তৈরি করা হবে।
             </p>
           </div>
         </CardContent>
