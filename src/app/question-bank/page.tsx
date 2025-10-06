@@ -37,6 +37,14 @@ export default function QuestionBankPage() {
             className="text-2xl font-bold mb-4 text-center pb-2 border-b-2 border-primary/20 flex items-center justify-center gap-2"
           >
             <Book className="h-6 w-6 text-primary/80" />
+            প্রশ্নব্যাংক সমগ্র
+          </h2>
+        </div>
+        
+        <div className="mt-8">
+          <h2
+            className="text-xl font-bold mb-4 text-center pb-2 flex items-center justify-center gap-2"
+          >
             মাস্টার প্রশ্নব্যাংক
           </h2>
         </div>
