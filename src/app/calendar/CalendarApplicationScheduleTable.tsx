@@ -16,7 +16,7 @@ const CalendarApplicationScheduleTable = () => {
   return (
     <div className="mt-4 w-full border border-border bg-card rounded-2xl shadow-lg">
       <Table>
-        <TableHeader className="sticky top-[70px] z-10">
+        <TableHeader className="sticky top-[70px] z-10 rounded-t-2xl">
           <TableRow>
             <TableHead className="text-center w-1/5 font-bold bg-primary text-primary-foreground">ভার্সিটি</TableHead>
             <TableHead className="text-center w-1/5 font-bold bg-primary text-primary-foreground">তারিখ</TableHead>
