@@ -6,14 +6,8 @@ const GeneralAdmissionInfo = () => {
   return (
     <div
       id="Info"
-      className="mt-8 w-full border border-border bg-card rounded-2xl p-4 sm:p-6 shadow-lg relative text-left"
+      className="mt-4"
     >
-      <div className="flex justify-center">
-        <div className="gradient-background inline-block px-6 py-2 text-primary-foreground rounded-full text-lg mb-4 font-bold shadow-md">
-          <Info className="inline-block mr-2" />
-          সাধারণ তথ্য
-        </div>
-      </div>
       <GeneralAdmissionInfoTable />
     </div>
   );
