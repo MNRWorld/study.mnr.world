@@ -17,6 +17,7 @@ export const useSupabase = () => {
 export const useUser = () => {
     const context = useContext(SupabaseContext);
     const [user, setUser] = useState<User | null>(null);
+    const [loading, setLoading] = useState(true);
 
     useEffect(() => {
         if (context === undefined) {
@@ -24,18 +25,21 @@ export const useUser = () => {
         }
         
         async function getUser() {
+            setLoading(true);
             const { data: { user } } = await context.supabase.auth.getUser();
             setUser(user);
+            setLoading(false);
         }
 
         getUser();
 
         const { data: { subscription } } = context.supabase.auth.onAuthStateChange((_, session) => {
             setUser(session?.user ?? null);
+            setLoading(false);
         });
 
         return () => subscription.unsubscribe();
     }, [context]);
 
-    return user;
+    return { user, loading };
 }

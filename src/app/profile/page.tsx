@@ -261,26 +261,16 @@ function AnonymousUserProfile() {
 }
 
 export default function ProfilePage() {
-  const user = useUser();
+  const { user, loading } = useUser();
   const supabase = createClient();
   const router = useRouter();
   const { toast } = useToast();
-  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    if (user === null) {
-      const timer = setTimeout(() => {
-        if (!user) { 
-          router.push("/login");
-        } else {
-          setLoading(false);
-        }
-      }, 500); 
-      return () => clearTimeout(timer);
-    } else {
-        setLoading(false);
+    if (!loading && !user) {
+      router.push("/login");
     }
-  }, [user, router]);
+  }, [user, loading, router]);
 
   const logout = async () => {
     await supabase.auth.signOut();
