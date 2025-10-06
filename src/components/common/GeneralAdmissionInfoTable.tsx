@@ -11,23 +11,54 @@ import {
 import { generalAdmissionInfo } from "@/lib/data/schedules/general";
 import ExternalLink from "./ExternalLink";
 import { Badge } from "@/components/ui/badge";
+import { useState } from "react";
+import { Input } from "../ui/input";
+import { Search } from "lucide-react";
 
 const GeneralAdmissionInfoTable = () => {
+  const [searchTerm, setSearchTerm] = useState("");
+
+  const filteredInfo = generalAdmissionInfo.filter((info) =>
+    info.university.toLowerCase().includes(searchTerm.toLowerCase()),
+  );
+
   return (
     <div className="overflow-x-auto relative">
+      <div className="relative mb-4">
+        <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground" />
+        <Input
+          type="text"
+          placeholder="বিশ্ববিদ্যালয় খুঁজুন..."
+          value={searchTerm}
+          onChange={(e) => setSearchTerm(e.target.value)}
+          className="w-full pl-10 h-12 text-base bg-card border"
+        />
+      </div>
       <Table>
         <TableHeader className="sticky top-[70px] z-10">
           <TableRow>
-            <TableHead className="w-[15%] font-bold bg-primary text-primary-foreground text-center">বিশ্ববিদ্যালয়</TableHead>
-            <TableHead className="w-[15%] font-bold bg-primary text-primary-foreground text-center">তারিখ</TableHead>
-            <TableHead className="w-[25%] font-bold bg-primary text-primary-foreground text-center">মানবন্টন</TableHead>
-            <TableHead className="w-[15%] font-bold bg-primary text-primary-foreground text-center">সিলেবাস</TableHead>
-            <TableHead className="w-[15%] font-bold bg-primary text-primary-foreground text-center">সেকেন্ড টাইম</TableHead>
-            <TableHead className="w-[15%] font-bold bg-primary text-primary-foreground text-center">নেগেটিভ মার্কিং</TableHead>
+            <TableHead className="w-[15%] font-bold bg-primary text-primary-foreground text-center">
+              বিশ্ববিদ্যালয়
+            </TableHead>
+            <TableHead className="w-[15%] font-bold bg-primary text-primary-foreground text-center">
+              তারিখ
+            </TableHead>
+            <TableHead className="w-[25%] font-bold bg-primary text-primary-foreground text-center">
+              মানবন্টন
+            </TableHead>
+            <TableHead className="w-[15%] font-bold bg-primary text-primary-foreground text-center">
+              সিলেবাস
+            </TableHead>
+            <TableHead className="w-[15%] font-bold bg-primary text-primary-foreground text-center">
+              সেকেন্ড টাইম
+            </TableHead>
+            <TableHead className="w-[15%] font-bold bg-primary text-primary-foreground text-center">
+              নেগেটিভ মার্কিং
+            </TableHead>
           </TableRow>
         </TableHeader>
         <TableBody>
-          {generalAdmissionInfo.map((info, index) => (
+          {filteredInfo.map((info, index) => (
             <TableRow key={index} className="even:bg-muted/50">
               <TableCell className="font-medium align-top whitespace-pre-wrap">
                 <div className="font-bold text-center">{info.university}</div>
@@ -56,8 +87,12 @@ const GeneralAdmissionInfoTable = () => {
                 className="align-top whitespace-pre-wrap cell-content text-center"
                 dangerouslySetInnerHTML={{ __html: info.marksDistribution }}
               ></TableCell>
-              <TableCell className="align-top whitespace-pre-wrap text-center">{info.syllabus}</TableCell>
-              <TableCell className="align-top whitespace-pre-wrap text-center">{info.secondTime}</TableCell>
+              <TableCell className="align-top whitespace-pre-wrap text-center">
+                {info.syllabus}
+              </TableCell>
+              <TableCell className="align-top whitespace-pre-wrap text-center">
+                {info.secondTime}
+              </TableCell>
               <TableCell className="align-top whitespace-pre-wrap text-center">
                 {info.negativeMarking}
               </TableCell>
