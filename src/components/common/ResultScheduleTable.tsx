@@ -17,7 +17,6 @@ const ResultScheduleTable = () => {
 
   return (
     <div className="mt-8 space-y-8">
-      {/* HSC-24 Results */}
       <div className="w-full border border-border bg-card rounded-2xl p-4 sm:p-6 shadow-lg relative overflow-x-auto">
         <div className="flex justify-center">
           <div className="gradient-background inline-block px-6 py-2 text-primary-foreground rounded-full text-lg mb-4 font-bold shadow-md">
@@ -53,7 +52,6 @@ const ResultScheduleTable = () => {
         </Table>
       </div>
 
-      {/* HSC-23 Results */}
       <div className="w-full border border-border bg-card rounded-2xl p-4 sm:p-6 shadow-lg relative overflow-x-auto">
         <div className="flex justify-center">
           <div className="gradient-background inline-block px-6 py-2 text-primary-foreground rounded-full text-lg mb-4 font-bold shadow-md">

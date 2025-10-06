@@ -53,7 +53,6 @@ const getCreationTime = (user: User | null) => {
   return "N/A";
 };
 
-// This is a separate component to conditionally use the database
 function RegisteredUserProfile() {
   const supabase = useSupabase();
   const user = useUser();
@@ -73,7 +72,7 @@ function RegisteredUserProfile() {
         .eq("id", user.id)
         .single();
       
-      if (error && error.code !== "PGRST116") { // PGRST116: "exact one row expected"
+      if (error && error.code !== "PGRST116") {
         console.error("Error fetching profile:", error);
       } else {
         const currentName = data?.display_name || user.user_metadata?.full_name || user.user_metadata?.user_name || "ব্যবহারকারী";
@@ -106,7 +105,6 @@ function RegisteredUserProfile() {
 
       if (error) throw error;
       
-      // also update the user metadata
       await supabase.auth.updateUser({ data: { full_name: name } });
 
       setDisplayName(name);
@@ -272,12 +270,12 @@ export default function ProfilePage() {
   useEffect(() => {
     if (user === null) {
       const timer = setTimeout(() => {
-        if (!user) { // Re-check user after delay
+        if (!user) { 
           router.push("/login");
         } else {
           setLoading(false);
         }
-      }, 500); // give it a moment to fetch user
+      }, 500); 
       return () => clearTimeout(timer);
     } else {
         setLoading(false);

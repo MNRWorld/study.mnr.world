@@ -17,7 +17,6 @@ const CalendarResultScheduleTable = () => {
 
   return (
     <div className="mt-4 space-y-8">
-      {/* HSC-24 Results */}
       <div className="w-full border border-border bg-card rounded-2xl shadow-lg relative overflow-x-auto">
         <Table>
           <TableHeader>
@@ -47,7 +46,6 @@ const CalendarResultScheduleTable = () => {
         </Table>
       </div>
 
-      {/* HSC-23 Results */}
       <div className="w-full border border-border bg-card rounded-2xl shadow-lg relative overflow-x-auto">
         <div className="flex justify-center p-4 sm:p-6">
           <div className="gradient-background inline-block px-6 py-2 text-primary-foreground rounded-full text-lg mb-4 font-bold shadow-md">
