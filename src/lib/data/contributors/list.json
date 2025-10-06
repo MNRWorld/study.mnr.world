@@ -1,3 +1,4 @@
+
 [
   {
     "name": "মোহাম্মদ নাঈম",
@@ -11,34 +12,34 @@
     }
   },
   {
-    "name": "জেন Doe",
-    "role": "UI/UX ডিজাইনার",
-    "bio": "ব্যবহারকারীদের জন্য একটি সুন্দর এবং সহজ অভিজ্ঞতা নিশ্চিত করতে কাজ করছেন।",
-    "imageUrl": "https://avatars.githubusercontent.com/u/2?v=4",
+    "name": "FrostFoe",
+    "role": "ডেটা ম্যানেজমেন্ট ও ডেভেলপার",
+    "bio": "এই প্ল্যাটফর্মের সকল তথ্য সঠিকভাবে পরিচালনা এবং এর কার্যকারিতা বৃদ্ধিতে কাজ করছেন।",
+    "imageUrl": "https://avatars.githubusercontent.com/u/74249156?v=4",
     "social": {
-      "github": "#",
+      "github": "https://github.com/Frost-Foe",
       "linkedin": "#",
       "twitter": "#"
     }
   },
   {
-    "name": "জন স্মিথ",
-    "role": "লিড কন্টেন্ট ক্রিয়েটর",
-    "bio": "সঠিক ও মানসম্মত তথ্য দিয়ে শিক্ষার্থীদের প্রস্তুতিতে সহায়তা করছেন।",
-    "imageUrl": "https://avatars.githubusercontent.com/u/3?v=4",
+    "name": "Naimur Rahman",
+    "role": "কন্টেন্ট ক্রিয়েটর ও পরামর্শক",
+    "bio": "শিক্ষার্থীদের জন্য সঠিক ও মানসম্মত তথ্য তৈরি এবং প্ল্যাটফর্মের উন্নয়নে পরামর্শ দিয়ে সাহায্য করছেন।",
+    "imageUrl": "https://avatars.githubusercontent.com/u/102927359?v=4",
     "social": {
-      "github": "#",
+      "github": "https://github.com/NaimurRahman1",
       "linkedin": "#",
       "twitter": "#"
     }
   },
   {
-    "name": "এমিলি জনসন",
-    "role": "মার্কেটিং প্রধান",
-    "bio": "আমাদের প্ল্যাটফর্মের বার্তা সবার কাছে পৌঁছে দেওয়ার জন্য নিবেদিত।",
-    "imageUrl": "https://avatars.githubusercontent.com/u/4?v-4",
+    "name": "Sadman Alif",
+    "role": "মার্কেটিং ও কমিউনিটি ম্যানেজার",
+    "bio": "আমাদের প্ল্যাটফর্মের বার্তা সবার কাছে পৌঁছে দেওয়া এবং কমিউনিটি ম্যানেজমেন্টের দায়িত্বে নিয়োজিত।",
+    "imageUrl": "https://avatars.githubusercontent.com/u/98692734?v=4",
     "social": {
-      "github": "#",
+      "github": "https://github.com/sadman-alif",
       "linkedin": "#",
       "twitter": "#"
     }
