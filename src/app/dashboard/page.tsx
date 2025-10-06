@@ -5,17 +5,24 @@ import { useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { ShieldCheck, LogOut, UserCircle } from "lucide-react";
-import { useAuth } from "@/hooks/use-auth";
+import { useUser } from "@/firebase";
+import { getAuth } from "firebase/auth";
 
 export default function DashboardPage() {
-  const { user, loading, logout } = useAuth();
+  const { user, loading } = useUser();
   const router = useRouter();
+  const auth = getAuth();
 
   useEffect(() => {
     if (!loading && !user) {
       router.push("/login");
     }
   }, [user, loading, router]);
+
+  const logout = async () => {
+    await auth.signOut();
+    router.push("/");
+  };
 
   if (loading || !user) {
     return (
