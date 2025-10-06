@@ -1,6 +1,6 @@
 # Study Platform - Your University Admission Hub
 
-This is a Next.js application built with Firebase Studio, designed to be a central platform for students in Bangladesh preparing for university and college admissions.
+This is a Next.js application designed to be a central platform for students in Bangladesh preparing for university and college admissions.
 
 ## 🚀 About The Project
 
@@ -13,7 +13,7 @@ The "Study Platform" provides comprehensive information and resources for variou
 - **Admission Calendar:** A countdown timer for upcoming admission deadlines and a comprehensive schedule for various exams.
 - **Question Bank:** A collection of past exam questions, organized by university and subject.
 - **Courses:** A showcase of preparatory courses available for students.
-- **Authentication:** A simple email/password login and signup flow for users.
+- **Authentication:** A simple and secure login system using Supabase, supporting both GitHub and anonymous guest sessions.
 
 ## 🛠️ Tech Stack
 
@@ -24,6 +24,7 @@ This project is built with a modern tech stack:
 - **UI:** [React](https://react.dev/)
 - **Styling:** [Tailwind CSS](https://tailwindcss.com/)
 - **UI Components:** [ShadCN UI](https://ui.shadcn.com/)
+- **Backend & Auth:** [Supabase](https://supabase.com/)
 
 ## 🏃‍♂️ Getting Started
 
