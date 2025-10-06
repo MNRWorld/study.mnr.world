@@ -14,9 +14,9 @@ import { FilePenLine } from "lucide-react";
 
 const CalendarApplicationScheduleTable = () => {
   return (
-    <div className="mt-4 w-full border border-border bg-card rounded-2xl shadow-lg">
+    <div className="mt-4 w-full border border-border bg-card rounded-2xl shadow-lg overflow-x-auto">
       <Table>
-        <TableHeader className="sticky top-[70px] z-10">
+        <TableHeader className="sticky top-0 z-10">
           <TableRow>
             <TableHead className="text-center w-1/5 font-bold bg-primary text-primary-foreground rounded-tl-2xl">ভার্সিটি</TableHead>
             <TableHead className="text-center w-1/5 font-bold bg-primary text-primary-foreground">তারিখ</TableHead>
