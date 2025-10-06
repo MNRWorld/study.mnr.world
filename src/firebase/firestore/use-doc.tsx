@@ -15,7 +15,7 @@ import { FirestorePermissionError } from "@/firebase/errors";
 
 export const useDoc = <T extends DocumentData>(
   collectionName: string,
-  docId: string,
+  docId: string | null | undefined,
 ) => {
   const firestore = useFirestore();
   const [data, setData] = useState<T | null>(null);
@@ -23,7 +23,7 @@ export const useDoc = <T extends DocumentData>(
   const [error, setError] = useState<FirestoreError | FirestorePermissionError | null>(null);
 
   const memoizedDocRef = useMemo(() => {
-    if (!firestore || !docId || docId === 'dummy') return null;
+    if (!firestore || !docId) return null;
     return doc(firestore, collectionName, docId);
   }, [firestore, collectionName, docId]);
 
@@ -51,8 +51,7 @@ export const useDoc = <T extends DocumentData>(
          const permissionError = new FirestorePermissionError({
           path: memoizedDocRef.path,
           operation: 'get',
-          cause: err,
-        });
+        }, { cause: err });
 
         // Emit the error for global handling (e.g., dev overlay)
         errorEmitter.emit('permission-error', permissionError);
@@ -69,5 +68,3 @@ export const useDoc = <T extends DocumentData>(
 
   return { data, loading, error };
 };
-
-    

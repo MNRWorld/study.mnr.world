@@ -60,10 +60,10 @@ export default function ProfilePage() {
   const firestore = useFirestore();
   
   // Conditionally fetch from Firestore only for non-anonymous users
-  const shouldFetchFirestore = user ? !user.isAnonymous : false;
+  const docIdToFetch = user && !user.isAnonymous ? user.uid : null;
   const { data: userProfile, loading: profileLoading } = useDoc<any>(
     "users",
-    shouldFetchFirestore ? user!.uid : "dummy", // Pass dummy ID if not fetching
+    docIdToFetch,
   );
 
   const router = useRouter();
@@ -175,7 +175,7 @@ export default function ProfilePage() {
     }
   };
 
-  const loading = userLoading || (shouldFetchFirestore && profileLoading);
+  const loading = userLoading || (docIdToFetch && profileLoading);
 
   if (loading || !user) {
     return (
@@ -343,5 +343,3 @@ export default function ProfilePage() {
     </div>
   );
 }
-
-    
