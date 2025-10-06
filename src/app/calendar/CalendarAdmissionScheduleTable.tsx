@@ -1,59 +1,56 @@
 "use client";
 
 import { admissionSchedule } from "@/lib/data/schedules/admission";
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from "@/components/ui/table";
 
 const CalendarAdmissionScheduleTable = () => {
   return (
-    <div className="mt-4 w-full space-y-3">
-      {/* Header for larger screens */}
-      <div className="hidden md:grid grid-cols-3 gap-4 px-4 py-2 bg-primary text-primary-foreground rounded-lg font-bold text-center">
-        <div>বিষয়</div>
-        <div>তারিখ</div>
-        <div>সময় باقي</div>
-      </div>
-
-      {/* Card-based list for all screens */}
-      {admissionSchedule.map((item, index) => (
-        <div key={index} className="bg-card border border-border rounded-lg p-4 shadow-sm md:grid md:grid-cols-3 md:gap-4 md:items-center">
-          
-          {/* Mobile view with labels */}
-          <div className="md:hidden space-y-2">
-            <div className="flex justify-between">
-              <span className="font-semibold text-muted-foreground">বিষয়:</span>
-              <span className="text-right font-medium">{item.subject}</span>
-            </div>
-            <div className="flex justify-between">
-              <span className="font-semibold text-muted-foreground">তারিখ:</span>
-              <span className="text-right">{item.date}</span>
-            </div>
-            <div className="flex justify-between">
-              <span className="font-semibold text-muted-foreground">সময় باقي:</span>
-              <span className={`text-right font-semibold ${
+    <div className="mt-4 w-full border border-border bg-card rounded-2xl shadow-lg overflow-x-auto">
+      <Table>
+        <TableHeader>
+          <TableRow>
+            <TableHead className="sticky top-0 z-10 bg-primary text-primary-foreground text-center w-1/3 font-bold rounded-tl-2xl">
+              বিষয়
+            </TableHead>
+            <TableHead className="sticky top-0 z-10 bg-primary text-primary-foreground text-center w-1/3 font-bold">
+              তারিখ
+            </TableHead>
+            <TableHead className="sticky top-0 z-10 bg-primary text-primary-foreground text-center w-1/3 font-bold rounded-tr-2xl">
+              সময় باقي
+            </TableHead>
+          </TableRow>
+        </TableHeader>
+        <TableBody>
+          {admissionSchedule.map((item, index) => (
+            <TableRow key={index} className="even:bg-muted/50">
+              <TableCell className="text-center font-medium whitespace-pre-wrap align-top">
+                {item.subject}
+              </TableCell>
+              <TableCell className="text-center whitespace-pre-wrap align-top">
+                {item.date}
+              </TableCell>
+              <TableCell
+                className={`text-center font-semibold whitespace-pre-wrap align-top ${
                   item.status.includes("স্থগিত")
                     ? "text-yellow-500 dark:text-yellow-400"
                     : item.status.includes("হয়ে গেছে")
                       ? "text-red-500 dark:text-red-400"
                       : "text-green-500 dark:text-green-400"
-                }`}>
+                }`}
+              >
                 {item.status}
-              </span>
-            </div>
-          </div>
-          
-          {/* Desktop view (grid layout) */}
-          <div className="hidden md:block text-center font-medium">{item.subject}</div>
-          <div className="hidden md:block text-center">{item.date}</div>
-          <div className={`hidden md:block text-center font-semibold ${
-              item.status.includes("স্থগিত")
-                ? "text-yellow-500 dark:text-yellow-400"
-                : item.status.includes("হয়ে গেছে")
-                  ? "text-red-500 dark:text-red-400"
-                  : "text-green-500 dark:text-green-400"
-            }`}>
-            {item.status}
-          </div>
-        </div>
-      ))}
+              </TableCell>
+            </TableRow>
+          ))}
+        </TableBody>
+      </Table>
     </div>
   );
 };

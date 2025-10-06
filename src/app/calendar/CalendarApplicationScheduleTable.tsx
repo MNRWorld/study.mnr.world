@@ -1,35 +1,32 @@
 "use client";
 
 import { applicationSchedule } from "@/lib/data/schedules/application";
-import {
-  Table,
-  TableBody,
-  TableCell,
-  TableHead,
-  TableHeader,
-  TableRow,
-} from "@/components/ui/table";
 import ExternalLink from "@/components/common/ExternalLink";
-import { FilePenLine } from "lucide-react";
 
 const CalendarApplicationScheduleTable = () => {
   return (
-    <div className="mt-4 w-full border border-border bg-card rounded-2xl shadow-lg overflow-x-auto">
-      <Table>
-        <TableHeader>
-          <TableRow>
-            <TableHead className="sticky top-0 z-10 text-center w-1/5 font-bold bg-primary text-primary-foreground rounded-tl-2xl">ভার্সিটি</TableHead>
-            <TableHead className="sticky top-0 z-10 text-center w-1/5 font-bold bg-primary text-primary-foreground">তারিখ</TableHead>
-            <TableHead className="sticky top-0 z-10 text-center w-1/5 font-bold bg-primary text-primary-foreground">সময় باقي</TableHead>
-            <TableHead className="sticky top-0 z-10 text-center w-1/5 font-bold bg-primary text-primary-foreground">ফি</TableHead>
-            <TableHead className="sticky top-0 z-10 text-center w-1/5 font-bold bg-primary text-primary-foreground rounded-tr-2xl">লিংক</TableHead>
-          </TableRow>
-        </TableHeader>
-        <TableBody>
-          {applicationSchedule.map((item, index) => (
-            <TableRow key={index} className="even:bg-muted/50">
-              <TableCell className="text-center font-medium whitespace-pre-wrap">
-                {item.university}
+    <div className="mt-4 w-full space-y-3">
+      {/* Header for larger screens */}
+      <div className="hidden md:grid grid-cols-5 gap-4 px-4 py-2 bg-primary text-primary-foreground rounded-lg font-bold text-center">
+        <div>ভার্সিটি</div>
+        <div>তারিখ</div>
+        <div>সময় باقي</div>
+        <div>ফি</div>
+        <div>লিংক</div>
+      </div>
+
+      {/* Card-based list for all screens */}
+      {applicationSchedule.map((item, index) => (
+        <div
+          key={index}
+          className="bg-card border border-border rounded-lg p-4 shadow-sm md:grid md:grid-cols-5 md:gap-4 md:items-start"
+        >
+          {/* Mobile view with labels */}
+          <div className="md:hidden space-y-2">
+            <div className="flex justify-between items-start">
+              <span className="font-semibold text-muted-foreground">ভার্সিটি:</span>
+              <div className="text-right">
+                <span className="font-medium">{item.university}</span>
                 {item.detailsLink && (
                   <div className="mt-1">
                     <ExternalLink
@@ -39,35 +36,85 @@ const CalendarApplicationScheduleTable = () => {
                     />
                   </div>
                 )}
-              </TableCell>
-              <TableCell
-                className="text-center whitespace-pre-wrap"
+              </div>
+            </div>
+            <div className="flex justify-between items-start">
+              <span className="font-semibold text-muted-foreground">তারিখ:</span>
+              <span
+                className="text-right"
                 dangerouslySetInnerHTML={{ __html: item.date }}
-              ></TableCell>
-              <TableCell
-                className={`text-center font-semibold whitespace-pre-wrap ${
+              ></span>
+            </div>
+            <div className="flex justify-between items-start">
+              <span className="font-semibold text-muted-foreground">সময় باقي:</span>
+              <span className={`text-right font-semibold ${
                   item.status.includes("স্থগিত")
                     ? "text-yellow-500 dark:text-yellow-400"
                     : item.status.includes("শেষ")
-                      ? "text-red-500 dark:text-red-400"
-                      : "text-green-500 dark:text-green-400"
-                }`}
-              >
+                    ? "text-red-500 dark:text-red-400"
+                    : "text-green-500 dark:text-green-400"
+                }`}>
                 {item.status}
-              </TableCell>
-              <TableCell
-                className="text-center whitespace-pre-wrap"
+              </span>
+            </div>
+             <div className="flex justify-between items-start">
+              <span className="font-semibold text-muted-foreground">ফি:</span>
+              <span
+                className="text-right"
                 dangerouslySetInnerHTML={{ __html: item.fee }}
-              ></TableCell>
-              <TableCell className="text-center">
-                {item.applyLink && (
-                  <ExternalLink href={item.applyLink} text="[লিংক]" />
+              ></span>
+            </div>
+             <div className="flex justify-between items-start">
+              <span className="font-semibold text-muted-foreground">লিংক:</span>
+                <span className="text-right">
+                {item.applyLink ? (
+                  <ExternalLink href={item.applyLink} text="[আবেদন করুন]" />
+                ) : (
+                  "N/A"
                 )}
-              </TableCell>
-            </TableRow>
-          ))}
-        </TableBody>
-      </Table>
+              </span>
+            </div>
+          </div>
+
+          {/* Desktop view (grid layout) */}
+          <div className="hidden md:block text-center font-medium">
+             <div className="font-bold">{item.university}</div>
+              {item.detailsLink && (
+                  <div className="mt-1">
+                    <ExternalLink
+                      href={item.detailsLink}
+                      text={item.detailsLinkText || "[বিস্তারিত]"}
+                      className="text-xs"
+                    />
+                  </div>
+                )}
+          </div>
+          <div
+            className="hidden md:block text-center whitespace-pre-wrap"
+            dangerouslySetInnerHTML={{ __html: item.date }}
+          ></div>
+          <div
+            className={`hidden md:block text-center font-semibold whitespace-pre-wrap ${
+              item.status.includes("স্থগিত")
+                ? "text-yellow-500 dark:text-yellow-400"
+                : item.status.includes("শেষ")
+                ? "text-red-500 dark:text-red-400"
+                : "text-green-500 dark:text-green-400"
+            }`}
+          >
+            {item.status}
+          </div>
+          <div
+            className="hidden md:block text-center whitespace-pre-wrap"
+            dangerouslySetInnerHTML={{ __html: item.fee }}
+          ></div>
+          <div className="hidden md:block text-center">
+            {item.applyLink && (
+              <ExternalLink href={item.applyLink} text="[আবেদন করুন]" />
+            )}
+          </div>
+        </div>
+      ))}
     </div>
   );
 };
