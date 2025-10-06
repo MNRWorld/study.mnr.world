@@ -1,0 +1,46 @@
+[
+  {
+    "name": "মোহাম্মদ নাঈম",
+    "role": "প্রতিষ্ঠাতা ও ডেভেলপার",
+    "bio": "শিক্ষার্থীদের জন্য প্রযুক্তিকে সহজলভ্য করার লক্ষ্যে এই প্ল্যাটফর্ম তৈরি করেছেন।",
+    "imageUrl": "https://avatars.githubusercontent.com/u/73432095?v=4",
+    "social": {
+      "github": "https://github.com/MNRfrom2020",
+      "linkedin": "https://linkedin.com/in/mnrfrom2020",
+      "twitter": "https://twitter.com/mnrfrom2020"
+    }
+  },
+  {
+    "name": "জেন Doe",
+    "role": "UI/UX ডিজাইনার",
+    "bio": "ব্যবহারকারীদের জন্য একটি সুন্দর এবং সহজ অভিজ্ঞতা নিশ্চিত করতে কাজ করছেন।",
+    "imageUrl": "https://avatars.githubusercontent.com/u/2?v=4",
+    "social": {
+      "github": "#",
+      "linkedin": "#",
+      "twitter": "#"
+    }
+  },
+  {
+    "name": "জন স্মিথ",
+    "role": "লিড কন্টেন্ট ক্রিয়েটর",
+    "bio": "সঠিক ও মানসম্মত তথ্য দিয়ে শিক্ষার্থীদের প্রস্তুতিতে সহায়তা করছেন।",
+    "imageUrl": "https://avatars.githubusercontent.com/u/3?v=4",
+    "social": {
+      "github": "#",
+      "linkedin": "#",
+      "twitter": "#"
+    }
+  },
+  {
+    "name": "এমিলি জনসন",
+    "role": "মার্কেটিং প্রধান",
+    "bio": "আমাদের প্ল্যাটফর্মের বার্তা সবার কাছে পৌঁছে দেওয়ার জন্য নিবেদিত।",
+    "imageUrl": "https://avatars.githubusercontent.com/u/4?v-4",
+    "social": {
+      "github": "#",
+      "linkedin": "#",
+      "twitter": "#"
+    }
+  }
+]
