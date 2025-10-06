@@ -5,7 +5,7 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { cn } from "@/lib/utils";
 import { LogIn, LogOut, UserCircle } from "lucide-react";
-import { useAuth } from "@/hooks/use-auth";
+import { useUser, useAuth as useFirebaseAuth } from "@/firebase";
 
 interface AuthButtonProps {
   isHovered: boolean;
@@ -56,8 +56,14 @@ function AuthButton({
 
 export default function HeaderAuth() {
   const [hoveredId, setHoveredId] = useState<string | null>(null);
-  const { user, loading, logout } = useAuth();
+  const { user, loading } = useUser();
+  const auth = useFirebaseAuth();
   const router = useRouter();
+
+  const handleLogout = async () => {
+    await auth.signOut();
+    router.push("/");
+  };
 
   if (loading) {
     return <div className="w-9 h-9" />; // Placeholder to prevent layout shift
@@ -81,7 +87,7 @@ export default function HeaderAuth() {
           <div onMouseEnter={() => setHoveredId("logout")}>
             <AuthButton
               isHovered={hoveredId === "logout"}
-              onClick={logout}
+              onClick={handleLogout}
               label="লগ আউট"
               icon={<LogOut size={20} />}
               isDestructive

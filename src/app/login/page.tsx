@@ -5,12 +5,12 @@ import { Fingerprint } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { useAuth as useFirebaseSdkAuth, useUser } from "@/firebase";
+import { useAuth, useUser } from "@/firebase";
 import { signInAnonymously } from "firebase/auth";
 import { useToast } from "@/hooks/use-toast";
 
 export default function LoginPage() {
-  const auth = useFirebaseSdkAuth();
+  const auth = useAuth();
   const { user, loading: userLoading } = useUser();
   const [loginLoading, setLoginLoading] = useState(false);
   const router = useRouter();

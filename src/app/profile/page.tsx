@@ -25,9 +25,9 @@ import {
   ArrowRight,
 } from "lucide-react";
 import Link from "next/link";
-import { useAuth } from "@/hooks/use-auth";
-import { updateProfile, deleteUser, getAuth } from "firebase/auth";
-import { useFirebaseApp } from "@/firebase";
+import { useAuth, updateProfile } from "firebase/auth";
+import { useFirebaseApp, useUser } from "@/firebase";
+import { getAuth, deleteUser } from "firebase/auth";
 
 const suggestions = [
   {
@@ -45,7 +45,7 @@ const suggestions = [
 ];
 
 export default function ProfilePage() {
-  const { user, loading, logout } = useAuth();
+  const { user, loading } = useUser();
   const router = useRouter();
   const { toast } = useToast();
   const [name, setName] = useState("");
@@ -61,6 +61,11 @@ export default function ProfilePage() {
     }
   }, [user, loading, router]);
 
+  const logout = async () => {
+    await auth.signOut();
+    router.push("/");
+  };
+
   if (loading || !user) {
     return (
       <div className="flex items-center justify-center min-h-[calc(100vh-10rem)]">
@@ -72,7 +77,7 @@ export default function ProfilePage() {
   }
 
   const handleNameUpdate = async () => {
-    if (!user) return;
+    if (!auth.currentUser) return;
     if (!name.trim()) {
       toast({
         variant: "destructive",
@@ -82,7 +87,7 @@ export default function ProfilePage() {
       return;
     }
     try {
-      await updateProfile(user, { displayName: name });
+      await updateProfile(auth.currentUser, { displayName: name });
       // This will trigger the onAuthStateChanged listener and update the state everywhere
       toast({
         title: "নাম পরিবর্তিত হয়েছে",
@@ -99,7 +104,7 @@ export default function ProfilePage() {
   };
 
   const handleDeleteAccount = async () => {
-    if (!user) return;
+    if (!auth.currentUser) return;
     if (
       !window.confirm(
         "আপনি কি নিশ্চিতভাবে আপনার অ্যাকাউন্ট মুছে ফেলতে চান? এই কাজটি আর ফেরানো যাবে না।",
@@ -109,7 +114,7 @@ export default function ProfilePage() {
     }
 
     try {
-      await deleteUser(user);
+      await deleteUser(auth.currentUser);
       toast({
         title: "অ্যাকাউন্ট মুছে ফেলা হয়েছে",
         description: "আপনার অ্যাকাউন্ট এবং ডেটা স্থায়ীভাবে মুছে ফেলা হয়েছে।",
