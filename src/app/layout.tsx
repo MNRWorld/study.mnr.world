@@ -45,7 +45,7 @@ export default function RootLayout({
         >
           <SupabaseProvider>
             <Header />
-            <main className="flex-grow pt-5">{children}</main>
+            <main className="flex-grow">{children}</main>
             <Footer />
             <BackToTopButton />
             <Toaster />
