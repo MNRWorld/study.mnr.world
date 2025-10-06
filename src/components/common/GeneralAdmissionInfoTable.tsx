@@ -36,9 +36,9 @@ const GeneralAdmissionInfoTable = () => {
       </div>
       <div className="w-full border border-border bg-card rounded-2xl shadow-lg">
         <Table>
-          <TableHeader className="sticky top-[70px] z-10 rounded-t-2xl">
+          <TableHeader className="sticky top-[70px] z-10">
             <TableRow>
-              <TableHead className="w-[15%] font-bold bg-primary text-primary-foreground text-center">
+              <TableHead className="w-[15%] font-bold bg-primary text-primary-foreground text-center rounded-tl-2xl">
                 বিশ্ববিদ্যালয়
               </TableHead>
               <TableHead className="w-[15%] font-bold bg-primary text-primary-foreground text-center">
@@ -53,7 +53,7 @@ const GeneralAdmissionInfoTable = () => {
               <TableHead className="w-[15%] font-bold bg-primary text-primary-foreground text-center">
                 সেকেন্ড টাইম
               </TableHead>
-              <TableHead className="w-[15%] font-bold bg-primary text-primary-foreground text-center">
+              <TableHead className="w-[15%] font-bold bg-primary text-primary-foreground text-center rounded-tr-2xl">
                 নেগেটিভ মার্কিং
               </TableHead>
             </TableRow>
