@@ -93,16 +93,6 @@ export default function HeaderAuth() {
               icon={profileIcon}
             />
           </Link>
-          <div className="h-6 w-px bg-border/50"></div>
-          <div onMouseEnter={() => setHoveredId("logout")}>
-            <AuthButton
-              isHovered={hoveredId === "logout"}
-              onClick={handleLogout}
-              label="লগ আউট"
-              icon={<LogOut size={20} />}
-              isDestructive
-            />
-          </div>
         </div>
       ) : (
         <Link href="/login" onMouseEnter={() => setHoveredId("login")}>
