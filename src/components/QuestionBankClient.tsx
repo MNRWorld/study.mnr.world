@@ -87,13 +87,14 @@ export default function QuestionBankClient({
             const categoryId = categoryIdMap[category];
             return(
               <div key={category}>
-                  <a href={`#${categoryId}`} id={categoryId} className="scroll-mt-24">
-                  <h2 
-                      className="text-2xl font-bold mb-4 text-center pb-2 border-b-2 border-primary/20 flex items-center justify-center gap-2">
-                      {Icon && <Icon className="h-6 w-6 text-primary/80" />}
-                      {category}
-                  </h2>
-                  </a>
+                <a href={`#${categoryId}`} id={categoryId} className="scroll-mt-24">
+                  <div className="flex justify-center">
+                      <div className="gradient-background inline-flex items-center gap-2 px-6 py-2 text-primary-foreground rounded-full text-lg mb-4 font-bold shadow-md">
+                          {Icon && <Icon className="h-5 w-5" />}
+                          {category}
+                      </div>
+                  </div>
+                </a>
                   <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-4">
                   {groupedUniversities[category].map((university, index) => (
                       <div
@@ -112,5 +113,3 @@ export default function QuestionBankClient({
     </>
   );
 }
-
-    
