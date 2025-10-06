@@ -2,10 +2,10 @@
 
 import React, { useState } from "react";
 import Link from "next/link";
-import { useAuth } from "@/hooks/use-auth";
 import { useRouter } from "next/navigation";
 import { cn } from "@/lib/utils";
 import { LogIn, LogOut, UserCircle } from "lucide-react";
+import { useAuth } from "@/hooks/use-auth";
 
 interface AuthButtonProps {
   isHovered: boolean;
@@ -59,11 +59,6 @@ export default function HeaderAuth() {
   const { user, loading, logout } = useAuth();
   const router = useRouter();
 
-  const handleLogout = async () => {
-    await logout();
-    router.push("/");
-  };
-
   if (loading) {
     return <div className="w-9 h-9" />; // Placeholder to prevent layout shift
   }
@@ -78,7 +73,7 @@ export default function HeaderAuth() {
           <Link href="/profile">
             <AuthButton
               isHovered={hoveredId === "profile"}
-              label={user.name}
+              label={user.displayName || "প্রোফাইল"}
               icon={<UserCircle size={20} />}
             />
           </Link>
@@ -86,7 +81,7 @@ export default function HeaderAuth() {
           <div onMouseEnter={() => setHoveredId("logout")}>
             <AuthButton
               isHovered={hoveredId === "logout"}
-              onClick={handleLogout}
+              onClick={logout}
               label="লগ আউট"
               icon={<LogOut size={20} />}
               isDestructive

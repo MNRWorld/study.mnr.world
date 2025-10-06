@@ -1,224 +1,72 @@
+// src/hooks/use-auth.tsx
 "use client";
 
-import React, {
+import {
   createContext,
   useContext,
   useEffect,
   useState,
   useCallback,
+  ReactNode,
 } from "react";
+import {
+  getAuth,
+  onAuthStateChanged,
+  signInAnonymously,
+  updateProfile,
+  deleteUser,
+  User as FirebaseUser,
+} from "firebase/auth";
 import { useRouter } from "next/navigation";
 import { useToast } from "./use-toast";
-
-interface User {
-  name: string;
-  deviceId: string;
-  loginTime: string;
-}
+import { useFirebaseApp } from "@/firebase";
 
 interface AuthContextType {
-  user: User | null;
+  user: FirebaseUser | null;
   loading: boolean;
-  login: () => Promise<void>;
   logout: () => Promise<void>;
-  updateName: (newName: string) => Promise<void>;
-  deleteAccount: () => Promise<void>;
 }
 
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
 
-const USER_DATA_KEY = "deviceAuthUserData";
-const DEVICE_ID_KEY = "deviceAuthDeviceId";
-
-const getOrCreateDeviceId = (): string => {
-  if (typeof window === "undefined") return "";
-  try {
-    let deviceId = localStorage.getItem(DEVICE_ID_KEY);
-    if (!deviceId) {
-      deviceId = `device-${Date.now()}-${Math.random().toString(36).substring(2, 10)}`;
-      localStorage.setItem(DEVICE_ID_KEY, deviceId);
-    }
-    return deviceId;
-  } catch (error) {
-    console.error("Could not access localStorage", error);
-    return "";
-  }
-};
-
-export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
-  const [user, setUser] = useState<User | null>(null);
+export const AuthProvider = ({ children }: { children: ReactNode }) => {
+  const app = useFirebaseApp();
+  const auth = getAuth(app);
+  const [user, setUser] = useState<FirebaseUser | null>(null);
   const [loading, setLoading] = useState(true);
   const router = useRouter();
   const { toast } = useToast();
 
   useEffect(() => {
-    setLoading(true);
-    try {
-      const storedUserData = localStorage.getItem(USER_DATA_KEY);
-      const permanentDeviceId = getOrCreateDeviceId();
-
-      if (storedUserData && permanentDeviceId) {
-        const parsedUser: User = JSON.parse(storedUserData);
-        if (parsedUser.deviceId === permanentDeviceId) {
-          setUser(parsedUser);
-        } else {
-          localStorage.removeItem(USER_DATA_KEY);
-          setUser(null);
-        }
-      } else {
-        setUser(null);
-      }
-    } catch (error) {
-      console.error("Failed to parse user data from localStorage", error);
-      localStorage.removeItem(USER_DATA_KEY);
-      setUser(null);
-    } finally {
+    const unsubscribe = onAuthStateChanged(auth, (firebaseUser) => {
+      setUser(firebaseUser);
       setLoading(false);
-    }
-  }, []);
+    });
 
-  const login = useCallback(async () => {
-    setLoading(true);
-    try {
-      await new Promise((res) => setTimeout(res, 500));
-
-      const deviceId = getOrCreateDeviceId();
-      if (!deviceId) {
-        toast({
-          variant: "destructive",
-          title: "ব্রাউজার সাপোর্ট সমস্যা",
-          description:
-            "আপনার ব্রাউজারে Local Storage চালু নেই। অনুগ্রহ করে চালু করুন।",
-        });
-        throw new Error("Device could not be identified.");
-      }
-
-      let name = "ব্যবহারকারী";
-      const storedData = localStorage.getItem(USER_DATA_KEY);
-
-      if (storedData) {
-        try {
-          const parsed = JSON.parse(storedData);
-          if (parsed.deviceId === deviceId && parsed.name) {
-            name = parsed.name;
-          }
-        } catch (e) {
-          console.error("Could not parse existing user data, using default.");
-        }
-      }
-
-      const newUser: User = {
-        name,
-        deviceId: deviceId,
-        loginTime: new Date().toISOString(),
-      };
-
-      localStorage.setItem(USER_DATA_KEY, JSON.stringify(newUser));
-      setUser(newUser);
-
-      toast({
-        title: "লগইন সফল হয়েছে",
-        description: "আপনার প্রোফাইলে স্বাগতম!",
-      });
-      router.push("/profile");
-    } catch (error: any) {
-      console.error("Login failed:", error);
-      if (!error.message.includes("Device could not be identified.")) {
-        toast({
-          variant: "destructive",
-          title: "লগইন ব্যর্থ হয়েছে",
-          description: "একটি অপ্রত্যাশিত সমস্যা হয়েছে। আবার চেষ্টা করুন।",
-        });
-      }
-    } finally {
-      setLoading(false);
-    }
-  }, [router, toast]);
+    return () => unsubscribe();
+  }, [auth]);
 
   const logout = useCallback(async () => {
-    setLoading(true);
-    await new Promise((res) => setTimeout(res, 300));
     try {
-      localStorage.removeItem(USER_DATA_KEY);
-      setUser(null);
+      await auth.signOut();
       toast({
         title: "সফলভাবে লগআউট হয়েছেন",
       });
       router.push("/");
     } catch (error) {
-      console.error("Could not access localStorage during logout", error);
+      console.error("Logout failed:", error);
       toast({
         variant: "destructive",
         title: "লগআউট ব্যর্থ হয়েছে",
         description: "একটি সমস্যা হয়েছে। আবার চেষ্টা করুন।",
       });
-    } finally {
-      setLoading(false);
     }
-  }, [router, toast]);
-
-  const updateName = async (newName: string) => {
-    if (!user) {
-      toast({
-        variant: "destructive",
-        title: "অনুমতি নেই",
-        description: "নাম পরিবর্তন করতে আপনাকে অবশ্যই লগইন করতে হবে।",
-      });
-      return;
-    }
-    const updatedUser = { ...user, name: newName };
-    try {
-      localStorage.setItem(USER_DATA_KEY, JSON.stringify(updatedUser));
-      setUser(updatedUser);
-      toast({
-        title: "নাম পরিবর্তিত হয়েছে",
-        description: `আপনার নতুন নাম "${newName}" সফলভাবে সেভ হয়েছে।`,
-      });
-    } catch (error) {
-      console.error("Could not access localStorage", error);
-      throw new Error("ডিভাইসে আপনার নাম সেভ করা যায়নি।");
-    }
-  };
-
-  const deleteAccount = async () => {
-    if (
-      !window.confirm(
-        "আপনি কি নিশ্চিতভাবে আপনার অ্যাকাউন্ট মুছে ফেলতে চান? এই কাজটি আর ফেরানো যাবে না।",
-      )
-    ) {
-      return;
-    }
-
-    setLoading(true);
-    await new Promise((res) => setTimeout(res, 500));
-    try {
-      localStorage.removeItem(USER_DATA_KEY);
-      localStorage.removeItem(DEVICE_ID_KEY);
-      setUser(null);
-      toast({
-        title: "অ্যাকাউন্ট মুছে ফেলা হয়েছে",
-        description: "আপনার অ্যাকাউন্ট এবং ডেটা স্থায়ীভাবে মুছে ফেলা হয়েছে।",
-      });
-      router.push("/");
-    } catch (error) {
-      console.error("Could not access localStorage", error);
-      toast({
-        variant: "destructive",
-        title: "একটি সমস্যা হয়েছে",
-        description: "অ্যাকাউন্ট মুছে ফেলার সময় একটি সমস্যা হয়েছে।",
-      });
-    } finally {
-      setLoading(false);
-    }
-  };
+  }, [auth, router, toast]);
 
   const value = {
     user,
     loading,
-    login,
     logout,
-    updateName,
-    deleteAccount,
   };
 
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;

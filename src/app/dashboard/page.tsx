@@ -1,11 +1,11 @@
 "use client";
 
-import { useAuth } from "@/hooks/use-auth";
 import { useRouter } from "next/navigation";
 import { useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { ShieldCheck, LogOut, UserCircle } from "lucide-react";
+import { useAuth } from "@/hooks/use-auth";
 
 export default function DashboardPage() {
   const { user, loading, logout } = useAuth();
@@ -27,11 +27,6 @@ export default function DashboardPage() {
     );
   }
 
-  const handleLogout = async () => {
-    await logout();
-    router.push("/");
-  };
-
   return (
     <div className="flex items-center justify-center min-h-[calc(100vh-10rem)] font-bengali px-4">
       <Card className="w-full max-w-md p-4 sm:p-6 text-center shadow-lg animate-fade-in-up">
@@ -43,7 +38,7 @@ export default function DashboardPage() {
             </div>
           </div>
           <CardTitle className="text-2xl font-bold">
-            স্বাগতম, {user.name}
+            স্বাগতম, {user.displayName || "ব্যবহারকারী"}
           </CardTitle>
           <p className="text-sm text-muted-foreground pt-1">
             আপনার অ্যাকাউন্টে সফলভাবে লগইন হয়েছে।
@@ -59,19 +54,17 @@ export default function DashboardPage() {
                 ডিভাইস আইডি:
               </span>{" "}
               <span className="font-mono text-primary text-xs break-all">
-                {user.deviceId}
+                {user.uid}
               </span>
             </p>
             <p className="text-sm">
               <span className="font-medium text-muted-foreground">লগইন সময়:</span>{" "}
-              {new Date(user.loginTime).toLocaleString("bn-BD")}
+              {new Date(
+                parseInt(user.metadata.createdAt || "0"),
+              ).toLocaleString("bn-BD")}
             </p>
           </div>
-          <Button
-            onClick={handleLogout}
-            variant="destructive"
-            className="w-full"
-          >
+          <Button onClick={logout} variant="destructive" className="w-full">
             <LogOut className="mr-2" />
             লগ আউট
           </Button>

@@ -1,6 +1,5 @@
 "use client";
 
-import { useAuth } from "@/hooks/use-auth";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
@@ -26,6 +25,9 @@ import {
   ArrowRight,
 } from "lucide-react";
 import Link from "next/link";
+import { useAuth } from "@/hooks/use-auth";
+import { updateProfile, deleteUser, getAuth } from "firebase/auth";
+import { useFirebaseApp } from "@/firebase";
 
 const suggestions = [
   {
@@ -43,17 +45,19 @@ const suggestions = [
 ];
 
 export default function ProfilePage() {
-  const { user, loading, logout, updateName, deleteAccount } = useAuth();
+  const { user, loading, logout } = useAuth();
   const router = useRouter();
   const { toast } = useToast();
   const [name, setName] = useState("");
+  const app = useFirebaseApp();
+  const auth = getAuth(app);
 
   useEffect(() => {
     if (!loading && !user) {
       router.push("/login");
     }
     if (user) {
-      setName(user.name);
+      setName(user.displayName || "ব্যবহারকারী");
     }
   }, [user, loading, router]);
 
@@ -67,11 +71,8 @@ export default function ProfilePage() {
     );
   }
 
-  const handleLogout = async () => {
-    await logout();
-  };
-
   const handleNameUpdate = async () => {
+    if (!user) return;
     if (!name.trim()) {
       toast({
         variant: "destructive",
@@ -80,11 +81,48 @@ export default function ProfilePage() {
       });
       return;
     }
-    await updateName(name);
+    try {
+      await updateProfile(user, { displayName: name });
+      // This will trigger the onAuthStateChanged listener and update the state everywhere
+      toast({
+        title: "নাম পরিবর্তিত হয়েছে",
+        description: `আপনার নতুন নাম "${name}" সফলভাবে সেভ হয়েছে।`,
+      });
+    } catch (error) {
+      console.error("Error updating name:", error);
+      toast({
+        variant: "destructive",
+        title: "নাম পরিবর্তন ব্যর্থ হয়েছে",
+        description: "একটি সমস্যা হয়েছে। আবার চেষ্টা করুন।",
+      });
+    }
   };
 
   const handleDeleteAccount = async () => {
-    await deleteAccount();
+    if (!user) return;
+    if (
+      !window.confirm(
+        "আপনি কি নিশ্চিতভাবে আপনার অ্যাকাউন্ট মুছে ফেলতে চান? এই কাজটি আর ফেরানো যাবে না।",
+      )
+    ) {
+      return;
+    }
+
+    try {
+      await deleteUser(user);
+      toast({
+        title: "অ্যাকাউন্ট মুছে ফেলা হয়েছে",
+        description: "আপনার অ্যাকাউন্ট এবং ডেটা স্থায়ীভাবে মুছে ফেলা হয়েছে।",
+      });
+      router.push("/");
+    } catch (error) {
+      console.error("Error deleting account:", error);
+      toast({
+        variant: "destructive",
+        title: "একটি সমস্যা হয়েছে",
+        description: "অ্যাকাউন্ট মুছে ফেলার সময় একটি সমস্যা হয়েছে।",
+      });
+    }
   };
 
   return (
@@ -98,7 +136,7 @@ export default function ProfilePage() {
             </div>
           </div>
           <CardTitle className="text-2xl sm:text-3xl font-bold">
-            স্বাগতম, {user.name}
+            স্বাগতম, {user.displayName || "ব্যবহারকারী"}
           </CardTitle>
           <CardDescription className="text-sm sm:text-base pt-1">
             আপনার প্রোফাইল এবং অ্যাকাউন্ট পরিচালনা করুন।
@@ -170,18 +208,20 @@ export default function ProfilePage() {
                   ডিভাইস আইডি:
                 </span>{" "}
                 <span className="font-mono text-primary text-xs break-all">
-                  {user.deviceId}
+                  {user.uid}
                 </span>
               </p>
               <p>
                 <span className="font-medium text-muted-foreground">
                   লগইন সময়:
                 </span>{" "}
-                {new Date(user.loginTime).toLocaleString("bn-BD")}
+                {new Date(
+                  parseInt(user.metadata.createdAt || "0"),
+                ).toLocaleString("bn-BD")}
               </p>
             </CardContent>
             <CardFooter>
-              <Button onClick={handleLogout} variant="outline" className="w-full">
+              <Button onClick={logout} variant="outline" className="w-full">
                 <LogOut className="mr-2" />
                 লগ আউট
               </Button>

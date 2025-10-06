@@ -1,21 +1,49 @@
 "use client";
 
-import { useAuth } from "@/hooks/use-auth";
 import { Button } from "@/components/ui/button";
 import { Fingerprint } from "lucide-react";
 import { useRouter } from "next/navigation";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { useAuth as useFirebaseSdkAuth, useUser } from "@/firebase";
+import { signInAnonymously } from "firebase/auth";
+import { useToast } from "@/hooks/use-toast";
 
 export default function LoginPage() {
-  const { login, loading, user } = useAuth();
+  const auth = useFirebaseSdkAuth();
+  const { user, loading: userLoading } = useUser();
+  const [loginLoading, setLoginLoading] = useState(false);
   const router = useRouter();
+  const { toast } = useToast();
 
   useEffect(() => {
-    if (!loading && user) {
+    if (!userLoading && user) {
       router.push("/profile");
     }
-  }, [user, loading, router]);
+  }, [user, userLoading, router]);
+
+  const handleLogin = async () => {
+    setLoginLoading(true);
+    try {
+      await signInAnonymously(auth);
+      toast({
+        title: "লগইন সফল হয়েছে",
+        description: "আপনার প্রোফাইলে স্বাগতম!",
+      });
+      router.push("/profile");
+    } catch (error) {
+      console.error("Anonymous login failed:", error);
+      toast({
+        variant: "destructive",
+        title: "লগইন ব্যর্থ হয়েছে",
+        description: "একটি অপ্রত্যাশিত সমস্যা হয়েছে। আবার চেষ্টা করুন।",
+      });
+    } finally {
+      setLoginLoading(false);
+    }
+  };
+
+  const isLoading = userLoading || loginLoading;
 
   return (
     <div className="flex items-center justify-center min-h-[calc(100vh-10rem)] font-bengali px-4">
@@ -34,12 +62,12 @@ export default function LoginPage() {
         </CardHeader>
         <CardContent>
           <Button
-            onClick={login}
+            onClick={handleLogin}
             size="lg"
             className="w-full font-semibold text-base transition-transform hover:scale-105"
-            disabled={loading}
+            disabled={isLoading}
           >
-            {loading ? "প্রসেসিং..." : "ডিভাইস দিয়ে লগইন করুন"}
+            {isLoading ? "প্রসেসিং..." : "ডিভাইস দিয়ে লগইন করুন"}
           </Button>
           <div className="text-xs text-muted-foreground mt-6">
             <p>

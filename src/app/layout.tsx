@@ -8,6 +8,7 @@ import BackToTopButton from "@/components/common/BackToTopButton";
 import { Inter, Hind_Siliguri } from "next/font/google";
 import { cn } from "@/lib/utils";
 import { ThemeProvider } from "@/components/ThemeProvider";
+import { FirebaseClientProvider } from "@/firebase";
 
 export const metadata: Metadata = {
   title: "স্টাডি প্ল্যাটফর্ম",
@@ -59,13 +60,15 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <AuthProvider>
-            <Header />
-            <main className="flex-grow">{children}</main>
-            <Footer />
-            <BackToTopButton />
-            <Toaster />
-          </AuthProvider>
+          <FirebaseClientProvider>
+            <AuthProvider>
+              <Header />
+              <main className="flex-grow">{children}</main>
+              <Footer />
+              <BackToTopButton />
+              <Toaster />
+            </AuthProvider>
+          </FirebaseClientProvider>
         </ThemeProvider>
       </body>
     </html>
