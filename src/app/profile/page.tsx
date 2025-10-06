@@ -60,7 +60,7 @@ export default function ProfilePage() {
   const firestore = useFirestore();
   
   // Conditionally fetch from Firestore only for non-anonymous users
-  const docIdToFetch = user && !user.isAnonymous ? user.uid : null;
+  const docIdToFetch = (user && !user.isAnonymous) ? user.uid : null;
   const { data: userProfile, loading: profileLoading } = useDoc<any>(
     "users",
     docIdToFetch,
@@ -89,9 +89,9 @@ export default function ProfilePage() {
             const firestoreName = userProfile.displayName || user.displayName || "";
             setName(firestoreName);
             setDisplayName(firestoreName || "ব্যবহারকারী");
-        } else if (!profileLoading && !userProfile) {
+        } else if (!profileLoading && !userProfile && user.displayName) {
             // Fallback to auth display name if firestore profile doesn't exist yet
-            const authName = user.displayName || "ব্যবহারকারী";
+            const authName = user.displayName;
             setName(authName);
             setDisplayName(authName);
         }

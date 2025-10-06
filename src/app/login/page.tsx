@@ -33,10 +33,10 @@ export default function LoginPage() {
 
   const handleLoginSuccess = async (userCredential: UserCredential) => {
     const user = userCredential.user;
-    if (!user) return;
+    if (!user || !firestore) return;
 
     // Only create Firestore profile for non-anonymous users
-    if (!user.isAnonymous && firestore) {
+    if (!user.isAnonymous) {
       const userRef = doc(firestore, "users", user.uid);
       const userDoc = await getDoc(userRef);
 
@@ -47,7 +47,7 @@ export default function LoginPage() {
           email: user.email,
           displayName: user.displayName,
           photoURL: user.photoURL,
-          providerId: user.providerData[0]?.providerId || "unknown",
+          providerId: user.providerData[0]?.providerId || "github.com",
           createdAt: serverTimestamp(),
         });
       }
@@ -65,7 +65,12 @@ export default function LoginPage() {
     setAnonymousLoading(true);
     try {
       const userCredential = await signInAnonymously(auth);
-      await handleLoginSuccess(userCredential);
+      // For anonymous users, we don't create a Firestore doc, just go to profile
+      toast({
+        title: "অতিথি হিসেবে লগইন সফল হয়েছে",
+        description: "আপনার প্রোফাইলে স্বাগতম!",
+      });
+      router.push("/profile");
     } catch (error) {
       console.error("Anonymous login failed:", error);
       const firebaseError = error as FirebaseError;
