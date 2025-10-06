@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
+import Image from "next/image";
 import { cn } from "@/lib/utils";
 import { LogIn, LogOut, UserCircle } from "lucide-react";
 import { useUser, useAuth as useFirebaseAuth } from "@/firebase";
@@ -69,6 +70,18 @@ export default function HeaderAuth() {
     return <div className="w-9 h-9" />; // Placeholder to prevent layout shift
   }
 
+  const profileIcon = user?.photoURL ? (
+    <Image
+      src={user.photoURL}
+      alt={user.displayName || "Profile"}
+      width={24}
+      height={24}
+      className="rounded-full"
+    />
+  ) : (
+    <UserCircle size={20} />
+  );
+
   return (
     <div onMouseLeave={() => setHoveredId(null)}>
       {user ? (
@@ -80,7 +93,7 @@ export default function HeaderAuth() {
             <AuthButton
               isHovered={hoveredId === "profile"}
               label={user.displayName || "প্রোফাইল"}
-              icon={<UserCircle size={20} />}
+              icon={profileIcon}
             />
           </Link>
           <div className="h-6 w-px bg-border/50"></div>

@@ -2,6 +2,7 @@
 
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
+import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import {
   Card,
@@ -25,9 +26,8 @@ import {
   ArrowRight,
 } from "lucide-react";
 import Link from "next/link";
-import { useAuth, updateProfile } from "firebase/auth";
 import { useFirebaseApp, useUser } from "@/firebase";
-import { getAuth, deleteUser } from "firebase/auth";
+import { getAuth, deleteUser, updateProfile } from "firebase/auth";
 
 const suggestions = [
   {
@@ -135,8 +135,18 @@ export default function ProfilePage() {
       <Card className="w-full p-4 sm:p-6 text-center shadow-lg animate-fade-in-up mb-8">
         <CardHeader>
           <div className="flex justify-center mb-4">
-            <div className="relative">
-              <UserCircle className="h-24 w-24 text-primary" />
+            <div className="relative h-24 w-24">
+              {user.photoURL ? (
+                <Image
+                  src={user.photoURL}
+                  alt={user.displayName || "Profile picture"}
+                  width={96}
+                  height={96}
+                  className="rounded-full"
+                />
+              ) : (
+                <UserCircle className="h-24 w-24 text-primary" />
+              )}
               <ShieldCheck className="absolute bottom-1 right-1 h-8 w-8 text-green-500 bg-card rounded-full p-1" />
             </div>
           </div>
@@ -208,6 +218,14 @@ export default function ProfilePage() {
               <CardDescription>আপনার বর্তমান লগইন সেশনের তথ্য</CardDescription>
             </CardHeader>
             <CardContent className="text-sm space-y-2">
+              <p>
+                <span className="font-medium text-muted-foreground">
+                  প্রোভাইডার:
+                </span>{" "}
+                <span className="font-mono text-primary text-xs break-all">
+                  {user.isAnonymous ? "অতিথি" : user.providerData[0]?.providerId.replace('.com', '') || 'অজানা'}
+                </span>
+              </p>
               <p>
                 <span className="font-medium text-muted-foreground">
                   ডিভাইস আইডি:

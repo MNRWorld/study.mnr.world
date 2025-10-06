@@ -1,18 +1,23 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
-import { User, Fingerprint } from "lucide-react";
+import { User, Fingerprint, Github } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { useAuth, useUser } from "@/firebase";
-import { signInAnonymously } from "firebase/auth";
+import {
+  signInAnonymously,
+  GithubAuthProvider,
+  signInWithPopup,
+} from "firebase/auth";
 import { useToast } from "@/hooks/use-toast";
 
 export default function LoginPage() {
   const auth = useAuth();
   const { user, loading: userLoading } = useUser();
-  const [loginLoading, setLoginLoading] = useState(false);
+  const [anonymousLoading, setAnonymousLoading] = useState(false);
+  const [githubLoading, setGithubLoading] = useState(false);
   const router = useRouter();
   const { toast } = useToast();
 
@@ -22,8 +27,8 @@ export default function LoginPage() {
     }
   }, [user, userLoading, router]);
 
-  const handleLogin = async () => {
-    setLoginLoading(true);
+  const handleAnonymousLogin = async () => {
+    setAnonymousLoading(true);
     try {
       await signInAnonymously(auth);
       toast({
@@ -39,11 +44,33 @@ export default function LoginPage() {
         description: "একটি অপ্রত্যাশিত সমস্যা হয়েছে। আবার চেষ্টা করুন।",
       });
     } finally {
-      setLoginLoading(false);
+      setAnonymousLoading(false);
     }
   };
 
-  const isLoading = userLoading || loginLoading;
+  const handleGithubLogin = async () => {
+    setGithubLoading(true);
+    const provider = new GithubAuthProvider();
+    try {
+      await signInWithPopup(auth, provider);
+      toast({
+        title: "GitHub লগইন সফল হয়েছে",
+        description: "আপনার প্রোফাইলে স্বাগতম!",
+      });
+      router.push("/profile");
+    } catch (error) {
+      console.error("GitHub login failed:", error);
+      toast({
+        variant: "destructive",
+        title: "GitHub লগইন ব্যর্থ হয়েছে",
+        description: "একটি সমস্যা হয়েছে। আবার চেষ্টা করুন।",
+      });
+    } finally {
+      setGithubLoading(false);
+    }
+  };
+
+  const isLoading = userLoading || anonymousLoading || githubLoading;
 
   return (
     <div className="flex items-center justify-center min-h-[calc(100vh-10rem)] font-bengali px-4">
@@ -53,25 +80,36 @@ export default function LoginPage() {
             <User className="h-8 w-8 sm:h-10 sm:w-10 text-primary" />
           </div>
           <CardTitle className="text-xl sm:text-2xl font-bold text-foreground">
-            অতিথি হিসেবে লগইন করুন
+            আপনার অ্যাকাউন্টে লগইন করুন
           </CardTitle>
           <p className="text-sm text-muted-foreground mt-2">
-            কোনো পাসওয়ার্ড বা ব্যক্তিগত তথ্যের প্রয়োজন নেই। একটি ক্লিকেই আপনার
-            অ্যাকাউন্টে প্রবেশ করুন।
+            আপনার পছন্দের পদ্ধতিতে লগইন করে আমাদের সাথে যুক্ত হন।
           </p>
         </CardHeader>
-        <CardContent>
+        <CardContent className="space-y-4">
           <Button
-            onClick={handleLogin}
+            onClick={handleGithubLogin}
+            size="lg"
+            variant="outline"
+            className="w-full font-semibold text-base transition-transform hover:scale-105"
+            disabled={isLoading}
+          >
+            <Github className="mr-2" />
+            {githubLoading ? "প্রসেসিং..." : "GitHub দিয়ে লগইন করুন"}
+          </Button>
+          <Button
+            onClick={handleAnonymousLogin}
             size="lg"
             className="w-full font-semibold text-base transition-transform hover:scale-105"
             disabled={isLoading}
           >
-            {isLoading ? "প্রসেসিং..." : "অতিথি হিসেবে লগইন করুন"}
+            <Fingerprint className="mr-2" />
+            {anonymousLoading ? "প্রসেসিং..." : "অতিথি হিসেবে লগইন করুন"}
           </Button>
           <div className="text-xs text-muted-foreground mt-6">
             <p>
-              আপনার জন্য একটি অস্থায়ী ও সুরক্ষিত সেশন তৈরি করা হবে।
+              অতিথি হিসেবে লগইন করলে আপনার জন্য একটি অস্থায়ী ও সুরক্ষিত সেশন তৈরি
+              করা হবে।
             </p>
           </div>
         </CardContent>
