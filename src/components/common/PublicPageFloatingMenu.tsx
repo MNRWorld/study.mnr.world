@@ -69,7 +69,7 @@ const PublicPageFloatingMenu = () => {
       >
         <Button
           onClick={() => setMenuOpen(!menuOpen)}
-          className="bg-primary/90 text-primary-foreground rounded-l-full rounded-r-none h-12 w-12 p-0 flex items-center justify-center shadow-lg backdrop-blur-sm hover:bg-primary hover:scale-105 transition-all duration-300"
+          className="bg-primary/90 text-primary-foreground rounded-l-full rounded-r-none h-12 w-12 p-0 flex items-center justify-center shadow-lg backdrop-blur-sm transition-all duration-300"
           aria-label="Toggle Menu"
         >
           <Menu />
