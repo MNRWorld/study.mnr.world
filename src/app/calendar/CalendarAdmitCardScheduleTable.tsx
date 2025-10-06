@@ -16,7 +16,7 @@ const CalendarAdmitCardScheduleTable = () => {
   return (
     <div className="mt-4 w-full border border-border bg-card rounded-2xl shadow-lg relative">
       <Table>
-        <TableHeader>
+        <TableHeader className="sticky top-0">
           <TableRow>
             <TableHead className="text-center w-1/3 font-bold bg-primary text-primary-foreground">বিশ্ববিদ্যালয়</TableHead>
             <TableHead className="text-center w-1/3 font-bold bg-primary text-primary-foreground">তারিখ</TableHead>

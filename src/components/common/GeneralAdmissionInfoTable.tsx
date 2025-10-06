@@ -16,7 +16,7 @@ const GeneralAdmissionInfoTable = () => {
   return (
     <div className="overflow-x-auto">
       <Table className="min-w-[800px] sm:min-w-full">
-        <TableHeader>
+        <TableHeader className="sticky top-0">
           <TableRow>
             <TableHead className="w-[15%] font-bold bg-primary text-primary-foreground text-center">বিশ্ববিদ্যালয়</TableHead>
             <TableHead className="w-[15%] font-bold bg-primary text-primary-foreground text-center">তারিখ</TableHead>
