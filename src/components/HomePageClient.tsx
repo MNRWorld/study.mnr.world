@@ -88,7 +88,7 @@ const HomePageClient = ({ features }: HomePageClientProps) => {
     <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-10">
       <div className="grid lg:grid-cols-2 gap-12 sm:gap-16 items-center">
         <div className="text-center">
-          <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold font-bengali gradient-text">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold font-bengali gradient-text md:leading-tight">
             স্বপ্ন পূরণের পথে, সকল কিছু একসাথে
           </h1>
           <div className="mt-4">
