@@ -10,6 +10,7 @@ import {
   signInAnonymously,
   GithubAuthProvider,
   signInWithPopup,
+  type FirebaseError,
 } from "firebase/auth";
 import { useToast } from "@/hooks/use-toast";
 
@@ -38,11 +39,20 @@ export default function LoginPage() {
       router.push("/profile");
     } catch (error) {
       console.error("Anonymous login failed:", error);
-      toast({
-        variant: "destructive",
-        title: "লগইন ব্যর্থ হয়েছে",
-        description: "একটি অপ্রত্যাশিত সমস্যা হয়েছে। আবার চেষ্টা করুন।",
-      });
+      const firebaseError = error as FirebaseError;
+      if (firebaseError.code === "auth/admin-restricted-operation") {
+        toast({
+          variant: "destructive",
+          title: "লগইন ব্যর্থ হয়েছে",
+          description: "বেনামী লগইন এই প্রজেক্টের জন্য সক্রিয় করা নেই।",
+        });
+      } else {
+        toast({
+          variant: "destructive",
+          title: "লগইন ব্যর্থ হয়েছে",
+          description: "একটি অপ্রত্যাশিত সমস্যা হয়েছে। আবার চেষ্টা করুন।",
+        });
+      }
     } finally {
       setAnonymousLoading(false);
     }
@@ -59,12 +69,16 @@ export default function LoginPage() {
       });
       router.push("/profile");
     } catch (error) {
-      console.error("GitHub login failed:", error);
-      toast({
-        variant: "destructive",
-        title: "GitHub লগইন ব্যর্থ হয়েছে",
-        description: "একটি সমস্যা হয়েছে। আবার চেষ্টা করুন।",
-      });
+      const firebaseError = error as FirebaseError;
+      // Don't show an error toast if the user closes the popup
+      if (firebaseError.code !== "auth/popup-closed-by-user") {
+        console.error("GitHub login failed:", error);
+        toast({
+          variant: "destructive",
+          title: "GitHub লগইন ব্যর্থ হয়েছে",
+          description: "একটি সমস্যা হয়েছে। আবার চেষ্টা করুন।",
+        });
+      }
     } finally {
       setGithubLoading(false);
     }
