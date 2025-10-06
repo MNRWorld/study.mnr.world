@@ -13,12 +13,7 @@ import {
   type UserCredential,
   type FirebaseError,
 } from "firebase/auth";
-import {
-  doc,
-  setDoc,
-  getDoc,
-  serverTimestamp,
-} from "firebase/firestore";
+import { doc, setDoc, getDoc, serverTimestamp } from "firebase/firestore";
 import { useToast } from "@/hooks/use-toast";
 
 export default function LoginPage() {
@@ -38,21 +33,24 @@ export default function LoginPage() {
 
   const handleLoginSuccess = async (userCredential: UserCredential) => {
     const user = userCredential.user;
-    if (!user || !firestore) return;
+    if (!user) return;
 
-    const userRef = doc(firestore, "users", user.uid);
-    const userDoc = await getDoc(userRef);
+    // Only create Firestore profile for non-anonymous users
+    if (!user.isAnonymous && firestore) {
+      const userRef = doc(firestore, "users", user.uid);
+      const userDoc = await getDoc(userRef);
 
-    if (!userDoc.exists()) {
-      // Create a new profile if it doesn't exist
-      await setDoc(userRef, {
-        uid: user.uid,
-        email: user.email,
-        displayName: user.displayName,
-        photoURL: user.photoURL,
-        providerId: user.providerData[0]?.providerId || "anonymous",
-        createdAt: serverTimestamp(),
-      });
+      if (!userDoc.exists()) {
+        // Create a new profile if it doesn't exist for a real user
+        await setDoc(userRef, {
+          uid: user.uid,
+          email: user.email,
+          displayName: user.displayName,
+          photoURL: user.photoURL,
+          providerId: user.providerData[0]?.providerId || "unknown",
+          createdAt: serverTimestamp(),
+        });
+      }
     }
 
     toast({
@@ -63,6 +61,7 @@ export default function LoginPage() {
   };
 
   const handleAnonymousLogin = async () => {
+    if (!auth) return;
     setAnonymousLoading(true);
     try {
       const userCredential = await signInAnonymously(auth);
@@ -84,6 +83,7 @@ export default function LoginPage() {
   };
 
   const handleGithubLogin = async () => {
+    if (!auth) return;
     setGithubLoading(true);
     const provider = new GithubAuthProvider();
     try {

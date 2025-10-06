@@ -28,8 +28,8 @@ import {
 } from "lucide-react";
 import Link from "next/link";
 import { useUser, useFirestore, useAuth, useDoc } from "@/firebase";
-import { deleteUser, updateProfile } from "firebase/auth";
-import { doc, updateDoc, Timestamp } from "firebase/firestore";
+import { deleteUser, updateProfile, type User } from "firebase/auth";
+import { doc, updateDoc } from "firebase/firestore";
 
 const suggestions = [
   {
@@ -46,7 +46,7 @@ const suggestions = [
   },
 ];
 
-const getCreationTime = (user: any) => {
+const getCreationTime = (user: User | null) => {
   if (user?.metadata?.creationTime) {
     const date = new Date(user.metadata.creationTime);
     return date.toLocaleString("bn-BD");
@@ -60,11 +60,12 @@ export default function ProfilePage() {
   const firestore = useFirestore();
   const { data: userProfile, loading: profileLoading } = useDoc<any>(
     "users",
-    user?.uid || "dummy",
+    user && !user.isAnonymous ? user.uid : "dummy",
   );
   const router = useRouter();
   const { toast } = useToast();
   const [name, setName] = useState("");
+  const [displayName, setDisplayName] = useState("ব্যবহারকারী");
 
   useEffect(() => {
     if (!userLoading && !user) {
@@ -73,10 +74,19 @@ export default function ProfilePage() {
   }, [user, userLoading, router]);
 
   useEffect(() => {
-    if (userProfile) {
-      setName(userProfile.displayName || "");
+    if (user) {
+      if (user.isAnonymous) {
+        const localName =
+          localStorage.getItem("anonymousDisplayName") || "অতিথি";
+        setName(localName);
+        setDisplayName(localName);
+      } else {
+        const firestoreName = userProfile?.displayName || user.displayName || "";
+        setName(firestoreName);
+        setDisplayName(firestoreName || "ব্যবহারকারী");
+      }
     }
-  }, [userProfile]);
+  }, [user, userProfile]);
 
   const logout = async () => {
     if (auth) {
@@ -86,7 +96,7 @@ export default function ProfilePage() {
   };
 
   const handleNameUpdate = async () => {
-    if (!auth.currentUser || !firestore) return;
+    if (!user) return;
     if (!name.trim()) {
       toast({
         variant: "destructive",
@@ -95,29 +105,35 @@ export default function ProfilePage() {
       });
       return;
     }
-    try {
-      // Update Firebase Auth profile
-      if (auth.currentUser.providerData[0].providerId !== "anonymous") {
-        await updateProfile(auth.currentUser, { displayName: name });
-      }
 
-      // Update Firestore profile
-      const userRef = doc(firestore, "users", auth.currentUser.uid);
-      await updateDoc(userRef, {
-        displayName: name,
-      });
-
+    if (user.isAnonymous) {
+      // Handle anonymous user: save to localStorage
+      localStorage.setItem("anonymousDisplayName", name);
+      setDisplayName(name);
       toast({
         title: "নাম পরিবর্তিত হয়েছে",
         description: `আপনার নতুন নাম "${name}" সফলভাবে সেভ হয়েছে।`,
       });
-    } catch (error) {
-      console.error("Error updating name:", error);
-      toast({
-        variant: "destructive",
-        title: "নাম পরিবর্তন ব্যর্থ হয়েছে",
-        description: "একটি সমস্যা হয়েছে। আবার চেষ্টা করুন।",
-      });
+    } else {
+      // Handle real user: save to Firebase
+      if (!auth.currentUser || !firestore) return;
+      try {
+        await updateProfile(auth.currentUser, { displayName: name });
+        const userRef = doc(firestore, "users", auth.currentUser.uid);
+        await updateDoc(userRef, { displayName: name });
+        setDisplayName(name);
+        toast({
+          title: "নাম পরিবর্তিত হয়েছে",
+          description: `আপনার নতুন নাম "${name}" সফলভাবে সেভ হয়েছে।`,
+        });
+      } catch (error) {
+        console.error("Error updating name:", error);
+        toast({
+          variant: "destructive",
+          title: "নাম পরিবর্তন ব্যর্থ হয়েছে",
+          description: "একটি সমস্যা হয়েছে। আবার চেষ্টা করুন।",
+        });
+      }
     }
   };
 
@@ -169,7 +185,7 @@ export default function ProfilePage() {
               {user.photoURL ? (
                 <Image
                   src={user.photoURL}
-                  alt={userProfile?.displayName || "Profile picture"}
+                  alt={displayName}
                   width={96}
                   height={96}
                   className="rounded-full"
@@ -181,7 +197,7 @@ export default function ProfilePage() {
             </div>
           </div>
           <CardTitle className="text-2xl sm:text-3xl font-bold">
-            স্বাগতম, {userProfile?.displayName || user.displayName || "ব্যবহারকারী"}
+            স্বাগতম, {displayName}
           </CardTitle>
           <CardDescription className="text-sm sm:text-base pt-1">
             আপনার প্রোফাইল এবং অ্যাকাউন্ট পরিচালনা করুন।
