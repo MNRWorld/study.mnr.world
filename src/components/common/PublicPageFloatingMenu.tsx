@@ -26,8 +26,7 @@ const PublicPageFloatingMenu = () => {
   const linkClasses =
     "block p-2 text-foreground hover:bg-accent rounded-md transition-colors";
 
-  const questionBankMenuItems = [
-    { href: "#master-question-bank", label: "মাস্টার প্রশ্নব্যাংক", Icon: Book },
+  const baseMenuItems = [
     { href: "#cluster-system", label: "গুচ্ছ", Icon: Blocks },
     { href: "#general", label: "সাধারণ", Icon: University },
     { href: "#agriculture", label: "কৃষি", Icon: Leaf },
@@ -40,26 +39,19 @@ const PublicPageFloatingMenu = () => {
     { href: "#medical", label: "মেডিকেল", Icon: HeartPulse },
     { href: "#special", label: "বিশেষ", Icon: Sparkles },
     { href: "#affiliated", label: "অধিভুক্ত", Icon: University },
-    { href: "#private", label: "প্রাইভেট", Icon: Building },
   ];
 
-  const publicPageMenuItems = [
-    { href: "#cluster-system", label: "গুচ্ছ", Icon: Blocks },
-    { href: "#general", label: "সাধারণ", Icon: University },
-    { href: "#agriculture", label: "কৃষি", Icon: Leaf },
-    { href: "#engineering", label: "প্রকৌশল", Icon: Cog },
-    {
-      href: "#science-and-technology",
-      label: "বিজ্ঞান ও প্রযুক্তি",
-      Icon: Atom,
-    },
-    { href: "#medical", label: "মেডিকেল", Icon: HeartPulse },
-    { href: "#special", label: "বিশেষ", Icon: Sparkles },
-    { href: "#affiliated", label: "অধিভুক্ত", Icon: University },
-    { href: "#private", label: "প্রাইভেট", Icon: Building },
-  ];
+  let menuItems;
 
-  const menuItems = pathname.startsWith('/question-bank') ? questionBankMenuItems : publicPageMenuItems;
+  if (pathname.startsWith('/question-bank')) {
+    menuItems = [
+      { href: "#master-question-bank", label: "মাস্টার প্রশ্নব্যাংক", Icon: Book },
+      ...baseMenuItems,
+      { href: "#private", label: "প্রাইভেট", Icon: Building },
+    ];
+  } else {
+    menuItems = baseMenuItems;
+  }
 
   useEffect(() => {
     function handleClickOutside(event: MouseEvent) {
@@ -131,5 +123,3 @@ const PublicPageFloatingMenu = () => {
 };
 
 export default PublicPageFloatingMenu;
-
-    
