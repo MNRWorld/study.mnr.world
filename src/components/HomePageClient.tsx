@@ -85,7 +85,7 @@ const HomePageClient = ({ features }: HomePageClientProps) => {
   );
 
   return (
-    <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-5">
+    <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-10">
       <div className="grid lg:grid-cols-2 gap-12 sm:gap-16 items-center">
         <div className="text-center">
           <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold font-bengali gradient-text">
