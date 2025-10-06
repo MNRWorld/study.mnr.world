@@ -10,19 +10,23 @@ import {
   Atom,
   HeartPulse,
   Sparkles,
+  Book,
 } from "lucide-react";
 import React, { useState, useEffect, useRef } from "react";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 const PublicPageFloatingMenu = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const menuRef = useRef<HTMLDivElement>(null);
+  const pathname = usePathname();
 
   const linkClasses =
     "block p-2 text-foreground hover:bg-accent rounded-md transition-colors";
 
-  const menuItems = [
+  const questionBankMenuItems = [
+    { href: "#master-question-bank", label: "মাস্টার প্রশ্নব্যাংক", Icon: Book },
     { href: "#cluster-system", label: "গুচ্ছ", Icon: Blocks },
     { href: "#general", label: "সাধারণ", Icon: University },
     { href: "#agriculture", label: "কৃষি", Icon: Leaf },
@@ -36,6 +40,23 @@ const PublicPageFloatingMenu = () => {
     { href: "#special", label: "বিশেষ", Icon: Sparkles },
     { href: "#affiliated", label: "অধিভুক্ত", Icon: University },
   ];
+
+  const publicPageMenuItems = [
+    { href: "#cluster-system", label: "গুচ্ছ", Icon: Blocks },
+    { href: "#general", label: "সাধারণ", Icon: University },
+    { href: "#agriculture", label: "কৃষি", Icon: Leaf },
+    { href: "#engineering", label: "প্রকৌশল", Icon: Cog },
+    {
+      href: "#science-and-technology",
+      label: "বিজ্ঞান ও প্রযুক্তি",
+      Icon: Atom,
+    },
+    { href: "#medical", label: "মেডিকেল", Icon: HeartPulse },
+    { href: "#special", label: "বিশেষ", Icon: Sparkles },
+    { href: "#affiliated", label: "অধিভুক্ত", Icon: University },
+  ];
+
+  const menuItems = pathname.startsWith('/question-bank') ? questionBankMenuItems : publicPageMenuItems;
 
   useEffect(() => {
     function handleClickOutside(event: MouseEvent) {
