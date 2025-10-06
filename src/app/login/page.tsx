@@ -70,6 +70,16 @@ export default function LoginPage() {
 
   const isLoading = anonymousLoading || githubLoading || userLoading;
 
+  if (userLoading) {
+    return (
+       <div className="flex items-center justify-center min-h-[calc(100vh-10rem)]">
+        <div className="text-center font-bengali">
+          <p className="text-lg">লোড হচ্ছে...</p>
+        </div>
+      </div>
+    )
+  }
+
   if (user) {
     return (
        <div className="flex items-center justify-center min-h-[calc(100vh-10rem)]">
@@ -82,7 +92,7 @@ export default function LoginPage() {
 
   return (
     <div className="flex items-center justify-center min-h-[calc(100vh-10rem)] font-bengali px-4">
-      <Card className="w-full max-w-md p-6 sm:p-8 space-y-6 sm:space-y-8 shadow-lg animate-fade-in-up text-center">
+      <Card className="w-full max-w-md p-6 sm:p-8 space-y-6 sm:space-y-8 shadow-lg animate-fade-in-up text-center my-8">
         <CardHeader>
           <div className="inline-block p-4 bg-primary/10 rounded-full mb-4 mx-auto w-fit">
             <User className="h-8 w-8 sm:h-10 sm:w-10 text-primary" />
