@@ -17,9 +17,9 @@ const CalendarResultScheduleTable = () => {
 
   return (
     <div className="mt-4 space-y-8">
-      <div className="w-full border border-border bg-card rounded-2xl shadow-lg relative overflow-x-auto">
-        <Table>
-          <TableHeader className="sticky top-0">
+      <div className="w-full border border-border bg-card rounded-2xl shadow-lg relative overflow-y-auto max-h-[60vh]">
+        <Table className="border-none">
+          <TableHeader className="sticky top-0 z-10">
             <TableRow>
               <TableHead className="text-center w-1/3 font-bold bg-primary text-primary-foreground">বিশ্ববিদ্যালয়</TableHead>
               <TableHead className="text-center w-1/3 font-bold bg-primary text-primary-foreground">তারিখ</TableHead>
@@ -46,15 +46,15 @@ const CalendarResultScheduleTable = () => {
         </Table>
       </div>
 
-      <div className="w-full border border-border bg-card rounded-2xl shadow-lg relative overflow-x-auto">
+      <div className="w-full border border-border bg-card rounded-2xl shadow-lg relative overflow-y-auto max-h-[60vh]">
         <div className="flex justify-center p-4 sm:p-6">
           <div className="gradient-background inline-block px-6 py-2 text-primary-foreground rounded-full text-lg mb-4 font-bold shadow-md">
             <Clock className="inline-block mr-2" />
             বিগত এডমিশন (HSC-23)
           </div>
         </div>
-        <Table>
-          <TableHeader className="sticky top-0">
+        <Table className="border-none">
+          <TableHeader className="sticky top-0 z-10">
             <TableRow>
               <TableHead className="text-center w-1/3 font-bold bg-primary text-primary-foreground">বিশ্ববিদ্যালয়</TableHead>
               <TableHead className="text-center w-1/3 font-bold bg-primary text-primary-foreground">তারিখ</TableHead>

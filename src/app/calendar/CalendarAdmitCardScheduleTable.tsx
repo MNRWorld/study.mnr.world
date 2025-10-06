@@ -14,9 +14,9 @@ import { Ticket } from "lucide-react";
 
 const CalendarAdmitCardScheduleTable = () => {
   return (
-    <div className="mt-4 w-full border border-border bg-card rounded-2xl shadow-lg relative">
-      <Table>
-        <TableHeader className="sticky top-0">
+    <div className="mt-4 w-full border border-border bg-card rounded-2xl shadow-lg relative overflow-y-auto max-h-[60vh]">
+      <Table className="border-none">
+        <TableHeader className="sticky top-0 z-10">
           <TableRow>
             <TableHead className="text-center w-1/3 font-bold bg-primary text-primary-foreground">বিশ্ববিদ্যালয়</TableHead>
             <TableHead className="text-center w-1/3 font-bold bg-primary text-primary-foreground">তারিখ</TableHead>
