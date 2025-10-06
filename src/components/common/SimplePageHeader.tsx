@@ -7,7 +7,7 @@ interface SimplePageHeaderProps {
 
 const SimplePageHeader = ({ title, description }: SimplePageHeaderProps) => {
   return (
-    <div className="text-center pt-12 pb-4 font-bengali">
+    <div className="text-center pt-12 font-bengali">
       <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold leading-tight gradient-text">
         {title}
       </h1>
