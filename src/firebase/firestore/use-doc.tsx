@@ -1,3 +1,4 @@
+
 // src/firebase/firestore/use-doc.tsx
 "use client";
 
@@ -23,14 +24,18 @@ export const useDoc = <T extends DocumentData>(
   const [error, setError] = useState<FirestoreError | FirestorePermissionError | null>(null);
 
   const memoizedDocRef = useMemo(() => {
+    // If docId is explicitly null or undefined, don't create a reference.
     if (!firestore || !docId) return null;
     return doc(firestore, collectionName, docId);
   }, [firestore, collectionName, docId]);
 
   useEffect(() => {
+    // If there's no document reference (because docId is null/undefined),
+    // set loading to false and ensure data is null. Do not proceed.
     if (!memoizedDocRef) {
       setLoading(false);
       setData(null);
+      setError(null);
       return;
     }
 
@@ -44,6 +49,7 @@ export const useDoc = <T extends DocumentData>(
         } else {
           setData(null); // Document does not exist
         }
+        setError(null);
         setLoading(false);
       },
       (err: FirestoreError) => {
@@ -68,3 +74,5 @@ export const useDoc = <T extends DocumentData>(
 
   return { data, loading, error };
 };
+
+    

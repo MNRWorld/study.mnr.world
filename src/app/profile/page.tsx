@@ -54,60 +54,36 @@ const getCreationTime = (user: User | null) => {
   return "N/A";
 };
 
-export default function ProfilePage() {
-  const { user, loading: userLoading } = useUser();
-  const auth = useAuth();
+// This is a separate component to conditionally use the useDoc hook
+function RegisteredUserProfile() {
+  const { user } = useUser();
   const firestore = useFirestore();
-  
-  // Conditionally fetch from Firestore only for non-anonymous users
-  const docIdToFetch = (user && !user.isAnonymous) ? user.uid : null;
+  const auth = useAuth();
+  const { toast } = useToast();
+
   const { data: userProfile, loading: profileLoading } = useDoc<any>(
     "users",
-    docIdToFetch,
+    user?.uid
   );
 
-  const router = useRouter();
-  const { toast } = useToast();
   const [name, setName] = useState("");
   const [displayName, setDisplayName] = useState("ব্যবহারকারী");
 
   useEffect(() => {
-    if (!userLoading && !user) {
-      router.push("/login");
-    }
-  }, [user, userLoading, router]);
-
-  useEffect(() => {
-    if (user) {
-      if (user.isAnonymous) {
-        const localName =
-          localStorage.getItem("anonymousDisplayName") || "অতিথি";
-        setName(localName);
-        setDisplayName(localName);
-      } else {
-        if (!profileLoading && userProfile) {
-            const firestoreName = userProfile.displayName || user.displayName || "";
-            setName(firestoreName);
-            setDisplayName(firestoreName || "ব্যবহারকারী");
-        } else if (!profileLoading && !userProfile && user.displayName) {
-            // Fallback to auth display name if firestore profile doesn't exist yet
-            const authName = user.displayName;
-            setName(authName);
-            setDisplayName(authName);
-        }
-      }
+    if (!profileLoading && userProfile) {
+        const firestoreName = userProfile.displayName || user?.displayName || "";
+        setName(firestoreName);
+        setDisplayName(firestoreName || "ব্যবহারকারী");
+    } else if (!profileLoading && !userProfile && user?.displayName) {
+        // Fallback to auth display name if firestore profile doesn't exist yet
+        const authName = user.displayName;
+        setName(authName);
+        setDisplayName(authName);
     }
   }, [user, userProfile, profileLoading]);
 
-  const logout = async () => {
-    if (auth) {
-      await auth.signOut();
-    }
-    router.push("/");
-  };
-
   const handleNameUpdate = async () => {
-    if (!user) return;
+    if (!auth.currentUser || !firestore) return;
     if (!name.trim()) {
       toast({
         variant: "destructive",
@@ -116,38 +92,179 @@ export default function ProfilePage() {
       });
       return;
     }
-
-    if (user.isAnonymous) {
-      // Handle anonymous user: save to localStorage
-      localStorage.setItem("anonymousDisplayName", name);
+    try {
+      await updateProfile(auth.currentUser, { displayName: name });
+      const userRef = doc(firestore, "users", auth.currentUser.uid);
+      await updateDoc(userRef, { displayName: name });
       setDisplayName(name);
       toast({
         title: "নাম পরিবর্তিত হয়েছে",
         description: `আপনার নতুন নাম "${name}" সফলভাবে সেভ হয়েছে।`,
       });
-    } else {
-      // Handle real user: save to Firebase
-      if (!auth.currentUser || !firestore) return;
-      try {
-        await updateProfile(auth.currentUser, { displayName: name });
-        const userRef = doc(firestore, "users", auth.currentUser.uid);
-        await updateDoc(userRef, { displayName: name });
-        setDisplayName(name);
-        toast({
-          title: "নাম পরিবর্তিত হয়েছে",
-          description: `আপনার নতুন নাম "${name}" সফলভাবে সেভ হয়েছে।`,
-        });
-      } catch (error) {
-        console.error("Error updating name:", error);
-        toast({
-          variant: "destructive",
-          title: "নাম পরিবর্তন ব্যর্থ হয়েছে",
-          description: "একটি সমস্যা হয়েছে। আবার চেষ্টা করুন।",
-        });
-      }
+    } catch (error) {
+      console.error("Error updating name:", error);
+      toast({
+        variant: "destructive",
+        title: "নাম পরিবর্তন ব্যর্থ হয়েছে",
+        description: "একটি সমস্যা হয়েছে। আবার চেষ্টা করুন।",
+      });
     }
   };
 
+  if (profileLoading) {
+    return <div className="text-lg text-center font-bengali">প্রোফাইল লোড হচ্ছে...</div>;
+  }
+
+  return (
+    <>
+      <Card className="w-full p-4 sm:p-6 text-center shadow-lg animate-fade-in-up mb-8">
+        <CardHeader>
+          <div className="flex justify-center mb-4">
+            <div className="relative h-24 w-24">
+              {user?.photoURL ? (
+                <Image
+                  src={user.photoURL}
+                  alt={displayName}
+                  width={96}
+                  height={96}
+                  className="rounded-full"
+                />
+              ) : (
+                <UserCircle className="h-24 w-24 text-primary" />
+              )}
+              <ShieldCheck className="absolute bottom-1 right-1 h-8 w-8 text-green-500 bg-card rounded-full p-1" />
+            </div>
+          </div>
+          <CardTitle className="text-2xl sm:text-3xl font-bold">
+            স্বাগতম, {displayName}
+          </CardTitle>
+          <CardDescription className="text-sm sm:text-base pt-1">
+            আপনার প্রোফাইল এবং অ্যাকাউন্ট পরিচালনা করুন।
+          </CardDescription>
+        </CardHeader>
+      </Card>
+      
+       <Card className="shadow-lg">
+          <CardHeader>
+            <CardTitle>প্রোফাইল তথ্য</CardTitle>
+            <CardDescription>আপনার ব্যক্তিগত তথ্য পরিবর্তন করুন</CardDescription>
+          </CardHeader>
+          <CardContent className="space-y-4">
+            <div className="space-y-2">
+              <Label htmlFor="name">নাম</Label>
+              <Input
+                id="name"
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+                placeholder="আপনার নতুন নাম দিন"
+              />
+            </div>
+          </CardContent>
+          <CardFooter>
+            <Button onClick={handleNameUpdate} className="w-full">
+              <Save className="mr-2" />
+              পরিবর্তন সেভ করুন
+            </Button>
+          </CardFooter>
+        </Card>
+    </>
+  );
+}
+
+
+function AnonymousUserProfile() {
+    const { toast } = useToast();
+    const [name, setName] = useState("");
+    const [displayName, setDisplayName] = useState("অতিথি");
+
+    useEffect(() => {
+        const localName = localStorage.getItem("anonymousDisplayName") || "অতিথি";
+        setName(localName);
+        setDisplayName(localName);
+    }, []);
+
+    const handleNameUpdate = () => {
+        if (!name.trim()) {
+          toast({
+            variant: "destructive",
+            title: "নাম লেখা হয়নি",
+            description: "অনুগ্রহ করে একটি সঠিক নাম লিখুন।",
+          });
+          return;
+        }
+        localStorage.setItem("anonymousDisplayName", name);
+        setDisplayName(name);
+        toast({
+            title: "নাম পরিবর্তিত হয়েছে",
+            description: `আপনার নতুন নাম "${name}" সফলভাবে সেভ হয়েছে।`,
+        });
+    };
+
+    return (
+        <>
+            <Card className="w-full p-4 sm:p-6 text-center shadow-lg animate-fade-in-up mb-8">
+                <CardHeader>
+                  <div className="flex justify-center mb-4">
+                    <div className="relative h-24 w-24">
+                        <UserCircle className="h-24 w-24 text-primary" />
+                        <ShieldCheck className="absolute bottom-1 right-1 h-8 w-8 text-yellow-500 bg-card rounded-full p-1" />
+                    </div>
+                  </div>
+                  <CardTitle className="text-2xl sm:text-3xl font-bold">
+                    স্বাগতম, {displayName}
+                  </CardTitle>
+                  <CardDescription className="text-sm sm:text-base pt-1">
+                    আপনি একজন অতিথি হিসেবে লগইন করেছেন।
+                  </CardDescription>
+                </CardHeader>
+            </Card>
+
+            <Card className="shadow-lg">
+                <CardHeader>
+                    <CardTitle>প্রোফাইল তথ্য</CardTitle>
+                    <CardDescription>আপনার অতিথির নাম পরিবর্তন করুন</CardDescription>
+                </CardHeader>
+                <CardContent className="space-y-4">
+                    <div className="space-y-2">
+                    <Label htmlFor="name">নাম</Label>
+                    <Input
+                        id="name"
+                        value={name}
+                        onChange={(e) => setName(e.target.value)}
+                        placeholder="আপনার নতুন নাম দিন"
+                    />
+                    </div>
+                </CardContent>
+                <CardFooter>
+                    <Button onClick={handleNameUpdate} className="w-full">
+                    <Save className="mr-2" />
+                    পরিবর্তন সেভ করুন
+                    </Button>
+                </CardFooter>
+            </Card>
+        </>
+    )
+}
+
+export default function ProfilePage() {
+  const { user, loading: userLoading } = useUser();
+  const auth = useAuth();
+  const router = useRouter();
+  const { toast } = useToast();
+
+  useEffect(() => {
+    if (!userLoading && !user) {
+      router.push("/login");
+    }
+  }, [user, userLoading, router]);
+
+  const logout = async () => {
+    if (auth) {
+      await auth.signOut();
+    }
+    router.push("/");
+  };
+  
   const handleDeleteAccount = async () => {
     if (!auth.currentUser) return;
     if (
@@ -175,9 +292,8 @@ export default function ProfilePage() {
     }
   };
 
-  const loading = userLoading || (docIdToFetch && profileLoading);
 
-  if (loading || !user) {
+  if (userLoading || !user) {
     return (
       <div className="flex items-center justify-center min-h-[calc(100vh-10rem)]">
         <div className="text-center font-bengali">
@@ -186,37 +302,15 @@ export default function ProfilePage() {
       </div>
     );
   }
+  
+  const isAnonymous = user.isAnonymous;
 
   return (
     <div className="container mx-auto px-4 py-8 max-w-2xl font-bengali">
-      <Card className="w-full p-4 sm:p-6 text-center shadow-lg animate-fade-in-up mb-8">
-        <CardHeader>
-          <div className="flex justify-center mb-4">
-            <div className="relative h-24 w-24">
-              {user.photoURL ? (
-                <Image
-                  src={user.photoURL}
-                  alt={displayName}
-                  width={96}
-                  height={96}
-                  className="rounded-full"
-                />
-              ) : (
-                <UserCircle className="h-24 w-24 text-primary" />
-              )}
-              <ShieldCheck className="absolute bottom-1 right-1 h-8 w-8 text-green-500 bg-card rounded-full p-1" />
-            </div>
-          </div>
-          <CardTitle className="text-2xl sm:text-3xl font-bold">
-            স্বাগতম, {displayName}
-          </CardTitle>
-          <CardDescription className="text-sm sm:text-base pt-1">
-            আপনার প্রোফাইল এবং অ্যাকাউন্ট পরিচালনা করুন।
-          </CardDescription>
-        </CardHeader>
-      </Card>
+      
+      {isAnonymous ? <AnonymousUserProfile /> : <RegisteredUserProfile />}
 
-      <Card className="mb-8 shadow-lg">
+      <Card className="my-8 shadow-lg">
         <CardHeader>
           <div className="flex items-center gap-2">
             <Sparkles className="text-primary h-6 w-6" />
@@ -244,30 +338,9 @@ export default function ProfilePage() {
       </Card>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-        <Card className="shadow-lg">
-          <CardHeader>
-            <CardTitle>প্রোফাইল তথ্য</CardTitle>
-            <CardDescription>আপনার ব্যক্তিগত তথ্য পরিবর্তন করুন</CardDescription>
-          </CardHeader>
-          <CardContent className="space-y-4">
-            <div className="space-y-2">
-              <Label htmlFor="name">নাম</Label>
-              <Input
-                id="name"
-                value={name}
-                onChange={(e) => setName(e.target.value)}
-                placeholder="আপনার নতুন নাম দিন"
-              />
-            </div>
-          </CardContent>
-          <CardFooter>
-            <Button onClick={handleNameUpdate} className="w-full">
-              <Save className="mr-2" />
-              পরিবর্তন সেভ করুন
-            </Button>
-          </CardFooter>
-        </Card>
-
+        {/* Placeholder for the left column, as profile card is now conditional */}
+        <div/>
+        
         <div className="space-y-8">
           <Card className="shadow-lg">
             <CardHeader>
@@ -343,3 +416,5 @@ export default function ProfilePage() {
     </div>
   );
 }
+
+    

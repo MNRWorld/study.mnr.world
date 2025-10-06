@@ -1,3 +1,4 @@
+
 "use client";
 
 import { Button } from "@/components/ui/button";
@@ -35,7 +36,7 @@ export default function LoginPage() {
     const user = userCredential.user;
     if (!user || !firestore) return;
 
-    // Only create Firestore profile for non-anonymous users
+    // Only create Firestore profile for non-anonymous (i.e., registered) users
     if (!user.isAnonymous) {
       const userRef = doc(firestore, "users", user.uid);
       const userDoc = await getDoc(userRef);
@@ -64,8 +65,8 @@ export default function LoginPage() {
     if (!auth) return;
     setAnonymousLoading(true);
     try {
-      const userCredential = await signInAnonymously(auth);
       // For anonymous users, we don't create a Firestore doc, just go to profile
+      await signInAnonymously(auth);
       toast({
         title: "অতিথি হিসেবে লগইন সফল হয়েছে",
         description: "আপনার প্রোফাইলে স্বাগতম!",
@@ -156,3 +157,5 @@ export default function LoginPage() {
     </div>
   );
 }
+
+    
