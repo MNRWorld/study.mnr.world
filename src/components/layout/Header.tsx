@@ -78,7 +78,7 @@ const NavItem = memo(function NavItem({ item, isActive }: NavItemProps) {
               </div>
               <ChevronDown
                 size={16}
-                className="ml-1 hidden sm:block shrink-0 transition-transform duration-200 group-data-[state=open]:rotate-180"
+                className="ml-1 hidden shrink-0 transition-transform duration-200 group-data-[state=open]:rotate-180 sm:block"
               />
             </div>
           </button>
@@ -137,14 +137,14 @@ const Header = memo(function Header() {
         <Link
           href="/"
           aria-label="হোমপেজে যান"
-          className="flex items-center space-x-2 pl-3 pr-2 shrink-0"
+          className="group flex items-center space-x-2 pl-3 pr-2 shrink-0"
         >
           <Image
             src="/logo.svg"
             alt="Study Platform Logo"
             width={28}
             height={25}
-            className="h-7 w-7"
+            className="h-7 w-7 transition-transform duration-300 group-hover:scale-110 group-hover:rotate-12 group-active:scale-95"
           />
         </Link>
 
