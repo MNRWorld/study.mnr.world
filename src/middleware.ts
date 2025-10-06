@@ -1,10 +1,11 @@
 import { NextResponse } from "next/server";
 import type { NextRequest } from "next/server";
+import { updateSession } from "@/lib/supabase/middleware";
 
-export function middleware(request: NextRequest) {
+export async function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;
 
-  // Don't redirect for API routes, Next.js specific paths, or static files.
+  // Don't run middleware on API routes, Next.js specific paths, or static files.
   if (
     pathname.startsWith("/api/") ||
     pathname.startsWith("/_next/") ||
@@ -13,13 +14,15 @@ export function middleware(request: NextRequest) {
     return NextResponse.next();
   }
 
+  // Handle case-insensitivity redirect first
   if (pathname !== pathname.toLowerCase()) {
     const newUrl = new URL(request.url);
     newUrl.pathname = pathname.toLowerCase();
     return NextResponse.redirect(newUrl, 308); // 308 for permanent redirect
   }
-
-  return NextResponse.next();
+  
+  // Update Supabase session
+  return await updateSession(request);
 }
 
 export const config = {

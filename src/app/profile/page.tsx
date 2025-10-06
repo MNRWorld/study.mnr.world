@@ -28,6 +28,7 @@ import {
 import Link from "next/link";
 import { useUser, useSupabase } from "@/lib/supabase/hooks";
 import { User } from "@supabase/supabase-js";
+import { createClient } from "@/lib/supabase/client";
 
 const suggestions = [
   {
@@ -81,7 +82,11 @@ function RegisteredUserProfile() {
       }
       setLoading(false);
     };
-    fetchProfile();
+    if (user && !user.is_anonymous) {
+        fetchProfile();
+    } else if (user?.is_anonymous) {
+        setLoading(false);
+    }
   }, [user, supabase]);
 
   const handleNameUpdate = async () => {
@@ -121,6 +126,10 @@ function RegisteredUserProfile() {
 
   if (loading) {
     return <div className="text-lg text-center font-bengali">প্রোফাইল লোড হচ্ছে...</div>;
+  }
+  
+  if (!user || user.is_anonymous) {
+    return null;
   }
 
   return (
@@ -255,25 +264,33 @@ function AnonymousUserProfile() {
 
 export default function ProfilePage() {
   const user = useUser();
-  const supabase = useSupabase();
+  const supabase = createClient();
   const router = useRouter();
   const { toast } = useToast();
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    if (!user) {
-      router.push("/login");
+    if (user === null) {
+      const timer = setTimeout(() => {
+        if (!user) { // Re-check user after delay
+          router.push("/login");
+        } else {
+          setLoading(false);
+        }
+      }, 500); // give it a moment to fetch user
+      return () => clearTimeout(timer);
+    } else {
+        setLoading(false);
     }
   }, [user, router]);
 
   const logout = async () => {
-    if (supabase) {
-      await supabase.auth.signOut();
-    }
+    await supabase.auth.signOut();
     router.push("/");
   };
   
   const handleDeleteAccount = async () => {
-    if (!user || !supabase) return;
+    if (!user || user.is_anonymous) return;
     if (
       !window.confirm(
         "আপনি কি নিশ্চিতভাবে আপনার অ্যাকাউন্ট মুছে ফেলতে চান? এই কাজটি আর ফেরানো যাবে না।",
@@ -301,7 +318,7 @@ export default function ProfilePage() {
     }
   };
 
-  if (!user) {
+  if (loading || !user) {
     return (
       <div className="flex items-center justify-center min-h-[calc(100vh-10rem)]">
         <div className="text-center font-bengali">
@@ -345,51 +362,46 @@ export default function ProfilePage() {
         </CardContent>
       </Card>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-        {/* Placeholder for the left column, as profile card is now conditional */}
-        <div/>
-        
-        <div className="space-y-8">
-          <Card className="shadow-lg">
+      <div className="grid grid-cols-1 gap-8">
+        <Card className="shadow-lg">
             <CardHeader>
-              <CardTitle>ডিভাইস ও সেশন</CardTitle>
-              <CardDescription>আপনার বর্তমান লগইন সেশনের তথ্য</CardDescription>
+                <CardTitle>ডিভাইস ও সেশন</CardTitle>
+                <CardDescription>আপনার বর্তমান লগইন সেশনের তথ্য</CardDescription>
             </CardHeader>
             <CardContent className="text-sm space-y-2">
-              <p>
+                <p>
                 <span className="font-medium text-muted-foreground">
-                  প্রোভাইডার:
+                    প্রোভাইডার:
                 </span>{" "}
                 <span className="font-mono text-primary text-xs break-all">
-                  {user.is_anonymous
+                    {user.is_anonymous
                     ? "অতিথি"
                     : user.app_metadata.provider?.replace(".com", "") ||
-                      "অজানা"}
+                        "অজানা"}
                 </span>
-              </p>
-              <p>
+                </p>
+                <p>
                 <span className="font-medium text-muted-foreground">
-                  ডিভাইস আইডি:
+                    ডিভাইস আইডি:
                 </span>{" "}
                 <span className="font-mono text-primary text-xs break-all">
-                  {user.id}
+                    {user.id}
                 </span>
-              </p>
-              <p>
+                </p>
+                <p>
                 <span className="font-medium text-muted-foreground">
-                  লগইন সময়:
+                    লগইন সময়:
                 </span>{" "}
                 {getCreationTime(user)}
-              </p>
+                </p>
             </CardContent>
             <CardFooter>
-              <Button onClick={logout} variant="outline" className="w-full">
+                <Button onClick={logout} variant="outline" className="w-full">
                 <LogOut className="mr-2" />
                 লগ আউট
-              </Button>
+                </Button>
             </CardFooter>
-          </Card>
-        </div>
+        </Card>
       </div>
 
       {!isAnonymous && (

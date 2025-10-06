@@ -5,11 +5,12 @@ import { User, Fingerprint, Github } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { useSupabase, useUser } from "@/lib/supabase/hooks";
+import { createClient } from "@/lib/supabase/client";
 import { useToast } from "@/hooks/use-toast";
+import { useUser } from "@/lib/supabase/hooks";
 
 export default function LoginPage() {
-  const supabase = useSupabase();
+  const supabase = createClient();
   const user = useUser();
   const [anonymousLoading, setAnonymousLoading] = useState(false);
   const [githubLoading, setGithubLoading] = useState(false);
@@ -23,7 +24,6 @@ export default function LoginPage() {
   }, [user, router]);
 
   const handleGithubLogin = async () => {
-    if (!supabase) return;
     setGithubLoading(true);
     const { error } = await supabase.auth.signInWithOAuth({
       provider: "github",
@@ -38,12 +38,11 @@ export default function LoginPage() {
         title: "GitHub লগইন ব্যর্থ হয়েছে",
         description: "একটি সমস্যা হয়েছে। আবার চেষ্টা করুন।",
       });
+      setGithubLoading(false);
     }
-    // No need to set loading to false here, as the page will redirect
   };
 
   const handleAnonymousLogin = async () => {
-    if (!supabase) return;
     setAnonymousLoading(true);
     try {
       const { data, error } = await supabase.auth.signInAnonymously();
