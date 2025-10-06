@@ -60,7 +60,7 @@ const NavItem = memo(function NavItem({ item, isActive }: NavItemProps) {
         <DropdownMenuTrigger asChild>
           <button
             className={cn(
-              "relative flex cursor-pointer items-center justify-center rounded-full transition-colors duration-300",
+              "group relative flex cursor-pointer items-center justify-center rounded-full transition-colors duration-300",
               "h-9 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background",
               "text-muted-foreground hover:bg-accent hover:text-accent-foreground",
               isActive && "bg-accent text-accent-foreground",
@@ -78,7 +78,7 @@ const NavItem = memo(function NavItem({ item, isActive }: NavItemProps) {
               </div>
               <ChevronDown
                 size={16}
-                className="ml-1 hidden sm:block shrink-0"
+                className="ml-1 hidden sm:block shrink-0 transition-transform duration-200 group-data-[state=open]:rotate-180"
               />
             </div>
           </button>
