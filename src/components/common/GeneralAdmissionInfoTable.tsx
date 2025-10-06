@@ -27,24 +27,24 @@ const GeneralAdmissionInfoTable = ({
   return (
     <div className="w-full border border-border bg-card rounded-2xl shadow-lg overflow-x-auto">
       <Table>
-        <TableHeader className="sticky top-0 z-10 bg-card">
+        <TableHeader>
           <TableRow>
-            <TableHead className="w-[15%] font-bold bg-primary text-primary-foreground text-center rounded-tl-2xl">
+            <TableHead className="sticky top-0 z-10 w-[15%] font-bold bg-primary text-primary-foreground text-center rounded-tl-2xl">
               বিশ্ববিদ্যালয়
             </TableHead>
-            <TableHead className="w-[15%] font-bold bg-primary text-primary-foreground text-center">
+            <TableHead className="sticky top-0 z-10 w-[15%] font-bold bg-primary text-primary-foreground text-center">
               তারিখ
             </TableHead>
-            <TableHead className="w-[25%] font-bold bg-primary text-primary-foreground text-center">
+            <TableHead className="sticky top-0 z-10 w-[25%] font-bold bg-primary text-primary-foreground text-center">
               মানবন্টন
             </TableHead>
-            <TableHead className="w-[15%] font-bold bg-primary text-primary-foreground text-center">
+            <TableHead className="sticky top-0 z-10 w-[15%] font-bold bg-primary text-primary-foreground text-center">
               সিলেবাস
             </TableHead>
-            <TableHead className="w-[15%] font-bold bg-primary text-primary-foreground text-center">
+            <TableHead className="sticky top-0 z-10 w-[15%] font-bold bg-primary text-primary-foreground text-center">
               সেকেন্ড টাইম
             </TableHead>
-            <TableHead className="w-[15%] font-bold bg-primary text-primary-foreground text-center rounded-tr-2xl">
+            <TableHead className="sticky top-0 z-10 w-[15%] font-bold bg-primary text-primary-foreground text-center rounded-tr-2xl">
               নেগেটিভ মার্কিং
             </TableHead>
           </TableRow>

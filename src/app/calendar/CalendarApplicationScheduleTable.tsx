@@ -16,13 +16,13 @@ const CalendarApplicationScheduleTable = () => {
   return (
     <div className="mt-4 w-full border border-border bg-card rounded-2xl shadow-lg overflow-x-auto">
       <Table>
-        <TableHeader className="sticky top-0 z-10 bg-card">
+        <TableHeader>
           <TableRow>
-            <TableHead className="text-center w-1/5 font-bold bg-primary text-primary-foreground rounded-tl-2xl">ভার্সিটি</TableHead>
-            <TableHead className="text-center w-1/5 font-bold bg-primary text-primary-foreground">তারিখ</TableHead>
-            <TableHead className="text-center w-1/5 font-bold bg-primary text-primary-foreground">সময় বাকি</TableHead>
-            <TableHead className="text-center w-1/5 font-bold bg-primary text-primary-foreground">ফি</TableHead>
-            <TableHead className="text-center w-1/5 font-bold bg-primary text-primary-foreground rounded-tr-2xl">লিংক</TableHead>
+            <TableHead className="sticky top-0 z-10 text-center w-1/5 font-bold bg-primary text-primary-foreground rounded-tl-2xl">ভার্সিটি</TableHead>
+            <TableHead className="sticky top-0 z-10 text-center w-1/5 font-bold bg-primary text-primary-foreground">তারিখ</TableHead>
+            <TableHead className="sticky top-0 z-10 text-center w-1/5 font-bold bg-primary text-primary-foreground">সময় باقي</TableHead>
+            <TableHead className="sticky top-0 z-10 text-center w-1/5 font-bold bg-primary text-primary-foreground">ফি</TableHead>
+            <TableHead className="sticky top-0 z-10 text-center w-1/5 font-bold bg-primary text-primary-foreground rounded-tr-2xl">লিংক</TableHead>
           </TableRow>
         </TableHeader>
         <TableBody>
