@@ -1,14 +1,6 @@
 
 "use client";
 
-import {
-  Table,
-  TableBody,
-  TableCell,
-  TableHead,
-  TableHeader,
-  TableRow,
-} from "@/components/ui/table";
 import { generalAdmissionInfo } from "@/lib/data/schedules/general";
 import ExternalLink from "./ExternalLink";
 import { Badge } from "@/components/ui/badge";
@@ -25,73 +17,87 @@ const GeneralAdmissionInfoTable = ({
   );
 
   return (
-    <div className="w-full border border-border bg-card rounded-2xl shadow-lg overflow-x-auto">
-      <Table>
-        <TableHeader>
-          <TableRow>
-            <TableHead className="sticky top-0 z-10 w-[15%] font-bold bg-primary text-primary-foreground text-center rounded-tl-2xl">
-              বিশ্ববিদ্যালয়
-            </TableHead>
-            <TableHead className="sticky top-0 z-10 w-[15%] font-bold bg-primary text-primary-foreground text-center">
-              তারিখ
-            </TableHead>
-            <TableHead className="sticky top-0 z-10 w-[25%] font-bold bg-primary text-primary-foreground text-center">
-              মানবন্টন
-            </TableHead>
-            <TableHead className="sticky top-0 z-10 w-[15%] font-bold bg-primary text-primary-foreground text-center">
-              সিলেবাস
-            </TableHead>
-            <TableHead className="sticky top-0 z-10 w-[15%] font-bold bg-primary text-primary-foreground text-center">
-              সেকেন্ড টাইম
-            </TableHead>
-            <TableHead className="sticky top-0 z-10 w-[15%] font-bold bg-primary text-primary-foreground text-center rounded-tr-2xl">
-              নেগেটিভ মার্কিং
-            </TableHead>
-          </TableRow>
-        </TableHeader>
-        <TableBody>
-          {filteredInfo.map((info, index) => (
-            <TableRow key={index} className="even:bg-muted/50">
-              <TableCell className="font-medium align-top whitespace-pre-wrap">
-                <div className="font-bold text-center">{info.university}</div>
-                <div className="flex gap-2 mt-1 flex-wrap justify-center">
+    <div className="w-full space-y-4">
+      {/* Header for larger screens */}
+      <div className="hidden md:grid grid-cols-6 gap-4 px-4 py-2 bg-primary text-primary-foreground rounded-lg font-bold text-center">
+        <div>বিশ্ববিদ্যালয়</div>
+        <div>তারিখ</div>
+        <div>মানবন্টন</div>
+        <div>সিলেবাস</div>
+        <div>সেকেন্ড টাইম</div>
+        <div>নেগেটিভ মার্কিং</div>
+      </div>
+
+      {filteredInfo.map((info, index) => (
+        <div
+          key={index}
+          className="bg-card border border-border rounded-lg p-4 shadow-sm md:grid md:grid-cols-6 md:gap-4 md:items-start"
+        >
+          {/* Mobile view with labels */}
+          <div className="md:hidden space-y-2">
+            <div className="flex justify-between items-start">
+              <span className="font-semibold text-muted-foreground">বিশ্ববিদ্যালয়:</span>
+              <div className="text-right">
+                <span className="font-medium">{info.university}</span>
+                <div className="flex gap-2 mt-1 flex-wrap justify-end">
                   {info.circularLink && (
                     <Badge variant="outline" asChild>
-                      <ExternalLink href={info.circularLink}>
-                        সার্কুলার
-                      </ExternalLink>
+                      <ExternalLink href={info.circularLink}>সার্কুলার</ExternalLink>
                     </Badge>
                   )}
                   {info.questionBankLink && (
                     <Badge variant="outline" asChild>
-                      <ExternalLink href={info.questionBankLink}>
-                        প্রশ্নব্যাংক
-                      </ExternalLink>
+                      <ExternalLink href={info.questionBankLink}>প্রশ্নব্যাংক</ExternalLink>
                     </Badge>
                   )}
                 </div>
-              </TableCell>
-              <TableCell
-                className="align-top whitespace-pre-wrap text-center"
-                dangerouslySetInnerHTML={{ __html: info.date }}
-              ></TableCell>
-              <TableCell
-                className="align-top whitespace-pre-wrap cell-content text-center"
-                dangerouslySetInnerHTML={{ __html: info.marksDistribution }}
-              ></TableCell>
-              <TableCell className="align-top whitespace-pre-wrap text-center">
-                {info.syllabus}
-              </TableCell>
-              <TableCell className="align-top whitespace-pre-wrap text-center">
-                {info.secondTime}
-              </TableCell>
-              <TableCell className="align-top whitespace-pre-wrap text-center">
-                {info.negativeMarking}
-              </TableCell>
-            </TableRow>
-          ))}
-        </TableBody>
-      </Table>
+              </div>
+            </div>
+            <div className="flex justify-between items-start">
+              <span className="font-semibold text-muted-foreground">তারিখ:</span>
+              <span className="text-right" dangerouslySetInnerHTML={{ __html: info.date }}></span>
+            </div>
+            <div className="flex justify-between items-start">
+              <span className="font-semibold text-muted-foreground">মানবন্টন:</span>
+              <span className="text-right cell-content" dangerouslySetInnerHTML={{ __html: info.marksDistribution }}></span>
+            </div>
+            <div className="flex justify-between items-start">
+              <span className="font-semibold text-muted-foreground">সিলেবাস:</span>
+              <span className="text-right">{info.syllabus}</span>
+            </div>
+            <div className="flex justify-between items-start">
+              <span className="font-semibold text-muted-foreground">সেকেন্ড টাইম:</span>
+              <span className="text-right">{info.secondTime}</span>
+            </div>
+            <div className="flex justify-between items-start">
+              <span className="font-semibold text-muted-foreground">নেগেটিভ মার্কিং:</span>
+              <span className="text-right">{info.negativeMarking}</span>
+            </div>
+          </div>
+
+          {/* Desktop view (grid layout) */}
+          <div className="hidden md:block font-medium text-center">
+            <div className="font-bold">{info.university}</div>
+            <div className="flex gap-2 mt-1 flex-wrap justify-center">
+              {info.circularLink && (
+                <Badge variant="outline" asChild>
+                  <ExternalLink href={info.circularLink}>সার্কুলার</ExternalLink>
+                </Badge>
+              )}
+              {info.questionBankLink && (
+                <Badge variant="outline" asChild>
+                  <ExternalLink href={info.questionBankLink}>প্রশ্নব্যাংক</ExternalLink>
+                </Badge>
+              )}
+            </div>
+          </div>
+          <div className="hidden md:block text-center whitespace-pre-wrap" dangerouslySetInnerHTML={{ __html: info.date }}></div>
+          <div className="hidden md:block text-center cell-content whitespace-pre-wrap" dangerouslySetInnerHTML={{ __html: info.marksDistribution }}></div>
+          <div className="hidden md:block text-center">{info.syllabus}</div>
+          <div className="hidden md:block text-center">{info.secondTime}</div>
+          <div className="hidden md:block text-center">{info.negativeMarking}</div>
+        </div>
+      ))}
     </div>
   );
 };
