@@ -7,7 +7,7 @@ import QuestionBankCards from "@/components/QuestionBankCards";
 import { Input } from "@/components/ui/input";
 import { Search, Book } from "lucide-react";
 import PublicPageFloatingMenu from "@/components/common/PublicPageFloatingMenu";
-import { publicUniversities } from "@/lib/data/universities";
+import { publicUniversities, privateUniversities } from "@/lib/data/universities";
 import QuestionBankClient from "@/components/QuestionBankClient";
 
 export default function QuestionBankPage() {
@@ -44,10 +44,12 @@ export default function QuestionBankPage() {
         <QuestionBankCards />
 
         <div className="mt-12">
-            <QuestionBankClient universities={publicUniversities} />
+            <QuestionBankClient universities={[...publicUniversities, ...privateUniversities]} />
         </div>
 
       </div>
     </div>
   );
 }
+
+    

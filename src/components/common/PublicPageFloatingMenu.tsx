@@ -11,6 +11,7 @@ import {
   HeartPulse,
   Sparkles,
   Book,
+  Building,
 } from "lucide-react";
 import React, { useState, useEffect, useRef } from "react";
 import { cn } from "@/lib/utils";
@@ -39,6 +40,7 @@ const PublicPageFloatingMenu = () => {
     { href: "#medical", label: "মেডিকেল", Icon: HeartPulse },
     { href: "#special", label: "বিশেষ", Icon: Sparkles },
     { href: "#affiliated", label: "অধিভুক্ত", Icon: University },
+    { href: "#private", label: "প্রাইভেট", Icon: Building },
   ];
 
   const publicPageMenuItems = [
@@ -54,6 +56,7 @@ const PublicPageFloatingMenu = () => {
     { href: "#medical", label: "মেডিকেল", Icon: HeartPulse },
     { href: "#special", label: "বিশেষ", Icon: Sparkles },
     { href: "#affiliated", label: "অধিভুক্ত", Icon: University },
+    { href: "#private", label: "প্রাইভেট", Icon: Building },
   ];
 
   const menuItems = pathname.startsWith('/question-bank') ? questionBankMenuItems : publicPageMenuItems;
@@ -128,3 +131,5 @@ const PublicPageFloatingMenu = () => {
 };
 
 export default PublicPageFloatingMenu;
+
+    

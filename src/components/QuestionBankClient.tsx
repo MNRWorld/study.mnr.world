@@ -1,7 +1,7 @@
 
 "use client";
 import { useState } from "react";
-import { University as UniversityIcon, Leaf, Cog, Atom, HeartPulse, Blocks, Sparkles } from "lucide-react";
+import { University as UniversityIcon, Leaf, Cog, Atom, HeartPulse, Blocks, Sparkles, Building } from "lucide-react";
 import { University } from "@/lib/data/universities";
 import { Input } from "@/components/ui/input";
 import QuestionBankUniversityCard from "./QuestionBankUniversityCard";
@@ -19,6 +19,7 @@ const categoryIcons: { [key: string]: React.FC<React.ComponentProps<'svg'>> } = 
     "মেডিকেল": HeartPulse,
     "বিশেষ": Sparkles,
     "অধিভুক্ত": UniversityIcon,
+    "প্রাইভেট": Building,
 };
 
 const categoryIdMap: { [key: string]: string } = {
@@ -30,6 +31,7 @@ const categoryIdMap: { [key: string]: string } = {
     "মেডিকেল": "medical",
     "বিশেষ": "special",
     "অধিভুক্ত": "affiliated",
+    "প্রাইভেট": "private",
 };
 
 
@@ -70,6 +72,7 @@ export default function QuestionBankClient({
     "মেডিকেল",
     "বিশেষ",
     "অধিভুক্ত",
+    "প্রাইভেট",
   ];
 
   const sortedCategories = Object.keys(groupedUniversities).sort(
@@ -109,3 +112,5 @@ export default function QuestionBankClient({
     </>
   );
 }
+
+    

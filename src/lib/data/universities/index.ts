@@ -1,4 +1,5 @@
 import publicUniversitiesData from "./public-universities.json";
+import privateUniversitiesData from "./private-universities.json";
 
 export interface University {
   nameBn: string;
@@ -13,3 +14,8 @@ export interface University {
 
 export const publicUniversities: University[] =
   publicUniversitiesData as University[];
+
+export const privateUniversities: University[] =
+  privateUniversitiesData as University[];
+
+    
