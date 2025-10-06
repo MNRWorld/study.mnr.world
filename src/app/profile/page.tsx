@@ -26,7 +26,7 @@ import {
   ArrowRight,
 } from "lucide-react";
 import Link from "next/link";
-import { useFirebaseApp, useUser } from "@/firebase";
+import { useUser } from "@/firebase";
 import { getAuth, deleteUser, updateProfile } from "firebase/auth";
 
 const suggestions = [
@@ -49,8 +49,7 @@ export default function ProfilePage() {
   const router = useRouter();
   const { toast } = useToast();
   const [name, setName] = useState("");
-  const app = useFirebaseApp();
-  const auth = getAuth(app);
+  const auth = getAuth();
 
   useEffect(() => {
     if (!loading && !user) {
