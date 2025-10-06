@@ -1,0 +1,89 @@
+{
+  "entities": {
+    "Course": {
+      "title": "Course",
+      "description": "Represents a preparatory course for university admissions.",
+      "type": "object",
+      "properties": {
+        "title": { "type": "string" },
+        "description": { "type": "string" },
+        "icon": { "type": "string" },
+        "stats": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "value": { "type": "string" },
+              "label": { "type": "string" },
+              "tooltip": { "type": "string" }
+            },
+            "required": ["value", "label"]
+          }
+        },
+        "features": { "type": "array", "items": { "type": "string" } },
+        "forWhom": { "type": "array", "items": { "type": "string" } }
+      },
+      "required": ["title", "description", "icon", "features", "forWhom"]
+    },
+    "University": {
+      "title": "University",
+      "description": "Represents a university with its details.",
+      "type": "object",
+      "properties": {
+        "nameBn": { "type": "string" },
+        "nameEn": { "type": "string" },
+        "shortName": { "type": "string" },
+        "category": { "type": "array", "items": { "type": "string" } },
+        "description": { "type": "string" },
+        "link": { "type": "string" },
+        "logo": { "type": "string" }
+      },
+      "required": ["nameBn", "nameEn", "shortName", "id", "category", "description", "link", "logo"]
+    },
+    "Schedule": {
+        "title": "Schedule",
+        "description": "Represents various schedules like admission, application, admit card, and results.",
+        "type": "object",
+        "properties": {
+            "subject": { "type": "string" },
+            "university": { "type": "string" },
+            "date": { "type": "string" },
+            "status": { "type": "string" },
+            "link": { "type": "string" },
+            "fee": { "type": "string" },
+            "detailsLink": { "type": "string" },
+            "detailsLinkText": { "type": "string" },
+            "applyLink": { "type": "string" }
+        }
+    }
+  },
+  "auth": {
+    "providers": ["anonymous"]
+  },
+  "firestore": {
+    "/courses": {
+      "schema": { "$ref": "#/backend/entities/Course" },
+      "description": "Collection of all available courses."
+    },
+    "/universities": {
+      "schema": { "$ref": "#/backend/entities/University" },
+      "description": "Collection of all public universities."
+    },
+    "/schedules/admission": {
+        "schema": { "$ref": "#/backend/entities/Schedule" },
+        "description": "Admission schedule collection."
+    },
+    "/schedules/application": {
+        "schema": { "$ref": "#/backend/entities/Schedule" },
+        "description": "Application schedule collection."
+    },
+    "/schedules/admit-card": {
+        "schema": { "$ref": "#/backend/entities/Schedule" },
+        "description": "Admit card schedule collection."
+    },
+    "/schedules/result": {
+        "schema": { "$ref": "#/backend/entities/Schedule" },
+        "description": "Result schedule collection."
+    }
+  }
+}
