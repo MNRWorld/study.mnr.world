@@ -9,7 +9,7 @@ import { UserPen } from "lucide-react";
 
 const QuestionBankCards = () => {
   return (
-    <div className="mt-8 grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-4 sm:gap-6">
+    <>
       {questionBankCards.map((card, index) => (
         <Link href={card.href} key={index}>
           <div
@@ -48,7 +48,7 @@ const QuestionBankCards = () => {
           </div>
         </Link>
       ))}
-    </div>
+    </>
   );
 };
 
