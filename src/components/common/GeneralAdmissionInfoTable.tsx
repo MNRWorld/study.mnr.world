@@ -31,11 +31,11 @@ const GeneralAdmissionInfoTable = ({
       {filteredInfo.map((info, index) => (
         <div
           key={index}
-          className="bg-card border border-border rounded-lg p-4 shadow-sm md:grid md:grid-cols-6 md:gap-4 md:items-start"
+          className="bg-card border border-border rounded-lg p-0 shadow-sm md:grid md:grid-cols-6 md:gap-4 md:items-start md:p-4"
         >
           {/* Mobile view with labels */}
-          <div className="md:hidden space-y-2">
-            <div className="flex justify-between items-start">
+          <div className="md:hidden p-4 border-l-4 border-primary rounded-l-lg space-y-3">
+            <div className="flex justify-between items-start pb-2 border-b border-border/50">
               <span className="font-semibold text-muted-foreground">বিশ্ববিদ্যালয়:</span>
               <div className="text-right">
                 <span className="font-medium">{info.university}</span>
@@ -53,19 +53,19 @@ const GeneralAdmissionInfoTable = ({
                 </div>
               </div>
             </div>
-            <div className="flex justify-between items-start">
+            <div className="flex justify-between items-start pb-2 border-b border-border/50">
               <span className="font-semibold text-muted-foreground">তারিখ:</span>
               <span className="text-right" dangerouslySetInnerHTML={{ __html: info.date }}></span>
             </div>
-            <div className="flex justify-between items-start">
+            <div className="flex justify-between items-start pb-2 border-b border-border/50">
               <span className="font-semibold text-muted-foreground">মানবন্টন:</span>
               <span className="text-right cell-content" dangerouslySetInnerHTML={{ __html: info.marksDistribution }}></span>
             </div>
-            <div className="flex justify-between items-start">
+            <div className="flex justify-between items-start pb-2 border-b border-border/50">
               <span className="font-semibold text-muted-foreground">সিলেবাস:</span>
               <span className="text-right">{info.syllabus}</span>
             </div>
-            <div className="flex justify-between items-start">
+            <div className="flex justify-between items-start pb-2 border-b border-border/50">
               <span className="font-semibold text-muted-foreground">সেকেন্ড টাইম:</span>
               <span className="text-right">{info.secondTime}</span>
             </div>
