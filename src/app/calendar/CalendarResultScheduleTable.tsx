@@ -19,7 +19,7 @@ const CalendarResultScheduleTable = () => {
     <div className="mt-4 space-y-8">
       <div className="w-full border border-border bg-card rounded-2xl shadow-lg overflow-x-auto">
         <Table>
-          <TableHeader className="sticky top-0 z-10">
+          <TableHeader className="sticky top-0 z-10 bg-card">
             <TableRow>
               <TableHead className="text-center w-1/3 font-bold bg-primary text-primary-foreground rounded-tl-2xl">বিশ্ববিদ্যালয়</TableHead>
               <TableHead className="text-center w-1/3 font-bold bg-primary text-primary-foreground">তারিখ</TableHead>
@@ -54,7 +54,7 @@ const CalendarResultScheduleTable = () => {
           </div>
         </div>
         <Table>
-          <TableHeader className="sticky top-0 z-10">
+          <TableHeader className="sticky top-0 z-10 bg-card">
             <TableRow>
               <TableHead className="text-center w-1/3 font-bold bg-primary text-primary-foreground rounded-tl-2xl">বিশ্ববিদ্যালয়</TableHead>
               <TableHead className="text-center w-1/3 font-bold bg-primary text-primary-foreground">তারিখ</TableHead>
