@@ -41,13 +41,11 @@ export default function QuestionBankPage() {
           </h2>
         </div>
         
-        <div className="mt-8">
-          <h2
-            className="text-xl font-bold mb-4 text-center pb-2 flex items-center justify-center gap-2"
-          >
-            <Book className="h-5 w-5 text-primary/70" />
-            মাস্টার প্রশ্নব্যাংক
-          </h2>
+        <div className="mt-8 flex justify-center">
+            <div className="gradient-background inline-flex items-center gap-2 px-6 py-2 text-primary-foreground rounded-full text-lg mb-4 font-bold shadow-md">
+                <Book className="h-5 w-5" />
+                মাস্টার প্রশ্নব্যাংক
+            </div>
         </div>
 
         <QuestionBankCards />
