@@ -92,6 +92,8 @@ body {
   );
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
 }
 
 .dark .gradient-text {
