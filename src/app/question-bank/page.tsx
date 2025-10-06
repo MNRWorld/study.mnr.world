@@ -45,6 +45,7 @@ export default function QuestionBankPage() {
           <h2
             className="text-xl font-bold mb-4 text-center pb-2 flex items-center justify-center gap-2"
           >
+            <Book className="h-5 w-5 text-primary/70" />
             মাস্টার প্রশ্নব্যাংক
           </h2>
         </div>
