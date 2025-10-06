@@ -4,7 +4,6 @@ import { Toaster } from "@/components/ui/toaster";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import BackToTopButton from "@/components/common/BackToTopButton";
-import { Inter, Hind_Siliguri } from "next/font/google";
 import { cn } from "@/lib/utils";
 import { ThemeProvider } from "@/components/ThemeProvider";
 import { SupabaseProvider } from "@/lib/supabase/provider";
@@ -14,19 +13,6 @@ export const metadata: Metadata = {
   description: "Your central hub for university information.",
 };
 
-const inter = Inter({
-  subsets: ["latin"],
-  variable: "--font-inter",
-  display: "swap",
-});
-
-const hindSiliguri = Hind_Siliguri({
-  subsets: ["bengali"],
-  weight: ["400", "500", "600", "700"],
-  variable: "--font-hind-siliguri",
-  display: "swap",
-});
-
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -35,6 +21,10 @@ export default function RootLayout({
   return (
     <html lang="bn" suppressHydrationWarning>
       <head>
+        <link
+          href="https://banglawebfonts.pages.dev/css/hind-siliguri.css"
+          rel="stylesheet"
+        />
         <link
           rel="preconnect"
           href="https://raw.githubusercontent.com"
@@ -46,13 +36,7 @@ export default function RootLayout({
           crossOrigin="anonymous"
         />
       </head>
-      <body
-        className={cn(
-          "min-h-screen flex flex-col antialiased",
-          inter.variable,
-          hindSiliguri.variable,
-        )}
-      >
+      <body className={cn("min-h-screen flex flex-col antialiased")}>
         <ThemeProvider
           attribute="class"
           defaultTheme="system"
