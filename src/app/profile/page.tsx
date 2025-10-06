@@ -58,10 +58,14 @@ export default function ProfilePage() {
   const { user, loading: userLoading } = useUser();
   const auth = useAuth();
   const firestore = useFirestore();
+  
+  // Conditionally fetch from Firestore only for non-anonymous users
+  const shouldFetchFirestore = user ? !user.isAnonymous : false;
   const { data: userProfile, loading: profileLoading } = useDoc<any>(
     "users",
-    user && !user.isAnonymous ? user.uid : "dummy",
+    shouldFetchFirestore ? user!.uid : "dummy", // Pass dummy ID if not fetching
   );
+
   const router = useRouter();
   const { toast } = useToast();
   const [name, setName] = useState("");
@@ -81,12 +85,19 @@ export default function ProfilePage() {
         setName(localName);
         setDisplayName(localName);
       } else {
-        const firestoreName = userProfile?.displayName || user.displayName || "";
-        setName(firestoreName);
-        setDisplayName(firestoreName || "ব্যবহারকারী");
+        if (!profileLoading && userProfile) {
+            const firestoreName = userProfile.displayName || user.displayName || "";
+            setName(firestoreName);
+            setDisplayName(firestoreName || "ব্যবহারকারী");
+        } else if (!profileLoading && !userProfile) {
+            // Fallback to auth display name if firestore profile doesn't exist yet
+            const authName = user.displayName || "ব্যবহারকারী";
+            setName(authName);
+            setDisplayName(authName);
+        }
       }
     }
-  }, [user, userProfile]);
+  }, [user, userProfile, profileLoading]);
 
   const logout = async () => {
     if (auth) {
@@ -164,7 +175,7 @@ export default function ProfilePage() {
     }
   };
 
-  const loading = userLoading || profileLoading;
+  const loading = userLoading || (shouldFetchFirestore && profileLoading);
 
   if (loading || !user) {
     return (
@@ -332,3 +343,5 @@ export default function ProfilePage() {
     </div>
   );
 }
+
+    

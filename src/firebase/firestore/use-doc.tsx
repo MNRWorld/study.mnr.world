@@ -23,13 +23,14 @@ export const useDoc = <T extends DocumentData>(
   const [error, setError] = useState<FirestoreError | FirestorePermissionError | null>(null);
 
   const memoizedDocRef = useMemo(() => {
-    if (!firestore || !docId) return null;
+    if (!firestore || !docId || docId === 'dummy') return null;
     return doc(firestore, collectionName, docId);
   }, [firestore, collectionName, docId]);
 
   useEffect(() => {
     if (!memoizedDocRef) {
       setLoading(false);
+      setData(null);
       return;
     }
 
@@ -68,3 +69,5 @@ export const useDoc = <T extends DocumentData>(
 
   return { data, loading, error };
 };
+
+    
