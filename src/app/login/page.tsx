@@ -45,7 +45,9 @@ export default function LoginPage() {
   const handleAnonymousLogin = async () => {
     setAnonymousLoading(true);
     try {
-      const { data, error } = await supabase.auth.signInAnonymously();
+      // Force re-initialization to fetch latest provider settings
+      const supabaseClient = createClient(); 
+      const { data, error } = await supabaseClient.auth.signInAnonymously();
       if (error) throw error;
       
       toast({
