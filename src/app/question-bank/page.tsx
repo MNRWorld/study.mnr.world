@@ -75,7 +75,7 @@ export default function QuestionBankPage() {
             </div>
         </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-4">
+        <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-4">
             {allGroupsTestPapers.map((paper, index) => (
                 <TestPaperCard key={index} {...paper} />
             ))}
@@ -88,7 +88,7 @@ export default function QuestionBankPage() {
             </div>
         </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-4 gap-4">
+        <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-4">
             {scienceGroupTestPapers.map((paper, index) => (
                 <TestPaperCard key={index} {...paper} />
             ))}
