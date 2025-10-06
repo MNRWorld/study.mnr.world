@@ -27,7 +27,7 @@ import {
   ArrowRight,
 } from "lucide-react";
 import Link from "next/link";
-import { useUser, useFirestore, useAuth } from "@/firebase";
+import { useUser, useFirestore, useAuth, useDoc } from "@/firebase";
 import { deleteUser, updateProfile } from "firebase/auth";
 import { doc, updateDoc, Timestamp } from "firebase/firestore";
 
@@ -55,21 +55,28 @@ const getCreationTime = (user: any) => {
 };
 
 export default function ProfilePage() {
-  const { user, loading } = useUser();
+  const { user, loading: userLoading } = useUser();
   const auth = useAuth();
   const firestore = useFirestore();
+  const { data: userProfile, loading: profileLoading } = useDoc<any>(
+    "users",
+    user?.uid || "dummy",
+  );
   const router = useRouter();
   const { toast } = useToast();
   const [name, setName] = useState("");
 
   useEffect(() => {
-    if (!loading && !user) {
+    if (!userLoading && !user) {
       router.push("/login");
     }
-    if (user) {
-      setName(user.displayName || "");
+  }, [user, userLoading, router]);
+
+  useEffect(() => {
+    if (userProfile) {
+      setName(userProfile.displayName || "");
     }
-  }, [user, loading, router]);
+  }, [userProfile]);
 
   const logout = async () => {
     if (auth) {
@@ -90,7 +97,9 @@ export default function ProfilePage() {
     }
     try {
       // Update Firebase Auth profile
-      await updateProfile(auth.currentUser, { displayName: name });
+      if (auth.currentUser.providerData[0].providerId !== "anonymous") {
+        await updateProfile(auth.currentUser, { displayName: name });
+      }
 
       // Update Firestore profile
       const userRef = doc(firestore, "users", auth.currentUser.uid);
@@ -139,6 +148,8 @@ export default function ProfilePage() {
     }
   };
 
+  const loading = userLoading || profileLoading;
+
   if (loading || !user) {
     return (
       <div className="flex items-center justify-center min-h-[calc(100vh-10rem)]">
@@ -158,7 +169,7 @@ export default function ProfilePage() {
               {user.photoURL ? (
                 <Image
                   src={user.photoURL}
-                  alt={user.displayName || "Profile picture"}
+                  alt={userProfile?.displayName || "Profile picture"}
                   width={96}
                   height={96}
                   className="rounded-full"
@@ -170,7 +181,7 @@ export default function ProfilePage() {
             </div>
           </div>
           <CardTitle className="text-2xl sm:text-3xl font-bold">
-            স্বাগতম, {user.displayName || "ব্যবহারকারী"}
+            স্বাগতম, {userProfile?.displayName || user.displayName || "ব্যবহারকারী"}
           </CardTitle>
           <CardDescription className="text-sm sm:text-base pt-1">
             আপনার প্রোফাইল এবং অ্যাকাউন্ট পরিচালনা করুন।
