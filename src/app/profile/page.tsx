@@ -1,3 +1,4 @@
+
 "use client";
 
 import { useRouter } from "next/navigation";
@@ -26,8 +27,9 @@ import {
   ArrowRight,
 } from "lucide-react";
 import Link from "next/link";
-import { useUser } from "@/firebase";
-import { getAuth, deleteUser, updateProfile } from "firebase/auth";
+import { useUser, useFirestore, useAuth } from "@/firebase";
+import { deleteUser, updateProfile } from "firebase/auth";
+import { doc, updateDoc, Timestamp } from "firebase/firestore";
 
 const suggestions = [
   {
@@ -44,39 +46,40 @@ const suggestions = [
   },
 ];
 
+const getCreationTime = (user: any) => {
+  if (user?.metadata?.creationTime) {
+    const date = new Date(user.metadata.creationTime);
+    return date.toLocaleString("bn-BD");
+  }
+  return "N/A";
+};
+
 export default function ProfilePage() {
   const { user, loading } = useUser();
+  const auth = useAuth();
+  const firestore = useFirestore();
   const router = useRouter();
   const { toast } = useToast();
   const [name, setName] = useState("");
-  const auth = getAuth();
 
   useEffect(() => {
     if (!loading && !user) {
       router.push("/login");
     }
     if (user) {
-      setName(user.displayName || "ব্যবহারকারী");
+      setName(user.displayName || "");
     }
   }, [user, loading, router]);
 
   const logout = async () => {
-    await auth.signOut();
+    if (auth) {
+      await auth.signOut();
+    }
     router.push("/");
   };
 
-  if (loading || !user) {
-    return (
-      <div className="flex items-center justify-center min-h-[calc(100vh-10rem)]">
-        <div className="text-center font-bengali">
-          <p className="text-lg">লোড হচ্ছে...</p>
-        </div>
-      </div>
-    );
-  }
-
   const handleNameUpdate = async () => {
-    if (!auth.currentUser) return;
+    if (!auth.currentUser || !firestore) return;
     if (!name.trim()) {
       toast({
         variant: "destructive",
@@ -86,8 +89,15 @@ export default function ProfilePage() {
       return;
     }
     try {
+      // Update Firebase Auth profile
       await updateProfile(auth.currentUser, { displayName: name });
-      // This will trigger the onAuthStateChanged listener and update the state everywhere
+
+      // Update Firestore profile
+      const userRef = doc(firestore, "users", auth.currentUser.uid);
+      await updateDoc(userRef, {
+        displayName: name,
+      });
+
       toast({
         title: "নাম পরিবর্তিত হয়েছে",
         description: `আপনার নতুন নাম "${name}" সফলভাবে সেভ হয়েছে।`,
@@ -128,6 +138,16 @@ export default function ProfilePage() {
       });
     }
   };
+
+  if (loading || !user) {
+    return (
+      <div className="flex items-center justify-center min-h-[calc(100vh-10rem)]">
+        <div className="text-center font-bengali">
+          <p className="text-lg">লোড হচ্ছে...</p>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="container mx-auto px-4 py-8 max-w-2xl font-bengali">
@@ -222,7 +242,10 @@ export default function ProfilePage() {
                   প্রোভাইডার:
                 </span>{" "}
                 <span className="font-mono text-primary text-xs break-all">
-                  {user.isAnonymous ? "অতিথি" : user.providerData[0]?.providerId.replace('.com', '') || 'অজানা'}
+                  {user.isAnonymous
+                    ? "অতিথি"
+                    : user.providerData[0]?.providerId.replace(".com", "") ||
+                      "অজানা"}
                 </span>
               </p>
               <p>
@@ -237,9 +260,7 @@ export default function ProfilePage() {
                 <span className="font-medium text-muted-foreground">
                   লগইন সময়:
                 </span>{" "}
-                {new Date(
-                  parseInt(user.metadata.createdAt || "0"),
-                ).toLocaleString("bn-BD")}
+                {getCreationTime(user)}
               </p>
             </CardContent>
             <CardFooter>

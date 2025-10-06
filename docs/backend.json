@@ -1,5 +1,19 @@
 {
   "entities": {
+    "UserProfile": {
+      "title": "User Profile",
+      "description": "Represents a user's profile data stored in Firestore.",
+      "type": "object",
+      "properties": {
+        "uid": { "type": "string", "description": "The user's unique ID from Firebase Auth." },
+        "email": { "type": "string", "format": "email", "description": "The user's email address." },
+        "displayName": { "type": "string", "description": "The user's display name." },
+        "photoURL": { "type": "string", "format": "uri", "description": "URL of the user's profile picture." },
+        "providerId": { "type": "string", "description": "The provider ID (e.g., 'github.com', 'anonymous')." },
+        "createdAt": { "type": "string", "format": "date-time", "description": "The timestamp when the user profile was first created." }
+      },
+      "required": ["uid", "createdAt"]
+    },
     "Course": {
       "title": "Course",
       "description": "Represents a preparatory course for university admissions.",
@@ -58,9 +72,13 @@
     }
   },
   "auth": {
-    "providers": ["anonymous"]
+    "providers": ["anonymous", "github.com"]
   },
   "firestore": {
+    "/users/{userId}": {
+      "schema": { "$ref": "#/backend/entities/UserProfile" },
+      "description": "Stores public profile information for each user."
+    },
     "/courses": {
       "schema": { "$ref": "#/backend/entities/Course" },
       "description": "Collection of all available courses."

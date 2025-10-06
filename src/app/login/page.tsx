@@ -5,17 +5,25 @@ import { User, Fingerprint, Github } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { useAuth, useUser } from "@/firebase";
+import { useAuth, useFirestore, useUser } from "@/firebase";
 import {
   signInAnonymously,
   GithubAuthProvider,
   signInWithPopup,
+  type UserCredential,
   type FirebaseError,
 } from "firebase/auth";
+import {
+  doc,
+  setDoc,
+  getDoc,
+  serverTimestamp,
+} from "firebase/firestore";
 import { useToast } from "@/hooks/use-toast";
 
 export default function LoginPage() {
   const auth = useAuth();
+  const firestore = useFirestore();
   const { user, loading: userLoading } = useUser();
   const [anonymousLoading, setAnonymousLoading] = useState(false);
   const [githubLoading, setGithubLoading] = useState(false);
@@ -28,31 +36,48 @@ export default function LoginPage() {
     }
   }, [user, userLoading, router]);
 
+  const handleLoginSuccess = async (userCredential: UserCredential) => {
+    const user = userCredential.user;
+    if (!user || !firestore) return;
+
+    const userRef = doc(firestore, "users", user.uid);
+    const userDoc = await getDoc(userRef);
+
+    if (!userDoc.exists()) {
+      // Create a new profile if it doesn't exist
+      await setDoc(userRef, {
+        uid: user.uid,
+        email: user.email,
+        displayName: user.displayName,
+        photoURL: user.photoURL,
+        providerId: user.providerData[0]?.providerId || "anonymous",
+        createdAt: serverTimestamp(),
+      });
+    }
+
+    toast({
+      title: "লগইন সফল হয়েছে",
+      description: "আপনার প্রোফাইলে স্বাগতম!",
+    });
+    router.push("/profile");
+  };
+
   const handleAnonymousLogin = async () => {
     setAnonymousLoading(true);
     try {
-      await signInAnonymously(auth);
-      toast({
-        title: "লগইন সফল হয়েছে",
-        description: "আপনার প্রোফাইলে স্বাগতম!",
-      });
-      router.push("/profile");
+      const userCredential = await signInAnonymously(auth);
+      await handleLoginSuccess(userCredential);
     } catch (error) {
       console.error("Anonymous login failed:", error);
       const firebaseError = error as FirebaseError;
-      if (firebaseError.code === "auth/admin-restricted-operation") {
-        toast({
-          variant: "destructive",
-          title: "লগইন ব্যর্থ হয়েছে",
-          description: "বেনামী লগইন এই প্রজেক্টের জন্য সক্রিয় করা নেই।",
-        });
-      } else {
-        toast({
-          variant: "destructive",
-          title: "লগইন ব্যর্থ হয়েছে",
-          description: "একটি অপ্রত্যাশিত সমস্যা হয়েছে। আবার চেষ্টা করুন।",
-        });
-      }
+      toast({
+        variant: "destructive",
+        title: "লগইন ব্যর্থ হয়েছে",
+        description:
+          firebaseError.code === "auth/admin-restricted-operation"
+            ? "বেনামী লগইন এই প্রজেক্টের জন্য সক্রিয় করা নেই।"
+            : "একটি অপ্রত্যাশিত সমস্যা হয়েছে। আবার চেষ্টা করুন।",
+      });
     } finally {
       setAnonymousLoading(false);
     }
@@ -62,15 +87,10 @@ export default function LoginPage() {
     setGithubLoading(true);
     const provider = new GithubAuthProvider();
     try {
-      await signInWithPopup(auth, provider);
-      toast({
-        title: "GitHub লগইন সফল হয়েছে",
-        description: "আপনার প্রোফাইলে স্বাগতম!",
-      });
-      router.push("/profile");
+      const userCredential = await signInWithPopup(auth, provider);
+      await handleLoginSuccess(userCredential);
     } catch (error) {
       const firebaseError = error as FirebaseError;
-      // Don't show an error toast if the user closes the popup
       if (firebaseError.code !== "auth/popup-closed-by-user") {
         console.error("GitHub login failed:", error);
         toast({
