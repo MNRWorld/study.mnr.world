@@ -128,7 +128,7 @@ const Header = memo(function Header() {
   const pathname = usePathname();
 
   return (
-    <header className="sticky top-2 sm:top-4 z-50 w-full flex justify-center px-2 sm:px-0">
+    <header className="sticky top-2 sm:top-4 z-40 w-full flex justify-center px-2 sm:px-0">
       <div
         className={cn(
           "flex items-center gap-x-1 rounded-full border border-border bg-card/70 dark:bg-card/60 backdrop-blur-lg p-1.5 shadow-lg transition-all duration-300 w-full max-w-fit",
