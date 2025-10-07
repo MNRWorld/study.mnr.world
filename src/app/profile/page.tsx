@@ -24,11 +24,13 @@ import {
   AlertTriangle,
   Sparkles,
   ArrowRight,
+  CalendarDays,
 } from "lucide-react";
 import Link from "next/link";
 import { useUser, useSupabase } from "@/lib/supabase/hooks";
 import { User } from "@supabase/supabase-js";
 import { createClient } from "@/lib/supabase/client";
+import FavoriteExamsCalendar from "@/components/FavoriteExamsCalendar";
 
 const suggestions = [
   {
@@ -330,6 +332,21 @@ export default function ProfilePage() {
   return (
     <div className="container mx-auto px-4 py-8 max-w-2xl font-bengali">
       {isAnonymous ? <AnonymousUserProfile /> : <RegisteredUserProfile />}
+
+      <Card className="my-8 shadow-lg">
+        <CardHeader>
+          <div className="flex items-center gap-2">
+            <CalendarDays className="text-primary h-6 w-6" />
+            <CardTitle>আপনার পছন্দের পরীক্ষার ক্যালেন্ডার</CardTitle>
+          </div>
+          <CardDescription>
+            ক্যালেন্ডারে আপনার পছন্দের পরীক্ষার তারিখগুলো হাইলাইট করা আছে।
+          </CardDescription>
+        </CardHeader>
+        <CardContent>
+          <FavoriteExamsCalendar />
+        </CardContent>
+      </Card>
 
       <Card className="my-8 shadow-lg">
         <CardHeader>
