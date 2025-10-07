@@ -1,0 +1,29 @@
+
+[
+  {
+    "id": "du-a-unit",
+    "universityName": "ঢাকা বিশ্ববিদ্যালয়",
+    "unit": "'ক' ইউনিট",
+    "examDetails": {
+      "date": "2025-02-15T11:00:00+06:00",
+      "countdownLabel": "পরীক্ষার বাকি"
+    },
+    "applicationDetails": {
+      "startDate": "2024-11-04T12:00:00+06:00",
+      "endDate": "2024-11-25T23:59:59+06:00",
+      "countdownLabel": "আবেদনের বাকি",
+      "fee": "১,০৫০ টাকা",
+      "link": "https://admission.eis.du.ac.bd/"
+    },
+    "admitCardDetails": {
+      "startDate": "2024-12-23T00:00:00+06:00",
+      "endDate": "2025-02-15T10:00:00+06:00",
+      "countdownLabel": "প্রবেশপত্র ডাউনলোডের বাকি",
+      "link": "https://admission.eis.du.ac.bd/"
+    },
+    "resultDetails": {
+      "date": null,
+      "link": "https://admission.eis.du.ac.bd/"
+    }
+  }
+]
