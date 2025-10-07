@@ -12,6 +12,7 @@ import QuestionBankTabs from "./QuestionBankTabs";
 import DhakaSeatInfo from "./DhakaSeatInfo";
 import DhakaHistoryAndMap from "./DhakaHistoryAndMap";
 import DhakaAdmissionInfo from "./DhakaAdmissionInfo";
+import FavoriteExamsCalendar from "./FavoriteExamsCalendar";
 
 const CountdownTimer = dynamic(
   () => import("@/components/common/CountdownTimer"),
@@ -88,6 +89,8 @@ const UniversityPage = ({
         <div className="mt-4 w-full border border-border bg-card rounded-2xl p-4 sm:p-6 shadow-lg relative">
           <CountdownTimer />
         </div>
+
+        {isDhakaUniversity && <FavoriteExamsCalendar />}
 
         {/* 5. Circular */}
         <Circular
