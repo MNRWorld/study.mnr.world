@@ -104,7 +104,7 @@ const CalendarApplicationScheduleTable = () => {
                 <CountdownCell targetDate={item.applyCountdownDate} />
                 <TableCell className="text-center align-top pb-3">
                   {item.applyLink ? (
-                    <ExternalLink href={item.applyLink} text="[আবেদন করুন]" />
+                    <ExternalLink href={item.applyLink} text="[লিংক]" />
                   ) : (
                     "-"
                   )}
