@@ -1,3 +1,4 @@
+
 "use client";
 
 import React, { useState, useEffect } from "react";
@@ -13,9 +14,15 @@ import dayjs from "dayjs";
 import "dayjs/locale/bn";
 import LocalizedFormat from "dayjs/plugin/localizedFormat";
 import type { DayContentProps } from "react-day-picker";
+import { format } from "date-fns";
+import { bn } from "date-fns/locale";
 
 dayjs.extend(LocalizedFormat);
 dayjs.locale("bn");
+
+const formatDay = (day: Date) => dayjs(day).format("D");
+const formatMonthCaption = (month: Date) => dayjs(month).format("MMMM YYYY");
+const formatWeekdayName = (weekday: Date) => dayjs(weekday).format("dd");
 
 const FavoriteExamsCalendar = () => {
   const [favoriteDates, setFavoriteDates] = useState<{ [key: string]: string[] }>({});
@@ -94,13 +101,18 @@ const FavoriteExamsCalendar = () => {
   return (
     <div className="mt-4 w-full border border-border bg-card rounded-2xl p-4 sm:p-6 shadow-lg relative flex justify-center">
       <Calendar
-        locale={dayjs.Ls.bn}
+        locale={bn}
         mode="single"
         month={month}
         onMonthChange={setMonth}
         modifiers={modifiers}
         modifiersClassNames={{
           highlighted: "bg-primary/20 rounded-md",
+        }}
+        formatters={{
+          formatDay,
+          formatMonthCaption,
+          formatWeekdayName,
         }}
         components={{
           DayContent: DayWithTooltip,
