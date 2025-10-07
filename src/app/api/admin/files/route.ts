@@ -16,7 +16,13 @@ export async function GET() {
 
   try {
     // Instead of reading directory, just return the imported list
-    return NextResponse.json({ files: publicUniversities });
+    const filePath = path.join(
+      process.cwd(),
+      "src/lib/data/universities/public-universities.json",
+    );
+    const fileContent = await fs.readFile(filePath, "utf-8");
+    const universities = JSON.parse(fileContent);
+    return NextResponse.json({ files: universities });
   } catch (error) {
     console.error("Error providing university list:", error);
     return NextResponse.json(
