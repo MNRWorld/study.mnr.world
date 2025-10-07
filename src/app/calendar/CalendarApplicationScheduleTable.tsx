@@ -44,6 +44,28 @@ const CountdownCell = ({ targetDate }: { targetDate: string | null }) => {
 };
 
 const CalendarApplicationScheduleTable = () => {
+  const sortedSchedule = [...applicationSchedule].sort((a, b) => {
+    const dateA = a.applyCountdownDate
+      ? new Date(a.applyCountdownDate).getTime()
+      : 0;
+    const dateB = b.applyCountdownDate
+      ? new Date(b.applyCountdownDate).getTime()
+      : 0;
+    const now = new Date().getTime();
+
+    const completedA = dateA > 0 && dateA < now;
+    const completedB = dateB > 0 && dateB < now;
+
+    if (completedA && !completedB) return 1;
+    if (!completedA && completedB) return -1;
+    if (completedA && completedB) return dateA - dateB; // Sort completed items by date
+
+    if (dateA === 0) return 1; // Items without a date go to the bottom
+    if (dateB === 0) return -1;
+
+    return dateA - dateB; // Sort upcoming items by date
+  });
+
   return (
     <div className="mt-4 w-full border border-border bg-card rounded-2xl shadow-lg">
       <Table>
@@ -61,7 +83,7 @@ const CalendarApplicationScheduleTable = () => {
           </TableRow>
         </TableHeader>
         <TableBody>
-          {applicationSchedule.map((item, index) => (
+          {sortedSchedule.map((item, index) => (
             <React.Fragment key={index}>
               <TableRow
                 className={cn(
