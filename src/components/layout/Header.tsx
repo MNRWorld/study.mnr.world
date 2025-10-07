@@ -61,7 +61,7 @@ const NavItem = memo(function NavItem({ item, isActive }: NavItemProps) {
           <button
             className={cn(
               "group relative flex cursor-pointer items-center justify-center rounded-full transition-colors duration-300",
-              "h-9 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background",
+              "h-9 focus-visible:outline-none",
               "text-muted-foreground hover:bg-accent hover:text-accent-foreground",
               isActive && "bg-accent text-accent-foreground",
               "px-3 font-bengali",
@@ -106,7 +106,7 @@ const NavItem = memo(function NavItem({ item, isActive }: NavItemProps) {
       aria-label={item.label}
       className={cn(
         "relative flex cursor-pointer items-center justify-center rounded-full transition-colors duration-300",
-        "h-9 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background",
+        "h-9 focus-visible:outline-none",
         "text-muted-foreground hover:bg-accent hover:text-accent-foreground",
         isActive && "bg-accent text-accent-foreground",
         "px-3 font-bengali",
