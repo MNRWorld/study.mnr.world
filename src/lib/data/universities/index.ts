@@ -17,5 +17,3 @@ export const publicUniversities: University[] =
 
 export const privateUniversities: University[] =
   privateUniversitiesData as University[];
-
-    

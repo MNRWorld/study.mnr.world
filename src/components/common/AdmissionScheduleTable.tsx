@@ -35,7 +35,9 @@ const AdmissionScheduleTable = () => {
                 <TableCell className="text-center font-medium whitespace-pre-wrap">
                   {item.subject}
                 </TableCell>
-                <TableCell className="text-center whitespace-pre-wrap">{item.date}</TableCell>
+                <TableCell className="text-center whitespace-pre-wrap">
+                  {item.date}
+                </TableCell>
                 <TableCell
                   className={`text-center font-semibold whitespace-pre-wrap ${
                     item.status.includes("স্থগিত")

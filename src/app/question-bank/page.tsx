@@ -1,4 +1,3 @@
-
 "use client";
 
 import React from "react";
@@ -7,10 +6,16 @@ import QuestionBankCards from "@/components/QuestionBankCards";
 import { Input } from "@/components/ui/input";
 import { Search, Book, Pen, Folder } from "lucide-react";
 import PublicPageFloatingMenu from "@/components/common/PublicPageFloatingMenu";
-import { publicUniversities, privateUniversities } from "@/lib/data/universities";
+import {
+  publicUniversities,
+  privateUniversities,
+} from "@/lib/data/universities";
 import QuestionBankClient from "@/components/QuestionBankClient";
 import TestPaperCard from "@/components/TestPaperCards";
-import { allGroupsTestPapers, scienceGroupTestPapers } from "@/lib/data/test-papers";
+import {
+  allGroupsTestPapers,
+  scienceGroupTestPapers,
+} from "@/lib/data/test-papers";
 
 export default function QuestionBankPage() {
   return (
@@ -42,12 +47,12 @@ export default function QuestionBankPage() {
             প্রশ্নব্যাংক সমগ্র
           </h2>
         </div>
-        
+
         <div className="mt-8 flex justify-center">
-            <div className="gradient-background inline-flex items-center gap-2 px-6 py-2 text-primary-foreground rounded-full text-lg mb-4 font-bold shadow-md">
-                <Book className="h-5 w-5" />
-                মাস্টার প্রশ্নব্যাংক
-            </div>
+          <div className="gradient-background inline-flex items-center gap-2 px-6 py-2 text-primary-foreground rounded-full text-lg mb-4 font-bold shadow-md">
+            <Book className="h-5 w-5" />
+            মাস্টার প্রশ্নব্যাংক
+          </div>
         </div>
 
         <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-4">
@@ -55,45 +60,46 @@ export default function QuestionBankPage() {
         </div>
 
         <div className="mt-12">
-            <QuestionBankClient universities={[...publicUniversities, ...privateUniversities]} />
+          <QuestionBankClient
+            universities={[...publicUniversities, ...privateUniversities]}
+          />
         </div>
 
         <div className="mt-12">
-            <h2
-                id="test-papers"
-                className="text-2xl font-bold mb-4 text-center pb-2 border-b-2 border-primary/20 flex items-center justify-center gap-2"
-            >
-                <Pen className="h-6 w-6 text-primary/80" />
-                টেস্ট পেপার (HSC)
-            </h2>
+          <h2
+            id="test-papers"
+            className="text-2xl font-bold mb-4 text-center pb-2 border-b-2 border-primary/20 flex items-center justify-center gap-2"
+          >
+            <Pen className="h-6 w-6 text-primary/80" />
+            টেস্ট পেপার (HSC)
+          </h2>
         </div>
 
         <div className="mt-8 flex justify-center">
-            <div className="gradient-background inline-flex items-center gap-2 px-6 py-2 text-primary-foreground rounded-full text-lg mb-4 font-bold shadow-md">
-                <Folder className="h-5 w-5" />
-                সকল বিভাগ
-            </div>
+          <div className="gradient-background inline-flex items-center gap-2 px-6 py-2 text-primary-foreground rounded-full text-lg mb-4 font-bold shadow-md">
+            <Folder className="h-5 w-5" />
+            সকল বিভাগ
+          </div>
         </div>
 
         <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-4">
-            {allGroupsTestPapers.map((paper, index) => (
-                <TestPaperCard key={index} {...paper} />
-            ))}
+          {allGroupsTestPapers.map((paper, index) => (
+            <TestPaperCard key={index} {...paper} />
+          ))}
         </div>
 
         <div className="mt-8 flex justify-center">
-            <div className="gradient-background inline-flex items-center gap-2 px-6 py-2 text-primary-foreground rounded-full text-lg mb-4 font-bold shadow-md">
-                <Folder className="h-5 w-5" />
-                বিজ্ঞান বিভাগ
-            </div>
+          <div className="gradient-background inline-flex items-center gap-2 px-6 py-2 text-primary-foreground rounded-full text-lg mb-4 font-bold shadow-md">
+            <Folder className="h-5 w-5" />
+            বিজ্ঞান বিভাগ
+          </div>
         </div>
 
         <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-4">
-            {scienceGroupTestPapers.map((paper, index) => (
-                <TestPaperCard key={index} {...paper} />
-            ))}
+          {scienceGroupTestPapers.map((paper, index) => (
+            <TestPaperCard key={index} {...paper} />
+          ))}
         </div>
-
       </div>
     </div>
   );

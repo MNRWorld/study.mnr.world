@@ -1,4 +1,3 @@
-
 import cardData from "./question-bank-cards.json";
 
 export type QuestionBankCard = {

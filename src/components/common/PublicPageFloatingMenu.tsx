@@ -43,9 +43,13 @@ const PublicPageFloatingMenu = () => {
 
   let menuItems;
 
-  if (pathname.startsWith('/question-bank')) {
+  if (pathname.startsWith("/question-bank")) {
     menuItems = [
-      { href: "#master-question-bank", label: "মাস্টার প্রশ্নব্যাংক", Icon: Book },
+      {
+        href: "#master-question-bank",
+        label: "মাস্টার প্রশ্নব্যাংক",
+        Icon: Book,
+      },
       ...baseMenuItems,
       { href: "#private", label: "প্রাইভেট", Icon: Building },
     ];

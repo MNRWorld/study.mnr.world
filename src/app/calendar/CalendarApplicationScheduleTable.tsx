@@ -1,4 +1,3 @@
-
 "use client";
 
 import { applicationSchedule } from "@/lib/data/schedules/application";
@@ -25,7 +24,9 @@ const CalendarApplicationScheduleTable = () => {
           {/* Mobile view with labels */}
           <div className="md:hidden p-4 border-l-4 border-primary rounded-l-lg space-y-3">
             <div className="flex justify-between items-start pb-2 border-b border-border/50">
-              <span className="font-semibold text-muted-foreground">ভার্সিটি:</span>
+              <span className="font-semibold text-muted-foreground">
+                ভার্সিটি:
+              </span>
               <div className="text-right">
                 <span className="font-medium">{item.university}</span>
                 {item.detailsLink && (
@@ -40,34 +41,40 @@ const CalendarApplicationScheduleTable = () => {
               </div>
             </div>
             <div className="flex justify-between items-start pb-2 border-b border-border/50">
-              <span className="font-semibold text-muted-foreground">তারিখ:</span>
+              <span className="font-semibold text-muted-foreground">
+                তারিখ:
+              </span>
               <span
                 className="text-right"
                 dangerouslySetInnerHTML={{ __html: item.date }}
               ></span>
             </div>
             <div className="flex justify-between items-start pb-2 border-b border-border/50">
-              <span className="font-semibold text-muted-foreground">সময় باقي:</span>
-              <span className={`text-right font-semibold ${
+              <span className="font-semibold text-muted-foreground">
+                সময় باقي:
+              </span>
+              <span
+                className={`text-right font-semibold ${
                   item.status.includes("স্থগিত")
                     ? "text-yellow-500 dark:text-yellow-400"
                     : item.status.includes("শেষ")
-                    ? "text-red-500 dark:text-red-400"
-                    : "text-green-500 dark:text-green-400"
-                }`}>
+                      ? "text-red-500 dark:text-red-400"
+                      : "text-green-500 dark:text-green-400"
+                }`}
+              >
                 {item.status}
               </span>
             </div>
-             <div className="flex justify-between items-start pb-2 border-b border-border/50">
+            <div className="flex justify-between items-start pb-2 border-b border-border/50">
               <span className="font-semibold text-muted-foreground">ফি:</span>
               <span
                 className="text-right"
                 dangerouslySetInnerHTML={{ __html: item.fee }}
               ></span>
             </div>
-             <div className="flex justify-between items-start">
+            <div className="flex justify-between items-start">
               <span className="font-semibold text-muted-foreground">লিংক:</span>
-                <span className="text-right">
+              <span className="text-right">
                 {item.applyLink ? (
                   <ExternalLink href={item.applyLink} text="[আবেদন করুন]" />
                 ) : (
@@ -79,16 +86,16 @@ const CalendarApplicationScheduleTable = () => {
 
           {/* Desktop view (grid layout) */}
           <div className="hidden md:block text-center font-medium">
-             <div className="font-bold">{item.university}</div>
-              {item.detailsLink && (
-                  <div className="mt-1">
-                    <ExternalLink
-                      href={item.detailsLink}
-                      text={item.detailsLinkText || "[বিস্তারিত]"}
-                      className="text-xs"
-                    />
-                  </div>
-                )}
+            <div className="font-bold">{item.university}</div>
+            {item.detailsLink && (
+              <div className="mt-1">
+                <ExternalLink
+                  href={item.detailsLink}
+                  text={item.detailsLinkText || "[বিস্তারিত]"}
+                  className="text-xs"
+                />
+              </div>
+            )}
           </div>
           <div
             className="hidden md:block text-center whitespace-pre-wrap"
@@ -99,8 +106,8 @@ const CalendarApplicationScheduleTable = () => {
               item.status.includes("স্থগিত")
                 ? "text-yellow-500 dark:text-yellow-400"
                 : item.status.includes("শেষ")
-                ? "text-red-500 dark:text-red-400"
-                : "text-green-500 dark:text-green-400"
+                  ? "text-red-500 dark:text-red-400"
+                  : "text-green-500 dark:text-green-400"
             }`}
           >
             {item.status}

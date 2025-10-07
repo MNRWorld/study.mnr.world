@@ -16,14 +16,12 @@ export async function middleware(request: NextRequest) {
   if (pathname !== pathname.toLowerCase()) {
     const newUrl = new URL(request.url);
     newUrl.pathname = pathname.toLowerCase();
-    return NextResponse.redirect(newUrl, 308); 
+    return NextResponse.redirect(newUrl, 308);
   }
-  
+
   return await updateSession(request);
 }
 
 export const config = {
-  matcher: [
-    "/((?!api|_next/static|_next/image|favicon.ico).*)",
-  ],
+  matcher: ["/((?!api|_next/static|_next/image|favicon.ico).*)"],
 };

@@ -4,10 +4,7 @@ import GeneralAdmissionInfoTable from "./GeneralAdmissionInfoTable";
 
 const GeneralAdmissionInfo = () => {
   return (
-    <div
-      id="Info"
-      className="mt-4"
-    >
+    <div id="Info" className="mt-4">
       <GeneralAdmissionInfoTable />
     </div>
   );

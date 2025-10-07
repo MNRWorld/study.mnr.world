@@ -1,9 +1,7 @@
 "use client";
 import Image from "next/image";
 import Link from "next/link";
-import {
-  PlaceHolderImages,
-} from "@/lib/placeholder-images";
+import { PlaceHolderImages } from "@/lib/placeholder-images";
 import React, { useState, useEffect } from "react";
 import { cn } from "@/lib/utils";
 

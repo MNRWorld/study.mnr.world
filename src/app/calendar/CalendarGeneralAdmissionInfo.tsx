@@ -1,4 +1,3 @@
-
 "use client";
 import GeneralAdmissionInfoTable from "@/components/common/GeneralAdmissionInfoTable";
 import { Input } from "@/components/ui/input";
@@ -9,10 +8,7 @@ const CalendarGeneralAdmissionInfo = () => {
   const [searchTerm, setSearchTerm] = useState("");
 
   return (
-    <div
-      id="Info"
-      className="mt-4 w-full"
-    >
+    <div id="Info" className="mt-4 w-full">
       <div className="relative my-4">
         <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground" />
         <Input

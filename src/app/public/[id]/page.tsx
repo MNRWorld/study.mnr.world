@@ -45,7 +45,13 @@ const UniversityPage = ({ params }: { params: { id: string } }) => {
   }
 
   // A simple placeholder component for when data is not available
-  const PlaceholderComponent = ({ title, id }: { title: string; id: string }) => (
+  const PlaceholderComponent = ({
+    title,
+    id,
+  }: {
+    title: string;
+    id: string;
+  }) => (
     <div
       id={id}
       className="mt-8 w-full border border-border bg-card rounded-2xl p-6 shadow-lg text-center"

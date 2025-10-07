@@ -1,4 +1,3 @@
-
 import cardData from "./test-papers.json";
 
 export type TestPaperCard = {

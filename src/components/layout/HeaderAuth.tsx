@@ -47,9 +47,7 @@ function AuthButton({
             marginLeft: isHovered ? "0.5rem" : "0",
           }}
         >
-          <span className="whitespace-nowrap text-sm font-medium">
-            {label}
-          </span>
+          <span className="whitespace-nowrap text-sm font-medium">{label}</span>
         </div>
       </div>
     </button>
@@ -69,9 +67,7 @@ export default function HeaderAuth() {
   };
 
   if (loading) {
-    return (
-       <div className="h-9 w-20 rounded-full bg-muted animate-pulse" />
-    );
+    return <div className="h-9 w-20 rounded-full bg-muted animate-pulse" />;
   }
 
   const profileIcon = user?.user_metadata?.avatar_url ? (
@@ -96,7 +92,10 @@ export default function HeaderAuth() {
           <Link href="/profile">
             <AuthButton
               isHovered={hoveredId === "profile"}
-              label={user.user_metadata?.full_name || (user.is_anonymous ? "অতিথি" : "প্রোফাইল")}
+              label={
+                user.user_metadata?.full_name ||
+                (user.is_anonymous ? "অতিথি" : "প্রোফাইল")
+              }
               icon={profileIcon}
             />
           </Link>

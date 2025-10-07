@@ -93,7 +93,7 @@ export type TablesInsert<
       Insert: infer I
     }
     ? I
-    S: never
+    : never
   : PublicTableNameOrOptions extends keyof Database["public"]["Tables"]
     ? Database["public"]["Tables"][PublicTableNameOrOptions] extends {
         Insert: infer I
@@ -110,7 +110,7 @@ export type TablesUpdate<
     ? keyof Database[PublicTableNameOrOptions["schema"]]["Tables"]
     : never = never,
 > = PublicTableNameOrOptions extends { schema: keyof Database }
-  ? Database[PublicTableNameOrOoptions["schema"]]["Tables"][TableName] extends {
+  ? Database[PublicTableNameOrOptions["schema"]]["Tables"][TableName] extends {
       Update: infer U
     }
     ? U

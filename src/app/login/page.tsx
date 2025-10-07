@@ -72,22 +72,22 @@ export default function LoginPage() {
 
   if (userLoading) {
     return (
-       <div className="flex items-center justify-center min-h-[calc(100vh-10rem)]">
+      <div className="flex items-center justify-center min-h-[calc(100vh-10rem)]">
         <div className="text-center font-bengali">
           <p className="text-lg">লোড হচ্ছে...</p>
         </div>
       </div>
-    )
+    );
   }
 
   if (user) {
     return (
-       <div className="flex items-center justify-center min-h-[calc(100vh-10rem)]">
+      <div className="flex items-center justify-center min-h-[calc(100vh-10rem)]">
         <div className="text-center font-bengali">
           <p className="text-lg">প্রোফাইলে নিয়ে যাওয়া হচ্ছে...</p>
         </div>
       </div>
-    )
+    );
   }
 
   return (
@@ -126,8 +126,8 @@ export default function LoginPage() {
           </Button>
           <div className="text-xs text-muted-foreground mt-6">
             <p>
-              অতিথি হিসেবে লগইন করলে আপনার জন্য একটি অস্থায়ী ও সুরক্ষিত সেশন তৈরি
-              করা হবে।
+              অতিথি হিসেবে লগইন করলে আপনার জন্য একটি অস্থায়ী ও সুরক্ষিত সেশন
+              তৈরি করা হবে।
             </p>
           </div>
         </CardContent>

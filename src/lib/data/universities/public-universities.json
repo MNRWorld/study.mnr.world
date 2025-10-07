@@ -1,4 +1,3 @@
-
 [
   {
     "nameBn": "ঢাকা বিশ্ববিদ্যালয়",
@@ -530,7 +529,7 @@
     "link": "/bup",
     "logo": "https://raw.githubusercontent.com/MNRfrom2020/logo-and-icon-cdn/refs/heads/main/University/BUP.png"
   },
-    {
+  {
     "nameBn": "ইউনিভার্সিটি অফ ফ্রন্টিয়ার টেকনোলজি, বাংলাদেশ",
     "nameEn": "University of Frontier Technology, Bangladesh",
     "shortName": "UFTB",
@@ -601,5 +600,3 @@
     "logo": "https://raw.githubusercontent.com/MNRfrom2020/logo-and-icon-cdn/refs/heads/main/University/SUST.png"
   }
 ]
-
-    

@@ -19,7 +19,12 @@
           "icon": "Building",
           "href": "/private"
         },
-        { "id": "college", "label": "কলেজ", "icon": "School", "href": "/college" }
+        {
+          "id": "college",
+          "label": "কলেজ",
+          "icon": "School",
+          "href": "/college"
+        }
       ]
     },
     {

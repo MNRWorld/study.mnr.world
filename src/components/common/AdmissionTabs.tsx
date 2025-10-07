@@ -1,4 +1,3 @@
-
 "use client";
 
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
@@ -57,5 +56,3 @@ const AdmissionTabs = () => {
 };
 
 export default AdmissionTabs;
-
-    

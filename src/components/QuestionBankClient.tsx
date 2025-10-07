@@ -1,7 +1,15 @@
-
 "use client";
 import { useState } from "react";
-import { University as UniversityIcon, Leaf, Cog, Atom, HeartPulse, Blocks, Sparkles, Building } from "lucide-react";
+import {
+  University as UniversityIcon,
+  Leaf,
+  Cog,
+  Atom,
+  HeartPulse,
+  Blocks,
+  Sparkles,
+  Building,
+} from "lucide-react";
 import { University } from "@/lib/data/universities";
 import { Input } from "@/components/ui/input";
 import QuestionBankUniversityCard from "./QuestionBankUniversityCard";
@@ -10,30 +18,30 @@ interface QuestionBankClientProps {
   universities: University[];
 }
 
-const categoryIcons: { [key: string]: React.FC<React.ComponentProps<'svg'>> } = {
-    "গুচ্ছ": Blocks,
-    "সাধারণ": UniversityIcon,
-    "কৃষি": Leaf,
-    "প্রকৌশল": Cog,
+const categoryIcons: { [key: string]: React.FC<React.ComponentProps<"svg">> } =
+  {
+    গুচ্ছ: Blocks,
+    সাধারণ: UniversityIcon,
+    কৃষি: Leaf,
+    প্রকৌশল: Cog,
     "বিজ্ঞান ও প্রযুক্তি": Atom,
-    "মেডিকেল": HeartPulse,
-    "বিশেষ": Sparkles,
-    "অধিভুক্ত": UniversityIcon,
-    "প্রাইভেট": Building,
-};
+    মেডিকেল: HeartPulse,
+    বিশেষ: Sparkles,
+    অধিভুক্ত: UniversityIcon,
+    প্রাইভেট: Building,
+  };
 
 const categoryIdMap: { [key: string]: string } = {
-    "গুচ্ছ": "cluster-system",
-    "সাধারণ": "general",
-    "কৃষি": "agriculture",
-    "প্রকৌশল": "engineering",
-    "বিজ্ঞান ও প্রযুক্তি": "science-and-technology",
-    "মেডিকেল": "medical",
-    "বিশেষ": "special",
-    "অধিভুক্ত": "affiliated",
-    "প্রাইভেট": "private",
+  গুচ্ছ: "cluster-system",
+  সাধারণ: "general",
+  কৃষি: "agriculture",
+  প্রকৌশল: "engineering",
+  "বিজ্ঞান ও প্রযুক্তি": "science-and-technology",
+  মেডিকেল: "medical",
+  বিশেষ: "special",
+  অধিভুক্ত: "affiliated",
+  প্রাইভেট: "private",
 };
-
 
 export default function QuestionBankClient({
   universities,
@@ -52,7 +60,7 @@ export default function QuestionBankClient({
 
   const groupedUniversities = filteredUniversities.reduce(
     (acc, uni) => {
-      uni.category.forEach(category => {
+      uni.category.forEach((category) => {
         if (!acc[category]) {
           acc[category] = [];
         }
@@ -83,31 +91,35 @@ export default function QuestionBankClient({
     <>
       <div className="mt-12 space-y-12">
         {sortedCategories.map((category) => {
-            const Icon = categoryIcons[category];
-            const categoryId = categoryIdMap[category];
-            return(
-              <div key={category}>
-                <a href={`#${categoryId}`} id={categoryId} className="scroll-mt-24">
-                  <div className="flex justify-center">
-                      <div className="gradient-background inline-flex items-center gap-2 px-6 py-2 text-primary-foreground rounded-full text-lg mb-4 font-bold shadow-md">
-                          {Icon && <Icon className="h-5 w-5" />}
-                          {category}
-                      </div>
+          const Icon = categoryIcons[category];
+          const categoryId = categoryIdMap[category];
+          return (
+            <div key={category}>
+              <a
+                href={`#${categoryId}`}
+                id={categoryId}
+                className="scroll-mt-24"
+              >
+                <div className="flex justify-center">
+                  <div className="gradient-background inline-flex items-center gap-2 px-6 py-2 text-primary-foreground rounded-full text-lg mb-4 font-bold shadow-md">
+                    {Icon && <Icon className="h-5 w-5" />}
+                    {category}
                   </div>
-                </a>
-                  <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-4">
-                  {groupedUniversities[category].map((university, index) => (
-                      <div
-                      key={university.shortName}
-                      className="animate-fade-in-up"
-                      style={{ animationDelay: `${index * 50}ms` }}
-                      >
-                      <QuestionBankUniversityCard university={university} />
-                      </div>
-                  ))}
+                </div>
+              </a>
+              <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-4">
+                {groupedUniversities[category].map((university, index) => (
+                  <div
+                    key={university.shortName}
+                    className="animate-fade-in-up"
+                    style={{ animationDelay: `${index * 50}ms` }}
+                  >
+                    <QuestionBankUniversityCard university={university} />
                   </div>
+                ))}
               </div>
-            )
+            </div>
+          );
         })}
       </div>
     </>

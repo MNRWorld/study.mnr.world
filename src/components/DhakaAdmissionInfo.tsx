@@ -66,7 +66,7 @@ const DhakaAdmissionInfo = () => {
           </b>
           <br />
           &nbsp;&nbsp;&nbsp;<b>• শুরু:</b> {apply.startDate}
-            <br />
+          <br />
           &nbsp;&nbsp;&nbsp;<b>• শেষ:</b> {apply.endDate}
         </div>
         <br />
@@ -84,7 +84,10 @@ const DhakaAdmissionInfo = () => {
         </div>
         <br />
         <div className="flex items-center gap-2 flex-wrap">
-          <CircleCheck className="text-green-600 dark:text-green-500" size={18} />
+          <CircleCheck
+            className="text-green-600 dark:text-green-500"
+            size={18}
+          />
           {apply.helpfulLinks.map((link, index) => (
             <React.Fragment key={index}>
               <ExternalLink href={link.url} text={link.label} />
@@ -253,11 +256,21 @@ const DhakaAdmissionInfo = () => {
 
       <Tabs defaultValue="ka-unit" className="w-full">
         <TabsList className="flex flex-wrap w-full h-auto bg-transparent gap-2">
-          <TabsTrigger value="ka-unit" className="flex-grow">"ক" ইউনিট</TabsTrigger>
-          <TabsTrigger value="kha-unit" className="flex-grow">"খ" ইউনিট</TabsTrigger>
-          <TabsTrigger value="ga-unit" className="flex-grow">"গ" ইউনিট</TabsTrigger>
-          <TabsTrigger value="cha-unit" className="flex-grow">“চ” ইউনিট</TabsTrigger>
-          <TabsTrigger value="iba-unit" className="flex-grow">DU IBA (বিশেষ)</TabsTrigger>
+          <TabsTrigger value="ka-unit" className="flex-grow">
+            "ক" ইউনিট
+          </TabsTrigger>
+          <TabsTrigger value="kha-unit" className="flex-grow">
+            "খ" ইউনিট
+          </TabsTrigger>
+          <TabsTrigger value="ga-unit" className="flex-grow">
+            "গ" ইউনিট
+          </TabsTrigger>
+          <TabsTrigger value="cha-unit" className="flex-grow">
+            “চ” ইউনিট
+          </TabsTrigger>
+          <TabsTrigger value="iba-unit" className="flex-grow">
+            DU IBA (বিশেষ)
+          </TabsTrigger>
         </TabsList>
         <TabsContent value="ka-unit">
           <div className="border border-border rounded-xl p-4 mt-2.5 text-base leading-relaxed">
@@ -650,7 +663,8 @@ const DhakaAdmissionInfo = () => {
                 <br />
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ○ <b>মোট নাম্বার:</b> ১৫
                 <br />
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ○ <b>নুন্যতম পেতে হবে:</b> ৫<br />
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ○ <b>নুন্যতম পেতে হবে:</b> ৫
+                <br />
                 <br />
                 <b>✓ বর্ণনামূলক –</b>
                 <br />

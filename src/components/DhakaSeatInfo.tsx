@@ -129,11 +129,21 @@ const DhakaSeatInfo = () => {
       </div>
       <Tabs defaultValue="ka-unit" className="w-full">
         <TabsList className="flex flex-wrap w-full h-auto bg-transparent gap-2">
-          <TabsTrigger value="ka-unit" className="flex-grow">"ক" ইউনিট</TabsTrigger>
-          <TabsTrigger value="kha-unit" className="flex-grow">"খ" ইউনিট</TabsTrigger>
-          <TabsTrigger value="ga-unit" className="flex-grow">"গ" ইউনিট</TabsTrigger>
-          <TabsTrigger value="cha-unit" className="flex-grow">“চ” ইউনিট</TabsTrigger>
-          <TabsTrigger value="iba-unit" className="flex-grow">DU IBA (বিশেষ)</TabsTrigger>
+          <TabsTrigger value="ka-unit" className="flex-grow">
+            "ক" ইউনিট
+          </TabsTrigger>
+          <TabsTrigger value="kha-unit" className="flex-grow">
+            "খ" ইউনিট
+          </TabsTrigger>
+          <TabsTrigger value="ga-unit" className="flex-grow">
+            "গ" ইউনিট
+          </TabsTrigger>
+          <TabsTrigger value="cha-unit" className="flex-grow">
+            “চ” ইউনিট
+          </TabsTrigger>
+          <TabsTrigger value="iba-unit" className="flex-grow">
+            DU IBA (বিশেষ)
+          </TabsTrigger>
         </TabsList>
         <TabsContent value="ka-unit" className="mt-4">
           <SubjectTable subjects={subjects.unitA} />

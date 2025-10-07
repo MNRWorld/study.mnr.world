@@ -1,4 +1,3 @@
-
 "use client";
 
 import { generalAdmissionInfo } from "@/lib/data/schedules/general";
@@ -36,41 +35,63 @@ const GeneralAdmissionInfoTable = ({
           {/* Mobile view with labels */}
           <div className="md:hidden p-4 border-l-4 border-primary rounded-l-lg space-y-3">
             <div className="flex justify-between items-start pb-2 border-b border-border/50">
-              <span className="font-semibold text-muted-foreground">বিশ্ববিদ্যালয়:</span>
+              <span className="font-semibold text-muted-foreground">
+                বিশ্ববিদ্যালয়:
+              </span>
               <div className="text-right">
                 <span className="font-medium">{info.university}</span>
                 <div className="flex gap-2 mt-1 flex-wrap justify-end">
                   {info.circularLink && (
                     <Badge variant="outline" asChild>
-                      <ExternalLink href={info.circularLink}>সার্কুলার</ExternalLink>
+                      <ExternalLink href={info.circularLink}>
+                        সার্কুলার
+                      </ExternalLink>
                     </Badge>
                   )}
                   {info.questionBankLink && (
                     <Badge variant="outline" asChild>
-                      <ExternalLink href={info.questionBankLink}>প্রশ্নব্যাংক</ExternalLink>
+                      <ExternalLink href={info.questionBankLink}>
+                        প্রশ্নব্যাংক
+                      </ExternalLink>
                     </Badge>
                   )}
                 </div>
               </div>
             </div>
             <div className="flex justify-between items-start pb-2 border-b border-border/50">
-              <span className="font-semibold text-muted-foreground">তারিখ:</span>
-              <span className="text-right" dangerouslySetInnerHTML={{ __html: info.date }}></span>
+              <span className="font-semibold text-muted-foreground">
+                তারিখ:
+              </span>
+              <span
+                className="text-right"
+                dangerouslySetInnerHTML={{ __html: info.date }}
+              ></span>
             </div>
             <div className="flex justify-between items-start pb-2 border-b border-border/50">
-              <span className="font-semibold text-muted-foreground">মানবন্টন:</span>
-              <span className="text-right cell-content" dangerouslySetInnerHTML={{ __html: info.marksDistribution }}></span>
+              <span className="font-semibold text-muted-foreground">
+                মানবন্টন:
+              </span>
+              <span
+                className="text-right cell-content"
+                dangerouslySetInnerHTML={{ __html: info.marksDistribution }}
+              ></span>
             </div>
             <div className="flex justify-between items-start pb-2 border-b border-border/50">
-              <span className="font-semibold text-muted-foreground">সিলেবাস:</span>
+              <span className="font-semibold text-muted-foreground">
+                সিলেবাস:
+              </span>
               <span className="text-right">{info.syllabus}</span>
             </div>
             <div className="flex justify-between items-start pb-2 border-b border-border/50">
-              <span className="font-semibold text-muted-foreground">সেকেন্ড টাইম:</span>
+              <span className="font-semibold text-muted-foreground">
+                সেকেন্ড টাইম:
+              </span>
               <span className="text-right">{info.secondTime}</span>
             </div>
             <div className="flex justify-between items-start">
-              <span className="font-semibold text-muted-foreground">নেগেটিভ মার্কিং:</span>
+              <span className="font-semibold text-muted-foreground">
+                নেগেটিভ মার্কিং:
+              </span>
               <span className="text-right">{info.negativeMarking}</span>
             </div>
           </div>
@@ -81,21 +102,33 @@ const GeneralAdmissionInfoTable = ({
             <div className="flex gap-2 mt-1 flex-wrap justify-center">
               {info.circularLink && (
                 <Badge variant="outline" asChild>
-                  <ExternalLink href={info.circularLink}>সার্কুলার</ExternalLink>
+                  <ExternalLink href={info.circularLink}>
+                    সার্কুলার
+                  </ExternalLink>
                 </Badge>
               )}
               {info.questionBankLink && (
                 <Badge variant="outline" asChild>
-                  <ExternalLink href={info.questionBankLink}>প্রশ্নব্যাংক</ExternalLink>
+                  <ExternalLink href={info.questionBankLink}>
+                    প্রশ্নব্যাংক
+                  </ExternalLink>
                 </Badge>
               )}
             </div>
           </div>
-          <div className="hidden md:block text-center whitespace-pre-wrap" dangerouslySetInnerHTML={{ __html: info.date }}></div>
-          <div className="hidden md:block text-center cell-content whitespace-pre-wrap" dangerouslySetInnerHTML={{ __html: info.marksDistribution }}></div>
+          <div
+            className="hidden md:block text-center whitespace-pre-wrap"
+            dangerouslySetInnerHTML={{ __html: info.date }}
+          ></div>
+          <div
+            className="hidden md:block text-center cell-content whitespace-pre-wrap"
+            dangerouslySetInnerHTML={{ __html: info.marksDistribution }}
+          ></div>
           <div className="hidden md:block text-center">{info.syllabus}</div>
           <div className="hidden md:block text-center">{info.secondTime}</div>
-          <div className="hidden md:block text-center">{info.negativeMarking}</div>
+          <div className="hidden md:block text-center">
+            {info.negativeMarking}
+          </div>
         </div>
       ))}
     </div>

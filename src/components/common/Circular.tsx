@@ -33,11 +33,7 @@ const Circular = ({
           <b>{title}</b>
         </span>
         <br />
-        {note && (
-          <span className="text-muted-foreground text-sm">
-            {note}
-          </span>
-        )}
+        {note && <span className="text-muted-foreground text-sm">{note}</span>}
       </div>
       <div className="flex flex-col sm:flex-row flex-wrap gap-2.5 mt-5 justify-center">
         <Button

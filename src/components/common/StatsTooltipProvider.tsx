@@ -36,7 +36,9 @@ const StatsTooltipProvider: React.FC<StatsTooltipProviderProps> = ({
               {stat.tooltip && (
                 <Tooltip
                   open={openTooltip === stat.label}
-                  onOpenChange={(isOpen) => handleOpenChange(isOpen, stat.label)}
+                  onOpenChange={(isOpen) =>
+                    handleOpenChange(isOpen, stat.label)
+                  }
                 >
                   <TooltipTrigger
                     asChild

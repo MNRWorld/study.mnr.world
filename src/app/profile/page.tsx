@@ -71,20 +71,24 @@ function RegisteredUserProfile() {
         .select("display_name")
         .eq("id", user.id)
         .single();
-      
+
       if (error && error.code !== "PGRST116") {
         console.error("Error fetching profile:", error);
       } else {
-        const currentName = data?.display_name || user.user_metadata?.full_name || user.user_metadata?.user_name || "ব্যবহারকারী";
+        const currentName =
+          data?.display_name ||
+          user.user_metadata?.full_name ||
+          user.user_metadata?.user_name ||
+          "ব্যবহারকারী";
         setName(currentName);
         setDisplayName(currentName);
       }
       setLoading(false);
     };
     if (user && !user.is_anonymous) {
-        fetchProfile();
+      fetchProfile();
     } else if (user?.is_anonymous) {
-        setLoading(false);
+      setLoading(false);
     }
   }, [user, supabase]);
 
@@ -104,7 +108,7 @@ function RegisteredUserProfile() {
         .upsert({ id: user.id, display_name: name });
 
       if (error) throw error;
-      
+
       await supabase.auth.updateUser({ data: { full_name: name } });
 
       setDisplayName(name);
@@ -123,9 +127,13 @@ function RegisteredUserProfile() {
   };
 
   if (loading) {
-    return <div className="text-lg text-center font-bengali">প্রোফাইল লোড হচ্ছে...</div>;
+    return (
+      <div className="text-lg text-center font-bengali">
+        প্রোফাইল লোড হচ্ছে...
+      </div>
+    );
   }
-  
+
   if (!user || user.is_anonymous) {
     return null;
   }
@@ -158,106 +166,106 @@ function RegisteredUserProfile() {
           </CardDescription>
         </CardHeader>
       </Card>
-      
-       <Card className="shadow-lg">
-          <CardHeader>
-            <CardTitle>প্রোফাইল তথ্য</CardTitle>
-            <CardDescription>আপনার ব্যক্তিগত তথ্য পরিবর্তন করুন</CardDescription>
-          </CardHeader>
-          <CardContent className="space-y-4">
-            <div className="space-y-2">
-              <Label htmlFor="name">নাম</Label>
-              <Input
-                id="name"
-                value={name}
-                onChange={(e) => setName(e.target.value)}
-                placeholder="আপনার নতুন নাম দিন"
-              />
-            </div>
-          </CardContent>
-          <CardFooter>
-            <Button onClick={handleNameUpdate} className="w-full">
-              <Save className="mr-2" />
-              পরিবর্তন সেভ করুন
-            </Button>
-          </CardFooter>
-        </Card>
+
+      <Card className="shadow-lg">
+        <CardHeader>
+          <CardTitle>প্রোফাইল তথ্য</CardTitle>
+          <CardDescription>আপনার ব্যক্তিগত তথ্য পরিবর্তন করুন</CardDescription>
+        </CardHeader>
+        <CardContent className="space-y-4">
+          <div className="space-y-2">
+            <Label htmlFor="name">নাম</Label>
+            <Input
+              id="name"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+              placeholder="আপনার নতুন নাম দিন"
+            />
+          </div>
+        </CardContent>
+        <CardFooter>
+          <Button onClick={handleNameUpdate} className="w-full">
+            <Save className="mr-2" />
+            পরিবর্তন সেভ করুন
+          </Button>
+        </CardFooter>
+      </Card>
     </>
   );
 }
 
 function AnonymousUserProfile() {
-    const { toast } = useToast();
-    const [name, setName] = useState("");
-    const [displayName, setDisplayName] = useState("অতিথি");
+  const { toast } = useToast();
+  const [name, setName] = useState("");
+  const [displayName, setDisplayName] = useState("অতিথি");
 
-    useEffect(() => {
-        const localName = localStorage.getItem("anonymousDisplayName") || "অতিথি";
-        setName(localName);
-        setDisplayName(localName);
-    }, []);
+  useEffect(() => {
+    const localName = localStorage.getItem("anonymousDisplayName") || "অতিথি";
+    setName(localName);
+    setDisplayName(localName);
+  }, []);
 
-    const handleNameUpdate = () => {
-        if (!name.trim()) {
-          toast({
-            variant: "destructive",
-            title: "নাম লেখা হয়নি",
-            description: "অনুগ্রহ করে একটি সঠিক নাম লিখুন।",
-          });
-          return;
-        }
-        localStorage.setItem("anonymousDisplayName", name);
-        setDisplayName(name);
-        toast({
-            title: "নাম পরিবর্তিত হয়েছে",
-            description: `আপনার নতুন নাম "${name}" সফলভাবে সেভ হয়েছে।`,
-        });
-    };
+  const handleNameUpdate = () => {
+    if (!name.trim()) {
+      toast({
+        variant: "destructive",
+        title: "নাম লেখা হয়নি",
+        description: "অনুগ্রহ করে একটি সঠিক নাম লিখুন।",
+      });
+      return;
+    }
+    localStorage.setItem("anonymousDisplayName", name);
+    setDisplayName(name);
+    toast({
+      title: "নাম পরিবর্তিত হয়েছে",
+      description: `আপনার নতুন নাম "${name}" সফলভাবে সেভ হয়েছে।`,
+    });
+  };
 
-    return (
-        <>
-            <Card className="w-full p-4 sm:p-6 text-center shadow-lg animate-fade-in-up mb-8">
-                <CardHeader>
-                  <div className="flex justify-center mb-4">
-                    <div className="relative h-24 w-24">
-                        <UserCircle className="h-24 w-24 text-primary" />
-                        <ShieldCheck className="absolute bottom-1 right-1 h-8 w-8 text-yellow-500 bg-card rounded-full p-1" />
-                    </div>
-                  </div>
-                  <CardTitle className="text-2xl sm:text-3xl font-bold">
-                    স্বাগতম, {displayName}
-                  </CardTitle>
-                  <CardDescription className="text-sm sm:text-base pt-1">
-                    আপনি একজন অতিথি হিসেবে লগইন করেছেন।
-                  </CardDescription>
-                </CardHeader>
-            </Card>
+  return (
+    <>
+      <Card className="w-full p-4 sm:p-6 text-center shadow-lg animate-fade-in-up mb-8">
+        <CardHeader>
+          <div className="flex justify-center mb-4">
+            <div className="relative h-24 w-24">
+              <UserCircle className="h-24 w-24 text-primary" />
+              <ShieldCheck className="absolute bottom-1 right-1 h-8 w-8 text-yellow-500 bg-card rounded-full p-1" />
+            </div>
+          </div>
+          <CardTitle className="text-2xl sm:text-3xl font-bold">
+            স্বাগতম, {displayName}
+          </CardTitle>
+          <CardDescription className="text-sm sm:text-base pt-1">
+            আপনি একজন অতিথি হিসেবে লগইন করেছেন।
+          </CardDescription>
+        </CardHeader>
+      </Card>
 
-            <Card className="shadow-lg">
-                <CardHeader>
-                    <CardTitle>প্রোফাইল তথ্য</CardTitle>
-                    <CardDescription>আপনার অতিথির নাম পরিবর্তন করুন</CardDescription>
-                </CardHeader>
-                <CardContent className="space-y-4">
-                    <div className="space-y-2">
-                    <Label htmlFor="name">নাম</Label>
-                    <Input
-                        id="name"
-                        value={name}
-                        onChange={(e) => setName(e.target.value)}
-                        placeholder="আপনার নতুন নাম দিন"
-                    />
-                    </div>
-                </CardContent>
-                <CardFooter>
-                    <Button onClick={handleNameUpdate} className="w-full">
-                    <Save className="mr-2" />
-                    পরিবর্তন সেভ করুন
-                    </Button>
-                </CardFooter>
-            </Card>
-        </>
-    )
+      <Card className="shadow-lg">
+        <CardHeader>
+          <CardTitle>প্রোফাইল তথ্য</CardTitle>
+          <CardDescription>আপনার অতিথির নাম পরিবর্তন করুন</CardDescription>
+        </CardHeader>
+        <CardContent className="space-y-4">
+          <div className="space-y-2">
+            <Label htmlFor="name">নাম</Label>
+            <Input
+              id="name"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+              placeholder="আপনার নতুন নাম দিন"
+            />
+          </div>
+        </CardContent>
+        <CardFooter>
+          <Button onClick={handleNameUpdate} className="w-full">
+            <Save className="mr-2" />
+            পরিবর্তন সেভ করুন
+          </Button>
+        </CardFooter>
+      </Card>
+    </>
+  );
 }
 
 export default function ProfilePage() {
@@ -276,7 +284,7 @@ export default function ProfilePage() {
     await supabase.auth.signOut();
     router.push("/");
   };
-  
+
   const handleDeleteAccount = async () => {
     if (!user || user.is_anonymous) return;
     if (
@@ -288,7 +296,7 @@ export default function ProfilePage() {
     }
 
     try {
-      const { error } = await supabase.rpc('delete_user');
+      const { error } = await supabase.rpc("delete_user");
       if (error) throw error;
       await supabase.auth.signOut();
       toast({
@@ -301,7 +309,8 @@ export default function ProfilePage() {
       toast({
         variant: "destructive",
         title: "একটি সমস্যা হয়েছে",
-        description: error.message || "অ্যাকাউন্ট মুছে ফেলার সময় একটি সমস্যা হয়েছে।",
+        description:
+          error.message || "অ্যাকাউন্ট মুছে ফেলার সময় একটি সমস্যা হয়েছে।",
       });
     }
   };
@@ -315,12 +324,11 @@ export default function ProfilePage() {
       </div>
     );
   }
-  
+
   const isAnonymous = user.is_anonymous;
 
   return (
     <div className="container mx-auto px-4 py-8 max-w-2xl font-bengali">
-      
       {isAnonymous ? <AnonymousUserProfile /> : <RegisteredUserProfile />}
 
       <Card className="my-8 shadow-lg">
@@ -352,75 +360,75 @@ export default function ProfilePage() {
 
       <div className="grid grid-cols-1 gap-8">
         <Card className="shadow-lg">
-            <CardHeader>
-                <CardTitle>ডিভাইস ও সেশন</CardTitle>
-                <CardDescription>আপনার বর্তমান লগইন সেশনের তথ্য</CardDescription>
-            </CardHeader>
-            <CardContent className="text-sm space-y-2">
-                <p>
-                <span className="font-medium text-muted-foreground">
-                    প্রোভাইডার:
-                </span>{" "}
-                <span className="font-mono text-primary text-xs break-all">
-                    {user.is_anonymous
-                    ? "অতিথি"
-                    : user.app_metadata.provider?.replace(".com", "") ||
-                        "অজানা"}
-                </span>
-                </p>
-                <p>
-                <span className="font-medium text-muted-foreground">
-                    ডিভাইস আইডি:
-                </span>{" "}
-                <span className="font-mono text-primary text-xs break-all">
-                    {user.id}
-                </span>
-                </p>
-                <p>
-                <span className="font-medium text-muted-foreground">
-                    লগইন সময়:
-                </span>{" "}
-                {getCreationTime(user)}
-                </p>
-            </CardContent>
-            <CardFooter>
-                <Button onClick={logout} variant="outline" className="w-full">
-                <LogOut className="mr-2" />
-                লগ আউট
-                </Button>
-            </CardFooter>
+          <CardHeader>
+            <CardTitle>ডিভাইস ও সেশন</CardTitle>
+            <CardDescription>আপনার বর্তমান লগইন সেশনের তথ্য</CardDescription>
+          </CardHeader>
+          <CardContent className="text-sm space-y-2">
+            <p>
+              <span className="font-medium text-muted-foreground">
+                প্রোভাইডার:
+              </span>{" "}
+              <span className="font-mono text-primary text-xs break-all">
+                {user.is_anonymous
+                  ? "অতিথি"
+                  : user.app_metadata.provider?.replace(".com", "") || "অজানা"}
+              </span>
+            </p>
+            <p>
+              <span className="font-medium text-muted-foreground">
+                ডিভাইস আইডি:
+              </span>{" "}
+              <span className="font-mono text-primary text-xs break-all">
+                {user.id}
+              </span>
+            </p>
+            <p>
+              <span className="font-medium text-muted-foreground">
+                লগইন সময়:
+              </span>{" "}
+              {getCreationTime(user)}
+            </p>
+          </CardContent>
+          <CardFooter>
+            <Button onClick={logout} variant="outline" className="w-full">
+              <LogOut className="mr-2" />
+              লগ আউট
+            </Button>
+          </CardFooter>
         </Card>
       </div>
 
       {!isAnonymous && (
         <Card className="mt-8 shadow-lg border-destructive/50 bg-destructive/5">
-            <CardHeader>
+          <CardHeader>
             <div className="flex items-center gap-2">
-                <AlertTriangle className="text-destructive h-6 w-6" />
-                <CardTitle className="text-destructive">ডেঞ্জার জোন</CardTitle>
+              <AlertTriangle className="text-destructive h-6 w-6" />
+              <CardTitle className="text-destructive">ডেঞ্জার জোন</CardTitle>
             </div>
             <CardDescription className="text-destructive/80">
-                এই অংশের কাজগুলো необратиযোগ্য। অনুগ্রহ করে সতর্কতার সাথে ব্যবহার করুন।
+              এই অংশের কাজগুলো необратиযোগ্য। অনুগ্রহ করে সতর্কতার সাথে ব্যবহার
+              করুন।
             </CardDescription>
-            </CardHeader>
-            <CardContent>
+          </CardHeader>
+          <CardContent>
             <div className="flex flex-col sm:flex-row justify-between items-center text-center sm:text-left p-4 border border-destructive/20 rounded-lg gap-4">
-                <div>
+              <div>
                 <h4 className="font-bold">অ্যাকাউন্ট মুছুন</h4>
                 <p className="text-sm text-muted-foreground">
-                    আপনার সমস্ত ডেটা স্থায়ীভাবে মুছে ফেলা হবে।
+                  আপনার সমস্ত ডেটা স্থায়ীভাবে মুছে ফেলা হবে।
                 </p>
-                </div>
-                <Button
+              </div>
+              <Button
                 onClick={handleDeleteAccount}
                 variant="destructive"
                 className="w-full sm:w-auto"
-                >
+              >
                 <Trash2 className="mr-2" />
                 অ্যাকাউন্ট মুছুন
-                </Button>
+              </Button>
             </div>
-            </CardContent>
+          </CardContent>
         </Card>
       )}
     </div>

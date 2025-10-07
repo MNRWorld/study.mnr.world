@@ -27,10 +27,12 @@ const CalendarAdmissionTabs = () => {
             <Info className="mr-2 h-4 w-4 hidden sm:inline-block" /> তথ্য
           </TabsTrigger>
           <TabsTrigger value="application" className="px-2">
-            <FilePenLine className="mr-2 h-4 w-4 hidden sm:inline-block" /> আবেদন
+            <FilePenLine className="mr-2 h-4 w-4 hidden sm:inline-block" />{" "}
+            আবেদন
           </TabsTrigger>
           <TabsTrigger value="admit-card" className="px-2">
-            <Ticket className="mr-2 h-4 w-4 hidden sm:inline-block" /> প্রবেশপত্র
+            <Ticket className="mr-2 h-4 w-4 hidden sm:inline-block" />{" "}
+            প্রবেশপত্র
           </TabsTrigger>
           <TabsTrigger value="result" className="px-2">
             <BarChart3 className="mr-2 h-4 w-4 hidden sm:inline-block" /> ফলাফল

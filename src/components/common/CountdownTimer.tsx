@@ -149,9 +149,7 @@ const CountdownTimer = () => {
             style={{
               strokeDashoffset: isCurrentCompleted ? 0 : offset,
               transition:
-                unit === "সেকেন্ড"
-                  ? "none"
-                  : "stroke-dashoffset 0.5s ease-out",
+                unit === "সেকেন্ড" ? "none" : "stroke-dashoffset 0.5s ease-out",
             }}
           />
         </svg>
@@ -159,9 +157,7 @@ const CountdownTimer = () => {
           <div className="text-lg sm:text-xl md:text-2xl font-bold text-foreground">
             {value}
           </div>
-          <div className="text-xs sm:text-sm text-muted-foreground">
-            {unit}
-          </div>
+          <div className="text-xs sm:text-sm text-muted-foreground">{unit}</div>
         </div>
       </div>
     );
