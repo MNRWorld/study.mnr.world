@@ -86,8 +86,5 @@ export const getStatusColor = (timeLeft: TimeLeft) => {
   if (timeLeft.completed) {
     return "text-red-500 dark:text-red-400";
   }
-  if (timeLeft.days < 7) {
-    return "text-yellow-500 dark:text-yellow-400";
-  }
-  return "text-green-500 dark:text-green-400";
+  return "";
 };
