@@ -14,9 +14,8 @@
       "link": "https://admission.eis.du.ac.bd/"
     },
     "admitCardDetails": {
-      "startDate": "2024-12-23T00:00:00+06:00",
-      "endDate": "2025-02-15T10:00:00+06:00",
-      "countdownLabel": "প্রবেশপত্র ডাউনলোডের বাকি",
+      "StartAndEndDate": "১৫ ফেব্রুয়ারী",
+      "DownloadCountdownDate": "2025-02-15T10:00:00+06:00",
       "link": "https://admission.eis.du.ac.bd/"
     },
     "resultDetails": {
