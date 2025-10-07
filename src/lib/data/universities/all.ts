@@ -1,49 +1,49 @@
-import { acasData } from "./acas";
-import { bauData } from "./bau";
-import { bmuData } from "./bmu";
-import { brurData } from "./brur";
-import { bstuData } from "./bstu";
-import { buData } from "./bu";
-import { buetData } from "./buet";
-import { bupData } from "./bup";
-import { butexData } from "./butex";
-import { couData } from "./cou";
-import { cstuData } from "./cstu";
-import { cuData } from "./cu";
-import { cuetData } from "./cuet";
-import { cvasuData } from "./cvasu";
 import { duData } from "./du";
-import { duetData } from "./duet";
-import { gauData } from "./gau";
-import { gstuData } from "./gstu";
-import { hauData } from "./hau";
-import { hstuData } from "./hstu";
-import { iuData } from "./iu";
-import { jkkniuData } from "./jkkniu";
-import { jnuData } from "./jnu";
-import { jstuData } from "./jstu";
+import { ruData } from "./ru";
+import { cuData } from "./cu";
 import { juData } from "./ju";
+import { sustData } from "./sust";
 import { justData } from "./just";
-import { kauData } from "./kau";
-import { kiuData } from "./kiu";
-import { kuData } from "./ku";
-import { kuetData } from "./kuet";
-import { kuriauData } from "./kuriau";
 import { mbstuData } from "./mbstu";
-import { mistData } from "./mist";
-import { neuData } from "./neu";
+import { hstuData } from "./hstu";
 import { nstuData } from "./nstu";
-import { prstuData } from "./prstu";
 import { pstuData } from "./pstu";
 import { pustData } from "./pust";
 import { rmstuData } from "./rmstu";
-import { ruData } from "./ru";
+import { bstuData } from "./bstu";
+import { cstuData } from "./cstu";
+import { gstuData } from "./gstu";
+import { jstuData } from "./jstu";
+import { prstuData } from "./prstu";
+import { sstuData } from "./sstu";
+import { iuData } from "./iu";
+import { kuData } from "./ku";
+import { jnuData } from "./jnu";
+import { couData } from "./cou";
+import { jkkniuData } from "./jkkniu";
+import { brurData } from "./brur";
+import { buData } from "./bu";
+import { kiuData } from "./kiu";
+import { neuData } from "./neu";
 import { rubData } from "./rub";
-import { ruetData } from "./ruet";
+import { acasData } from "./acas";
+import { bauData } from "./bau";
+import { cvasuData } from "./cvasu";
+import { gauData } from "./gau";
+import { hauData } from "./hau";
+import { kauData } from "./kau";
+import { kuriauData } from "./kuriau";
 import { sauData } from "./sau";
 import { sbauData } from "./sbau";
-import { sstuData } from "./sstu";
-import { sustData } from "./sust";
+import { buetData } from "./buet";
+import { kuetData } from "./kuet";
+import { ruetData } from "./ruet";
+import { cuetData } from "./cuet";
+import { duetData } from "./duet";
+import { mistData } from "./mist";
+import { butexData } from "./butex";
+import { bupData } from "./bup";
+import { bmuData } from "./bmu";
 
 import publicUniversities from "./public-universities.json";
 import privateUniversities from "./private-universities.json";
@@ -51,57 +51,58 @@ import privateUniversities from "./private-universities.json";
 const allUnis = [...publicUniversities, ...privateUniversities];
 
 const dataMap: { [key: string]: any } = {
-  acas: acasData,
-  bau: bauData,
-  bmu: bmuData,
-  brur: brurData,
-  bstu: bstuData,
-  bu: buData,
-  buet: buetData,
-  bup: bupData,
-  butex: butexData,
-  cou: couData,
-  cstu: cstuData,
-  cu: cuData,
-  cuet: cuetData,
-  cvasu: cvasuData,
   du: duData,
-  duet: duetData,
-  gau: gauData,
-  gstu: gstuData,
-  hau: hauData,
-  hstu: hstuData,
-  iu: iuData,
-  jkkniu: jkkniuData,
-  jnu: jnuData,
-  jstu: jstuData,
+  ru: ruData,
+  cu: cuData,
   ju: juData,
+  sust: sustData,
   just: justData,
-  kau: kauData,
-  kiu: kiuData,
-  ku: kuData,
-  kuet: kuetData,
-  kuriau: kuriauData,
   mbstu: mbstuData,
-  mist: mistData,
-  neu: neuData,
+  hstu: hstuData,
   nstu: nstuData,
-  prstu: prstuData,
   pstu: pstuData,
   pust: pustData,
   rmstu: rmstuData,
-  ru: ruData,
+  bstu: bstuData,
+  cstu: cstuData,
+  gstu: gstuData,
+  jstu: jstuData,
+  prstu: prstuData,
+  sstu: sstuData,
+  iu: iuData,
+  ku: kuData,
+  jnu: jnuData,
+  cou: couData,
+  jkkniu: jkkniuData,
+  brur: brurData,
+  bu: buData,
+  kiu: kiuData,
+  neu: neuData,
   rub: rubData,
-  ruet: ruetData,
+  acas: acasData,
+  bau: bauData,
+  cvasu: cvasuData,
+  gau: gauData,
+  hau: hauData,
+  kau: kauData,
+  kuriau: kuriauData,
   sau: sauData,
   sbau: sbauData,
-  sstu: sstuData,
-  sust: sustData,
+  buet: buetData,
+  kuet: kuetData,
+  ruet: ruetData,
+  cuet: cuetData,
+  duet: duetData,
+  mist: mistData,
+  butex: butexData,
+  bup: bupData,
+  bmu: bmuData,
 };
 
 export const allUniversityData = allUnis.map((uni) => {
+  const data = dataMap[uni.id] || {};
   return {
     ...uni,
-    ...dataMap[uni.id],
+    ...data,
   };
 });
