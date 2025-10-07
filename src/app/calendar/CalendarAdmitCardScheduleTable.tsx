@@ -1,6 +1,6 @@
 "use client";
 
-import { admitCardSchedule } from "@/lib/data/schedules/admit-card";
+import calendarInfo from "@/lib/data/CalendarInfo.json";
 import {
   Table,
   TableBody,
@@ -12,6 +12,10 @@ import {
 import ExternalLink from "@/components/common/ExternalLink";
 
 const CalendarAdmitCardScheduleTable = () => {
+  const admitCardSchedule = calendarInfo.filter(
+    (item) => item.admitCardDetails.StartAndEndDate,
+  );
+
   return (
     <div className="mt-4 w-full border border-border bg-card rounded-2xl shadow-lg">
       <Table>
@@ -32,14 +36,21 @@ const CalendarAdmitCardScheduleTable = () => {
           {admitCardSchedule.map((item, index) => (
             <TableRow key={index} className="even:bg-muted/50">
               <TableCell className="text-center font-medium whitespace-pre-wrap align-top">
-                {item.university}
+                {item.universityNameAndUnit}
               </TableCell>
               <TableCell
                 className="text-center whitespace-pre-wrap align-top"
-                dangerouslySetInnerHTML={{ __html: item.date }}
+                dangerouslySetInnerHTML={{
+                  __html: item.admitCardDetails.StartAndEndDate || "",
+                }}
               ></TableCell>
               <TableCell className="text-center align-top">
-                <ExternalLink href={item.link} text="[লিংক]" />
+                {item.admitCardDetails.link && (
+                  <ExternalLink
+                    href={item.admitCardDetails.link}
+                    text="[লিংক]"
+                  />
+                )}
               </TableCell>
             </TableRow>
           ))}
