@@ -1,6 +1,7 @@
 
 "use client";
 
+import React, { useState, useEffect } from "react";
 import calendarInfo from "@/lib/data/CalendarInfo.json";
 import {
   Table,
@@ -12,6 +13,7 @@ import {
 } from "@/components/ui/table";
 import { useCountdown } from "@/hooks/useCountdown";
 import { cn } from "@/lib/utils";
+import { Heart } from "lucide-react";
 
 const CountdownCell = ({ targetDate }: { targetDate: string | null }) => {
   const timeLeft = useCountdown(targetDate);
@@ -39,9 +41,34 @@ const CountdownCell = ({ targetDate }: { targetDate: string | null }) => {
 };
 
 const CalendarAdmissionScheduleTable = () => {
+  const [favorites, setFavorites] = useState<string[]>([]);
+
+  useEffect(() => {
+    const storedFavorites = localStorage.getItem("admissionFavorites");
+    if (storedFavorites) {
+      setFavorites(JSON.parse(storedFavorites));
+    }
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem("admissionFavorites", JSON.stringify(favorites));
+  }, [favorites]);
+
+  const toggleFavorite = (id: string) => {
+    setFavorites((prev) =>
+      prev.includes(id) ? prev.filter((favId) => favId !== id) : [...prev, id],
+    );
+  };
+
   const admissionSchedule = calendarInfo
     .filter((item) => item.id !== "demo")
     .sort((a, b) => {
+      const isAFav = favorites.includes(a.id);
+      const isBFav = favorites.includes(b.id);
+
+      if (isAFav && !isBFav) return -1;
+      if (!isAFav && isBFav) return 1;
+
       const dateA = a.examDetails.ExamCountdownDate
         ? new Date(a.examDetails.ExamCountdownDate).getTime()
         : 0;
@@ -49,17 +76,15 @@ const CalendarAdmissionScheduleTable = () => {
         ? new Date(b.examDetails.ExamCountdownDate).getTime()
         : 0;
 
-      // Handle completed exams, push them to the bottom
       const now = new Date().getTime();
       const completedA = dateA > 0 && dateA < now;
       const completedB = dateB > 0 && dateB < now;
 
       if (completedA && !completedB) return 1;
       if (!completedA && completedB) return -1;
-      if (completedA && completedB) return dateA - dateB; // Sort past exams by date
+      if (completedA && completedB) return dateA - dateB;
 
-      // Handle future exams
-      if (dateA === 0) return 1; // Put items without date at the end
+      if (dateA === 0) return 1;
       if (dateB === 0) return -1;
 
       return dateA - dateB;
@@ -83,9 +108,26 @@ const CalendarAdmissionScheduleTable = () => {
         </TableHeader>
         <TableBody>
           {admissionSchedule.map((item) => (
-            <TableRow key={item.id} className="even:bg-muted/50">
+            <TableRow
+              key={item.id}
+              className={cn(
+                "even:bg-muted/50",
+                favorites.includes(item.id) &&
+                  "bg-primary/10 dark:bg-primary/20",
+              )}
+            >
               <TableCell className="text-center font-bold whitespace-nowrap align-top">
-                {item.universityNameAndUnit}
+                <div className="flex items-center justify-center gap-2">
+                  <Heart
+                    className={cn(
+                      "h-5 w-5 cursor-pointer text-muted-foreground/50 transition-all hover:scale-125",
+                      favorites.includes(item.id) &&
+                        "text-primary fill-primary",
+                    )}
+                    onClick={() => toggleFavorite(item.id)}
+                  />
+                  <span>{item.universityNameAndUnit}</span>
+                </div>
               </TableCell>
               <TableCell className="text-center whitespace-nowrap align-top">
                 {item.examDetails.date}
