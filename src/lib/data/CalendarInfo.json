@@ -45,5 +45,189 @@
       "date": null,
       "link": null
     }
+  },
+  {
+    "id": "du-a",
+    "universityNameAndUnit": "ঢাবি (ক)",
+    "examDetails": {
+      "date": "১৩ ডিসেম্বর",
+      "ExamCountdownDate": "2025-12-13T10:00:00+06:00"
+    },
+    "applicationDetails": {
+      "StartAndEndDate": null,
+      "ApplyCountdownDate": null,
+      "fee": null,
+      "link": null
+    },
+    "admitCardDetails": {
+      "StartAndEndDate": null,
+      "DownloadCountdownDate": null,
+      "link": null
+    },
+    "resultDetails": {
+      "date": null,
+      "link": null
+    }
+  },
+  {
+    "id": "du-b",
+    "universityNameAndUnit": "ঢাবি (খ)",
+    "examDetails": {
+      "date": "২০ ডিসেম্বর",
+      "ExamCountdownDate": "2025-12-20T10:00:00+06:00"
+    },
+    "applicationDetails": {
+      "StartAndEndDate": null,
+      "ApplyCountdownDate": null,
+      "fee": null,
+      "link": null
+    },
+    "admitCardDetails": {
+      "StartAndEndDate": null,
+      "DownloadCountdownDate": null,
+      "link": null
+    },
+    "resultDetails": {
+      "date": null,
+      "link": null
+    }
+  },
+  {
+    "id": "du-c",
+    "universityNameAndUnit": "ঢাবি (গ)",
+    "examDetails": {
+      "date": "৬ ডিসেম্বর",
+      "ExamCountdownDate": "2025-12-06T10:00:00+06:00"
+    },
+    "applicationDetails": {
+      "StartAndEndDate": null,
+      "ApplyCountdownDate": null,
+      "fee": null,
+      "link": null
+    },
+    "admitCardDetails": {
+      "StartAndEndDate": null,
+      "DownloadCountdownDate": null,
+      "link": null
+    },
+    "resultDetails": {
+      "date": null,
+      "link": null
+    }
+  },
+  {
+    "id": "du-iba",
+    "universityNameAndUnit": "ঢাবি (IBA)",
+    "examDetails": {
+      "date": "২৮ নভেম্বর",
+      "ExamCountdownDate": "2025-11-28T10:00:00+06:00"
+    },
+    "applicationDetails": {
+      "StartAndEndDate": null,
+      "ApplyCountdownDate": null,
+      "fee": null,
+      "link": null
+    },
+    "admitCardDetails": {
+      "StartAndEndDate": null,
+      "DownloadCountdownDate": null,
+      "link": null
+    },
+    "resultDetails": {
+      "date": null,
+      "link": null
+    }
+  },
+  {
+    "id": "du-cha",
+    "universityNameAndUnit": "ঢাবি (চ)",
+    "examDetails": {
+      "date": "২৯ নভেম্বর",
+      "ExamCountdownDate": "2025-11-29T10:00:00+06:00"
+    },
+    "applicationDetails": {
+      "StartAndEndDate": null,
+      "ApplyCountdownDate": null,
+      "fee": null,
+      "link": null
+    },
+    "admitCardDetails": {
+      "StartAndEndDate": null,
+      "DownloadCountdownDate": null,
+      "link": null
+    },
+    "resultDetails": {
+      "date": null,
+      "link": null
+    }
+  },
+  {
+    "id": "ru-c",
+    "universityNameAndUnit": "রাবি (গ)",
+    "examDetails": {
+      "date": "১৬ জানুয়ারি",
+      "ExamCountdownDate": "2026-01-16T10:00:00+06:00"
+    },
+    "applicationDetails": {
+      "StartAndEndDate": null,
+      "ApplyCountdownDate": null,
+      "fee": null,
+      "link": null
+    },
+    "admitCardDetails": {
+      "StartAndEndDate": null,
+      "DownloadCountdownDate": null,
+      "link": null
+    },
+    "resultDetails": {
+      "date": null,
+      "link": null
+    }
+  },
+  {
+    "id": "ru-a",
+    "universityNameAndUnit": "রাবি (ক)",
+    "examDetails": {
+      "date": "১৭ জানুয়ারি",
+      "ExamCountdownDate": "2026-01-17T10:00:00+06:00"
+    },
+    "applicationDetails": {
+      "StartAndEndDate": null,
+      "ApplyCountdownDate": null,
+      "fee": null,
+      "link": null
+    },
+    "admitCardDetails": {
+      "StartAndEndDate": null,
+      "DownloadCountdownDate": null,
+      "link": null
+    },
+    "resultDetails": {
+      "date": null,
+      "link": null
+    }
+  },
+  {
+    "id": "ru-b",
+    "universityNameAndUnit": "রাবি (খ)",
+    "examDetails": {
+      "date": "২৪ জানুয়ারি",
+      "ExamCountdownDate": "2026-01-24T10:00:00+06:00"
+    },
+    "applicationDetails": {
+      "StartAndEndDate": null,
+      "ApplyCountdownDate": null,
+      "fee": null,
+      "link": null
+    },
+    "admitCardDetails": {
+      "StartAndEndDate": null,
+      "DownloadCountdownDate": null,
+      "link": null
+    },
+    "resultDetails": {
+      "date": null,
+      "link": null
+    }
   }
 ]
