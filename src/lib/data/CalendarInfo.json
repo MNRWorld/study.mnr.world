@@ -2,8 +2,7 @@
 [
   {
     "id": "du-a",
-    "universityName": "ঢাকা বিশ্ববিদ্যালয়",
-    "unit": "'ক' ইউনিট",
+    "universityNameAndUnit": "ঢাবি (ক)",
     "examDetails": {
       "date": "2025-02-15T11:00:00+06:00",
       "countdownLabel": "পরীক্ষার বাকি"
