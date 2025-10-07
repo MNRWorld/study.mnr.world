@@ -75,13 +75,13 @@ export default function CoursePage({ params }: { params: { id: string } }) {
 
         <div className="mt-8 bg-card border border-border rounded-2xl p-6 shadow-lg text-center">
           <h3 className="text-2xl font-bold text-foreground mb-3">
-            ভর্তি হতে চাও?
+            ভর্তি হতে চান?
           </h3>
           <p className="text-muted-foreground mb-6">
             তোমার স্বপ্ন পূরণের এই যাত্রায় এখনই অংশ নাও।
           </p>
           <Button size="lg" className="text-lg">
-            কোর্সে এনরোল করো
+            কোর্সে এনরোল করুন
           </Button>
         </div>
 

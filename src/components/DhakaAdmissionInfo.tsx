@@ -251,7 +251,7 @@ const DhakaAdmissionInfo = () => {
 
       <div id="MarkDistributionAndOthers"></div>
       <h2 className="bg-primary/10 text-primary rounded-xl p-3 mt-8 mb-4 text-center text-lg font-bold flex items-center justify-center">
-        <ListChecks className="mr-2" size={16} /> মানবন্টন ও অন্যান্য তথ্য
+        <ListChecks className="mr-2" size={16} /> মানবণ্টন ও অন্যান্য তথ্য
       </h2>
 
       <Tabs defaultValue="ka-unit" className="w-full">
@@ -277,7 +277,7 @@ const DhakaAdmissionInfo = () => {
             ● <b>মোট নাম্বার:</b> ১০০ নাম্বার
             <hr className="my-1 border-border/50" />● <b>MCQ:</b> ৬০,{" "}
             <b>লিখিত:</b> ৪০
-            <hr className="my-1 border-border/50" />● <b>মোট সময়:</b> ১.৫ ঘন্টা
+            <hr className="my-1 border-border/50" />● <b>মোট সময়:</b> ১.৫ ঘণ্টা
             <hr className="my-1 border-border/50" />●{" "}
             <b>প্রতিটি বিষয়ের প্রশ্ন সংখ্যা ও নাম্বার:</b>
             <br />
@@ -382,7 +382,7 @@ const DhakaAdmissionInfo = () => {
             ● <b>মোট নাম্বার:</b> ১০০ নাম্বার
             <hr className="my-1 border-border/50" />● <b>MCQ:</b> ৬০,{" "}
             <b>লিখিত:</b> ৪০
-            <hr className="my-1 border-border/50" />● <b>মোট সময়:</b> ১.৫ ঘন্টা
+            <hr className="my-1 border-border/50" />● <b>মোট সময়:</b> ১.৫ ঘণ্টা
           </div>
           <Accordion
             type="single"
@@ -396,7 +396,7 @@ const DhakaAdmissionInfo = () => {
               <AccordionTrigger className="p-3 text-base hover:no-underline">
                 <div className="flex items-center">
                   <HelpCircle className="mr-2" />
-                  <span>মানবন্টন ও কোন কোন বিষয় দাগাতে হবে?</span>
+                  <span>মানবণ্টন ও কোন কোন বিষয় দাগাতে হবে?</span>
                 </div>
               </AccordionTrigger>
               <AccordionContent className="p-4 pt-0 text-base">
@@ -448,7 +448,7 @@ const DhakaAdmissionInfo = () => {
             ● <b>মোট নাম্বার:</b> ১০০ নাম্বার
             <hr className="my-1 border-border/50" />● <b>MCQ:</b> ৬০,{" "}
             <b>লিখিত:</b> ৪০
-            <hr className="my-1 border-border/50" />● <b>মোট সময়:</b> ১.৫ ঘন্টা
+            <hr className="my-1 border-border/50" />● <b>মোট সময়:</b> ১.৫ ঘণ্টা
           </div>
           <Accordion type="multiple" className="w-full space-y-2 mt-2">
             <AccordionItem
@@ -534,7 +534,7 @@ const DhakaAdmissionInfo = () => {
             ● <b>মোট নাম্বার:</b> ১০০ নাম্বার
             <hr className="my-1 border-border/50" />● <b>MCQ:</b> ৪০,{" "}
             <b>অঙ্কন:</b> ৬০
-            <hr className="my-1 border-border/50" />● <b>মোট সময়:</b> ১.৫ ঘন্টা
+            <hr className="my-1 border-border/50" />● <b>মোট সময়:</b> ১.৫ ঘণ্টা
             <br />
             <br />
             <b>ক) বহুনির্বাচনি (MCQ) = ৪০ - সাধারণ জ্ঞান</b>
@@ -622,7 +622,7 @@ const DhakaAdmissionInfo = () => {
             ● <b>মোট নাম্বার:</b> ১০০ নাম্বার
             <hr className="my-1 border-border/50" />● <b>MCQ:</b> ৭০,{" "}
             <b>বর্ণনামূলক:</b> ৩০
-            <hr className="my-1 border-border/50" />● <b>মোট সময়:</b> ২ ঘন্টা
+            <hr className="my-1 border-border/50" />● <b>মোট সময়:</b> ২ ঘণ্টা
           </div>
           <Accordion
             type="single"
@@ -637,7 +637,7 @@ const DhakaAdmissionInfo = () => {
                 <div className="flex items-center">
                   <HelpCircle className="mr-2" />
                   <span>
-                    মানবন্টন, নুন্যতম নাম্বার ও কোন কোন বিষয় দাগাতে হবে?
+                    মানবণ্টন, নুন্যতম নাম্বার ও কোন কোন বিষয় দাগাতে হবে?
                   </span>
                 </div>
               </AccordionTrigger>

@@ -130,9 +130,9 @@
     "logo": "https://raw.githubusercontent.com/MNRfrom2020/logo-and-icon-cdn/refs/heads/main/University/CVASU.png"
   },
   {
-    "nameBn": "গাজীপুর কৃষি বিশ্ববিদ্যালয়",
-    "nameEn": "Gazipur Agricultural University",
-    "shortName": "GAU",
+    "nameBn": "বঙ্গবন্ধু শেখ মুজিবুর রহমান কৃষি বিশ্ববিদ্যালয়",
+    "nameEn": "Bangabandhu Sheikh Mujibur Rahman Agricultural University",
+    "shortName": "BSMRAU",
     "id": "gau",
     "category": ["কৃষি"],
     "description": "গাজীপুরে অবস্থিত একটি আন্তর্জাতিক মানের কৃষি শিক্ষা ও গবেষণা প্রতিষ্ঠান।",
@@ -350,9 +350,9 @@
     "logo": "https://raw.githubusercontent.com/MNRfrom2020/logo-and-icon-cdn/refs/heads/main/University/CSTU.png"
   },
   {
-    "nameBn": "গোপালগঞ্জ বিজ্ঞান ও প্রযুক্তি বিশ্ববিদ্যালয়",
-    "nameEn": "Gopalganj Science and Technology University",
-    "shortName": "GSTU",
+    "nameBn": "বঙ্গবন্ধু শেখ মুজিবুর রহমান বিজ্ঞান ও প্রযুক্তি বিশ্ববিদ্যালয়, গোপালগঞ্জ",
+    "nameEn": "Bangabandhu Sheikh Mujibur Rahman Science and Technology University, Gopalganj",
+    "shortName": "BSMRSTU",
     "id": "gstu",
     "category": ["বিজ্ঞান ও প্রযুক্তি"],
     "description": "গোপালগঞ্জ জেলায় অবস্থিত একটি সরকারি বিজ্ঞান ও প্রযুক্তি বিশ্ববিদ্যালয়।",
@@ -490,9 +490,9 @@
     "logo": "https://raw.githubusercontent.com/MNRfrom2020/logo-and-icon-cdn/refs/heads/main/University/RUB.png"
   },
   {
-    "nameBn": "অ্যাভিয়েশন অ্যান্ড অ্যারোস্পেস ইউনিভার্সিটি, বাংলাদেশ",
-    "nameEn": "Aviation and Aerospace University, Bangladesh",
-    "shortName": "AAUB",
+    "nameBn": "বঙ্গবন্ধু শেখ মুজিবুর রহমান অ্যাভিয়েশন অ্যান্ড অ্যারোস্পেস বিশ্ববিদ্যালয়",
+    "nameEn": "Bangabandhu Sheikh Mujibur Rahman Aviation and Aerospace University",
+    "shortName": "BSMRAAU",
     "id": "aaub",
     "category": ["বিশেষ", "প্রকৌশল"],
     "description": "এটি বাংলাদেশের একটি সরকারি, স্বনামধন্য এবং মহাকাশ প্রকৌশল বিষয়ক প্রথম উচ্চশিক্ষা প্রতিষ্ঠান, যেখানে বিমান চলাচল ও মহাকাশ প্রযুক্তির ওপর বিশেষায়িত কোর্স করানো হয়",
