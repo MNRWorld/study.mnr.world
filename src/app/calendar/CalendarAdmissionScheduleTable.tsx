@@ -17,13 +17,13 @@ const CalendarAdmissionScheduleTable = () => {
         <TableHeader>
           <TableRow>
             <TableHead className="sticky top-[66px] sm:top-[66px] z-10 bg-primary text-primary-foreground text-center w-1/3 font-bold rounded-tl-2xl">
-              বিষয়
+              ভার্সিটি
             </TableHead>
             <TableHead className="sticky top-[66px] sm:top-[66px] z-10 bg-primary text-primary-foreground text-center w-1/3 font-bold">
               তারিখ
             </TableHead>
             <TableHead className="sticky top-[66px] sm:top-[66px] z-10 bg-primary text-primary-foreground text-center w-1/3 font-bold rounded-tr-2xl">
-              সময়
+              সময় বাকি
             </TableHead>
           </TableRow>
         </TableHeader>
