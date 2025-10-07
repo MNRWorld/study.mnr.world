@@ -10,7 +10,7 @@ const CalendarApplicationScheduleTable = () => {
       <div className="hidden md:grid grid-cols-5 gap-4 px-4 py-2 bg-primary text-primary-foreground rounded-lg font-bold text-center">
         <div>ভার্সিটি</div>
         <div>তারিখ</div>
-        <div>সময় باقي</div>
+        <div>সময়</div>
         <div>ফি</div>
         <div>লিংক</div>
       </div>
@@ -51,7 +51,7 @@ const CalendarApplicationScheduleTable = () => {
             </div>
             <div className="flex justify-between items-start pb-2 border-b border-border/50">
               <span className="font-semibold text-muted-foreground">
-                সময় باقي:
+                সময়:
               </span>
               <span
                 className={`text-right font-semibold ${

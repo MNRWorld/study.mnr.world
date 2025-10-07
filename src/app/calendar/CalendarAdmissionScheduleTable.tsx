@@ -23,7 +23,7 @@ const CalendarAdmissionScheduleTable = () => {
               তারিখ
             </TableHead>
             <TableHead className="sticky top-0 z-10 bg-primary text-primary-foreground text-center w-1/3 font-bold rounded-tr-2xl">
-              সময় باقي
+              সময়
             </TableHead>
           </TableRow>
         </TableHeader>
