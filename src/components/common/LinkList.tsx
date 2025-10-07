@@ -19,7 +19,7 @@ const LinkList = ({ links }: LinkListProps) => {
   return (
     <div
       id="Links"
-      className="w-full border border-border bg-card rounded-2xl p-4 sm:p-6 shadow-lg text-center relative"
+      className="w-full border border-border bg-card rounded-2xl p-4 sm:p-6 shadow-lg text-center relative mt-8"
     >
       <div className="flex justify-center">
         <div className="gradient-background inline-flex items-center gap-2 px-6 py-2 text-primary-foreground rounded-full text-lg mb-4 font-bold shadow-md">
