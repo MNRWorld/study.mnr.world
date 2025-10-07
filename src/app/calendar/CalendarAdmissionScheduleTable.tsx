@@ -18,14 +18,14 @@ const CountdownCell = ({ targetDate }: { targetDate: string | null }) => {
 
   if (timeLeft.completed) {
     return (
-      <TableCell className="text-center align-top text-red-500 dark:text-red-400">
+      <TableCell className="text-center align-top text-red-500 dark:text-red-400 whitespace-nowrap">
         পরীক্ষা হয়ে গেছে
       </TableCell>
     );
   }
 
   return (
-    <TableCell className="text-center align-top font-mono">
+    <TableCell className="text-center align-top font-mono whitespace-nowrap">
       <span>{String(timeLeft.days).padStart(2, "0")}</span>d{" "}
       <span>{String(timeLeft.hours).padStart(2, "0")}</span>h{" "}
       <span>{String(timeLeft.minutes).padStart(2, "0")}</span>m{" "}
@@ -56,10 +56,10 @@ const CalendarAdmissionScheduleTable = () => {
         <TableBody>
           {admissionSchedule.map((item) => (
             <TableRow key={item.id} className="even:bg-muted/50">
-              <TableCell className="text-center font-bold whitespace-pre-wrap align-top">
+              <TableCell className="text-center font-bold whitespace-nowrap align-top">
                 {item.universityNameAndUnit}
               </TableCell>
-              <TableCell className="text-center whitespace-pre-wrap align-top">
+              <TableCell className="text-center whitespace-nowrap align-top">
                 {item.examDetails.date}
               </TableCell>
               <CountdownCell targetDate={item.examDetails.ExamCountdownDate} />
