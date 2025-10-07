@@ -31,6 +31,9 @@ import { useUser, useSupabase } from "@/lib/supabase/hooks";
 import { User } from "@supabase/supabase-js";
 import { createClient } from "@/lib/supabase/client";
 import FavoriteExamsCalendar from "@/components/FavoriteExamsCalendar";
+import dayjs from "dayjs";
+import "dayjs/locale/bn";
+dayjs.locale("bn");
 
 const suggestions = [
   {
@@ -49,8 +52,7 @@ const suggestions = [
 
 const getCreationTime = (user: User | null) => {
   if (user?.created_at) {
-    const date = new Date(user.created_at);
-    return date.toLocaleString("bn-BD");
+    return dayjs(user.created_at).format("LLL");
   }
   return "N/A";
 };
