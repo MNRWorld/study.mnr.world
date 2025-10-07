@@ -39,6 +39,7 @@ export async function GET(
 
   try {
     const fileContent = await fs.readFile(safePath, "utf-8");
+    // Parse the JSON content before sending
     return NextResponse.json({ content: JSON.parse(fileContent) });
   } catch (error) {
     console.error(`Error reading file ${filePath}:`, error);
@@ -74,29 +75,20 @@ export async function PUT(
     const body = await request.json();
     const content = body.content;
 
-    if (typeof content !== "string") {
+    if (typeof content !== "object" || content === null) {
       return NextResponse.json(
-        { error: "Invalid content format." },
+        { error: "Invalid content format. Expected a JSON object." },
         { status: 400 },
       );
     }
     
-    // Validate that the content is valid JSON before writing
-    const parsedContent = JSON.parse(content);
-    
     // Format the JSON with an indent of 2 spaces for readability
-    const formattedContent = JSON.stringify(parsedContent, null, 2);
+    const formattedContent = JSON.stringify(content, null, 2);
 
     await fs.writeFile(safePath, formattedContent, "utf-8");
     return NextResponse.json({ message: "File saved successfully." });
   } catch (error: any) {
     console.error(`Error writing file ${filePath}:`, error);
-    if (error instanceof SyntaxError) {
-        return NextResponse.json(
-          { error: `Invalid JSON format: ${error.message}` },
-          { status: 400 },
-        );
-    }
     return NextResponse.json(
       { error: `Failed to write file: ${error.message || 'Unknown error'}` },
       { status: 500 },

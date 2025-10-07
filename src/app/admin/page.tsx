@@ -6,7 +6,8 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { useToast } from "@/hooks/use-toast";
-import { FolderKanban, LogIn } from "lucide-react";
+import { FolderKanban, LogIn, University } from "lucide-react";
+import { publicUniversities } from "@/lib/data/universities";
 
 // WARNING: This is a simple password for local development use only.
 // Do not expose this to the public.
@@ -15,7 +16,6 @@ const LOCAL_PASSWORD = "1234";
 export default function AdminPage() {
   const [password, setPassword] = useState("");
   const [isAuthenticated, setIsAuthenticated] = useState(false);
-  const [files, setFiles] = useState<string[]>([]);
   const { toast } = useToast();
 
   useEffect(() => {
@@ -23,24 +23,6 @@ export default function AdminPage() {
       setIsAuthenticated(true);
     }
   }, []);
-
-  useEffect(() => {
-    if (isAuthenticated) {
-      fetch("/api/admin/files")
-        .then((res) => res.json())
-        .then((data) => {
-          if (data.files) {
-            setFiles(data.files);
-          } else {
-            toast({
-              variant: "destructive",
-              title: "Error fetching files",
-              description: data.error || "Could not load file list.",
-            });
-          }
-        });
-    }
-  }, [isAuthenticated, toast]);
 
   const handleLogin = () => {
     if (password === LOCAL_PASSWORD) {
@@ -71,7 +53,7 @@ export default function AdminPage() {
               Admin Panel Access
             </CardTitle>
             <p className="text-sm text-muted-foreground mt-2">
-              Please enter the password to manage JSON files.
+              Please enter the password to manage University data.
             </p>
           </CardHeader>
           <CardContent className="space-y-4">
@@ -95,22 +77,23 @@ export default function AdminPage() {
   return (
     <div className="container mx-auto px-4 py-8 max-w-4xl font-bengali">
       <h1 className="text-3xl font-bold mb-6 text-center gradient-text">
-        JSON File Editor
+        University Data Editor
       </h1>
       <Card>
         <CardHeader>
-          <CardTitle>Editable Files</CardTitle>
+          <CardTitle>Select a University to Edit</CardTitle>
         </CardHeader>
         <CardContent>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-            {files.map((file) => (
+            {publicUniversities.map((uni) => (
               <Link
-                key={file}
-                href={`/admin/edit/${encodeURIComponent(file)}`}
+                key={uni.id}
+                href={`/admin/edit/universities/${uni.id}`}
                 passHref
               >
-                <Button variant="outline" className="w-full justify-start">
-                  {file.replace("src/lib/data/", "")}
+                <Button variant="outline" className="w-full justify-start gap-2">
+                  <University className="h-4 w-4" />
+                  {uni.nameBn} ({uni.shortName})
                 </Button>
               </Link>
             ))}
