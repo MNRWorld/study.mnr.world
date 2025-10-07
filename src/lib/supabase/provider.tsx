@@ -1,44 +1,61 @@
 "use client";
 
-import { createContext, useState, useEffect } from "react";
+import { createContext, useState, useEffect, ReactNode } from "react";
 import { createClient } from "@/lib/supabase/client";
 import { SupabaseClient, Session, User } from "@supabase/supabase-js";
 import { useRouter } from "next/navigation";
 
 type SupabaseContextType = {
   supabase: SupabaseClient;
+  session: Session | null;
+  user: User | null;
+  loading: boolean;
 };
 
 export const SupabaseContext = createContext<SupabaseContextType | undefined>(
   undefined,
 );
 
-export const SupabaseProvider = ({
-  children,
-}: {
-  children: React.ReactNode;
-}) => {
+export const SupabaseProvider = ({ children }: { children: ReactNode }) => {
   const [supabase] = useState(() => createClient());
+  const [session, setSession] = useState<Session | null>(null);
+  const [user, setUser] = useState<User | null>(null);
+  const [loading, setLoading] = useState(true);
+  const router = useRouter();
 
   useEffect(() => {
+    async function getActiveSession() {
+      const {
+        data: { session },
+      } = await supabase.auth.getSession();
+      setSession(session);
+      setUser(session?.user ?? null);
+      setLoading(false);
+    }
+
+    getActiveSession();
+
     const {
       data: { subscription },
     } = supabase.auth.onAuthStateChange((event, session) => {
-      if (event === "SIGNED_IN" && session) {
-        const user = session.user;
-        if (user && !user.is_anonymous) {
-          supabase
-            .from("profiles")
-            .upsert({
-              id: user.id,
-              display_name:
-                user.user_metadata.full_name || user.user_metadata.user_name,
-              avatar_url: user.user_metadata.avatar_url,
-            })
-            .then(({ error }) => {
-              if (error) console.error("Error upserting profile:", error);
-            });
-        }
+      setSession(session);
+      const currentUser = session?.user ?? null;
+      setUser(currentUser);
+      setLoading(false);
+
+      if (event === "SIGNED_IN" && currentUser && !currentUser.is_anonymous) {
+        supabase
+          .from("profiles")
+          .upsert({
+            id: currentUser.id,
+            display_name:
+              currentUser.user_metadata.full_name ||
+              currentUser.user_metadata.user_name,
+            avatar_url: currentUser.user_metadata.avatar_url,
+          })
+          .then(({ error }) => {
+            if (error) console.error("Error upserting profile:", error);
+          });
       }
     });
 
@@ -48,7 +65,9 @@ export const SupabaseProvider = ({
   }, [supabase]);
 
   return (
-    <SupabaseContext.Provider value={{ supabase }}>
+    <SupabaseContext.Provider
+      value={{ supabase, session, user, loading }}
+    >
       {children}
     </SupabaseContext.Provider>
   );
