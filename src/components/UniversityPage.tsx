@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { Suspense } from "react";
 import dynamic from "next/dynamic";
 import { University } from "@/lib/data/universities";
 import FloatingMenu from "@/components/common/FloatingMenu";
@@ -23,7 +23,10 @@ interface UniversityPageProps {
   universityData: any;
 }
 
-const UniversityPage = ({ university, universityData }: UniversityPageProps) => {
+const UniversityPage = ({
+  university,
+  universityData,
+}: UniversityPageProps) => {
   const isDhakaUniversity = university.id === "du";
 
   return (
@@ -89,7 +92,7 @@ const UniversityPage = ({ university, universityData }: UniversityPageProps) => 
         {isDhakaUniversity ? (
           <>
             <DhakaAdmissionInfo />
-            <QuestionBankTabs />
+            <Suspense fallback={<div>Loading...</div>}><QuestionBankTabs /></Suspense>
             <DhakaSeatInfo />
             <DhakaHistoryAndMap />
           </>

@@ -1,8 +1,19 @@
 "use client";
 
-import PublicPageClient from "@/components/PublicPageClient";
 import { publicUniversities } from "@/lib/data/universities";
+import dynamic from "next/dynamic";
 
-export default function PublicUniversityPage() {
-  return <PublicPageClient universities={publicUniversities} />;
+const PublicPageClient = dynamic(
+  () => import("@/components/PublicPageClient"),
+  { ssr: false },
+);
+
+export default function PublicPage() {
+  return (
+    <div className="font-bengali bg-background">
+      <div className="container mx-auto px-4">
+        <PublicPageClient universities={publicUniversities} />
+      </div>
+    </div>
+  );
 }
