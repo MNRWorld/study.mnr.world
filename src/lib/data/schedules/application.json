@@ -5,7 +5,8 @@
     "date": "স্থগিত",
     "status": "স্থগিত",
     "fee": "৮০০ টাকা",
-    "applyLink": "#"
+    "applyLink": "#",
+    "applyCountdownDate": null
   },
   {
     "university": "জাতীয়",
@@ -13,7 +14,8 @@
     "date": "২১ জানুয়ারি - ২৫ এপ্রিল",
     "status": "সময় শেষ",
     "fee": "৭০০ টাকা",
-    "applyLink": "#"
+    "applyLink": "#",
+    "applyCountdownDate": "2025-04-25T23:59:59+06:00"
   },
   {
     "university": "BUP",
@@ -21,7 +23,8 @@
     "date": "০৮ নভেম্বর – ২৩ নভেম্বর",
     "status": "সময় শেষ",
     "fee": "১১০০ টাকা",
-    "applyLink": "#"
+    "applyLink": "#",
+    "applyCountdownDate": "2024-11-23T23:59:59+06:00"
   },
   {
     "university": "ঢাবি",
@@ -29,7 +32,8 @@
     "date": "০৪ নভেম্বর – ২৭ নভেম্বর",
     "status": "সময় শেষ",
     "fee": "১,০৫০ টাকা",
-    "applyLink": "#"
+    "applyLink": "#",
+    "applyCountdownDate": "2024-11-27T23:59:59+06:00"
   },
   {
     "university": "ঢাবি IBA",
@@ -37,7 +41,8 @@
     "date": "০৪ নভেম্বর – ২৭ নভেম্বর",
     "status": "সময় শেষ",
     "fee": "১,৫০০ টাকা",
-    "applyLink": "#"
+    "applyLink": "#",
+    "applyCountdownDate": "2024-11-27T23:59:59+06:00"
   },
   {
     "university": "মেরিটাইম",
@@ -45,7 +50,8 @@
     "date": "১০ নভেম্বর – ০৭ ডিসেম্বর",
     "status": "সময় শেষ",
     "fee": "৮০০ টাকা",
-    "applyLink": "#"
+    "applyLink": "#",
+    "applyCountdownDate": "2024-12-07T23:59:59+06:00"
   },
   {
     "university": "বুয়েট (চূড়ান্ত)",
@@ -53,7 +59,8 @@
     "date": "২৯ ডিসেম্বর হতে",
     "status": "সময় শেষ",
     "fee": "কঃ ৮০০ টাকা\nখঃ ১০০০ টাকা",
-    "applyLink": "#"
+    "applyLink": "#",
+    "applyCountdownDate": null
   },
   {
     "university": "বুয়েট (প্রাথমিক)",
@@ -61,7 +68,8 @@
     "date": "৩০ নভেম্বর - ১৪ ডিসেম্বর",
     "status": "সময় শেষ",
     "fee": "৫০০ টাকা",
-    "applyLink": "#"
+    "applyLink": "#",
+    "applyCountdownDate": "2024-12-14T23:59:59+06:00"
   },
   {
     "university": "কুয়েট",
@@ -69,7 +77,8 @@
     "date": "০৪ ডিসেম্বর – ১৪ ডিসেম্বর",
     "status": "সময় শেষ",
     "fee": "কঃ ১১০০ টাকা\nখঃ ১২০০ টাকা",
-    "applyLink": "#"
+    "applyLink": "#",
+    "applyCountdownDate": "2024-12-14T23:59:59+06:00"
   },
   {
     "university": "জবি (প্রাথমিক)",
@@ -77,7 +86,8 @@
     "date": "০১ ডিসেম্বর – ১৫ ডিসেম্বর",
     "status": "সময় শেষ",
     "fee": "১০০ টাকা",
-    "applyLink": "#"
+    "applyLink": "#",
+    "applyCountdownDate": "2024-12-15T23:59:59+06:00"
   },
   {
     "university": "BSMRAAU",
@@ -85,7 +95,8 @@
     "date": "১৮ নভেম্বর – ১৫ ডিসেম্বর",
     "status": "সময় শেষ",
     "fee": "৭৫০ টাকা",
-    "applyLink": "#"
+    "applyLink": "#",
+    "applyCountdownDate": "2024-12-15T23:59:59+06:00"
   },
   {
     "university": "মেডিকেল",
@@ -93,7 +104,8 @@
     "date": "১০ ডিসেম্বর – ২৭ ডিসেম্বর",
     "status": "সময় শেষ",
     "fee": "১০০০ টাকা",
-    "applyLink": "#"
+    "applyLink": "#",
+    "applyCountdownDate": "2024-12-27T23:59:59+06:00"
   },
   {
     "university": "AFMC",
@@ -101,7 +113,8 @@
     "date": "১০ ডিসেম্বর – ২৭ ডিসেম্বর",
     "status": "সময় শেষ",
     "fee": "১০০০ টাকা",
-    "applyLink": "#"
+    "applyLink": "#",
+    "applyCountdownDate": "2024-12-27T23:59:59+06:00"
   },
   {
     "university": "জবি (চূড়ান্ত)",
@@ -109,7 +122,8 @@
     "date": "১৭ ডিসেম্বর - ৩০ ডিসেম্বর",
     "status": "সময় শেষ",
     "fee": "৭০০ টাকা",
-    "applyLink": "#"
+    "applyLink": "#",
+    "applyCountdownDate": "2024-12-30T23:59:59+06:00"
   },
   {
     "university": "রুয়েট",
@@ -117,7 +131,8 @@
     "date": "০৪ জানুয়ারি - ১৪ জানুয়ারি",
     "status": "সময় শেষ",
     "fee": "কঃ ১২৫০ টাকা\nখঃ ১৪৫০ টাকা",
-    "applyLink": "#"
+    "applyLink": "#",
+    "applyCountdownDate": "2025-01-14T23:59:59+06:00"
   },
   {
     "university": "চুয়েট",
@@ -125,7 +140,8 @@
     "date": "০৫ জানুয়ারি - ১৮ জানুয়ারি",
     "status": "সময় শেষ",
     "fee": "কঃ ১২০০ টাকা\nখঃ ১৪০০ টাকা",
-    "applyLink": "#"
+    "applyLink": "#",
+    "applyCountdownDate": "2025-01-18T23:59:59+06:00"
   },
   {
     "university": "চবি",
@@ -133,7 +149,8 @@
     "date": "০২ জানুয়ারি - ২০ জানুয়ারি",
     "status": "সময় শেষ",
     "fee": "১০০০ টাকা",
-    "applyLink": "#"
+    "applyLink": "#",
+    "applyCountdownDate": "2025-01-20T23:59:59+06:00"
   },
   {
     "university": "ডেন্টাল",
@@ -141,7 +158,8 @@
     "date": "২৯ ডিসেম্বর – ২০ জানুয়ারি",
     "status": "সময় শেষ",
     "fee": "১০০০ টাকা",
-    "applyLink": "#"
+    "applyLink": "#",
+    "applyCountdownDate": "2025-01-20T23:59:59+06:00"
   },
   {
     "university": "MIST",
@@ -149,7 +167,8 @@
     "date": "৩০ ডিসেম্বর – ২০ জানুয়ারি",
     "status": "সময় শেষ",
     "fee": "কঃ ১০০০ টাকা\nখঃ ১২০০ টাকা",
-    "applyLink": "#"
+    "applyLink": "#",
+    "applyCountdownDate": "2025-01-20T23:59:59+06:00"
   },
   {
     "university": "শাবিপ্রবি",
@@ -157,7 +176,8 @@
     "date": "০৫ জানুয়ারি - ৩১ জানুয়ারি",
     "status": "সময় শেষ",
     "fee": "A1 ১২৫০ টাকা\nA2 ১৪০০ টাকা\nB ১২০০ টাকা",
-    "applyLink": "#"
+    "applyLink": "#",
+    "applyCountdownDate": "2025-01-31T23:59:59+06:00"
   },
   {
     "university": "রাবি (প্রাথমিক)",
@@ -165,7 +185,8 @@
     "date": "২৭ জানুয়ারি হতে ৫ ফেব্রুয়ারী",
     "status": "সময় শেষ",
     "fee": "২২ টাকা",
-    "applyLink": "#"
+    "applyLink": "#",
+    "applyCountdownDate": "2025-02-05T23:59:59+06:00"
   },
   {
     "university": "খুবি",
@@ -173,7 +194,8 @@
     "date": "১০ জানুয়ারি - ১০ ফেব্রুয়ারি",
     "status": "সময় শেষ",
     "fee": "A,B,C: ১০০০ টাকা\nD: ৭০০ টাকা",
-    "applyLink": "#"
+    "applyLink": "#",
+    "applyCountdownDate": "2025-02-10T23:59:59+06:00"
   },
   {
     "university": "বুটেক্স",
@@ -182,7 +204,8 @@
     "date": "০১ জানুয়ারি - ১০ ফেব্রুয়ারি",
     "status": "সময় শেষ",
     "fee": "৩০০ টাকা",
-    "applyLink": null
+    "applyLink": null,
+    "applyCountdownDate": "2025-02-10T23:59:59+06:00"
   },
   {
     "university": "রাবি (চুড়ান্ত ১ম পর্যায়)",
@@ -190,7 +213,8 @@
     "date": "১১ -১৫ ফেব্রুয়ারী",
     "status": "সময় শেষ",
     "fee": "A ১৩২০ টাকা\nB ১২০০ টাকা\nC ১৩২০ টাকা",
-    "applyLink": "#"
+    "applyLink": "#",
+    "applyCountdownDate": "2025-02-15T23:59:59+06:00"
   },
   {
     "university": "রাবি (চুড়ান্ত ২য় পর্যায়)",
@@ -198,7 +222,8 @@
     "date": "১৮-২০ ফেব্রুয়ারী",
     "status": "সময় শেষ",
     "fee": "A ১৩২০ টাকা\nB ১২০০ টাকা\nC ১৩২০ টাকা",
-    "applyLink": "#"
+    "applyLink": "#",
+    "applyCountdownDate": "2025-02-20T23:59:59+06:00"
   },
   {
     "university": "রাবি (চুড়ান্ত ৩য় পর্যায়)",
@@ -206,7 +231,8 @@
     "date": "২৩-২৪ ফেব্রুয়ারী",
     "status": "সময় শেষ",
     "fee": "A ১৩২০ টাকা\nB ১২০০ টাকা\nC ১৩২০ টাকা",
-    "applyLink": "#"
+    "applyLink": "#",
+    "applyCountdownDate": "2025-02-24T23:59:59+06:00"
   },
   {
     "university": "NITOR",
@@ -214,7 +240,8 @@
     "date": "১৬ জানুয়ারি - ২৬ ফেব্রুয়ারি",
     "status": "সময় শেষ",
     "fee": "১০০০ টাকা",
-    "applyLink": "#"
+    "applyLink": "#",
+    "applyCountdownDate": "2025-02-26T23:59:59+06:00"
   },
   {
     "university": "কুবি",
@@ -222,7 +249,8 @@
     "date": "০২ ফেব্রুয়ারী হতে ২৮ ফেব্রুয়ারী",
     "status": "সময় শেষ",
     "fee": "১০০০ টাকা",
-    "applyLink": "#"
+    "applyLink": "#",
+    "applyCountdownDate": "2025-02-28T23:59:59+06:00"
   },
   {
     "university": "হাবিপ্রবি",
@@ -230,7 +258,8 @@
     "date": "০৯ ফেব্রুয়ারী - ১৩ মার্চ",
     "status": "সময় শেষ",
     "fee": "১০০০ টাকা\nআর্কি-১২০০ টাকা",
-    "applyLink": "#"
+    "applyLink": "#",
+    "applyCountdownDate": "2025-03-13T23:59:59+06:00"
   },
   {
     "university": "IUT প্রাথমিক",
@@ -238,7 +267,8 @@
     "date": "২৭ ফেব্রুয়ারী হতে ১৩ মার্চ",
     "status": "সময় শেষ",
     "fee": "প্রাথমিক :৩০০ টাকা",
-    "applyLink": "#"
+    "applyLink": "#",
+    "applyCountdownDate": "2025-03-13T23:59:59+06:00"
   },
   {
     "university": "কৃষি গুচ্ছ",
@@ -246,7 +276,8 @@
     "date": "১৫ ফেব্রুয়ারী হতে ১৬ মার্চ",
     "status": "সময় শেষ",
     "fee": "১২০০ টাকা + চার্জ",
-    "applyLink": "#"
+    "applyLink": "#",
+    "applyCountdownDate": "2025-03-16T23:59:59+06:00"
   },
   {
     "university": "গুচ্ছ",
@@ -254,7 +285,8 @@
     "date": "০৫ মার্চ হতে ১৭ মার্চ",
     "status": "সময় শেষ",
     "fee": "১৫০০ টাকা\nআর্কি ২০০০ টাকা",
-    "applyLink": "#"
+    "applyLink": "#",
+    "applyCountdownDate": "2025-03-17T23:59:59+06:00"
   },
   {
     "university": "ইবি \"ডি\"",
@@ -262,7 +294,8 @@
     "date": "১৬ মার্চ - ২৮ মার্চ",
     "status": "সময় শেষ",
     "fee": "১৫০০ টাকা",
-    "applyLink": "#"
+    "applyLink": "#",
+    "applyCountdownDate": "2025-03-28T23:59:59+06:00"
   },
   {
     "university": "নার্সিং",
@@ -270,7 +303,8 @@
     "date": "১২ ফেব্রুয়ারি - ০৬ এপ্রিল",
     "status": "সময় শেষ",
     "fee": "নার্সিং- ৭০০ টাকা\nমিডওয়াইফারি- ৫০০ টাকা",
-    "applyLink": "#"
+    "applyLink": "#",
+    "applyCountdownDate": "2025-04-06T23:59:59+06:00"
   },
   {
     "university": "প্রযুক্তি ইউনিট",
@@ -278,7 +312,8 @@
     "date": "০৬ জানুয়ারি - ০৭ এপ্রিল",
     "status": "সময় শেষ",
     "fee": "৮৫০ টাকা",
-    "applyLink": "#"
+    "applyLink": "#",
+    "applyCountdownDate": "2025-04-07T23:59:59+06:00"
   },
   {
     "university": "গার্হস্থ্য অর্থনীতি ইউনিট",
@@ -286,7 +321,8 @@
     "date": "০৬ জানুয়ারি - ০৭ এপ্রিল",
     "status": "সময় শেষ",
     "fee": "৮৫০ টাকা",
-    "applyLink": "#"
+    "applyLink": "#",
+    "applyCountdownDate": "2025-04-07T23:59:59+06:00"
   },
   {
     "university": "IUT চুড়ান্ত",
@@ -294,7 +330,8 @@
     "date": "০৭ এপ্রিল হতে ১৫ এপ্রিল",
     "status": "সময় শেষ",
     "fee": "চুড়ান্ত :১০০০ টাকা",
-    "applyLink": "#"
+    "applyLink": "#",
+    "applyCountdownDate": "2025-04-15T23:59:59+06:00"
   },
   {
     "university": "টেক্সটাইল কলেজ",
@@ -302,7 +339,8 @@
     "date": "১৭ ফেব্রুয়ারী - ২০ এপ্রিল",
     "status": "সময় শেষ",
     "fee": "১০০০ টাকা",
-    "applyLink": "#"
+    "applyLink": "#",
+    "applyCountdownDate": "2025-04-20T23:59:59+06:00"
   },
   {
     "university": "SEC",
@@ -310,6 +348,7 @@
     "date": "১৩ মার্চ হতে ১৫ জুন",
     "status": "সময় শেষ",
     "fee": "১৫০০ টাকা",
-    "applyLink": "#"
+    "applyLink": "#",
+    "applyCountdownDate": "2025-06-15T23:59:59+06:00"
   }
 ]

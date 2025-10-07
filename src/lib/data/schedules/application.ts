@@ -8,6 +8,7 @@ export interface ApplicationScheduleItem {
   status: string;
   fee: string;
   applyLink: string | null;
+  applyCountdownDate: string | null;
 }
 
 export const applicationSchedule: ApplicationScheduleItem[] = scheduleData;
