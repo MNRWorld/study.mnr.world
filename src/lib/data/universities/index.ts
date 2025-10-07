@@ -17,3 +17,12 @@ export const publicUniversities: University[] =
 
 export const privateUniversities: University[] =
   privateUniversitiesData as University[];
+
+export const allUniversities: University[] = [
+  ...publicUniversities,
+  ...privateUniversities,
+];
+
+export function getUniversityById(id: string): University | undefined {
+  return allUniversities.find((university) => university.id === id);
+}

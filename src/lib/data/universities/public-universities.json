@@ -46,7 +46,7 @@
     "id": "gst",
     "category": ["গুচ্ছ"],
     "description": "GST গুচ্ছভুক্ত বিশ্ববিদ্যালয় মোট ১৯টি (সাধারণ+বিজ্ঞান ও প্রযুক্তি)",
-    "link": "/public/gst",
+    "link": "/gst",
     "logo": "https://raw.githubusercontent.com/MNRfrom2020/logo-and-icon-cdn/refs/heads/main/University/GST.png"
   },
   {
@@ -56,7 +56,7 @@
     "id": "agri",
     "category": ["গুচ্ছ"],
     "description": "কৃষি গুচ্ছভুক্ত বিশ্ববিদ্যালয় মোট ৮টি (সাধারণ+ভেটেরিনারি)",
-    "link": "/public/agri",
+    "link": "/agri",
     "logo": "https://raw.githubusercontent.com/MNRfrom2020/logo-and-icon-cdn/refs/heads/main/University/Agri.png"
   },
   {
@@ -66,7 +66,7 @@
     "id": "Medical",
     "category": ["মেডিকেল", "গুচ্ছ"],
     "description": "বাংলাদেশে সরকারি মেডিকেল কলেজ প্রায় ৩৭টি",
-    "link": "/public/Medical",
+    "link": "/Medical",
     "logo": "https://raw.githubusercontent.com/MNRfrom2020/logo-and-icon-cdn/refs/heads/main/University/Medical.png"
   },
   {
@@ -76,7 +76,7 @@
     "id": "Dental",
     "category": ["মেডিকেল", "গুচ্ছ"],
     "description": "বাংলাদেশে সরকারি ডেন্টাল কলেজ ও ডেন্টাল ইউনিট প্রায় ৮টি",
-    "link": "/public/Dental",
+    "link": "/Dental",
     "logo": "https://raw.githubusercontent.com/MNRfrom2020/logo-and-icon-cdn/refs/heads/main/University/Dental.png"
   },
   {
@@ -86,7 +86,7 @@
     "id": "afmc",
     "category": ["মেডিকেল"],
     "description": "আর্মড ফোর্সেস মেডিক্যাল কলেজ (এএফএমসি) ঢাকা ক্যান্টনমেন্টের অভ্যন্তরে অবস্থিত একটি সরকারি মেডিকেল কলেজ",
-    "link": "/public/afmc",
+    "link": "/afmc",
     "logo": "https://raw.githubusercontent.com/MNRfrom2020/logo-and-icon-cdn/refs/heads/main/University/AFMC.png"
   },
   {
@@ -96,7 +96,7 @@
     "id": "Nursing",
     "category": ["মেডিকেল", "গুচ্ছ"],
     "description": "বাংলাদেশ সরকারি নার্সিং ও মিডওয়াইফারি শিক্ষাপ্রতিষ্ঠানসমূহ প্রায় ২৭টি",
-    "link": "/public/Nursing",
+    "link": "/Nursing",
     "logo": "https://raw.githubusercontent.com/MNRfrom2020/logo-and-icon-cdn/refs/heads/main/University/Nursing.png"
   },
   {
@@ -106,7 +106,7 @@
     "id": "NITOR",
     "category": ["মেডিকেল"],
     "description": "National Institute Of Traumatology And Orthopaedic Rehabilitation (NITOR)-কে পুরো বাংলাদেশের মানুষ বাংলাদেশ পঙ্গু হাসপাতাল নামে চিনে থাকে",
-    "link": "/public/NITOR",
+    "link": "/NITOR",
     "logo": "https://raw.githubusercontent.com/MNRfrom2020/logo-and-icon-cdn/refs/heads/main/University/NITOR.png"
   },
   {
@@ -496,7 +496,7 @@
     "id": "aaub",
     "category": ["বিশেষ", "প্রকৌশল"],
     "description": "এটি বাংলাদেশের একটি সরকারি, স্বনামধন্য এবং মহাকাশ প্রকৌশল বিষয়ক প্রথম উচ্চশিক্ষা প্রতিষ্ঠান, যেখানে বিমান চলাচল ও মহাকাশ প্রযুক্তির ওপর বিশেষায়িত কোর্স করানো হয়",
-    "link": "/public/aaub",
+    "link": "/aaub",
     "logo": "https://raw.githubusercontent.com/MNRfrom2020/logo-and-icon-cdn/refs/heads/main/University/AAUB.png"
   },
   {
@@ -506,7 +506,7 @@
     "id": "iut",
     "category": ["বিশেষ", "প্রকৌশল"],
     "description": "এটি মূলত একটি শিক্ষা ও গবেষণা প্রতিষ্ঠান হিসেবে প্রতিষ্ঠা লাভ করেছিল এবং বর্তমানে বাংলাদেশের একমাত্র আন্তর্জাতিক প্রকৌশল বিশ্ববিদ্যালয় হিসেবে স্বীকৃত হয়েছে",
-    "link": "/public/iut",
+    "link": "/iut",
     "logo": "https://raw.githubusercontent.com/MNRfrom2020/logo-and-icon-cdn/refs/heads/main/University/IUT.png"
   },
   {
@@ -556,7 +556,7 @@
     "id": "NU",
     "category": ["বিশেষ", "অধিভুক্ত", "গুচ্ছ"],
     "description": "জাতীয় বিশ্ববিদ্যালয় বাংলাদেশের একটি পাবলিক কলেজিয়েট বিশ্ববিদ্যালয় যেখানে অধিভুক্ত ২৬৪টি সরকারি কলেজ ও নিজ ক্যাম্পাসে অনার্স প্রদান কার্যক্রম রয়েছে",
-    "link": "/public/NU",
+    "link": "/NU",
     "logo": "https://raw.githubusercontent.com/MNRfrom2020/logo-and-icon-cdn/refs/heads/main/University/NU.png"
   },
   {
@@ -566,7 +566,7 @@
     "id": "DCU",
     "category": ["অধিভুক্ত", "গুচ্ছ"],
     "description": "ঢাকা কেন্দ্রীয় বিশ্ববিদ্যালয় অধিভুক্ত ৭টি সরকারি কলেজ রয়েছে",
-    "link": "/public/DCU",
+    "link": "/DCU",
     "logo": "https://raw.githubusercontent.com/MNRfrom2020/logo-and-icon-cdn/refs/heads/main/University/DCU.png"
   },
   {
@@ -576,7 +576,7 @@
     "id": "du-affiliated",
     "category": ["অধিভুক্ত"],
     "description": "ঢাকা বিশ্ববিদ্যালয় অধিভুক্ত কলেজের প্রযুক্তি ও গার্হস্থ্য ইউনিট নিয়ে এখানে বিস্তারিত তথ্য আছে",
-    "link": "/public/du-affiliated",
+    "link": "/du-affiliated",
     "logo": "https://raw.githubusercontent.com/MNRfrom2020/logo-and-icon-cdn/refs/heads/main/University/DU.png"
   },
   {
@@ -586,7 +586,7 @@
     "id": "butex-affiliated",
     "category": ["অধিভুক্ত"],
     "description": "বুটেক্স অধিভুক্ত সরকারি ১০ টেক্সটাইল ইঞ্জিনিয়ারিং কলেজ রয়েছে",
-    "link": "/public/butex-affiliated",
+    "link": "/butex-affiliated",
     "logo": "https://raw.githubusercontent.com/MNRfrom2020/logo-and-icon-cdn/refs/heads/main/University/BUTex.png"
   },
   {
@@ -596,7 +596,7 @@
     "id": "sust-affiliated",
     "category": ["অধিভুক্ত"],
     "description": "শাহজালাল বিজ্ঞান ও প্রযুক্তি বিশ্ববিদ্যালয় এর অধিভুক্ত একটি প্রকৌশল কলেজ রয়েছে যার নাম সিলেট ইঞ্জিনিয়ারিং কলেজ",
-    "link": "/public/sust-affiliated",
+    "link": "/sust-affiliated",
     "logo": "https://raw.githubusercontent.com/MNRfrom2020/logo-and-icon-cdn/refs/heads/main/University/SUST.png"
   }
 ]

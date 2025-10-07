@@ -14,7 +14,7 @@ const QuestionBankUniversityCard = React.memo(
   function QuestionBankUniversityCard({
     university,
   }: QuestionBankUniversityCardProps) {
-    const universityLink = `/public/${university.id}#QuestionBank`;
+    const universityLink = `/${university.id}#QuestionBank`;
     return (
       <Link href={universityLink}>
         <div
