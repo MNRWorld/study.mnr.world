@@ -1,13 +1,9 @@
-import admissionData from "./admission.json";
-import linksData from "./links.json";
-import questionBanksData from "./question-banks.json";
-import subjectsData from "./subjects.json";
-import historyAndMapData from "./history.json";
+import infoData from "./info.json";
 
 export const ruData = {
-  admissionInfo: admissionData,
-  links: linksData,
-  questionBanks: questionBanksData,
-  subjects: subjectsData,
-  historyAndMap: historyAndMapData,
+  admissionInfo: infoData.admissionInfo,
+  links: infoData.links,
+  questionBanks: infoData.questionBanks,
+  subjects: infoData.subjects,
+  historyAndMap: infoData.historyAndMap,
 };
