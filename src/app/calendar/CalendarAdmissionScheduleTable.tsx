@@ -19,7 +19,7 @@ const CountdownCell = ({ targetDate }: { targetDate: string | null }) => {
 
   return (
     <TableCell
-      className={`text-center font-semibold whitespace-pre-wrap align-top ${colorClass}`}
+      className={`text-center whitespace-pre-wrap align-top ${colorClass}`}
     >
       {countdownText}
     </TableCell>
@@ -48,7 +48,7 @@ const CalendarAdmissionScheduleTable = () => {
         <TableBody>
           {admissionSchedule.map((item) => (
             <TableRow key={item.id} className="even:bg-muted/50">
-              <TableCell className="text-center font-medium whitespace-pre-wrap align-top">
+              <TableCell className="text-center font-bold whitespace-pre-wrap align-top">
                 {item.universityNameAndUnit}
               </TableCell>
               <TableCell className="text-center whitespace-pre-wrap align-top">
