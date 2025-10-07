@@ -13,7 +13,7 @@ import ExternalLink from "@/components/common/ExternalLink";
 
 const CalendarAdmitCardScheduleTable = () => {
   const admitCardSchedule = calendarInfo.filter(
-    (item) => item.admitCardDetails.StartAndEndDate,
+    (item) => item.id !== "demo" && item.admitCardDetails.StartAndEndDate,
   );
 
   return (

@@ -12,7 +12,9 @@ import {
 import ExternalLink from "@/components/common/ExternalLink";
 
 const CalendarResultScheduleTable = () => {
-  const resultSchedule = calendarInfo.filter((item) => item.resultDetails.date);
+  const resultSchedule = calendarInfo.filter(
+    (item) => item.id !== "demo" && item.resultDetails.date,
+  );
 
   return (
     <div className="mt-4 w-full border border-border bg-card rounded-2xl shadow-lg">
