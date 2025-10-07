@@ -19,7 +19,7 @@ const CountdownCell = ({ targetDate }: { targetDate: string | null }) => {
   if (timeLeft.completed) {
     return (
       <TableCell className="text-center align-top text-red-500 dark:text-red-400 whitespace-nowrap">
-        পরীক্ষা হয়ে গেছে
+        পরীক্ষা হয়ে গেছে
       </TableCell>
     );
   }
@@ -27,19 +27,43 @@ const CountdownCell = ({ targetDate }: { targetDate: string | null }) => {
   return (
     <TableCell className="text-center align-top font-mono whitespace-nowrap">
       <span>{String(timeLeft.days).padStart(2, "0")}</span>
-      <span className="mr-1">d</span>
+      <span className="mr-1 font-bengali">d</span>
       <span>{String(timeLeft.hours).padStart(2, "0")}</span>
-      <span className="mr-1">h</span>
+      <span className="mr-1 font-bengali">h</span>
       <span>{String(timeLeft.minutes).padStart(2, "0")}</span>
-      <span className="mr-1">m</span>
+      <span className="mr-1 font-bengali">m</span>
       <span>{String(timeLeft.seconds).padStart(2, "0")}</span>
-      <span>s</span>
+      <span className="font-bengali">s</span>
     </TableCell>
   );
 };
 
 const CalendarAdmissionScheduleTable = () => {
-  const admissionSchedule = calendarInfo.filter((item) => item.id !== "demo");
+  const admissionSchedule = calendarInfo
+    .filter((item) => item.id !== "demo")
+    .sort((a, b) => {
+      const dateA = a.examDetails.ExamCountdownDate
+        ? new Date(a.examDetails.ExamCountdownDate).getTime()
+        : 0;
+      const dateB = b.examDetails.ExamCountdownDate
+        ? new Date(b.examDetails.ExamCountdownDate).getTime()
+        : 0;
+
+      // Handle completed exams, push them to the bottom
+      const now = new Date().getTime();
+      const completedA = dateA > 0 && dateA < now;
+      const completedB = dateB > 0 && dateB < now;
+
+      if (completedA && !completedB) return 1;
+      if (!completedA && completedB) return -1;
+      if (completedA && completedB) return dateA - dateB; // Sort past exams by date
+
+      // Handle future exams
+      if (dateA === 0) return 1; // Put items without date at the end
+      if (dateB === 0) return -1;
+
+      return dateA - dateB;
+    });
 
   return (
     <div className="mt-4 w-full border border-border bg-card rounded-2xl shadow-lg">
