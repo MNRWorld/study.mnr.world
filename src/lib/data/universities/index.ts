@@ -26,7 +26,7 @@ export const allUniversities: University[] = allUniversityData.map((uni) => ({
   id: uni.id,
   category: uni.category,
   description: uni.description,
-  link: `/${uni.id}`,
+  link: uni.link,
   logo: uni.logo,
 }));
 

@@ -20,7 +20,7 @@ interface UniversityCardProps {
 const UniversityCard = React.memo(function UniversityCard({
   university,
 }: UniversityCardProps) {
-  const universityLink = `/${university.id}`;
+  const universityLink = university.link;
   return (
     <Accordion
       type="single"
