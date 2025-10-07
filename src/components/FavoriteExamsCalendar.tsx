@@ -9,8 +9,9 @@ import {
   TooltipProvider,
   TooltipTrigger,
 } from "@/components/ui/tooltip";
-import { format } from "date-fns";
+import { format, isValid } from "date-fns";
 import { bn } from "date-fns/locale";
+import type { DayContentProps } from "react-day-picker";
 
 const FavoriteExamsCalendar = () => {
   const [favoriteDates, setFavoriteDates] = useState<{ [key: string]: string[] }>({});
@@ -31,16 +32,18 @@ const FavoriteExamsCalendar = () => {
         }));
 
       favoriteEvents.forEach(event => {
-        const dateString = format(event.date, "yyyy-MM-dd");
-        if (!dates[dateString]) {
-          dates[dateString] = [];
+        if (isValid(event.date)) {
+          const dateString = format(event.date, "yyyy-MM-dd");
+          if (!dates[dateString]) {
+            dates[dateString] = [];
+          }
+          dates[dateString].push(event.title);
         }
-        dates[dateString].push(event.title);
       });
 
       setFavoriteDates(dates);
 
-      if (favoriteEvents.length > 0) {
+      if (favoriteEvents.length > 0 && isValid(favoriteEvents[0].date)) {
         setMonth(favoriteEvents[0].date);
       }
     }
@@ -53,11 +56,15 @@ const FavoriteExamsCalendar = () => {
     });
   }, [favoriteDates]);
 
-  const DayWithTooltip = (day: Date, modifiers: any) => {
+  const DayWithTooltip = (props: DayContentProps) => {
+    const day = props.date;
+    if (!isValid(day)) {
+      return <div />;
+    }
     const dateString = format(day, "yyyy-MM-dd");
     const titles = favoriteDates[dateString];
     
-    if (titles && modifiers.highlighted) {
+    if (titles && modifiers.highlighted?.some((d: Date) => d.toDateString() === day.toDateString())) {
       return (
         <TooltipProvider>
           <Tooltip>
@@ -77,7 +84,7 @@ const FavoriteExamsCalendar = () => {
         </TooltipProvider>
       );
     }
-    return format(day, "d");
+    return <div>{format(day, "d")}</div>;
   };
 
   return (
