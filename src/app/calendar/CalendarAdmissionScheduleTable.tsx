@@ -26,10 +26,14 @@ const CountdownCell = ({ targetDate }: { targetDate: string | null }) => {
 
   return (
     <TableCell className="text-center align-top font-mono whitespace-nowrap">
-      <span>{String(timeLeft.days).padStart(2, "0")}</span>d{" "}
-      <span>{String(timeLeft.hours).padStart(2, "0")}</span>h{" "}
-      <span>{String(timeLeft.minutes).padStart(2, "0")}</span>m{" "}
-      <span>{String(timeLeft.seconds).padStart(2, "0")}</span>s
+      <span>{String(timeLeft.days).padStart(2, "0")}</span>
+      <span className="mr-1">d</span>
+      <span>{String(timeLeft.hours).padStart(2, "0")}</span>
+      <span className="mr-1">h</span>
+      <span>{String(timeLeft.minutes).padStart(2, "0")}</span>
+      <span className="mr-1">m</span>
+      <span>{String(timeLeft.seconds).padStart(2, "0")}</span>
+      <span>s</span>
     </TableCell>
   );
 };
