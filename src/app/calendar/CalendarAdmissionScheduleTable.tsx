@@ -95,13 +95,14 @@ const CalendarAdmissionScheduleTable = () => {
       <Table>
         <TableHeader>
           <TableRow>
-            <TableHead className="sticky top-[66px] sm:top-[66px] z-10 bg-primary text-primary-foreground text-center w-1/3 font-bold rounded-tl-2xl">
+            <TableHead className="sticky top-[66px] sm:top-[66px] z-10 bg-primary text-primary-foreground text-center font-bold rounded-tl-2xl w-[50px]"></TableHead>
+            <TableHead className="sticky top-[66px] sm:top-[66px] z-10 bg-primary text-primary-foreground text-center font-bold">
               ভার্সিটি
             </TableHead>
-            <TableHead className="sticky top-[66px] sm:top-[66px] z-10 bg-primary text-primary-foreground text-center w-1/3 font-bold">
+            <TableHead className="sticky top-[66px] sm:top-[66px] z-10 bg-primary text-primary-foreground text-center font-bold">
               তারিখ
             </TableHead>
-            <TableHead className="sticky top-[66px] sm:top-[66px] z-10 bg-primary text-primary-foreground text-center w-1/3 font-bold rounded-tr-2xl">
+            <TableHead className="sticky top-[66px] sm:top-[66px] z-10 bg-primary text-primary-foreground text-center font-bold rounded-tr-2xl">
               সময় বাকি
             </TableHead>
           </TableRow>
@@ -116,18 +117,18 @@ const CalendarAdmissionScheduleTable = () => {
                   "bg-primary/10 dark:bg-primary/20",
               )}
             >
+              <TableCell className="align-top text-center">
+                <Heart
+                  className={cn(
+                    "h-5 w-5 cursor-pointer text-muted-foreground/50 transition-all hover:scale-125",
+                    favorites.includes(item.id) &&
+                      "text-primary fill-primary",
+                  )}
+                  onClick={() => toggleFavorite(item.id)}
+                />
+              </TableCell>
               <TableCell className="text-center font-bold whitespace-nowrap align-top">
-                <div className="flex items-center justify-center gap-2">
-                  <Heart
-                    className={cn(
-                      "h-5 w-5 cursor-pointer text-muted-foreground/50 transition-all hover:scale-125",
-                      favorites.includes(item.id) &&
-                        "text-primary fill-primary",
-                    )}
-                    onClick={() => toggleFavorite(item.id)}
-                  />
-                  <span>{item.universityNameAndUnit}</span>
-                </div>
+                {item.universityNameAndUnit}
               </TableCell>
               <TableCell className="text-center whitespace-nowrap align-top">
                 {item.examDetails.date}
