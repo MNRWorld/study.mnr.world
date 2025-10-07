@@ -40,6 +40,7 @@ const UniversityPage = ({
           </div>
         )}
 
+        {/* 1. PageHeaderCard */}
         <PageHeaderCard
           icon={
             <Image
@@ -75,26 +76,39 @@ const UniversityPage = ({
           button={{ href: "#Info", label: "মূল তথ্য" }}
         />
 
+        {/* 2. LinkList */}
         {universityData.links && universityData.links.length > 0 && (
           <LinkList links={universityData.links} />
         )}
+        
+        {/* 3. DhakaHistoryAndMap */}
+        {isDhakaUniversity && <DhakaHistoryAndMap />}
 
+        {/* 4. CountdownTimer */}
         <div className="mt-8 w-full border border-border bg-card rounded-2xl p-4 sm:p-6 shadow-lg relative">
           <CountdownTimer />
         </div>
 
+        {/* 5. Circular */}
         <Circular
           title="সম্পূর্ণ সার্কুলার"
           note="(⚠ নোট: সর্বশেষ সার্কুলার এখনও প্রকাশিত হয়নি। পূর্ববর্তী বছরের সার্কুলার দেখে আইডিয়া নিতে পারেন।)"
           downloadLink="#"
           showPreviousYears={isDhakaUniversity}
         />
+
         {isDhakaUniversity ? (
           <>
+            {/* 6. QuestionBankTabs */}
+            <Suspense fallback={<div>Loading...</div>}>
+              <QuestionBankTabs />
+            </Suspense>
+            
+            {/* 7. DhakaAdmissionInfo */}
             <DhakaAdmissionInfo />
-            <Suspense fallback={<div>Loading...</div>}><QuestionBankTabs /></Suspense>
+
+            {/* 8. DhakaSeatInfo */}
             <DhakaSeatInfo />
-            <DhakaHistoryAndMap />
           </>
         ) : (
           <div className="mt-8 text-center text-muted-foreground">
