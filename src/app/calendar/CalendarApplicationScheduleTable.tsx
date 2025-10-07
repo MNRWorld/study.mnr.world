@@ -7,7 +7,7 @@ const CalendarApplicationScheduleTable = () => {
   return (
     <div className="mt-4 w-full space-y-4">
       {/* Header for larger screens */}
-      <div className="hidden md:grid grid-cols-5 gap-4 px-4 py-2 bg-primary text-primary-foreground rounded-lg font-bold text-center sticky top-[74px] sm:top-[80px] z-10">
+      <div className="hidden md:grid grid-cols-5 gap-4 px-4 py-2 bg-primary text-primary-foreground rounded-lg font-bold text-center sticky top-[66px] sm:top-[72px] z-10">
         <div>ভার্সিটি</div>
         <div>তারিখ</div>
         <div>সময়</div>
