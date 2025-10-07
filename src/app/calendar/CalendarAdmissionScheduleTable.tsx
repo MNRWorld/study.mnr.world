@@ -12,7 +12,7 @@ import {
 
 const CalendarAdmissionScheduleTable = () => {
   return (
-    <div className="mt-4 w-full border border-border bg-card rounded-2xl shadow-lg overflow-x-auto">
+    <div className="mt-4 w-full border border-border bg-card rounded-2xl shadow-lg">
       <Table>
         <TableHeader>
           <TableRow>

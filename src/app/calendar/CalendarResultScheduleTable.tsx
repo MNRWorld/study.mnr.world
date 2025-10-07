@@ -17,7 +17,7 @@ const CalendarResultScheduleTable = () => {
 
   return (
     <div className="mt-4 space-y-8">
-      <div className="w-full border border-border bg-card rounded-2xl shadow-lg overflow-x-auto">
+      <div className="w-full border border-border bg-card rounded-2xl shadow-lg">
         <Table>
           <TableHeader>
             <TableRow>
@@ -52,7 +52,7 @@ const CalendarResultScheduleTable = () => {
         </Table>
       </div>
 
-      <div className="w-full border border-border bg-card rounded-2xl shadow-lg overflow-x-auto">
+      <div className="w-full border border-border bg-card rounded-2xl shadow-lg">
         <div className="flex justify-center p-4 sm:p-6">
           <div className="gradient-background inline-block px-6 py-2 text-primary-foreground rounded-full text-lg mb-4 font-bold shadow-md">
             <Clock className="inline-block mr-2" />
