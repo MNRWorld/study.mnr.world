@@ -10,18 +10,26 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
-import { useCountdown, formatCountdown, getStatusColor } from "@/hooks/useCountdown";
+import { useCountdown } from "@/hooks/useCountdown";
+import { cn } from "@/lib/utils";
 
 const CountdownCell = ({ targetDate }: { targetDate: string | null }) => {
   const timeLeft = useCountdown(targetDate);
-  const countdownText = formatCountdown(timeLeft);
-  const colorClass = getStatusColor(timeLeft);
+
+  if (timeLeft.completed) {
+    return (
+      <TableCell className="text-center align-top text-red-500 dark:text-red-400">
+        পরীক্ষা হয়ে গেছে
+      </TableCell>
+    );
+  }
 
   return (
-    <TableCell
-      className={`text-center whitespace-pre-wrap align-top ${colorClass}`}
-    >
-      {countdownText}
+    <TableCell className="text-center align-top font-mono">
+      <span>{String(timeLeft.days).padStart(2, "0")}</span>d{" "}
+      <span>{String(timeLeft.hours).padStart(2, "0")}</span>h{" "}
+      <span>{String(timeLeft.minutes).padStart(2, "0")}</span>m{" "}
+      <span>{String(timeLeft.seconds).padStart(2, "0")}</span>s
     </TableCell>
   );
 };

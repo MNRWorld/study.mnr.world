@@ -68,16 +68,24 @@ export const formatCountdown = (timeLeft: TimeLeft) => {
     return "পরীক্ষা হয়ে গেছে";
   }
   if (timeLeft.days > 0) {
-    return `${timeLeft.days} দিন বাকি`;
+    return `${String(timeLeft.days).padStart(2, "0")}d ${String(
+      timeLeft.hours,
+    ).padStart(2, "0")}h ${String(timeLeft.minutes).padStart(2, "0")}m ${String(
+      timeLeft.seconds,
+    ).padStart(2, "0")}s`;
   }
   if (timeLeft.hours > 0) {
-    return `${timeLeft.hours} ঘণ্টা বাকি`;
+    return `${String(timeLeft.hours).padStart(2, "0")}h ${String(
+      timeLeft.minutes,
+    ).padStart(2, "0")}m ${String(timeLeft.seconds).padStart(2, "0")}s`;
   }
   if (timeLeft.minutes > 0) {
-    return `${timeLeft.minutes} মিনিট বাকি`;
+    return `${String(timeLeft.minutes).padStart(2, "0")}m ${String(
+      timeLeft.seconds,
+    ).padStart(2, "0")}s`;
   }
   if (timeLeft.seconds > 0) {
-    return `কিছুক্ষণ বাকি`;
+    return `${String(timeLeft.seconds).padStart(2, "0")}s`;
   }
   return "সময় শেষ";
 };
