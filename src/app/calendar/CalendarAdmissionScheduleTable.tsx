@@ -1,6 +1,7 @@
+
 "use client";
 
-import { admissionSchedule } from "@/lib/data/schedules/admission";
+import calendarInfo from "@/lib/data/CalendarInfo.json";
 import {
   Table,
   TableBody,
@@ -9,8 +10,25 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
+import { useCountdown, formatCountdown, getStatusColor } from "@/hooks/useCountdown";
+
+const CountdownCell = ({ targetDate }: { targetDate: string | null }) => {
+  const timeLeft = useCountdown(targetDate);
+  const countdownText = formatCountdown(timeLeft);
+  const colorClass = getStatusColor(timeLeft);
+
+  return (
+    <TableCell
+      className={`text-center font-semibold whitespace-pre-wrap align-top ${colorClass}`}
+    >
+      {countdownText}
+    </TableCell>
+  );
+};
 
 const CalendarAdmissionScheduleTable = () => {
+  const admissionSchedule = calendarInfo.filter((item) => item.id !== "demo");
+
   return (
     <div className="mt-4 w-full border border-border bg-card rounded-2xl shadow-lg">
       <Table>
@@ -28,25 +46,15 @@ const CalendarAdmissionScheduleTable = () => {
           </TableRow>
         </TableHeader>
         <TableBody>
-          {admissionSchedule.map((item, index) => (
-            <TableRow key={index} className="even:bg-muted/50">
+          {admissionSchedule.map((item) => (
+            <TableRow key={item.id} className="even:bg-muted/50">
               <TableCell className="text-center font-medium whitespace-pre-wrap align-top">
-                {item.subject}
+                {item.universityNameAndUnit}
               </TableCell>
               <TableCell className="text-center whitespace-pre-wrap align-top">
-                {item.date}
+                {item.examDetails.date}
               </TableCell>
-              <TableCell
-                className={`text-center font-semibold whitespace-pre-wrap align-top ${
-                  item.status.includes("স্থগিত")
-                    ? "text-yellow-500 dark:text-yellow-400"
-                    : item.status.includes("হয়ে গেছে")
-                      ? "text-red-500 dark:text-red-400"
-                      : "text-green-500 dark:text-green-400"
-                }`}
-              >
-                {item.status}
-              </TableCell>
+              <CountdownCell targetDate={item.examDetails.ExamCountdownDate} />
             </TableRow>
           ))}
         </TableBody>
