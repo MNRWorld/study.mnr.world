@@ -62,7 +62,7 @@ export default function AdminPage() {
   if (!isAuthenticated) {
     return (
       <div className="flex items-center justify-center min-h-[calc(100vh-10rem)] font-bengali px-4">
-        <Card className="w-full max-w-md p-6 sm:p-8 space-y-6 sm:space-y-8 shadow-lg text-center">
+        <Card className="w-full max-w-md p-6 space-y-6 shadow-lg text-center">
           <CardHeader>
             <div className="inline-block p-4 bg-primary/10 rounded-full mb-4 mx-auto w-fit">
               <FolderKanban className="h-8 w-8 sm:h-10 sm:w-10 text-primary" />

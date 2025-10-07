@@ -100,15 +100,15 @@ export default function EditFilePage() {
       </div>
 
       <Card>
-        <CardHeader>
+        <CardHeader className="p-4 sm:p-6">
           <CardTitle>
             Editing:{" "}
-            <span className="font-mono text-primary text-lg">
+            <span className="font-mono text-primary text-base sm:text-lg">
               {decodedFilePath.replace("src/lib/data/", "")}
             </span>
           </CardTitle>
         </CardHeader>
-        <CardContent>
+        <CardContent className="p-4 sm:p-6">
           {loading ? (
             <div className="text-center p-8">Loading file content...</div>
           ) : (

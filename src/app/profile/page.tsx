@@ -33,6 +33,9 @@ import { createClient } from "@/lib/supabase/client";
 import FavoriteExamsCalendar from "@/components/FavoriteExamsCalendar";
 import dayjs from "dayjs";
 import "dayjs/locale/bn";
+import LocalizedFormat from "dayjs/plugin/localizedFormat";
+
+dayjs.extend(LocalizedFormat);
 dayjs.locale("bn");
 
 const suggestions = [
