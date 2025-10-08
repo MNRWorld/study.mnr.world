@@ -127,6 +127,22 @@ export default function RjsfEditPage() {
     fetchData();
   }, [slug, router, toast, searchParams]);
 
+  const triggerRebuild = async () => {
+    try {
+      const res = await fetch('/api/admin/rebuild', { method: 'POST' });
+      const result = await res.json();
+      if (!res.ok) throw new Error(result.error || 'Failed to trigger rebuild');
+      return true;
+    } catch (error: any) {
+      toast({
+        variant: "destructive",
+        title: "Error rebuilding data",
+        description: `Could not rebuild _generated.ts. Please run 'npm run prebuild' manually. Error: ${error.message}`,
+      });
+      return false;
+    }
+  }
+
   const handleSave = async (data: IChangeEvent) => {
     if (!filePath) return;
     setSaving(true);
@@ -167,13 +183,24 @@ export default function RjsfEditPage() {
       const result = await res.json();
       if (!res.ok) throw new Error(result.error || "Failed to save file");
 
-      toast({
-        title: "Data Saved",
-        description: `${isNew ? 'New university created and' : 'Changes to'} ${filePath} have been saved.`,
-      });
       setInitialData(updatedData);
       setFormData(updatedData);
       setIsNew(false); // After first save, it's no longer new
+
+      const rebuildSuccess = await triggerRebuild();
+
+      if (rebuildSuccess) {
+        toast({
+          title: "Data Saved & Rebuilt",
+          description: `Changes saved and data rebuilt. Please refresh the site to see changes.`,
+        });
+      } else {
+         toast({
+          title: "Data Saved",
+          description: `${filePath} saved, but data rebuild failed.`,
+        });
+      }
+
     } catch (error: any) {
       toast({
         variant: "destructive",
