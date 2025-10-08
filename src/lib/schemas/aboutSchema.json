@@ -1,0 +1,47 @@
+
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "About Page Content",
+  "description": "Schema for the content of the About Us page.",
+  "type": "object",
+  "properties": {
+    "title": {
+      "type": "string",
+      "title": "পেইজের শিরোনাম"
+    },
+    "description": {
+      "type": "string",
+      "title": "পেইজের বিবরণ",
+      "widget": "textarea"
+    },
+    "sections": {
+      "type": "array",
+      "title": "সেকশনসমূহ",
+      "items": {
+        "type": "object",
+        "title": "সেকশন",
+        "properties": {
+          "title": {
+            "type": "string",
+            "title": "সেকশনের শিরোনাম"
+          },
+          "content": {
+            "type": "string",
+            "title": "সেকশনের কনটেন্ট",
+            "widget": "textarea"
+          }
+        }
+      }
+    },
+    "team": {
+      "type": "object",
+      "title": "টিম সেকশন",
+      "properties": {
+        "heading": {
+          "type": "string",
+          "title": "টিম সেকশনের শিরোনাম"
+        }
+      }
+    }
+  }
+}

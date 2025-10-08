@@ -1,0 +1,49 @@
+
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Contact Page Content",
+  "description": "Schema for the content of the Contact Us page.",
+  "type": "object",
+  "properties": {
+    "title": {
+      "type": "string",
+      "title": "পেইজের শিরোনাম"
+    },
+    "description": {
+      "type": "string",
+      "title": "পেইজের বিবরণ",
+      "widget": "textarea"
+    },
+    "contactPoints": {
+      "type": "array",
+      "title": "যোগাযোগের মাধ্যম",
+      "items": {
+        "type": "object",
+        "title": "যোগাযোগ পয়েন্ট",
+        "properties": {
+          "icon": {
+            "type": "string",
+            "title": "আইকন (lucide-react)",
+            "enum": ["Mail", "Phone", "MapPin"]
+          },
+          "title": {
+            "type": "string",
+            "title": "শিরোনাম"
+          },
+          "detail": {
+            "type": "string",
+            "title": "বিবরণ"
+          },
+          "link": {
+            "type": "string",
+            "title": "লিঙ্ক (e.g., mailto:, tel:)"
+          },
+          "linkText": {
+            "type": "string",
+            "title": "লিঙ্কের টেক্সট"
+          }
+        }
+      }
+    }
+  }
+}

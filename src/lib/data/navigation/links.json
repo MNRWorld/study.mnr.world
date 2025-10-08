@@ -1,3 +1,4 @@
+
 {
   "navItems": [
     { "id": "home", "label": "হোম", "icon": "Home", "href": "/" },
@@ -62,8 +63,8 @@
     ],
     "shortcuts": [
       { "href": "/", "label": "হোম", "icon": "Home" },
-      { "href": "/#about", "label": "আমাদের সম্পর্কে", "icon": "Info" },
-      { "href": "/#contact", "label": "যোগাযোগ", "icon": "Mail" }
+      { "href": "/about", "label": "আমাদের সম্পর্কে", "icon": "Info" },
+      { "href": "/contact", "label": "যোগাযোগ", "icon": "Mail" }
     ]
   }
 }

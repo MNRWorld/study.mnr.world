@@ -1,3 +1,4 @@
+
 "use client";
 
 import { useState, useEffect } from "react";
@@ -28,6 +29,8 @@ import {
 } from "@/components/ui/select";
 
 const generalDataFiles = [
+  { path: "about/content", label: "আমাদের সম্পর্কে" },
+  { path: "contact/content", label: "যোগাযোগ" },
   { path: "contributors/list", label: "অবদানকারী তালিকা" },
   { path: "courses/list", label: "কোর্সের তালিকা" },
   { path: "deadlines/list", label: "ডেডলাইন তালিকা" },
