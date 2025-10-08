@@ -100,7 +100,11 @@ export default function AdminPage() {
           ) : (
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
               {universities.map((uni) => (
-                <Link key={uni.id} href={`/admin/edit/${uni.id}`} passHref>
+                <Link
+                  key={uni.id}
+                  href={`/admin/edit/${uni.id}`}
+                  passHref
+                >
                   <Button
                     variant="outline"
                     className="w-full justify-start gap-2"
