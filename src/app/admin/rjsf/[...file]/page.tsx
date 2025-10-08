@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect } from "react";
 import { useParams, useRouter } from "next/navigation";
 import Form from "@rjsf/shadcn";
 import { IChangeEvent } from "@rjsf/core";
@@ -16,7 +16,6 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { University } from "@/lib/data/universities";
 
 export default function RjsfEditPage() {
   const params = useParams();
@@ -24,9 +23,8 @@ export default function RjsfEditPage() {
   const { toast } = useToast();
 
   const [schema, setSchema] = useState(null);
-  const [formData, setFormData] = useState<University | null>(null);
-  const [initialData, setInitialData] = useState<University | null>(null);
-  const [allUniversities, setAllUniversities] = useState<University[]>([]);
+  const [formData, setFormData] = useState<any | null>(null);
+  const [initialData, setInitialData] = useState<any | null>(null);
   const [loading, setLoading] = useState(true);
   const [saving, setSaving] = useState(false);
   const [filePath, setFilePath] = useState("");
@@ -51,15 +49,14 @@ export default function RjsfEditPage() {
 
     const pathParts = fileParam.split("/");
     const dataType = pathParts[0];
-    const universityId = pathParts[1];
+    const dataId = pathParts[1];
 
     let dataPath: string = "";
     let schemaPath: string = "";
 
     if (dataType === "universities") {
-      dataPath = `src/lib/data/universities/public-universities.json`;
+      dataPath = `src/lib/data/universities/${dataId}/info.json`;
       schemaPath = "src/lib/schemas/universityInfoSchema.json";
-      setFilePath(dataPath);
     } else {
       toast({
         variant: "destructive",
@@ -70,6 +67,8 @@ export default function RjsfEditPage() {
       return;
     }
 
+    setFilePath(dataPath);
+
     const fetchData = async () => {
       setLoading(true);
       try {
@@ -78,25 +77,46 @@ export default function RjsfEditPage() {
           fetch(`/api/admin/files/${schemaPath}`),
         ]);
 
-        if (!dataRes.ok) throw new Error(`Failed to fetch data: ${dataPath}`);
-        if (!schemaRes.ok)
-          throw new Error(`Failed to fetch schema: ${schemaPath}`);
+        if (!dataRes.ok) {
+          if (dataRes.status === 404) {
+            // If info.json doesn't exist, start with empty data
+            // You might want to pre-fill some fields like 'id' from the main university list
+            const uniListRes = await fetch(
+              `/api/admin/files/src/lib/data/universities/public-universities.json`,
+            );
+            const privateUniListRes = await fetch(
+              `/api/admin/files/src/lib/data/universities/private-universities.json`,
+            );
+            const uniListJson = await uniListRes.json();
+            const privateUniListJson = await privateUniListRes.json();
 
-        const dataJson = await dataRes.json();
-        const schemaJson = await schemaRes.json();
+            const allUnis = [
+              ...uniListJson.content,
+              ...privateUniListJson.content,
+            ];
+            const universityMeta = allUnis.find(
+              (uni: any) => uni.id === dataId,
+            );
 
-        const allData = dataJson.content;
-        const universityToEdit = allData.find(
-          (uni: University) => uni.id === universityId,
-        );
-
-        if (!universityToEdit) {
-          throw new Error(`University with ID '${universityId}' not found.`);
+            if (universityMeta) {
+              setFormData({ ...universityMeta });
+              setInitialData({ ...universityMeta });
+            } else {
+              setFormData({ id: dataId });
+              setInitialData({ id: dataId });
+            }
+          } else {
+            throw new Error(`Failed to fetch data: ${dataPath}`);
+          }
+        } else {
+          const dataJson = await dataRes.json();
+          setFormData(dataJson.content);
+          setInitialData(dataJson.content);
         }
 
-        setAllUniversities(allData);
-        setFormData(universityToEdit);
-        setInitialData(universityToEdit);
+        if (!schemaRes.ok)
+          throw new Error(`Failed to fetch schema: ${schemaPath}`);
+        const schemaJson = await schemaRes.json();
         setSchema(schemaJson.content);
       } catch (error: any) {
         toast({
@@ -113,19 +133,15 @@ export default function RjsfEditPage() {
   }, [fileParam, router, toast]);
 
   const handleSave = async (data: IChangeEvent) => {
+    if (!filePath) return;
     setSaving(true);
-    const updatedUniversityData = data.formData;
-    const universityId = updatedUniversityData.id;
-
-    const updatedAllUniversities = allUniversities.map((uni) =>
-      uni.id === universityId ? updatedUniversityData : uni,
-    );
+    const updatedData = data.formData;
 
     try {
       const res = await fetch(`/api/admin/files/${filePath}`, {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ content: updatedAllUniversities }),
+        body: JSON.stringify({ content: updatedData }),
       });
 
       const result = await res.json();
@@ -135,9 +151,8 @@ export default function RjsfEditPage() {
         title: "Data Saved",
         description: `Changes to ${filePath} have been saved.`,
       });
-      setInitialData(updatedUniversityData);
-      setFormData(updatedUniversityData);
-      setAllUniversities(updatedAllUniversities);
+      setInitialData(updatedData);
+      setFormData(updatedData);
     } catch (error: any) {
       toast({
         variant: "destructive",
@@ -149,8 +164,7 @@ export default function RjsfEditPage() {
     }
   };
 
-  const isChanged =
-    JSON.stringify(initialData) !== JSON.stringify(formData);
+  const isChanged = JSON.stringify(initialData) !== JSON.stringify(formData);
 
   if (loading) {
     return <div className="text-center p-8">Loading form and data...</div>;
@@ -184,7 +198,10 @@ export default function RjsfEditPage() {
       <Card>
         <CardHeader>
           <CardTitle>
-            Editing: <span className="text-primary">{formData.nameBn}</span>
+            Editing:{" "}
+            <span className="text-primary">
+              {formData.nameBn || "New University"}
+            </span>
           </CardTitle>
           <CardDescription>
             Use this form to update the JSON file content for{" "}
