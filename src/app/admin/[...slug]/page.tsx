@@ -255,7 +255,7 @@ export default function RjsfEditPage() {
           </CardTitle>
           <CardDescription className="text-xs sm:text-sm">
             এই ফর্মটি ব্যবহার করে{" "}
-            <span className="font-mono">{filePath}</span> ফাইলের JSON কনটেন্ট
+            <span className="font-mono break-all">{filePath}</span> ফাইলের JSON কনটেন্ট
             আপডেট করুন।
           </CardDescription>
         </CardHeader>

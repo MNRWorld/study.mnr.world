@@ -86,21 +86,21 @@ export default function AdminPage() {
             হতে হবে (যেমন: 'aust')।
           </CardDescription>
         </CardHeader>
-        <CardContent className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 items-end">
+        <CardContent className="flex flex-col sm:flex-row gap-4 items-end">
           <Input
             placeholder="নতুন বিশ্ববিদ্যালয় আইডি (যেমন: du)"
             value={newUniId}
             onChange={(e) => setNewUniId(e.target.value)}
-            className="md:col-span-1"
+            className="flex-grow"
           />
           <Input
             placeholder="নতুন বিশ্ববিদ্যালয়ের নাম (বাংলা)"
             value={newUniName}
             onChange={(e) => setNewUniName(e.target.value)}
-            className="md:col-span-1"
+            className="flex-grow"
           />
           <Select onValueChange={setNewUniType} defaultValue={newUniType}>
-            <SelectTrigger>
+            <SelectTrigger className="w-full sm:w-[180px]">
               <SelectValue placeholder="ধরন নির্বাচন করুন" />
             </SelectTrigger>
             <SelectContent>
@@ -108,7 +108,7 @@ export default function AdminPage() {
               <SelectItem value="private">প্রাইভেট</SelectItem>
             </SelectContent>
           </Select>
-          <Button onClick={handleCreateNew} className="w-full md:col-span-1">
+          <Button onClick={handleCreateNew} className="w-full sm:w-auto">
             <PlusCircle className="mr-2" /> তৈরি করুন
           </Button>
         </CardContent>
