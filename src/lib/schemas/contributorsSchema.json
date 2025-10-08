@@ -46,7 +46,6 @@
           }
         }
       }
-    },
-    "required": ["name", "role", "bio", "imageUrl", "social"]
+    }
   }
 }

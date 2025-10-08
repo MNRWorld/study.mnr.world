@@ -20,8 +20,7 @@
         "target": { "type": "string", "title": "টার্গেট (e.g., _blank)" },
         "rel": { "type": "string", "title": "Rel (e.g., noopener noreferrer)" },
         "colSpan": { "type": "number", "title": "কলাম স্প্যান" }
-      },
-      "required": ["href", "label"]
+      }
     },
     "linkTable": {
       "type": "array",

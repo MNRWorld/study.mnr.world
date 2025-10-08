@@ -62,7 +62,6 @@
           "link": { "type": ["string", "null"], "title": "লিঙ্ক", "format": "uri" }
         }
       }
-    },
-    "required": ["id", "universityNameAndUnit", "examDetails"]
+    }
   }
 }

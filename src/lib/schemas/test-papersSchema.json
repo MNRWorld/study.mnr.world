@@ -24,8 +24,7 @@
         "logo": { "type": "string", "title": "লোগো URL", "format": "uri" },
         "href": { "type": "string", "title": "লিঙ্ক" },
         "bgColor": { "type": "string", "title": "পটভূমির রঙ (Tailwind class)" }
-      },
-      "required": ["title", "logo", "href", "bgColor"]
+      }
     }
   }
 }

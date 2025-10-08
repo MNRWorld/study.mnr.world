@@ -25,12 +25,10 @@
                 "label": { "type": "string", "title": "লেবেল" },
                 "icon": { "type": "string", "title": "আইকন (lucide-react)" },
                 "href": { "type": "string", "title": "লিঙ্ক" }
-              },
-              "required": ["id", "label", "icon", "href"]
+              }
             }
           }
-        },
-        "required": ["id", "label", "icon", "href"]
+        }
       }
     },
     "footerLinks": {
@@ -58,8 +56,7 @@
         "href": { "type": "string", "title": "লিঙ্ক" },
         "label": { "type": "string", "title": "লেবেল" },
         "icon": { "type": "string", "title": "আইকন (lucide-react)" }
-      },
-      "required": ["href", "label", "icon"]
+      }
     }
   }
 }

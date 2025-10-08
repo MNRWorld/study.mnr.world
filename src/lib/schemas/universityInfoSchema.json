@@ -10,24 +10,21 @@
       "properties": {
         "label": { "type": "string" },
         "url": { "type": "string", "format": "uri" }
-      },
-      "required": ["label", "url"]
+      }
     },
     "feeItem": {
       "type": "object",
       "properties": {
         "unit": { "type": "string" },
         "amount": { "type": "string" }
-      },
-      "required": ["unit", "amount"]
+      }
     },
     "dateItem": {
       "type": "object",
       "properties": {
         "unit": { "type": "string" },
         "date": { "type": "string" }
-      },
-      "required": ["unit", "date"]
+      }
     },
     "unitRequirement": {
       "type": "object",
@@ -40,28 +37,24 @@
             "properties": {
               "name": { "type": "string" },
               "requirement": { "type": "string" }
-            },
-            "required": ["name", "requirement"]
+            }
           }
         }
-      },
-      "required": ["name", "departments"]
+      }
     },
     "generalInfoPoint": {
       "type": "object",
       "properties": {
         "label": { "type": "string" },
         "value": { "type": "string" }
-      },
-      "required": ["label", "value"]
+      }
     },
     "mapLocation": {
       "type": "object",
       "properties": {
         "name": { "type": "string" },
         "url": { "type": "string", "format": "uri" }
-      },
-      "required": ["name", "url"]
+      }
     },
     "mapCategory": {
       "type": "object",
@@ -71,16 +64,14 @@
           "type": "array",
           "items": { "$ref": "#/definitions/mapLocation" }
         }
-      },
-      "required": ["name", "locations"]
+      }
     },
     "questionBankLink": {
       "type": "object",
       "properties": {
         "text": { "type": "string" },
         "url": { "type": "string", "format": "uri" }
-      },
-      "required": ["text", "url"]
+      }
     },
     "questionBankItem": {
       "type": "object",
@@ -90,8 +81,7 @@
           "type": "array",
           "items": { "$ref": "#/definitions/questionBankLink" }
         }
-      },
-      "required": ["links"]
+      }
     },
     "questionBankCategory": {
       "type": "array",
@@ -103,8 +93,7 @@
             "type": "array",
             "items": { "$ref": "#/definitions/questionBankItem" }
           }
-        },
-        "required": ["title", "items"]
+        }
       }
     },
     "subject": {
@@ -117,8 +106,7 @@
         },
         "reviewLink": { "type": "string", "format": "uri" },
         "tooltip": { "type": "string" }
-      },
-      "required": ["short", "fullName", "seat", "reviewLink"]
+      }
     }
   },
   "properties": {
@@ -244,8 +232,7 @@
                     "properties": {
                       "text": { "type": "string" },
                       "url": { "type": "string", "format": "uri" }
-                    },
-                    "required": ["text", "url"]
+                    }
                   }
                 }
               }
@@ -277,8 +264,7 @@
             "target": { "type": "string" },
             "rel": { "type": "string" },
             "colSpan": { "type": "number" }
-          },
-          "required": ["href", "label"]
+          }
         }
       }
     },

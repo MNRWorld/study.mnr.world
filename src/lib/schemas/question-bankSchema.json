@@ -34,7 +34,6 @@
         "title": "পটভূমির রঙ (Tailwind class)",
         "description": "e.g., bg-blue-400"
       }
-    },
-    "required": ["title", "author", "description", "logo", "href", "bgColor"]
+    }
   }
 }

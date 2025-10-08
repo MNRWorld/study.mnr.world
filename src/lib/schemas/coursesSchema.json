@@ -38,8 +38,7 @@
             "value": { "type": "string", "title": "মান" },
             "label": { "type": "string", "title": "লেবেল" },
             "tooltip": { "type": "string", "title": "টুলটিপ (ঐচ্ছিক)" }
-          },
-          "required": ["value", "label"]
+          }
         }
       },
       "features": {
@@ -58,7 +57,6 @@
           "title": "কার জন্য"
         }
       }
-    },
-    "required": ["id", "title", "description", "icon", "slug", "features", "forWhom"]
+    }
   }
 }
