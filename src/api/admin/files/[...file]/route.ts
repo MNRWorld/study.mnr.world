@@ -42,10 +42,16 @@ export async function GET(
     // Parse the JSON content before sending
     return NextResponse.json({ content: JSON.parse(fileContent) });
   } catch (error) {
+    if ((error as NodeJS.ErrnoException).code === "ENOENT") {
+      return NextResponse.json(
+        { error: `File not found: ${filePath}` },
+        { status: 404 },
+      );
+    }
     console.error(`Error reading file ${filePath}:`, error);
     return NextResponse.json(
       { error: `File not found or could not be read: ${filePath}` },
-      { status: 404 },
+      { status: 500 },
     );
   }
 }
@@ -84,6 +90,8 @@ export async function PUT(
     
     // Format the JSON with an indent of 2 spaces for readability
     const formattedContent = JSON.stringify(content, null, 2);
+
+    await fs.mkdir(path.dirname(safePath), { recursive: true });
 
     await fs.writeFile(safePath, formattedContent, "utf-8");
     return NextResponse.json({ message: "File saved successfully." });
