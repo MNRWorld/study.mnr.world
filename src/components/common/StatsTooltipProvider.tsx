@@ -22,7 +22,7 @@ const StatsTooltipProvider: React.FC<StatsTooltipProviderProps> = ({
 }) => {
   return (
     <div className="flex justify-around items-center mb-6 text-sm max-w-md mx-auto">
-      <TooltipProvider>
+      <TooltipProvider delayDuration={0}>
         {stats.map((stat, index) => (
           <div key={index} className="text-center px-2">
             <div className="text-lg sm:text-xl md:text-2xl font-bold text-foreground flex items-center justify-center">
@@ -30,9 +30,9 @@ const StatsTooltipProvider: React.FC<StatsTooltipProviderProps> = ({
               {stat.tooltip && (
                 <Tooltip>
                   <TooltipTrigger asChild>
-                    <span className="ml-1.5 cursor-help">
+                    <div className="ml-1.5 cursor-help">
                       <Info className="text-muted-foreground h-3 w-3" />
-                    </span>
+                    </div>
                   </TooltipTrigger>
                   <TooltipContent>
                     <p dangerouslySetInnerHTML={{ __html: stat.tooltip }} />
