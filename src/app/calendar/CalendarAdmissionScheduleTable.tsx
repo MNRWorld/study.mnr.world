@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import { allData } from "@/lib/data/_generated";
 import {
   Table,
@@ -13,6 +13,8 @@ import {
 import { useCountdown } from "@/hooks/useCountdown";
 import { cn } from "@/lib/utils";
 import { Heart } from "lucide-react";
+import { useUser, useSupabase } from "@/lib/supabase/hooks";
+import { useToast } from "@/hooks/use-toast";
 
 const CountdownCell = ({ targetDate }: { targetDate: string | null }) => {
   const timeLeft = useCountdown(targetDate);
@@ -41,22 +43,86 @@ const CountdownCell = ({ targetDate }: { targetDate: string | null }) => {
 
 const CalendarAdmissionScheduleTable = () => {
   const [favorites, setFavorites] = useState<string[]>([]);
+  const { user } = useUser();
+  const supabase = useSupabase();
+  const { toast } = useToast();
 
-  useEffect(() => {
-    const storedFavorites = localStorage.getItem("admissionFavorites");
-    if (storedFavorites) {
-      setFavorites(JSON.parse(storedFavorites));
+  const fetchFavorites = useCallback(async () => {
+    if (!user || !supabase) return;
+
+    const { data, error } = await supabase
+      .from("user_favorite_exams")
+      .select("exam_id")
+      .eq("user_id", user.id);
+
+    if (error) {
+      console.error("Error fetching favorites:", error);
+    } else {
+      setFavorites(data.map((fav) => fav.exam_id));
     }
-  }, []);
+  }, [user, supabase]);
 
   useEffect(() => {
-    localStorage.setItem("admissionFavorites", JSON.stringify(favorites));
-  }, [favorites]);
+    if (user) {
+      fetchFavorites();
+    } else {
+      const storedFavorites = localStorage.getItem("admissionFavorites");
+      if (storedFavorites) {
+        setFavorites(JSON.parse(storedFavorites));
+      }
+    }
+  }, [user, fetchFavorites]);
 
-  const toggleFavorite = (id: string) => {
-    setFavorites((prev) =>
-      prev.includes(id) ? prev.filter((favId) => favId !== id) : [...prev, id],
-    );
+  useEffect(() => {
+    if (!user) {
+      localStorage.setItem("admissionFavorites", JSON.stringify(favorites));
+    }
+  }, [favorites, user]);
+
+  const toggleFavorite = async (id: string) => {
+    if (!user || !supabase) {
+      // Handle anonymous user with localStorage
+      const newFavorites = favorites.includes(id)
+        ? favorites.filter((favId) => favId !== id)
+        : [...favorites, id];
+      setFavorites(newFavorites);
+      return;
+    }
+
+    const isFavorite = favorites.includes(id);
+
+    if (isFavorite) {
+      // Remove from favorites
+      const { error } = await supabase
+        .from("user_favorite_exams")
+        .delete()
+        .match({ user_id: user.id, exam_id: id });
+
+      if (error) {
+        toast({
+          variant: "destructive",
+          title: "ত্রুটি",
+          description: "পছন্দের তালিকা থেকে সরাতে সমস্যা হয়েছে।",
+        });
+      } else {
+        setFavorites((prev) => prev.filter((favId) => favId !== id));
+      }
+    } else {
+      // Add to favorites
+      const { error } = await supabase
+        .from("user_favorite_exams")
+        .insert([{ user_id: user.id, exam_id: id }]);
+
+      if (error) {
+        toast({
+          variant: "destructive",
+          title: "ত্রুটি",
+          description: "পছন্দের তালিকায় যোগ করতে সমস্যা হয়েছে।",
+        });
+      } else {
+        setFavorites((prev) => [...prev, id]);
+      }
+    }
   };
 
   const admissionSchedule = allData.CalendarInfo.filter(
@@ -128,7 +194,7 @@ const CalendarAdmissionScheduleTable = () => {
               <TableCell className="text-center font-bold whitespace-nowrap align-top truncate">
                 {item.universityNameAndUnit}
               </TableCell>
-              <TableCell className="text-center whitespace-nowrap align-top">
+              <TableCell className="text-center whitespace-nowrap align-top truncate">
                 {item.examDetails.date}
               </TableCell>
               <CountdownCell targetDate={item.examDetails.ExamCountdownDate} />

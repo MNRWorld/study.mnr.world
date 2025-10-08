@@ -37,6 +37,31 @@ export type Database = {
           },
         ];
       };
+      user_favorite_exams: {
+        Row: {
+          user_id: string;
+          exam_id: string;
+          created_at: string;
+        };
+        Insert: {
+          user_id: string;
+          exam_id: string;
+          created_at?: string;
+        };
+        Update: {
+          user_id?: string;
+          exam_id?: string;
+          created_at?: string;
+        };
+        Relationships: [
+          {
+            foreignKeyName: "user_favorite_exams_user_id_fkey";
+            columns: ["user_id"];
+            referencedRelation: "users";
+            referencedColumns: ["id"];
+          },
+        ];
+      };
     };
     Views: {
       [_ in never]: never;
@@ -62,8 +87,20 @@ export type Tables<
     | { schema: keyof Database },
   TableName extends PublicTableNameOrOptions extends { schema: keyof Database }
     ? keyof (Database[PublicTableNameOrOptions["schema"]]["Tables"] &
-        Database[PublicTableNameOrOptions["schema"]]["Views"])
-    : never = never,
+        Database[PublicTableNameOrOptions["schema"]]["Views"])[TableName] extends {
+        Row: infer R;
+      }
+      ? R
+      : never
+    : PublicTableNameOrOptions extends keyof (Database["public"]["Tables"] &
+          Database["public"]["Views"])
+      ? (Database["public"]["Tables"] &
+          Database["public"]["Views"])[PublicTableNameOrOptions] extends {
+          Row: infer R;
+        }
+        ? R
+        : never
+      : never,
 > = PublicTableNameOrOptions extends { schema: keyof Database }
   ? (Database[PublicTableNameOrOptions["schema"]]["Tables"] &
       Database[PublicTableNameOrOptions["schema"]]["Views"])[TableName] extends {
