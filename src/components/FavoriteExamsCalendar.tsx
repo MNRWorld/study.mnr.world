@@ -1,4 +1,3 @@
-
 "use client";
 
 import React, { useState, useEffect, useCallback } from "react";
@@ -30,22 +29,6 @@ const FavoriteExamsCalendar = () => {
   const [favoriteIds, setFavoriteIds] = useState<string[]>([]);
   const [modifiers, setModifiers] = useState({});
   const [month, setMonth] = useState<Date>(new Date());
-  const [numberOfMonths, setNumberOfMonths] = useState(1);
-
-  useEffect(() => {
-    const handleResize = () => {
-      if (window.innerWidth >= 768) {
-        setNumberOfMonths(2);
-      } else {
-        setNumberOfMonths(1);
-      }
-    };
-
-    window.addEventListener("resize", handleResize);
-    handleResize(); // Initial check
-
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
 
   const fetchFavorites = useCallback(async () => {
     if (!user || !supabase) return;
@@ -158,7 +141,7 @@ const FavoriteExamsCalendar = () => {
         mode="single"
         month={month}
         onMonthChange={setMonth}
-        numberOfMonths={numberOfMonths}
+        numberOfMonths={1}
         modifiers={modifiers}
         modifiersClassNames={{
           highlighted: "bg-primary/20 rounded-md",
