@@ -7,12 +7,14 @@ export interface Deadline {
   universityId?: string;
 }
 
-export const admissionDeadlines: Deadline[] = allData.deadlinesList.map(
-  (d: any) => ({
-    ...d,
-    date: new Date(d.date),
-  }),
-);
+export const admissionDeadlines: Deadline[] = allData.CalendarInfo.filter(
+  (item) => item.examDetails.ExamCountdownDate,
+).map((item) => ({
+  id: item.id,
+  title: `🎓 ${item.universityNameAndUnit} পরীক্ষার কাউন্টডাউন`,
+  date: new Date(item.examDetails.ExamCountdownDate!),
+  universityId: item.id.split("-")[0],
+}));
 
 export function getDeadlinesByUniversity(
   universityId: string,
