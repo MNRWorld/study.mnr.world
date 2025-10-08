@@ -34,5 +34,5 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
-# generated files
+# generated data
 /src/lib/data/universities/_generated.ts
