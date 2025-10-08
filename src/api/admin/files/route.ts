@@ -4,13 +4,6 @@ import fs from "fs/promises";
 import path from "path";
 
 export async function GET() {
-  if (process.env.NODE_ENV !== "development") {
-    return NextResponse.json(
-      { error: "This API is only available in development mode." },
-      { status: 403 },
-    );
-  }
-
   try {
     return NextResponse.json({ files: allUniversities });
   } catch (error) {
@@ -22,13 +15,6 @@ export async function GET() {
 }
 
 export async function POST(request: Request) {
-  if (process.env.NODE_ENV !== "development") {
-    return NextResponse.json(
-      { error: "This API is only available in development mode." },
-      { status: 403 },
-    );
-  }
-
   try {
     const { university, type } = await request.json();
     if (!university || !type || !["public", "private"].includes(type)) {
@@ -58,13 +44,11 @@ export async function POST(request: Request) {
     );
 
     if (existingIndex > -1) {
-      // Update existing university
       universityList[existingIndex] = {
         ...universityList[existingIndex],
         ...university,
       };
     } else {
-      // Add new university
       universityList.push(university);
     }
 

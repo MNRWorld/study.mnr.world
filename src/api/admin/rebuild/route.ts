@@ -5,13 +5,6 @@ import util from "util";
 const execAsync = util.promisify(exec);
 
 export async function POST(request: Request) {
-  if (process.env.NODE_ENV !== "development") {
-    return NextResponse.json(
-      { error: "This API is only available in development mode." },
-      { status: 403 },
-    );
-  }
-
   try {
     const { stdout, stderr } = await execAsync("npm run prebuild");
 
