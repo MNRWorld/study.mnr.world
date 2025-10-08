@@ -1,3 +1,4 @@
+
 [
   {
     "nameBn": "ঢাকা বিশ্ববিদ্যালয়",
@@ -63,20 +64,20 @@
     "nameBn": "মেডিকেল গুচ্ছ",
     "nameEn": "Medical Guccho",
     "shortName": "Medical",
-    "id": "Medical",
+    "id": "medical",
     "category": ["মেডিকেল", "গুচ্ছ"],
     "description": "বাংলাদেশে সরকারি মেডিকেল কলেজ প্রায় ৩৭টি",
-    "link": "/Medical",
+    "link": "/medical",
     "logo": "https://raw.githubusercontent.com/MNRfrom2020/logo-and-icon-cdn/refs/heads/main/University/Medical.png"
   },
   {
     "nameBn": "ডেন্টাল গুচ্ছ",
     "nameEn": "Dental Guccho",
     "shortName": "Dental",
-    "id": "Dental",
+    "id": "dental",
     "category": ["মেডিকেল", "গুচ্ছ"],
     "description": "বাংলাদেশে সরকারি ডেন্টাল কলেজ ও ডেন্টাল ইউনিট প্রায় ৮টি",
-    "link": "/Dental",
+    "link": "/dental",
     "logo": "https://raw.githubusercontent.com/MNRfrom2020/logo-and-icon-cdn/refs/heads/main/University/Dental.png"
   },
   {
@@ -93,20 +94,20 @@
     "nameBn": "নার্সিং গুচ্ছ",
     "nameEn": "Nursing Guccho",
     "shortName": "Nursing",
-    "id": "Nursing",
+    "id": "nursing",
     "category": ["মেডিকেল", "গুচ্ছ"],
     "description": "বাংলাদেশ সরকারি নার্সিং ও মিডওয়াইফারি শিক্ষাপ্রতিষ্ঠানসমূহ প্রায় ২৭টি",
-    "link": "/Nursing",
+    "link": "/nursing",
     "logo": "https://raw.githubusercontent.com/MNRfrom2020/logo-and-icon-cdn/refs/heads/main/University/Nursing.png"
   },
   {
     "nameBn": "নিটোর",
     "nameEn": "NITOR",
     "shortName": "NITOR",
-    "id": "NITOR",
+    "id": "nitor",
     "category": ["মেডিকেল"],
     "description": "National Institute Of Traumatology And Orthopaedic Rehabilitation (NITOR)-কে পুরো বাংলাদেশের মানুষ বাংলাদেশ পঙ্গু হাসপাতাল নামে চিনে থাকে",
-    "link": "/NITOR",
+    "link": "/nitor",
     "logo": "https://raw.githubusercontent.com/MNRfrom2020/logo-and-icon-cdn/refs/heads/main/University/NITOR.png"
   },
   {
@@ -553,20 +554,20 @@
     "nameBn": "জাতীয় বিশ্ববিদ্যালয়",
     "nameEn": "National University",
     "shortName": "NU",
-    "id": "NU",
+    "id": "nu",
     "category": ["বিশেষ", "অধিভুক্ত", "গুচ্ছ"],
     "description": "জাতীয় বিশ্ববিদ্যালয় বাংলাদেশের একটি পাবলিক কলেজিয়েট বিশ্ববিদ্যালয় যেখানে অধিভুক্ত ২৬৪টি সরকারি কলেজ ও নিজ ক্যাম্পাসে অনার্স প্রদান কার্যক্রম রয়েছে",
-    "link": "/NU",
+    "link": "/nu",
     "logo": "https://raw.githubusercontent.com/MNRfrom2020/logo-and-icon-cdn/refs/heads/main/University/NU.png"
   },
   {
     "nameBn": "ঢাকা কেন্দ্রীয় বিশ্ববিদ্যালয় (কলেজ)",
     "nameEn": "Dhaka Central University",
     "shortName": "DCU",
-    "id": "DCU",
+    "id": "dcu",
     "category": ["অধিভুক্ত", "গুচ্ছ"],
     "description": "ঢাকা কেন্দ্রীয় বিশ্ববিদ্যালয় অধিভুক্ত ৭টি সরকারি কলেজ রয়েছে",
-    "link": "/DCU",
+    "link": "/dcu",
     "logo": "https://raw.githubusercontent.com/MNRfrom2020/logo-and-icon-cdn/refs/heads/main/University/DCU.png"
   },
   {
