@@ -119,8 +119,10 @@ export default function AdminPage() {
                     variant="outline"
                     className="w-full justify-start gap-2"
                   >
-                    <UniversityIcon className="h-4 w-4" />
-                    {uni.nameBn} ({uni.shortName})
+                    <UniversityIcon className="h-4 w-4 flex-shrink-0" />
+                    <span className="truncate">
+                      {uni.nameBn} ({uni.shortName})
+                    </span>
                   </Button>
                 </Link>
               ))}
