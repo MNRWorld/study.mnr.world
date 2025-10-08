@@ -47,7 +47,9 @@ function AuthButton({
             marginLeft: isHovered ? "0.5rem" : "0",
           }}
         >
-          <span className="whitespace-nowrap text-sm font-medium">{label}</span>
+          <span className="whitespace-nowrap text-sm font-medium truncate">
+            {label}
+          </span>
         </div>
       </div>
     </button>

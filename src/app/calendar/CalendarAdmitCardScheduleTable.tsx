@@ -36,11 +36,11 @@ const CalendarAdmitCardScheduleTable = () => {
           <TableBody>
             {admitCardSchedule.map((item, index) => (
               <TableRow key={index} className="even:bg-muted/50">
-                <TableCell className="text-center font-medium whitespace-pre-wrap align-top">
+                <TableCell className="text-center font-medium align-top truncate">
                   {item.universityNameAndUnit}
                 </TableCell>
                 <TableCell
-                  className="text-center whitespace-pre-wrap align-top"
+                  className="text-center align-top truncate"
                   dangerouslySetInnerHTML={{
                     __html: item.admitCardDetails.StartAndEndDate || "",
                   }}

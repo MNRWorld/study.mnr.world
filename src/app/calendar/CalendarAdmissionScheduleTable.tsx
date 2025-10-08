@@ -125,7 +125,7 @@ const CalendarAdmissionScheduleTable = () => {
                   onClick={() => toggleFavorite(item.id)}
                 />
               </TableCell>
-              <TableCell className="text-center font-bold whitespace-nowrap align-top">
+              <TableCell className="text-center font-bold whitespace-nowrap align-top truncate">
                 {item.universityNameAndUnit}
               </TableCell>
               <TableCell className="text-center whitespace-nowrap align-top">

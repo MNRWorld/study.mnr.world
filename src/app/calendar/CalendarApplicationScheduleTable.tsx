@@ -98,7 +98,7 @@ const CalendarApplicationScheduleTable = () => {
                   rowSpan={2}
                   className="text-center font-bold whitespace-pre-wrap align-middle border-b border-border/50"
                 >
-                  <div>{item.university}</div>
+                  <div className="truncate">{item.university}</div>
                   {item.detailsLink && (
                     <div className="mt-1">
                       <ExternalLink

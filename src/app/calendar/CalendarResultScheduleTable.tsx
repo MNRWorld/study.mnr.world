@@ -37,13 +37,13 @@ const CalendarResultScheduleTable = () => {
             {resultSchedule.map((item, index) => (
               <TableRow key={index} className="even:bg-muted/50">
                 <TableCell
-                  className="text-center font-medium whitespace-pre-wrap align-top"
+                  className="text-center font-medium align-top truncate"
                   dangerouslySetInnerHTML={{
                     __html: item.universityNameAndUnit,
                   }}
                 ></TableCell>
                 <TableCell
-                  className="text-center whitespace-pre-wrap align-top"
+                  className="text-center align-top truncate"
                   dangerouslySetInnerHTML={{
                     __html: item.resultDetails.date || "",
                   }}

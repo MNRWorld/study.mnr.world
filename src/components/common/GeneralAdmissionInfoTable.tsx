@@ -39,7 +39,7 @@ const GeneralAdmissionInfoTable = ({
                 বিশ্ববিদ্যালয়:
               </span>
               <div className="text-right">
-                <span className="font-medium">{info.university}</span>
+                <span className="font-medium truncate">{info.university}</span>
                 <div className="flex gap-2 mt-1 flex-wrap justify-end">
                   {info.circularLink && (
                     <Badge variant="outline" asChild>
