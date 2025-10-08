@@ -48,8 +48,8 @@ export async function GET(
   } catch (error) {
     if ((error as NodeJS.ErrnoException).code === "ENOENT") {
       return NextResponse.json(
-        { error: `File not found: ${filePath}` },
-        { status: 404 },
+        { content: {} },
+        { status: 200 },
       );
     }
     // Handle JSON parsing errors for malformed files
