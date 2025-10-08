@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { useParams, useRouter } from "next/navigation";
+import { useParams, useRouter, useSearchParams } from "next/navigation";
 import Form from "@rjsf/shadcn";
 import { IChangeEvent } from "@rjsf/core";
 import validator from "@rjsf/validator-ajv8";
@@ -20,6 +20,7 @@ import {
 export default function RjsfEditPage() {
   const params = useParams();
   const router = useRouter();
+  const searchParams = useSearchParams();
   const { toast } = useToast();
 
   const [schema, setSchema] = useState(null);
@@ -28,6 +29,7 @@ export default function RjsfEditPage() {
   const [loading, setLoading] = useState(true);
   const [saving, setSaving] = useState(false);
   const [filePath, setFilePath] = useState("");
+  const [isNew, setIsNew] = useState(false);
 
   const slug = Array.isArray(params.slug) ? params.slug.join("/") : "";
 
@@ -52,11 +54,10 @@ export default function RjsfEditPage() {
     const dataId = pathParts[1];
 
     let dataPath: string = "";
-    let schemaPath: string = "";
+    let schemaPath: string = "src/lib/schemas/universityInfoSchema.json";
 
     if (dataType === "universities") {
       dataPath = `src/lib/data/universities/${dataId}/info.json`;
-      schemaPath = "src/lib/schemas/universityInfoSchema.json";
     } else {
       toast({
         variant: "destructive",
@@ -77,42 +78,40 @@ export default function RjsfEditPage() {
           fetch(`/api/admin/files/${schemaPath}`),
         ]);
 
-        if (!dataRes.ok) {
-          if (dataRes.status === 404) {
-            const allUnisRes = await fetch(
-              `/api/admin/files/src/lib/data/universities/public-universities.json`,
-            );
-            const allUnisPrivateRes = await fetch(
-              `/api/admin/files/src/lib/data/universities/private-universities.json`,
-            );
-            const allUnis = await allUnisRes.json();
-            const allUnisPrivate = await allUnisPrivateRes.json();
-
-            const universityMeta = [
-              ...allUnis.content,
-              ...allUnisPrivate.content,
-            ].find((uni: any) => uni.id === dataId);
-
-            if (universityMeta) {
-              setFormData({ ...universityMeta });
-              setInitialData({ ...universityMeta });
-            } else {
-              setFormData({ id: dataId });
-              setInitialData({ id: dataId });
-            }
-          } else {
-            throw new Error(`Failed to fetch data: ${dataRes.statusText}`);
-          }
-        } else {
+        if (dataRes.status === 404) {
+          setIsNew(true);
+          const name = searchParams.get('name') || dataId;
+          const category = searchParams.get('category') || 'public';
+          const newUniData = {
+            id: dataId,
+            nameBn: name,
+            nameEn: "",
+            shortName: dataId.toUpperCase(),
+            category: [category],
+            description: "",
+            link: `/${dataId}`,
+            logo: "",
+            admissionInfo: {},
+            historyAndMap: {},
+            links: [],
+            questionBanks: {},
+            subjects: {},
+          };
+          setFormData(newUniData);
+          setInitialData(newUniData);
+        } else if (dataRes.ok) {
+          setIsNew(false);
           const dataJson = await dataRes.json();
           setFormData(dataJson.content);
           setInitialData(dataJson.content);
+        } else {
+          throw new Error(`Failed to fetch data: ${dataRes.statusText}`);
         }
 
-        if (!schemaRes.ok)
-          throw new Error(`Failed to fetch schema: ${schemaRes.statusText}`);
+        if (!schemaRes.ok) throw new Error(`Failed to fetch schema: ${schemaRes.statusText}`);
         const schemaJson = await schemaRes.json();
         setSchema(schemaJson.content);
+
       } catch (error: any) {
         toast({
           variant: "destructive",
@@ -125,7 +124,7 @@ export default function RjsfEditPage() {
     };
 
     fetchData();
-  }, [slug, router, toast]);
+  }, [slug, router, toast, searchParams]);
 
   const handleSave = async (data: IChangeEvent) => {
     if (!filePath) return;
@@ -133,6 +132,31 @@ export default function RjsfEditPage() {
     const updatedData = data.formData;
 
     try {
+      if (isNew) {
+        const category = updatedData.category.includes('প্রাইভেট') ? 'private' : 'public';
+        const listUpdateRes = await fetch(`/api/admin/files/`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ 
+            university: {
+              nameBn: updatedData.nameBn,
+              nameEn: updatedData.nameEn,
+              shortName: updatedData.shortName,
+              id: updatedData.id,
+              category: updatedData.category,
+              description: updatedData.description,
+              link: updatedData.link,
+              logo: updatedData.logo,
+            },
+            type: category
+          }),
+        });
+        if (!listUpdateRes.ok) {
+           const errorResult = await listUpdateRes.json();
+           throw new Error(errorResult.error || 'Failed to update university list');
+        }
+      }
+
       const res = await fetch(`/api/admin/files/${filePath}`, {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
@@ -144,10 +168,11 @@ export default function RjsfEditPage() {
 
       toast({
         title: "Data Saved",
-        description: `Changes to ${filePath} have been saved.`,
+        description: `${isNew ? 'New university created and' : 'Changes to'} ${filePath} have been saved.`,
       });
       setInitialData(updatedData);
       setFormData(updatedData);
+      setIsNew(false); // After first save, it's no longer new
     } catch (error: any) {
       toast({
         variant: "destructive",

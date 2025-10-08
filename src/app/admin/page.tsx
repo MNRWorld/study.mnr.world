@@ -2,15 +2,32 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { useRouter } from "next/navigation";
+import {
+  Card,
+  CardContent,
+  CardHeader,
+  CardTitle,
+  CardDescription,
+} from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { useToast } from "@/hooks/use-toast";
-import { FolderKanban, LogIn, University as UniversityIcon } from "lucide-react";
+import {
+  FolderKanban,
+  LogIn,
+  University as UniversityIcon,
+  PlusCircle,
+} from "lucide-react";
 import { allUniversities, University } from "@/lib/data/universities";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 
-// WARNING: This is a simple password for local development use only.
-// Do not expose this to the public.
 const LOCAL_PASSWORD = "1234";
 
 export default function AdminPage() {
@@ -19,6 +36,10 @@ export default function AdminPage() {
   const { toast } = useToast();
   const [universities, setUniversities] = useState<University[]>([]);
   const [loading, setLoading] = useState(true);
+  const [newUniId, setNewUniId] = useState("");
+  const [newUniName, setNewUniName] = useState("");
+  const [newUniType, setNewUniType] = useState("public");
+  const router = useRouter();
 
   useEffect(() => {
     if (sessionStorage.getItem("isAdminAuthenticated") === "true") {
@@ -29,7 +50,6 @@ export default function AdminPage() {
   useEffect(() => {
     if (isAuthenticated) {
       setLoading(true);
-      // Directly use the imported university list
       setUniversities(allUniversities);
       setLoading(false);
     }
@@ -50,6 +70,21 @@ export default function AdminPage() {
         description: "Incorrect password.",
       });
     }
+  };
+
+  const handleCreateNew = () => {
+    if (!newUniId.trim() || !newUniName.trim()) {
+      toast({
+        variant: "destructive",
+        title: "Invalid Input",
+        description: "Please provide a valid ID and Name for the new university.",
+      });
+      return;
+    }
+    const category = newUniType === 'public' ? 'সাধারণ' : 'প্রাইভেট';
+    router.push(
+      `/admin/universities/${newUniId.toLowerCase().trim()}?name=${encodeURIComponent(newUniName)}&category=${encodeURIComponent(category)}`,
+    );
   };
 
   if (!isAuthenticated) {
@@ -90,6 +125,42 @@ export default function AdminPage() {
       <h1 className="text-3xl font-bold mb-6 text-center gradient-text">
         University Data Editor
       </h1>
+
+      <Card className="mb-8">
+        <CardHeader>
+          <CardTitle>Create New University</CardTitle>
+          <CardDescription>
+            Add a new university to the system. The ID should be short and unique (e.g., 'aust').
+          </CardDescription>
+        </CardHeader>
+        <CardContent className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 items-end">
+          <Input
+            placeholder="New University ID (e.g. du)"
+            value={newUniId}
+            onChange={(e) => setNewUniId(e.target.value)}
+            className="md:col-span-1"
+          />
+          <Input
+            placeholder="New University Name (Bangla)"
+            value={newUniName}
+            onChange={(e) => setNewUniName(e.target.value)}
+            className="md:col-span-1"
+          />
+           <Select onValueChange={setNewUniType} defaultValue={newUniType}>
+            <SelectTrigger>
+              <SelectValue placeholder="Select type" />
+            </SelectTrigger>
+            <SelectContent>
+              <SelectItem value="public">Public</SelectItem>
+              <SelectItem value="private">Private</SelectItem>
+            </SelectContent>
+          </Select>
+          <Button onClick={handleCreateNew} className="w-full md:col-span-1">
+            <PlusCircle className="mr-2" /> Create
+          </Button>
+        </CardContent>
+      </Card>
+
       <Card>
         <CardHeader>
           <CardTitle>Select a University to Edit</CardTitle>
