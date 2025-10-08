@@ -120,34 +120,14 @@ function RegisteredUserProfile() {
 }
 
 function AnonymousUserProfile() {
-  const { toast } = useToast();
-  const [name, setName] = useState("");
   const [displayName, setDisplayName] = useState("অতিথি");
 
   useEffect(() => {
     const localName = localStorage.getItem("anonymousDisplayName");
     if (localName) {
-      setName(localName);
       setDisplayName(localName);
     }
   }, []);
-
-  const handleNameUpdate = () => {
-    if (!name.trim()) {
-      toast({
-        variant: "destructive",
-        title: "নাম লেখা হয়নি",
-        description: "অনুগ্রহ করে একটি সঠিক নাম লিখুন।",
-      });
-      return;
-    }
-    localStorage.setItem("anonymousDisplayName", name);
-    setDisplayName(name);
-    toast({
-      title: "নাম পরিবর্তিত হয়েছে",
-      description: `আপনার নতুন নাম "${name}" সফলভাবে সেভ হয়েছে।`,
-    });
-  };
 
   return (
     <>
@@ -166,30 +146,6 @@ function AnonymousUserProfile() {
             আপনি একজন অতিথি হিসেবে লগইন করেছেন।
           </CardDescription>
         </CardHeader>
-      </Card>
-
-      <Card className="shadow-lg">
-        <CardHeader>
-          <CardTitle>প্রোফাইল তথ্য</CardTitle>
-          <CardDescription>আপনার অতিথির নাম পরিবর্তন করুন</CardDescription>
-        </CardHeader>
-        <CardContent className="space-y-4">
-          <div className="space-y-2">
-            <Label htmlFor="name">নাম</Label>
-            <Input
-              id="name"
-              value={name}
-              onChange={(e) => setName(e.target.value)}
-              placeholder="আপনার নতুন নাম দিন"
-            />
-          </div>
-        </CardContent>
-        <CardFooter>
-          <Button onClick={handleNameUpdate} className="w-full">
-            <Save className="mr-2" />
-            পরিবর্তন সেভ করুন
-          </Button>
-        </CardFooter>
       </Card>
     </>
   );
