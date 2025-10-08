@@ -102,7 +102,7 @@ export default function AdminPage() {
               {universities.map((uni) => (
                 <Link
                   key={uni.id}
-                  href={`/admin/edit/${uni.id}`}
+                  href={`/admin/rjsf/universities/${uni.id}`}
                   passHref
                 >
                   <Button
