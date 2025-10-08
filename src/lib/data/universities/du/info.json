@@ -1,4 +1,3 @@
-
 {
   "admissionInfo": {
     "title": "ভর্তি তথ্য (HSC-24)",
@@ -7,8 +6,14 @@
       "startDate": "০৪ নভেম্বর, ২০২৪ (দুপুর ১২টা থেকে)",
       "endDate": "২৫ নভেম্বর, ২০২৪ (রাত ১১.৫৯টা পর্যন্ত)",
       "fees": [
-        { "unit": "ক, খ, গ, চ ইউনিট", "amount": "১০৫০৳" },
-        { "unit": "আইবিএ ইউনিট", "amount": "১৫০০৳" }
+        {
+          "unit": "ক, খ, গ, চ ইউনিট",
+          "amount": "১০৫০৳"
+        },
+        {
+          "unit": "আইবিএ ইউনিট",
+          "amount": "১৫০০৳"
+        }
       ],
       "helpfulLinks": [
         {
@@ -102,11 +107,26 @@
     "examDate": {
       "title": "পরীক্ষার সময়কাল",
       "dates": [
-        { "unit": "ক", "date": "১৫ ফেব্রুয়ারী" },
-        { "unit": "খ", "date": "২৫ জানুয়ারী" },
-        { "unit": "গ", "date": "০৮ ফেব্রুয়ারী" },
-        { "unit": "চ", "date": "০৪ জানুয়ারী" },
-        { "unit": "IBA", "date": "০৩ জানুয়ারী" }
+        {
+          "unit": "ক",
+          "date": "১৫ ফেব্রুয়ারী"
+        },
+        {
+          "unit": "খ",
+          "date": "২৫ জানুয়ারী"
+        },
+        {
+          "unit": "গ",
+          "date": "০৮ ফেব্রুয়ারী"
+        },
+        {
+          "unit": "চ",
+          "date": "০৪ জানুয়ারী"
+        },
+        {
+          "unit": "IBA",
+          "date": "০৩ জানুয়ারী"
+        }
       ],
       "note": {
         "text": "অ্যাডমিশন ক্যালেন্ডার",
@@ -122,13 +142,22 @@
     "generalInfo": {
       "title": "মানবন্টন ও অন্যান্য তথ্য",
       "points": [
-        { "label": "সিলেবাস", "value": "সংক্ষিপ্ত" },
-        { "label": "সেকেন্ড টাইম", "value": "নেই" },
+        {
+          "label": "সিলেবাস",
+          "value": "সংক্ষিপ্ত"
+        },
+        {
+          "label": "সেকেন্ড টাইম",
+          "value": "নেই"
+        },
         {
           "label": "নেগেটিভ মার্কিং",
           "value": "প্রতি ভুলের জন্য ০.২৫ নম্বর কাটা যাবে"
         },
-        { "label": "ক্যালকুলেটর", "value": "ব্যবহার করা যাবে না" }
+        {
+          "label": "ক্যালকুলেটর",
+          "value": "ব্যবহার করা যাবে না"
+        }
       ]
     },
     "result": {
@@ -181,7 +210,10 @@
   },
   "links": [
     [
-      { "href": "#Circular", "label": "সার্কুলার" },
+      {
+        "href": "#Circular",
+        "label": "সার্কুলার"
+      },
       {
         "href": "/question-bank?tab=du",
         "label": "প্রশ্নব্যাংক"
@@ -623,24 +655,78 @@
           {
             "title": "সকল সালের প্রশ্ন একত্রে",
             "links": [
-              { "text": "Question of 2006-07", "url": "#" },
-              { "text": "Question of 2007-08", "url": "#" },
-              { "text": "Question of 2008-09", "url": "#" },
-              { "text": "Question of 2009-10", "url": "#" },
-              { "text": "Question of 2010-11", "url": "#" },
-              { "text": "Question of 2011-12", "url": "#" },
-              { "text": "Question of 2012-13", "url": "#" },
-              { "text": "Question of 2013-14", "url": "#" },
-              { "text": "Question of 2014-15", "url": "#" },
-              { "text": "Question of 2015-16", "url": "#" },
-              { "text": "Question of 2016-17", "url": "#" },
-              { "text": "Question of 2017-18", "url": "#" },
-              { "text": "Question of 2018-19", "url": "#" },
-              { "text": "Question of 2019-20", "url": "#" },
-              { "text": "Question of 2020-21", "url": "#" },
-              { "text": "Question of 2021-22", "url": "#" },
-              { "text": "Question of 2022-23", "url": "#" },
-              { "text": "Question of 2023-24", "url": "#" },
+              {
+                "text": "Question of 2006-07",
+                "url": "#"
+              },
+              {
+                "text": "Question of 2007-08",
+                "url": "#"
+              },
+              {
+                "text": "Question of 2008-09",
+                "url": "#"
+              },
+              {
+                "text": "Question of 2009-10",
+                "url": "#"
+              },
+              {
+                "text": "Question of 2010-11",
+                "url": "#"
+              },
+              {
+                "text": "Question of 2011-12",
+                "url": "#"
+              },
+              {
+                "text": "Question of 2012-13",
+                "url": "#"
+              },
+              {
+                "text": "Question of 2013-14",
+                "url": "#"
+              },
+              {
+                "text": "Question of 2014-15",
+                "url": "#"
+              },
+              {
+                "text": "Question of 2015-16",
+                "url": "#"
+              },
+              {
+                "text": "Question of 2016-17",
+                "url": "#"
+              },
+              {
+                "text": "Question of 2017-18",
+                "url": "#"
+              },
+              {
+                "text": "Question of 2018-19",
+                "url": "#"
+              },
+              {
+                "text": "Question of 2019-20",
+                "url": "#"
+              },
+              {
+                "text": "Question of 2020-21",
+                "url": "#"
+              },
+              {
+                "text": "Question of 2021-22",
+                "url": "#"
+              },
+              {
+                "text": "Question of 2022-23",
+                "url": "#"
+              },
+              {
+                "text": "Question of 2023-24",
+                "url": "#"
+              },
               {
                 "text": "Question of 2024-25",
                 "url": "https://t.me/PDFHour/10359"
@@ -1336,5 +1422,3 @@
     ]
   }
 }
-
-  

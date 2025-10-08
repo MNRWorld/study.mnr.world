@@ -52,11 +52,13 @@ const SeatCell: React.FC<SeatCellProps> = ({ seat, tooltip }) => {
 interface SubjectTableProps {
   subjects: Subject[];
   showShortColumn?: boolean;
+  showReviewColumn?: boolean;
 }
 
 const SubjectTable: React.FC<SubjectTableProps> = ({
   subjects,
   showShortColumn = true,
+  showReviewColumn = true,
 }) => {
   const [searchTerm, setSearchTerm] = useState("");
 
@@ -85,7 +87,9 @@ const SubjectTable: React.FC<SubjectTableProps> = ({
             )}
             <TableHead className="text-center w-[45%]">Full Form</TableHead>
             <TableHead className="text-center w-[15%]">Seat</TableHead>
-            <TableHead className="text-center w-[15%]">Review</TableHead>
+            {showReviewColumn && (
+              <TableHead className="text-center w-[15%]">Review</TableHead>
+            )}
           </TableRow>
         </TableHeader>
         <TableBody>
@@ -102,9 +106,11 @@ const SubjectTable: React.FC<SubjectTableProps> = ({
               <TableCell className="whitespace-pre-wrap break-words">
                 <SeatCell seat={subject.seat} tooltip={subject.tooltip} />
               </TableCell>
-              <TableCell className="whitespace-pre-wrap break-words">
-                <ExternalLink href={subject.reviewLink} text="[লিংক]" />
-              </TableCell>
+              {showReviewColumn && (
+                <TableCell className="whitespace-pre-wrap break-words">
+                  <ExternalLink href={subject.reviewLink} text="[লিংক]" />
+                </TableCell>
+              )}
             </TableRow>
           ))}
         </TableBody>
@@ -154,7 +160,11 @@ const DhakaSeatInfo = () => {
           <SubjectTable subjects={subjects.unitC} showShortColumn={false} />
         </TabsContent>
         <TabsContent value="cha-unit" className="mt-4">
-          <SubjectTable subjects={subjects.unitCha} showShortColumn={false} />
+          <SubjectTable
+            subjects={subjects.unitCha}
+            showShortColumn={false}
+            showReviewColumn={false}
+          />
         </TabsContent>
         <TabsContent value="iba-unit" className="mt-4">
           <SubjectTable subjects={subjects.unitIBA} showShortColumn={true} />
