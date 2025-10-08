@@ -1,66 +1,323 @@
+
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "title": "University",
-  "description": "Schema for an individual university object in the public-universities.json file.",
+  "title": "University Information",
+  "description": "Comprehensive schema for a university's info.json file.",
   "type": "object",
-  "properties": {
-    "nameBn": {
-      "type": "string",
-      "title": "নাম (বাংলা)"
-    },
-    "nameEn": {
-      "type": "string",
-      "title": "Name (English)"
-    },
-    "shortName": {
-      "type": "string",
-      "title": "Short Name"
-    },
-    "id": {
-      "type": "string",
-      "title": "Unique ID (e.g., 'du')",
-      "readOnly": true
-    },
-    "category": {
-      "type": "array",
-      "title": "Categories",
-      "items": {
-        "type": "string",
-        "enum": [
-          "সাধারণ",
-          "গুচ্ছ",
-          "কৃষি",
-          "প্রকৌশল",
-          "বিজ্ঞান ও প্রযুক্তি",
-          "মেডিকেল",
-          "বিশেষ",
-          "অধিভুক্ত",
-          "প্রাইভেট"
-        ]
-      },
-      "uniqueItems": true
-    },
-    "description": {
-      "type": "string",
-      "title": "Description"
-    },
+  "definitions": {
     "link": {
-      "type": "string",
-      "title": "Page Link (e.g., /du)"
+      "type": "object",
+      "properties": {
+        "label": { "type": "string" },
+        "url": { "type": "string", "format": "uri" }
+      },
+      "required": ["label", "url"]
     },
-    "logo": {
-      "type": "string",
-      "title": "Logo URL"
+    "feeItem": {
+      "type": "object",
+      "properties": {
+        "unit": { "type": "string" },
+        "amount": { "type": "string" }
+      },
+      "required": ["unit", "amount"]
+    },
+    "dateItem": {
+      "type": "object",
+      "properties": {
+        "unit": { "type": "string" },
+        "date": { "type": "string" }
+      },
+      "required": ["unit", "date"]
+    },
+    "unitRequirement": {
+      "type": "object",
+      "properties": {
+        "name": { "type": "string" },
+        "departments": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "name": { "type": "string" },
+              "requirement": { "type": "string" }
+            },
+            "required": ["name", "requirement"]
+          }
+        }
+      },
+      "required": ["name", "departments"]
+    },
+    "generalInfoPoint": {
+      "type": "object",
+      "properties": {
+        "label": { "type": "string" },
+        "value": { "type": "string" }
+      },
+      "required": ["label", "value"]
+    },
+    "mapLocation": {
+      "type": "object",
+      "properties": {
+        "name": { "type": "string" },
+        "url": { "type": "string", "format": "uri" }
+      },
+      "required": ["name", "url"]
+    },
+    "mapCategory": {
+      "type": "object",
+      "properties": {
+        "name": { "type": "string" },
+        "locations": {
+          "type": "array",
+          "items": { "$ref": "#/definitions/mapLocation" }
+        }
+      },
+      "required": ["name", "locations"]
+    },
+    "questionBankLink": {
+      "type": "object",
+      "properties": {
+        "text": { "type": "string" },
+        "url": { "type": "string", "format": "uri" }
+      },
+      "required": ["text", "url"]
+    },
+    "questionBankItem": {
+      "type": "object",
+      "properties": {
+        "title": { "type": "string" },
+        "links": {
+          "type": "array",
+          "items": { "$ref": "#/definitions/questionBankLink" }
+        }
+      },
+      "required": ["links"]
+    },
+    "questionBankCategory": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "title": { "type": "string" },
+          "items": {
+            "type": "array",
+            "items": { "$ref": "#/definitions/questionBankItem" }
+          }
+        },
+        "required": ["title", "items"]
+      }
+    },
+    "subject": {
+      "type": "object",
+      "properties": {
+        "short": { "type": "string" },
+        "fullName": { "type": "string" },
+        "seat": {
+          "oneOf": [{ "type": "number" }, { "type": "string" }]
+        },
+        "reviewLink": { "type": "string", "format": "uri" },
+        "tooltip": { "type": "string" }
+      },
+      "required": ["short", "fullName", "seat", "reviewLink"]
     }
   },
-  "required": [
-    "nameBn",
-    "nameEn",
-    "shortName",
-    "id",
-    "category",
-    "description",
-    "link",
-    "logo"
-  ]
+  "properties": {
+    "admissionInfo": {
+      "title": "Admission Information",
+      "type": "object",
+      "properties": {
+        "title": { "type": "string" },
+        "apply": {
+          "type": "object",
+          "properties": {
+            "title": { "type": "string" },
+            "startDate": { "type": "string" },
+            "endDate": { "type": "string" },
+            "fees": {
+              "type": "array",
+              "items": { "$ref": "#/definitions/feeItem" }
+            },
+            "helpfulLinks": {
+              "type": "array",
+              "items": { "$ref": "#/definitions/link" }
+            },
+            "link": { "type": "string", "format": "uri" },
+            "qualificationTitle": { "type": "string" },
+            "sscBatch": { "type": "string" },
+            "hscBatch": { "type": "string" },
+            "secondTime": { "type": "string" }
+          }
+        },
+        "unitRequirements": {
+          "type": "object",
+          "properties": {
+            "title": { "type": "string" },
+            "units": {
+              "type": "array",
+              "items": { "$ref": "#/definitions/unitRequirement" }
+            }
+          }
+        },
+        "improvementPolicy": {
+          "type": "object",
+          "properties": {
+            "title": { "type": "string" },
+            "details": { "type": "string" }
+          }
+        },
+        "admitCard": {
+          "type": "object",
+          "properties": {
+            "title": { "type": "string" },
+            "startDate": { "type": "string" },
+            "endDate": { "type": "string" },
+            "link": { "type": "string", "format": "uri" },
+            "note": { "type": "string" }
+          }
+        },
+        "examDate": {
+          "type": "object",
+          "properties": {
+            "title": { "type": "string" },
+            "dates": {
+              "type": "array",
+              "items": { "$ref": "#/definitions/dateItem" }
+            },
+            "note": {
+              "type": "object",
+              "properties": {
+                "text": { "type": "string" },
+                "link": { "type": "string", "format": "uri" }
+              }
+            }
+          }
+        },
+        "examCenter": {
+          "type": "object",
+          "properties": {
+            "title": { "type": "string" },
+            "location": { "type": "string" },
+            "locationLink": { "type": "string", "format": "uri" },
+            "note": { "type": "string" }
+          }
+        },
+        "generalInfo": {
+          "type": "object",
+          "properties": {
+            "title": { "type": "string" },
+            "points": {
+              "type": "array",
+              "items": { "$ref": "#/definitions/generalInfoPoint" }
+            }
+          }
+        },
+        "result": {
+          "type": "object",
+          "properties": {
+            "title": { "type": "string" },
+            "date": { "type": "string" },
+            "link": { "type": "string", "format": "uri" }
+          }
+        }
+      }
+    },
+    "historyAndMap": {
+      "title": "History and Map",
+      "type": "object",
+      "properties": {
+        "history": {
+          "type": "object",
+          "properties": {
+            "title": { "type": "string" },
+            "paragraphs": {
+              "type": "array",
+              "items": { "type": "string" }
+            },
+            "source": {
+              "type": "object",
+              "properties": {
+                "label": { "type": "string" },
+                "links": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "text": { "type": "string" },
+                      "url": { "type": "string", "format": "uri" }
+                    },
+                    "required": ["text", "url"]
+                  }
+                }
+              }
+            }
+          }
+        },
+        "mapLocations": {
+          "type": "object",
+          "properties": {
+            "title": { "type": "string" },
+            "categories": {
+              "type": "array",
+              "items": { "$ref": "#/definitions/mapCategory" }
+            }
+          }
+        }
+      }
+    },
+    "links": {
+      "title": "Important Links",
+      "type": "array",
+      "items": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "href": { "type": "string" },
+            "label": { "type": "string" },
+            "target": { "type": "string" },
+            "rel": { "type": "string" },
+            "colSpan": { "type": "number" }
+          },
+          "required": ["href", "label"]
+        }
+      }
+    },
+    "questionBanks": {
+      "title": "Question Banks",
+      "type": "object",
+      "properties": {
+        "duUnitA": { "$ref": "#/definitions/questionBankCategory" },
+        "duUnitB": { "$ref": "#/definitions/questionBankCategory" },
+        "duUnitC": { "$ref": "#/definitions/questionBankCategory" },
+        "duUnitCha": { "$ref": "#/definitions/questionBankCategory" },
+        "duIBA": { "$ref": "#/definitions/questionBankCategory" }
+      }
+    },
+    "subjects": {
+      "title": "Subjects and Seats",
+      "type": "object",
+      "properties": {
+        "unitA": {
+          "type": "array",
+          "items": { "$ref": "#/definitions/subject" }
+        },
+        "unitB": {
+          "type": "array",
+          "items": { "$ref": "#/definitions/subject" }
+        },
+        "unitC": {
+          "type": "array",
+          "items": { "$ref": "#/definitions/subject" }
+        },
+        "unitCha": {
+          "type": "array",
+          "items": { "$ref": "#/definitions/subject" }
+        },
+        "unitIBA": {
+          "type": "array",
+          "items": { "$ref": "#/definitions/subject" }
+        }
+      }
+    }
+  }
 }
