@@ -29,7 +29,7 @@ export default function RjsfEditPage() {
   const [saving, setSaving] = useState(false);
   const [filePath, setFilePath] = useState("");
 
-  const fileParam = Array.isArray(params.file) ? params.file.join("/") : "";
+  const slug = Array.isArray(params.slug) ? params.slug.join("/") : "";
 
   useEffect(() => {
     if (sessionStorage.getItem("isAdminAuthenticated") !== "true") {
@@ -37,7 +37,7 @@ export default function RjsfEditPage() {
       return;
     }
 
-    if (!fileParam) {
+    if (!slug) {
       setLoading(false);
       toast({
         variant: "destructive",
@@ -47,7 +47,7 @@ export default function RjsfEditPage() {
       return;
     }
 
-    const pathParts = fileParam.split("/");
+    const pathParts = slug.split("/");
     const dataType = pathParts[0];
     const dataId = pathParts[1];
 
@@ -79,24 +79,19 @@ export default function RjsfEditPage() {
 
         if (!dataRes.ok) {
           if (dataRes.status === 404) {
-            // If info.json doesn't exist, start with empty data
-            // You might want to pre-fill some fields like 'id' from the main university list
-            const uniListRes = await fetch(
+            const allUnisRes = await fetch(
               `/api/admin/files/src/lib/data/universities/public-universities.json`,
             );
-            const privateUniListRes = await fetch(
+            const allUnisPrivateRes = await fetch(
               `/api/admin/files/src/lib/data/universities/private-universities.json`,
             );
-            const uniListJson = await uniListRes.json();
-            const privateUniListJson = await privateUniListRes.json();
+            const allUnis = await allUnisRes.json();
+            const allUnisPrivate = await allUnisPrivateRes.json();
 
-            const allUnis = [
-              ...uniListJson.content,
-              ...privateUniListJson.content,
-            ];
-            const universityMeta = allUnis.find(
-              (uni: any) => uni.id === dataId,
-            );
+            const universityMeta = [
+              ...allUnis.content,
+              ...allUnisPrivate.content,
+            ].find((uni: any) => uni.id === dataId);
 
             if (universityMeta) {
               setFormData({ ...universityMeta });
@@ -106,7 +101,7 @@ export default function RjsfEditPage() {
               setInitialData({ id: dataId });
             }
           } else {
-            throw new Error(`Failed to fetch data: ${dataPath}`);
+            throw new Error(`Failed to fetch data: ${dataRes.statusText}`);
           }
         } else {
           const dataJson = await dataRes.json();
@@ -115,7 +110,7 @@ export default function RjsfEditPage() {
         }
 
         if (!schemaRes.ok)
-          throw new Error(`Failed to fetch schema: ${schemaPath}`);
+          throw new Error(`Failed to fetch schema: ${schemaRes.statusText}`);
         const schemaJson = await schemaRes.json();
         setSchema(schemaJson.content);
       } catch (error: any) {
@@ -130,7 +125,7 @@ export default function RjsfEditPage() {
     };
 
     fetchData();
-  }, [fileParam, router, toast]);
+  }, [slug, router, toast]);
 
   const handleSave = async (data: IChangeEvent) => {
     if (!filePath) return;
