@@ -1,4 +1,3 @@
-
 export interface Subject {
   short: string;
   fullName: string;

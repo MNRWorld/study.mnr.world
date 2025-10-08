@@ -1,6 +1,6 @@
 import { allData } from "../../_generated";
 
-const duInfo = allData.universities.find(uni => uni.id === 'du');
+const duInfo = allData.universities.find((uni) => uni.id === "du");
 
 if (!duInfo) {
   throw new Error("Dhaka University data not found in _generated.ts");

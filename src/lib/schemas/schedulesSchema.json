@@ -1,49 +1,49 @@
 {
-    "$schema": "http://json-schema.org/draft-07/schema#",
-    "title": "Schedules Data",
-    "description": "Schema for various schedule JSON files.",
-    "type": "array",
-    "items": {
-        "type": "object",
-        "title": "Schedule Item",
-        "properties": {
-            "university": {
-                "type": "string",
-                "title": "বিশ্ববিদ্যালয়"
-            },
-            "detailsLink": {
-                "type": "string",
-                "title": "বিস্তারিত লিঙ্ক (ঐচ্ছিক)"
-            },
-            "detailsLinkText": {
-                "type": "string",
-                "title": "লিঙ্কের টেক্সট (ঐচ্ছিক)"
-            },
-            "date": {
-                "type": "string",
-                "title": "তারিখ"
-            },
-            "status": {
-                "type": "string",
-                "title": "স্ট্যাটাস (ঐচ্ছিক)"
-            },
-            "fee": {
-                "type": "string",
-                "title": "ফি"
-            },
-            "applyLink": {
-                "type": "string",
-                "title": "আবেদন লিঙ্ক"
-            },
-            "applyCountdownDate": {
-                "type": ["string", "null"],
-                "title": "কাউন্টডাউন তারিখ (ISO ফরম্যাট)",
-                "format": "date-time"
-            },
-             "subject": {
-                "type": "string",
-                "title": "বিষয়"
-             }
-        }
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Schedules Data",
+  "description": "Schema for various schedule JSON files.",
+  "type": "array",
+  "items": {
+    "type": "object",
+    "title": "Schedule Item",
+    "properties": {
+      "university": {
+        "type": "string",
+        "title": "বিশ্ববিদ্যালয়"
+      },
+      "detailsLink": {
+        "type": "string",
+        "title": "বিস্তারিত লিঙ্ক (ঐচ্ছিক)"
+      },
+      "detailsLinkText": {
+        "type": "string",
+        "title": "লিঙ্কের টেক্সট (ঐচ্ছিক)"
+      },
+      "date": {
+        "type": "string",
+        "title": "তারিখ"
+      },
+      "status": {
+        "type": "string",
+        "title": "স্ট্যাটাস (ঐচ্ছিক)"
+      },
+      "fee": {
+        "type": "string",
+        "title": "ফি"
+      },
+      "applyLink": {
+        "type": "string",
+        "title": "আবেদন লিঙ্ক"
+      },
+      "applyCountdownDate": {
+        "type": ["string", "null"],
+        "title": "কাউন্টডাউন তারিখ (ISO ফরম্যাট)",
+        "format": "date-time"
+      },
+      "subject": {
+        "type": "string",
+        "title": "বিষয়"
+      }
     }
+  }
 }

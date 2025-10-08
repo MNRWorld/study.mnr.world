@@ -67,9 +67,7 @@ export const SupabaseProvider = ({ children }: { children: ReactNode }) => {
   }, [supabase]);
 
   return (
-    <SupabaseContext.Provider
-      value={{ supabase, session, user, loading }}
-    >
+    <SupabaseContext.Provider value={{ supabase, session, user, loading }}>
       {children}
     </SupabaseContext.Provider>
   );

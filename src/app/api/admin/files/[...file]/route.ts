@@ -31,17 +31,14 @@ export async function GET(
   const safePath = getSafeFilePath(filePath);
 
   if (!safePath) {
-    return NextResponse.json(
-      { error: "Invalid file path." },
-      { status: 400 },
-    );
+    return NextResponse.json({ error: "Invalid file path." }, { status: 400 });
   }
 
   try {
     const fileContent = await fs.readFile(safePath, "utf-8");
     return NextResponse.json({ content: JSON.parse(fileContent) });
   } catch (error) {
-    if ((error as NodeJS.ErrnoException).code === 'ENOENT') {
+    if ((error as NodeJS.ErrnoException).code === "ENOENT") {
       return NextResponse.json(
         { error: `File not found: ${filePath}` },
         { status: 404 },
@@ -70,10 +67,7 @@ export async function PUT(
   const safePath = getSafeFilePath(filePath);
 
   if (!safePath) {
-    return NextResponse.json(
-      { error: "Invalid file path." },
-      { status: 400 },
-    );
+    return NextResponse.json({ error: "Invalid file path." }, { status: 400 });
   }
 
   try {

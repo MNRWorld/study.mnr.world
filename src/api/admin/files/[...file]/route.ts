@@ -10,7 +10,10 @@ function getSafeFilePath(filePath: string): string | null {
   const requestedPath = path.resolve(dataDir, filePath);
 
   // Security check: Ensure the path is within the project directory
-  if (!requestedPath.startsWith(dataDir) || requestedPath.includes('node_modules')) {
+  if (
+    !requestedPath.startsWith(dataDir) ||
+    requestedPath.includes("node_modules")
+  ) {
     return null;
   }
   return requestedPath;
@@ -31,33 +34,29 @@ export async function GET(
   const safePath = getSafeFilePath(filePath);
 
   if (!safePath) {
-    return NextResponse.json(
-      { error: "Invalid file path." },
-      { status: 400 },
-    );
+    return NextResponse.json({ error: "Invalid file path." }, { status: 400 });
   }
 
   try {
     const fileContent = await fs.readFile(safePath, "utf-8");
     // Handle empty file
     if (fileContent.trim() === "") {
-        return NextResponse.json({ content: {} });
+      return NextResponse.json({ content: {} });
     }
     // Parse the JSON content before sending
     return NextResponse.json({ content: JSON.parse(fileContent) });
   } catch (error) {
     if ((error as NodeJS.ErrnoException).code === "ENOENT") {
-      return NextResponse.json(
-        { content: {} },
-        { status: 200 },
-      );
+      return NextResponse.json({ content: {} }, { status: 200 });
     }
     // Handle JSON parsing errors for malformed files
     if (error instanceof SyntaxError) {
-        return NextResponse.json(
-            { error: `Malformed JSON in file: ${filePath}. Please fix it manually.` },
-            { status: 500 },
-        );
+      return NextResponse.json(
+        {
+          error: `Malformed JSON in file: ${filePath}. Please fix it manually.`,
+        },
+        { status: 500 },
+      );
     }
     return NextResponse.json(
       { error: `File not found or could not be read: ${filePath}` },
@@ -81,23 +80,21 @@ export async function PUT(
   const safePath = getSafeFilePath(filePath);
 
   if (!safePath) {
-    return NextResponse.json(
-      { error: "Invalid file path." },
-      { status: 400 },
-    );
+    return NextResponse.json({ error: "Invalid file path." }, { status: 400 });
   }
 
   try {
     const body = await request.json();
     const content = body.content;
 
-    if (typeof content !== "object") { // Allow arrays as well
+    if (typeof content !== "object") {
+      // Allow arrays as well
       return NextResponse.json(
         { error: "Invalid content format. Expected a JSON object or array." },
         { status: 400 },
       );
     }
-    
+
     // Format the JSON with an indent of 2 spaces for readability
     const formattedContent = JSON.stringify(content, null, 2);
 
@@ -107,7 +104,7 @@ export async function PUT(
     return NextResponse.json({ message: "File saved successfully." });
   } catch (error: any) {
     return NextResponse.json(
-      { error: `Failed to write file: ${error.message || 'Unknown error'}` },
+      { error: `Failed to write file: ${error.message || "Unknown error"}` },
       { status: 500 },
     );
   }

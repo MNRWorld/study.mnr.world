@@ -72,9 +72,12 @@ function RegisteredUserProfile() {
     const fetchProfile = async () => {
       if (!user || !supabase) return;
       setLoading(true);
-      
-      const currentName = user.user_metadata?.full_name || user.user_metadata?.user_name || "ব্যবহারকারী";
-      
+
+      const currentName =
+        user.user_metadata?.full_name ||
+        user.user_metadata?.user_name ||
+        "ব্যবহারকারী";
+
       try {
         const { data, error } = await supabase
           .from("profiles")
@@ -85,11 +88,10 @@ function RegisteredUserProfile() {
         if (error && error.code !== "PGRST116") {
           // console.error("Error fetching profile:", error);
         }
-        
+
         const finalName = data?.display_name || currentName;
         setName(finalName);
         setDisplayName(finalName);
-
       } catch (e) {
         // console.error("Profile fetch failed, using metadata", e);
         setName(currentName);

@@ -58,8 +58,8 @@ export default function RjsfEditPage() {
       dataPath = `src/lib/data/universities/${dataId}/info.json`;
       schemaPath = `src/lib/schemas/universityInfoSchema.json`;
       const name = searchParams.get("name") || dataId;
-      const category = searchParams.get("category") || 'public';
-      const categoryInBengali = category === 'public' ? 'সাধারণ' : 'প্রাইভেট';
+      const category = searchParams.get("category") || "public";
+      const categoryInBengali = category === "public" ? "সাধারণ" : "প্রাইভেট";
 
       newEntityData = {
         id: dataId,
@@ -78,12 +78,12 @@ export default function RjsfEditPage() {
       };
       pageTitle = `সম্পাদনা: ${name || "নতুন বিশ্ববিদ্যালয়"}`;
     } else {
-        const fullPath = pathParts.join('/');
-        dataPath = `src/lib/data/${fullPath}.json`;
-        const schemaName = pathParts[0].replace('.json', '');
-        schemaPath = `src/lib/schemas/${schemaName}Schema.json`;
-        newEntityData = {};
-        pageTitle = `সম্পাদনা: ${fullPath}`;
+      const fullPath = pathParts.join("/");
+      dataPath = `src/lib/data/${fullPath}.json`;
+      const schemaName = pathParts[0].replace(".json", "");
+      schemaPath = `src/lib/schemas/${schemaName}Schema.json`;
+      newEntityData = {};
+      pageTitle = `সম্পাদনা: ${fullPath}`;
     }
 
     setFilePath(dataPath);
@@ -96,34 +96,37 @@ export default function RjsfEditPage() {
           fetch(`/api/admin/files/${dataPath}`),
           fetch(`/api/admin/files/${schemaPath}`),
         ]);
-        
+
         let dataJson;
         if (dataRes.status === 404) {
-           if (dataType === 'universities') {
+          if (dataType === "universities") {
             setIsNew(true);
             dataJson = { content: newEntityData };
-           } else {
-             setIsNew(true);
-             dataJson = { content: {} };
-           }
+          } else {
+            setIsNew(true);
+            dataJson = { content: {} };
+          }
         } else if (dataRes.ok) {
           setIsNew(false);
           dataJson = await dataRes.json();
         } else {
           const errorData = await dataRes.json();
-          throw new Error(errorData.error || `ডেটা আনতে ব্যর্থ: ${dataRes.statusText}`);
+          throw new Error(
+            errorData.error || `ডেটা আনতে ব্যর্থ: ${dataRes.statusText}`,
+          );
         }
 
         setFormData(dataJson.content);
         setInitialData(dataJson.content);
 
         if (!schemaRes.ok) {
-            const errorData = await schemaRes.json();
-            throw new Error(errorData.error || `স্কিমা আনতে ব্যর্থ: ${schemaRes.statusText}`);
+          const errorData = await schemaRes.json();
+          throw new Error(
+            errorData.error || `স্কিমা আনতে ব্যর্থ: ${schemaRes.statusText}`,
+          );
         }
         const schemaJson = await schemaRes.json();
         setSchema(schemaJson.content);
-
       } catch (error: any) {
         toast({
           variant: "destructive",
@@ -140,9 +143,10 @@ export default function RjsfEditPage() {
 
   const triggerRebuild = async () => {
     try {
-      const res = await fetch('/api/admin/rebuild', { method: 'POST' });
+      const res = await fetch("/api/admin/rebuild", { method: "POST" });
       const result = await res.json();
-      if (!res.ok) throw new Error(result.error || 'রি-বিল্ড ট্রিগার করতে ব্যর্থ');
+      if (!res.ok)
+        throw new Error(result.error || "রি-বিল্ড ট্রিগার করতে ব্যর্থ");
       return true;
     } catch (error: any) {
       toast({
@@ -152,7 +156,7 @@ export default function RjsfEditPage() {
       });
       return false;
     }
-  }
+  };
 
   const handleSave = async (data: IChangeEvent) => {
     if (!filePath) return;
@@ -163,12 +167,12 @@ export default function RjsfEditPage() {
       const pathParts = slug.split("/");
       const dataType = pathParts[0];
 
-      if (isNew && dataType === 'universities') {
-        const category = searchParams.get('category') || 'public';
+      if (isNew && dataType === "universities") {
+        const category = searchParams.get("category") || "public";
         const listUpdateRes = await fetch(`/api/admin/files`, {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ 
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
             university: {
               nameBn: updatedData.nameBn,
               nameEn: updatedData.nameEn,
@@ -179,12 +183,14 @@ export default function RjsfEditPage() {
               link: updatedData.link,
               logo: updatedData.logo,
             },
-            type: category
+            type: category,
           }),
         });
         if (!listUpdateRes.ok) {
-           const errorResult = await listUpdateRes.json();
-           throw new Error(errorResult.error || 'বিশ্ববিদ্যালয় তালিকা আপডেট করতে ব্যর্থ');
+          const errorResult = await listUpdateRes.json();
+          throw new Error(
+            errorResult.error || "বিশ্ববিদ্যালয় তালিকা আপডেট করতে ব্যর্থ",
+          );
         }
       }
 
@@ -209,12 +215,11 @@ export default function RjsfEditPage() {
           description: `পরিবর্তন সেভ করা হয়েছে এবং ডেটা রি-বিল্ড করা হয়েছে। পরিবর্তন দেখতে সাইট রিফ্রেশ করুন।`,
         });
       } else {
-         toast({
+        toast({
           title: "ডেটা সেভ হয়েছে",
           description: `${filePath} সেভ হয়েছে, কিন্তু ডেটা রি-বিল্ড ব্যর্থ হয়েছে।`,
         });
       }
-
     } catch (error: any) {
       toast({
         variant: "destructive",
@@ -236,7 +241,8 @@ export default function RjsfEditPage() {
   if (!schema || formData === null) {
     return (
       <div className="container mx-auto p-4 sm:p-8 text-center text-red-500">
-        এই ফাইলের জন্য স্কিমা বা ডেটা লোড করা যায়নি। পাথ সঠিক আছে কিনা তা পরীক্ষা করুন।
+        এই ফাইলের জন্য স্কিমা বা ডেটা লোড করা যায়নি। পাথ সঠিক আছে কিনা তা
+        পরীক্ষা করুন।
         <div className="mt-4">
           <Button asChild variant="outline">
             <Link href={backLink}>
@@ -265,8 +271,8 @@ export default function RjsfEditPage() {
           </CardTitle>
           <CardDescription className="text-xs sm:text-sm">
             এই ফর্মটি ব্যবহার করে{" "}
-            <span className="font-mono break-all">{filePath}</span> ফাইলের JSON কনটেন্ট
-            আপডেট করুন।
+            <span className="font-mono break-all">{filePath}</span> ফাইলের JSON
+            কনটেন্ট আপডেট করুন।
           </CardDescription>
         </CardHeader>
         <CardContent className="p-3 sm:p-6">

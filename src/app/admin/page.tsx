@@ -13,7 +13,11 @@ import {
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { useToast } from "@/hooks/use-toast";
-import { University as UniversityIcon, PlusCircle, FileJson } from "lucide-react";
+import {
+  University as UniversityIcon,
+  PlusCircle,
+  FileJson,
+} from "lucide-react";
 import { allUniversities, University } from "@/lib/data/universities";
 import {
   Select,
@@ -81,8 +85,8 @@ export default function AdminPage() {
         <CardHeader>
           <CardTitle>নতুন বিশ্ববিদ্যালয় তৈরি করুন</CardTitle>
           <CardDescription>
-            সিস্টেমে একটি নতুন বিশ্ববিদ্যালয় যোগ করুন। আইডিটি সংক্ষিপ্ত এবং ইউনিক
-            হতে হবে (যেমন: 'aust')।
+            সিস্টেমে একটি নতুন বিশ্ববিদ্যালয় যোগ করুন। আইডিটি সংক্ষিপ্ত এবং
+            ইউনিক হতে হবে (যেমন: 'aust')।
           </CardDescription>
         </CardHeader>
         <CardContent className="flex flex-col sm:flex-row gap-4 items-end">
@@ -126,45 +130,45 @@ export default function AdminPage() {
           ) : (
             <div className="space-y-6">
               <div>
-                <h3 className="text-lg font-semibold mb-3 border-b pb-2">বিশ্ববিদ্যালয়সমূহ</h3>
+                <h3 className="text-lg font-semibold mb-3 border-b pb-2">
+                  বিশ্ববিদ্যালয়সমূহ
+                </h3>
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-                {universities.map((uni) => (
-                  <Link
-                    key={uni.id}
-                    href={`/admin/universities/${uni.id}`}
-                    passHref
-                  >
-                    <Button
-                      variant="outline"
-                      className="w-full justify-start gap-2"
+                  {universities.map((uni) => (
+                    <Link
+                      key={uni.id}
+                      href={`/admin/universities/${uni.id}`}
+                      passHref
                     >
-                      <UniversityIcon className="h-4 w-4 flex-shrink-0" />
-                      <span className="truncate">
-                        {uni.nameBn} ({uni.shortName})
-                      </span>
-                    </Button>
-                  </Link>
-                ))}
+                      <Button
+                        variant="outline"
+                        className="w-full justify-start gap-2"
+                      >
+                        <UniversityIcon className="h-4 w-4 flex-shrink-0" />
+                        <span className="truncate">
+                          {uni.nameBn} ({uni.shortName})
+                        </span>
+                      </Button>
+                    </Link>
+                  ))}
                 </div>
               </div>
               <div>
-                <h3 className="text-lg font-semibold mb-3 border-b pb-2">সাধারণ ডেটা ফাইল</h3>
-                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-                    {generalDataFiles.map((file) => (
-                    <Link
-                        key={file.path}
-                        href={`/admin/${file.path}`}
-                        passHref
-                    >
-                        <Button
+                <h3 className="text-lg font-semibold mb-3 border-b pb-2">
+                  সাধারণ ডেটা ফাইল
+                </h3>
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                  {generalDataFiles.map((file) => (
+                    <Link key={file.path} href={`/admin/${file.path}`} passHref>
+                      <Button
                         variant="outline"
                         className="w-full justify-start gap-2"
-                        >
+                      >
                         <FileJson className="h-4 w-4 flex-shrink-0" />
                         <span className="truncate">{file.label}</span>
-                        </Button>
+                      </Button>
                     </Link>
-                    ))}
+                  ))}
                 </div>
               </div>
             </div>

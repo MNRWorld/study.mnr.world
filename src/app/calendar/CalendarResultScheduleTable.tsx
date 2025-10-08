@@ -38,7 +38,9 @@ const CalendarResultScheduleTable = () => {
               <TableRow key={index} className="even:bg-muted/50">
                 <TableCell
                   className="text-center font-medium whitespace-pre-wrap align-top"
-                  dangerouslySetInnerHTML={{ __html: item.universityNameAndUnit }}
+                  dangerouslySetInnerHTML={{
+                    __html: item.universityNameAndUnit,
+                  }}
                 ></TableCell>
                 <TableCell
                   className="text-center whitespace-pre-wrap align-top"

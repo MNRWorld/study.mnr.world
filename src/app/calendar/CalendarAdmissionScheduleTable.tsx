@@ -59,7 +59,9 @@ const CalendarAdmissionScheduleTable = () => {
     );
   };
 
-  const admissionSchedule = allData.CalendarInfo.filter((item) => item.id !== "demo").sort((a, b) => {
+  const admissionSchedule = allData.CalendarInfo.filter(
+    (item) => item.id !== "demo",
+  ).sort((a, b) => {
     const isAFav = favorites.includes(a.id);
     const isBFav = favorites.includes(b.id);
 
@@ -118,8 +120,7 @@ const CalendarAdmissionScheduleTable = () => {
                 <Heart
                   className={cn(
                     "h-5 w-5 cursor-pointer text-muted-foreground/50 transition-all hover:scale-125",
-                    favorites.includes(item.id) &&
-                      "text-primary fill-primary",
+                    favorites.includes(item.id) && "text-primary fill-primary",
                   )}
                   onClick={() => toggleFavorite(item.id)}
                 />

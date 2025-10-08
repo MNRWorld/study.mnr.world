@@ -80,7 +80,7 @@ const UniversityPage = ({
         {universityData.links && universityData.links.length > 0 && (
           <LinkList links={universityData.links} />
         )}
-        
+
         {/* 3. DhakaHistoryAndMap */}
         {isDhakaUniversity && <DhakaHistoryAndMap />}
 
@@ -101,7 +101,7 @@ const UniversityPage = ({
           <>
             {/* 6. QuestionBank */}
             <DhakaQuestionBank />
-            
+
             {/* 7. DhakaAdmissionInfo */}
             <DhakaAdmissionInfo />
 

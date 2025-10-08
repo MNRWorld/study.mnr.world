@@ -24,7 +24,9 @@ const formatMonthCaption = (month: Date) => dayjs(month).format("MMMM YYYY");
 const formatWeekdayName = (weekday: Date) => dayjs(weekday).format("dd");
 
 const FavoriteExamsCalendar = () => {
-  const [favoriteDates, setFavoriteDates] = useState<{ [key: string]: string[] }>({});
+  const [favoriteDates, setFavoriteDates] = useState<{
+    [key: string]: string[];
+  }>({});
   const [modifiers, setModifiers] = useState({});
   const [month, setMonth] = useState<Date>(new Date());
 
@@ -33,15 +35,16 @@ const FavoriteExamsCalendar = () => {
     if (storedFavorites) {
       const favoriteIds: string[] = JSON.parse(storedFavorites);
       const dates: { [key: string]: string[] } = {};
-      
-      const favoriteEvents = allData.CalendarInfo
-        .filter(item => favoriteIds.includes(item.id) && item.examDetails.ExamCountdownDate)
-        .map(item => ({
-          date: dayjs(item.examDetails.ExamCountdownDate!),
-          title: item.universityNameAndUnit,
-        }));
 
-      favoriteEvents.forEach(event => {
+      const favoriteEvents = allData.CalendarInfo.filter(
+        (item) =>
+          favoriteIds.includes(item.id) && item.examDetails.ExamCountdownDate,
+      ).map((item) => ({
+        date: dayjs(item.examDetails.ExamCountdownDate!),
+        title: item.universityNameAndUnit,
+      }));
+
+      favoriteEvents.forEach((event) => {
         if (event.date.isValid()) {
           const dateString = event.date.format("YYYY-MM-DD");
           if (!dates[dateString]) {
@@ -60,7 +63,9 @@ const FavoriteExamsCalendar = () => {
   }, []);
 
   useEffect(() => {
-    const highlightedDates = Object.keys(favoriteDates).map(dateStr => dayjs(dateStr).toDate());
+    const highlightedDates = Object.keys(favoriteDates).map((dateStr) =>
+      dayjs(dateStr).toDate(),
+    );
     setModifiers({
       highlighted: highlightedDates,
     });
@@ -73,8 +78,13 @@ const FavoriteExamsCalendar = () => {
     }
     const dateString = dayjs(day).format("YYYY-MM-DD");
     const titles = favoriteDates[dateString];
-    
-    if (titles && modifiers.highlighted?.some((d: Date) => d.toDateString() === day.toDateString())) {
+
+    if (
+      titles &&
+      modifiers.highlighted?.some(
+        (d: Date) => d.toDateString() === day.toDateString(),
+      )
+    ) {
       return (
         <TooltipProvider>
           <Tooltip>

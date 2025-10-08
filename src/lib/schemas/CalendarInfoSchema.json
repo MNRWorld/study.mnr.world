@@ -31,27 +31,41 @@
         "type": "object",
         "title": "আবেদনের বিবরণ",
         "properties": {
-          "StartAndEndDate": { "type": ["string", "null"], "title": "শুরু ও শেষের তারিখ" },
+          "StartAndEndDate": {
+            "type": ["string", "null"],
+            "title": "শুরু ও শেষের তারিখ"
+          },
           "ApplyCountdownDate": {
             "type": ["string", "null"],
             "title": "আবেদনের শেষ তারিখ (কাউন্টডাউন)",
             "format": "date-time"
           },
           "fee": { "type": ["string", "null"], "title": "ফি" },
-          "link": { "type": ["string", "null"], "title": "লিঙ্ক", "format": "uri" }
+          "link": {
+            "type": ["string", "null"],
+            "title": "লিঙ্ক",
+            "format": "uri"
+          }
         }
       },
       "admitCardDetails": {
         "type": "object",
         "title": "প্রবেশপত্রের বিবরণ",
         "properties": {
-          "StartAndEndDate": { "type": ["string", "null"], "title": "ডাউনলোডের তারিখ" },
+          "StartAndEndDate": {
+            "type": ["string", "null"],
+            "title": "ডাউনলোডের তারিখ"
+          },
           "DownloadCountdownDate": {
             "type": ["string", "null"],
             "title": "ডাউনলোডের শেষ তারিখ (কাউন্টডাউন)",
             "format": "date-time"
           },
-          "link": { "type": ["string", "null"], "title": "লিঙ্ক", "format": "uri" }
+          "link": {
+            "type": ["string", "null"],
+            "title": "লিঙ্ক",
+            "format": "uri"
+          }
         }
       },
       "resultDetails": {
@@ -59,7 +73,11 @@
         "title": "ফলাফলের বিবরণ",
         "properties": {
           "date": { "type": ["string", "null"], "title": "ফলাফলের তারিখ" },
-          "link": { "type": ["string", "null"], "title": "লিঙ্ক", "format": "uri" }
+          "link": {
+            "type": ["string", "null"],
+            "title": "লিঙ্ক",
+            "format": "uri"
+          }
         }
       }
     }

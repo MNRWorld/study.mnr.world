@@ -17,8 +17,8 @@ export const publicUniversities: University[] = allUniversities.filter(
   (uni) => !uni.category.includes("প্রাইভেট"),
 );
 
-export const privateUniversities: University[] = allUniversities.filter(
-  (uni) => uni.category.includes("প্রাইভেট"),
+export const privateUniversities: University[] = allUniversities.filter((uni) =>
+  uni.category.includes("প্রাইভেট"),
 );
 
 export function getUniversityById(id: string): University | undefined {

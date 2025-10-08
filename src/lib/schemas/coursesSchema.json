@@ -23,7 +23,14 @@
       "icon": {
         "type": "string",
         "title": "আইকনের নাম (lucide-react)",
-        "enum": ["University", "HeartPulse", "Cog", "Blocks", "BookMarked", "Briefcase"]
+        "enum": [
+          "University",
+          "HeartPulse",
+          "Cog",
+          "Blocks",
+          "BookMarked",
+          "Briefcase"
+        ]
       },
       "slug": {
         "type": "string",
