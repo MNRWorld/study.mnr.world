@@ -27,7 +27,7 @@ const LinkList = ({ links }: LinkListProps) => {
           গুরুত্বপূর্ণ লিঙ্ক
         </div>
       </div>
-      <Table className="border-dotted">
+      <Table className="border rounded-md">
         <TableBody>
           {links.map((row, rowIndex) => (
             <TableRow key={rowIndex}>
