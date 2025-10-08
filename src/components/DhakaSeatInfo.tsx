@@ -11,7 +11,7 @@ import {
   TableRow,
 } from "@/components/ui/table";
 import { Input } from "@/components/ui/input";
-import { Users, Info } from "lucide-react";
+import { Info } from "lucide-react";
 import { duData } from "@/lib/data/universities/du";
 import { type Subject } from "@/lib/data/subjects";
 import ExternalLink from "./common/ExternalLink";
@@ -36,7 +36,7 @@ const SeatCell: React.FC<SeatCellProps> = ({ seat, tooltip }) => {
     <TooltipProvider>
       <Tooltip>
         <TooltipTrigger asChild>
-          <span className="flex items-center justify-center gap-1.5 cursor-help">
+          <span className="flex items-center justify-center gap-1.5 cursor-pointer">
             {seat}
             <Info className="h-3 w-3 text-muted-foreground" />
           </span>
@@ -51,9 +51,13 @@ const SeatCell: React.FC<SeatCellProps> = ({ seat, tooltip }) => {
 
 interface SubjectTableProps {
   subjects: Subject[];
+  showShortColumn?: boolean;
 }
 
-const SubjectTable: React.FC<SubjectTableProps> = ({ subjects }) => {
+const SubjectTable: React.FC<SubjectTableProps> = ({
+  subjects,
+  showShortColumn = true,
+}) => {
   const [searchTerm, setSearchTerm] = useState("");
 
   const filteredSubjects = subjects.filter(
@@ -76,7 +80,9 @@ const SubjectTable: React.FC<SubjectTableProps> = ({ subjects }) => {
       <Table className="border rounded-md">
         <TableHeader>
           <TableRow>
-            <TableHead className="text-center w-[25%]">Short</TableHead>
+            {showShortColumn && (
+              <TableHead className="text-center w-[25%]">Short</TableHead>
+            )}
             <TableHead className="text-center w-[45%]">Full Form</TableHead>
             <TableHead className="text-center w-[15%]">Seat</TableHead>
             <TableHead className="text-center w-[15%]">Review</TableHead>
@@ -85,9 +91,11 @@ const SubjectTable: React.FC<SubjectTableProps> = ({ subjects }) => {
         <TableBody>
           {filteredSubjects.map((subject, index) => (
             <TableRow key={index} className="text-center">
-              <TableCell className="font-bold whitespace-pre-wrap break-words">
-                {subject.short}
-              </TableCell>
+              {showShortColumn && (
+                <TableCell className="font-bold whitespace-pre-wrap break-words">
+                  {subject.short}
+                </TableCell>
+              )}
               <TableCell className="text-left whitespace-pre-wrap break-words">
                 {subject.fullName}
               </TableCell>
@@ -137,19 +145,19 @@ const DhakaSeatInfo = () => {
           </TabsTrigger>
         </TabsList>
         <TabsContent value="ka-unit" className="mt-4">
-          <SubjectTable subjects={subjects.unitA} />
+          <SubjectTable subjects={subjects.unitA} showShortColumn={true} />
         </TabsContent>
         <TabsContent value="kha-unit" className="mt-4">
-          <SubjectTable subjects={subjects.unitB} />
+          <SubjectTable subjects={subjects.unitB} showShortColumn={false} />
         </TabsContent>
         <TabsContent value="ga-unit" className="mt-4">
-          <SubjectTable subjects={subjects.unitC} />
+          <SubjectTable subjects={subjects.unitC} showShortColumn={false} />
         </TabsContent>
         <TabsContent value="cha-unit" className="mt-4">
-          <SubjectTable subjects={subjects.unitCha} />
+          <SubjectTable subjects={subjects.unitCha} showShortColumn={false} />
         </TabsContent>
         <TabsContent value="iba-unit" className="mt-4">
-          <SubjectTable subjects={subjects.unitIBA} />
+          <SubjectTable subjects={subjects.unitIBA} showShortColumn={true} />
         </TabsContent>
       </Tabs>
     </div>
