@@ -24,17 +24,17 @@ import {
 } from "@/components/ui/select";
 
 const generalDataFiles = [
-  "contributors/list.json",
-  "courses/list.json",
-  "deadlines/list.json",
-  "links/list.json",
-  "navigation/links.json",
-  "question-bank/cards.json",
-  "schedules/application.json",
-  "schedules/general.json",
-  "schedules/others.json",
-  "test-papers/list.json",
-  "CalendarInfo.json",
+  { path: "contributors/list", label: "অবদানকারী তালিকা" },
+  { path: "courses/list", label: "কোর্সের তালিকা" },
+  { path: "deadlines/list", label: "ডেডলাইন তালিকা" },
+  { path: "links/list", label: "সাধারণ লিঙ্ক" },
+  { path: "navigation/links", label: "নেভিগেশন লিঙ্ক" },
+  { path: "question-bank/cards", label: "প্রশ্নব্যাংক কার্ড" },
+  { path: "schedules/application", label: "আবেদন সময়সূচী" },
+  { path: "schedules/general", label: "সাধারণ সময়সূচী" },
+  { path: "schedules/others", label: "অন্যান্য সময়সূচী" },
+  { path: "test-papers/list", label: "টেস্ট পেপার তালিকা" },
+  { path: "CalendarInfo", label: "ক্যালেন্ডার তথ্য" },
 ];
 
 export default function AdminPage() {
@@ -152,8 +152,8 @@ export default function AdminPage() {
                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                     {generalDataFiles.map((file) => (
                     <Link
-                        key={file}
-                        href={`/admin/${file.replace('.json', '')}`}
+                        key={file.path}
+                        href={`/admin/${file.path}`}
                         passHref
                     >
                         <Button
@@ -161,7 +161,7 @@ export default function AdminPage() {
                         className="w-full justify-start gap-2"
                         >
                         <FileJson className="h-4 w-4 flex-shrink-0" />
-                        <span className="truncate">{file.replace('.json', '')}</span>
+                        <span className="truncate">{file.label}</span>
                         </Button>
                     </Link>
                     ))}
