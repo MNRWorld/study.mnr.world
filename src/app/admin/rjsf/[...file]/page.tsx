@@ -16,6 +16,7 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
+import { University } from "@/lib/data/universities";
 
 export default function RjsfEditPage() {
   const params = useParams();
@@ -23,8 +24,9 @@ export default function RjsfEditPage() {
   const { toast } = useToast();
 
   const [schema, setSchema] = useState(null);
-  const [formData, setFormData] = useState(null);
-  const [initialData, setInitialData] = useState(null);
+  const [formData, setFormData] = useState<University | null>(null);
+  const [initialData, setInitialData] = useState<University | null>(null);
+  const [allUniversities, setAllUniversities] = useState<University[]>([]);
   const [loading, setLoading] = useState(true);
   const [saving, setSaving] = useState(false);
   const [filePath, setFilePath] = useState("");
@@ -48,14 +50,14 @@ export default function RjsfEditPage() {
     }
 
     const pathParts = fileParam.split("/");
-    const dataType = pathParts[1];
-    const universityId = pathParts[2];
+    const dataType = pathParts[0];
+    const universityId = pathParts[1];
 
     let dataPath: string = "";
     let schemaPath: string = "";
 
     if (dataType === "universities") {
-      dataPath = `src/lib/data/universities/${universityId}/info.json`;
+      dataPath = `src/lib/data/universities/public-universities.json`;
       schemaPath = "src/lib/schemas/universityInfoSchema.json";
       setFilePath(dataPath);
     } else {
@@ -83,8 +85,18 @@ export default function RjsfEditPage() {
         const dataJson = await dataRes.json();
         const schemaJson = await schemaRes.json();
 
-        setFormData(dataJson.content);
-        setInitialData(dataJson.content);
+        const allData = dataJson.content;
+        const universityToEdit = allData.find(
+          (uni: University) => uni.id === universityId,
+        );
+
+        if (!universityToEdit) {
+          throw new Error(`University with ID '${universityId}' not found.`);
+        }
+
+        setAllUniversities(allData);
+        setFormData(universityToEdit);
+        setInitialData(universityToEdit);
         setSchema(schemaJson.content);
       } catch (error: any) {
         toast({
@@ -102,11 +114,18 @@ export default function RjsfEditPage() {
 
   const handleSave = async (data: IChangeEvent) => {
     setSaving(true);
+    const updatedUniversityData = data.formData;
+    const universityId = updatedUniversityData.id;
+
+    const updatedAllUniversities = allUniversities.map((uni) =>
+      uni.id === universityId ? updatedUniversityData : uni,
+    );
+
     try {
       const res = await fetch(`/api/admin/files/${filePath}`, {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ content: data.formData }),
+        body: JSON.stringify({ content: updatedAllUniversities }),
       });
 
       const result = await res.json();
@@ -116,8 +135,9 @@ export default function RjsfEditPage() {
         title: "Data Saved",
         description: `Changes to ${filePath} have been saved.`,
       });
-      setInitialData(data.formData);
-      setFormData(data.formData);
+      setInitialData(updatedUniversityData);
+      setFormData(updatedUniversityData);
+      setAllUniversities(updatedAllUniversities);
     } catch (error: any) {
       toast({
         variant: "destructive",
@@ -164,15 +184,16 @@ export default function RjsfEditPage() {
       <Card>
         <CardHeader>
           <CardTitle>
-            Editing: <span className="text-primary">{filePath}</span>
+            Editing: <span className="text-primary">{formData.nameBn}</span>
           </CardTitle>
           <CardDescription>
-            Use this form to update the JSON file content.
+            Use this form to update the JSON file content for{" "}
+            <span className="font-mono">{filePath}</span>
           </CardDescription>
         </CardHeader>
         <CardContent>
           <Form
-            schema={schema}
+            schema={schema as any}
             formData={formData}
             validator={validator}
             onChange={(e) => setFormData(e.formData)}

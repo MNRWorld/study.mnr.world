@@ -1,0 +1,66 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "University",
+  "description": "Schema for an individual university object in the public-universities.json file.",
+  "type": "object",
+  "properties": {
+    "nameBn": {
+      "type": "string",
+      "title": "নাম (বাংলা)"
+    },
+    "nameEn": {
+      "type": "string",
+      "title": "Name (English)"
+    },
+    "shortName": {
+      "type": "string",
+      "title": "Short Name"
+    },
+    "id": {
+      "type": "string",
+      "title": "Unique ID (e.g., 'du')",
+      "readOnly": true
+    },
+    "category": {
+      "type": "array",
+      "title": "Categories",
+      "items": {
+        "type": "string",
+        "enum": [
+          "সাধারণ",
+          "গুচ্ছ",
+          "কৃষি",
+          "প্রকৌশল",
+          "বিজ্ঞান ও প্রযুক্তি",
+          "মেডিকেল",
+          "বিশেষ",
+          "অধিভুক্ত",
+          "প্রাইভেট"
+        ]
+      },
+      "uniqueItems": true
+    },
+    "description": {
+      "type": "string",
+      "title": "Description"
+    },
+    "link": {
+      "type": "string",
+      "title": "Page Link (e.g., /du)"
+    },
+    "logo": {
+      "type": "string",
+      "title": "Logo URL"
+    }
+  },
+  "required": [
+    "nameBn",
+    "nameEn",
+    "shortName",
+    "id",
+    "category",
+    "description",
+    "link",
+    "logo"
+  ]
+}
