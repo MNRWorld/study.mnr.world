@@ -1,8 +1,9 @@
+
 "use client";
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { questionBankCards } from "@/lib/data/question-bank-cards";
+import { questionBankCards } from "@/lib/data/question-bank";
 import { cn } from "@/lib/utils";
 import { UserPen } from "lucide-react";
 

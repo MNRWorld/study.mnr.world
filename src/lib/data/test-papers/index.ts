@@ -1,4 +1,5 @@
-import cardData from "./test-papers.json";
+
+import cardData from "./list.json";
 
 export type TestPaperCard = {
   title: string;

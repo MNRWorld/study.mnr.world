@@ -1,4 +1,5 @@
-import cardData from "./question-bank-cards.json";
+
+import cardData from "./cards.json";
 
 export type QuestionBankCard = {
   title: string;
