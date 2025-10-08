@@ -1,7 +1,5 @@
 import { NextResponse } from "next/server";
-import fs from "fs/promises";
-import path from "path";
-import { publicUniversities } from "@/lib/data/universities";
+import { allUniversities } from "@/lib/data/universities";
 
 // This API route is intended for local development only.
 // It exposes file system access and should not be deployed to a public server.
@@ -16,13 +14,7 @@ export async function GET() {
 
   try {
     // Instead of reading directory, just return the imported list
-    const filePath = path.join(
-      process.cwd(),
-      "src/lib/data/universities/public-universities.json",
-    );
-    const fileContent = await fs.readFile(filePath, "utf-8");
-    const universities = JSON.parse(fileContent);
-    return NextResponse.json({ files: universities });
+    return NextResponse.json({ files: allUniversities });
   } catch (error) {
     console.error("Error providing university list:", error);
     return NextResponse.json(

@@ -7,7 +7,7 @@ import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { useToast } from "@/hooks/use-toast";
 import { FolderKanban, LogIn, University as UniversityIcon } from "lucide-react";
-import { University } from "@/lib/data/universities";
+import { allUniversities, University } from "@/lib/data/universities";
 
 // WARNING: This is a simple password for local development use only.
 // Do not expose this to the public.
@@ -28,26 +28,12 @@ export default function AdminPage() {
 
   useEffect(() => {
     if (isAuthenticated) {
-      async function fetchUniversities() {
-        setLoading(true);
-        try {
-          const res = await fetch("/api/admin/files");
-          if (!res.ok) throw new Error("Failed to fetch universities");
-          const data = await res.json();
-          setUniversities(data.files);
-        } catch (error: any) {
-          toast({
-            variant: "destructive",
-            title: "Error",
-            description: error.message,
-          });
-        } finally {
-          setLoading(false);
-        }
-      }
-      fetchUniversities();
+      setLoading(true);
+      // Directly use the imported university list
+      setUniversities(allUniversities);
+      setLoading(false);
     }
-  }, [isAuthenticated, toast]);
+  }, [isAuthenticated]);
 
   const handleLogin = () => {
     if (password === LOCAL_PASSWORD) {
@@ -114,11 +100,7 @@ export default function AdminPage() {
           ) : (
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
               {universities.map((uni) => (
-                <Link
-                  key={uni.id}
-                  href={`/admin/edit/universities/${uni.id}`}
-                  passHref
-                >
+                <Link key={uni.id} href={`/admin/edit/${uni.id}`} passHref>
                   <Button
                     variant="outline"
                     className="w-full justify-start gap-2"

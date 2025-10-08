@@ -42,7 +42,7 @@ export default function EditUniversityPage() {
   const [loading, setLoading] = useState(true);
   const [saving, setSaving] = useState(false);
   const [allUniversities, setAllUniversities] = useState<University[]>([]);
-  const universityId = Array.isArray(params.file) ? params.file[1] : null;
+  const universityId = Array.isArray(params.file) ? params.file[0] : null;
 
   const fetchAllUniversities = useCallback(async () => {
     setLoading(true);
