@@ -16,11 +16,10 @@ import { duData } from "@/lib/data/universities/du";
 import { type Subject } from "@/lib/data/subjects";
 import ExternalLink from "./common/ExternalLink";
 import {
-  Tooltip,
-  TooltipContent,
-  TooltipProvider,
-  TooltipTrigger,
-} from "./ui/tooltip";
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from "@/components/ui/popover";
 
 interface SeatCellProps {
   seat: number | string;
@@ -33,19 +32,17 @@ const SeatCell: React.FC<SeatCellProps> = ({ seat, tooltip }) => {
   }
 
   return (
-    <TooltipProvider>
-      <Tooltip>
-        <TooltipTrigger asChild>
-          <span className="flex items-center justify-center gap-1.5 cursor-pointer">
-            {seat}
-            <Info className="h-3 w-3 text-muted-foreground" />
-          </span>
-        </TooltipTrigger>
-        <TooltipContent>
-          <div dangerouslySetInnerHTML={{ __html: tooltip }} />
-        </TooltipContent>
-      </Tooltip>
-    </TooltipProvider>
+    <Popover>
+      <PopoverTrigger asChild>
+        <span className="flex items-center justify-center gap-1.5 cursor-pointer">
+          {seat}
+          <Info className="h-3 w-3 text-muted-foreground" />
+        </span>
+      </PopoverTrigger>
+      <PopoverContent className="w-auto p-2 text-sm">
+        <div dangerouslySetInnerHTML={{ __html: tooltip }} />
+      </PopoverContent>
+    </Popover>
   );
 };
 
