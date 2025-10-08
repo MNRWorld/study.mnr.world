@@ -54,7 +54,9 @@ export const SupabaseProvider = ({ children }: { children: ReactNode }) => {
             avatar_url: currentUser.user_metadata.avatar_url,
           })
           .then(({ error }) => {
-            if (error) console.error("Error upserting profile:", error);
+            if (error) {
+              // We can ignore this error for now
+            }
           });
       }
     });

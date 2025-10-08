@@ -15,7 +15,6 @@ export async function GET() {
   try {
     return NextResponse.json({ files: allUniversities });
   } catch (error) {
-    console.error("Error providing university list:", error);
     return NextResponse.json(
       { error: "Failed to provide university list." },
       { status: 500 },
@@ -58,7 +57,6 @@ export async function POST(request: Request) {
     return NextResponse.json({ message: `University list (${fileName}) updated successfully.` });
 
   } catch (error: any) {
-    console.error("Error updating university list:", error);
     return NextResponse.json(
       { error: `Failed to update university list: ${error.message}` },
       { status: 500 },
