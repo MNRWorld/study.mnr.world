@@ -14,6 +14,7 @@ The "Study Platform" provides comprehensive information and resources for variou
 - **Question Bank:** A collection of past exam questions, organized by university and subject.
 - **Courses:** A showcase of preparatory courses available for students.
 - **Authentication:** A simple and secure login system using Supabase, supporting both GitHub and anonymous guest sessions.
+- **Optimized Performance:** Implements build-time data aggregation to ensure fast page loads by pre-processing all university data into a single, efficient module.
 
 ## 🛠️ Tech Stack
 
@@ -28,7 +29,21 @@ This project is built with a modern tech stack:
 
 ## 🏃‍♂️ Getting Started
 
-To get started with the development server, run:
+To get started with the development server, follow these steps.
+
+**1. Build University Data**
+
+First, you need to run the data aggregation script. This script collects all university information from various `.json` files and compiles it into a single optimized file that the application uses.
+
+```bash
+npm run prebuild
+```
+
+You only need to run this command again if you make changes to the university data files in `src/lib/data/universities/`.
+
+**2. Run the Development Server**
+
+After the data is built, start the development server:
 
 ```bash
 npm run dev
