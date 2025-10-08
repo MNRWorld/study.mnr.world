@@ -62,13 +62,12 @@ export default function AdminPage() {
       });
       return;
     }
-    const category = newUniType === "public" ? "সাধারণ" : "প্রাইভেট";
     router.push(
       `/admin/universities/${newUniId
         .toLowerCase()
         .trim()}?name=${encodeURIComponent(
         newUniName,
-      )}&category=${encodeURIComponent(category)}`,
+      )}&category=${encodeURIComponent(newUniType)}`,
     );
   };
 

@@ -39,6 +39,10 @@ export async function GET(
 
   try {
     const fileContent = await fs.readFile(safePath, "utf-8");
+    // Handle empty file
+    if (fileContent.trim() === "") {
+        return NextResponse.json({ content: {} });
+    }
     // Parse the JSON content before sending
     return NextResponse.json({ content: JSON.parse(fileContent) });
   } catch (error) {
@@ -48,16 +52,19 @@ export async function GET(
         { status: 404 },
       );
     }
-    console.error(`Error reading file ${filePath}:`, error);
-    try {
-        // Attempt to return a valid empty JSON if file is empty or malformed
-        return NextResponse.json({ content: {} });
-    } catch (parseError) {
-       return NextResponse.json(
-        { error: `File not found or could not be read: ${filePath}` },
-        { status: 500 },
-      );
+    // Handle JSON parsing errors for malformed files
+    if (error instanceof SyntaxError) {
+        console.error(`Error parsing JSON file ${filePath}:`, error);
+        return NextResponse.json(
+            { error: `Malformed JSON in file: ${filePath}. Please fix it manually.` },
+            { status: 500 },
+        );
     }
+    console.error(`Error reading file ${filePath}:`, error);
+    return NextResponse.json(
+      { error: `File not found or could not be read: ${filePath}` },
+      { status: 500 },
+    );
   }
 }
 

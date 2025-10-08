@@ -54,18 +54,19 @@ export default function RjsfEditPage() {
     let newEntityData: any = {};
     let pageTitle = "সম্পাদনা";
 
-    // Determine paths and default data based on the route
     if (dataType === "universities") {
       dataPath = `src/lib/data/universities/${dataId}/info.json`;
       schemaPath = `src/lib/schemas/universityInfoSchema.json`;
       const name = searchParams.get('name') || dataId;
       const category = searchParams.get('category') || 'public';
+      const categoryInBengali = category === 'public' ? 'সাধারণ' : 'প্রাইভেট';
+
       newEntityData = {
         id: dataId,
         nameBn: name,
         nameEn: "",
         shortName: dataId.toUpperCase(),
-        category: [category],
+        category: [categoryInBengali],
         description: "",
         link: `/${dataId}`,
         logo: "",
@@ -77,11 +78,10 @@ export default function RjsfEditPage() {
       };
       pageTitle = `সম্পাদনা: ${name || "নতুন বিশ্ববিদ্যালয়"}`;
     } else {
-        // Fallback for general data files
         dataPath = `src/lib/data/${slug}.json`;
-        const schemaName = slug.split('/')[0];
+        const schemaName = slug.includes('/') ? slug.split('/')[0] : slug;
         schemaPath = `src/lib/schemas/${schemaName}Schema.json`;
-        newEntityData = {}; // General files are not created from scratch this way
+        newEntityData = {}; 
         pageTitle = `সম্পাদনা: ${slug}.json`;
     }
 
@@ -95,22 +95,33 @@ export default function RjsfEditPage() {
           fetch(`/api/admin/files/${dataPath}`),
           fetch(`/api/admin/files/${schemaPath}`),
         ]);
-
-        if (dataRes.status === 404 && dataType === 'universities') {
-          setIsNew(true);
-          setFormData(newEntityData);
-          setInitialData(newEntityData);
+        
+        let dataJson;
+        if (dataRes.status === 404) {
+           if (dataType === 'universities') {
+            setIsNew(true);
+            dataJson = { content: newEntityData };
+           } else {
+            // For other file types, if it's 404, it might be an issue unless we want to create them.
+            // For now, let's assume we create them with an empty object.
+             setIsNew(true);
+             dataJson = { content: {} };
+           }
         } else if (dataRes.ok) {
           setIsNew(false);
-          const dataJson = await dataRes.json();
-          setFormData(dataJson.content);
-          setInitialData(dataJson.content);
+          dataJson = await dataRes.json();
         } else {
           const errorData = await dataRes.json();
           throw new Error(errorData.error || `ডেটা আনতে ব্যর্থ: ${dataRes.statusText}`);
         }
 
-        if (!schemaRes.ok) throw new Error(`স্কিমা আনতে ব্যর্থ: ${schemaRes.statusText}`);
+        setFormData(dataJson.content);
+        setInitialData(dataJson.content);
+
+        if (!schemaRes.ok) {
+            const errorData = await schemaRes.json();
+            throw new Error(errorData.error || `স্কিমা আনতে ব্যর্থ: ${schemaRes.statusText}`);
+        }
         const schemaJson = await schemaRes.json();
         setSchema(schemaJson.content);
 
@@ -154,7 +165,7 @@ export default function RjsfEditPage() {
       const dataType = pathParts[0];
 
       if (isNew && dataType === 'universities') {
-        const category = updatedData.category.includes('প্রাইভেট') ? 'private' : 'public';
+        const category = searchParams.get('category') || 'public';
         const listUpdateRes = await fetch(`/api/admin/files`, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },

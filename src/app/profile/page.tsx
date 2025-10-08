@@ -29,7 +29,6 @@ import {
 import Link from "next/link";
 import { useUser, useSupabase } from "@/lib/supabase/hooks";
 import { User } from "@supabase/supabase-js";
-import { createClient } from "@/lib/supabase/client";
 import FavoriteExamsCalendar from "@/components/FavoriteExamsCalendar";
 import dayjs from "dayjs";
 import "dayjs/locale/bn";
@@ -62,7 +61,7 @@ const getCreationTime = (user: User | null) => {
 
 function RegisteredUserProfile() {
   const supabase = useSupabase();
-  const user = useUser();
+  const { user } = useUser();
   const { toast } = useToast();
 
   const [name, setName] = useState("");
@@ -73,28 +72,36 @@ function RegisteredUserProfile() {
     const fetchProfile = async () => {
       if (!user || !supabase) return;
       setLoading(true);
-      const { data, error } = await supabase
-        .from("profiles")
-        .select("display_name")
-        .eq("id", user.id)
-        .single();
+      
+      const currentName = user.user_metadata?.full_name || user.user_metadata?.user_name || "ব্যবহারকারী";
+      
+      try {
+        const { data, error } = await supabase
+          .from("profiles")
+          .select("display_name")
+          .eq("id", user.id)
+          .single();
 
-      if (error && error.code !== "PGRST116") {
-        console.error("Error fetching profile:", error);
-      } else {
-        const currentName =
-          data?.display_name ||
-          user.user_metadata?.full_name ||
-          user.user_metadata?.user_name ||
-          "ব্যবহারকারী";
+        if (error && error.code !== "PGRST116") {
+          console.error("Error fetching profile:", error);
+        }
+        
+        const finalName = data?.display_name || currentName;
+        setName(finalName);
+        setDisplayName(finalName);
+
+      } catch (e) {
+        console.error("Profile fetch failed, using metadata", e);
         setName(currentName);
         setDisplayName(currentName);
+      } finally {
+        setLoading(false);
       }
-      setLoading(false);
     };
+
     if (user && !user.is_anonymous) {
       fetchProfile();
-    } else if (user?.is_anonymous) {
+    } else {
       setLoading(false);
     }
   }, [user, supabase]);
@@ -207,9 +214,11 @@ function AnonymousUserProfile() {
   const [displayName, setDisplayName] = useState("অতিথি");
 
   useEffect(() => {
-    const localName = localStorage.getItem("anonymousDisplayName") || "অতিথি";
-    setName(localName);
-    setDisplayName(localName);
+    const localName = localStorage.getItem("anonymousDisplayName");
+    if (localName) {
+      setName(localName);
+      setDisplayName(localName);
+    }
   }, []);
 
   const handleNameUpdate = () => {
@@ -277,7 +286,7 @@ function AnonymousUserProfile() {
 
 export default function ProfilePage() {
   const { user, loading } = useUser();
-  const supabase = createClient();
+  const supabase = useSupabase();
   const router = useRouter();
   const { toast } = useToast();
 
@@ -288,12 +297,13 @@ export default function ProfilePage() {
   }, [user, loading, router]);
 
   const logout = async () => {
+    if (!supabase) return;
     await supabase.auth.signOut();
     router.push("/");
   };
 
   const handleDeleteAccount = async () => {
-    if (!user || user.is_anonymous) return;
+    if (!user || user.is_anonymous || !supabase) return;
     if (
       !window.confirm(
         "আপনি কি নিশ্চিতভাবে আপনার অ্যাকাউন্ট মুছে ফেলতে চান? এই কাজটি আর ফেরানো যাবে না।",
