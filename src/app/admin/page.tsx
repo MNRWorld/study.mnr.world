@@ -86,42 +86,6 @@ export default function AdminPage() {
 
       <Card className="mb-8">
         <CardHeader>
-          <CardTitle>নতুন বিশ্ববিদ্যালয় তৈরি করুন</CardTitle>
-          <CardDescription>
-            সিস্টেমে একটি নতুন বিশ্ববিদ্যালয় যোগ করুন। আইডিটি সংক্ষিপ্ত এবং
-            ইউনিক হতে হবে (যেমন: 'aust')।
-          </CardDescription>
-        </CardHeader>
-        <CardContent className="flex flex-col sm:flex-row gap-4 items-end">
-          <Input
-            placeholder="নতুন বিশ্ববিদ্যালয় আইডি (যেমন: du)"
-            value={newUniId}
-            onChange={(e) => setNewUniId(e.target.value)}
-            className="flex-grow"
-          />
-          <Input
-            placeholder="নতুন বিশ্ববিদ্যালয়ের নাম (বাংলা)"
-            value={newUniName}
-            onChange={(e) => setNewUniName(e.target.value)}
-            className="flex-grow"
-          />
-          <Select onValueChange={setNewUniType} defaultValue={newUniType}>
-            <SelectTrigger className="w-full sm:w-[180px]">
-              <SelectValue placeholder="ধরন নির্বাচন করুন" />
-            </SelectTrigger>
-            <SelectContent>
-              <SelectItem value="public">পাবলিক</SelectItem>
-              <SelectItem value="private">প্রাইভেট</SelectItem>
-            </SelectContent>
-          </Select>
-          <Button onClick={handleCreateNew} className="w-full sm:w-auto">
-            <PlusCircle className="mr-2" /> তৈরি করুন
-          </Button>
-        </CardContent>
-      </Card>
-
-      <Card>
-        <CardHeader>
           <CardTitle>এডিট করার জন্য একটি ফাইল নির্বাচন করুন</CardTitle>
           <CardDescription>
             এডিট করার জন্য একটি বিশ্ববিদ্যালয় বা ডেটা ফাইল নির্বাচন করুন।
@@ -176,6 +140,42 @@ export default function AdminPage() {
               </div>
             </div>
           )}
+        </CardContent>
+      </Card>
+
+      <Card>
+        <CardHeader>
+          <CardTitle>নতুন বিশ্ববিদ্যালয় তৈরি করুন</CardTitle>
+          <CardDescription>
+            সিস্টেমে একটি নতুন বিশ্ববিদ্যালয় যোগ করুন। আইডিটি সংক্ষিপ্ত এবং
+            ইউনিক হতে হবে (যেমন: 'aust')।
+          </CardDescription>
+        </CardHeader>
+        <CardContent className="flex flex-col sm:flex-row gap-4 items-end">
+          <Input
+            placeholder="নতুন বিশ্ববিদ্যালয় আইডি (যেমন: du)"
+            value={newUniId}
+            onChange={(e) => setNewUniId(e.target.value)}
+            className="flex-grow"
+          />
+          <Input
+            placeholder="নতুন বিশ্ববিদ্যালয়ের নাম (বাংলা)"
+            value={newUniName}
+            onChange={(e) => setNewUniName(e.target.value)}
+            className="flex-grow"
+          />
+          <Select onValueChange={setNewUniType} defaultValue={newUniType}>
+            <SelectTrigger className="w-full sm:w-[180px]">
+              <SelectValue placeholder="ধরন নির্বাচন করুন" />
+            </SelectTrigger>
+            <SelectContent>
+              <SelectItem value="public">পাবলিক</SelectItem>
+              <SelectItem value="private">প্রাইভেট</SelectItem>
+            </SelectContent>
+          </Select>
+          <Button onClick={handleCreateNew} className="w-full sm:w-auto">
+            <PlusCircle className="mr-2" /> তৈরি করুন
+          </Button>
         </CardContent>
       </Card>
     </div>
