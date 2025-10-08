@@ -31,7 +31,8 @@ const FavoriteExamsCalendar = () => {
   const [month, setMonth] = useState<Date>(new Date());
 
   const fetchFavorites = useCallback(async () => {
-    if (user && !user.is_anonymous && supabase) {
+    if (user && !user.is_anonymous) {
+      if (!supabase) return;
       const { data, error } = await supabase
         .from("user_favorite_exams")
         .select("exam_id")
@@ -80,7 +81,7 @@ const FavoriteExamsCalendar = () => {
 
     const highlightedDates = Object.keys(dates).map(
       (dateStr) => new Date(dateStr + "T00:00:00"),
-    ); // Avoid timezone issues
+    );
     setModifiers({
       highlighted: highlightedDates,
     });
@@ -154,8 +155,10 @@ const FavoriteExamsCalendar = () => {
       }}
       className="p-0"
       classNames={{
-        cell: "h-12 w-12 sm:h-14 sm:w-14 text-center text-sm p-0 relative [&:has([aria-selected])]:bg-accent first:[&:has([aria-selected])]:rounded-l-md last:[&:has([aria-selected])]:rounded-r-md focus-within:relative focus-within:z-20",
-        day: "h-12 w-12 sm:h-14 sm:w-14 p-0",
+        cell: "h-10 w-10 text-center text-sm p-0 relative [&:has([aria-selected])]:bg-accent first:[&:has([aria-selected])]:rounded-l-md last:[&:has([aria-selected])]:rounded-r-md focus-within:relative focus-within:z-20",
+        day: "h-10 w-10 p-0",
+        head_cell:
+          "text-muted-foreground rounded-md w-10 font-normal text-[0.8rem]",
       }}
     />
   );
