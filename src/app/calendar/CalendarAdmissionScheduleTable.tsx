@@ -56,7 +56,7 @@ const CalendarAdmissionScheduleTable = () => {
       .eq("user_id", user.id);
 
     if (error) {
-      console.error("Error fetching favorites:", error);
+      // RLS policy handles security, so no need to toast error here
     } else {
       setFavorites(data.map((fav) => fav.exam_id));
     }
@@ -80,14 +80,19 @@ const CalendarAdmissionScheduleTable = () => {
   }, [favorites, user]);
 
   const toggleFavorite = async (id: string) => {
-    if (!user || !supabase) {
+    if (!user) {
       // Handle anonymous user with localStorage
-      const newFavorites = favorites.includes(id)
-        ? favorites.filter((favId) => favId !== id)
-        : [...favorites, id];
-      setFavorites(newFavorites);
+      setFavorites((prevFavorites) => {
+        const newFavorites = prevFavorites.includes(id)
+          ? prevFavorites.filter((favId) => favId !== id)
+          : [...prevFavorites, id];
+        localStorage.setItem("admissionFavorites", JSON.stringify(newFavorites));
+        return newFavorites;
+      });
       return;
     }
+
+    if (!supabase) return;
 
     const isFavorite = favorites.includes(id);
 
