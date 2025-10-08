@@ -60,86 +60,20 @@ const getCreationTime = (user: User | null) => {
 };
 
 function RegisteredUserProfile() {
-  const supabase = useSupabase();
   const { user } = useUser();
-  const { toast } = useToast();
-
-  const [name, setName] = useState("");
   const [displayName, setDisplayName] = useState("ব্যবহারকারী");
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const fetchProfile = async () => {
-      if (!user || !supabase) return;
-      setLoading(true);
-
-      const currentName =
+    if (user && !user.is_anonymous) {
+      const name =
         user.user_metadata?.full_name ||
         user.user_metadata?.user_name ||
         "ব্যবহারকারী";
-
-      try {
-        const { data, error } = await supabase
-          .from("profiles")
-          .select("display_name")
-          .eq("id", user.id)
-          .single();
-
-        if (error && error.code !== "PGRST116") {
-          // console.error("Error fetching profile:", error);
-        }
-
-        const finalName = data?.display_name || currentName;
-        setName(finalName);
-        setDisplayName(finalName);
-      } catch (e) {
-        // console.error("Profile fetch failed, using metadata", e);
-        setName(currentName);
-        setDisplayName(currentName);
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    if (user && !user.is_anonymous) {
-      fetchProfile();
-    } else {
-      setLoading(false);
-    }
-  }, [user, supabase]);
-
-  const handleNameUpdate = async () => {
-    if (!user || !supabase) return;
-    if (!name.trim()) {
-      toast({
-        variant: "destructive",
-        title: "নাম লেখা হয়নি",
-        description: "অনুগ্রহ করে একটি সঠিক নাম লিখুন।",
-      });
-      return;
-    }
-    try {
-      const { error } = await supabase
-        .from("profiles")
-        .upsert({ id: user.id, display_name: name });
-
-      if (error) throw error;
-
-      await supabase.auth.updateUser({ data: { full_name: name } });
-
       setDisplayName(name);
-      toast({
-        title: "নাম পরিবর্তিত হয়েছে",
-        description: `আপনার নতুন নাম "${name}" সফলভাবে সেভ হয়েছে।`,
-      });
-    } catch (error: any) {
-      toast({
-        variant: "destructive",
-        title: "নাম পরিবর্তন ব্যর্থ হয়েছে",
-        description: error.message || "একটি সমস্যা হয়েছে। আবার চেষ্টা করুন।",
-      });
     }
-  };
+    setLoading(false);
+  }, [user]);
 
   if (loading) {
     return (
@@ -180,30 +114,6 @@ function RegisteredUserProfile() {
             আপনার প্রোফাইল এবং অ্যাকাউন্ট পরিচালনা করুন।
           </CardDescription>
         </CardHeader>
-      </Card>
-
-      <Card className="shadow-lg">
-        <CardHeader>
-          <CardTitle>প্রোফাইল তথ্য</CardTitle>
-          <CardDescription>আপনার ব্যক্তিগত তথ্য পরিবর্তন করুন</CardDescription>
-        </CardHeader>
-        <CardContent className="space-y-4">
-          <div className="space-y-2">
-            <Label htmlFor="name">নাম</Label>
-            <Input
-              id="name"
-              value={name}
-              onChange={(e) => setName(e.target.value)}
-              placeholder="আপনার নতুন নাম দিন"
-            />
-          </div>
-        </CardContent>
-        <CardFooter>
-          <Button onClick={handleNameUpdate} className="w-full">
-            <Save className="mr-2" />
-            পরিবর্তন সেভ করুন
-          </Button>
-        </CardFooter>
       </Card>
     </>
   );
