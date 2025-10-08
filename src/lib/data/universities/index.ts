@@ -11,24 +11,15 @@ export interface University {
   logo: string;
 }
 
-// Since _generated contains all universities, we can derive public and private from it.
-export const allUniversities: University[] = allData.map((uni: any) => ({
-  nameBn: uni.nameBn,
-  nameEn: uni.nameEn,
-  shortName: uni.shortName,
-  id: uni.id,
-  category: uni.category,
-  description: uni.description,
-  link: uni.link,
-  logo: uni.logo,
-}));
+// Since _generated contains all universities, we can derive all lists from it.
+export const allUniversities: University[] = allData;
 
-export const publicUniversities: University[] = allUniversities.filter((uni) =>
-  uni.category.some(cat => cat !== 'প্রাইভেট')
+export const publicUniversities: University[] = allUniversities.filter(
+  (uni) => !uni.category.includes("প্রাইভেট"),
 );
 
-export const privateUniversities: University[] = allUniversities.filter((uni) =>
-  uni.category.includes('প্রাইভেট')
+export const privateUniversities: University[] = allUniversities.filter(
+  (uni) => uni.category.includes("প্রাইভেট"),
 );
 
 export function getUniversityById(id: string): University | undefined {
