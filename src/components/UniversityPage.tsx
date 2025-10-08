@@ -86,7 +86,7 @@ const UniversityPage = ({
 
         {/* 4. CountdownTimer */}
         <div className="mt-4 w-full border border-border bg-card rounded-2xl p-4 sm:p-6 shadow-lg relative">
-          <CountdownTimer />
+          <CountdownTimer universityId={university.id} />
         </div>
 
         {/* 5. Circular */}

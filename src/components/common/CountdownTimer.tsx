@@ -1,9 +1,18 @@
 "use client";
 
 import React, { useState, useEffect, useRef } from "react";
-import { admissionDeadlines } from "@/lib/data/deadlines";
+import {
+  admissionDeadlines,
+  getDeadlinesByUniversity,
+} from "@/lib/data/deadlines";
+import type { Deadline } from "@/lib/data/deadlines";
 
-const CountdownTimer = () => {
+interface CountdownTimerProps {
+  universityId?: string;
+}
+
+const CountdownTimer = ({ universityId }: CountdownTimerProps) => {
+  const [deadlines, setDeadlines] = useState<Deadline[]>([]);
   const [currentIndex, setCurrentIndex] = useState(-1);
   const [timeLeft, setTimeLeft] = useState({
     days: "--",
@@ -15,17 +24,29 @@ const CountdownTimer = () => {
   const animationFrameId = useRef<number | null>(null);
 
   useEffect(() => {
-    const upcomingDeadlines = admissionDeadlines
+    let relevantDeadlines: Deadline[];
+    if (universityId) {
+      relevantDeadlines = getDeadlinesByUniversity(universityId) || [];
+    } else {
+      relevantDeadlines = admissionDeadlines;
+    }
+    setDeadlines(relevantDeadlines);
+  }, [universityId]);
+
+  useEffect(() => {
+    if (deadlines.length === 0) return;
+
+    const upcomingDeadlines = deadlines
       .filter((d) => d.date > new Date())
       .sort((a, b) => a.date.getTime() - b.date.getTime());
 
     if (upcomingDeadlines.length > 0) {
-      const firstUpcomingIndex = admissionDeadlines.findIndex(
-        (d) => d.date === upcomingDeadlines[0].date,
+      const firstUpcomingIndex = deadlines.findIndex(
+        (d) => d.id === upcomingDeadlines[0].id,
       );
       setCurrentIndex(firstUpcomingIndex);
     } else {
-      setCurrentIndex(admissionDeadlines.length - 1);
+      setCurrentIndex(deadlines.length - 1);
       setIsCurrentCompleted(true);
       setTimeLeft({ days: "00", hours: "00", minutes: "00", seconds: "00" });
     }
@@ -35,15 +56,15 @@ const CountdownTimer = () => {
         cancelAnimationFrame(animationFrameId.current);
       }
     };
-  }, []);
+  }, [deadlines]);
 
   useEffect(() => {
     const updateTimer = () => {
-      if (currentIndex < 0 || isCurrentCompleted) return;
+      if (currentIndex < 0 || isCurrentCompleted || deadlines.length === 0)
+        return;
 
       const now = new Date();
-      const difference =
-        admissionDeadlines[currentIndex].date.getTime() - now.getTime();
+      const difference = deadlines[currentIndex].date.getTime() - now.getTime();
 
       if (difference <= 0) {
         setIsCurrentCompleted(true);
@@ -52,14 +73,14 @@ const CountdownTimer = () => {
           cancelAnimationFrame(animationFrameId.current);
         }
         setTimeout(() => {
-          const nextUpcomingIndex = admissionDeadlines.findIndex(
+          const nextUpcomingIndex = deadlines.findIndex(
             (d) => d.date > new Date(),
           );
           if (nextUpcomingIndex !== -1) {
             setCurrentIndex(nextUpcomingIndex);
             setIsCurrentCompleted(false);
           } else {
-            setCurrentIndex(admissionDeadlines.length);
+            setCurrentIndex(deadlines.length);
           }
         }, 2000);
       } else {
@@ -87,14 +108,14 @@ const CountdownTimer = () => {
         cancelAnimationFrame(animationFrameId.current);
       }
     };
-  }, [currentIndex, isCurrentCompleted]);
+  }, [currentIndex, isCurrentCompleted, deadlines]);
 
   const currentDeadline =
-    currentIndex >= 0 && currentIndex < admissionDeadlines.length
-      ? admissionDeadlines[currentIndex]
+    currentIndex >= 0 && currentIndex < deadlines.length
+      ? deadlines[currentIndex]
       : null;
 
-  if (currentIndex >= admissionDeadlines.length) {
+  if (deadlines.length === 0 && !universityId) {
     return (
       <div className="text-center font-bold text-lg p-4 bg-card rounded-2xl">
         সকল ভর্তি পরীক্ষার সময়সীমা শেষ হয়েছে। নতুন সময়সূচী শীঘ্রই যুক্ত করা হবে।
@@ -103,7 +124,11 @@ const CountdownTimer = () => {
   }
 
   if (!currentDeadline) {
-    return null;
+    return (
+      <div className="text-center p-4 text-muted-foreground">
+        এই বিশ্ববিদ্যালয়ের জন্য কোনো পরীক্ষার সময়সূচী পাওয়া যায়নি।
+      </div>
+    );
   }
 
   const TimeCircle = ({
