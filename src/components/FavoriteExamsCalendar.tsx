@@ -1,3 +1,4 @@
+
 "use client";
 
 import React, { useState, useEffect } from "react";
@@ -29,6 +30,24 @@ const FavoriteExamsCalendar = () => {
   }>({});
   const [modifiers, setModifiers] = useState({});
   const [month, setMonth] = useState<Date>(new Date());
+  const [numberOfMonths, setNumberOfMonths] = useState(1);
+
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth >= 1024) {
+        setNumberOfMonths(3);
+      } else if (window.innerWidth >= 768) {
+        setNumberOfMonths(2);
+      } else {
+        setNumberOfMonths(1);
+      }
+    };
+
+    window.addEventListener("resize", handleResize);
+    handleResize(); // Initial check
+
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   useEffect(() => {
     const storedFavorites = localStorage.getItem("admissionFavorites");
@@ -81,7 +100,7 @@ const FavoriteExamsCalendar = () => {
 
     if (
       titles &&
-      modifiers.highlighted?.some(
+      (modifiers as any).highlighted?.some(
         (d: Date) => d.toDateString() === day.toDateString(),
       )
     ) {
@@ -114,6 +133,7 @@ const FavoriteExamsCalendar = () => {
         mode="single"
         month={month}
         onMonthChange={setMonth}
+        numberOfMonths={numberOfMonths}
         modifiers={modifiers}
         modifiersClassNames={{
           highlighted: "bg-primary/20 rounded-md",
@@ -133,3 +153,4 @@ const FavoriteExamsCalendar = () => {
 };
 
 export default FavoriteExamsCalendar;
+
