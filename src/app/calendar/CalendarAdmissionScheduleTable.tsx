@@ -48,7 +48,7 @@ const CalendarAdmissionScheduleTable = () => {
   const { toast } = useToast();
 
   const fetchFavorites = useCallback(async () => {
-    if (!user || !supabase) return;
+    if (!user || !supabase || user.is_anonymous) return;
 
     const { data, error } = await supabase
       .from("user_favorite_exams")
@@ -63,7 +63,7 @@ const CalendarAdmissionScheduleTable = () => {
   }, [user, supabase]);
 
   useEffect(() => {
-    if (user) {
+    if (user && !user.is_anonymous) {
       fetchFavorites();
     } else {
       const storedFavorites = localStorage.getItem("admissionFavorites");
@@ -74,8 +74,8 @@ const CalendarAdmissionScheduleTable = () => {
   }, [user, fetchFavorites]);
 
   const toggleFavorite = async (id: string) => {
-    if (!user) {
-      // Handle anonymous user with localStorage
+    // Handle guest or non-logged-in users with localStorage
+    if (!user || user.is_anonymous) {
       const newFavorites = favorites.includes(id)
         ? favorites.filter((favId) => favId !== id)
         : [...favorites, id];
@@ -84,6 +84,7 @@ const CalendarAdmissionScheduleTable = () => {
       return;
     }
 
+    // Handle registered users with Supabase
     if (!supabase) return;
 
     const isFavorite = favorites.includes(id);
