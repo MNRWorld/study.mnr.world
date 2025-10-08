@@ -31,14 +31,16 @@ const CountdownCell = ({ targetDate }: { targetDate: string | null }) => {
 
   return (
     <TableCell className="text-center align-top font-mono whitespace-nowrap">
-      <span>{String(timeLeft.days).padStart(2, "0")}</span>
-      <span className="mr-1 font-bengali">d</span>
-      <span>{String(timeLeft.hours).padStart(2, "0")}</span>
-      <span className="mr-1 font-bengali">h</span>
-      <span>{String(timeLeft.minutes).padStart(2, "0")}</span>
-      <span className="mr-1 font-bengali">m</span>
-      <span>{String(timeLeft.seconds).padStart(2, "0")}</span>
-      <span className="font-bengali">s</span>
+      <span className="text-xs sm:text-base">
+        <span>{String(timeLeft.days).padStart(2, "0")}</span>
+        <span className="mr-1 font-bengali">d</span>
+        <span>{String(timeLeft.hours).padStart(2, "0")}</span>
+        <span className="mr-1 font-bengali">h</span>
+        <span>{String(timeLeft.minutes).padStart(2, "0")}</span>
+        <span className="mr-1 font-bengali">m</span>
+        <span>{String(timeLeft.seconds).padStart(2, "0")}</span>
+        <span className="font-bengali">s</span>
+      </span>
     </TableCell>
   );
 };
@@ -67,17 +69,17 @@ const CalendarApplicationScheduleTable = () => {
   });
 
   return (
-    <div className="mt-4 w-full border border-border bg-card rounded-2xl shadow-lg">
+    <div className="mt-4 w-full border border-border bg-card rounded-2xl shadow-lg overflow-x-auto">
       <Table>
         <TableHeader>
           <TableRow>
-            <TableHead className="sticky top-[66px] sm:top-[66px] z-10 bg-primary text-primary-foreground text-center font-bold rounded-tl-2xl">
+            <TableHead className="sticky top-0 sm:top-0 z-10 bg-primary text-primary-foreground text-center font-bold rounded-tl-2xl">
               ভার্সিটি
             </TableHead>
-            <TableHead className="sticky top-[66px] sm:top-[66px] z-10 bg-primary text-primary-foreground text-center font-bold">
+            <TableHead className="sticky top-0 sm:top-0 z-10 bg-primary text-primary-foreground text-center font-bold">
               তারিখ
             </TableHead>
-            <TableHead className="sticky top-[66px] sm:top-[66px] z-10 bg-primary text-primary-foreground text-center font-bold rounded-tr-2xl">
+            <TableHead className="sticky top-0 sm:top-0 z-10 bg-primary text-primary-foreground text-center font-bold rounded-tr-2xl">
               ফি ও লিংক
             </TableHead>
           </TableRow>

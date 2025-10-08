@@ -64,11 +64,11 @@ const NavItem = memo(function NavItem({ item, isActive }: NavItemProps) {
               "h-9 focus-visible:outline-none",
               "text-muted-foreground hover:bg-accent hover:text-accent-foreground",
               isActive && "bg-accent text-accent-foreground",
-              "px-3 font-bengali",
+              "px-2 sm:px-3 font-bengali",
             )}
           >
             <div className="relative z-10 flex items-center">
-              <div className="shrink-0">{Icon && <Icon size={20} />}</div>
+              <div className="shrink-0">{Icon && <Icon size={18} />}</div>
               <div
                 className={cn("ml-2 hidden sm:block", { "sm:block": isActive })}
               >
@@ -109,11 +109,11 @@ const NavItem = memo(function NavItem({ item, isActive }: NavItemProps) {
         "h-9 focus-visible:outline-none",
         "text-muted-foreground hover:bg-accent hover:text-accent-foreground",
         isActive && "bg-accent text-accent-foreground",
-        "px-3 font-bengali",
+        "px-2 sm:px-3 font-bengali",
       )}
     >
       <div className="relative z-10 flex items-center">
-        <div className="shrink-0">{Icon && <Icon size={20} />}</div>
+        <div className="shrink-0">{Icon && <Icon size={18} />}</div>
         <div className={cn("ml-2 hidden sm:block", { "sm:block": isActive })}>
           <span className="whitespace-nowrap text-sm font-medium">
             {item.label}

@@ -373,7 +373,7 @@ export default function ProfilePage() {
             আপনার আগ্রহের উপর ভিত্তি করে কিছু গুরুত্বপূর্ণ লিংক।
           </CardDescription>
         </CardHeader>
-        <CardContent className="grid sm:grid-cols-2 md:grid-cols-3 gap-4">
+        <CardContent className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
           {suggestions.map((suggestion) => (
             <Button
               key={suggestion.href}

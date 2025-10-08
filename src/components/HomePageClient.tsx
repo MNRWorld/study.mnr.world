@@ -97,7 +97,7 @@ const HomePageClient = ({ features }: HomePageClientProps) => {
             </p>
           </div>
 
-          <div className="mt-10 grid grid-cols-3 gap-4">
+          <div className="mt-10 grid grid-cols-2 sm:grid-cols-3 gap-4">
             {features.map((feature) => (
               <Link
                 href={feature.href}

@@ -79,7 +79,7 @@ export default function RjsfEditPage() {
       pageTitle = `সম্পাদনা: ${name || "নতুন বিশ্ববিদ্যালয়"}`;
     } else {
         dataPath = `src/lib/data/${slug}.json`;
-        const schemaName = slug.includes('/') ? slug.split('/')[0] : slug;
+        const schemaName = slug.includes('/') ? slug.split('/')[0] : slug.replace('.json', '');
         schemaPath = `src/lib/schemas/${schemaName}Schema.json`;
         newEntityData = {}; 
         pageTitle = `সম্পাদনা: ${slug}.json`;
@@ -102,8 +102,6 @@ export default function RjsfEditPage() {
             setIsNew(true);
             dataJson = { content: newEntityData };
            } else {
-            // For other file types, if it's 404, it might be an issue unless we want to create them.
-            // For now, let's assume we create them with an empty object.
              setIsNew(true);
              dataJson = { content: {} };
            }

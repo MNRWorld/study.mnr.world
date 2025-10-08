@@ -88,7 +88,7 @@ export default function CoursePage({ params }: { params: { id: string } }) {
             <h3 className="text-2xl font-bold text-center mb-6 text-foreground">
               সম্পর্কিত অন্যান্য কোর্স
             </h3>
-            <div className="grid md:grid-cols-3 gap-8">
+            <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-8">
               {relatedCourses.map((relatedCourse) => {
                 const RelatedCourseIcon = relatedCourse.Icon;
                 return (
