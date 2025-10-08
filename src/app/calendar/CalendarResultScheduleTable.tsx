@@ -1,6 +1,6 @@
 "use client";
 
-import calendarInfo from "@/lib/data/CalendarInfo.json";
+import { allData } from "@/lib/data/_generated";
 import {
   Table,
   TableBody,
@@ -12,7 +12,7 @@ import {
 import ExternalLink from "@/components/common/ExternalLink";
 
 const CalendarResultScheduleTable = () => {
-  const resultSchedule = calendarInfo.filter(
+  const resultSchedule = allData.CalendarInfo.filter(
     (item) => item.id !== "demo" && item.resultDetails.date,
   );
 

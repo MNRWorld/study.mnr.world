@@ -1,5 +1,4 @@
-import linksData from "./list.json";
-import { duData } from "@/lib/data/universities/du";
+import { allData } from "../_generated";
 
 interface LinkItem {
   href: string;
@@ -9,6 +8,6 @@ interface LinkItem {
   colSpan?: number;
 }
 
-export const duLinks: LinkItem[][] = duData.links;
-export const collegeLinks: LinkItem[][] = linksData.college;
-export const privateLinks: LinkItem[][] = linksData.private;
+export const duLinks: LinkItem[][] = allData.universities.find(u => u.id === 'du')?.links || [];
+export const collegeLinks: LinkItem[][] = allData.linksList.college;
+export const privateLinks: LinkItem[][] = allData.linksList.private;

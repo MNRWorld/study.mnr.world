@@ -1,4 +1,4 @@
-import scheduleData from "./application.json";
+import { allData } from "../_generated";
 
 export interface ApplicationScheduleItem {
   university: string;
@@ -11,4 +11,5 @@ export interface ApplicationScheduleItem {
   applyCountdownDate: string | null;
 }
 
-export const applicationSchedule: ApplicationScheduleItem[] = scheduleData;
+export const applicationSchedule: ApplicationScheduleItem[] =
+  allData.schedulesApplication;

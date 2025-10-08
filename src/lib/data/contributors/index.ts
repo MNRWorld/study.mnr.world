@@ -1,4 +1,4 @@
-import contributorsData from "./list.json";
+import { allData } from "../_generated";
 
 export interface Contributor {
   name: string;
@@ -12,4 +12,4 @@ export interface Contributor {
   };
 }
 
-export const contributors: Contributor[] = contributorsData;
+export const contributors: Contributor[] = allData.contributorsList;

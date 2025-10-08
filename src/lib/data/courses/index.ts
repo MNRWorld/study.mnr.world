@@ -1,4 +1,4 @@
-import coursesData from "./list.json";
+import { allData } from "../_generated";
 import {
   University,
   HeartPulse,
@@ -23,14 +23,14 @@ export type Course = {
   title: string;
   description: string;
   icon: string;
-  Icon: LucideIcon; // Changed from string to LucideIcon
+  Icon: LucideIcon;
   slug: string;
   stats: { value: string; label: string; tooltip?: string }[];
   features: string[];
   forWhom: string[];
 };
 
-export const courses: Course[] = coursesData.map((course) => ({
+export const courses: Course[] = allData.coursesList.map((course) => ({
   ...course,
   Icon: icons[course.icon],
 }));

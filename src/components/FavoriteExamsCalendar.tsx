@@ -1,9 +1,8 @@
-
 "use client";
 
 import React, { useState, useEffect } from "react";
 import { Calendar } from "@/components/ui/calendar";
-import calendarInfo from "@/lib/data/CalendarInfo.json";
+import { allData } from "@/lib/data/_generated";
 import {
   Tooltip,
   TooltipContent,
@@ -35,7 +34,7 @@ const FavoriteExamsCalendar = () => {
       const favoriteIds: string[] = JSON.parse(storedFavorites);
       const dates: { [key: string]: string[] } = {};
       
-      const favoriteEvents = calendarInfo
+      const favoriteEvents = allData.CalendarInfo
         .filter(item => favoriteIds.includes(item.id) && item.examDetails.ExamCountdownDate)
         .map(item => ({
           date: dayjs(item.examDetails.ExamCountdownDate!),

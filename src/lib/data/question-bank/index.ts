@@ -1,5 +1,4 @@
-
-import cardData from "./cards.json";
+import { allData } from "../_generated";
 
 export type QuestionBankCard = {
   title: string;
@@ -10,4 +9,4 @@ export type QuestionBankCard = {
   bgColor: string;
 };
 
-export const questionBankCards: QuestionBankCard[] = cardData;
+export const questionBankCards: QuestionBankCard[] = allData.questionBankCards;

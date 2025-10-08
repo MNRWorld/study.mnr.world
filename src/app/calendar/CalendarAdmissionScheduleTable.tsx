@@ -1,8 +1,7 @@
-
 "use client";
 
 import React, { useState, useEffect } from "react";
-import calendarInfo from "@/lib/data/CalendarInfo.json";
+import { allData } from "@/lib/data/_generated";
 import {
   Table,
   TableBody,
@@ -60,35 +59,33 @@ const CalendarAdmissionScheduleTable = () => {
     );
   };
 
-  const admissionSchedule = calendarInfo
-    .filter((item) => item.id !== "demo")
-    .sort((a, b) => {
-      const isAFav = favorites.includes(a.id);
-      const isBFav = favorites.includes(b.id);
+  const admissionSchedule = allData.CalendarInfo.filter((item) => item.id !== "demo").sort((a, b) => {
+    const isAFav = favorites.includes(a.id);
+    const isBFav = favorites.includes(b.id);
 
-      if (isAFav && !isBFav) return -1;
-      if (!isAFav && isBFav) return 1;
+    if (isAFav && !isBFav) return -1;
+    if (!isAFav && isBFav) return 1;
 
-      const dateA = a.examDetails.ExamCountdownDate
-        ? new Date(a.examDetails.ExamCountdownDate).getTime()
-        : 0;
-      const dateB = b.examDetails.ExamCountdownDate
-        ? new Date(b.examDetails.ExamCountdownDate).getTime()
-        : 0;
+    const dateA = a.examDetails.ExamCountdownDate
+      ? new Date(a.examDetails.ExamCountdownDate).getTime()
+      : 0;
+    const dateB = b.examDetails.ExamCountdownDate
+      ? new Date(b.examDetails.ExamCountdownDate).getTime()
+      : 0;
 
-      const now = new Date().getTime();
-      const completedA = dateA > 0 && dateA < now;
-      const completedB = dateB > 0 && dateB < now;
+    const now = new Date().getTime();
+    const completedA = dateA > 0 && dateA < now;
+    const completedB = dateB > 0 && dateB < now;
 
-      if (completedA && !completedB) return 1;
-      if (!completedA && completedB) return -1;
-      if (completedA && completedB) return dateA - dateB;
+    if (completedA && !completedB) return 1;
+    if (!completedA && completedB) return -1;
+    if (completedA && completedB) return dateA - dateB;
 
-      if (dateA === 0) return 1;
-      if (dateB === 0) return -1;
+    if (dateA === 0) return 1;
+    if (dateB === 0) return -1;
 
-      return dateA - dateB;
-    });
+    return dateA - dateB;
+  });
 
   return (
     <div className="mt-4 w-full border border-border bg-card rounded-2xl shadow-lg">

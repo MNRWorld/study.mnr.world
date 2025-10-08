@@ -1,3 +1,4 @@
-import navigationData from "./links.json";
-export const navItems = navigationData.navItems;
-export const footerLinks = navigationData.footerLinks;
+import { allData } from "../_generated";
+
+export const navItems = allData.navigationLinks.navItems;
+export const footerLinks = allData.navigationLinks.footerLinks;

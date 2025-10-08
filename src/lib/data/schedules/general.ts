@@ -1,4 +1,4 @@
-import infoData from "./general.json";
+import { allData } from "../_generated";
 
 export interface GeneralAdmissionInfo {
   university: string;
@@ -11,4 +11,5 @@ export interface GeneralAdmissionInfo {
   negativeMarking: string;
 }
 
-export const generalAdmissionInfo: GeneralAdmissionInfo[] = infoData;
+export const generalAdmissionInfo: GeneralAdmissionInfo[] =
+  allData.schedulesGeneral;

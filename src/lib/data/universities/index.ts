@@ -11,7 +11,6 @@ export interface University {
   logo: string;
 }
 
-// Source data from the new central _generated file
 export const allUniversities: University[] = allData.universities;
 
 export const publicUniversities: University[] = allUniversities.filter(

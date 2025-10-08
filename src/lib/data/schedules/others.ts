@@ -1,4 +1,4 @@
-import others from "./others.json";
+import { allData } from "../_generated";
 
-export const collegeAdmissionInfo = others.college;
-export const privateAdmissionInfo = others.private;
+export const collegeAdmissionInfo = allData.schedulesOthers.college;
+export const privateAdmissionInfo = allData.schedulesOthers.private;

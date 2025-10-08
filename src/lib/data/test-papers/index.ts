@@ -1,5 +1,4 @@
-
-import cardData from "./list.json";
+import { allData } from "../_generated";
 
 export type TestPaperCard = {
   title: string;
@@ -8,5 +7,7 @@ export type TestPaperCard = {
   bgColor: string;
 };
 
-export const allGroupsTestPapers: TestPaperCard[] = cardData.allGroups;
-export const scienceGroupTestPapers: TestPaperCard[] = cardData.scienceGroup;
+export const allGroupsTestPapers: TestPaperCard[] =
+  allData.testPapersList.allGroups;
+export const scienceGroupTestPapers: TestPaperCard[] =
+  allData.testPapersList.scienceGroup;

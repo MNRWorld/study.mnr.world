@@ -1,4 +1,4 @@
-import scheduleData from "./admission.json";
+import { allData } from "../_generated";
 
 export interface AdmissionScheduleItem {
   subject: string;
@@ -6,4 +6,5 @@ export interface AdmissionScheduleItem {
   status: string;
 }
 
-export const admissionSchedule: AdmissionScheduleItem[] = scheduleData;
+export const admissionSchedule: AdmissionScheduleItem[] =
+  allData.schedulesAdmission;
