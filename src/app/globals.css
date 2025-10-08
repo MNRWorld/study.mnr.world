@@ -80,7 +80,7 @@ body {
 }
 
 .font-bengali {
-  font-family: "Hind Siliguri", sans-serif;
+  /* The font is now applied globally via next/font in layout.tsx */
 }
 
 .gradient-text {

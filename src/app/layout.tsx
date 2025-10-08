@@ -7,6 +7,12 @@ import BackToTopButton from "@/components/common/BackToTopButton";
 import { cn } from "@/lib/utils";
 import { ThemeProvider } from "@/components/ThemeProvider";
 import { SupabaseProvider } from "@/lib/supabase/provider";
+import { Hind_Siliguri } from "next/font/google";
+
+const hindSiliguri = Hind_Siliguri({
+  subsets: ["latin", "bengali"],
+  weight: ["300", "400", "500", "600", "700"],
+});
 
 export const metadata: Metadata = {
   title: "স্টাডি প্ল্যাটফর্ম",
@@ -22,10 +28,6 @@ export default function RootLayout({
     <html lang="bn" suppressHydrationWarning>
       <head>
         <link
-          href="https://banglawebfonts.pages.dev/css/hind-siliguri.css"
-          rel="stylesheet"
-        />
-        <link
           rel="preconnect"
           href="https://raw.githubusercontent.com"
           crossOrigin="anonymous"
@@ -36,7 +38,12 @@ export default function RootLayout({
           crossOrigin="anonymous"
         />
       </head>
-      <body className={cn("min-h-screen flex flex-col antialiased")}>
+      <body
+        className={cn(
+          "min-h-screen flex flex-col antialiased font-bengali",
+          hindSiliguri.className,
+        )}
+      >
         <ThemeProvider
           attribute="class"
           defaultTheme="system"
