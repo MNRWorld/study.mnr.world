@@ -1,7 +1,7 @@
 
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import { Calendar } from "@/components/ui/calendar";
 import { allData } from "@/lib/data/_generated";
 import {
@@ -13,15 +13,20 @@ import {
 import type { DayContentProps } from "react-day-picker";
 import { format } from "date-fns";
 import { bn } from "date-fns/locale";
+import { useUser, useSupabase } from "@/lib/supabase/hooks";
 
 const formatDay = (day: Date) => format(day, "d", { locale: bn });
-const formatMonthCaption = (month: Date) => format(month, "MMMM yyyy", { locale: bn });
+const formatMonthCaption = (month: Date) =>
+  format(month, "MMMM yyyy", { locale: bn });
 const formatWeekdayName = (weekday: Date) => format(weekday, "eee", { locale: bn });
 
 const FavoriteExamsCalendar = () => {
+  const { user } = useUser();
+  const supabase = useSupabase();
   const [favoriteDates, setFavoriteDates] = useState<{
     [key: string]: string[];
   }>({});
+  const [favoriteIds, setFavoriteIds] = useState<string[]>([]);
   const [modifiers, setModifiers] = useState({});
   const [month, setMonth] = useState<Date>(new Date());
   const [numberOfMonths, setNumberOfMonths] = useState(1);
@@ -41,46 +46,66 @@ const FavoriteExamsCalendar = () => {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
+  const fetchFavorites = useCallback(async () => {
+    if (!user || !supabase) return;
+
+    const { data, error } = await supabase
+      .from("user_favorite_exams")
+      .select("exam_id")
+      .eq("user_id", user.id);
+
+    if (error) {
+      console.error("Error fetching favorites:", error);
+    } else {
+      setFavoriteIds(data.map((fav) => fav.exam_id));
+    }
+  }, [user, supabase]);
+
   useEffect(() => {
-    const storedFavorites = localStorage.getItem("admissionFavorites");
-    if (storedFavorites) {
-      const favoriteIds: string[] = JSON.parse(storedFavorites);
-      const dates: { [key: string]: string[] } = {};
-
-      const favoriteEvents = allData.CalendarInfo.filter(
-        (item) =>
-          favoriteIds.includes(item.id) && item.examDetails.ExamCountdownDate,
-      ).map((item) => ({
-        date: new Date(item.examDetails.ExamCountdownDate!),
-        title: item.universityNameAndUnit,
-      }));
-
-      favoriteEvents.forEach((event) => {
-        if (!isNaN(event.date.getTime())) {
-          const dateString = format(event.date, "yyyy-MM-dd");
-          if (!dates[dateString]) {
-            dates[dateString] = [];
-          }
-          dates[dateString].push(event.title);
-        }
-      });
-
-      setFavoriteDates(dates);
-
-      if (favoriteEvents.length > 0 && !isNaN(favoriteEvents[0].date.getTime())) {
-        setMonth(favoriteEvents[0].date);
+    if (user) {
+      fetchFavorites();
+    } else {
+      const storedFavorites = localStorage.getItem("admissionFavorites");
+      if (storedFavorites) {
+        setFavoriteIds(JSON.parse(storedFavorites));
       }
     }
-  }, []);
+  }, [user, fetchFavorites]);
 
   useEffect(() => {
-    const highlightedDates = Object.keys(favoriteDates).map((dateStr) =>
-      new Date(dateStr),
-    );
+    const dates: { [key: string]: string[] } = {};
+
+    const favoriteEvents = allData.CalendarInfo.filter(
+      (item) =>
+        favoriteIds.includes(item.id) && item.examDetails.ExamCountdownDate,
+    ).map((item) => ({
+      date: new Date(item.examDetails.ExamCountdownDate!),
+      title: item.universityNameAndUnit,
+    }));
+
+    favoriteEvents.forEach((event) => {
+      if (!isNaN(event.date.getTime())) {
+        const dateString = format(event.date, "yyyy-MM-dd");
+        if (!dates[dateString]) {
+          dates[dateString] = [];
+        }
+        dates[dateString].push(event.title);
+      }
+    });
+
+    setFavoriteDates(dates);
+
+    const highlightedDates = Object.keys(dates).map(
+      (dateStr) => new Date(dateStr + "T00:00:00"),
+    ); // Avoid timezone issues
     setModifiers({
       highlighted: highlightedDates,
     });
-  }, [favoriteDates]);
+
+    if (favoriteEvents.length > 0 && !isNaN(favoriteEvents[0].date.getTime())) {
+      setMonth(favoriteEvents[0].date);
+    }
+  }, [favoriteIds]);
 
   const DayWithTooltip = (props: DayContentProps) => {
     const day = props.date;
@@ -101,7 +126,7 @@ const FavoriteExamsCalendar = () => {
           <Tooltip>
             <TooltipTrigger asChild>
               <div className="relative flex flex-col h-full w-full items-center justify-center">
-                <span>{format(day, "d")}</span>
+                <span>{formatDay(day)}</span>
                 {titles.length === 1 ? (
                   <span className="text-[8px] leading-tight truncate w-full px-1 absolute bottom-1">
                     {titles[0]}
@@ -122,7 +147,7 @@ const FavoriteExamsCalendar = () => {
         </TooltipProvider>
       );
     }
-    return <div>{format(day, "d")}</div>;
+    return <div>{formatDay(day)}</div>;
   };
 
   return (
