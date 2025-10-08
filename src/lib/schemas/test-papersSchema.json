@@ -21,7 +21,7 @@
       "title": "টেস্ট পেপার কার্ড",
       "properties": {
         "title": { "type": "string", "title": "শিরোনাম" },
-        "logo": { "type": "string", "title": "লোগো URL", "format": "uri" },
+        "logo": { "type": "string", "title": "লোগো URL" },
         "href": { "type": "string", "title": "লিঙ্ক" },
         "bgColor": { "type": "string", "title": "পটভূমির রঙ (Tailwind class)" }
       }

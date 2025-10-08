@@ -9,7 +9,7 @@
       "type": "object",
       "properties": {
         "label": { "type": "string" },
-        "url": { "type": "string", "format": "uri" }
+        "url": { "type": "string" }
       }
     },
     "feeItem": {
@@ -53,7 +53,7 @@
       "type": "object",
       "properties": {
         "name": { "type": "string" },
-        "url": { "type": "string", "format": "uri" }
+        "url": { "type": "string" }
       }
     },
     "mapCategory": {
@@ -70,7 +70,7 @@
       "type": "object",
       "properties": {
         "text": { "type": "string" },
-        "url": { "type": "string", "format": "uri" }
+        "url": { "type": "string" }
       }
     },
     "questionBankItem": {
@@ -104,7 +104,7 @@
         "seat": {
           "oneOf": [{ "type": "number" }, { "type": "string" }]
         },
-        "reviewLink": { "type": "string", "format": "uri" },
+        "reviewLink": { "type": "string" },
         "tooltip": { "type": "string" }
       }
     }
@@ -129,7 +129,7 @@
               "type": "array",
               "items": { "$ref": "#/definitions/link" }
             },
-            "link": { "type": "string", "format": "uri" },
+            "link": { "type": "string" },
             "qualificationTitle": { "type": "string" },
             "sscBatch": { "type": "string" },
             "hscBatch": { "type": "string" },
@@ -159,7 +159,7 @@
             "title": { "type": "string" },
             "startDate": { "type": "string" },
             "endDate": { "type": "string" },
-            "link": { "type": "string", "format": "uri" },
+            "link": { "type": "string" },
             "note": { "type": "string" }
           }
         },
@@ -175,7 +175,7 @@
               "type": "object",
               "properties": {
                 "text": { "type": "string" },
-                "link": { "type": "string", "format": "uri" }
+                "link": { "type": "string" }
               }
             }
           }
@@ -185,7 +185,7 @@
           "properties": {
             "title": { "type": "string" },
             "location": { "type": "string" },
-            "locationLink": { "type": "string", "format": "uri" },
+            "locationLink": { "type": "string" },
             "note": { "type": "string" }
           }
         },
@@ -204,7 +204,7 @@
           "properties": {
             "title": { "type": "string" },
             "date": { "type": "string" },
-            "link": { "type": "string", "format": "uri" }
+            "link": { "type": "string" }
           }
         }
       }
@@ -231,7 +231,7 @@
                     "type": "object",
                     "properties": {
                       "text": { "type": "string" },
-                      "url": { "type": "string", "format": "uri" }
+                      "url": { "type": "string" }
                     }
                   }
                 }

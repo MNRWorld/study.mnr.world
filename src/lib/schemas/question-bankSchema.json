@@ -22,8 +22,7 @@
       },
       "logo": {
         "type": "string",
-        "title": "লোগো URL",
-        "format": "uri"
+        "title": "লোগো URL"
       },
       "href": {
         "type": "string",

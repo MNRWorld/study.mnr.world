@@ -22,8 +22,7 @@
       },
       "imageUrl": {
         "type": "string",
-        "title": "ছবির URL",
-        "format": "uri"
+        "title": "ছবির URL"
       },
       "social": {
         "type": "object",
@@ -31,18 +30,15 @@
         "properties": {
           "github": {
             "type": "string",
-            "title": "GitHub URL",
-            "format": "uri"
+            "title": "GitHub URL"
           },
           "linkedin": {
             "type": "string",
-            "title": "LinkedIn URL",
-            "format": "uri"
+            "title": "LinkedIn URL"
           },
           "twitter": {
             "type": "string",
-            "title": "Twitter/X URL",
-            "format": "uri"
+            "title": "Twitter/X URL"
           }
         }
       }
