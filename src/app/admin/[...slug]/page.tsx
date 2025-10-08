@@ -34,11 +34,6 @@ export default function RjsfEditPage() {
   const slug = Array.isArray(params.slug) ? params.slug.join("/") : "";
 
   useEffect(() => {
-    if (sessionStorage.getItem("isAdminAuthenticated") !== "true") {
-      router.push("/admin");
-      return;
-    }
-
     if (!slug) {
       setLoading(false);
       toast({

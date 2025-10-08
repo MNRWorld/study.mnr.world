@@ -13,12 +13,7 @@ import {
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { useToast } from "@/hooks/use-toast";
-import {
-  FolderKanban,
-  LogIn,
-  University as UniversityIcon,
-  PlusCircle,
-} from "lucide-react";
+import { University as UniversityIcon, PlusCircle } from "lucide-react";
 import { allUniversities, University } from "@/lib/data/universities";
 import {
   Select,
@@ -28,11 +23,7 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 
-const LOCAL_PASSWORD = "1234";
-
 export default function AdminPage() {
-  const [password, setPassword] = useState("");
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
   const { toast } = useToast();
   const [universities, setUniversities] = useState<University[]>([]);
   const [loading, setLoading] = useState(true);
@@ -42,35 +33,10 @@ export default function AdminPage() {
   const router = useRouter();
 
   useEffect(() => {
-    if (sessionStorage.getItem("isAdminAuthenticated") === "true") {
-      setIsAuthenticated(true);
-    }
+    setLoading(true);
+    setUniversities(allUniversities);
+    setLoading(false);
   }, []);
-
-  useEffect(() => {
-    if (isAuthenticated) {
-      setLoading(true);
-      setUniversities(allUniversities);
-      setLoading(false);
-    }
-  }, [isAuthenticated]);
-
-  const handleLogin = () => {
-    if (password === LOCAL_PASSWORD) {
-      sessionStorage.setItem("isAdminAuthenticated", "true");
-      setIsAuthenticated(true);
-      toast({
-        title: "প্রমাণীকরণ সফল",
-        description: "অ্যাডমিন প্যানেলে স্বাগতম।",
-      });
-    } else {
-      toast({
-        variant: "destructive",
-        title: "প্রমাণীকরণ ব্যর্থ",
-        description: "ভুল পাসওয়ার্ড।",
-      });
-    }
-  };
 
   const handleCreateNew = () => {
     if (!newUniId.trim() || !newUniName.trim()) {
@@ -91,39 +57,6 @@ export default function AdminPage() {
       )}&category=${encodeURIComponent(category)}`,
     );
   };
-
-  if (!isAuthenticated) {
-    return (
-      <div className="flex items-center justify-center min-h-[calc(100vh-10rem)] font-bengali px-4">
-        <Card className="w-full max-w-md p-4 sm:p-6 space-y-6 shadow-lg text-center">
-          <CardHeader>
-            <div className="inline-block p-3 sm:p-4 bg-primary/10 rounded-full mb-4 mx-auto w-fit">
-              <FolderKanban className="h-8 w-8 sm:h-10 sm:w-10 text-primary" />
-            </div>
-            <CardTitle className="text-xl sm:text-2xl font-bold text-foreground">
-              অ্যাডমিন প্যানেল
-            </CardTitle>
-            <p className="text-sm text-muted-foreground mt-2">
-              বিশ্ববিদ্যালয়ের ডেটা পরিচালনা করতে অনুগ্রহ করে পাসওয়ার্ড লিখুন।
-            </p>
-          </CardHeader>
-          <CardContent className="space-y-4">
-            <Input
-              type="password"
-              placeholder="পাসওয়ার্ড লিখুন"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              onKeyDown={(e) => e.key === "Enter" && handleLogin()}
-              className="text-center"
-            />
-            <Button onClick={handleLogin} size="lg" className="w-full">
-              <LogIn className="mr-2" /> লগইন
-            </Button>
-          </CardContent>
-        </Card>
-      </div>
-    );
-  }
 
   return (
     <div className="container mx-auto px-4 py-8 max-w-5xl font-bengali">
