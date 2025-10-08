@@ -105,7 +105,8 @@ export default function RjsfEditPage() {
           setFormData(dataJson.content);
           setInitialData(dataJson.content);
         } else {
-          throw new Error(`Failed to fetch data: ${dataRes.statusText}`);
+          const errorData = await dataRes.json();
+          throw new Error(errorData.error || `Failed to fetch data: ${dataRes.statusText}`);
         }
 
         if (!schemaRes.ok) throw new Error(`Failed to fetch schema: ${schemaRes.statusText}`);
@@ -134,7 +135,7 @@ export default function RjsfEditPage() {
     try {
       if (isNew) {
         const category = updatedData.category.includes('প্রাইভেট') ? 'private' : 'public';
-        const listUpdateRes = await fetch(`/api/admin/files/`, {
+        const listUpdateRes = await fetch(`/api/admin/files`, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ 
