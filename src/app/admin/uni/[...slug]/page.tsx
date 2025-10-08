@@ -217,7 +217,7 @@ export default function RjsfEditPage() {
   };
 
   const isChanged = JSON.stringify(initialData) !== JSON.stringify(formData);
-  const backLink = slug.includes('universities') ? "/admin/uni" : "/admin/data";
+  const backLink = "/admin";
 
   if (loading) {
     return <div className="text-center p-8">ফর্ম এবং ডেটা লোড হচ্ছে...</div>;
