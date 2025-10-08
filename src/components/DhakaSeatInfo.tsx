@@ -115,7 +115,6 @@ const DhakaSeatInfo = () => {
     >
       <div className="flex justify-center">
         <div className="gradient-background inline-block px-6 py-2 text-primary-foreground rounded-full text-lg mb-4 font-bold shadow-md">
-          <Users className="inline-block mr-2" />
           সাবজেক্ট প্রতি সিট সংখ্যা ও রিভিউ
         </div>
       </div>
