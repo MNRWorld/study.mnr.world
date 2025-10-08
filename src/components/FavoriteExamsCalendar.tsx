@@ -10,19 +10,13 @@ import {
   TooltipProvider,
   TooltipTrigger,
 } from "@/components/ui/tooltip";
-import dayjs from "dayjs";
-import "dayjs/locale/bn";
-import LocalizedFormat from "dayjs/plugin/localizedFormat";
 import type { DayContentProps } from "react-day-picker";
 import { format } from "date-fns";
 import { bn } from "date-fns/locale";
 
-dayjs.extend(LocalizedFormat);
-dayjs.locale("bn");
-
-const formatDay = (day: Date) => dayjs(day).format("D");
-const formatMonthCaption = (month: Date) => dayjs(month).format("MMMM YYYY");
-const formatWeekdayName = (weekday: Date) => dayjs(weekday).format("dd");
+const formatDay = (day: Date) => format(day, "d", { locale: bn });
+const formatMonthCaption = (month: Date) => format(month, "MMMM yyyy", { locale: bn });
+const formatWeekdayName = (weekday: Date) => format(weekday, "eee", { locale: bn });
 
 const FavoriteExamsCalendar = () => {
   const [favoriteDates, setFavoriteDates] = useState<{
@@ -57,13 +51,13 @@ const FavoriteExamsCalendar = () => {
         (item) =>
           favoriteIds.includes(item.id) && item.examDetails.ExamCountdownDate,
       ).map((item) => ({
-        date: dayjs(item.examDetails.ExamCountdownDate!),
+        date: new Date(item.examDetails.ExamCountdownDate!),
         title: item.universityNameAndUnit,
       }));
 
       favoriteEvents.forEach((event) => {
-        if (event.date.isValid()) {
-          const dateString = event.date.format("YYYY-MM-DD");
+        if (!isNaN(event.date.getTime())) {
+          const dateString = format(event.date, "yyyy-MM-dd");
           if (!dates[dateString]) {
             dates[dateString] = [];
           }
@@ -73,15 +67,15 @@ const FavoriteExamsCalendar = () => {
 
       setFavoriteDates(dates);
 
-      if (favoriteEvents.length > 0 && favoriteEvents[0].date.isValid()) {
-        setMonth(favoriteEvents[0].date.toDate());
+      if (favoriteEvents.length > 0 && !isNaN(favoriteEvents[0].date.getTime())) {
+        setMonth(favoriteEvents[0].date);
       }
     }
   }, []);
 
   useEffect(() => {
     const highlightedDates = Object.keys(favoriteDates).map((dateStr) =>
-      dayjs(dateStr).toDate(),
+      new Date(dateStr),
     );
     setModifiers({
       highlighted: highlightedDates,
@@ -90,10 +84,10 @@ const FavoriteExamsCalendar = () => {
 
   const DayWithTooltip = (props: DayContentProps) => {
     const day = props.date;
-    if (!dayjs(day).isValid()) {
+    if (isNaN(day.getTime())) {
       return <div />;
     }
-    const dateString = dayjs(day).format("YYYY-MM-DD");
+    const dateString = format(day, "yyyy-MM-dd");
     const titles = favoriteDates[dateString];
 
     if (
@@ -106,12 +100,19 @@ const FavoriteExamsCalendar = () => {
         <TooltipProvider>
           <Tooltip>
             <TooltipTrigger asChild>
-              <div className="relative flex h-full w-full items-center justify-center">
-                {dayjs(day).format("D")}
+              <div className="relative flex flex-col h-full w-full items-center justify-center">
+                <span>{format(day, "d")}</span>
+                {titles.length === 1 ? (
+                  <span className="text-[8px] leading-tight truncate w-full px-1 absolute bottom-1">
+                    {titles[0]}
+                  </span>
+                ) : (
+                  <span className="h-1.5 w-1.5 rounded-full bg-primary absolute bottom-1.5"></span>
+                )}
               </div>
             </TooltipTrigger>
             <TooltipContent>
-              <div className="font-bengali">
+              <div className="font-bengali text-sm">
                 {titles.map((title, i) => (
                   <p key={i}>{title}</p>
                 ))}
@@ -121,7 +122,7 @@ const FavoriteExamsCalendar = () => {
         </TooltipProvider>
       );
     }
-    return <div>{dayjs(day).format("D")}</div>;
+    return <div>{format(day, "d")}</div>;
   };
 
   return (
@@ -145,10 +146,13 @@ const FavoriteExamsCalendar = () => {
           DayContent: DayWithTooltip,
         }}
         className="p-0"
+        classNames={{
+          cell: "h-12 w-12 sm:h-14 sm:w-14 text-center text-sm p-0 relative [&:has([aria-selected])]:bg-accent first:[&:has([aria-selected])]:rounded-l-md last:[&:has([aria-selected])]:rounded-r-md focus-within:relative focus-within:z-20",
+          day: "h-12 w-12 sm:h-14 sm:w-14 p-0",
+        }}
       />
     </div>
   );
 };
 
 export default FavoriteExamsCalendar;
-
