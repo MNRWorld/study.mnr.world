@@ -56,7 +56,7 @@ const FavoriteExamsCalendar = () => {
       .eq("user_id", user.id);
 
     if (error) {
-      // Error fetching favorites will be handled by Supabase RLS
+      // Error is handled by RLS and toasts, no need for console.error
     } else {
       setFavoriteIds(data.map((fav) => fav.exam_id));
     }
@@ -152,7 +152,7 @@ const FavoriteExamsCalendar = () => {
   };
 
   return (
-    <div className="mt-4 w-full border border-border bg-card rounded-2xl p-4 sm:p-6 shadow-lg relative flex justify-center">
+    <div className="flex justify-center">
       <Calendar
         locale={bn}
         mode="single"
