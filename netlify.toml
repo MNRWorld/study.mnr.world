@@ -1,6 +1,7 @@
 [build.environment]
   NETLIFY_USE_PNPM = "true"
   NODE_VERSION = "20"
+  NETLIFY_CACHE_ENABLED = "false"
 
 [build]
   command = "pnpm run build"
