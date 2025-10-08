@@ -27,7 +27,7 @@ const UniversityPage = ({
   university,
   universityData,
 }: UniversityPageProps) => {
-  const isDhakaUniversity = university.id === "du";
+  const isDhakaOrRajshahi = university.id === "du" || university.id === "ru";
 
   return (
     <div className="font-bengali bg-background">
@@ -55,7 +55,7 @@ const UniversityPage = ({
           subtitle={university.nameEn}
           description={university.description}
           stats={
-            isDhakaUniversity
+            university.id === "du"
               ? [
                   { value: "১৩টি", label: "অনুষদ" },
                   { value: "৮৩টি", label: "বিষয়" },
@@ -82,7 +82,7 @@ const UniversityPage = ({
         )}
 
         {/* 3. DhakaHistoryAndMap */}
-        {isDhakaUniversity && <DhakaHistoryAndMap />}
+        {isDhakaOrRajshahi && <DhakaHistoryAndMap />}
 
         {/* 4. CountdownTimer */}
         <div className="mt-4 w-full border border-border bg-card rounded-2xl p-4 sm:p-6 shadow-lg relative">
@@ -94,10 +94,10 @@ const UniversityPage = ({
           title="সম্পূর্ণ সার্কুলার"
           note="(⚠ নোট: সর্বশেষ সার্কুলার এখনও প্রকাশিত হয়নি। পূর্ববর্তী বছরের সার্কুলার দেখে আইডিয়া নিতে পারেন।)"
           downloadLink="#"
-          showPreviousYears={isDhakaUniversity}
+          showPreviousYears={isDhakaOrRajshahi}
         />
 
-        {isDhakaUniversity ? (
+        {isDhakaOrRajshahi ? (
           <>
             {/* 6. QuestionBank */}
             <DhakaQuestionBank />
