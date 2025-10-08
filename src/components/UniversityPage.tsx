@@ -8,7 +8,7 @@ import LinkList from "@/components/common/LinkList";
 import Circular from "@/components/common/Circular";
 import PageHeaderCard from "./common/PageHeaderCard";
 import Image from "next/image";
-import QuestionBankTabs from "./QuestionBankTabs";
+import DhakaQuestionBank from "./DhakaQuestionBank";
 import DhakaSeatInfo from "./DhakaSeatInfo";
 import DhakaHistoryAndMap from "./DhakaHistoryAndMap";
 import DhakaAdmissionInfo from "./DhakaAdmissionInfo";
@@ -99,10 +99,8 @@ const UniversityPage = ({
 
         {isDhakaUniversity ? (
           <>
-            {/* 6. QuestionBankTabs */}
-            <Suspense fallback={<div>Loading...</div>}>
-              <QuestionBankTabs />
-            </Suspense>
+            {/* 6. QuestionBank */}
+            <DhakaQuestionBank />
             
             {/* 7. DhakaAdmissionInfo */}
             <DhakaAdmissionInfo />
