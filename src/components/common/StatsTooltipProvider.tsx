@@ -2,11 +2,10 @@
 
 import React from "react";
 import {
-  Tooltip,
-  TooltipContent,
-  TooltipProvider,
-  TooltipTrigger,
-} from "@/components/ui/tooltip";
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from "@/components/ui/popover";
 import { Info } from "lucide-react";
 
 interface StatsTooltipProviderProps {
@@ -22,30 +21,28 @@ const StatsTooltipProvider: React.FC<StatsTooltipProviderProps> = ({
 }) => {
   return (
     <div className="flex justify-around items-center mb-6 text-sm max-w-md mx-auto">
-      <TooltipProvider delayDuration={0}>
-        {stats.map((stat, index) => (
-          <div key={index} className="text-center px-2">
-            <div className="text-lg sm:text-xl md:text-2xl font-bold text-foreground flex items-center justify-center">
-              {stat.value}
-              {stat.tooltip && (
-                <Tooltip>
-                  <TooltipTrigger asChild>
-                    <div className="ml-1.5 cursor-help">
-                      <Info className="text-muted-foreground h-3 w-3" />
-                    </div>
-                  </TooltipTrigger>
-                  <TooltipContent>
-                    <p dangerouslySetInnerHTML={{ __html: stat.tooltip }} />
-                  </TooltipContent>
-                </Tooltip>
-              )}
-            </div>
-            <div className="text-xs sm:text-sm text-muted-foreground whitespace-nowrap">
-              {stat.label}
-            </div>
+      {stats.map((stat, index) => (
+        <div key={index} className="text-center px-2">
+          <div className="text-lg sm:text-xl md:text-2xl font-bold text-foreground flex items-center justify-center">
+            {stat.value}
+            {stat.tooltip && (
+              <Popover>
+                <PopoverTrigger asChild>
+                  <div className="ml-1.5 cursor-pointer">
+                    <Info className="text-muted-foreground h-3 w-3" />
+                  </div>
+                </PopoverTrigger>
+                <PopoverContent className="w-auto p-2 text-sm">
+                  <p dangerouslySetInnerHTML={{ __html: stat.tooltip }} />
+                </PopoverContent>
+              </Popover>
+            )}
           </div>
-        ))}
-      </TooltipProvider>
+          <div className="text-xs sm:text-sm text-muted-foreground whitespace-nowrap">
+            {stat.label}
+          </div>
+        </div>
+      ))}
     </div>
   );
 };
