@@ -161,7 +161,7 @@ export default function AdminPage() {
                         className="w-full justify-start gap-2"
                         >
                         <FileJson className="h-4 w-4 flex-shrink-0" />
-                        <span className="truncate">{file}</span>
+                        <span className="truncate">{file.replace('.json', '')}</span>
                         </Button>
                     </Link>
                     ))}
