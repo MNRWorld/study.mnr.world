@@ -1,0 +1,68 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Calendar Information",
+  "description": "Schema for the main CalendarInfo.json file.",
+  "type": "array",
+  "items": {
+    "type": "object",
+    "title": "Calendar Entry",
+    "properties": {
+      "id": {
+        "type": "string",
+        "title": "আইডি (ইউনিক)"
+      },
+      "universityNameAndUnit": {
+        "type": "string",
+        "title": "বিশ্ববিদ্যালয় ও ইউনিট"
+      },
+      "examDetails": {
+        "type": "object",
+        "title": "পরীক্ষার বিবরণ",
+        "properties": {
+          "date": { "type": "string", "title": "তারিখ" },
+          "ExamCountdownDate": {
+            "type": ["string", "null"],
+            "title": "কাউন্টডাউন তারিখ",
+            "format": "date-time"
+          }
+        }
+      },
+      "applicationDetails": {
+        "type": "object",
+        "title": "আবেদনের বিবরণ",
+        "properties": {
+          "StartAndEndDate": { "type": ["string", "null"], "title": "শুরু ও শেষের তারিখ" },
+          "ApplyCountdownDate": {
+            "type": ["string", "null"],
+            "title": "আবেদনের শেষ তারিখ (কাউন্টডাউন)",
+            "format": "date-time"
+          },
+          "fee": { "type": ["string", "null"], "title": "ফি" },
+          "link": { "type": ["string", "null"], "title": "লিঙ্ক", "format": "uri" }
+        }
+      },
+      "admitCardDetails": {
+        "type": "object",
+        "title": "প্রবেশপত্রের বিবরণ",
+        "properties": {
+          "StartAndEndDate": { "type": ["string", "null"], "title": "ডাউনলোডের তারিখ" },
+          "DownloadCountdownDate": {
+            "type": ["string", "null"],
+            "title": "ডাউনলোডের শেষ তারিখ (কাউন্টডাউন)",
+            "format": "date-time"
+          },
+          "link": { "type": ["string", "null"], "title": "লিঙ্ক", "format": "uri" }
+        }
+      },
+      "resultDetails": {
+        "type": "object",
+        "title": "ফলাফলের বিবরণ",
+        "properties": {
+          "date": { "type": ["string", "null"], "title": "ফলাফলের তারিখ" },
+          "link": { "type": ["string", "null"], "title": "লিঙ্ক", "format": "uri" }
+        }
+      }
+    },
+    "required": ["id", "universityNameAndUnit", "examDetails"]
+  }
+}

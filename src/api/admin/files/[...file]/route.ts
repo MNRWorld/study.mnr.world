@@ -10,7 +10,7 @@ function getSafeFilePath(filePath: string): string | null {
   const requestedPath = path.resolve(dataDir, filePath);
 
   // Security check: Ensure the path is within the project directory
-  if (!requestedPath.startsWith(dataDir)) {
+  if (!requestedPath.startsWith(dataDir) || requestedPath.includes('node_modules')) {
     return null;
   }
   return requestedPath;
@@ -49,10 +49,15 @@ export async function GET(
       );
     }
     console.error(`Error reading file ${filePath}:`, error);
-    return NextResponse.json(
-      { error: `File not found or could not be read: ${filePath}` },
-      { status: 500 },
-    );
+    try {
+        // Attempt to return a valid empty JSON if file is empty or malformed
+        return NextResponse.json({ content: {} });
+    } catch (parseError) {
+       return NextResponse.json(
+        { error: `File not found or could not be read: ${filePath}` },
+        { status: 500 },
+      );
+    }
   }
 }
 
@@ -81,9 +86,9 @@ export async function PUT(
     const body = await request.json();
     const content = body.content;
 
-    if (typeof content !== "object" || content === null) {
+    if (typeof content !== "object") { // Allow arrays as well
       return NextResponse.json(
-        { error: "Invalid content format. Expected a JSON object." },
+        { error: "Invalid content format. Expected a JSON object or array." },
         { status: 400 },
       );
     }

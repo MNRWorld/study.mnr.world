@@ -30,6 +30,7 @@ export default function RjsfEditPage() {
   const [saving, setSaving] = useState(false);
   const [filePath, setFilePath] = useState("");
   const [isNew, setIsNew] = useState(false);
+  const [title, setTitle] = useState("ফাইল এডিটর");
 
   const slug = Array.isArray(params.slug) ? params.slug.join("/") : "";
 
@@ -48,22 +49,44 @@ export default function RjsfEditPage() {
     const dataType = pathParts[0];
     const dataId = pathParts[1];
 
-    let dataPath: string = "";
-    let schemaPath: string = "src/lib/schemas/universityInfoSchema.json";
+    let dataPath: string;
+    let schemaPath: string;
+    let newEntityData: any = {};
+    let pageTitle = "সম্পাদনা";
 
+    // Determine paths and default data based on the route
     if (dataType === "universities") {
       dataPath = `src/lib/data/universities/${dataId}/info.json`;
+      schemaPath = `src/lib/schemas/universityInfoSchema.json`;
+      const name = searchParams.get('name') || dataId;
+      const category = searchParams.get('category') || 'public';
+      newEntityData = {
+        id: dataId,
+        nameBn: name,
+        nameEn: "",
+        shortName: dataId.toUpperCase(),
+        category: [category],
+        description: "",
+        link: `/${dataId}`,
+        logo: "",
+        admissionInfo: {},
+        historyAndMap: {},
+        links: [],
+        questionBanks: {},
+        subjects: {},
+      };
+      pageTitle = `সম্পাদনা: ${name || "নতুন বিশ্ববিদ্যালয়"}`;
     } else {
-      toast({
-        variant: "destructive",
-        title: "অসমর্থিত প্রকার",
-        description: `'${dataType}' প্রকারের জন্য সম্পাদনা এখনও সমর্থিত নয়।`,
-      });
-      setLoading(false);
-      return;
+        // Fallback for general data files
+        dataPath = `src/lib/data/${slug}.json`;
+        const schemaName = slug.split('/')[0];
+        schemaPath = `src/lib/schemas/${schemaName}Schema.json`;
+        newEntityData = {}; // General files are not created from scratch this way
+        pageTitle = `সম্পাদনা: ${slug}.json`;
     }
 
     setFilePath(dataPath);
+    setTitle(pageTitle);
 
     const fetchData = async () => {
       setLoading(true);
@@ -73,27 +96,10 @@ export default function RjsfEditPage() {
           fetch(`/api/admin/files/${schemaPath}`),
         ]);
 
-        if (dataRes.status === 404) {
+        if (dataRes.status === 404 && dataType === 'universities') {
           setIsNew(true);
-          const name = searchParams.get('name') || dataId;
-          const category = searchParams.get('category') || 'public';
-          const newUniData = {
-            id: dataId,
-            nameBn: name,
-            nameEn: "",
-            shortName: dataId.toUpperCase(),
-            category: [category],
-            description: "",
-            link: `/${dataId}`,
-            logo: "",
-            admissionInfo: {},
-            historyAndMap: {},
-            links: [],
-            questionBanks: {},
-            subjects: {},
-          };
-          setFormData(newUniData);
-          setInitialData(newUniData);
+          setFormData(newEntityData);
+          setInitialData(newEntityData);
         } else if (dataRes.ok) {
           setIsNew(false);
           const dataJson = await dataRes.json();
@@ -144,7 +150,10 @@ export default function RjsfEditPage() {
     const updatedData = data.formData;
 
     try {
-      if (isNew) {
+      const pathParts = slug.split("/");
+      const dataType = pathParts[0];
+
+      if (isNew && dataType === 'universities') {
         const category = updatedData.category.includes('প্রাইভেট') ? 'private' : 'public';
         const listUpdateRes = await fetch(`/api/admin/files`, {
           method: 'POST',
@@ -180,7 +189,7 @@ export default function RjsfEditPage() {
 
       setInitialData(updatedData);
       setFormData(updatedData);
-      setIsNew(false); // প্রথম সেভের পর এটি আর নতুন নয়
+      if (isNew) setIsNew(false);
 
       const rebuildSuccess = await triggerRebuild();
 
@@ -208,6 +217,7 @@ export default function RjsfEditPage() {
   };
 
   const isChanged = JSON.stringify(initialData) !== JSON.stringify(formData);
+  const backLink = slug.includes('universities') ? "/admin/uni" : "/admin/data";
 
   if (loading) {
     return <div className="text-center p-8">ফর্ম এবং ডেটা লোড হচ্ছে...</div>;
@@ -216,11 +226,11 @@ export default function RjsfEditPage() {
   if (!schema || formData === null) {
     return (
       <div className="container mx-auto p-4 sm:p-8 text-center text-red-500">
-        এই ফাইলের জন্য স্কিমা বা ডেটা লোড করা যায়নি।
+        এই ফাইলের জন্য স্কিমা বা ডেটা লোড করা যায়নি। পাথ সঠিক আছে কিনা তা পরীক্ষা করুন।
         <div className="mt-4">
           <Button asChild variant="outline">
-            <Link href="/admin/uni">
-              <ArrowLeft className="mr-2" /> অ্যাডমিনে ফিরে যান
+            <Link href={backLink}>
+              <ArrowLeft className="mr-2" /> ফিরে যান
             </Link>
           </Button>
         </div>
@@ -232,8 +242,8 @@ export default function RjsfEditPage() {
     <div className="container mx-auto px-2 sm:px-4 py-8 font-bengali">
       <div className="mb-6">
         <Button asChild variant="outline">
-          <Link href="/admin/uni">
-            <ArrowLeft className="mr-2" /> বিশ্ববিদ্যালয় তালিকায় ফিরে যান
+          <Link href={backLink}>
+            <ArrowLeft className="mr-2" /> তালিকায় ফিরে যান
           </Link>
         </Button>
       </div>
@@ -241,10 +251,7 @@ export default function RjsfEditPage() {
       <Card className="max-w-5xl mx-auto">
         <CardHeader>
           <CardTitle className="text-lg sm:text-xl md:text-2xl">
-            সম্পাদনা:{" "}
-            <span className="text-primary">
-              {formData.nameBn || "নতুন বিশ্ববিদ্যালয়"}
-            </span>
+            <span className="text-primary">{title}</span>
           </CardTitle>
           <CardDescription className="text-xs sm:text-sm">
             এই ফর্মটি ব্যবহার করে{" "}

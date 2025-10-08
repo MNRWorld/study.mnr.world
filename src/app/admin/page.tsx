@@ -1,7 +1,7 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
-import { University } from "lucide-react";
+import { Database, University } from "lucide-react";
 import Link from "next/link";
 
 export default function AdminLandingPage() {
@@ -14,12 +14,20 @@ export default function AdminLandingPage() {
         <p className="text-muted-foreground mb-8">
           ডেভেলপমেন্টের জন্য ডেটা ম্যানেজমেন্ট টুল।
         </p>
-        <Button asChild size="lg">
-          <Link href="/admin/uni">
-            <University className="mr-2" />
-            বিশ্ববিদ্যালয় ডেটা এডিটর
-          </Link>
-        </Button>
+        <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <Button asChild size="lg">
+            <Link href="/admin/uni">
+              <University className="mr-2" />
+              বিশ্ববিদ্যালয় ডেটা এডিটর
+            </Link>
+          </Button>
+          <Button asChild size="lg" variant="outline">
+            <Link href="/admin/data">
+              <Database className="mr-2" />
+              সাধারণ ডেটা এডিটর
+            </Link>
+          </Button>
+        </div>
       </div>
     </div>
   );

@@ -1,0 +1,65 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Navigation Links",
+  "description": "Schema for navigation and footer links.",
+  "type": "object",
+  "properties": {
+    "navItems": {
+      "type": "array",
+      "title": "ন্যাভিগেশন মেন্যু",
+      "items": {
+        "type": "object",
+        "title": "মেন্যু আইটেম",
+        "properties": {
+          "id": { "type": "string", "title": "আইডি" },
+          "label": { "type": "string", "title": "লেবেল" },
+          "icon": { "type": "string", "title": "আইকন (lucide-react)" },
+          "href": { "type": "string", "title": "লিঙ্ক" },
+          "subItems": {
+            "type": "array",
+            "title": "সাব-মেন্যু",
+            "items": {
+              "type": "object",
+              "properties": {
+                "id": { "type": "string", "title": "আইডি" },
+                "label": { "type": "string", "title": "লেবেল" },
+                "icon": { "type": "string", "title": "আইকন (lucide-react)" },
+                "href": { "type": "string", "title": "লিঙ্ক" }
+              },
+              "required": ["id", "label", "icon", "href"]
+            }
+          }
+        },
+        "required": ["id", "label", "icon", "href"]
+      }
+    },
+    "footerLinks": {
+      "type": "object",
+      "title": "ফুটার লিঙ্ক",
+      "properties": {
+        "important": {
+          "type": "array",
+          "title": "গুরুত্বপূর্ণ লিঙ্ক",
+          "items": { "$ref": "#/definitions/footerLinkItem" }
+        },
+        "shortcuts": {
+          "type": "array",
+          "title": "শর্টকাট লিঙ্ক",
+          "items": { "$ref": "#/definitions/footerLinkItem" }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "footerLinkItem": {
+      "type": "object",
+      "title": "ফুটার লিঙ্ক",
+      "properties": {
+        "href": { "type": "string", "title": "লিঙ্ক" },
+        "label": { "type": "string", "title": "লেবেল" },
+        "icon": { "type": "string", "title": "আইকন (lucide-react)" }
+      },
+      "required": ["href", "label", "icon"]
+    }
+  }
+}

@@ -1,0 +1,52 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Contributors List",
+  "description": "Schema for the contributors list file.",
+  "type": "array",
+  "items": {
+    "type": "object",
+    "title": "Contributor",
+    "properties": {
+      "name": {
+        "type": "string",
+        "title": "নাম"
+      },
+      "role": {
+        "type": "string",
+        "title": "ভূমিকা"
+      },
+      "bio": {
+        "type": "string",
+        "title": "সংক্ষিপ্ত পরিচিতি",
+        "widget": "textarea"
+      },
+      "imageUrl": {
+        "type": "string",
+        "title": "ছবির URL",
+        "format": "uri"
+      },
+      "social": {
+        "type": "object",
+        "title": "সোশ্যাল মিডিয়া",
+        "properties": {
+          "github": {
+            "type": "string",
+            "title": "GitHub URL",
+            "format": "uri"
+          },
+          "linkedin": {
+            "type": "string",
+            "title": "LinkedIn URL",
+            "format": "uri"
+          },
+          "twitter": {
+            "type": "string",
+            "title": "Twitter/X URL",
+            "format": "uri"
+          }
+        }
+      }
+    },
+    "required": ["name", "role", "bio", "imageUrl", "social"]
+  }
+}
