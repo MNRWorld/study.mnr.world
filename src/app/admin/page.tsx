@@ -55,9 +55,9 @@ export default function AdminPage() {
   if (!isAuthenticated) {
     return (
       <div className="flex items-center justify-center min-h-[calc(100vh-10rem)] font-bengali px-4">
-        <Card className="w-full max-w-md p-6 space-y-6 shadow-lg text-center">
+        <Card className="w-full max-w-md p-4 sm:p-6 space-y-6 shadow-lg text-center">
           <CardHeader>
-            <div className="inline-block p-4 bg-primary/10 rounded-full mb-4 mx-auto w-fit">
+            <div className="inline-block p-3 sm:p-4 bg-primary/10 rounded-full mb-4 mx-auto w-fit">
               <FolderKanban className="h-8 w-8 sm:h-10 sm:w-10 text-primary" />
             </div>
             <CardTitle className="text-xl sm:text-2xl font-bold text-foreground">
@@ -86,7 +86,7 @@ export default function AdminPage() {
   }
 
   return (
-    <div className="container mx-auto px-4 py-8 max-w-4xl font-bengali">
+    <div className="container mx-auto px-4 py-8 max-w-5xl font-bengali">
       <h1 className="text-3xl font-bold mb-6 text-center gradient-text">
         University Data Editor
       </h1>

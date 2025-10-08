@@ -167,7 +167,7 @@ export default function RjsfEditPage() {
 
   if (!schema || formData === null) {
     return (
-      <div className="container mx-auto p-8 text-center text-red-500">
+      <div className="container mx-auto p-4 sm:p-8 text-center text-red-500">
         Could not load schema or data for this file.
         <div className="mt-4">
           <Button asChild variant="outline">
@@ -181,7 +181,7 @@ export default function RjsfEditPage() {
   }
 
   return (
-    <div className="container mx-auto px-4 py-8 max-w-4xl font-bengali">
+    <div className="container mx-auto px-2 sm:px-4 py-8 font-bengali">
       <div className="mb-6">
         <Button asChild variant="outline">
           <Link href="/admin">
@@ -190,20 +190,20 @@ export default function RjsfEditPage() {
         </Button>
       </div>
 
-      <Card>
+      <Card className="max-w-5xl mx-auto">
         <CardHeader>
-          <CardTitle>
+          <CardTitle className="text-lg sm:text-xl md:text-2xl">
             Editing:{" "}
             <span className="text-primary">
               {formData.nameBn || "New University"}
             </span>
           </CardTitle>
-          <CardDescription>
+          <CardDescription className="text-xs sm:text-sm">
             Use this form to update the JSON file content for{" "}
             <span className="font-mono">{filePath}</span>
           </CardDescription>
         </CardHeader>
-        <CardContent>
+        <CardContent className="p-3 sm:p-6">
           <Form
             schema={schema as any}
             formData={formData}
