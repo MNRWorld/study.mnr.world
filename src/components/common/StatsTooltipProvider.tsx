@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React from "react";
 import {
   Tooltip,
   TooltipContent,
@@ -20,12 +20,6 @@ interface StatsTooltipProviderProps {
 const StatsTooltipProvider: React.FC<StatsTooltipProviderProps> = ({
   stats,
 }) => {
-  const [openTooltip, setOpenTooltip] = useState<string | null>(null);
-
-  const handleOpenChange = (isOpen: boolean, label: string) => {
-    setOpenTooltip(isOpen ? label : null);
-  };
-
   return (
     <div className="flex justify-around items-center mb-6 text-sm max-w-md mx-auto">
       <TooltipProvider>
@@ -34,18 +28,9 @@ const StatsTooltipProvider: React.FC<StatsTooltipProviderProps> = ({
             <div className="text-lg sm:text-xl md:text-2xl font-bold text-foreground flex items-center justify-center">
               {stat.value}
               {stat.tooltip && (
-                <Tooltip
-                  open={openTooltip === stat.label}
-                  onOpenChange={(isOpen) =>
-                    handleOpenChange(isOpen, stat.label)
-                  }
-                >
-                  <TooltipTrigger
-                    asChild
-                    className="ml-1.5 cursor-help"
-                    onClick={(e) => e.preventDefault()}
-                  >
-                    <span>
+                <Tooltip>
+                  <TooltipTrigger asChild>
+                    <span className="ml-1.5 cursor-help">
                       <Info className="text-muted-foreground h-3 w-3" />
                     </span>
                   </TooltipTrigger>
