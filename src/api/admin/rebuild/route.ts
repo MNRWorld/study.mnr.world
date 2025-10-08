@@ -1,3 +1,4 @@
+
 import { NextResponse } from "next/server";
 import { exec } from "child_process";
 import util from "util";
@@ -5,6 +6,13 @@ import util from "util";
 const execAsync = util.promisify(exec);
 
 export async function POST(request: Request) {
+  if (process.env.NODE_ENV !== "development") {
+    return NextResponse.json(
+      { error: "This action is only available in development mode." },
+      { status: 403 },
+    );
+  }
+
   try {
     const { stdout, stderr } = await execAsync("npm run prebuild");
 

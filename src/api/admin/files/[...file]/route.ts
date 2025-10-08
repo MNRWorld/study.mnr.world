@@ -1,3 +1,4 @@
+
 import { NextResponse } from "next/server";
 import fs from "fs/promises";
 import path from "path";
@@ -55,6 +56,13 @@ export async function PUT(
   request: Request,
   { params }: { params: { file: string[] } },
 ) {
+  if (process.env.NODE_ENV !== "development") {
+    return NextResponse.json(
+      { error: "This action is only available in development mode." },
+      { status: 403 },
+    );
+  }
+
   const filePath = params.file.join("/");
   const safePath = getSafeFilePath(filePath);
 

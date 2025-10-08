@@ -1,3 +1,4 @@
+
 import { NextResponse } from "next/server";
 import { allUniversities, University } from "@/lib/data/universities";
 import fs from "fs/promises";
@@ -15,6 +16,13 @@ export async function GET() {
 }
 
 export async function POST(request: Request) {
+  if (process.env.NODE_ENV !== "development") {
+    return NextResponse.json(
+      { error: "This action is only available in development mode." },
+      { status: 403 },
+    );
+  }
+
   try {
     const { university, type } = await request.json();
     if (!university || !type || !["public", "private"].includes(type)) {
