@@ -34,9 +34,7 @@ const FavoriteExamsCalendar = () => {
 
   useEffect(() => {
     const handleResize = () => {
-      if (window.innerWidth >= 1024) {
-        setNumberOfMonths(3);
-      } else if (window.innerWidth >= 768) {
+      if (window.innerWidth >= 768) {
         setNumberOfMonths(2);
       } else {
         setNumberOfMonths(1);
