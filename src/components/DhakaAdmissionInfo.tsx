@@ -90,7 +90,7 @@ const DhakaAdmissionInfo = () => {
           />
           {apply.helpfulLinks.map((link, index) => (
             <React.Fragment key={index}>
-              <ExternalLink href={link.url} text={link.label} />
+              <ExternalLink href={link.url} text={link.label} showIcon={false} />
               {index < apply.helpfulLinks.length - 1 && " | "}
             </React.Fragment>
           ))}
