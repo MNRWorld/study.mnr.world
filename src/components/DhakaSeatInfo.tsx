@@ -1,3 +1,4 @@
+
 "use client";
 
 import React, { useState } from "react";
@@ -100,7 +101,7 @@ const SubjectTable: React.FC<SubjectTableProps> = ({
                   {subject.short}
                 </TableCell>
               )}
-              <TableCell className="text-left whitespace-pre-wrap break-words">
+              <TableCell className="text-center whitespace-pre-wrap break-words">
                 {subject.fullName}
               </TableCell>
               <TableCell className="whitespace-pre-wrap break-words">
