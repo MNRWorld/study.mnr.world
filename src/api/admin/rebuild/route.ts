@@ -13,16 +13,11 @@ export async function POST(request: Request) {
   }
 
   try {
-    console.log('API: Triggering data rebuild...');
     const { stdout, stderr } = await execAsync('npm run prebuild');
     
     if (stderr) {
-      console.error(`Rebuild stderr: ${stderr}`);
       // Don't throw for stderr, as some tools write warnings there.
-      // We will check stdout for success message.
     }
-    
-    console.log(`Rebuild stdout: ${stdout}`);
 
     if (stdout.includes('Successfully built university data')) {
        return NextResponse.json({ message: 'Data rebuild successful.', output: stdout });
@@ -31,7 +26,6 @@ export async function POST(request: Request) {
     }
 
   } catch (error: any) {
-    console.error('Error during data rebuild:', error);
     return NextResponse.json(
       { error: `Failed to rebuild data: ${error.message || 'Unknown error'}` },
       { status: 500 },

@@ -57,8 +57,8 @@ export default function RjsfEditPage() {
     if (dataType === "universities") {
       dataPath = `src/lib/data/universities/${dataId}/info.json`;
       schemaPath = `src/lib/schemas/universityInfoSchema.json`;
-      const name = searchParams.get('name') || dataId;
-      const category = searchParams.get('category') || 'public';
+      const name = searchParams.get("name") || dataId;
+      const category = searchParams.get("category") || 'public';
       const categoryInBengali = category === 'public' ? 'সাধারণ' : 'প্রাইভেট';
 
       newEntityData = {
@@ -78,11 +78,12 @@ export default function RjsfEditPage() {
       };
       pageTitle = `সম্পাদনা: ${name || "নতুন বিশ্ববিদ্যালয়"}`;
     } else {
-        dataPath = `src/lib/data/${slug}.json`;
-        const schemaName = slug.includes('/') ? slug.split('/')[0] : slug.replace('.json', '');
+        const fullPath = pathParts.join('/');
+        dataPath = `src/lib/data/${fullPath}.json`;
+        const schemaName = pathParts[0].replace('.json', '');
         schemaPath = `src/lib/schemas/${schemaName}Schema.json`;
-        newEntityData = {}; 
-        pageTitle = `সম্পাদনা: ${slug}.json`;
+        newEntityData = {};
+        pageTitle = `সম্পাদনা: ${fullPath}`;
     }
 
     setFilePath(dataPath);

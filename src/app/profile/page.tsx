@@ -83,7 +83,7 @@ function RegisteredUserProfile() {
           .single();
 
         if (error && error.code !== "PGRST116") {
-          console.error("Error fetching profile:", error);
+          // console.error("Error fetching profile:", error);
         }
         
         const finalName = data?.display_name || currentName;
@@ -91,7 +91,7 @@ function RegisteredUserProfile() {
         setDisplayName(finalName);
 
       } catch (e) {
-        console.error("Profile fetch failed, using metadata", e);
+        // console.error("Profile fetch failed, using metadata", e);
         setName(currentName);
         setDisplayName(currentName);
       } finally {
@@ -131,7 +131,6 @@ function RegisteredUserProfile() {
         description: `আপনার নতুন নাম "${name}" সফলভাবে সেভ হয়েছে।`,
       });
     } catch (error: any) {
-      console.error("Error updating name:", error);
       toast({
         variant: "destructive",
         title: "নাম পরিবর্তন ব্যর্থ হয়েছে",
@@ -322,7 +321,6 @@ export default function ProfilePage() {
       });
       router.push("/");
     } catch (error: any) {
-      console.error("Error deleting account:", error);
       toast({
         variant: "destructive",
         title: "একটি সমস্যা হয়েছে",

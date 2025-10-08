@@ -32,7 +32,6 @@ export default function LoginPage() {
       },
     });
     if (error) {
-      console.error("GitHub login failed:", error);
       toast({
         variant: "destructive",
         title: "GitHub লগইন ব্যর্থ হয়েছে",
@@ -45,7 +44,6 @@ export default function LoginPage() {
   const handleAnonymousLogin = async () => {
     setAnonymousLoading(true);
     try {
-      // Force re-initialization to fetch latest provider settings
       const supabaseClient = createClient();
       const { data, error } = await supabaseClient.auth.signInAnonymously();
       if (error) throw error;
@@ -56,7 +54,6 @@ export default function LoginPage() {
       });
       router.push("/profile");
     } catch (error: any) {
-      console.error("Anonymous login failed:", error);
       toast({
         variant: "destructive",
         title: "লগইন ব্যর্থ হয়েছে",

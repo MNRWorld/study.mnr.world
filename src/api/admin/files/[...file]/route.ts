@@ -54,13 +54,11 @@ export async function GET(
     }
     // Handle JSON parsing errors for malformed files
     if (error instanceof SyntaxError) {
-        console.error(`Error parsing JSON file ${filePath}:`, error);
         return NextResponse.json(
             { error: `Malformed JSON in file: ${filePath}. Please fix it manually.` },
             { status: 500 },
         );
     }
-    console.error(`Error reading file ${filePath}:`, error);
     return NextResponse.json(
       { error: `File not found or could not be read: ${filePath}` },
       { status: 500 },
@@ -108,7 +106,6 @@ export async function PUT(
     await fs.writeFile(safePath, formattedContent, "utf-8");
     return NextResponse.json({ message: "File saved successfully." });
   } catch (error: any) {
-    console.error(`Error writing file ${filePath}:`, error);
     return NextResponse.json(
       { error: `Failed to write file: ${error.message || 'Unknown error'}` },
       { status: 500 },
