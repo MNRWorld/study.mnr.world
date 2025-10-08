@@ -31,29 +31,28 @@ const FavoriteExamsCalendar = () => {
   const [month, setMonth] = useState<Date>(new Date());
 
   const fetchFavorites = useCallback(async () => {
-    if (!user || !supabase) return;
+    if (user && !user.is_anonymous && supabase) {
+      const { data, error } = await supabase
+        .from("user_favorite_exams")
+        .select("exam_id")
+        .eq("user_id", user.id);
 
-    const { data, error } = await supabase
-      .from("user_favorite_exams")
-      .select("exam_id")
-      .eq("user_id", user.id);
-
-    if (error) {
-      // Error is handled by RLS and toasts, no need for console.error
+      if (error) {
+        // RLS policy handles security, so no need to toast error here
+      } else {
+        setFavoriteIds(data.map((fav) => fav.exam_id));
+      }
     } else {
-      setFavoriteIds(data.map((fav) => fav.exam_id));
-    }
-  }, [user, supabase]);
-
-  useEffect(() => {
-    if (user) {
-      fetchFavorites();
-    } else {
+      // Handle guest or non-logged-in users
       const storedFavorites = localStorage.getItem("admissionFavorites");
       if (storedFavorites) {
         setFavoriteIds(JSON.parse(storedFavorites));
       }
     }
+  }, [user, supabase]);
+
+  useEffect(() => {
+    fetchFavorites();
   }, [user, fetchFavorites]);
 
   useEffect(() => {
@@ -135,32 +134,30 @@ const FavoriteExamsCalendar = () => {
   };
 
   return (
-    <div className="flex justify-center">
-      <Calendar
-        locale={bn}
-        mode="single"
-        month={month}
-        onMonthChange={setMonth}
-        numberOfMonths={1}
-        modifiers={modifiers}
-        modifiersClassNames={{
-          highlighted: "bg-primary/20 rounded-md",
-        }}
-        formatters={{
-          formatDay,
-          formatMonthCaption,
-          formatWeekdayName,
-        }}
-        components={{
-          DayContent: DayWithTooltip,
-        }}
-        className="p-0"
-        classNames={{
-          cell: "h-12 w-12 sm:h-14 sm:w-14 text-center text-sm p-0 relative [&:has([aria-selected])]:bg-accent first:[&:has([aria-selected])]:rounded-l-md last:[&:has([aria-selected])]:rounded-r-md focus-within:relative focus-within:z-20",
-          day: "h-12 w-12 sm:h-14 sm:w-14 p-0",
-        }}
-      />
-    </div>
+    <Calendar
+      locale={bn}
+      mode="single"
+      month={month}
+      onMonthChange={setMonth}
+      numberOfMonths={1}
+      modifiers={modifiers}
+      modifiersClassNames={{
+        highlighted: "bg-primary/20 rounded-md",
+      }}
+      formatters={{
+        formatDay,
+        formatMonthCaption,
+        formatWeekdayName,
+      }}
+      components={{
+        DayContent: DayWithTooltip,
+      }}
+      className="p-0"
+      classNames={{
+        cell: "h-12 w-12 sm:h-14 sm:w-14 text-center text-sm p-0 relative [&:has([aria-selected])]:bg-accent first:[&:has([aria-selected])]:rounded-l-md last:[&:has([aria-selected])]:rounded-r-md focus-within:relative focus-within:z-20",
+        day: "h-12 w-12 sm:h-14 sm:w-14 p-0",
+      }}
+    />
   );
 };
 
