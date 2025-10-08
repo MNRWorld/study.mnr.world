@@ -18,7 +18,8 @@ import { useUser, useSupabase } from "@/lib/supabase/hooks";
 const formatDay = (day: Date) => format(day, "d", { locale: bn });
 const formatMonthCaption = (month: Date) =>
   format(month, "MMMM yyyy", { locale: bn });
-const formatWeekdayName = (weekday: Date) => format(weekday, "eee", { locale: bn });
+const formatWeekdayName = (weekday: Date) =>
+  format(weekday, "eee", { locale: bn });
 
 const FavoriteExamsCalendar = () => {
   const { user } = useUser();
@@ -55,7 +56,7 @@ const FavoriteExamsCalendar = () => {
       .eq("user_id", user.id);
 
     if (error) {
-      console.error("Error fetching favorites:", error);
+      // Error fetching favorites will be handled by Supabase RLS
     } else {
       setFavoriteIds(data.map((fav) => fav.exam_id));
     }
