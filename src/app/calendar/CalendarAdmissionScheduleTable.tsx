@@ -73,22 +73,14 @@ const CalendarAdmissionScheduleTable = () => {
     }
   }, [user, fetchFavorites]);
 
-  useEffect(() => {
-    if (!user) {
-      localStorage.setItem("admissionFavorites", JSON.stringify(favorites));
-    }
-  }, [favorites, user]);
-
   const toggleFavorite = async (id: string) => {
     if (!user) {
       // Handle anonymous user with localStorage
-      setFavorites((prevFavorites) => {
-        const newFavorites = prevFavorites.includes(id)
-          ? prevFavorites.filter((favId) => favId !== id)
-          : [...prevFavorites, id];
-        localStorage.setItem("admissionFavorites", JSON.stringify(newFavorites));
-        return newFavorites;
-      });
+      const newFavorites = favorites.includes(id)
+        ? favorites.filter((favId) => favId !== id)
+        : [...favorites, id];
+      localStorage.setItem("admissionFavorites", JSON.stringify(newFavorites));
+      setFavorites(newFavorites);
       return;
     }
 
@@ -166,10 +158,10 @@ const CalendarAdmissionScheduleTable = () => {
         <TableHeader>
           <TableRow>
             <TableHead className="sticky top-[66px] sm:top-[66px] z-10 bg-primary text-primary-foreground text-center font-bold rounded-tl-2xl"></TableHead>
-            <TableHead className="sticky top-[66px] sm:top-[66px] z-10 bg-primary text-primary-foreground text-center font-bold">
+            <TableHead className="sticky top-[66px] sm:top-[66px] z-10 bg-primary text-primary-foreground text-center font-bold truncate">
               ভার্সিটি
             </TableHead>
-            <TableHead className="sticky top-[66px] sm:top-[66px] z-10 bg-primary text-primary-foreground text-center font-bold">
+            <TableHead className="sticky top-[66px] sm:top-[66px] z-10 bg-primary text-primary-foreground text-center font-bold truncate">
               তারিখ
             </TableHead>
             <TableHead className="sticky top-[66px] sm:top-[66px] z-10 bg-primary text-primary-foreground text-center font-bold rounded-tr-2xl">
