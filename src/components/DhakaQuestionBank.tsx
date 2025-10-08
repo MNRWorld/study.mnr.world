@@ -10,7 +10,6 @@ const DhakaQuestionBank = () => {
     >
       <div className="flex justify-center">
         <div className="gradient-background inline-block px-6 py-2 text-primary-foreground rounded-full text-lg mb-4 font-bold shadow-md">
-          <BookOpen className="inline-block mr-2" />
           প্রশ্নব্যাংক
         </div>
       </div>
