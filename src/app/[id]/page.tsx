@@ -1,7 +1,7 @@
 import { notFound } from "next/navigation";
 import { getUniversityById } from "@/lib/data/universities";
 import UniversityPage from "@/components/UniversityPage";
-import { allUniversityData } from "@/lib/data/universities/all";
+import { allUniversityData } from "@/lib/data/universities/_generated";
 
 export async function generateStaticParams() {
   return allUniversityData.map((uni) => ({
