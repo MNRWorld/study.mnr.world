@@ -73,7 +73,7 @@ const SubjectTable: React.FC<SubjectTableProps> = ({ subjects }) => {
           className="w-full pl-8"
         />
       </div>
-      <Table>
+      <Table className="border rounded-md">
         <TableHeader>
           <TableRow>
             <TableHead className="text-center w-[25%]">Short</TableHead>
