@@ -24,17 +24,17 @@ import {
 } from "@/components/ui/select";
 
 const generalDataFiles = [
-  "contributors/list",
-  "courses/list",
-  "deadlines/list",
-  "links/list",
-  "navigation/links",
-  "question-bank/cards",
-  "schedules/application",
-  "schedules/general",
-  "schedules/others",
-  "test-papers/list",
-  "CalendarInfo",
+  "contributors/list.json",
+  "courses/list.json",
+  "deadlines/list.json",
+  "links/list.json",
+  "navigation/links.json",
+  "question-bank/cards.json",
+  "schedules/application.json",
+  "schedules/general.json",
+  "schedules/others.json",
+  "test-papers/list.json",
+  "CalendarInfo.json",
 ];
 
 export default function AdminPage() {
@@ -161,7 +161,7 @@ export default function AdminPage() {
                         className="w-full justify-start gap-2"
                         >
                         <FileJson className="h-4 w-4 flex-shrink-0" />
-                        <span className="truncate">{file}.json</span>
+                        <span className="truncate">{file}</span>
                         </Button>
                     </Link>
                     ))}
