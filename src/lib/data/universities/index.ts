@@ -1,4 +1,4 @@
-import { allUniversityData as allData } from "./_generated";
+import { allData } from "../_generated";
 
 export interface University {
   nameBn: string;
@@ -11,8 +11,8 @@ export interface University {
   logo: string;
 }
 
-// Since _generated contains all universities, we can derive all lists from it.
-export const allUniversities: University[] = allData;
+// Source data from the new central _generated file
+export const allUniversities: University[] = allData.universities;
 
 export const publicUniversities: University[] = allUniversities.filter(
   (uni) => !uni.category.includes("প্রাইভেট"),

@@ -6,8 +6,8 @@ import {
   Blocks,
   BookMarked,
   Briefcase,
+  type LucideIcon,
 } from "lucide-react";
-import type { LucideIcon } from "lucide-react";
 
 const icons: { [key: string]: LucideIcon } = {
   University,
@@ -23,7 +23,8 @@ export type Course = {
   title: string;
   description: string;
   icon: string;
-  Icon: LucideIcon;
+  Icon: LucideIcon; // Changed from string to LucideIcon
+  slug: string;
   stats: { value: string; label: string; tooltip?: string }[];
   features: string[];
   forWhom: string[];

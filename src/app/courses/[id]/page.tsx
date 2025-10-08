@@ -21,9 +21,7 @@ export default function CoursePage({ params }: { params: { id: string } }) {
 
   const relatedCourses = courses.filter((c) => c.id !== params.id);
 
-  const CourseIcon = React.createElement(course.Icon, {
-    className: "h-14 w-14 text-primary",
-  });
+  const CourseIcon = course.Icon;
 
   return (
     <div className="font-bengali bg-background py-8">
@@ -37,7 +35,7 @@ export default function CoursePage({ params }: { params: { id: string } }) {
         </div>
 
         <PageHeaderCard
-          icon={CourseIcon}
+          icon={<CourseIcon className="h-14 w-14 text-primary" />}
           title={course.title}
           subtitle="কোর্সের বিবরণ"
           description={course.description}
@@ -91,27 +89,30 @@ export default function CoursePage({ params }: { params: { id: string } }) {
               সম্পর্কিত অন্যান্য কোর্স
             </h3>
             <div className="grid md:grid-cols-3 gap-8">
-              {relatedCourses.map((relatedCourse) => (
-                <div
-                  key={relatedCourse.id}
-                  className="bg-card border border-border rounded-xl p-6 shadow-lg transition-all duration-300 hover:-translate-y-1 hover:shadow-xl text-center"
-                >
-                  <div className="flex justify-center mb-4">
-                    <relatedCourse.Icon className="h-10 w-10 text-primary" />
+              {relatedCourses.map((relatedCourse) => {
+                const RelatedCourseIcon = relatedCourse.Icon;
+                return (
+                  <div
+                    key={relatedCourse.id}
+                    className="bg-card border border-border rounded-xl p-6 shadow-lg transition-all duration-300 hover:-translate-y-1 hover:shadow-xl text-center"
+                  >
+                    <div className="flex justify-center mb-4">
+                      <RelatedCourseIcon className="h-10 w-10 text-primary" />
+                    </div>
+                    <h4 className="text-lg font-bold text-foreground mb-2">
+                      {relatedCourse.title}
+                    </h4>
+                    <p className="text-sm text-muted-foreground mb-4">
+                      {relatedCourse.description}
+                    </p>
+                    <Button asChild variant="secondary" size="sm">
+                      <Link href={`/courses/${relatedCourse.id}`}>
+                        বিস্তারিত দেখুন
+                      </Link>
+                    </Button>
                   </div>
-                  <h4 className="text-lg font-bold text-foreground mb-2">
-                    {relatedCourse.title}
-                  </h4>
-                  <p className="text-sm text-muted-foreground mb-4">
-                    {relatedCourse.description}
-                  </p>
-                  <Button asChild variant="secondary" size="sm">
-                    <Link href={`/courses/${relatedCourse.id}`}>
-                      বিস্তারিত দেখুন
-                    </Link>
-                  </Button>
-                </div>
-              ))}
+                );
+              })}
             </div>
           </div>
         )}
