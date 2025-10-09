@@ -6,18 +6,21 @@ import QuestionBankCards from "@/components/QuestionBankCards";
 import { Input } from "@/components/ui/input";
 import { Search, Book, Pen, Folder } from "lucide-react";
 import PublicPageFloatingMenu from "@/components/common/PublicPageFloatingMenu";
-import {
-  publicUniversities,
-  privateUniversities,
-} from "@/lib/data/universities";
 import QuestionBankClient from "@/components/QuestionBankClient";
 import TestPaperCard from "@/components/TestPaperCards";
-import {
-  allGroupsTestPapers,
-  scienceGroupTestPapers,
-} from "@/lib/data/test-papers";
+import { allData } from "@/lib/data/_generated";
 
 export default function QuestionBankPage() {
+  const allGroupsTestPapers = allData.testPapersList.allGroups;
+  const scienceGroupTestPapers = allData.testPapersList.scienceGroup;
+  const allUniversities = allData.universities;
+  const publicUniversities = allUniversities.filter(
+    (uni) => !uni.category.includes("প্রাইভেট"),
+  );
+  const privateUniversities = allUniversities.filter((uni) =>
+    uni.category.includes("প্রাইভেট"),
+  );
+
   return (
     <div className="font-bengali bg-background">
       <PublicPageFloatingMenu />
