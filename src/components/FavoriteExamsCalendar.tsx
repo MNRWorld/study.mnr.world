@@ -1,3 +1,4 @@
+
 "use client";
 
 import React, { useState, useEffect, useCallback } from "react";
@@ -153,8 +154,9 @@ const FavoriteExamsCalendar = () => {
       components={{
         DayContent: DayWithTooltip,
       }}
-      className="p-0"
+      className="p-0 flex justify-center"
       classNames={{
+        months: "flex flex-col sm:flex-row space-y-4 sm:space-x-4 sm:space-y-0",
         cell: "h-10 w-10 text-center text-sm p-0 relative [&:has([aria-selected])]:bg-accent first:[&:has([aria-selected])]:rounded-l-md last:[&:has([aria-selected])]:rounded-r-md focus-within:relative focus-within:z-20",
         day: "h-10 w-10 p-0",
         head_cell:
