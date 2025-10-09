@@ -12,7 +12,7 @@ import {
 } from "@/components/ui/table";
 import { Input } from "@/components/ui/input";
 import { Info, Bookmark } from "lucide-react";
-import { duData } from "@/lib/data/universities/du";
+import { allData } from "@/lib/data/_generated";
 import { type Subject } from "@/lib/data/subjects";
 import ExternalLink from "./common/ExternalLink";
 import {
@@ -196,6 +196,11 @@ const SubjectTable: React.FC<SubjectTableProps> = ({
 };
 
 const DhakaSeatInfo = () => {
+  const duData = allData.universities.find((uni) => uni.id === "du");
+
+  if (!duData || !duData.subjects) {
+    return <div>ঢাকা বিশ্ববিদ্যালয়ের বিষয়ভিত্তিক আসনের তথ্য পাওয়া যায়নি।</div>;
+  }
   const { subjects } = duData;
 
   return (

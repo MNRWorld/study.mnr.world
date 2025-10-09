@@ -15,10 +15,15 @@ import {
   History,
   Map,
 } from "lucide-react";
-import { duData } from "@/lib/data/universities/du";
+import { allData } from "@/lib/data/_generated";
 import ExternalLink from "./common/ExternalLink";
 
 const DhakaHistoryAndMap = () => {
+  const duData = allData.universities.find((uni) => uni.id === "du");
+
+  if (!duData || !duData.historyAndMap) {
+    return <div>ঢাকা বিশ্ববিদ্যালয়ের ইতিহাস ও ম্যাপের তথ্য পাওয়া যায়নি।</div>;
+  }
   const { history, mapLocations } = duData.historyAndMap;
 
   return (

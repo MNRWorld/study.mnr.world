@@ -3,11 +3,17 @@
 import React from "react";
 import { Accordion } from "@/components/ui/accordion";
 import QuestionBankAccordion from "@/components/QuestionBankAccordion";
-import { duData } from "@/lib/data/universities/du";
+import { allData } from "@/lib/data/_generated";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 const DhakaUniversityTab = () => {
+  const duData = allData.universities.find((uni) => uni.id === "du");
+
+  if (!duData || !duData.questionBanks) {
+    return <div>ঢাকা বিশ্ববিদ্যালয়ের প্রশ্নব্যাংক পাওয়া যায়নি।</div>;
+  }
   const { duUnitA, duUnitB, duUnitC, duUnitCha, duIBA } = duData.questionBanks;
+
   return (
     <Tabs defaultValue="ka-unit" className="w-full">
       <TabsList className="flex flex-wrap w-full h-auto bg-transparent gap-2">

@@ -26,10 +26,16 @@ import {
   HelpCircle,
   AlertTriangle,
 } from "lucide-react";
-import { duData } from "@/lib/data/universities/du";
+import { allData } from "@/lib/data/_generated";
 import ExternalLink from "./common/ExternalLink";
 
 const DhakaAdmissionInfo = () => {
+  const duData = allData.universities.find((uni) => uni.id === "du");
+
+  if (!duData || !duData.admissionInfo) {
+    return <div>ঢাকা বিশ্ববিদ্যালয়ের ভর্তির তথ্য পাওয়া যায়নি।</div>;
+  }
+
   const {
     apply,
     unitRequirements,
