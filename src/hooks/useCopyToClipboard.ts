@@ -1,4 +1,3 @@
-
 "use client";
 
 import { useState } from "react";
@@ -7,8 +6,9 @@ import { useToast } from "./use-toast";
 type CopiedValue = string | null;
 type CopyFn = (text: string) => Promise<boolean>;
 
-export function useCopyToClipboard(): [CopiedValue, CopyFn] {
+export function useCopyToClipboard(): [boolean, CopyFn] {
   const [copiedText, setCopiedText] = useState<CopiedValue>(null);
+  const [isCopied, setIsCopied] = useState(false);
   const { toast } = useToast();
 
   const copy: CopyFn = async (text) => {
@@ -24,12 +24,17 @@ export function useCopyToClipboard(): [CopiedValue, CopyFn] {
     try {
       await navigator.clipboard.writeText(text);
       setCopiedText(text);
+      setIsCopied(true);
+      setTimeout(() => {
+        setIsCopied(false);
+      }, 2000); // Reset after 2 seconds
       return true;
     } catch (error) {
       setCopiedText(null);
+      setIsCopied(false);
       return false;
     }
   };
 
-  return [copiedText, copy];
+  return [isCopied, copy];
 }
