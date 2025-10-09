@@ -2,15 +2,14 @@ import { NextResponse } from "next/server";
 import fs from "fs/promises";
 import path from "path";
 
-// This API route is intended for local development only.
-// It exposes file system access and should not be deployed to a public server.
-
 function getSafeFilePath(filePath: string): string | null {
   const dataDir = path.resolve(process.cwd());
   const requestedPath = path.resolve(dataDir, filePath);
 
-  // Security check: Ensure the path is within the project directory
-  if (!requestedPath.startsWith(dataDir)) {
+  if (
+    !requestedPath.startsWith(dataDir) ||
+    requestedPath.includes("node_modules")
+  ) {
     return null;
   }
   return requestedPath;
@@ -20,13 +19,6 @@ export async function GET(
   request: Request,
   { params }: { params: { file: string[] } },
 ) {
-  if (process.env.NODE_ENV !== "development") {
-    return NextResponse.json(
-      { error: "This API is only available in development mode." },
-      { status: 403 },
-    );
-  }
-
   const filePath = params.file.join("/");
   const safePath = getSafeFilePath(filePath);
 
@@ -36,15 +28,22 @@ export async function GET(
 
   try {
     const fileContent = await fs.readFile(safePath, "utf-8");
+    if (fileContent.trim() === "") {
+      return NextResponse.json({ content: {} });
+    }
     return NextResponse.json({ content: JSON.parse(fileContent) });
   } catch (error) {
     if ((error as NodeJS.ErrnoException).code === "ENOENT") {
+      return NextResponse.json({ content: null }, { status: 404 });
+    }
+    if (error instanceof SyntaxError) {
       return NextResponse.json(
-        { error: `File not found: ${filePath}` },
-        { status: 404 },
+        {
+          error: `Malformed JSON in file: ${filePath}. Please fix it manually.`,
+        },
+        { status: 500 },
       );
     }
-    console.error(`Error reading file ${filePath}:`, error);
     return NextResponse.json(
       { error: `File not found or could not be read: ${filePath}` },
       { status: 500 },
@@ -58,7 +57,7 @@ export async function PUT(
 ) {
   if (process.env.NODE_ENV !== "development") {
     return NextResponse.json(
-      { error: "This API is only available in development mode." },
+      { error: "This action is only available in development mode." },
       { status: 403 },
     );
   }
@@ -74,22 +73,20 @@ export async function PUT(
     const body = await request.json();
     const content = body.content;
 
-    if (typeof content !== "object" || content === null) {
+    if (typeof content !== "object") {
       return NextResponse.json(
-        { error: "Invalid content format. Expected a JSON object." },
+        { error: "Invalid content format. Expected a JSON object or array." },
         { status: 400 },
       );
     }
 
     const formattedContent = JSON.stringify(content, null, 2);
 
-    // Ensure directory exists before writing file
     await fs.mkdir(path.dirname(safePath), { recursive: true });
 
     await fs.writeFile(safePath, formattedContent, "utf-8");
     return NextResponse.json({ message: "File saved successfully." });
   } catch (error: any) {
-    console.error(`Error writing file ${filePath}:`, error);
     return NextResponse.json(
       { error: `Failed to write file: ${error.message || "Unknown error"}` },
       { status: 500 },

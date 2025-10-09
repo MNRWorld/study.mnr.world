@@ -4,17 +4,9 @@ import fs from "fs/promises";
 import path from "path";
 
 export async function GET() {
-  if (process.env.NODE_ENV !== "development") {
-    return NextResponse.json(
-      { error: "This API is only available in development mode." },
-      { status: 403 },
-    );
-  }
-
   try {
     return NextResponse.json({ files: allUniversities });
   } catch (error) {
-    console.error("Error providing university list:", error);
     return NextResponse.json(
       { error: "Failed to provide university list." },
       { status: 500 },
@@ -25,7 +17,7 @@ export async function GET() {
 export async function POST(request: Request) {
   if (process.env.NODE_ENV !== "development") {
     return NextResponse.json(
-      { error: "This API is only available in development mode." },
+      { error: "This action is only available in development mode." },
       { status: 403 },
     );
   }
@@ -59,13 +51,11 @@ export async function POST(request: Request) {
     );
 
     if (existingIndex > -1) {
-      // Update existing university
       universityList[existingIndex] = {
         ...universityList[existingIndex],
         ...university,
       };
     } else {
-      // Add new university
       universityList.push(university);
     }
 
@@ -79,7 +69,6 @@ export async function POST(request: Request) {
       message: `University list (${fileName}) updated successfully.`,
     });
   } catch (error: any) {
-    console.error("Error updating university list:", error);
     return NextResponse.json(
       { error: `Failed to update university list: ${error.message}` },
       { status: 500 },
