@@ -1,52 +1,44 @@
+
 "use client";
 
 import React from "react";
-import { applicationSchedule } from "@/lib/data/schedules/application";
+import { allData } from "@/lib/data/_generated";
 import ExternalLink from "@/components/common/ExternalLink";
-import {
-  Table,
-  TableBody,
-  TableCell,
-  TableHead,
-  TableHeader,
-  TableRow,
-} from "@/components/ui/table";
-import { cn } from "@/lib/utils";
 import { useCountdown } from "@/hooks/useCountdown";
+import SharedScheduleTable from "@/components/common/SharedScheduleTable";
+import { Button } from "@/components/ui/button";
 
-const CountdownCell = ({ targetDate }: { targetDate: string | null }) => {
+const CountdownDisplay = ({ targetDate }: { targetDate: string | null }) => {
   const timeLeft = useCountdown(targetDate);
 
   if (!targetDate) {
-    return <TableCell className="text-center align-top">-</TableCell>;
+    return <span className="text-xs text-muted-foreground">-</span>;
   }
 
   if (timeLeft.completed) {
     return (
-      <TableCell className="text-center align-top text-red-500 dark:text-red-400 whitespace-nowrap">
+      <span className="text-xs font-bold text-red-500 dark:text-red-400">
         সময় শেষ
-      </TableCell>
+      </span>
     );
   }
 
   return (
-    <TableCell className="text-center align-top font-mono whitespace-nowrap">
-      <span className="text-xs sm:text-base">
-        <span>{String(timeLeft.days).padStart(2, "0")}</span>
-        <span className="mr-1 font-bengali">d</span>
-        <span>{String(timeLeft.hours).padStart(2, "0")}</span>
-        <span className="mr-1 font-bengali">h</span>
-        <span>{String(timeLeft.minutes).padStart(2, "0")}</span>
-        <span className="mr-1 font-bengali">m</span>
-        <span>{String(timeLeft.seconds).padStart(2, "0")}</span>
-        <span className="font-bengali">s</span>
-      </span>
-    </TableCell>
+    <div className="font-mono text-xs text-foreground">
+      <span>{String(timeLeft.days).padStart(2, "0")}</span>
+      <span className="font-bengali">d </span>
+      <span>{String(timeLeft.hours).padStart(2, "0")}</span>
+      <span className="font-bengali">h </span>
+      <span>{String(timeLeft.minutes).padStart(2, "0")}</span>
+      <span className="font-bengali">m </span>
+      <span>{String(timeLeft.seconds).padStart(2, "0")}</span>
+      <span className="font-bengali">s</span>
+    </div>
   );
 };
 
 const CalendarApplicationScheduleTable = () => {
-  const sortedSchedule = [...applicationSchedule].sort((a, b) => {
+  const sortedSchedule = [...allData.schedulesApplication].sort((a, b) => {
     const dateA = a.applyCountdownDate
       ? new Date(a.applyCountdownDate).getTime()
       : 0;
@@ -60,86 +52,59 @@ const CalendarApplicationScheduleTable = () => {
 
     if (completedA && !completedB) return 1;
     if (!completedA && completedB) return -1;
-    if (completedA && completedB) return dateA - dateB; // Sort completed items by date
+    if (completedA && completedB) return dateA - dateB;
 
-    if (dateA === 0) return 1; // Items without a date go to the bottom
+    if (dateA === 0) return 1;
     if (dateB === 0) return -1;
 
-    return dateA - dateB; // Sort upcoming items by date
+    return dateA - dateB;
   });
 
-  return (
-    <div className="mt-4 w-full border border-border bg-card rounded-2xl shadow-lg overflow-x-auto">
-      <Table>
-        <TableHeader>
-          <TableRow>
-            <TableHead className="sticky top-0 sm:top-0 z-10 bg-primary text-primary-foreground text-center font-bold rounded-tl-2xl">
-              ভার্সিটি
-            </TableHead>
-            <TableHead className="sticky top-0 sm:top-0 z-10 bg-primary text-primary-foreground text-center font-bold">
-              তারিখ
-            </TableHead>
-            <TableHead className="sticky top-0 sm:top-0 z-10 bg-primary text-primary-foreground text-center font-bold rounded-tr-2xl">
-              ফি ও লিংক
-            </TableHead>
-          </TableRow>
-        </TableHeader>
-        <TableBody>
-          {sortedSchedule.map((item, index) => (
-            <React.Fragment key={index}>
-              <TableRow
-                className={cn(
-                  "even:bg-muted/30",
-                  "dark:even:bg-muted/30",
-                  "border-b-0",
-                )}
-              >
-                <TableCell
-                  rowSpan={2}
-                  className="text-center font-bold whitespace-pre-wrap align-middle border-b border-border/50"
-                >
-                  <div className="truncate">{item.university}</div>
-                  {item.detailsLink && (
-                    <div className="mt-1">
-                      <ExternalLink
-                        href={item.detailsLink}
-                        text={item.detailsLinkText || "[বিস্তারিত]"}
-                        className="text-xs font-normal"
-                      />
-                    </div>
-                  )}
-                </TableCell>
-                <TableCell
-                  className="text-center whitespace-pre-wrap align-top pt-3"
-                  dangerouslySetInnerHTML={{ __html: item.date }}
-                ></TableCell>
-                <TableCell
-                  className="text-center whitespace-pre-wrap align-top pt-3"
-                  dangerouslySetInnerHTML={{ __html: item.fee }}
-                ></TableCell>
-              </TableRow>
-              <TableRow
-                className={cn(
-                  "even:bg-muted/30",
-                  "dark:even:bg-muted/30",
-                  "border-b border-border/50",
-                )}
-              >
-                <CountdownCell targetDate={item.applyCountdownDate} />
-                <TableCell className="text-center align-top pb-3">
-                  {item.applyLink ? (
-                    <ExternalLink href={item.applyLink} text="[লিংক]" />
-                  ) : (
-                    "-"
-                  )}
-                </TableCell>
-              </TableRow>
-            </React.Fragment>
-          ))}
-        </TableBody>
-      </Table>
-    </div>
-  );
+  const columns = [
+    {
+      header: "ভার্সিটি",
+      className: "w-1/3",
+      accessor: (item: any) => (
+        <div>
+          <p className="font-bold">{item.university}</p>
+          {item.detailsLink && (
+            <p className="text-xs mt-1">
+              <ExternalLink
+                href={item.detailsLink}
+                text={item.detailsLinkText || "[বিস্তারিত]"}
+              />
+            </p>
+          )}
+        </div>
+      ),
+    },
+    {
+      header: "সময়কাল ও কাউন্টডাউন",
+      className: "w-1/3",
+      accessor: (item: any) => (
+        <div>
+          <div dangerouslySetInnerHTML={{ __html: item.date }} />
+          <CountdownDisplay targetDate={item.applyCountdownDate} />
+        </div>
+      ),
+    },
+    {
+      header: "ফি ও আবেদন",
+      className: "w-1/3",
+      accessor: (item: any) => (
+        <div>
+          <div dangerouslySetInnerHTML={{ __html: item.fee }} />
+          {item.applyLink && (
+            <Button asChild size="sm" className="mt-2 text-xs h-7">
+              <ExternalLink href={item.applyLink} text="আবেদন করুন" />
+            </Button>
+          )}
+        </div>
+      ),
+    },
+  ];
+
+  return <SharedScheduleTable data={sortedSchedule} columns={columns} />;
 };
 
 export default CalendarApplicationScheduleTable;
