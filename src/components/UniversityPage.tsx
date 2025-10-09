@@ -1,7 +1,7 @@
 
 "use client";
 
-import React, { Suspense } from "react";
+import React from "react";
 import dynamic from "next/dynamic";
 import { University } from "@/lib/data/universities";
 import FloatingMenu from "@/components/common/FloatingMenu";
@@ -15,18 +15,48 @@ const CountdownTimer = dynamic(
   { ssr: false },
 );
 
-const DhakaQuestionBank = dynamic(() => import("./DhakaQuestionBank"), {
-  loading: () => <div className="text-center p-8">প্রশ্নব্যাংক লোড হচ্ছে...</div>,
-});
-const DhakaSeatInfo = dynamic(() => import("./DhakaSeatInfo"), {
-  loading: () => <div className="text-center p-8">আসন সংখ্যা লোড হচ্ছে...</div>,
-});
-const DhakaHistoryAndMap = dynamic(() => import("./DhakaHistoryAndMap"), {
-  loading: () => <div className="text-center p-8">ইতিহাস লোড হচ্ছে...</div>,
-});
-const DhakaAdmissionInfo = dynamic(() => import("./DhakaAdmissionInfo"), {
-  loading: () => <div className="text-center p-8">ভর্তি তথ্য লোড হচ্ছে...</div>,
-});
+const LoadingComponent = () => (
+  <div className="text-center p-8">লোড হচ্ছে...</div>
+);
+
+// Component Map for university-specific components
+const universityComponents: {
+  [key: string]: {
+    QuestionBank: React.ComponentType;
+    AdmissionInfo: React.ComponentType;
+    SeatInfo: React.ComponentType;
+    HistoryAndMap: React.ComponentType;
+  };
+} = {
+  du: {
+    QuestionBank: dynamic(() => import("./DhakaQuestionBank"), {
+      loading: LoadingComponent,
+    }),
+    AdmissionInfo: dynamic(() => import("./DhakaAdmissionInfo"), {
+      loading: LoadingComponent,
+    }),
+    SeatInfo: dynamic(() => import("./DhakaSeatInfo"), {
+      loading: LoadingComponent,
+    }),
+    HistoryAndMap: dynamic(() => import("./DhakaHistoryAndMap"), {
+      loading: LoadingComponent,
+    }),
+  },
+  ru: {
+    QuestionBank: dynamic(() => import("./DhakaQuestionBank"), {
+      loading: LoadingComponent,
+    }),
+    AdmissionInfo: dynamic(() => import("./DhakaAdmissionInfo"), {
+      loading: LoadingComponent,
+    }),
+    SeatInfo: dynamic(() => import("./DhakaSeatInfo"), {
+      loading: LoadingComponent,
+    }),
+    HistoryAndMap: dynamic(() => import("./DhakaHistoryAndMap"), {
+      loading: LoadingComponent,
+    }),
+  },
+};
 
 interface UniversityPageProps {
   university: University;
@@ -37,10 +67,10 @@ const UniversityPage = ({
   university,
   universityData,
 }: UniversityPageProps) => {
-  const isDhakaOrRajshahi = university.id === "du" || university.id === "ru";
+  const SpecificComponents = universityComponents[university.id];
 
   return (
-    <div className="font-bengali bg-background">
+    <div className="bg-background">
       <FloatingMenu />
 
       <div className="container mx-auto px-4">
@@ -50,7 +80,6 @@ const UniversityPage = ({
           </div>
         )}
 
-        {/* 1. PageHeaderCard */}
         <PageHeaderCard
           icon={
             <Image
@@ -86,37 +115,28 @@ const UniversityPage = ({
           button={{ href: "#Info", label: "মূল তথ্য" }}
         />
 
-        {/* 2. LinkList */}
         {universityData.links && universityData.links.length > 0 && (
           <LinkList links={universityData.links} />
         )}
 
-        {/* 3. DhakaHistoryAndMap */}
-        {isDhakaOrRajshahi && <DhakaHistoryAndMap />}
+        {SpecificComponents && <SpecificComponents.HistoryAndMap />}
 
-        {/* 4. CountdownTimer */}
         <div className="mt-4 w-full border border-border bg-card rounded-2xl p-4 sm:p-6 shadow-lg relative">
           <CountdownTimer universityId={university.id} />
         </div>
 
-        {/* 5. Circular */}
         <Circular
           title="সম্পূর্ণ সার্কুলার"
           note="(⚠ নোট: সর্বশেষ সার্কুলার এখনও প্রকাশিত হয়নি। পূর্ববর্তী বছরের সার্কুলার দেখে আইডিয়া নিতে পারেন।)"
           downloadLink="#"
-          showPreviousYears={isDhakaOrRajshahi}
+          showPreviousYears={!!SpecificComponents}
         />
 
-        {isDhakaOrRajshahi ? (
+        {SpecificComponents ? (
           <>
-            {/* 6. QuestionBank */}
-            <DhakaQuestionBank />
-
-            {/* 7. DhakaAdmissionInfo */}
-            <DhakaAdmissionInfo />
-
-            {/* 8. DhakaSeatInfo */}
-            <DhakaSeatInfo />
+            <SpecificComponents.QuestionBank />
+            <SpecificComponents.AdmissionInfo />
+            <SpecificComponents.SeatInfo />
           </>
         ) : (
           <div className="mt-8 text-center text-muted-foreground">
