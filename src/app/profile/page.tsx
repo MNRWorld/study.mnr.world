@@ -26,6 +26,8 @@ import {
   ArrowRight,
   CalendarDays,
   Bookmark,
+  Copy,
+  Check,
 } from "lucide-react";
 import Link from "next/link";
 import { useUser, useSupabase } from "@/lib/supabase/hooks";
@@ -36,6 +38,7 @@ import "dayjs/locale/bn";
 import LocalizedFormat from "dayjs/plugin/localizedFormat";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import BookmarkedSubjects from "@/components/BookmarkedSubjects";
+import { useCopyToClipboard } from "@/hooks/useCopyToClipboard";
 
 dayjs.extend(LocalizedFormat);
 dayjs.locale("bn");
@@ -165,7 +168,7 @@ function RegisteredUserProfile() {
           </CardDescription>
         </CardHeader>
       </Card>
-      <Card className="shadow-lg">
+      <Card className="shadow-lg animate-fade-in-up" style={{ animationDelay: '100ms' }}>
         <CardHeader>
           <CardTitle>প্রোফাইল তথ্য</CardTitle>
           <CardDescription>
@@ -253,12 +256,23 @@ export default function ProfilePage() {
   const supabase = useSupabase();
   const router = useRouter();
   const { toast } = useToast();
+  const [copied, copy] = useCopyToClipboard();
 
   useEffect(() => {
     if (!loading && !user) {
       router.push("/login");
     }
   }, [user, loading, router]);
+
+  const handleCopy = (text: string) => {
+    copy(text)
+      .then(() => {
+        toast({ title: "আইডি কপি হয়েছে!" });
+      })
+      .catch(() => {
+        toast({ variant: "destructive", title: "কপি করতে সমস্যা হয়েছে" });
+      });
+  };
 
   const logout = async () => {
     if (!supabase) return;
@@ -311,7 +325,7 @@ export default function ProfilePage() {
     <div className="container mx-auto px-4 py-8 max-w-2xl font-bengali">
       {isAnonymous ? <AnonymousUserProfile /> : <RegisteredUserProfile />}
 
-      <Tabs defaultValue="calendar" className="w-full my-8">
+      <Tabs defaultValue="calendar" className="w-full my-8 animate-fade-in-up" style={{ animationDelay: '200ms' }}>
         <TabsList className="grid w-full grid-cols-2">
           <TabsTrigger value="calendar">
             <CalendarDays className="mr-2" /> ক্যালেন্ডার
@@ -348,7 +362,7 @@ export default function ProfilePage() {
         </TabsContent>
       </Tabs>
 
-      <Card className="my-8 shadow-lg">
+      <Card className="my-8 shadow-lg animate-fade-in-up" style={{ animationDelay: '300ms' }}>
         <CardHeader>
           <div className="flex items-center gap-2">
             <Sparkles className="text-primary h-6 w-6" />
@@ -375,7 +389,7 @@ export default function ProfilePage() {
         </CardContent>
       </Card>
 
-      <div className="grid grid-cols-1 gap-8">
+      <div className="grid grid-cols-1 gap-8 animate-fade-in-up" style={{ animationDelay: '400ms' }}>
         <Card className="shadow-lg">
           <CardHeader>
             <CardTitle>ডিভাইস ও সেশন</CardTitle>
@@ -392,13 +406,20 @@ export default function ProfilePage() {
                   : user.app_metadata.provider?.replace(".com", "") || "অজানা"}
               </span>
             </p>
-            <p>
+            <p className="flex items-center gap-2">
               <span className="font-medium text-muted-foreground">
                 ডিভাইস আইডি:
               </span>{" "}
               <span className="font-mono text-primary text-xs break-all">
                 {user.id}
               </span>
+              <button onClick={() => handleCopy(user.id)} title="কপি করুন">
+                {copied ? (
+                  <Check className="h-4 w-4 text-green-500" />
+                ) : (
+                  <Copy className="h-4 w-4 text-muted-foreground hover:text-foreground" />
+                )}
+              </button>
             </p>
             <p>
               <span className="font-medium text-muted-foreground">
@@ -417,7 +438,7 @@ export default function ProfilePage() {
       </div>
 
       {!isAnonymous && (
-        <Card className="mt-8 shadow-lg border-destructive/50 bg-destructive/5">
+        <Card className="mt-8 shadow-lg border-destructive/50 bg-destructive/5 animate-fade-in-up" style={{ animationDelay: '500ms' }}>
           <CardHeader>
             <div className="flex items-center gap-2">
               <AlertTriangle className="text-destructive h-6 w-6" />
