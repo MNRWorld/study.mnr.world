@@ -19,11 +19,13 @@ const ExternalLink = ({
   className,
   showIcon = true,
 }: ExternalLinkProps) => {
+  const isExternal = href.startsWith("http") || href.startsWith("mailto:") || href.startsWith("tel:");
+
   return (
     <Link
       href={href}
-      target="_blank"
-      rel="noopener noreferrer"
+      target={isExternal ? "_blank" : undefined}
+      rel={isExternal ? "noopener noreferrer" : undefined}
       className={cn(
         "text-primary hover:underline inline-flex items-center gap-1",
         className,
@@ -31,7 +33,7 @@ const ExternalLink = ({
     >
       {icon}
       {text}
-      {showIcon && <ArrowUpRightFromSquare className="h-3 w-3" />}
+      {showIcon && isExternal && <ArrowUpRightFromSquare className="h-3 w-3" />}
     </Link>
   );
 };

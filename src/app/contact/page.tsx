@@ -2,6 +2,7 @@
 import { allData } from "@/lib/data/_generated";
 import SimplePageHeader from "@/components/common/SimplePageHeader";
 import { Mail, Phone, MapPin } from "lucide-react";
+import Link from "next/link";
 
 export default function ContactPage() {
   const { title, description, contactPoints } = allData.contactContent;
@@ -29,12 +30,12 @@ export default function ContactPage() {
                   {point.title}
                 </h3>
                 <p className="text-muted-foreground">{point.detail}</p>
-                <a
+                <Link
                   href={point.link}
                   className="text-primary hover:underline mt-4 inline-block"
                 >
                   {point.linkText}
-                </a>
+                </Link>
               </div>
             );
           })}
