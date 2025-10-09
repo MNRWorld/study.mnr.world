@@ -48,34 +48,42 @@ export default function Footer() {
               সহায়তার জন্য আপনার বিশ্বস্ত প্ল্যাটফর্ম।
             </p>
             <div className="flex items-center space-x-3 mt-6">
-              <a
-                href="#"
+              <Link
+                href="https://facebook.com"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="text-foreground hover:text-primary transition-transform hover:scale-115"
                 aria-label="Facebook"
               >
                 <Facebook />
-              </a>
-              <a
-                href="#"
+              </Link>
+              <Link
+                href="https://twitter.com"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="text-foreground hover:text-primary transition-transform hover:scale-115"
                 aria-label="Twitter"
               >
                 <Twitter />
-              </a>
-              <a
-                href="#"
+              </Link>
+              <Link
+                href="https://instagram.com"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="text-foreground hover:text-primary transition-transform hover:scale-115"
                 aria-label="Instagram"
               >
                 <Instagram />
-              </a>
-              <a
-                href="#"
+              </Link>
+              <Link
+                href="https://youtube.com"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="text-foreground hover:text-primary transition-transform hover:scale-115"
                 aria-label="Youtube"
               >
                 <Youtube />
-              </a>
+              </Link>
             </div>
           </div>
 
