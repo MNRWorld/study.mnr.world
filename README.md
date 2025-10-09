@@ -22,6 +22,7 @@ A comprehensive platform for students in Bangladesh, providing all necessary inf
 - **Database & Auth:** [Supabase](https://supabase.io/)
 - **Styling:** [Tailwind CSS](https://tailwindcss.com/)
 - **UI Components:** [ShadCN UI](https://ui.shadcn.com/)
+- **Linting/Formatting:** [Biome](https://biomejs.dev/)
 - **Language:** [TypeScript](https://www.typescriptlang.org/)
 - **Deployment:** [Netlify](https://www.netlify.com/)
 
@@ -55,3 +56,13 @@ To get a local copy up and running, follow these simple steps.
     ```
 
 The application will be available at `http://localhost:3000`.
+
+## 📜 Available Scripts
+
+- `pnpm dev`: Starts the development server.
+- `pnpm build`: Creates a production build of the app.
+- `pnpm start`: Starts the production server.
+- `pnpm lint`: Lints and auto-fixes files using Biome.
+- `pnpm format`: Formats all files using Biome.
+- `pnpm typecheck`: Runs TypeScript to check for type errors.
+
