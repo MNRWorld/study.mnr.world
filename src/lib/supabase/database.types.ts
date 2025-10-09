@@ -15,18 +15,24 @@ export type Database = {
           updated_at: string | null;
           display_name: string | null;
           avatar_url: string | null;
+          target_university: string | null;
+          hsc_result: string | null;
         };
         Insert: {
           id: string;
           updated_at?: string | null;
           display_name?: string | null;
           avatar_url?: string | null;
+          target_university?: string | null;
+          hsc_result?: string | null;
         };
         Update: {
           id?: string;
           updated_at?: string | null;
           display_name?: string | null;
           avatar_url?: string | null;
+          target_university?: string | null;
+          hsc_result?: string | null;
         };
         Relationships: [
           {
@@ -56,6 +62,31 @@ export type Database = {
         Relationships: [
           {
             foreignKeyName: "user_favorite_exams_user_id_fkey";
+            columns: ["user_id"];
+            referencedRelation: "users";
+            referencedColumns: ["id"];
+          },
+        ];
+      };
+      user_subject_bookmarks: {
+        Row: {
+          user_id: string;
+          subject_id: string;
+          created_at: string;
+        };
+        Insert: {
+          user_id: string;
+          subject_id: string;
+          created_at?: string;
+        };
+        Update: {
+          user_id?: string;
+          subject_id?: string;
+          created_at?: string;
+        };
+        Relationships: [
+          {
+            foreignKeyName: "user_subject_bookmarks_user_id_fkey";
             columns: ["user_id"];
             referencedRelation: "users";
             referencedColumns: ["id"];

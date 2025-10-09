@@ -37,27 +37,32 @@ export const SupabaseProvider = ({ children }: { children: ReactNode }) => {
 
     const {
       data: { subscription },
-    } = supabase.auth.onAuthStateChange((event, session) => {
+    } = supabase.auth.onAuthStateChange(async (event, session) => {
       setSession(session);
       const currentUser = session?.user ?? null;
       setUser(currentUser);
       setLoading(false);
 
       if (event === "SIGNED_IN" && currentUser && !currentUser.is_anonymous) {
-        supabase
+        // Check if profile exists
+        const { data: profile, error: selectError } = await supabase
           .from("profiles")
-          .upsert({
-            id: currentUser.id,
-            display_name:
-              currentUser.user_metadata.full_name ||
-              currentUser.user_metadata.user_name,
-            avatar_url: currentUser.user_metadata.avatar_url,
-          })
-          .then(({ error }) => {
-            if (error) {
-              // We can ignore this error for now
-            }
-          });
+          .select("id")
+          .eq("id", currentUser.id)
+          .single();
+
+        // If profile doesn't exist, insert a new one
+        if (!profile) {
+          const { error: insertError } = await supabase
+            .from("profiles")
+            .insert({
+              id: currentUser.id,
+              display_name:
+                currentUser.user_metadata.full_name ||
+                currentUser.user_metadata.user_name,
+              avatar_url: currentUser.user_metadata.avatar_url,
+            });
+        }
       }
     });
 

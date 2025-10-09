@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import {
   Table,
@@ -11,7 +11,7 @@ import {
   TableRow,
 } from "@/components/ui/table";
 import { Input } from "@/components/ui/input";
-import { Info } from "lucide-react";
+import { Info, Bookmark } from "lucide-react";
 import { duData } from "@/lib/data/universities/du";
 import { type Subject } from "@/lib/data/subjects";
 import ExternalLink from "./common/ExternalLink";
@@ -20,6 +20,9 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from "@/components/ui/popover";
+import { useUser, useSupabase } from "@/lib/supabase/hooks";
+import { cn } from "@/lib/utils";
+import { useToast } from "@/hooks/use-toast";
 
 interface SeatCellProps {
   seat: number | string;
@@ -58,6 +61,72 @@ const SubjectTable: React.FC<SubjectTableProps> = ({
   showReviewColumn = true,
 }) => {
   const [searchTerm, setSearchTerm] = useState("");
+  const [bookmarks, setBookmarks] = useState<string[]>([]);
+  const { user } = useUser();
+  const supabase = useSupabase();
+  const { toast } = useToast();
+
+  const fetchBookmarks = useCallback(async () => {
+    if (user && !user.is_anonymous && supabase) {
+      const { data, error } = await supabase
+        .from("user_subject_bookmarks")
+        .select("subject_id")
+        .eq("user_id", user.id);
+      if (!error) {
+        setBookmarks(data.map((b) => b.subject_id));
+      }
+    } else {
+      const localBookmarks = localStorage.getItem("subjectBookmarks");
+      if (localBookmarks) {
+        setBookmarks(JSON.parse(localBookmarks));
+      }
+    }
+  }, [user, supabase]);
+
+  useEffect(() => {
+    fetchBookmarks();
+  }, [fetchBookmarks]);
+
+  const toggleBookmark = async (subjectId: string) => {
+    const isBookmarked = bookmarks.includes(subjectId);
+    let newBookmarks: string[];
+
+    if (user && !user.is_anonymous && supabase) {
+      if (isBookmarked) {
+        const { error } = await supabase
+          .from("user_subject_bookmarks")
+          .delete()
+          .match({ user_id: user.id, subject_id: subjectId });
+        if (error) {
+          toast({ variant: "destructive", title: "বুকমার্ক সরাতে সমস্যা হয়েছে" });
+          return;
+        }
+        newBookmarks = bookmarks.filter((id) => id !== subjectId);
+      } else {
+        const { error } = await supabase
+          .from("user_subject_bookmarks")
+          .insert({ user_id: user.id, subject_id: subjectId });
+        if (error) {
+           toast({ variant: "destructive", title: "বুকমার্ক করতে সমস্যা হয়েছে" });
+          return;
+        }
+        newBookmarks = [...bookmarks, subjectId];
+      }
+    } else {
+      // Guest user logic
+      const currentBookmarks = bookmarks;
+      if (isBookmarked) {
+        newBookmarks = currentBookmarks.filter((id) => id !== subjectId);
+      } else {
+        newBookmarks = [...currentBookmarks, subjectId];
+      }
+      localStorage.setItem("subjectBookmarks", JSON.stringify(newBookmarks));
+    }
+    setBookmarks(newBookmarks);
+    toast({
+      title: isBookmarked ? "বুকমার্ক সরানো হয়েছে" : "বিষয়টি বুকমার্ক করা হয়েছে",
+    });
+  };
 
   const filteredSubjects = subjects.filter(
     (subject) =>
@@ -79,10 +148,11 @@ const SubjectTable: React.FC<SubjectTableProps> = ({
       <Table className="border rounded-md">
         <TableHeader>
           <TableRow>
+            <TableHead className="text-center w-[5%]"></TableHead>
             {showShortColumn && (
               <TableHead className="text-center w-[25%]">Short</TableHead>
             )}
-            <TableHead className="text-center w-[45%]">Full Form</TableHead>
+            <TableHead className="text-center w-[40%]">Full Form</TableHead>
             <TableHead className="text-center w-[15%]">Seat</TableHead>
             {showReviewColumn && (
               <TableHead className="text-center w-[15%]">Review</TableHead>
@@ -92,6 +162,15 @@ const SubjectTable: React.FC<SubjectTableProps> = ({
         <TableBody>
           {filteredSubjects.map((subject, index) => (
             <TableRow key={index} className="text-center">
+               <TableCell>
+                <Bookmark
+                  className={cn(
+                    "h-5 w-5 cursor-pointer text-muted-foreground/30 transition-all hover:scale-125",
+                    bookmarks.includes(subject.short) && "text-primary fill-primary",
+                  )}
+                  onClick={() => toggleBookmark(subject.short)}
+                />
+              </TableCell>
               {showShortColumn && (
                 <TableCell className="font-bold whitespace-pre-wrap break-words">
                   {subject.short}

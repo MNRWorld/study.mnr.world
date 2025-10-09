@@ -1,7 +1,7 @@
 "use client";
 
 import { useRouter } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useCallback } from "react";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import {
@@ -25,6 +25,7 @@ import {
   Sparkles,
   ArrowRight,
   CalendarDays,
+  Bookmark,
 } from "lucide-react";
 import Link from "next/link";
 import { useUser, useSupabase } from "@/lib/supabase/hooks";
@@ -33,6 +34,8 @@ import FavoriteExamsCalendar from "@/components/FavoriteExamsCalendar";
 import dayjs from "dayjs";
 import "dayjs/locale/bn";
 import LocalizedFormat from "dayjs/plugin/localizedFormat";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import BookmarkedSubjects from "@/components/BookmarkedSubjects";
 
 dayjs.extend(LocalizedFormat);
 dayjs.locale("bn");
@@ -61,19 +64,66 @@ const getCreationTime = (user: User | null) => {
 
 function RegisteredUserProfile() {
   const { user } = useUser();
+  const supabase = useSupabase();
+  const { toast } = useToast();
   const [displayName, setDisplayName] = useState("ব্যবহারকারী");
+  const [targetUniversity, setTargetUniversity] = useState("");
+  const [hscResult, setHscResult] = useState("");
   const [loading, setLoading] = useState(true);
+  const [saving, setSaving] = useState(false);
+
+  const fetchProfile = useCallback(async () => {
+    if (user && !user.is_anonymous && supabase) {
+      const { data, error } = await supabase
+        .from("profiles")
+        .select("display_name, target_university, hsc_result")
+        .eq("id", user.id)
+        .single();
+
+      if (data) {
+        setDisplayName(
+          data.display_name ||
+            user.user_metadata?.full_name ||
+            user.user_metadata?.user_name ||
+            "ব্যবহারকারী",
+        );
+        setTargetUniversity(data.target_university || "");
+        setHscResult(data.hsc_result || "");
+      }
+      setLoading(false);
+    }
+  }, [user, supabase]);
 
   useEffect(() => {
-    if (user && !user.is_anonymous) {
-      const name =
-        user.user_metadata?.full_name ||
-        user.user_metadata?.user_name ||
-        "ব্যবহারকারী";
-      setDisplayName(name);
+    fetchProfile();
+  }, [fetchProfile]);
+
+  const handleProfileUpdate = async () => {
+    if (!user || !supabase) return;
+    setSaving(true);
+    const { error } = await supabase
+      .from("profiles")
+      .update({
+        display_name: displayName,
+        target_university: targetUniversity,
+        hsc_result: hscResult,
+        updated_at: new Date().toISOString(),
+      })
+      .eq("id", user.id);
+
+    if (error) {
+      toast({
+        variant: "destructive",
+        title: "প্রোফাইল আপডেট ব্যর্থ হয়েছে",
+        description: error.message,
+      });
+    } else {
+      toast({
+        title: "প্রোফাইল সফলভাবে আপডেট হয়েছে",
+      });
     }
-    setLoading(false);
-  }, [user]);
+    setSaving(false);
+  };
 
   if (loading) {
     return (
@@ -114,6 +164,53 @@ function RegisteredUserProfile() {
             আপনার প্রোফাইল এবং অ্যাকাউন্ট পরিচালনা করুন।
           </CardDescription>
         </CardHeader>
+      </Card>
+      <Card className="shadow-lg">
+        <CardHeader>
+          <CardTitle>প্রোফাইল তথ্য</CardTitle>
+          <CardDescription>
+            আপনার ব্যক্তিগত তথ্য এখানে আপডেট করুন।
+          </CardDescription>
+        </CardHeader>
+        <CardContent className="space-y-4">
+          <div className="space-y-2">
+            <Label htmlFor="displayName">আপনার নাম</Label>
+            <Input
+              id="displayName"
+              value={displayName}
+              onChange={(e) => setDisplayName(e.target.value)}
+              placeholder="আপনার পুরো নাম"
+            />
+          </div>
+          <div className="space-y-2">
+            <Label htmlFor="targetUniversity">আপনার টার্গেট</Label>
+            <Input
+              id="targetUniversity"
+              value={targetUniversity}
+              onChange={(e) => setTargetUniversity(e.target.value)}
+              placeholder="যেমন: ঢাকা বিশ্ববিদ্যালয়"
+            />
+          </div>
+          <div className="space-y-2">
+            <Label htmlFor="hscResult">HSC ফলাফল</Label>
+            <Input
+              id="hscResult"
+              value={hscResult}
+              onChange={(e) => setHscResult(e.target.value)}
+              placeholder="যেমন: GPA 5.00"
+            />
+          </div>
+        </CardContent>
+        <CardFooter>
+          <Button
+            onClick={handleProfileUpdate}
+            disabled={saving}
+            className="w-full"
+          >
+            <Save className="mr-2" />
+            {saving ? "সেভ হচ্ছে..." : "তথ্য সেভ করুন"}
+          </Button>
+        </CardFooter>
       </Card>
     </>
   );
@@ -214,20 +311,42 @@ export default function ProfilePage() {
     <div className="container mx-auto px-4 py-8 max-w-2xl font-bengali">
       {isAnonymous ? <AnonymousUserProfile /> : <RegisteredUserProfile />}
 
-      <Card className="my-8 shadow-lg">
-        <CardHeader>
-          <div className="flex items-center gap-2">
-            <CalendarDays className="text-primary h-6 w-6" />
-            <CardTitle>আপনার পছন্দের পরীক্ষার ক্যালেন্ডার</CardTitle>
-          </div>
-          <CardDescription>
-            ক্যালেন্ডারে আপনার পছন্দের পরীক্ষার তারিখগুলো হাইলাইট করা আছে।
-          </CardDescription>
-        </CardHeader>
-        <CardContent>
-          <FavoriteExamsCalendar />
-        </CardContent>
-      </Card>
+      <Tabs defaultValue="calendar" className="w-full my-8">
+        <TabsList className="grid w-full grid-cols-2">
+          <TabsTrigger value="calendar">
+            <CalendarDays className="mr-2" /> ক্যালেন্ডার
+          </TabsTrigger>
+          <TabsTrigger value="bookmarks">
+            <Bookmark className="mr-2" /> বুকমার্ক
+          </TabsTrigger>
+        </TabsList>
+        <TabsContent value="calendar">
+          <Card className="shadow-lg mt-2">
+            <CardHeader>
+              <CardTitle>আপনার পছন্দের পরীক্ষার ক্যালেন্ডার</CardTitle>
+              <CardDescription>
+                ক্যালেন্ডারে আপনার পছন্দের পরীক্ষার তারিখগুলো হাইলাইট করা আছে।
+              </CardDescription>
+            </CardHeader>
+            <CardContent>
+              <FavoriteExamsCalendar />
+            </CardContent>
+          </Card>
+        </TabsContent>
+        <TabsContent value="bookmarks">
+          <Card className="shadow-lg mt-2">
+            <CardHeader>
+              <CardTitle>বুকমার্ক করা বিষয়সমূহ</CardTitle>
+              <CardDescription>
+                আপনার পছন্দের বিষয়গুলো এখানে দেখানো হচ্ছে।
+              </CardDescription>
+            </CardHeader>
+            <CardContent>
+              <BookmarkedSubjects />
+            </CardContent>
+          </Card>
+        </TabsContent>
+      </Tabs>
 
       <Card className="my-8 shadow-lg">
         <CardHeader>
