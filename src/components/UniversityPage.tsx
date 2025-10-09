@@ -1,3 +1,4 @@
+
 "use client";
 
 import React, { Suspense } from "react";
@@ -8,15 +9,24 @@ import LinkList from "@/components/common/LinkList";
 import Circular from "@/components/common/Circular";
 import PageHeaderCard from "./common/PageHeaderCard";
 import Image from "next/image";
-import DhakaQuestionBank from "./DhakaQuestionBank";
-import DhakaSeatInfo from "./DhakaSeatInfo";
-import DhakaHistoryAndMap from "./DhakaHistoryAndMap";
-import DhakaAdmissionInfo from "./DhakaAdmissionInfo";
 
 const CountdownTimer = dynamic(
   () => import("@/components/common/CountdownTimer"),
   { ssr: false },
 );
+
+const DhakaQuestionBank = dynamic(() => import("./DhakaQuestionBank"), {
+  loading: () => <div className="text-center p-8">প্রশ্নব্যাংক লোড হচ্ছে...</div>,
+});
+const DhakaSeatInfo = dynamic(() => import("./DhakaSeatInfo"), {
+  loading: () => <div className="text-center p-8">আসন সংখ্যা লোড হচ্ছে...</div>,
+});
+const DhakaHistoryAndMap = dynamic(() => import("./DhakaHistoryAndMap"), {
+  loading: () => <div className="text-center p-8">ইতিহাস লোড হচ্ছে...</div>,
+});
+const DhakaAdmissionInfo = dynamic(() => import("./DhakaAdmissionInfo"), {
+  loading: () => <div className="text-center p-8">ভর্তি তথ্য লোড হচ্ছে...</div>,
+});
 
 interface UniversityPageProps {
   university: University;
