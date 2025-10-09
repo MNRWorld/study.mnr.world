@@ -18,16 +18,8 @@ const icons: { [key: string]: LucideIcon } = {
   Briefcase,
 };
 
-export type Course = {
-  id: string;
-  title: string;
-  description: string;
-  icon: string;
+export type Course = (typeof allData.coursesList)[number] & {
   Icon: LucideIcon;
-  slug: string;
-  stats: { value: string; label: string; tooltip?: string }[];
-  features: string[];
-  forWhom: string[];
 };
 
 export const courses: Course[] = allData.coursesList.map((course) => ({

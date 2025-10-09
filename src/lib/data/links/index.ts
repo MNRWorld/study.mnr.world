@@ -1,12 +1,6 @@
 import { allData } from "../_generated";
 
-interface LinkItem {
-  href: string;
-  label: string;
-  target?: string;
-  rel?: string;
-  colSpan?: number;
-}
+type LinkItem = (typeof allData.linksList.college)[0][0];
 
 export const duLinks: LinkItem[][] =
   allData.universities.find((u) => u.id === "du")?.links || [];

@@ -1,12 +1,5 @@
 import { allData } from "../_generated";
 
-export type QuestionBankCard = {
-  title: string;
-  author?: string;
-  description: string;
-  logo: string;
-  href: string;
-  bgColor: string;
-};
+export type QuestionBankCard = (typeof allData.questionBankCards)[number];
 
 export const questionBankCards: QuestionBankCard[] = allData.questionBankCards;
