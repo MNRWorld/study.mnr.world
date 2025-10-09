@@ -79,10 +79,6 @@ body {
   scrollbar-width: none;
 }
 
-.font-bengali {
-  /* The font is now applied globally via next/font in layout.tsx */
-}
-
 .gradient-text {
   background: linear-gradient(
     to right,

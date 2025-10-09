@@ -12,6 +12,7 @@ import { Hind_Siliguri } from "next/font/google";
 const hindSiliguri = Hind_Siliguri({
   subsets: ["latin", "bengali"],
   weight: ["300", "400", "500", "600", "700"],
+  variable: "--font-sans",
 });
 
 export const metadata: Metadata = {
@@ -40,8 +41,8 @@ export default function RootLayout({
       </head>
       <body
         className={cn(
-          "min-h-screen flex flex-col antialiased font-bengali",
-          hindSiliguri.className,
+          "min-h-screen flex flex-col antialiased font-sans",
+          hindSiliguri.variable,
         )}
       >
         <ThemeProvider

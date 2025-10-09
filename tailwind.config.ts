@@ -11,9 +11,7 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        body: ["var(--font-inter)", "sans-serif"],
-        headline: ["var(--font-inter)", "sans-serif"],
-        bengali: ["var(--font-hind-siliguri)", "sans-serif"],
+        sans: ["var(--font-sans)", "sans-serif"],
         code: ["monospace"],
       },
       colors: {

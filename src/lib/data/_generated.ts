@@ -5696,55 +5696,6 @@ export const allData = {
       ]
     }
   },
-  "linksList": {
-    "college": [
-      [
-        {
-          "href": "#Circular",
-          "label": "সার্কুলার"
-        },
-        {
-          "href": "/question-bank",
-          "label": "প্রশ্নব্যাংক"
-        }
-      ],
-      [
-        {
-          "href": "http://xiclassadmission.gov.bd/",
-          "label": "মূল ওয়েবসাইট",
-          "target": "_blank",
-          "rel": "noreferrer noopener"
-        },
-        {
-          "href": "http://xiclassadmission.gov.bd/",
-          "label": "ভর্তি ওয়েবসাইট",
-          "target": "_blank",
-          "rel": "noreferrer noopener"
-        }
-      ]
-    ],
-    "private": [
-      [
-        {
-          "href": "#Circular",
-          "label": "সার্কুলার"
-        },
-        {
-          "href": "/question-bank",
-          "label": "প্রশ্নব্যাংক"
-        }
-      ],
-      [
-        {
-          "href": "https://www.ugc.gov.bd/site/view/universities",
-          "label": "সব অনুমোদিত প্রাইভেট বিশ্ববিদ্যালয়ের তালিকা",
-          "target": "_blank",
-          "rel": "noreferrer noopener",
-          "colSpan": 2
-        }
-      ]
-    ]
-  },
   "coursesList": [
     {
       "id": "university-admission",
@@ -6042,5 +5993,54 @@ export const allData = {
     "team": {
       "heading": "আমাদের কারিগর"
     }
+  },
+  "linksList": {
+    "college": [
+      [
+        {
+          "href": "#Circular",
+          "label": "সার্কুলার"
+        },
+        {
+          "href": "/question-bank",
+          "label": "প্রশ্নব্যাংক"
+        }
+      ],
+      [
+        {
+          "href": "http://xiclassadmission.gov.bd/",
+          "label": "মূল ওয়েবসাইট",
+          "target": "_blank",
+          "rel": "noreferrer noopener"
+        },
+        {
+          "href": "http://xiclassadmission.gov.bd/",
+          "label": "ভর্তি ওয়েবসাইট",
+          "target": "_blank",
+          "rel": "noreferrer noopener"
+        }
+      ]
+    ],
+    "private": [
+      [
+        {
+          "href": "#Circular",
+          "label": "সার্কুলার"
+        },
+        {
+          "href": "/question-bank",
+          "label": "প্রশ্নব্যাংক"
+        }
+      ],
+      [
+        {
+          "href": "https://www.ugc.gov.bd/site/view/universities",
+          "label": "সব অনুমোদিত প্রাইভেট বিশ্ববিদ্যালয়ের তালিকা",
+          "target": "_blank",
+          "rel": "noreferrer noopener",
+          "colSpan": 2
+        }
+      ]
+    ]
   }
 };
