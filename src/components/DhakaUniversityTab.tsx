@@ -64,7 +64,7 @@ const DhakaUniversityTab = () => {
         </Accordion>
       </TabsContent>
       <TabsContent value="cha-unit">
-        <Accordion type="multiple" className="w-full space-y-2">
+        <Accordion type="multiple" className="w-full text-left space-y-2">
           {duUnitCha.map((item, index) => (
             <QuestionBankAccordion
               key={index}

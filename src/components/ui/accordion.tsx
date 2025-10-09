@@ -5,6 +5,7 @@ import { ChevronDown, Download } from 'lucide-react';
 
 import { cn } from '@/lib/utils';
 import { forwardRef } from 'react';
+import React from 'react';
 
 const Accordion = AccordionPrimitive.Root;
 
