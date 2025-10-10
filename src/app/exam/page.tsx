@@ -55,7 +55,7 @@ export default function ExamPage() {
         testState.current.negativeMarking = config.negativeMarking;
 
         if (testState.current.mcqNumber <= 0 || testState.current.timeLimit <= 0) {
-            alert('Please provide valid numbers for MCQs and Time Limit.');
+            alert('অনুগ্রহ করে MCQ সংখ্যা এবং সময়সীমার জন্য বৈধ সংখ্যা লিখুন।');
             return;
         }
         
@@ -72,13 +72,13 @@ export default function ExamPage() {
         const updateTimerDisplay = () => {
              if (timeRemaining <= 0) {
                 clearInterval(testState.current.timerInterval!);
-                setTimeLeft("Time's up!");
-                alert("Time's up! The test will be auto-submitted.");
+                setTimeLeft("সময় শেষ!");
+                alert("সময় শেষ! পরীক্ষাটি স্বয়ংক্রিয়ভাবে জমা দেওয়া হবে।");
                 submitTest();
             } else {
                  const minutes = Math.floor(timeRemaining / 60);
                  const seconds = timeRemaining % 60;
-                 setTimeLeft(`Time Remaining: ${String(minutes).padStart(2, '0')}m ${String(seconds).padStart(2, '0')}s`);
+                 setTimeLeft(`অবশিষ্ট সময়: ${String(minutes).padStart(2, '0')}মি ${String(seconds).padStart(2, '0')}সে`);
                  timeRemaining--;
             }
         }
@@ -93,7 +93,7 @@ export default function ExamPage() {
             questions.push(
                 <Card key={`q-${i}`} id={`mcq-${i}`} className='mb-4 animate-fade-in-up' style={{ animationDelay: `${i * 50}ms` }}>
                     <CardContent className='flex flex-col sm:flex-row items-center justify-between p-4'>
-                        <p className='font-semibold text-lg mb-2 sm:mb-0 sm:mr-4 whitespace-nowrap'>Q. {i}:</p>
+                        <p className='font-semibold text-lg mb-2 sm:mb-0 sm:mr-4 whitespace-nowrap'>প্রশ্ন. {i}:</p>
                         <div className='flex items-center justify-end flex-wrap gap-x-4 w-full'>
                             {['A', 'B', 'C', 'D'].map(option => (
                                 <div key={option} className='flex items-center space-x-2'>
@@ -155,7 +155,7 @@ export default function ExamPage() {
              inputs.push(
                 <Card key={`correct-q-${i}`} className='mb-4'>
                     <CardContent className='flex flex-col sm:flex-row items-center justify-between p-4'>
-                        <p className='font-semibold text-lg mb-2 sm:mb-0 sm:mr-4'>Correct for Q. {i}:</p>
+                        <p className='font-semibold text-lg mb-2 sm:mb-0 sm:mr-4'>প্রশ্ন {i} এর সঠিক উত্তর:</p>
                         <div className='flex items-center justify-end flex-wrap gap-x-4'>
                             {['A', 'B', 'C', 'D'].map(option => (
                                 <div key={option} className='flex items-center space-x-2'>
@@ -185,7 +185,7 @@ export default function ExamPage() {
         }
 
         if (!allSelected) {
-            alert('Please select all correct answers.');
+            alert('অনুগ্রহ করে সকল সঠিক উত্তর নির্বাচন করুন।');
             return;
         }
 
@@ -220,15 +220,15 @@ export default function ExamPage() {
 
         setResultDetails(
             <div className='space-y-4 text-center'>
-                 <p><strong>Total Questions:</strong> {testState.current.mcqNumber}</p>
-                 <p><strong>Correct Answers:</strong> {correctCount}</p>
-                 <p><strong>Incorrect Answers:</strong> {incorrectCount}</p>
-                 <p><strong>Skipped Questions:</strong> {skippedCount}</p>
-                 <p><strong>Negative Marking:</strong> {(incorrectCount * negMarkValue).toFixed(2)}</p>
-                 <p className='text-xl font-bold'><strong>Total Score:</strong> {totalScore.toFixed(2)}</p>
+                 <p><strong>মোট প্রশ্ন:</strong> {testState.current.mcqNumber}</p>
+                 <p><strong>সঠিক উত্তর:</strong> {correctCount}</p>
+                 <p><strong>ভুল উত্তর:</strong> {incorrectCount}</p>
+                 <p><strong>উত্তর দেননি:</strong> {skippedCount}</p>
+                 <p><strong>নেগেটিভ মার্কিং:</strong> {(incorrectCount * negMarkValue).toFixed(2)}</p>
+                 <p className='text-xl font-bold'><strong>মোট স্কোর:</strong> {totalScore.toFixed(2)}</p>
                  <div className='border-2 border-amber-500 bg-amber-100 dark:bg-amber-900/20 p-4 rounded-lg mt-4'>
                     <p className='text-2xl font-bold text-amber-600 dark:text-amber-400'>
-                        Percentage: {percentage.toFixed(2)}%
+                        শতাংশ: {percentage.toFixed(2)}%
                     </p>
                  </div>
             </div>
@@ -258,37 +258,37 @@ export default function ExamPage() {
 	return (
 		<div className='container mx-auto px-4 py-8 max-w-4xl font-bengali'>
             <header className='text-center mb-12'>
-                <h1 className='text-4xl font-bold gradient-text'>OMR Test Simulator</h1>
-                <p className='text-muted-foreground mt-2'>Create and manage your OMR-based tests easily!</p>
+                <h1 className='text-4xl font-bold gradient-text'>OMR টেস্ট সিমুলেটর</h1>
+                <p className='text-muted-foreground mt-2'>সহজেই আপনার OMR-ভিত্তিক পরীক্ষা তৈরি ও পরিচালনা করুন!</p>
             </header>
 
             {view === 'config' && (
                 <Card className='animate-fade-in-up'>
                     <CardHeader>
-                        <CardTitle className='flex items-center gap-2'><FilePenLine /> Test Configuration</CardTitle>
-                        <CardDescription>Set up your new test here.</CardDescription>
+                        <CardTitle className='flex items-center gap-2'><FilePenLine /> পরীক্ষার কনফিগারেশন</CardTitle>
+                        <CardDescription>আপনার নতুন পরীক্ষা এখানে সেট আপ করুন।</CardDescription>
                     </CardHeader>
                     <form onSubmit={startTest}>
                         <CardContent className='space-y-6'>
                             <div className='space-y-2'>
-                                <Label htmlFor='testName'>Test Name:</Label>
+                                <Label htmlFor='testName'>পরীক্ষার নাম:</Label>
                                 <Input id='testName' value={config.testName} onChange={handleConfigChange} required />
                             </div>
                             <div className='space-y-2'>
-                                <Label htmlFor='mcqNumber'>Number of MCQs:</Label>
+                                <Label htmlFor='mcqNumber'>MCQ সংখ্যা:</Label>
                                 <Input id='mcqNumber' type='number' value={config.mcqNumber} onChange={handleConfigChange} required min="1" />
                             </div>
                             <div className='space-y-2'>
-                                <Label htmlFor='timeLimit'>Time Limit (in minutes):</Label>
+                                <Label htmlFor='timeLimit'>সময়সীমা (মিনিটে):</Label>
                                 <Input id='timeLimit' type='number' value={config.timeLimit} onChange={handleConfigChange} required min="1" />
                             </div>
                             <div className='flex items-center space-x-2'>
                                 <Checkbox id='negativeMarking' checked={config.negativeMarking} onCheckedChange={(checked) => setConfig(prev => ({ ...prev, negativeMarking: !!checked }))} />
-                                <Label htmlFor='negativeMarking' className='cursor-pointer'>Enable Negative Marking (0.25 per wrong answer)</Label>
+                                <Label htmlFor='negativeMarking' className='cursor-pointer'>নেগেটিভ মার্কিং চালু করুন (প্রতি ভুল উত্তরে ০.২৫)</Label>
                             </div>
                         </CardContent>
                         <CardFooter>
-                            <Button type='submit' className='w-full' size="lg">Start Test</Button>
+                            <Button type='submit' className='w-full' size="lg">পরীক্ষা শুরু করুন</Button>
                         </CardFooter>
                     </form>
                 </Card>
@@ -307,7 +307,7 @@ export default function ExamPage() {
                          {isSummaryVisible && (
                              <Card className='absolute bottom-16 left-0 w-64 p-2 shadow-xl'>
                                 <CardHeader className="p-2 text-center">
-                                    <CardTitle className="text-base">Question Summary</CardTitle>
+                                    <CardTitle className="text-base">প্রশ্নাবলীর সারাংশ</CardTitle>
                                 </CardHeader>
                                 <CardContent className='p-2 flex flex-wrap gap-2'>
                                   {summaryContent}
@@ -320,7 +320,7 @@ export default function ExamPage() {
                         <CardHeader className='text-center'>
                            <CardTitle>{testState.current.testName}</CardTitle>
                            <CardDescription>
-                              Total Questions: {testState.current.mcqNumber} | Time Limit: {testState.current.timeLimit} minutes | Negative Marking: {testState.current.negativeMarking ? 'Yes' : 'No'}
+                              মোট প্রশ্ন: {testState.current.mcqNumber} | সময়সীমা: {testState.current.timeLimit} মিনিট | নেগেটিভ মার্কিং: {testState.current.negativeMarking ? 'হ্যাঁ' : 'না'}
                            </CardDescription>
                         </CardHeader>
                     </Card>
@@ -336,24 +336,24 @@ export default function ExamPage() {
                     <div ref={mcqContainerRef}>
                         {mcqQuestions}
                     </div>
-                    <Button onClick={submitTest} className='w-full mt-6' size="lg">Submit Test</Button>
+                    <Button onClick={submitTest} className='w-full mt-6' size="lg">পরীক্ষা জমা দিন</Button>
                 </div>
             )}
             
             {view === 'answers' && (
                  <Card className='animate-fade-in-up'>
                     <CardHeader>
-                        <CardTitle className='flex items-center gap-2'><CheckCircle /> Select Correct Answers</CardTitle>
-                        <CardDescription>Provide the correct answers to generate the result.</CardDescription>
+                        <CardTitle className='flex items-center gap-2'><CheckCircle /> সঠিক উত্তর নির্বাচন করুন</CardTitle>
+                        <CardDescription>ফলাফল তৈরির জন্য সঠিক উত্তর দিন।</CardDescription>
                     </CardHeader>
                     <CardContent ref={correctAnswersContainerRef}>
                         {correctAnswerInputs}
                         <p className="text-red-500 mt-4 text-center">
-                            Please select the correct answer for all questions before submitting.
+                            জমা দেওয়ার আগে অনুগ্রহ করে সমস্ত প্রশ্নের জন্য সঠিক উত্তর নির্বাচন করুন।
                         </p>
                     </CardContent>
                     <CardFooter>
-                         <Button onClick={submitCorrectAnswers} className='w-full' size="lg">Submit Correct Answers</Button>
+                         <Button onClick={submitCorrectAnswers} className='w-full' size="lg">সঠিক উত্তর জমা দিন</Button>
                     </CardFooter>
                  </Card>
             )}
@@ -361,17 +361,17 @@ export default function ExamPage() {
             {view === 'result' && (
                  <Card className='animate-fade-in-up'>
                      <CardHeader className='text-center'>
-                         <CardTitle className='flex items-center justify-center gap-2'><BarChart /> Test Result</CardTitle>
-                         <CardDescription>Here is the summary of your test performance.</CardDescription>
+                         <CardTitle className='flex items-center justify-center gap-2'><BarChart /> পরীক্ষার ফলাফল</CardTitle>
+                         <CardDescription>আপনার পরীক্ষার পারফরম্যান্সের সারসংক্ষেপ এখানে।</CardDescription>
                      </CardHeader>
                      <CardContent>
                         {resultDetails}
                      </CardContent>
                      <CardFooter className='flex-col gap-4'>
-                        <Button onClick={restartTest} className='w-full' size="lg"><RotateCcw /> Start Another Test</Button>
+                        <Button onClick={restartTest} className='w-full' size="lg"><RotateCcw /> আরেকটি পরীক্ষা শুরু করুন</Button>
                         <div className="text-center mt-4 p-4 bg-primary/10 rounded-lg w-full">
                            <a href="https://t.me/admissionnewscorner" target="_blank" rel="noopener noreferrer" className="font-semibold text-primary hover:underline">
-                              Join with us on Telegram
+                              টেলিগ্রামে আমাদের সাথে যোগ দিন
                            </a>
                         </div>
                      </CardFooter>
@@ -379,8 +379,9 @@ export default function ExamPage() {
             )}
 
              <footer className='text-center mt-12 text-sm text-muted-foreground'>
-                <p>&copy; 2024. All rights reserved.</p>
+                <p>&copy; ২০২৪। সর্বস্বত্ব সংরক্ষিত।</p>
             </footer>
 		</div>
 	);
-}
+
+    
