@@ -349,7 +349,7 @@ export default function ExamPage() {
                     <CardContent ref={correctAnswersContainerRef}>
                         {correctAnswerInputs}
                         <p className="text-red-500 mt-4 text-center">
-                            জমা দেওয়ার আগে অনুগ্রহ করে সমস্ত প্রশ্নের জন্য সঠিক উত্তর নির্বাচন করুন।
+                            জমা দেওয়ার আগে অনুগ্রহ করে সকল প্রশ্নের জন্য সঠিক উত্তর নির্বাচন করুন।
                         </p>
                     </CardContent>
                     <CardFooter>
@@ -383,5 +383,4 @@ export default function ExamPage() {
             </footer>
 		</div>
 	);
-
-    
+}
