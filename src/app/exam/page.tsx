@@ -5,7 +5,6 @@ import { useEffect, useRef, useState } from 'react';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { Label } from '@/components/ui/label';
 import { Input } from '@/components/ui/input';
-import { Checkbox } from '@/components/ui/checkbox';
 import { Button } from '@/components/ui/button';
 import { Scroll, TimerIcon, FilePenLine, CheckCircle, BarChart, RotateCcw } from 'lucide-react';
 
@@ -16,7 +15,7 @@ export default function ExamPage() {
         mcqNumber: 0,
         testName: '',
         timeLimit: 0,
-        negativeMarking: false,
+        negativeMarkValue: 0,
         timerInterval: null as NodeJS.Timeout | null,
         userAnswers: [] as {q: number, value: string}[],
         correctAnswers: [] as {q: number, value: string}[],
@@ -26,7 +25,7 @@ export default function ExamPage() {
         testName: '',
         mcqNumber: '10',
         timeLimit: '10',
-        negativeMarking: false,
+        negativeMarkValue: '0.25',
     });
 
     const [timeLeft, setTimeLeft] = useState('');
@@ -40,10 +39,10 @@ export default function ExamPage() {
     const correctAnswersContainerRef = useRef<HTMLDivElement>(null);
 
     const handleConfigChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-        const { id, value, type, checked } = e.target;
+        const { id, value } = e.target;
         setConfig(prev => ({
             ...prev,
-            [id]: type === 'checkbox' ? checked : value
+            [id]: value
         }));
     };
 
@@ -52,7 +51,7 @@ export default function ExamPage() {
         testState.current.testName = config.testName;
         testState.current.mcqNumber = parseInt(config.mcqNumber) || 0;
         testState.current.timeLimit = parseInt(config.timeLimit) || 0;
-        testState.current.negativeMarking = config.negativeMarking;
+        testState.current.negativeMarkValue = parseFloat(config.negativeMarkValue) || 0;
 
         if (testState.current.mcqNumber <= 0 || testState.current.timeLimit <= 0) {
             alert('অনুগ্রহ করে MCQ সংখ্যা এবং সময়সীমার জন্য বৈধ সংখ্যা লিখুন।');
@@ -153,7 +152,7 @@ export default function ExamPage() {
         const inputs = [];
         for (let i = 1; i <= testState.current.mcqNumber; i++) {
              inputs.push(
-                <Card key={`correct-q-${i}`} className='mb-4'>
+                <Card key={`correct-q-${i}`} className='mb-4 animate-fade-in-up' style={{ animationDelay: `${i * 50}ms` }}>
                     <CardContent className='flex flex-col sm:flex-row items-center justify-between p-4'>
                         <p className='font-semibold text-lg mb-2 sm:mb-0 sm:mr-4'>প্রশ্ন {i} এর সঠিক উত্তর:</p>
                         <div className='flex items-center justify-end flex-wrap gap-x-4'>
@@ -214,7 +213,7 @@ export default function ExamPage() {
         }
         
         const skippedCount = testState.current.mcqNumber - (correctCount + incorrectCount);
-        const negMarkValue = testState.current.negativeMarking ? 0.25 : 0;
+        const negMarkValue = testState.current.negativeMarkValue;
         const totalScore = correctCount - (incorrectCount * negMarkValue);
         const percentage = (correctCount / testState.current.mcqNumber) * 100;
 
@@ -241,7 +240,7 @@ export default function ExamPage() {
             mcqNumber: 0,
             testName: '',
             timeLimit: 0,
-            negativeMarking: false,
+            negativeMarkValue: 0,
             timerInterval: null,
             userAnswers: [],
             correctAnswers: [],
@@ -250,7 +249,7 @@ export default function ExamPage() {
             testName: '',
             mcqNumber: '10',
             timeLimit: '10',
-            negativeMarking: false,
+            negativeMarkValue: '0.25',
         });
         setView('config');
     }
@@ -282,9 +281,9 @@ export default function ExamPage() {
                                 <Label htmlFor='timeLimit'>সময়সীমা (মিনিটে):</Label>
                                 <Input id='timeLimit' type='number' value={config.timeLimit} onChange={handleConfigChange} required min="1" />
                             </div>
-                            <div className='flex items-center space-x-2'>
-                                <Checkbox id='negativeMarking' checked={config.negativeMarking} onCheckedChange={(checked) => setConfig(prev => ({ ...prev, negativeMarking: !!checked }))} />
-                                <Label htmlFor='negativeMarking' className='cursor-pointer'>নেগেটিভ মার্কিং চালু করুন (প্রতি ভুল উত্তরে ০.২৫)</Label>
+                            <div className='space-y-2'>
+                                <Label htmlFor='negativeMarkValue'>নেগেটিভ মার্কিং (প্রতি ভুল উত্তরে):</Label>
+                                <Input id='negativeMarkValue' type='number' value={config.negativeMarkValue} onChange={handleConfigChange} step="0.01" placeholder="যেমন: 0.25" />
                             </div>
                         </CardContent>
                         <CardFooter>
@@ -316,17 +315,17 @@ export default function ExamPage() {
                          )}
                     </div>
                 
-                    <Card className='mb-6'>
+                    <Card className='mb-6 animate-fade-in-up'>
                         <CardHeader className='text-center'>
                            <CardTitle>{testState.current.testName}</CardTitle>
                            <CardDescription>
-                              মোট প্রশ্ন: {testState.current.mcqNumber} | সময়সীমা: {testState.current.timeLimit} মিনিট | নেগেটিভ মার্কিং: {testState.current.negativeMarking ? 'হ্যাঁ' : 'না'}
+                              মোট প্রশ্ন: {testState.current.mcqNumber} | সময়সীমা: {testState.current.timeLimit} মিনিট | নেগেটিভ মার্কিং: {testState.current.negativeMarkValue > 0 ? `${testState.current.negativeMarkValue}` : 'নেই'}
                            </CardDescription>
                         </CardHeader>
                     </Card>
 
                     <div className='sticky top-[80px] z-30 mb-6'>
-                       <div className='w-full text-center py-2 px-4 rounded-lg bg-amber-100 dark:bg-amber-900/30 border border-amber-300 dark:border-amber-700'>
+                       <div className='w-full text-center py-2 px-4 rounded-lg bg-amber-100 dark:bg-amber-900/30 border border-amber-300 dark:border-amber-700 animate-fade-in-up'>
                             <p className='text-xl font-bold text-destructive flex items-center justify-center gap-2'>
                                <TimerIcon /> {timeLeft}
                             </p>
