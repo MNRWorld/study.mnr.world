@@ -7,9 +7,7 @@
     "prebuild": "node scripts/build-data.mjs",
     "build": "next build",
     "start": "next start",
-    "typecheck": "tsc --noEmit",
-    "lint": "biome lint --apply .",
-    "format": "biome format --write ."
+    "typecheck": "tsc --noEmit"
   },
   "dependencies": {
     "@radix-ui/react-accordion": "^1.2.3",
@@ -40,7 +38,6 @@
     "tailwindcss-animate": "^1.0.7"
   },
   "devDependencies": {
-    "@biomejs/biome": "^1.8.3",
     "@types/react": "^18",
     "@types/react-dom": "^18",
     "chokidar": "^3.6.0",
