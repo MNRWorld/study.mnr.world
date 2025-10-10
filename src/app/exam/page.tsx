@@ -40,10 +40,10 @@ export default function ExamPage() {
     const correctAnswersContainerRef = useRef<HTMLDivElement>(null);
 
     const handleConfigChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-        const { id, value } = e.target;
+        const { id, value, type, checked } = e.target;
         setConfig(prev => ({
             ...prev,
-            [id]: value
+            [id]: type === 'checkbox' ? checked : value
         }));
     };
 
@@ -91,10 +91,10 @@ export default function ExamPage() {
         const questions = [];
         for (let i = 1; i <= testState.current.mcqNumber; i++) {
             questions.push(
-                <Card key={`q-${i}`} id={`mcq-${i}`} className='mb-4'>
+                <Card key={`q-${i}`} id={`mcq-${i}`} className='mb-4 animate-fade-in-up' style={{ animationDelay: `${i * 50}ms` }}>
                     <CardContent className='flex flex-col sm:flex-row items-center justify-between p-4'>
-                        <p className='font-semibold text-lg mb-2 sm:mb-0 sm:mr-4'>Q. {i}:</p>
-                        <div className='flex items-center justify-end flex-wrap gap-x-4'>
+                        <p className='font-semibold text-lg mb-2 sm:mb-0 sm:mr-4 whitespace-nowrap'>Q. {i}:</p>
+                        <div className='flex items-center justify-end flex-wrap gap-x-4 w-full'>
                             {['A', 'B', 'C', 'D'].map(option => (
                                 <div key={option} className='flex items-center space-x-2'>
                                     <input type='radio' id={`q${i}-${option}`} name={`q${i}`} value={option} className='h-5 w-5 accent-primary' onChange={updateSummary}/>
@@ -263,7 +263,7 @@ export default function ExamPage() {
             </header>
 
             {view === 'config' && (
-                <Card>
+                <Card className='animate-fade-in-up'>
                     <CardHeader>
                         <CardTitle className='flex items-center gap-2'><FilePenLine /> Test Configuration</CardTitle>
                         <CardDescription>Set up your new test here.</CardDescription>
@@ -295,7 +295,7 @@ export default function ExamPage() {
             )}
 
             {view === 'test' && (
-                <div className='relative'>
+                <div className='relative animate-fade-in-up'>
                      <div 
                         className='fixed bottom-4 left-4 z-50'
                         onMouseEnter={() => setSummaryVisible(true)}
@@ -341,7 +341,7 @@ export default function ExamPage() {
             )}
             
             {view === 'answers' && (
-                 <Card>
+                 <Card className='animate-fade-in-up'>
                     <CardHeader>
                         <CardTitle className='flex items-center gap-2'><CheckCircle /> Select Correct Answers</CardTitle>
                         <CardDescription>Provide the correct answers to generate the result.</CardDescription>
@@ -359,7 +359,7 @@ export default function ExamPage() {
             )}
 
             {view === 'result' && (
-                 <Card>
+                 <Card className='animate-fade-in-up'>
                      <CardHeader className='text-center'>
                          <CardTitle className='flex items-center justify-center gap-2'><BarChart /> Test Result</CardTitle>
                          <CardDescription>Here is the summary of your test performance.</CardDescription>
