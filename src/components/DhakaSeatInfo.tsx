@@ -72,7 +72,7 @@ const SubjectTable: React.FC<SubjectTableProps> = ({
         .from("user_subject_bookmarks")
         .select("subject_id")
         .eq("user_id", user.id);
-      if (!error) {
+      if (!error && data) {
         setBookmarks(data.map((b) => b.subject_id));
       }
     } else {
@@ -204,13 +204,30 @@ const SubjectTable: React.FC<SubjectTableProps> = ({
   );
 };
 
+// Define interface for DU subjects structure
+interface DUSubjects {
+  unitA: Subject[];
+  unitB: Subject[];
+  unitC: Subject[];
+  unitCha: Subject[];
+  unitIBA: Subject[];
+}
+
 const DhakaSeatInfo = () => {
   const duData = allData.universities.find((uni) => uni.id === "du");
 
   if (!duData || !duData.subjects) {
     return <div>ঢাকা বিশ্ববিদ্যালয়ের বিষয়ভিত্তিক আসনের তথ্য পাওয়া যায়নি।</div>;
   }
-  const { subjects } = duData;
+
+  const subjects = duData.subjects as DUSubjects;
+
+  // Create safe subject arrays with fallbacks
+  const safeUnitA = subjects.unitA || [];
+  const safeUnitB = subjects.unitB || [];
+  const safeUnitC = subjects.unitC || [];
+  const safeUnitCha = subjects.unitCha || [];
+  const safeUnitIBA = subjects.unitIBA || [];
 
   return (
     <div
@@ -234,30 +251,30 @@ const DhakaSeatInfo = () => {
             "গ" ইউনিট
           </TabsTrigger>
           <TabsTrigger value="cha-unit" className="flex-grow">
-            “চ” ইউনিট
+            "চ" ইউনিট
           </TabsTrigger>
           <TabsTrigger value="iba-unit" className="flex-grow">
             DU IBA (বিশেষ)
           </TabsTrigger>
         </TabsList>
         <TabsContent value="ka-unit" className="mt-4">
-          <SubjectTable subjects={subjects.unitA} showShortColumn={true} />
+          <SubjectTable subjects={safeUnitA} showShortColumn={true} />
         </TabsContent>
         <TabsContent value="kha-unit" className="mt-4">
-          <SubjectTable subjects={subjects.unitB} showShortColumn={false} />
+          <SubjectTable subjects={safeUnitB} showShortColumn={false} />
         </TabsContent>
         <TabsContent value="ga-unit" className="mt-4">
-          <SubjectTable subjects={subjects.unitC} showShortColumn={false} />
+          <SubjectTable subjects={safeUnitC} showShortColumn={false} />
         </TabsContent>
         <TabsContent value="cha-unit" className="mt-4">
           <SubjectTable
-            subjects={subjects.unitCha}
+            subjects={safeUnitCha}
             showShortColumn={false}
             showReviewColumn={false}
           />
         </TabsContent>
         <TabsContent value="iba-unit" className="mt-4">
-          <SubjectTable subjects={subjects.unitIBA} showShortColumn={true} />
+          <SubjectTable subjects={safeUnitIBA} showShortColumn={true} />
         </TabsContent>
       </Tabs>
     </div>

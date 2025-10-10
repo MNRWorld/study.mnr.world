@@ -42,17 +42,13 @@ const GeneralAdmissionInfoTable = ({
                 <span className="font-medium truncate">{info.university}</span>
                 <div className="flex gap-2 mt-1 flex-wrap justify-end">
                   {info.circularLink && (
-                    <Badge variant="outline" asChild>
-                      <ExternalLink href={info.circularLink}>
-                        সার্কুলার
-                      </ExternalLink>
+                    <Badge variant="outline">
+                      <ExternalLink href={info.circularLink} text="সার্কুলার" />
                     </Badge>
                   )}
                   {info.questionBankLink && (
-                    <Badge variant="outline" asChild>
-                      <ExternalLink href={info.questionBankLink}>
-                        প্রশ্নব্যাংক
-                      </ExternalLink>
+                    <Badge variant="outline">
+                      <ExternalLink href={info.questionBankLink} text="প্রশ্নব্যাংক" />
                     </Badge>
                   )}
                 </div>
@@ -101,17 +97,13 @@ const GeneralAdmissionInfoTable = ({
             <div className="font-bold">{info.university}</div>
             <div className="flex gap-2 mt-1 flex-wrap justify-center">
               {info.circularLink && (
-                <Badge variant="outline" asChild>
-                  <ExternalLink href={info.circularLink}>
-                    সার্কুলার
-                  </ExternalLink>
+                <Badge variant="outline">
+                  <ExternalLink href={info.circularLink} text="সার্কুলার" />
                 </Badge>
               )}
               {info.questionBankLink && (
-                <Badge variant="outline" asChild>
-                  <ExternalLink href={info.questionBankLink}>
-                    প্রশ্নব্যাংক
-                  </ExternalLink>
+                <Badge variant="outline">
+                  <ExternalLink href={info.questionBankLink} text="প্রশ্নব্যাংক" />
                 </Badge>
               )}
             </div>

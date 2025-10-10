@@ -26,16 +26,101 @@ import {
   HelpCircle,
   AlertTriangle,
 } from "lucide-react";
-import { allData } from "@/lib/data/_generated";
+import { duData } from "@/lib/data/universities/du";
 import ExternalLink from "./common/ExternalLink";
 
-const DhakaAdmissionInfo = () => {
-  const duData = allData.universities.find((uni) => uni.id === "du");
+// Define proper TypeScript interfaces
+interface Fee {
+  unit: string;
+  amount: string;
+}
 
-  if (!duData || !duData.admissionInfo) {
-    return <div>ঢাকা বিশ্ববিদ্যালয়ের ভর্তির তথ্য পাওয়া যায়নি।</div>;
+interface HelpfulLink {
+  label: string;
+  url: string;
+}
+
+interface UnitDepartment {
+  name: string;
+  requirement: string;
+}
+
+interface UnitRequirement {
+  name: string;
+  departments: UnitDepartment[];
+}
+
+interface ExamDate {
+  unit: string;
+  date: string;
+}
+
+interface GeneralInfoPoint {
+  label: string;
+  value: string;
+}
+
+interface AdmissionInfoData {
+  title: string;
+  apply: {
+    title: string;
+    startDate: string;
+    endDate: string;
+    fees: Fee[];
+    helpfulLinks: HelpfulLink[];
+    link: string;
+    qualificationTitle: string;
+    sscBatch: string;
+    hscBatch: string;
+    secondTime: string;
+  };
+  unitRequirements: {
+    title: string;
+    units: UnitRequirement[];
+  };
+  improvementPolicy: {
+    title: string;
+    details: string;
+  };
+  admitCard: {
+    title: string;
+    startDate: string;
+    endDate: string;
+    link: string;
+    note: string;
+  };
+  examDate: {
+    title: string;
+    dates: ExamDate[];
+    note: {
+      text: string;
+      link: string;
+    };
+  };
+  examCenter: {
+    title: string;
+    location: string;
+    locationLink: string;
+    note: string;
+  };
+  generalInfo: {
+    points: GeneralInfoPoint[];
+  };
+  result: {
+    title: string;
+    date: string;
+    link: string;
+  };
+}
+
+const DhakaAdmissionInfo = () => {
+  // Add type guard and safe destructuring
+  if (!duData.admissionInfo) {
+    return <div>No admission information available</div>;
   }
 
+  const admissionInfo = duData.admissionInfo as AdmissionInfoData;
+  
   const {
     apply,
     unitRequirements,
@@ -45,7 +130,7 @@ const DhakaAdmissionInfo = () => {
     examCenter,
     generalInfo,
     result,
-  } = duData.admissionInfo;
+  } = admissionInfo;
 
   return (
     <div
@@ -54,7 +139,7 @@ const DhakaAdmissionInfo = () => {
     >
       <div className="flex justify-center">
         <div className="gradient-background inline-block px-6 py-2 text-primary-foreground rounded-full text-base sm:text-lg mb-4 font-bold shadow-md">
-          {duData.admissionInfo.title}
+          {admissionInfo.title}
         </div>
       </div>
 
@@ -82,7 +167,7 @@ const DhakaAdmissionInfo = () => {
             আবেদন ফিঃ
           </b>
           <br />
-          {apply.fees.map((fee, index) => (
+          {apply.fees.map((fee: Fee, index: number) => (
             <div key={index}>
               &nbsp;&nbsp;&nbsp; ✓ {fee.unit}: {fee.amount}
             </div>
@@ -94,13 +179,9 @@ const DhakaAdmissionInfo = () => {
             className="text-green-600 dark:text-green-500"
             size={18}
           />
-          {apply.helpfulLinks.map((link, index) => (
+          {apply.helpfulLinks.map((link: HelpfulLink, index: number) => (
             <React.Fragment key={index}>
-              <ExternalLink
-                href={link.url}
-                text={link.label}
-                showIcon={false}
-              />
+              <ExternalLink href={link.url} text={link.label} showIcon={false} />
               {index < apply.helpfulLinks.length - 1 && " | "}
             </React.Fragment>
           ))}
@@ -146,11 +227,11 @@ const DhakaAdmissionInfo = () => {
             </div>
           </AccordionTrigger>
           <AccordionContent className="p-4 pt-0 sm:p-5 text-base">
-            {unitRequirements.units.map((unit, index) => (
+            {unitRequirements.units.map((unit: UnitRequirement, index: number) => (
               <div key={index} className="mb-2">
                 ❐ <b>"{unit.name}" ইউনিট:</b>
                 <br />
-                {unit.departments.map((dept, i) => (
+                {unit.departments.map((dept: UnitDepartment, i: number) => (
                   <span key={i}>
                     ● <b>{dept.name}:</b> {dept.requirement}
                     <br />
@@ -225,7 +306,7 @@ const DhakaAdmissionInfo = () => {
         <Timer className="mr-2" size={16} /> {examDate.title}
       </h2>
       <span className="text-base">
-        {examDate.dates.map((date, index) => (
+        {examDate.dates.map((date: ExamDate, index: number) => (
           <span key={index}>
             ❐ <b>"{date.unit}" ইউনিট:</b> {date.date} <br />
           </span>
@@ -276,7 +357,7 @@ const DhakaAdmissionInfo = () => {
             "গ" ইউনিট
           </TabsTrigger>
           <TabsTrigger value="cha-unit" className="flex-grow">
-            “চ” ইউনিট
+            "চ" ইউনিট
           </TabsTrigger>
           <TabsTrigger value="iba-unit" className="flex-grow">
             DU IBA (বিশেষ)
@@ -690,7 +771,7 @@ const DhakaAdmissionInfo = () => {
         </TabsContent>
       </Tabs>
       <div className="border border-border/80 rounded-xl p-4 mt-2.5 text-base">
-        {generalInfo.points.map((point, index) => (
+        {generalInfo.points.map((point: GeneralInfoPoint, index: number) => (
           <React.Fragment key={index}>
             ● <b>{point.label}ঃ </b>
             {point.value}

@@ -6,10 +6,8 @@ import { SupabaseClient, Session, User } from "@supabase/supabase-js";
 import { useRouter } from "next/navigation";
 import { Database } from "./database.types";
 
-type TypedSupabaseClient = SupabaseClient<Database>;
-
 type SupabaseContextType = {
-  supabase: TypedSupabaseClient;
+  supabase: SupabaseClient<Database>;
   session: Session | null;
   user: User | null;
   loading: boolean;
@@ -56,15 +54,13 @@ export const SupabaseProvider = ({ children }: { children: ReactNode }) => {
 
         // If profile doesn't exist, insert a new one
         if (!profile) {
-          const { error: insertError } = await supabase
-            .from("profiles")
-            .insert({
-              id: currentUser.id,
-              display_name:
-                currentUser.user_metadata.full_name ||
-                currentUser.user_metadata.user_name,
-              avatar_url: currentUser.user_metadata.avatar_url,
-            });
+          const { error: insertError } = await supabase.from("profiles").insert({
+            id: currentUser.id,
+            display_name:
+              (currentUser.user_metadata.full_name as string) ||
+              (currentUser.user_metadata.user_name as string),
+            avatar_url: currentUser.user_metadata.avatar_url as string,
+          });
         }
       }
     });

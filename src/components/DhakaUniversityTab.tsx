@@ -6,13 +6,43 @@ import QuestionBankAccordion from "@/components/QuestionBankAccordion";
 import { allData } from "@/lib/data/_generated";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
+// Define interfaces for question bank data structure
+interface QuestionBankItem {
+  title?: string;
+  links: Array<{
+    text: string;
+    url: string;
+  }>;
+}
+
+interface QuestionBankCategory {
+  title: string;
+  items: QuestionBankItem[];
+}
+
+interface DUQuestionBanks {
+  duUnitA: QuestionBankCategory[];
+  duUnitB: QuestionBankCategory[];
+  duUnitC: QuestionBankCategory[];
+  duUnitCha: QuestionBankCategory[];
+  duIBA: QuestionBankCategory[];
+}
+
 const DhakaUniversityTab = () => {
   const duData = allData.universities.find((uni) => uni.id === "du");
 
   if (!duData || !duData.questionBanks) {
     return <div>ঢাকা বিশ্ববিদ্যালয়ের প্রশ্নব্যাংক পাওয়া যায়নি।</div>;
   }
-  const { duUnitA, duUnitB, duUnitC, duUnitCha, duIBA } = duData.questionBanks;
+
+  const questionBanks = duData.questionBanks as DUQuestionBanks;
+
+  // Create safe arrays with fallbacks
+  const safeDuUnitA = questionBanks.duUnitA || [];
+  const safeDuUnitB = questionBanks.duUnitB || [];
+  const safeDuUnitC = questionBanks.duUnitC || [];
+  const safeDuUnitCha = questionBanks.duUnitCha || [];
+  const safeDuIBA = questionBanks.duIBA || [];
 
   return (
     <Tabs defaultValue="ka-unit" className="w-full">
@@ -35,7 +65,7 @@ const DhakaUniversityTab = () => {
       </TabsList>
       <TabsContent value="ka-unit">
         <Accordion type="multiple" className="w-full text-left space-y-2">
-          {duUnitA.map((item, index) => (
+          {safeDuUnitA.map((item: QuestionBankCategory, index: number) => (
             <QuestionBankAccordion
               key={index}
               value={`item-${index}`}
@@ -47,7 +77,7 @@ const DhakaUniversityTab = () => {
       </TabsContent>
       <TabsContent value="kha-unit">
         <Accordion type="multiple" className="w-full text-left space-y-2">
-          {duUnitB.map((item, index) => (
+          {safeDuUnitB.map((item: QuestionBankCategory, index: number) => (
             <QuestionBankAccordion
               key={index}
               value={`item-${index}`}
@@ -59,7 +89,7 @@ const DhakaUniversityTab = () => {
       </TabsContent>
       <TabsContent value="ga-unit">
         <Accordion type="multiple" className="w-full text-left space-y-2">
-          {duUnitC.map((item, index) => (
+          {safeDuUnitC.map((item: QuestionBankCategory, index: number) => (
             <QuestionBankAccordion
               key={index}
               value={`item-${index}`}
@@ -71,7 +101,7 @@ const DhakaUniversityTab = () => {
       </TabsContent>
       <TabsContent value="cha-unit">
         <Accordion type="multiple" className="w-full text-left space-y-2">
-          {duUnitCha.map((item, index) => (
+          {safeDuUnitCha.map((item: QuestionBankCategory, index: number) => (
             <QuestionBankAccordion
               key={index}
               value={`item-${index}`}
@@ -83,7 +113,7 @@ const DhakaUniversityTab = () => {
       </TabsContent>
       <TabsContent value="iba-unit">
         <Accordion type="multiple" className="w-full text-left space-y-2">
-          {duIBA.map((item, index) => (
+          {safeDuIBA.map((item: QuestionBankCategory, index: number) => (
             <QuestionBankAccordion
               key={index}
               value={`item-${index}`}

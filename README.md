@@ -23,6 +23,7 @@ A comprehensive platform for students in Bangladesh, providing all necessary inf
 - **Styling:** [Tailwind CSS](https://tailwindcss.com/)
 - **UI Components:** [ShadCN UI](https://ui.shadcn.com/)
 - **Language:** [TypeScript](https://www.typescriptlang.org/)
+- **Linting/Formatting:** [Biome](https://biomejs.dev/)
 - **Deployment:** [Netlify](https://www.netlify.com/)
 
 ## ⚙️ Getting Started
@@ -62,3 +63,5 @@ The application will be available at `http://localhost:3000`.
 - `pnpm build`: Creates a production build of the app.
 - `pnpm start`: Starts the production server.
 - `pnpm typecheck`: Runs TypeScript to check for type errors.
+- `pnpm lint`: Lints and fixes files using Biome.
+- `pnpm format`: Formats files using Biome.

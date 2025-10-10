@@ -18,13 +18,49 @@ import {
 import { allData } from "@/lib/data/_generated";
 import ExternalLink from "./common/ExternalLink";
 
+// Define proper TypeScript interfaces
+interface HistorySourceLink {
+  text: string;
+  url: string;
+}
+
+interface HistoryData {
+  title: string;
+  paragraphs: string[];
+  source: {
+    label: string;
+    links: HistorySourceLink[];
+  };
+}
+
+interface MapLocation {
+  name: string;
+  url: string;
+}
+
+interface MapCategory {
+  name: string;
+  locations: MapLocation[];
+}
+
+interface MapLocationsData {
+  title: string;
+  categories: MapCategory[];
+}
+
+interface HistoryAndMapData {
+  history: HistoryData;
+  mapLocations: MapLocationsData;
+}
+
 const DhakaHistoryAndMap = () => {
   const duData = allData.universities.find((uni) => uni.id === "du");
 
   if (!duData || !duData.historyAndMap) {
     return <div>ঢাকা বিশ্ববিদ্যালয়ের ইতিহাস ও ম্যাপের তথ্য পাওয়া যায়নি।</div>;
   }
-  const { history, mapLocations } = duData.historyAndMap;
+
+  const { history, mapLocations } = duData.historyAndMap as HistoryAndMapData;
 
   return (
     <div className="mt-4">
@@ -47,7 +83,7 @@ const DhakaHistoryAndMap = () => {
               শুরুতে তিনটি অনুষদ (কলা, বিজ্ঞান ও আইন) এবং ১২টি বিভাগ নিয়ে
               যাত্রা শুরু করে।
             </p>
-            {history.paragraphs.slice(1).map((p, i) => (
+            {history.paragraphs.slice(1).map((p: string, i: number) => (
               <p key={i + 1} className="mb-4 last:mb-0">
                 {p}
               </p>
@@ -55,7 +91,7 @@ const DhakaHistoryAndMap = () => {
             <hr className="my-3 border-border/50" />
             <b>{history.source.label}</b>
             <br />
-            {history.source.links.map((link, i) => (
+            {history.source.links.map((link: HistorySourceLink, i: number) => (
               <div key={i}>
                 {String(i + 1).padStart(2, "0")}.{" "}
                 <ExternalLink href={link.url} text={link.text} />
@@ -75,7 +111,7 @@ const DhakaHistoryAndMap = () => {
           </AccordionTrigger>
           <AccordionContent className="p-4 sm:p-5 border-t border-border/50 text-base text-muted-foreground">
             <Accordion type="multiple" className="w-full">
-              {mapLocations.categories.map((category, i) => (
+              {mapLocations.categories.map((category: MapCategory, i: number) => (
                 <AccordionItem key={i} value={`sub-${i}`}>
                   <AccordionTrigger className="hover:no-underline flex items-center justify-between">
                     {category.name === "মসজিদ" ? (
@@ -88,7 +124,7 @@ const DhakaHistoryAndMap = () => {
                   <AccordionContent>
                     <Table>
                       <TableBody>
-                        {category.locations.map((loc, j) => (
+                        {category.locations.map((loc: MapLocation, j: number) => (
                           <TableRow key={j}>
                             <TableCell className="text-center">
                               {loc.name}
