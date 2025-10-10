@@ -6,7 +6,7 @@ import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle }
 import { Label } from '@/components/ui/label';
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
-import { Scroll, TimerIcon, FilePenLine, CheckCircle, BarChart, RotateCcw } from 'lucide-react';
+import { Scroll, TimerIcon, FilePenLine, CheckCircle, BarChart, RotateCcw, Check, X } from 'lucide-react';
 
 export default function ExamPage() {
     const [view, setView] = useState('config'); // 'config', 'test', 'answers', 'result'
@@ -38,7 +38,7 @@ export default function ExamPage() {
     const mcqContainerRef = useRef<HTMLDivElement>(null);
     const correctAnswersContainerRef = useRef<HTMLDivElement>(null);
 
-    const handleConfigChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+     const handleConfigChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         const { id, value } = e.target;
         setConfig(prev => ({
             ...prev,
@@ -90,7 +90,7 @@ export default function ExamPage() {
         const questions = [];
         for (let i = 1; i <= testState.current.mcqNumber; i++) {
             questions.push(
-                <Card key={`q-${i}`} id={`mcq-${i}`} className='mb-4 animate-fade-in-up' style={{ animationDelay: `${i * 50}ms` }}>
+                 <Card key={`q-${i}`} id={`mcq-${i}`} className='mb-4 animate-fade-in-up' style={{ animationDelay: `${i * 50}ms` }}>
                     <CardContent className='flex flex-col sm:flex-row items-center justify-between p-4'>
                         <p className='font-semibold text-lg mb-2 sm:mb-0 sm:mr-4 whitespace-nowrap'>প্রশ্ন. {i}:</p>
                         <div className='flex items-center justify-end flex-wrap gap-x-4 w-full'>
@@ -196,6 +196,7 @@ export default function ExamPage() {
     const calculateResult = () => {
         let correctCount = 0;
         let incorrectCount = 0;
+        let resultBreakdown = [];
         
         const userAnswersMap = new Map(testState.current.userAnswers.map(a => [a.q, a.value]));
         const correctAnswersMap = new Map(testState.current.correctAnswers.map(a => [a.q, a.value]));
@@ -203,13 +204,22 @@ export default function ExamPage() {
         for(let i = 1; i <= testState.current.mcqNumber; i++) {
             const userAnswer = userAnswersMap.get(i);
             const correctAnswer = correctAnswersMap.get(i);
+            let status = 'skipped';
             if (userAnswer) {
                 if (userAnswer === correctAnswer) {
                     correctCount++;
+                    status = 'correct';
                 } else {
                     incorrectCount++;
+                    status = 'incorrect';
                 }
             }
+            resultBreakdown.push({
+                q: i,
+                userAnswer: userAnswer || '-',
+                correctAnswer: correctAnswer,
+                status: status,
+            });
         }
         
         const skippedCount = testState.current.mcqNumber - (correctCount + incorrectCount);
@@ -218,17 +228,95 @@ export default function ExamPage() {
         const percentage = (correctCount / testState.current.mcqNumber) * 100;
 
         setResultDetails(
-            <div className='space-y-4 text-center'>
-                 <p><strong>মোট প্রশ্ন:</strong> {testState.current.mcqNumber}</p>
-                 <p><strong>সঠিক উত্তর:</strong> {correctCount}</p>
-                 <p><strong>ভুল উত্তর:</strong> {incorrectCount}</p>
-                 <p><strong>উত্তর দেননি:</strong> {skippedCount}</p>
-                 <p><strong>নেগেটিভ মার্কিং:</strong> {(incorrectCount * negMarkValue).toFixed(2)}</p>
-                 <p className='text-xl font-bold'><strong>মোট স্কোর:</strong> {totalScore.toFixed(2)}</p>
-                 <div className='border-2 border-amber-500 bg-amber-100 dark:bg-amber-900/20 p-4 rounded-lg mt-4'>
+             <div className='space-y-6 text-center'>
+                <div className='grid grid-cols-2 md:grid-cols-4 gap-4'>
+                    <Card>
+                        <CardHeader className='pb-2'>
+                            <CardTitle className='text-sm font-medium'>মোট প্রশ্ন</CardTitle>
+                        </CardHeader>
+                        <CardContent>
+                            <p className='text-2xl font-bold'>{testState.current.mcqNumber}</p>
+                        </CardContent>
+                    </Card>
+                    <Card>
+                        <CardHeader className='pb-2'>
+                            <CardTitle className='text-sm font-medium'>সঠিক উত্তর</CardTitle>
+                        </CardHeader>
+                        <CardContent>
+                            <p className='text-2xl font-bold text-green-500'>{correctCount}</p>
+                        </CardContent>
+                    </Card>
+                    <Card>
+                        <CardHeader className='pb-2'>
+                            <CardTitle className='text-sm font-medium'>ভুল উত্তর</CardTitle>
+                        </CardHeader>
+                        <CardContent>
+                            <p className='text-2xl font-bold text-red-500'>{incorrectCount}</p>
+                        </CardContent>
+                    </Card>
+                     <Card>
+                        <CardHeader className='pb-2'>
+                            <CardTitle className='text-sm font-medium'>উত্তর দেননি</CardTitle>
+                        </CardHeader>
+                        <CardContent>
+                            <p className='text-2xl font-bold'>{skippedCount}</p>
+                        </CardContent>
+                    </Card>
+                </div>
+                 
+                 <div className='grid grid-cols-1 md:grid-cols-3 gap-4 text-center'>
+                    <Card>
+                        <CardHeader className='pb-2'>
+                           <CardTitle className='text-sm font-medium'>নেগেটিভ মার্কিং</CardTitle>
+                        </CardHeader>
+                        <CardContent>
+                            <p className='text-lg font-bold'>{(incorrectCount * negMarkValue).toFixed(2)}</p>
+                        </CardContent>
+                    </Card>
+                     <Card className='md:col-span-2'>
+                        <CardHeader className='pb-2'>
+                           <CardTitle className='text-sm font-medium'>সর্বমোট স্কোর</CardTitle>
+                        </CardHeader>
+                        <CardContent>
+                             <p className='text-2xl font-bold text-primary'>{totalScore.toFixed(2)} / {testState.current.mcqNumber}</p>
+                        </CardContent>
+                    </Card>
+                 </div>
+                 
+                 <div className='border-2 border-amber-500 bg-amber-100 dark:bg-amber-900/20 p-4 rounded-lg'>
                     <p className='text-2xl font-bold text-amber-600 dark:text-amber-400'>
                         শতাংশ: {percentage.toFixed(2)}%
                     </p>
+                 </div>
+
+                 <div>
+                    <h3 className='text-xl font-bold my-4'>ফলাফল বিশ্লেষণ</h3>
+                    <div className='max-h-96 overflow-y-auto border rounded-lg'>
+                        <table className='w-full divide-y divide-border'>
+                            <thead className='bg-muted sticky top-0'>
+                                <tr>
+                                    <th className='px-4 py-2 text-left text-sm font-semibold'>প্রশ্ন</th>
+                                    <th className='px-4 py-2 text-left text-sm font-semibold'>আপনার উত্তর</th>
+                                    <th className='px-4 py-2 text-left text-sm font-semibold'>সঠিক উত্তর</th>
+                                    <th className='px-4 py-2 text-left text-sm font-semibold'>ফলাফল</th>
+                                </tr>
+                            </thead>
+                            <tbody className='bg-card divide-y divide-border'>
+                                {resultBreakdown.map(res => (
+                                    <tr key={res.q}>
+                                        <td className='px-4 py-2 font-medium'>{res.q}</td>
+                                        <td className={`px-4 py-2 font-bold ${res.status === 'incorrect' ? 'text-red-500' : 'text-green-500'}`}>{res.userAnswer}</td>
+                                        <td className='px-4 py-2 font-bold text-blue-500'>{res.correctAnswer}</td>
+                                        <td className='px-4 py-2'>
+                                            {res.status === 'correct' && <span className='flex items-center gap-1 text-green-500'><Check size={16}/> সঠিক</span>}
+                                            {res.status === 'incorrect' && <span className='flex items-center gap-1 text-red-500'><X size={16}/> ভুল</span>}
+                                            {res.status === 'skipped' && <span className='text-muted-foreground'>স্কিপড</span>}
+                                        </td>
+                                    </tr>
+                                ))}
+                            </tbody>
+                        </table>
+                    </div>
                  </div>
             </div>
         );
@@ -383,3 +471,6 @@ export default function ExamPage() {
 		</div>
 	);
 }
+
+
+    
