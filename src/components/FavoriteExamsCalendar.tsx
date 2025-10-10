@@ -10,15 +10,17 @@ import {
   TooltipTrigger,
 } from "@/components/ui/tooltip";
 import type { DayContentProps } from "react-day-picker";
-import { format } from "date-fns";
-import { bn } from "date-fns/locale";
 import { useUser, useSupabase } from "@/lib/supabase/hooks";
+import dayjs from "dayjs";
+import "dayjs/locale/bn";
+import LocalizedFormat from "dayjs/plugin/localizedFormat";
 
-const formatDay = (day: Date) => format(day, "d", { locale: bn });
-const formatMonthCaption = (month: Date) =>
-  format(month, "MMMM yyyy", { locale: bn });
-const formatWeekdayName = (weekday: Date) =>
-  format(weekday, "eee", { locale: bn });
+dayjs.extend(LocalizedFormat);
+dayjs.locale("bn");
+
+const formatDay = (day: Date) => dayjs(day).format("D");
+const formatMonthCaption = (month: Date) => dayjs(month).format("MMMM YYYY");
+const formatWeekdayName = (weekday: Date) => dayjs(weekday).format("ddd");
 
 const FavoriteExamsCalendar = () => {
   const { user } = useUser();
@@ -69,7 +71,7 @@ const FavoriteExamsCalendar = () => {
 
     favoriteEvents.forEach((event) => {
       if (!isNaN(event.date.getTime())) {
-        const dateString = format(event.date, "yyyy-MM-dd");
+        const dateString = dayjs(event.date).format("YYYY-MM-DD");
         if (!dates[dateString]) {
           dates[dateString] = [];
         }
@@ -96,7 +98,7 @@ const FavoriteExamsCalendar = () => {
     if (isNaN(day.getTime())) {
       return <div />;
     }
-    const dateString = format(day, "yyyy-MM-dd");
+    const dateString = dayjs(day).format("YYYY-MM-DD");
     const titles = favoriteDates[dateString];
 
     if (
@@ -136,7 +138,7 @@ const FavoriteExamsCalendar = () => {
 
   return (
     <Calendar
-      locale={bn}
+      locale={dayjs.locale("bn") as any}
       mode="single"
       month={month}
       onMonthChange={setMonth}
