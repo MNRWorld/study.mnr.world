@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, useCallback } from "react";
 import {
   Card,
   CardContent,
@@ -63,122 +63,7 @@ export default function ExamPage() {
     }));
   };
 
-  const startTest = (e: React.FormEvent) => {
-    e.preventDefault();
-    testState.current.testName = config.testName;
-    testState.current.mcqNumber = parseInt(config.mcqNumber) || 0;
-    testState.current.timeLimit = parseInt(config.timeLimit) || 0;
-    testState.current.negativeMarkValue =
-      parseFloat(config.negativeMarkValue) || 0;
-
-    if (testState.current.mcqNumber <= 0 || testState.current.timeLimit <= 0) {
-      alert("অনুগ্রহ করে MCQ সংখ্যা এবং সময়সীমার জন্য বৈধ সংখ্যা লিখুন।");
-      return;
-    }
-
-    generateMcqInputs();
-    startTimer();
-    setView("test");
-  };
-
-  const startTimer = () => {
-    if (testState.current.timerInterval)
-      clearInterval(testState.current.timerInterval);
-
-    let timeRemaining = testState.current.timeLimit * 60;
-
-    const updateTimerDisplay = () => {
-      if (timeRemaining <= 0) {
-        clearInterval(testState.current.timerInterval!);
-        setTimeLeft("সময় শেষ!");
-        alert("সময় শেষ! পরীক্ষাটি স্বয়ংক্রিয়ভাবে জমা দেওয়া হবে।");
-        submitTest();
-      } else {
-        const minutes = Math.floor(timeRemaining / 60);
-        const seconds = timeRemaining % 60;
-        setTimeLeft(
-          `অবশিষ্ট সময়: ${String(minutes).padStart(2, "0")}মি ${String(seconds).padStart(2, "0")}সে`,
-        );
-        timeRemaining--;
-      }
-    };
-
-    updateTimerDisplay();
-    testState.current.timerInterval = setInterval(updateTimerDisplay, 1000);
-  };
-
-  const generateMcqInputs = () => {
-    const questions = [];
-    for (let i = 1; i <= testState.current.mcqNumber; i++) {
-      questions.push(
-        <Card
-          key={`q-${i}`}
-          id={`mcq-${i}`}
-          className="mb-4 animate-fade-in-up"
-          style={{ animationDelay: `${i * 50}ms` }}
-        >
-          <CardContent className="flex flex-col sm:flex-row items-center justify-between p-4">
-            <p className="font-semibold text-lg mb-2 sm:mb-0 sm:mr-4 whitespace-nowrap">
-              প্রশ্ন. {i}:
-            </p>
-            <div className="flex items-center justify-end flex-wrap gap-x-4 w-full">
-              {["A", "B", "C", "D"].map((option) => (
-                <div key={option} className="flex items-center space-x-2">
-                  <input
-                    type="radio"
-                    id={`q${i}-${option}`}
-                    name={`q${i}`}
-                    value={option}
-                    className="h-5 w-5 accent-primary"
-                    onChange={updateSummary}
-                  />
-                  <Label
-                    htmlFor={`q${i}-${option}`}
-                    className="text-lg font-medium cursor-pointer"
-                  >
-                    {option}
-                  </Label>
-                </div>
-              ))}
-            </div>
-          </CardContent>
-        </Card>,
-      );
-    }
-    setMcqQuestions(questions);
-  };
-
-  const updateSummary = () => {
-    if (view !== "test") return;
-    const content = [];
-    const numMcqs = testState.current.mcqNumber;
-    for (let i = 1; i <= numMcqs; i++) {
-      const isAnswered = document.querySelector(`input[name="q${i}"]:checked`);
-      content.push(
-        <div
-          key={`summary-${i}`}
-          className={`w-8 h-8 flex items-center justify-center cursor-pointer rounded font-bold border ${isAnswered ? "bg-green-500 text-white border-green-600" : "bg-card border-border"}`}
-          onClick={() => {
-            document
-              .getElementById(`mcq-${i}`)
-              ?.scrollIntoView({ behavior: "smooth", block: "center" });
-            setSummaryVisible(false);
-          }}
-        >
-          {i}
-        </div>,
-      );
-    }
-    setSummaryContent(content);
-  };
-
-  useEffect(() => {
-    if (view === "test") {
-      updateSummary();
-    }
-  }, [view, mcqQuestions]);
-
-  const submitTest = () => {
+  const submitTest = useCallback(() => {
     if (testState.current.timerInterval)
       clearInterval(testState.current.timerInterval);
 
@@ -232,7 +117,128 @@ export default function ExamPage() {
     }
     setCorrectAnswerInputs(inputs);
     setView("answers");
-  };
+  }, []);
+
+  const startTest = useCallback(
+    (e: React.FormEvent) => {
+      e.preventDefault();
+      testState.current.testName = config.testName;
+      testState.current.mcqNumber = parseInt(config.mcqNumber) || 0;
+      testState.current.timeLimit = parseInt(config.timeLimit) || 0;
+      testState.current.negativeMarkValue =
+        parseFloat(config.negativeMarkValue) || 0;
+
+      if (testState.current.mcqNumber <= 0 || testState.current.timeLimit <= 0) {
+        alert("অনুগ্রহ করে MCQ সংখ্যা এবং সময়সীমার জন্য বৈধ সংখ্যা লিখুন।");
+        return;
+      }
+
+      generateMcqInputs();
+      startTimer();
+      setView("test");
+
+      function startTimer() {
+        if (testState.current.timerInterval)
+          clearInterval(testState.current.timerInterval);
+
+        let timeRemaining = testState.current.timeLimit * 60;
+
+        const updateTimerDisplay = () => {
+          if (timeRemaining <= 0) {
+            clearInterval(testState.current.timerInterval!);
+            setTimeLeft("সময় শেষ!");
+            alert("সময় শেষ! পরীক্ষাটি স্বয়ংক্রিয়ভাবে জমা দেওয়া হবে।");
+            submitTest();
+          } else {
+            const minutes = Math.floor(timeRemaining / 60);
+            const seconds = timeRemaining % 60;
+            setTimeLeft(
+              `অবশিষ্ট সময়: ${String(minutes).padStart(2, "0")}মি ${String(
+                seconds,
+              ).padStart(2, "0")}সে`,
+            );
+            timeRemaining--;
+          }
+        };
+
+        updateTimerDisplay();
+        testState.current.timerInterval = setInterval(updateTimerDisplay, 1000);
+      }
+    },
+    [config.mcqNumber, config.negativeMarkValue, config.testName, config.timeLimit, submitTest],
+  );
+
+  const updateSummary = useCallback(() => {
+    const content = [];
+    const numMcqs = testState.current.mcqNumber;
+    for (let i = 1; i <= numMcqs; i++) {
+      const isAnswered = document.querySelector(`input[name="q${i}"]:checked`);
+      content.push(
+        <div
+          key={`summary-${i}`}
+          className={`w-8 h-8 flex items-center justify-center cursor-pointer rounded font-bold border ${isAnswered ? "bg-green-500 text-white border-green-600" : "bg-card border-border"}`}
+          onClick={() => {
+            document
+              .getElementById(`mcq-${i}`)
+              ?.scrollIntoView({ behavior: "smooth", block: "center" });
+            setSummaryVisible(false);
+          }}
+        >
+          {i}
+        </div>,
+      );
+    }
+    setSummaryContent(content);
+  }, []);
+
+  const generateMcqInputs = useCallback(() => {
+    const questions = [];
+    for (let i = 1; i <= testState.current.mcqNumber; i++) {
+      questions.push(
+        <Card
+          key={`q-${i}`}
+          id={`mcq-${i}`}
+          className="mb-4 animate-fade-in-up"
+          style={{ animationDelay: `${i * 50}ms` }}
+        >
+          <CardContent className="flex flex-col sm:flex-row items-center justify-between p-4">
+            <p className="font-semibold text-lg mb-2 sm:mb-0 sm:mr-4 whitespace-nowrap">
+              প্রশ্ন. {i}:
+            </p>
+            <div className="flex items-center justify-end flex-wrap gap-x-4 w-full">
+              {["A", "B", "C", "D"].map((option) => (
+                <div key={option} className="flex items-center space-x-2">
+                  <input
+                    type="radio"
+                    id={`q${i}-${option}`}
+                    name={`q${i}`}
+                    value={option}
+                    className="h-5 w-5 accent-primary"
+                    onChange={updateSummary}
+                  />
+                  <Label
+                    htmlFor={`q${i}-${option}`}
+                    className="text-lg font-medium cursor-pointer"
+                  >
+                    {option}
+                  </Label>
+                </div>
+              ))}
+            </div>
+          </CardContent>
+        </Card>,
+      );
+    }
+    setMcqQuestions(questions);
+  }, [updateSummary]);
+
+
+  useEffect(() => {
+    if (view === "test") {
+      updateSummary();
+    }
+  }, [view, mcqQuestions, updateSummary]);
+
 
   const submitCorrectAnswers = () => {
     let allSelected = true;

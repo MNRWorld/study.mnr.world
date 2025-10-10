@@ -229,7 +229,7 @@ const DhakaAdmissionInfo = () => {
           <AccordionContent className="p-4 pt-0 sm:p-5 text-base">
             {unitRequirements.units.map((unit: UnitRequirement, index: number) => (
               <div key={index} className="mb-2">
-                ❐ <b>"{unit.name}" ইউনিট:</b>
+                ❐ <b>&quot;{unit.name}&quot; ইউনিট:</b>
                 <br />
                 {unit.departments.map((dept: UnitDepartment, i: number) => (
                   <span key={i}>
@@ -308,7 +308,7 @@ const DhakaAdmissionInfo = () => {
       <span className="text-base">
         {examDate.dates.map((date: ExamDate, index: number) => (
           <span key={index}>
-            ❐ <b>"{date.unit}" ইউনিট:</b> {date.date} <br />
+            ❐ <b>&quot;{date.unit}&quot; ইউনিট:</b> {date.date} <br />
           </span>
         ))}
       </span>
@@ -348,16 +348,16 @@ const DhakaAdmissionInfo = () => {
       <Tabs defaultValue="ka-unit" className="w-full">
         <TabsList className="flex flex-wrap w-full h-auto bg-transparent gap-2">
           <TabsTrigger value="ka-unit" className="flex-grow">
-            "ক" ইউনিট
+            &quot;ক&quot; ইউনিট
           </TabsTrigger>
           <TabsTrigger value="kha-unit" className="flex-grow">
-            "খ" ইউনিট
+            &quot;খ&quot; ইউনিট
           </TabsTrigger>
           <TabsTrigger value="ga-unit" className="flex-grow">
-            "গ" ইউনিট
+            &quot;গ&quot; ইউনিট
           </TabsTrigger>
           <TabsTrigger value="cha-unit" className="flex-grow">
-            "চ" ইউনিট
+            &quot;চ&quot; ইউনিট
           </TabsTrigger>
           <TabsTrigger value="iba-unit" className="flex-grow">
             DU IBA (বিশেষ)
@@ -670,10 +670,10 @@ const DhakaAdmissionInfo = () => {
                 />
                 <br />
                 <br />
-                আইবিএ মূলত বিবিএ এর মডিফায়েড ভার্সন। বিবিএ'র প্রফেশনালস ভার্সন
+                আইবিএ মূলত বিবিএ এর মডিফায়েড ভার্সন। বিবিএ&apos;র প্রফেশনালস ভার্সন
                 আইবিএ। ঢাকা বিশ্ববিদ্যালয় ছাড়াও জাহাঙ্গীরনগর ও রাজশাহী
                 বিশ্ববিদ্যালয়েও আইবিএ ডিপার্টমেন্ট রয়েছে তবে আইবিএ বলতে মূলত
-                ঢাকা বিশ্ববিদ্যালয়ের আইবিএ'ই বুঝায় এবং জাহাঙ্গীরনগর ও রাজশাহী
+                ঢাকা বিশ্ববিদ্যালয়ের আইবিএ&apos;ই বুঝায় এবং জাহাঙ্গীরনগর ও রাজশাহী
                 বিশ্ববিদ্যালয় থেকেই আলাদা ঢাকা বিশ্ববিদ্যালয়ের আইবিএ ইউনিট। আর
                 দেশের কর্পোরেট ওয়ার্ল্ডের টপ লেভেলের ম্যাগনেটদের অধিকাংশই ঢাকা
                 বিশ্ববিদ্যালয়ের এই ইউনিট থেকে পাস করা।

@@ -147,7 +147,7 @@ export default function AdminPage() {
           <CardTitle>নতুন বিশ্ববিদ্যালয় তৈরি করুন</CardTitle>
           <CardDescription>
             সিস্টেমে একটি নতুন বিশ্ববিদ্যালয় যোগ করুন। আইডিটি সংক্ষিপ্ত এবং
-            ইউনিক হতে হবে (যেমন: 'aust')।
+            ইউনিক হতে হবে (যেমন: &apos;aust&apos;)।
           </CardDescription>
         </CardHeader>
         <CardContent className="flex flex-col sm:flex-row gap-4 items-end">

@@ -242,16 +242,16 @@ const DhakaSeatInfo = () => {
       <Tabs defaultValue="ka-unit" className="w-full">
         <TabsList className="flex flex-wrap w-full h-auto bg-transparent gap-2">
           <TabsTrigger value="ka-unit" className="flex-grow">
-            "ক" ইউনিট
+            &quot;ক&quot; ইউনিট
           </TabsTrigger>
           <TabsTrigger value="kha-unit" className="flex-grow">
-            "খ" ইউনিট
+            &quot;খ&quot; ইউনিট
           </TabsTrigger>
           <TabsTrigger value="ga-unit" className="flex-grow">
-            "গ" ইউনিট
+            &quot;গ&quot; ইউনিট
           </TabsTrigger>
           <TabsTrigger value="cha-unit" className="flex-grow">
-            "চ" ইউনিট
+            &quot;চ&quot; ইউনিট
           </TabsTrigger>
           <TabsTrigger value="iba-unit" className="flex-grow">
             DU IBA (বিশেষ)
