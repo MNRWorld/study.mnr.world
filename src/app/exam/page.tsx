@@ -11,7 +11,6 @@ import { Scroll, TimerIcon, FilePenLine, CheckCircle, BarChart, RotateCcw } from
 export default function ExamPage() {
     const [view, setView] = useState('config'); // 'config', 'test', 'answers', 'result'
     
-    // Refs to hold test state across re-renders without causing them
     const testState = useRef({
         mcqNumber: 0,
         testName: '',
@@ -22,7 +21,6 @@ export default function ExamPage() {
         correctAnswers: [] as {q: number, value: string}[],
     });
 
-    // States for managed form inputs
     const [config, setConfig] = useState({
         testName: '',
         mcqNumber: '',
@@ -263,20 +261,20 @@ export default function ExamPage() {
                     <form onSubmit={startTest}>
                         <CardContent className='space-y-6'>
                             <div className='space-y-2'>
-                                <Label htmlFor='test-name'>Test Name:</Label>
-                                <Input id='test-name' value={config.testName} onChange={handleConfigChange} required />
+                                <Label htmlFor='testName'>Test Name:</Label>
+                                <Input id='testName' value={config.testName} onChange={(e) => setConfig({...config, testName: e.target.value})} required />
                             </div>
                             <div className='space-y-2'>
-                                <Label htmlFor='mcq-number'>Number of MCQs:</Label>
-                                <Input id='mcq-number' type='number' value={config.mcqNumber} onChange={handleConfigChange} required min="1" />
+                                <Label htmlFor='mcqNumber'>Number of MCQs:</Label>
+                                <Input id='mcqNumber' type='number' value={config.mcqNumber} onChange={(e) => setConfig({...config, mcqNumber: e.target.value})} required min="1" />
                             </div>
                             <div className='space-y-2'>
-                                <Label htmlFor='time-limit'>Time Limit (in minutes):</Label>
-                                <Input id='time-limit' type='number' value={config.timeLimit} onChange={handleConfigChange} required min="1" />
+                                <Label htmlFor='timeLimit'>Time Limit (in minutes):</Label>
+                                <Input id='timeLimit' type='number' value={config.timeLimit} onChange={(e) => setConfig({...config, timeLimit: e.target.value})} required min="1" />
                             </div>
                             <div className='flex items-center space-x-2'>
-                                <Checkbox id='negative-marking' checked={config.negativeMarking} onCheckedChange={(checked) => setConfig(prev => ({ ...prev, negativeMarking: !!checked }))} />
-                                <Label htmlFor='negative-marking' className='cursor-pointer'>Enable Negative Marking (0.25 per wrong answer)</Label>
+                                <Checkbox id='negativeMarking' checked={config.negativeMarking} onCheckedChange={(checked) => setConfig(prev => ({ ...prev, negativeMarking: !!checked }))} />
+                                <Label htmlFor='negativeMarking' className='cursor-pointer'>Enable Negative Marking (0.25 per wrong answer)</Label>
                             </div>
                         </CardContent>
                         <CardFooter>
@@ -373,5 +371,3 @@ export default function ExamPage() {
 		</div>
 	);
 }
-
-    
