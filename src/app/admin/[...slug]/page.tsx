@@ -98,7 +98,10 @@ export default function RjsfEditPage() {
         ]);
 
         let dataJson;
-        if (dataRes.status === 404 || (await dataRes.clone().json()).content === null) {
+        if (
+          dataRes.status === 404 ||
+          (await dataRes.clone().json()).content === null
+        ) {
           if (dataType === "universities") {
             setIsNew(true);
             dataJson = { content: newEntityData };

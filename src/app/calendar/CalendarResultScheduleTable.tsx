@@ -1,4 +1,3 @@
-
 "use client";
 
 import { allData } from "@/lib/data/_generated";

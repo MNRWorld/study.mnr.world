@@ -1,5 +1,4 @@
-
-import { useState, useEffect } from 'react';
+import { useState, useEffect } from "react";
 
 interface UseTypingAnimationProps {
   phrases: string[];
@@ -17,7 +16,7 @@ export const useTypingAnimation = ({
   const [index, setIndex] = useState(0);
   const [subIndex, setSubIndex] = useState(0);
   const [isDeleting, setIsDeleting] = useState(false);
-  const [text, setText] = useState('');
+  const [text, setText] = useState("");
 
   useEffect(() => {
     if (phrases.length === 0) return;
@@ -46,15 +45,7 @@ export const useTypingAnimation = ({
       }, typingSpeed);
       return () => clearTimeout(timeout);
     }
-  }, [
-    subIndex,
-    index,
-    isDeleting,
-    phrases,
-    typingSpeed,
-    deletingSpeed,
-    delay,
-  ]);
+  }, [subIndex, index, isDeleting, phrases, typingSpeed, deletingSpeed, delay]);
 
   return text;
 };

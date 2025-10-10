@@ -1,11 +1,17 @@
-
 "use client";
 
 import React, { useState, useEffect, useCallback } from "react";
 import { useUser, useSupabase } from "@/lib/supabase/hooks";
 import { allData } from "@/lib/data/_generated";
 import type { Subject } from "@/lib/data/subjects";
-import { Table, TableBody, TableCell, TableRow, TableHeader, TableHead } from "@/components/ui/table";
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableRow,
+  TableHeader,
+  TableHead,
+} from "@/components/ui/table";
 import ExternalLink from "./common/ExternalLink";
 import { BookmarkX, University } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
@@ -32,15 +38,15 @@ const BookmarkedSubjects = () => {
       if (uni.subjects) {
         Object.keys(uni.subjects).forEach((unitKey) => {
           const unitSubjects = (uni.subjects as any)[unitKey] as Subject[];
-          if(Array.isArray(unitSubjects)) {
+          if (Array.isArray(unitSubjects)) {
             unitSubjects.forEach((subject) => {
-                subjectsWithUniversity.push({
+              subjectsWithUniversity.push({
                 ...subject,
                 university: {
-                    name: uni.nameBn,
-                    unit: unitKey.replace('unit', '').toUpperCase(),
+                  name: uni.nameBn,
+                  unit: unitKey.replace("unit", "").toUpperCase(),
                 },
-                });
+              });
             });
           }
         });
@@ -48,7 +54,6 @@ const BookmarkedSubjects = () => {
     });
     return subjectsWithUniversity;
   }, []);
-
 
   const fetchBookmarks = useCallback(async () => {
     setLoading(true);
@@ -99,7 +104,9 @@ const BookmarkedSubjects = () => {
     } else {
       const stored = localStorage.getItem("subjectBookmarks");
       const currentBookmarks = stored ? JSON.parse(stored) : [];
-      const newBookmarks = currentBookmarks.filter((id: string) => id !== subjectId);
+      const newBookmarks = currentBookmarks.filter(
+        (id: string) => id !== subjectId,
+      );
       localStorage.setItem("subjectBookmarks", JSON.stringify(newBookmarks));
     }
 
@@ -132,15 +139,19 @@ const BookmarkedSubjects = () => {
             <TableRow key={`${subject.short}-${index}`}>
               <TableCell className="font-bold">
                 <p>{subject.fullName}</p>
-                <p className="text-xs text-muted-foreground">({subject.short})</p>
+                <p className="text-xs text-muted-foreground">
+                  ({subject.short})
+                </p>
               </TableCell>
               <TableCell>
                 <div className="flex items-center gap-2">
-                    <University className="h-4 w-4 text-muted-foreground" />
-                    <div>
-                        <p>{subject.university.name}</p>
-                        <p className="text-xs text-muted-foreground">ইউনিট: {subject.university.unit}</p>
-                    </div>
+                  <University className="h-4 w-4 text-muted-foreground" />
+                  <div>
+                    <p>{subject.university.name}</p>
+                    <p className="text-xs text-muted-foreground">
+                      ইউনিট: {subject.university.unit}
+                    </p>
+                  </div>
                 </div>
               </TableCell>
               <TableCell className="text-center">{subject.seat}</TableCell>

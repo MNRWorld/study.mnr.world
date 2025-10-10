@@ -7,8 +7,6 @@
     "prebuild": "node scripts/build-data.mjs",
     "build": "next build",
     "start": "next start",
-    "lint": "pnpm biome lint --apply .",
-    "format": "pnpm biome format --write .",
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {

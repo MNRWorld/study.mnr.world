@@ -1,4 +1,3 @@
-
 import { allData } from "@/lib/data/_generated";
 import SimplePageHeader from "@/components/common/SimplePageHeader";
 import { Mail, Phone, MapPin } from "lucide-react";

@@ -19,7 +19,10 @@ const ExternalLink = ({
   className,
   showIcon = true,
 }: ExternalLinkProps) => {
-  const isExternal = href.startsWith("http") || href.startsWith("mailto:") || href.startsWith("tel:");
+  const isExternal =
+    href.startsWith("http") ||
+    href.startsWith("mailto:") ||
+    href.startsWith("tel:");
 
   return (
     <Link

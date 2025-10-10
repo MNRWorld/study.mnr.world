@@ -168,7 +168,10 @@ function RegisteredUserProfile() {
           </CardDescription>
         </CardHeader>
       </Card>
-      <Card className="shadow-lg animate-fade-in-up" style={{ animationDelay: '100ms' }}>
+      <Card
+        className="shadow-lg animate-fade-in-up"
+        style={{ animationDelay: "100ms" }}
+      >
         <CardHeader>
           <CardTitle>প্রোফাইল তথ্য</CardTitle>
           <CardDescription>
@@ -325,7 +328,11 @@ export default function ProfilePage() {
     <div className="container mx-auto px-4 py-8 max-w-2xl font-bengali">
       {isAnonymous ? <AnonymousUserProfile /> : <RegisteredUserProfile />}
 
-      <Tabs defaultValue="calendar" className="w-full my-8 animate-fade-in-up" style={{ animationDelay: '200ms' }}>
+      <Tabs
+        defaultValue="calendar"
+        className="w-full my-8 animate-fade-in-up"
+        style={{ animationDelay: "200ms" }}
+      >
         <TabsList className="grid w-full grid-cols-2">
           <TabsTrigger value="calendar">
             <CalendarDays className="mr-2" /> ক্যালেন্ডার
@@ -362,7 +369,10 @@ export default function ProfilePage() {
         </TabsContent>
       </Tabs>
 
-      <Card className="my-8 shadow-lg animate-fade-in-up" style={{ animationDelay: '300ms' }}>
+      <Card
+        className="my-8 shadow-lg animate-fade-in-up"
+        style={{ animationDelay: "300ms" }}
+      >
         <CardHeader>
           <div className="flex items-center gap-2">
             <Sparkles className="text-primary h-6 w-6" />
@@ -389,7 +399,10 @@ export default function ProfilePage() {
         </CardContent>
       </Card>
 
-      <div className="grid grid-cols-1 gap-8 animate-fade-in-up" style={{ animationDelay: '400ms' }}>
+      <div
+        className="grid grid-cols-1 gap-8 animate-fade-in-up"
+        style={{ animationDelay: "400ms" }}
+      >
         <Card className="shadow-lg">
           <CardHeader>
             <CardTitle>ডিভাইস ও সেশন</CardTitle>
@@ -438,7 +451,10 @@ export default function ProfilePage() {
       </div>
 
       {!isAnonymous && (
-        <Card className="mt-8 shadow-lg border-destructive/50 bg-destructive/5 animate-fade-in-up" style={{ animationDelay: '500ms' }}>
+        <Card
+          className="mt-8 shadow-lg border-destructive/50 bg-destructive/5 animate-fade-in-up"
+          style={{ animationDelay: "500ms" }}
+        >
           <CardHeader>
             <div className="flex items-center gap-2">
               <AlertTriangle className="text-destructive h-6 w-6" />

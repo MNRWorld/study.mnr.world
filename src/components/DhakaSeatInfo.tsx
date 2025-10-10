@@ -98,7 +98,10 @@ const SubjectTable: React.FC<SubjectTableProps> = ({
           .delete()
           .match({ user_id: user.id, subject_id: subjectId });
         if (error) {
-          toast({ variant: "destructive", title: "বুকমার্ক সরাতে সমস্যা হয়েছে" });
+          toast({
+            variant: "destructive",
+            title: "বুকমার্ক সরাতে সমস্যা হয়েছে",
+          });
           return;
         }
         newBookmarks = bookmarks.filter((id) => id !== subjectId);
@@ -107,7 +110,10 @@ const SubjectTable: React.FC<SubjectTableProps> = ({
           .from("user_subject_bookmarks")
           .insert({ user_id: user.id, subject_id: subjectId });
         if (error) {
-           toast({ variant: "destructive", title: "বুকমার্ক করতে সমস্যা হয়েছে" });
+          toast({
+            variant: "destructive",
+            title: "বুকমার্ক করতে সমস্যা হয়েছে",
+          });
           return;
         }
         newBookmarks = [...bookmarks, subjectId];
@@ -124,7 +130,9 @@ const SubjectTable: React.FC<SubjectTableProps> = ({
     }
     setBookmarks(newBookmarks);
     toast({
-      title: isBookmarked ? "বুকমার্ক সরানো হয়েছে" : "বিষয়টি বুকমার্ক করা হয়েছে",
+      title: isBookmarked
+        ? "বুকমার্ক সরানো হয়েছে"
+        : "বিষয়টি বুকমার্ক করা হয়েছে",
     });
   };
 
@@ -162,11 +170,12 @@ const SubjectTable: React.FC<SubjectTableProps> = ({
         <TableBody>
           {filteredSubjects.map((subject, index) => (
             <TableRow key={index} className="text-center">
-               <TableCell>
+              <TableCell>
                 <Bookmark
                   className={cn(
                     "h-5 w-5 cursor-pointer text-muted-foreground/30 transition-all hover:scale-125",
-                    bookmarks.includes(subject.short) && "text-primary fill-primary",
+                    bookmarks.includes(subject.short) &&
+                      "text-primary fill-primary",
                   )}
                   onClick={() => toggleBookmark(subject.short)}
                 />

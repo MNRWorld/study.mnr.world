@@ -1,4 +1,3 @@
-
 {
   "navItems": [
     { "id": "home", "label": "হোম", "icon": "Home", "href": "/" },

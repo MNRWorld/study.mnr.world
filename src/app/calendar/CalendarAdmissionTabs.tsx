@@ -36,7 +36,8 @@ const CalendarAdmissionTabs = () => {
               প্রবেশপত্র
             </TabsTrigger>
             <TabsTrigger value="result" className="px-2">
-              <BarChart3 className="mr-2 h-4 w-4 hidden sm:inline-block" /> ফলাফল
+              <BarChart3 className="mr-2 h-4 w-4 hidden sm:inline-block" />{" "}
+              ফলাফল
             </TabsTrigger>
           </TabsList>
         </div>
