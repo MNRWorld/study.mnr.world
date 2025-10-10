@@ -119,62 +119,6 @@ export default function ExamPage() {
     setView("answers");
   }, []);
 
-  const startTest = useCallback(
-    (e: React.FormEvent) => {
-      e.preventDefault();
-      testState.current.testName = config.testName;
-      testState.current.mcqNumber = parseInt(config.mcqNumber) || 0;
-      testState.current.timeLimit = parseInt(config.timeLimit) || 0;
-      testState.current.negativeMarkValue =
-        parseFloat(config.negativeMarkValue) || 0;
-
-      if (testState.current.mcqNumber <= 0 || testState.current.timeLimit <= 0) {
-        alert("অনুগ্রহ করে MCQ সংখ্যা এবং সময়সীমার জন্য বৈধ সংখ্যা লিখুন।");
-        return;
-      }
-
-      generateMcqInputs();
-      startTimer();
-      setView("test");
-
-      function startTimer() {
-        if (testState.current.timerInterval)
-          clearInterval(testState.current.timerInterval);
-
-        let timeRemaining = testState.current.timeLimit * 60;
-
-        const updateTimerDisplay = () => {
-          if (timeRemaining <= 0) {
-            clearInterval(testState.current.timerInterval!);
-            setTimeLeft("সময় শেষ!");
-            alert("সময় শেষ! পরীক্ষাটি স্বয়ংক্রিয়ভাবে জমা দেওয়া হবে।");
-            submitTest();
-          } else {
-            const minutes = Math.floor(timeRemaining / 60);
-            const seconds = timeRemaining % 60;
-            setTimeLeft(
-              `অবশিষ্ট সময়: ${String(minutes).padStart(2, "0")}মি ${String(
-                seconds,
-              ).padStart(2, "0")}সে`,
-            );
-            timeRemaining--;
-          }
-        };
-
-        updateTimerDisplay();
-        testState.current.timerInterval = setInterval(updateTimerDisplay, 1000);
-      }
-    },
-    [
-      config.mcqNumber,
-      config.negativeMarkValue,
-      config.testName,
-      config.timeLimit,
-      submitTest,
-      generateMcqInputs,
-    ],
-  );
-
   const updateSummary = useCallback(() => {
     const content = [];
     const numMcqs = testState.current.mcqNumber;
@@ -239,6 +183,61 @@ export default function ExamPage() {
     setMcqQuestions(questions);
   }, [updateSummary]);
 
+  const startTest = useCallback(
+    (e: React.FormEvent) => {
+      e.preventDefault();
+      testState.current.testName = config.testName;
+      testState.current.mcqNumber = parseInt(config.mcqNumber) || 0;
+      testState.current.timeLimit = parseInt(config.timeLimit) || 0;
+      testState.current.negativeMarkValue =
+        parseFloat(config.negativeMarkValue) || 0;
+
+      if (testState.current.mcqNumber <= 0 || testState.current.timeLimit <= 0) {
+        alert("অনুগ্রহ করে MCQ সংখ্যা এবং সময়সীমার জন্য বৈধ সংখ্যা লিখুন।");
+        return;
+      }
+
+      generateMcqInputs();
+      startTimer();
+      setView("test");
+
+      function startTimer() {
+        if (testState.current.timerInterval)
+          clearInterval(testState.current.timerInterval);
+
+        let timeRemaining = testState.current.timeLimit * 60;
+
+        const updateTimerDisplay = () => {
+          if (timeRemaining <= 0) {
+            clearInterval(testState.current.timerInterval!);
+            setTimeLeft("সময় শেষ!");
+            alert("সময় শেষ! পরীক্ষাটি স্বয়ংক্রিয়ভাবে জমা দেওয়া হবে।");
+            submitTest();
+          } else {
+            const minutes = Math.floor(timeRemaining / 60);
+            const seconds = timeRemaining % 60;
+            setTimeLeft(
+              `অবশিষ্ট সময়: ${String(minutes).padStart(2, "0")}মি ${String(
+                seconds,
+              ).padStart(2, "0")}সে`,
+            );
+            timeRemaining--;
+          }
+        };
+
+        updateTimerDisplay();
+        testState.current.timerInterval = setInterval(updateTimerDisplay, 1000);
+      }
+    },
+    [
+      config.mcqNumber,
+      config.negativeMarkValue,
+      config.testName,
+      config.timeLimit,
+      submitTest,
+      generateMcqInputs,
+    ],
+  );
 
   useEffect(() => {
     if (view === "test") {
