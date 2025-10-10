@@ -1,3 +1,4 @@
+
 'use client';
 
 import { useEffect, useRef, useState } from 'react';
@@ -23,10 +24,11 @@ export default function ExamPage() {
 
     const [config, setConfig] = useState({
         testName: '',
-        mcqNumber: '',
-        timeLimit: '',
+        mcqNumber: '10',
+        timeLimit: '10',
         negativeMarking: false,
     });
+
     const [timeLeft, setTimeLeft] = useState('');
     const [mcqQuestions, setMcqQuestions] = useState<JSX.Element[]>([]);
     const [correctAnswerInputs, setCorrectAnswerInputs] = useState<JSX.Element[]>([]);
@@ -38,10 +40,10 @@ export default function ExamPage() {
     const correctAnswersContainerRef = useRef<HTMLDivElement>(null);
 
     const handleConfigChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-        const { id, value, type, checked } = e.target;
+        const { id, value } = e.target;
         setConfig(prev => ({
             ...prev,
-            [id]: type === 'checkbox' ? checked : value
+            [id]: value
         }));
     };
 
@@ -67,8 +69,8 @@ export default function ExamPage() {
         
         let timeRemaining = testState.current.timeLimit * 60;
         
-        testState.current.timerInterval = setInterval(() => {
-            if (timeRemaining <= 0) {
+        const updateTimerDisplay = () => {
+             if (timeRemaining <= 0) {
                 clearInterval(testState.current.timerInterval!);
                 setTimeLeft("Time's up!");
                 alert("Time's up! The test will be auto-submitted.");
@@ -76,24 +78,27 @@ export default function ExamPage() {
             } else {
                  const minutes = Math.floor(timeRemaining / 60);
                  const seconds = timeRemaining % 60;
-                 setTimeLeft(`Time Remaining: ${minutes}m ${seconds}s`);
+                 setTimeLeft(`Time Remaining: ${String(minutes).padStart(2, '0')}m ${String(seconds).padStart(2, '0')}s`);
                  timeRemaining--;
             }
-        }, 1000);
+        }
+
+        updateTimerDisplay();
+        testState.current.timerInterval = setInterval(updateTimerDisplay, 1000);
     };
 
     const generateMcqInputs = () => {
         const questions = [];
         for (let i = 1; i <= testState.current.mcqNumber; i++) {
             questions.push(
-                <Card key={`q-${i}`} id={`mcq-${i}`} className='mb-4 p-4'>
-                    <CardContent className='flex items-center justify-between p-0'>
-                        <p className='font-semibold text-lg'>Q. {i}:</p>
-                        <div className='flex items-center gap-x-4'>
+                <Card key={`q-${i}`} id={`mcq-${i}`} className='mb-4'>
+                    <CardContent className='flex flex-col sm:flex-row items-center justify-between p-4'>
+                        <p className='font-semibold text-lg mb-2 sm:mb-0 sm:mr-4'>Q. {i}:</p>
+                        <div className='flex items-center justify-end flex-wrap gap-x-4'>
                             {['A', 'B', 'C', 'D'].map(option => (
                                 <div key={option} className='flex items-center space-x-2'>
                                     <input type='radio' id={`q${i}-${option}`} name={`q${i}`} value={option} className='h-5 w-5 accent-primary' onChange={updateSummary}/>
-                                    <Label htmlFor={`q${i}-${option}`} className='text-lg font-medium'>{option}</Label>
+                                    <Label htmlFor={`q${i}-${option}`} className='text-lg font-medium cursor-pointer'>{option}</Label>
                                 </div>
                             ))}
                         </div>
@@ -105,14 +110,19 @@ export default function ExamPage() {
     };
 
     const updateSummary = () => {
+      if (view !== 'test') return;
       const content = [];
-      for (let i = 1; i <= testState.current.mcqNumber; i++) {
+      const numMcqs = testState.current.mcqNumber;
+      for (let i = 1; i <= numMcqs; i++) {
           const isAnswered = document.querySelector(`input[name="q${i}"]:checked`);
           content.push(
               <div
                   key={`summary-${i}`}
                   className={`w-8 h-8 flex items-center justify-center cursor-pointer rounded font-bold border ${isAnswered ? 'bg-green-500 text-white border-green-600' : 'bg-card border-border'}`}
-                  onClick={() => document.getElementById(`mcq-${i}`)?.scrollIntoView({ behavior: 'smooth' })}
+                  onClick={() => {
+                    document.getElementById(`mcq-${i}`)?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    setSummaryVisible(false);
+                  }}
               >
                   {i}
               </div>
@@ -143,14 +153,14 @@ export default function ExamPage() {
         const inputs = [];
         for (let i = 1; i <= testState.current.mcqNumber; i++) {
              inputs.push(
-                <Card key={`correct-q-${i}`} className='mb-4 p-4'>
-                    <CardContent className='flex items-center justify-between p-0'>
-                        <p className='font-semibold text-lg'>Correct Answer for Q. {i}:</p>
-                        <div className='flex items-center gap-x-4'>
+                <Card key={`correct-q-${i}`} className='mb-4'>
+                    <CardContent className='flex flex-col sm:flex-row items-center justify-between p-4'>
+                        <p className='font-semibold text-lg mb-2 sm:mb-0 sm:mr-4'>Correct for Q. {i}:</p>
+                        <div className='flex items-center justify-end flex-wrap gap-x-4'>
                             {['A', 'B', 'C', 'D'].map(option => (
                                 <div key={option} className='flex items-center space-x-2'>
                                     <input type='radio' id={`correct-q${i}-${option}`} name={`correct-q${i}`} value={option} className='h-5 w-5 accent-primary'/>
-                                    <Label htmlFor={`correct-q${i}-${option}`} className='text-lg font-medium'>{option}</Label>
+                                    <Label htmlFor={`correct-q${i}-${option}`} className='text-lg font-medium cursor-pointer'>{option}</Label>
                                 </div>
                             ))}
                         </div>
@@ -238,8 +248,8 @@ export default function ExamPage() {
         };
         setConfig({
             testName: '',
-            mcqNumber: '',
-            timeLimit: '',
+            mcqNumber: '10',
+            timeLimit: '10',
             negativeMarking: false,
         });
         setView('config');
@@ -262,15 +272,15 @@ export default function ExamPage() {
                         <CardContent className='space-y-6'>
                             <div className='space-y-2'>
                                 <Label htmlFor='testName'>Test Name:</Label>
-                                <Input id='testName' value={config.testName} onChange={(e) => setConfig({...config, testName: e.target.value})} required />
+                                <Input id='testName' value={config.testName} onChange={handleConfigChange} required />
                             </div>
                             <div className='space-y-2'>
                                 <Label htmlFor='mcqNumber'>Number of MCQs:</Label>
-                                <Input id='mcqNumber' type='number' value={config.mcqNumber} onChange={(e) => setConfig({...config, mcqNumber: e.target.value})} required min="1" />
+                                <Input id='mcqNumber' type='number' value={config.mcqNumber} onChange={handleConfigChange} required min="1" />
                             </div>
                             <div className='space-y-2'>
                                 <Label htmlFor='timeLimit'>Time Limit (in minutes):</Label>
-                                <Input id='timeLimit' type='number' value={config.timeLimit} onChange={(e) => setConfig({...config, timeLimit: e.target.value})} required min="1" />
+                                <Input id='timeLimit' type='number' value={config.timeLimit} onChange={handleConfigChange} required min="1" />
                             </div>
                             <div className='flex items-center space-x-2'>
                                 <Checkbox id='negativeMarking' checked={config.negativeMarking} onCheckedChange={(checked) => setConfig(prev => ({ ...prev, negativeMarking: !!checked }))} />
@@ -291,11 +301,14 @@ export default function ExamPage() {
                         onMouseEnter={() => setSummaryVisible(true)}
                         onMouseLeave={() => setSummaryVisible(false)}
                       >
-                         <Button size="icon" className='rounded-full h-14 w-14 shadow-lg'>
+                         <Button size="icon" className='rounded-full h-14 w-14 shadow-lg' onClick={() => setSummaryVisible(!isSummaryVisible)}>
                             <Scroll className='h-6 w-6'/>
                          </Button>
                          {isSummaryVisible && (
                              <Card className='absolute bottom-16 left-0 w-64 p-2 shadow-xl'>
+                                <CardHeader className="p-2 text-center">
+                                    <CardTitle className="text-base">Question Summary</CardTitle>
+                                </CardHeader>
                                 <CardContent className='p-2 flex flex-wrap gap-2'>
                                   {summaryContent}
                                 </CardContent>
