@@ -165,7 +165,14 @@ export default function ExamPage() {
         testState.current.timerInterval = setInterval(updateTimerDisplay, 1000);
       }
     },
-    [config.mcqNumber, config.negativeMarkValue, config.testName, config.timeLimit, submitTest],
+    [
+      config.mcqNumber,
+      config.negativeMarkValue,
+      config.testName,
+      config.timeLimit,
+      submitTest,
+      generateMcqInputs,
+    ],
   );
 
   const updateSummary = useCallback(() => {
