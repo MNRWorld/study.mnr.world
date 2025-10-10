@@ -258,7 +258,7 @@ export default function ExamPage() {
 	return (
 		<div className='container mx-auto px-4 py-8 max-w-4xl font-bengali'>
             <header className='text-center mb-12'>
-                <h1 className='text-4xl font-bold gradient-text'>Be Examiner</h1>
+                <h1 className='text-4xl font-bold gradient-text'>OMR Test Simulator</h1>
                 <p className='text-muted-foreground mt-2'>Create and manage your OMR-based tests easily!</p>
             </header>
 
@@ -379,7 +379,7 @@ export default function ExamPage() {
             )}
 
              <footer className='text-center mt-12 text-sm text-muted-foreground'>
-                <p>Be Examiner &copy; 2024. All rights reserved.</p>
+                <p>&copy; 2024. All rights reserved.</p>
             </footer>
 		</div>
 	);
