@@ -4,7 +4,7 @@ import dynamic from "next/dynamic";
 import LinkList from "@/components/common/LinkList";
 import Circular from "@/components/common/Circular";
 import CollegeAdmissionInfo from "@/components/CollegeAdmissionInfo";
-import { collegeLinks } from "@/lib/data/links";
+import { allData } from "@/lib/data/_generated";
 import SimplePageHeader from "@/components/common/SimplePageHeader";
 
 const CountdownTimer = dynamic(
@@ -13,6 +13,7 @@ const CountdownTimer = dynamic(
 );
 
 function CollegePage() {
+  const collegeLinks = allData.linksList.college;
   return (
     <div className="font-bengali bg-background">
       <div className="container mx-auto px-4">
