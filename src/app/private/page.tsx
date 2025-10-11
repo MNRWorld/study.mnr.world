@@ -16,11 +16,13 @@ function PrivatePage() {
   const privateLinks = allData.linksList.private;
   return (
     <div className="font-bengali bg-background">
-      <div className="container mx-auto px-4">
-        <SimplePageHeader
-          title="প্রাইভেট বিশ্ববিদ্যালয় ভর্তি"
-          description="দেশের শীর্ষস্থানীয় প্রাইভেট বিশ্ববিদ্যালয়গুলোতে ভর্তির সর্বশেষ তথ্য, যোগ্যতা ও পরীক্ষার মানবণ্টন সম্পর্কে জানুন।"
-        />
+      <div className="container mx-auto px-2">
+        <div className="px-4">
+          <SimplePageHeader
+            title="প্রাইভেট বিশ্ববিদ্যালয় ভর্তি"
+            description="দেশের শীর্ষস্থানীয় প্রাইভেট বিশ্ববিদ্যালয়গুলোতে ভর্তির সর্বশেষ তথ্য, যোগ্যতা ও পরীক্ষার মানবণ্টন সম্পর্কে জানুন।"
+          />
+        </div>
 
         <LinkList links={privateLinks} />
 
