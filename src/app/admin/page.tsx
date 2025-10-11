@@ -18,7 +18,6 @@ import {
   PlusCircle,
   FileJson,
 } from "lucide-react";
-import { allData } from "@/lib/data/_generated";
 import type { University } from "@/lib/supabase/database.types";
 import {
   Select,
@@ -54,10 +53,41 @@ export default function AdminPage() {
   const router = useRouter();
 
   useEffect(() => {
-    setLoading(true);
-    setUniversities(allData.universities);
-    setLoading(false);
-  }, []);
+    const fetchUniversities = async () => {
+      setLoading(true);
+      try {
+        const [publicRes, privateRes] = await Promise.all([
+          fetch("/api/admin/files/src/lib/data/universities/public-universities.json"),
+          fetch("/api/admin/files/src/lib/data/universities/private-universities.json"),
+        ]);
+
+        const publicData = await publicRes.json();
+        const privateData = await privateRes.json();
+
+        const allUnis = [];
+        if (publicRes.ok && publicData.content) {
+          allUnis.push(...publicData.content);
+        }
+        if (privateRes.ok && privateData.content) {
+          allUnis.push(...privateData.content);
+        }
+        
+        allUnis.sort((a, b) => a.nameBn.localeCompare(b.nameBn));
+
+        setUniversities(allUnis);
+      } catch (error) {
+        toast({
+          variant: "destructive",
+          title: "বিশ্ববিদ্যালয়ের তালিকা আনতে ব্যর্থ",
+          description: "ডেটা লোড করার সময় একটি সমস্যা হয়েছে।",
+        });
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchUniversities();
+  }, [toast]);
 
   const handleCreateNew = () => {
     if (!newUniId.trim() || !newUniName.trim()) {

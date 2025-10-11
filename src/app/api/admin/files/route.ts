@@ -1,12 +1,25 @@
 import { NextResponse } from "next/server";
-import { allData } from "@/lib/data/_generated";
-import type { University } from "@/lib/supabase/database.types";
 import fs from "fs/promises";
 import path from "path";
 
 export async function GET() {
   try {
-    return NextResponse.json({ files: allData.universities });
+    const publicPath = path.resolve(
+      process.cwd(),
+      "src/lib/data/universities/public-universities.json",
+    );
+    const privatePath = path.resolve(
+      process.cwd(),
+      "src/lib/data/universities/private-universities.json",
+    );
+    
+    const publicContent = await fs.readFile(publicPath, "utf-8");
+    const privateContent = await fs.readFile(privatePath, "utf-8");
+    
+    const publicList = JSON.parse(publicContent);
+    const privateList = JSON.parse(privateContent);
+
+    return NextResponse.json({ files: [...publicList, ...privateList] });
   } catch (error) {
     return NextResponse.json(
       { error: "Failed to provide university list." },
@@ -45,10 +58,10 @@ export async function POST(request: Request) {
     );
 
     const fileContent = await fs.readFile(filePath, "utf-8");
-    const universityList: University[] = JSON.parse(fileContent);
+    const universityList = JSON.parse(fileContent);
 
     const existingIndex = universityList.findIndex(
-      (u) => u.id === university.id,
+      (u: any) => u.id === university.id,
     );
 
     if (existingIndex > -1) {
