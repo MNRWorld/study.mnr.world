@@ -18,6 +18,19 @@ const LoadingComponent = () => (
   <div className="text-center p-8">লোড হচ্ছে...</div>
 );
 
+const DhakaQuestionBank = dynamic(() => import("./DhakaQuestionBank"), {
+  loading: LoadingComponent,
+});
+const DhakaAdmissionInfo = dynamic(() => import("./DhakaAdmissionInfo"), {
+  loading: LoadingComponent,
+});
+const DhakaSeatInfo = dynamic(() => import("./DhakaSeatInfo"), {
+  loading: LoadingComponent,
+});
+const DhakaHistoryAndMap = dynamic(() => import("./DhakaHistoryAndMap"), {
+  loading: LoadingComponent,
+});
+
 // Component Map for university-specific components
 const universityComponents: {
   [key: string]: {
@@ -28,32 +41,16 @@ const universityComponents: {
   };
 } = {
   du: {
-    QuestionBank: dynamic(() => import("./DhakaQuestionBank"), {
-      loading: LoadingComponent,
-    }),
-    AdmissionInfo: dynamic(() => import("./DhakaAdmissionInfo"), {
-      loading: LoadingComponent,
-    }),
-    SeatInfo: dynamic(() => import("./DhakaSeatInfo"), {
-      loading: LoadingComponent,
-    }),
-    HistoryAndMap: dynamic(() => import("./DhakaHistoryAndMap"), {
-      loading: LoadingComponent,
-    }),
+    QuestionBank: DhakaQuestionBank,
+    AdmissionInfo: DhakaAdmissionInfo,
+    SeatInfo: DhakaSeatInfo,
+    HistoryAndMap: DhakaHistoryAndMap,
   },
   ru: {
-    QuestionBank: dynamic(() => import("./DhakaQuestionBank"), {
-      loading: LoadingComponent,
-    }),
-    AdmissionInfo: dynamic(() => import("./DhakaAdmissionInfo"), {
-      loading: LoadingComponent,
-    }),
-    SeatInfo: dynamic(() => import("./DhakaSeatInfo"), {
-      loading: LoadingComponent,
-    }),
-    HistoryAndMap: dynamic(() => import("./DhakaHistoryAndMap"), {
-      loading: LoadingComponent,
-    }),
+    QuestionBank: DhakaQuestionBank,
+    AdmissionInfo: DhakaAdmissionInfo,
+    SeatInfo: DhakaSeatInfo,
+    HistoryAndMap: DhakaHistoryAndMap,
   },
 };
 

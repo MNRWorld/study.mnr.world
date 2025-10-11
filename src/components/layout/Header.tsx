@@ -12,6 +12,7 @@ import {
   Building,
   School,
   GraduationCap,
+  Calculator,
 } from "lucide-react";
 import { allData } from "@/lib/data/_generated";
 import HeaderAuth from "./HeaderAuth";
@@ -36,6 +37,7 @@ const icons: { [key: string]: React.ElementType } = {
   Building,
   School,
   GraduationCap,
+  Calculator,
 };
 
 interface NavItemProps {

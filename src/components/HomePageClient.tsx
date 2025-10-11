@@ -2,8 +2,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { PlaceHolderImages } from "@/lib/placeholder-images";
-import React from "react";
-import { useTypingAnimation } from "@/hooks/useTypingAnimation";
+import React, { useState, useEffect } from "react";
 
 interface Feature {
   href: string;
@@ -14,6 +13,54 @@ interface Feature {
 interface HomePageClientProps {
   features: Feature[];
 }
+
+const useTypingAnimation = ({
+  phrases,
+  typingSpeed = 150,
+  deletingSpeed = 75,
+  delay = 2000,
+}: {
+  phrases: string[];
+  typingSpeed?: number;
+  deletingSpeed?: number;
+  delay?: number;
+}) => {
+  const [index, setIndex] = useState(0);
+  const [subIndex, setSubIndex] = useState(0);
+  const [isDeleting, setIsDeleting] = useState(false);
+  const [text, setText] = useState("");
+
+  useEffect(() => {
+    if (phrases.length === 0) return;
+
+    const currentPhrase = phrases[index % phrases.length];
+
+    if (isDeleting) {
+      if (subIndex === 0) {
+        setIsDeleting(false);
+        setIndex((prev) => prev + 1);
+        return;
+      }
+      const timeout = setTimeout(() => {
+        setText(currentPhrase.substring(0, subIndex - 1));
+        setSubIndex(subIndex - 1);
+      }, deletingSpeed);
+      return () => clearTimeout(timeout);
+    } else {
+      if (subIndex === currentPhrase.length) {
+        const timeout = setTimeout(() => setIsDeleting(true), delay);
+        return () => clearTimeout(timeout);
+      }
+      const timeout = setTimeout(() => {
+        setText(currentPhrase.substring(0, subIndex + 1));
+        setSubIndex(subIndex + 1);
+      }, typingSpeed);
+      return () => clearTimeout(timeout);
+    }
+  }, [subIndex, index, isDeleting, phrases, typingSpeed, deletingSpeed, delay]);
+
+  return text;
+};
 
 const TypingAnimation = () => {
   const phrases = [
@@ -84,7 +131,6 @@ const HomePageClient = ({ features }: HomePageClientProps) => {
                 alt={characterImage.description}
                 fill
                 className="object-contain"
-                priority
               />
             </div>
           )}
@@ -106,7 +152,6 @@ const HomePageClient = ({ features }: HomePageClientProps) => {
                 alt={characterImage2.description}
                 fill
                 className="object-contain"
-                priority
               />
             </div>
           )}
