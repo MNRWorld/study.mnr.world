@@ -53,7 +53,7 @@ export default function RootLayout({
         >
           <SupabaseProvider>
             <Header />
-            <main className="flex-grow">{children}</main>
+            <main className="flex-grow pt-20">{children}</main>
             <Footer />
             <BackToTopButton />
             <Toaster />
