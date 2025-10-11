@@ -1,11 +1,32 @@
 "use client";
 
 import React, { useState, useEffect, useRef } from "react";
-import {
-  admissionDeadlines,
-  getDeadlinesByUniversity,
-} from "@/lib/data/deadlines";
-import type { Deadline } from "@/lib/data/deadlines";
+import { allData } from "@/lib/data/_generated";
+
+interface Deadline {
+  id: string;
+  title: string;
+  date: Date;
+  universityId?: string;
+}
+
+const admissionDeadlines: Deadline[] = allData.CalendarInfo.filter(
+  (item) => item.examDetails.ExamCountdownDate,
+).map((item) => ({
+  id: item.id,
+  title: `🎓 ${item.universityNameAndUnit} পরীক্ষার কাউন্টডাউন`,
+  date: new Date(item.examDetails.ExamCountdownDate!),
+  universityId: item.id.split("-")[0],
+}));
+
+function getDeadlinesByUniversity(
+  universityId: string,
+): Deadline[] | undefined {
+  const deadlines = admissionDeadlines.filter(
+    (d) => d.universityId === universityId,
+  );
+  return deadlines.length > 0 ? deadlines : undefined;
+}
 
 interface CountdownTimerProps {
   universityId?: string;
