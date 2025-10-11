@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "prebuild": "node scripts/build-data.mjs",
+    "prebuild": "rm -rf src/lib/data/_generated.ts && node scripts/build-data.mjs",
     "build": "next build",
     "start": "next start",
     "typecheck": "tsc --noEmit",

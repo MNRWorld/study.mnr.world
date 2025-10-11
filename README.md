@@ -9,7 +9,7 @@ A comprehensive platform for students in Bangladesh, providing all necessary inf
 - **Dynamic Countdown Timers:** Specific countdowns for each university's admission events.
 - **Question Bank:** Access to previous years' question papers for various universities and units.
 - **OMR Self-Test Simulator:** Create and take your own OMR-based tests with custom timing, question counts, and negative marking to evaluate your preparation.
-- **User Authentication:** Secure login via GitHub or as a guest (anonymous).
+- **User Authentication:** Secure login via GitHub or as a guest (anonymous) using Supabase.
 - **Personalized Profiles:**
   - Save target university and HSC result.
   - Bookmark favorite exams to view in a personalized calendar.
@@ -60,6 +60,7 @@ The application will be available at `http://localhost:3000`.
 ## 📜 Available Scripts
 
 - `pnpm dev`: Starts the development server.
+- `pnpm prebuild`: Aggregates data from JSON files into a single module. This runs automatically before `build`.
 - `pnpm build`: Creates a production build of the app.
 - `pnpm start`: Starts the production server.
 - `pnpm typecheck`: Runs TypeScript to check for type errors.
