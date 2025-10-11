@@ -7,12 +7,12 @@ import {
   Banknote,
   Ticket,
 } from "lucide-react";
-import { collegeAdmissionInfo } from "@/lib/data/schedules/others";
+import { allData } from "@/lib/data/_generated";
 import ExternalLink from "./common/ExternalLink";
 
 const CollegeAdmissionInfo = () => {
   const { apply, admitCard, examDate, result, generalInfo } =
-    collegeAdmissionInfo;
+    allData.schedulesOthers.college;
 
   return (
     <div

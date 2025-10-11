@@ -1,10 +1,10 @@
 "use client";
 import { Info, PenSquare, Banknote, MapPin } from "lucide-react";
-import { privateAdmissionInfo } from "@/lib/data/schedules/others";
+import { allData } from "@/lib/data/_generated";
 
 const PrivateAdmissionInfo = () => {
   const { apply, examDate, examCenter, generalInfo, title } =
-    privateAdmissionInfo;
+    allData.schedulesOthers.private;
 
   return (
     <div
