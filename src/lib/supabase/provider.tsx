@@ -45,24 +45,20 @@ export const SupabaseProvider = ({ children }: { children: ReactNode }) => {
       setLoading(false);
 
       if (event === "SIGNED_IN" && currentUser && !currentUser.is_anonymous) {
-        // Check if profile exists
-        const { data: profile, error: selectError } = await supabase
-          .from("profiles")
-          .select("id")
-          .eq("id", currentUser.id)
-          .single();
+        // Upsert profile data to handle both new and existing users
+        const { error: upsertError } = await supabase.from("profiles").upsert({
+          id: currentUser.id,
+          display_name:
+            currentUser.user_metadata.full_name ||
+            currentUser.user_metadata.name,
+          avatar_url:
+            currentUser.user_metadata.avatar_url ||
+            currentUser.user_metadata.picture,
+          updated_at: new Date().toISOString(),
+        });
 
-        // If profile doesn't exist, insert a new one
-        if (!profile) {
-          const { error: insertError } = await supabase
-            .from("profiles")
-            .insert({
-              id: currentUser.id,
-              display_name:
-                (currentUser.user_metadata.full_name as string) ||
-                (currentUser.user_metadata.user_name as string),
-              avatar_url: currentUser.user_metadata.avatar_url as string,
-            });
+        if (upsertError) {
+          console.error("Error upserting profile:", upsertError);
         }
       }
     });
