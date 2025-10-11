@@ -55,9 +55,9 @@
   }
   body {
     @apply bg-background text-foreground;
-    transform: scale(0.9);
+    transform: scale(0.95);
     transform-origin: top;
-    min-height: 111.11vh; /* 100vh / 0.9 */
+    min-height: 105.26vh; /* 100vh / 0.95 */
   }
 }
 
