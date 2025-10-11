@@ -1,3 +1,4 @@
+
 "use client";
 
 import React, { useState, useEffect, useCallback } from "react";
@@ -16,6 +17,22 @@ import { Heart } from "lucide-react";
 import { useUser, useSupabase } from "@/lib/supabase/hooks";
 import { useToast } from "@/hooks/use-toast";
 
+const toBengaliNumber = (num: number | string) => {
+  const bengaliNumbers: { [key: string]: string } = {
+    "0": "০",
+    "1": "১",
+    "2": "২",
+    "3": "৩",
+    "4": "৪",
+    "5": "৫",
+    "6": "৬",
+    "7": "৭",
+    "8": "৮",
+    "9": "৯",
+  };
+  return String(num).replace(/[0-9]/g, (match) => bengaliNumbers[match]);
+};
+
 const CountdownCell = ({ targetDate }: { targetDate: string | null }) => {
   const timeLeft = useCountdown(targetDate);
 
@@ -28,15 +45,15 @@ const CountdownCell = ({ targetDate }: { targetDate: string | null }) => {
   }
 
   return (
-    <TableCell className="text-center align-top font-mono whitespace-nowrap">
-      <span>{String(timeLeft.days).padStart(2, "0")}</span>
-      <span className="mr-1 font-bengali">d</span>
-      <span>{String(timeLeft.hours).padStart(2, "0")}</span>
-      <span className="mr-1 font-bengali">h</span>
-      <span>{String(timeLeft.minutes).padStart(2, "0")}</span>
-      <span className="mr-1 font-bengali">m</span>
-      <span>{String(timeLeft.seconds).padStart(2, "0")}</span>
-      <span className="font-bengali">s</span>
+    <TableCell className="text-center align-top font-bengali whitespace-nowrap">
+      <span>{toBengaliNumber(String(timeLeft.days).padStart(2, "0"))}</span>
+      <span className="mr-1">দিন</span>
+      <span>{toBengaliNumber(String(timeLeft.hours).padStart(2, "0"))}</span>
+      <span className="mr-1">ঘণ্টা</span>
+      <span>{toBengaliNumber(String(timeLeft.minutes).padStart(2, "0"))}</span>
+      <span className="mr-1">মিনিট</span>
+      <span>{toBengaliNumber(String(timeLeft.seconds).padStart(2, "0"))}</span>
+      <span>সেকেন্ড</span>
     </TableCell>
   );
 };
@@ -205,3 +222,4 @@ const CalendarAdmissionScheduleTable = () => {
 };
 
 export default CalendarAdmissionScheduleTable;
+
