@@ -11,6 +11,7 @@ import {
   University,
   Building,
   School,
+  GraduationCap,
 } from "lucide-react";
 import { allData } from "@/lib/data/_generated";
 import HeaderAuth from "./HeaderAuth";
@@ -34,6 +35,7 @@ const icons: { [key: string]: React.ElementType } = {
   University,
   Building,
   School,
+  GraduationCap,
 };
 
 interface NavItemProps {
