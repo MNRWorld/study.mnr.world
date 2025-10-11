@@ -5,7 +5,7 @@ import { useRouter } from "next/navigation";
 import Image from "next/image";
 import { cn } from "@/lib/utils";
 import { LogIn, UserCircle } from "lucide-react";
-import { useUser } from "@/lib/supabase/hooks"; // Corrected import
+import { useUser } from "@/lib/supabase/hooks";
 import { useSupabase } from "@/lib/supabase/hooks";
 import { useState } from "react";
 

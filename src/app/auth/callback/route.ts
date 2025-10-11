@@ -8,7 +8,7 @@ export async function GET(request: Request) {
   const next = searchParams.get("next") ?? "/";
 
   if (code) {
-    const cookieStore = await cookies(); // Add 'await' here
+    const cookieStore = await cookies();
     const supabase = createServerClient(
       process.env.NEXT_PUBLIC_SUPABASE_URL!,
       process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,
@@ -32,5 +32,6 @@ export async function GET(request: Request) {
     }
   }
 
+  // return the user to an error page with instructions
   return NextResponse.redirect(`${origin}/auth/auth-code-error`);
 }
