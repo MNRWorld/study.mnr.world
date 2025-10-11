@@ -321,7 +321,7 @@ export default function ProfilePage() {
   const isAnonymous = user.is_anonymous;
 
   return (
-    <div className="container mx-auto px-4 py-8 max-w-2xl font-bengali">
+    <div className="container mx-auto px-2 py-8 max-w-2xl font-bengali">
       {isAnonymous ? <AnonymousUserProfile /> : <RegisteredUserProfile />}
 
       <Tabs

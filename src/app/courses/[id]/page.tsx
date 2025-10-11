@@ -13,7 +13,7 @@ export default function CoursePage({ params }: { params: { id: string } }) {
 
   return (
     <div className="font-bengali bg-background py-8">
-      <div className="container mx-auto px-4 max-w-4xl">
+      <div className="container mx-auto px-2 max-w-4xl">
         <div className="mb-6">
           <Button asChild variant="outline">
             <Link href="/courses">

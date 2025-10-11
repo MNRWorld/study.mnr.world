@@ -99,7 +99,7 @@ export default function PublicPageClient({
             title="পাবলিক বিশ্ববিদ্যালয়"
             description="বাংলাদেশের সকল পাবলিক বিশ্ববিদ্যালয়ের ভর্তি তথ্য, সার্কুলার এবং প্রশ্নব্যাংক একটি মাত্র প্ল্যাটফর্মে।"
           />
-          <div className="mt-8 space-y-4">
+          <div className="mt-8 space-y-4 px-2 sm:px-0">
             <div className="relative">
               <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground" />
               <Input

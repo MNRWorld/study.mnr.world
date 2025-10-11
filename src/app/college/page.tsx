@@ -16,7 +16,7 @@ function CollegePage() {
   const collegeLinks = allData.linksList.college;
   return (
     <div className="font-bengali bg-background">
-      <div className="container mx-auto px-4">
+      <div className="container mx-auto px-2">
         <SimplePageHeader
           title="কলেজ ভর্তি তথ্য"
           description="বাংলাদেশের সকল বিশ্ববিদ্যালয়, কলেজ ও ভর্তি পরীক্ষার তথ্য ও সহায়তার জন্য আপনার বিশ্বস্ত প্ল্যাটফর্ম।"

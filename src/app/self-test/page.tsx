@@ -468,7 +468,7 @@ export default function ExamPage() {
   };
 
   return (
-    <div className="container mx-auto px-4 py-8 max-w-4xl font-bengali">
+    <div className="container mx-auto px-2 py-8 max-w-4xl font-bengali">
       <header className="text-center mb-12">
         <h1 className="text-4xl font-bold gradient-text">OMR টেস্ট সিমুলেটর</h1>
         <p className="text-muted-foreground mt-2">

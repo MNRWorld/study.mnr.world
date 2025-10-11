@@ -109,7 +109,7 @@ export default function AdminPage() {
   };
 
   return (
-    <div className="container mx-auto px-4 py-8 max-w-5xl font-bengali">
+    <div className="container mx-auto px-2 py-8 max-w-5xl font-bengali">
       <h1 className="text-3xl font-bold mb-6 text-center gradient-text">
         অ্যাডমিন প্যানেল
       </h1>
