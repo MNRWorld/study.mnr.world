@@ -47,7 +47,8 @@ const CountdownCell = ({ targetDate }: { targetDate: string | null }) => {
   return (
     <TableCell className="text-center align-top font-bengali whitespace-nowrap">
       <span>{toBengaliNumber(String(timeLeft.days).padStart(2, "0"))}</span>
-      <span className="mr-1">দিন</span>
+      <span className="mr-1 hidden sm:inline">দিন</span>
+      <span className="mr-1 sm:hidden">দি</span>
       <span>{toBengaliNumber(String(timeLeft.hours).padStart(2, "0"))}</span>
       <span className="mr-1 hidden sm:inline">ঘণ্টা</span>
       <span className="mr-1 sm:hidden">ঘ</span>
@@ -225,4 +226,3 @@ const CalendarAdmissionScheduleTable = () => {
 };
 
 export default CalendarAdmissionScheduleTable;
-
