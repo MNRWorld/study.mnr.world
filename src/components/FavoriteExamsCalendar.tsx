@@ -14,6 +14,7 @@ import { useUser, useSupabase } from "@/lib/supabase/hooks";
 import dayjs from "dayjs";
 import "dayjs/locale/bn";
 import LocalizedFormat from "dayjs/plugin/localizedFormat";
+import { cn } from "@/lib/utils";
 
 dayjs.extend(LocalizedFormat);
 dayjs.locale("bn");
@@ -25,7 +26,7 @@ const formatWeekdayName = (weekday: Date) => dayjs(weekday).format("ddd");
 const FavoriteExamsCalendar = () => {
   const { user } = useUser();
   const supabase = useSupabase();
-  const [favoriteDates, setFavoriteDates] = useState<{
+  const [allExamDates, setAllExamDates] = useState<{
     [key: string]: string[];
   }>({});
   const [favoriteIds, setFavoriteIds] = useState<string[]>([]);
@@ -60,16 +61,15 @@ const FavoriteExamsCalendar = () => {
 
   useEffect(() => {
     const dates: { [key: string]: string[] } = {};
-
-    const favoriteEvents = allData.CalendarInfo.filter(
-      (item) =>
-        favoriteIds.includes(item.id) && item.examDetails.ExamCountdownDate,
+    const allEvents = allData.CalendarInfo.filter(
+      (item) => item.examDetails.ExamCountdownDate,
     ).map((item) => ({
+      id: item.id,
       date: new Date(item.examDetails.ExamCountdownDate!),
       title: item.universityNameAndUnit,
     }));
 
-    favoriteEvents.forEach((event) => {
+    allEvents.forEach((event) => {
       if (!isNaN(event.date.getTime())) {
         const dateString = dayjs(event.date).format("YYYY-MM-DD");
         if (!dates[dateString]) {
@@ -79,17 +79,25 @@ const FavoriteExamsCalendar = () => {
       }
     });
 
-    setFavoriteDates(dates);
+    setAllExamDates(dates);
 
-    const highlightedDates = Object.keys(dates).map(
-      (dateStr) => new Date(dateStr + "T00:00:00"),
-    );
+    const favoriteDates = allEvents
+      .filter((event) => favoriteIds.includes(event.id))
+      .map((event) => event.date);
+
+    const otherDates = allEvents
+      .filter((event) => !favoriteIds.includes(event.id))
+      .map((event) => event.date);
+
     setModifiers({
-      highlighted: highlightedDates,
+      favorite: favoriteDates,
+      other: otherDates,
     });
 
-    if (favoriteEvents.length > 0 && !isNaN(favoriteEvents[0].date.getTime())) {
-      setMonth(favoriteEvents[0].date);
+    const firstDateToShow =
+      favoriteDates.length > 0 ? favoriteDates[0] : allEvents[0]?.date;
+    if (firstDateToShow && !isNaN(firstDateToShow.getTime())) {
+      setMonth(firstDateToShow);
     }
   }, [favoriteIds]);
 
@@ -99,26 +107,39 @@ const FavoriteExamsCalendar = () => {
       return <div />;
     }
     const dateString = dayjs(day).format("YYYY-MM-DD");
-    const titles = favoriteDates[dateString];
+    const titles = allExamDates[dateString];
 
-    if (
-      titles &&
-      (modifiers as any).highlighted?.some(
-        (d: Date) => d.toDateString() === day.toDateString(),
-      )
-    ) {
+    const isFavorite = (modifiers as any).favorite?.some(
+      (d: Date) => d.toDateString() === day.toDateString(),
+    );
+    const isOther = (modifiers as any).other?.some(
+      (d: Date) => d.toDateString() === day.toDateString(),
+    );
+
+    if (titles && (isFavorite || isOther)) {
       return (
         <TooltipProvider>
           <Tooltip>
             <TooltipTrigger asChild>
-              <div className="relative flex flex-col h-full w-full items-center justify-center">
+              <div
+                className={cn(
+                  "relative flex flex-col h-full w-full items-center justify-center rounded-md",
+                  isFavorite && "bg-primary/20",
+                  isOther && "bg-accent",
+                )}
+              >
                 <span>{formatDay(day)}</span>
                 {titles.length === 1 ? (
                   <span className="text-[8px] leading-tight truncate w-full px-1 absolute bottom-1">
                     {titles[0]}
                   </span>
                 ) : (
-                  <span className="h-1.5 w-1.5 rounded-full bg-primary absolute bottom-1.5"></span>
+                  <span
+                    className={cn(
+                      "h-1.5 w-1.5 rounded-full absolute bottom-1.5",
+                      isFavorite ? "bg-primary" : "bg-muted-foreground",
+                    )}
+                  ></span>
                 )}
               </div>
             </TooltipTrigger>
@@ -145,7 +166,8 @@ const FavoriteExamsCalendar = () => {
       numberOfMonths={1}
       modifiers={modifiers}
       modifiersClassNames={{
-        highlighted: "bg-primary/20 rounded-md",
+        favorite: "", // Style is applied in DayWithTooltip
+        other: "", // Style is applied in DayWithTooltip
       }}
       formatters={{
         formatDay,
@@ -158,10 +180,12 @@ const FavoriteExamsCalendar = () => {
       className="p-0 flex justify-center"
       classNames={{
         months: "flex flex-col sm:flex-row space-y-4 sm:space-x-4 sm:space-y-0",
-        cell: "h-10 w-10 text-center text-sm p-0 relative [&:has([aria-selected])]:bg-accent first:[&:has([aria-selected])]:rounded-l-md last:[&:has([aria-selected])]:rounded-r-md focus-within:relative focus-within:z-20",
+        cell: "h-10 w-10 text-center text-sm p-0 relative focus-within:relative focus-within:z-20",
         day: "h-10 w-10 p-0",
         head_cell:
           "text-muted-foreground rounded-md w-10 font-normal text-[0.8rem]",
+        day_selected: "bg-primary text-primary-foreground",
+        day_today: "ring-2 ring-primary rounded-md",
       }}
     />
   );
