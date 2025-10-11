@@ -69,9 +69,9 @@ const UniversityPage = ({
     <div className="bg-background">
       <FloatingMenu />
 
-      <div className="container mx-auto px-2">
+      <div className="container mx-auto px-2 lg:px-44">
         {university.category && university.category.length > 0 && (
-          <div className="text-xs sm:text-sm text-foreground absolute top-[86px] sm:top-[91px] sm:left-[30px] left-6 bg-card border border-border rounded-[8px] px-3 py-1 z-20">
+          <div className="text-xs sm:text-sm text-foreground absolute top-[86px] sm:top-[91px] sm:left-[30px] left-6 bg-card border border-border rounded-[8px] px-3 py-1 z-20 lg:left-[190px]">
             <b>{university.category.join(", ")}</b>
           </div>
         )}
