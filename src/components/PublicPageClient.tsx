@@ -122,7 +122,7 @@ export default function PublicPageClient({
             <div key={category}>
               <div id={categoryId} className="scroll-mt-24">
                 <h2 className="text-2xl font-bold mb-4 text-center pb-2 border-b-2 border-primary/20 flex items-center justify-center gap-2">
-                  {Icon && <Icon className="h-6 w-6 text-primary/80" />}
+                  {Icon && <Icon className="h-6 w-6 text-primary" />}
                   {category}
                 </h2>
               </div>
