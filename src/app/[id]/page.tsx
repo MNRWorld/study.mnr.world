@@ -1,9 +1,9 @@
 import { notFound } from "next/navigation";
-import { getUniversityById, allUniversities } from "@/lib/data/universities";
+import { allData } from "@/lib/data/_generated";
 import UniversityPage from "@/components/UniversityPage";
 
 export async function generateStaticParams() {
-  return allUniversities.map((uni) => ({
+  return allData.universities.map((uni) => ({
     id: uni.id,
   }));
 }
@@ -13,7 +13,7 @@ export default function UniversityDetailsPage({
 }: {
   params: { id: string };
 }) {
-  const university = getUniversityById(params.id);
+  const university = allData.universities.find((uni) => uni.id === params.id);
 
   if (!university) {
     notFound();
