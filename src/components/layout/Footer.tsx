@@ -11,7 +11,7 @@ import {
   Mail,
 } from "lucide-react";
 import Link from "next/link";
-import { footerLinks } from "@/lib/data/navigation";
+import { allData } from "@/lib/data/_generated";
 import Image from "next/image";
 
 const icons: { [key: string]: React.ElementType } = {
@@ -23,7 +23,7 @@ const icons: { [key: string]: React.ElementType } = {
 };
 
 export default function Footer() {
-  const { important, shortcuts } = footerLinks;
+  const { important, shortcuts } = allData.navigationLinks.footerLinks;
 
   return (
     <footer className="w-full mt-16 mb-2 sm:mb-4">

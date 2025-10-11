@@ -4,7 +4,7 @@ import { cn } from "@/lib/utils";
 import {
   BookOpen,
   CalendarDays,
-  GraduationCap,
+  FilePenLine,
   Home,
   Info,
   ChevronDown,
@@ -12,7 +12,7 @@ import {
   Building,
   School,
 } from "lucide-react";
-import { navItems } from "@/lib/data/navigation";
+import { allData } from "@/lib/data/_generated";
 import HeaderAuth from "./HeaderAuth";
 import { memo } from "react";
 import { usePathname } from "next/navigation";
@@ -29,7 +29,7 @@ const icons: { [key: string]: React.ElementType } = {
   Home,
   BookOpen,
   CalendarDays,
-  GraduationCap,
+  FilePenLine,
   Info,
   University,
   Building,
@@ -126,6 +126,7 @@ const NavItem = memo(function NavItem({ item, isActive }: NavItemProps) {
 
 const Header = memo(function Header() {
   const pathname = usePathname();
+  const navItems = allData.navigationLinks.navItems;
 
   return (
     <header className="sticky top-0 z-40 w-full flex justify-center px-2 sm:px-0">
