@@ -5653,6 +5653,18 @@ export const allData = {
         "href": "/calendar"
       },
       {
+        "id": "self-test",
+        "label": "সেলফ টেস্ট",
+        "icon": "FilePenLine",
+        "href": "/self-test"
+      },
+      {
+        "id": "calculator",
+        "label": "ক্যালকুলেটর",
+        "icon": "Calculator",
+        "href": "/calculator"
+      },
+      {
         "id": "courses",
         "label": "কোর্স",
         "icon": "GraduationCap",

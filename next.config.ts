@@ -25,6 +25,15 @@ const nextConfig: NextConfig = {
       { protocol: "https", hostname: "avatars.githubusercontent.com" },
     ],
   },
+  async redirects() {
+    return [
+      {
+        source: "/ac",
+        destination: "/calendar",
+        permanent: true,
+      },
+    ];
+  },
 };
 
 export default nextConfig;
