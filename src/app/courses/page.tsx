@@ -8,7 +8,7 @@ import { Construction } from "lucide-react";
 function CoursesPage() {
   return (
     <div className="font-bengali bg-background">
-      <div className="container mx-auto px-2">
+      <div className="container mx-auto px-4">
         <SimplePageHeader
           title="আমাদের কোর্সসমূহ"
           description="তোমার স্বপ্ন পূরণের যাত্রায় আমরা আছি পাশে। দেশের সেরা শিক্ষকদের তত্ত্বাবধানে প্রস্তুতি নাও আরও মজবুত ও কার্যকরভাবে।"

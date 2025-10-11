@@ -11,7 +11,7 @@ export default function AboutPage() {
 
   return (
     <div className="font-bengali bg-background">
-      <div className="container mx-auto px-2 py-12">
+      <div className="container mx-auto px-4 py-12">
         <SimplePageHeader title={title} description={description} />
 
         <div className="mt-12 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
