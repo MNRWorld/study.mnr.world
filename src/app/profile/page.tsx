@@ -33,15 +33,11 @@ import Link from "next/link";
 import { useUser, useSupabase } from "@/lib/supabase/hooks";
 import { User } from "@supabase/supabase-js";
 import FavoriteExamsCalendar from "@/components/FavoriteExamsCalendar";
-import dayjs from "dayjs";
-import "dayjs/locale/bn";
-import LocalizedFormat from "dayjs/plugin/localizedFormat";
+import { format } from "date-fns";
+import { bn } from "date-fns/locale";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import BookmarkedSubjects from "@/components/BookmarkedSubjects";
 import { useCopyToClipboard } from "@/hooks/useCopyToClipboard";
-
-dayjs.extend(LocalizedFormat);
-dayjs.locale("bn");
 
 const suggestions = [
   {
@@ -60,7 +56,7 @@ const suggestions = [
 
 const getCreationTime = (user: User | null) => {
   if (user?.created_at) {
-    return dayjs(user.created_at).format("LLL");
+    return format(new Date(user.created_at), "PPp", { locale: bn });
   }
   return "N/A";
 };
@@ -344,7 +340,7 @@ export default function ProfilePage() {
         <TabsContent value="calendar">
           <Card className="shadow-lg mt-2">
             <CardHeader>
-              <CardTitle>আপনার পছন্দের পরীক্ষার ক্যালেন্ডার</CardTitle>
+              <CardTitle>আপনার পরীক্ষার ক্যালেন্ডার</CardTitle>
               <CardDescription>
                 ক্যালেন্ডারে আপনার পছন্দের পরীক্ষার তারিখগুলো হাইলাইট করা আছে।
               </CardDescription>

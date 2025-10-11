@@ -11,16 +11,9 @@ import {
 } from "@/components/ui/tooltip";
 import type { DayContentProps } from "react-day-picker";
 import { useUser, useSupabase } from "@/lib/supabase/hooks";
-import dayjs from "dayjs";
-import "dayjs/locale/bn";
-import LocalizedFormat from "dayjs/plugin/localizedFormat";
 import { bn } from "date-fns/locale";
 import { cn } from "@/lib/utils";
-
-dayjs.extend(LocalizedFormat);
-dayjs.locale("bn");
-
-const formatDay = (day: Date) => dayjs(day).format("D");
+import { format } from "date-fns";
 
 const FavoriteExamsCalendar = () => {
   const { user } = useUser();
@@ -70,7 +63,7 @@ const FavoriteExamsCalendar = () => {
 
     allEvents.forEach((event) => {
       if (!isNaN(event.date.getTime())) {
-        const dateString = dayjs(event.date).format("YYYY-MM-DD");
+        const dateString = format(event.date, "yyyy-MM-dd");
         if (!dates[dateString]) {
           dates[dateString] = [];
         }
@@ -108,7 +101,7 @@ const FavoriteExamsCalendar = () => {
     if (isNaN(day.getTime())) {
       return <div />;
     }
-    const dateString = dayjs(day).format("YYYY-MM-DD");
+    const dateString = format(day, "yyyy-MM-dd");
     const titles = allExamDates[dateString];
 
     const isFavorite = (modifiers as any).favorite?.some(
@@ -130,7 +123,7 @@ const FavoriteExamsCalendar = () => {
                   isOther && "bg-accent",
                 )}
               >
-                <span>{formatDay(day)}</span>
+                <span>{format(day, "d", { locale: bn })}</span>
                 {titles.length === 1 ? (
                   <span className="text-[8px] leading-tight truncate w-full px-1 absolute bottom-1">
                     {titles[0]}
@@ -156,7 +149,7 @@ const FavoriteExamsCalendar = () => {
         </TooltipProvider>
       );
     }
-    return <div>{formatDay(day)}</div>;
+    return <div>{format(day, "d", { locale: bn })}</div>;
   };
 
   return (
