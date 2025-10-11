@@ -3,9 +3,10 @@ import Link from "next/link";
 import { Github, Linkedin, Twitter } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import SimplePageHeader from "@/components/common/SimplePageHeader";
-import { contributors } from "@/lib/data/contributors";
+import { allData } from "@/lib/data/_generated";
 
 export default function ContributorPage() {
+  const contributors = allData.contributorsList;
   return (
     <div className="font-bengali bg-background">
       <div className="container mx-auto px-4 py-12">
