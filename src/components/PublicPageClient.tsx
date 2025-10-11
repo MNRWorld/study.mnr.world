@@ -98,7 +98,7 @@ export default function PublicPageClient({
           <div className="px-4">
             <SimplePageHeader
               title="পাবলিক বিশ্ববিদ্যালয়"
-              description="বাংলাদেশের সকল পাবলিক বিশ্ববিদ্যালয়ের ভর্তি তথ্য, সার্কুলার এবং প্রশ্নব্যাংক একটি মাত্র প্ল্যাটফর্মে।"
+              description="সকল পাবলিক বিশ্ববিদ্যালয়ের ভর্তি তথ্য, সার্কুলার এবং প্রশ্নব্যাংক একত্রে"
             />
           </div>
           <div className="mt-8 space-y-4 px-2 sm:px-0">
