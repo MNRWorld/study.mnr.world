@@ -1,12 +1,11 @@
-import { getCourseById } from "@/lib/data/courses";
+import { allData } from "@/lib/data/_generated";
 import { notFound } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { ArrowLeft, Construction } from "lucide-react";
-import SimplePageHeader from "@/components/common/SimplePageHeader";
 
 export default function CoursePage({ params }: { params: { id: string } }) {
-  const course = getCourseById(params.id);
+  const course = allData.coursesList.find((c) => c.id === params.id);
 
   if (!course) {
     notFound();
