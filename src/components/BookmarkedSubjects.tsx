@@ -3,7 +3,7 @@
 import React, { useState, useEffect, useCallback } from "react";
 import { useUser, useSupabase } from "@/lib/supabase/hooks";
 import { allData } from "@/lib/data/_generated";
-import type { Subject } from "@/lib/data/subjects";
+import type { Subject } from "@/lib/supabase/database.types";
 import {
   Table,
   TableBody,

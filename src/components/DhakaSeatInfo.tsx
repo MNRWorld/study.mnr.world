@@ -13,7 +13,7 @@ import {
 import { Input } from "@/components/ui/input";
 import { Info, Bookmark } from "lucide-react";
 import { allData } from "@/lib/data/_generated";
-import { type Subject } from "@/lib/data/subjects";
+import type { Subject } from "@/lib/supabase/database.types";
 import ExternalLink from "./common/ExternalLink";
 import {
   Popover,
