@@ -123,10 +123,10 @@ export default function PublicPageClient({
               <div id={categoryId} className="scroll-mt-24">
                 <h2 className="text-2xl font-bold mb-4 text-center pb-2 border-b-2 border-primary/20 flex items-center justify-center gap-2">
                   {Icon && <Icon className="h-6 w-6 text-primary" />}
-                  {category}
+                  {category} ({groupedUniversities[category].length})
                 </h2>
               </div>
-              <div className="space-y-4">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 {groupedUniversities[category].map((university, index) => (
                   <div
                     key={university.shortName}
