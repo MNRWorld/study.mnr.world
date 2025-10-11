@@ -1,7 +1,7 @@
 "use client";
 
-import PublicPageClient from "@/components/PublicPageClient";
 import { allData } from "@/lib/data/_generated";
+import PublicPageClient from "@/components/PublicPageClient";
 
 export default function PublicPage() {
   const publicUniversities = allData.universities.filter(
@@ -9,10 +9,8 @@ export default function PublicPage() {
   );
 
   return (
-    <div className="font-bengali bg-background">
-      <div className="container mx-auto px-4">
-        <PublicPageClient universities={publicUniversities} />
-      </div>
+    <div className="container mx-auto px-2">
+      <PublicPageClient universities={publicUniversities} />
     </div>
   );
 }
