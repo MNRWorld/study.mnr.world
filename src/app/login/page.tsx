@@ -9,11 +9,19 @@ import { createClient } from "@/lib/supabase/client";
 import { useToast } from "@/hooks/use-toast";
 import { useUser } from "@/lib/supabase/hooks";
 
+const GoogleIcon = (props: React.SVGProps<SVGSVGElement>) => (
+  <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" {...props}>
+    <title>Google</title>
+    <path d="M12.48 10.92v3.28h7.84c-.24 1.84-.85 3.18-1.73 4.1-1.05 1.05-2.58 3.18-5.62 3.18-4.91 0-8.89-3.99-8.89-8.89s3.98-8.89 8.89-8.89c2.6 0 4.38 1.05 5.43 2.04l2.5-2.5C18.44 2.33 15.86 1 12.48 1 5.61 1 0 6.6 0 13.5s5.61 12.5 12.48 12.5c7.16 0 12-4.99 12-11.82 0-.79-.07-1.54-.19-2.28z" />
+  </svg>
+);
+
 export default function LoginPage() {
   const supabase = createClient();
   const { user, loading: userLoading } = useUser();
   const [anonymousLoading, setAnonymousLoading] = useState(false);
   const [githubLoading, setGithubLoading] = useState(false);
+  const [googleLoading, setGoogleLoading] = useState(false);
   const router = useRouter();
   const { toast } = useToast();
 
@@ -22,6 +30,24 @@ export default function LoginPage() {
       router.push("/profile");
     }
   }, [user, userLoading, router]);
+
+  const handleGoogleLogin = async () => {
+    setGoogleLoading(true);
+    const { error } = await supabase.auth.signInWithOAuth({
+      provider: "google",
+      options: {
+        redirectTo: `${window.location.origin}/auth/callback`,
+      },
+    });
+    if (error) {
+      toast({
+        variant: "destructive",
+        title: "Google লগইন ব্যর্থ হয়েছে",
+        description: "একটি সমস্যা হয়েছে। আবার চেষ্টা করুন।",
+      });
+      setGoogleLoading(false);
+    }
+  };
 
   const handleGithubLogin = async () => {
     setGithubLoading(true);
@@ -65,7 +91,8 @@ export default function LoginPage() {
     }
   };
 
-  const isLoading = anonymousLoading || githubLoading || userLoading;
+  const isLoading =
+    anonymousLoading || githubLoading || googleLoading || userLoading;
 
   if (userLoading) {
     return (
@@ -102,6 +129,16 @@ export default function LoginPage() {
           </p>
         </CardHeader>
         <CardContent className="space-y-4">
+          <Button
+            onClick={handleGoogleLogin}
+            size="lg"
+            variant="outline"
+            className="w-full font-semibold text-base transition-transform hover:scale-105"
+            disabled={isLoading}
+          >
+            <GoogleIcon className="mr-2 h-5 w-5" />
+            {googleLoading ? "প্রসেসিং..." : "Google দিয়ে লগইন করুন"}
+          </Button>
           <Button
             onClick={handleGithubLogin}
             size="lg"
