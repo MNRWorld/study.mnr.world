@@ -1,6 +1,6 @@
 "use client";
 
-import { generalAdmissionInfo } from "@/lib/data/schedules/general";
+import { allData } from "@/lib/data/_generated";
 import ExternalLink from "./ExternalLink";
 import { Badge } from "@/components/ui/badge";
 
@@ -11,7 +11,7 @@ interface GeneralAdmissionInfoTableProps {
 const GeneralAdmissionInfoTable = ({
   searchTerm,
 }: GeneralAdmissionInfoTableProps) => {
-  const filteredInfo = generalAdmissionInfo.filter((info) =>
+  const filteredInfo = allData.schedulesGeneral.filter((info) =>
     info.university.toLowerCase().includes(searchTerm.toLowerCase()),
   );
 
@@ -124,7 +124,7 @@ const GeneralAdmissionInfoTable = ({
           ></div>
           <div className="hidden md:block text-center">{info.syllabus}</div>
           <div className="hidden md:block text-center">{info.secondTime}</div>
-          <div className="hidden md:block text-center">
+          <div className="hidden md-block text-center">
             {info.negativeMarking}
           </div>
         </div>
