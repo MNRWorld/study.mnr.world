@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import { University } from "@/lib/data/universities";
+import type { University } from "@/lib/supabase/database.types";
 import { Button } from "@/components/ui/button";
 import { BookOpen, FileText, ArrowRight } from "lucide-react";
 import Link from "next/link";

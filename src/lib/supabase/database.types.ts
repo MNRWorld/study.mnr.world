@@ -14,6 +14,17 @@ export interface Subject {
   tooltip?: string;
 }
 
+export interface University {
+  nameBn: string;
+  nameEn: string;
+  shortName: string;
+  id: string;
+  category: string[];
+  description: string;
+  link: string;
+  logo: string;
+}
+
 export type Database = {
   public: {
     Tables: {

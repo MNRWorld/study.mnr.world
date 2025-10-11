@@ -18,7 +18,8 @@ import {
   PlusCircle,
   FileJson,
 } from "lucide-react";
-import { allUniversities, University } from "@/lib/data/universities";
+import { allData } from "@/lib/data/_generated";
+import type { University } from "@/lib/supabase/database.types";
 import {
   Select,
   SelectContent,
@@ -54,7 +55,7 @@ export default function AdminPage() {
 
   useEffect(() => {
     setLoading(true);
-    setUniversities(allUniversities);
+    setUniversities(allData.universities);
     setLoading(false);
   }, []);
 

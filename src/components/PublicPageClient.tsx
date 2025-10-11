@@ -11,7 +11,7 @@ import {
   Sparkles,
 } from "lucide-react";
 import UniversityCard from "@/components/UniversityCard";
-import { University } from "@/lib/data/universities";
+import type { University } from "@/lib/supabase/database.types";
 import { Input } from "@/components/ui/input";
 import SimplePageHeader from "./common/SimplePageHeader";
 import PublicPageFloatingMenu from "./common/PublicPageFloatingMenu";

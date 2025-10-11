@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import { University } from "@/lib/data/universities";
+import type { University } from "@/lib/supabase/database.types";
 import Link from "next/link";
 import Image from "next/image";
 import { cn } from "@/lib/utils";

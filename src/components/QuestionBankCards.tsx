@@ -2,11 +2,12 @@
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { questionBankCards } from "@/lib/data/question-bank";
+import { allData } from "@/lib/data/_generated";
 import { cn } from "@/lib/utils";
 import { UserPen } from "lucide-react";
 
 const QuestionBankCards = () => {
+  const questionBankCards = allData.questionBankCards;
   return (
     <>
       {questionBankCards.map((card, index) => (

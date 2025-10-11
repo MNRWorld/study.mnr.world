@@ -2,7 +2,7 @@
 
 import React from "react";
 import dynamic from "next/dynamic";
-import { University } from "@/lib/data/universities";
+import type { University } from "@/lib/supabase/database.types";
 import FloatingMenu from "@/components/common/FloatingMenu";
 import LinkList from "@/components/common/LinkList";
 import Circular from "@/components/common/Circular";

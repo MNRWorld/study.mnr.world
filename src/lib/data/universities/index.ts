@@ -1,15 +1,5 @@
 import { allData } from "../_generated";
-
-export interface University {
-  nameBn: string;
-  nameEn: string;
-  shortName: string;
-  id: string;
-  category: string[];
-  description: string;
-  link: string;
-  logo: string;
-}
+import type { University } from "@/lib/supabase/database.types";
 
 export const allUniversities: University[] = allData.universities;
 

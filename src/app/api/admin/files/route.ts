@@ -1,11 +1,12 @@
 import { NextResponse } from "next/server";
-import { allUniversities, University } from "@/lib/data/universities";
+import { allData } from "@/lib/data/_generated";
+import type { University } from "@/lib/supabase/database.types";
 import fs from "fs/promises";
 import path from "path";
 
 export async function GET() {
   try {
-    return NextResponse.json({ files: allUniversities });
+    return NextResponse.json({ files: allData.universities });
   } catch (error) {
     return NextResponse.json(
       { error: "Failed to provide university list." },
