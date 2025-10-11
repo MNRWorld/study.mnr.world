@@ -14,14 +14,13 @@ import { useUser, useSupabase } from "@/lib/supabase/hooks";
 import dayjs from "dayjs";
 import "dayjs/locale/bn";
 import LocalizedFormat from "dayjs/plugin/localizedFormat";
+import { bn } from "date-fns/locale";
 import { cn } from "@/lib/utils";
 
 dayjs.extend(LocalizedFormat);
 dayjs.locale("bn");
 
 const formatDay = (day: Date) => dayjs(day).format("D");
-const formatMonthCaption = (month: Date) => dayjs(month).format("MMMM YYYY");
-const formatWeekdayName = (weekday: Date) => dayjs(weekday).format("ddd");
 
 const FavoriteExamsCalendar = () => {
   const { user } = useUser();
@@ -95,7 +94,10 @@ const FavoriteExamsCalendar = () => {
     });
 
     const firstDateToShow =
-      favoriteDates.length > 0 ? favoriteDates[0] : allEvents[0]?.date;
+      favoriteDates.length > 0
+        ? favoriteDates[0]
+        : allEvents.find((e) => e.date > new Date())?.date ||
+          allEvents[0]?.date;
     if (firstDateToShow && !isNaN(firstDateToShow.getTime())) {
       setMonth(firstDateToShow);
     }
@@ -159,7 +161,7 @@ const FavoriteExamsCalendar = () => {
 
   return (
     <Calendar
-      locale={dayjs.locale("bn") as any}
+      locale={bn}
       mode="single"
       month={month}
       onMonthChange={setMonth}
@@ -168,11 +170,6 @@ const FavoriteExamsCalendar = () => {
       modifiersClassNames={{
         favorite: "", // Style is applied in DayWithTooltip
         other: "", // Style is applied in DayWithTooltip
-      }}
-      formatters={{
-        formatDay,
-        formatMonthCaption,
-        formatWeekdayName,
       }}
       components={{
         DayContent: DayWithTooltip,
