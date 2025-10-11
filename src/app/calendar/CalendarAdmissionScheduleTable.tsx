@@ -49,11 +49,14 @@ const CountdownCell = ({ targetDate }: { targetDate: string | null }) => {
       <span>{toBengaliNumber(String(timeLeft.days).padStart(2, "0"))}</span>
       <span className="mr-1">দিন</span>
       <span>{toBengaliNumber(String(timeLeft.hours).padStart(2, "0"))}</span>
-      <span className="mr-1">ঘণ্টা</span>
+      <span className="mr-1 hidden sm:inline">ঘণ্টা</span>
+      <span className="mr-1 sm:hidden">ঘ</span>
       <span>{toBengaliNumber(String(timeLeft.minutes).padStart(2, "0"))}</span>
-      <span className="mr-1">মিনিট</span>
+      <span className="mr-1 hidden sm:inline">মিনিট</span>
+      <span className="mr-1 sm:hidden">মি</span>
       <span>{toBengaliNumber(String(timeLeft.seconds).padStart(2, "0"))}</span>
-      <span>সেকেন্ড</span>
+      <span className="hidden sm:inline">সেকেন্ড</span>
+      <span className="sm:hidden">সে</span>
     </TableCell>
   );
 };
