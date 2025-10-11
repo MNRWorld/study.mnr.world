@@ -8,6 +8,7 @@ A comprehensive platform for students in Bangladesh, providing all necessary inf
 - **Admission Calendar:** A centralized calendar for all university admission test dates and deadlines.
 - **Dynamic Countdown Timers:** Specific countdowns for each university's admission events.
 - **Question Bank:** Access to previous years' question papers for various universities and units.
+- **OMR Self-Test Simulator:** Create and take your own OMR-based tests with custom timing, question counts, and negative marking to evaluate your preparation.
 - **User Authentication:** Secure login via GitHub or as a guest (anonymous).
 - **Personalized Profiles:**
   - Save target university and HSC result.

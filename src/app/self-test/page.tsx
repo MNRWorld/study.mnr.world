@@ -192,7 +192,10 @@ export default function ExamPage() {
       testState.current.negativeMarkValue =
         parseFloat(config.negativeMarkValue) || 0;
 
-      if (testState.current.mcqNumber <= 0 || testState.current.timeLimit <= 0) {
+      if (
+        testState.current.mcqNumber <= 0 ||
+        testState.current.timeLimit <= 0
+      ) {
         alert("অনুগ্রহ করে MCQ সংখ্যা এবং সময়সীমার জন্য বৈধ সংখ্যা লিখুন।");
         return;
       }
@@ -244,7 +247,6 @@ export default function ExamPage() {
       updateSummary();
     }
   }, [view, mcqQuestions, updateSummary]);
-
 
   const submitCorrectAnswers = () => {
     let allSelected = true;

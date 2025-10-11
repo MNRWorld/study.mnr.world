@@ -54,13 +54,15 @@ export const SupabaseProvider = ({ children }: { children: ReactNode }) => {
 
         // If profile doesn't exist, insert a new one
         if (!profile) {
-          const { error: insertError } = await supabase.from("profiles").insert({
-            id: currentUser.id,
-            display_name:
-              (currentUser.user_metadata.full_name as string) ||
-              (currentUser.user_metadata.user_name as string),
-            avatar_url: currentUser.user_metadata.avatar_url as string,
-          });
+          const { error: insertError } = await supabase
+            .from("profiles")
+            .insert({
+              id: currentUser.id,
+              display_name:
+                (currentUser.user_metadata.full_name as string) ||
+                (currentUser.user_metadata.user_name as string),
+              avatar_url: currentUser.user_metadata.avatar_url as string,
+            });
         }
       }
     });

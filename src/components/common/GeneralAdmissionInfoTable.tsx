@@ -48,7 +48,10 @@ const GeneralAdmissionInfoTable = ({
                   )}
                   {info.questionBankLink && (
                     <Badge variant="outline">
-                      <ExternalLink href={info.questionBankLink} text="প্রশ্নব্যাংক" />
+                      <ExternalLink
+                        href={info.questionBankLink}
+                        text="প্রশ্নব্যাংক"
+                      />
                     </Badge>
                   )}
                 </div>
@@ -103,7 +106,10 @@ const GeneralAdmissionInfoTable = ({
               )}
               {info.questionBankLink && (
                 <Badge variant="outline">
-                  <ExternalLink href={info.questionBankLink} text="প্রশ্নব্যাংক" />
+                  <ExternalLink
+                    href={info.questionBankLink}
+                    text="প্রশ্নব্যাংক"
+                  />
                 </Badge>
               )}
             </div>

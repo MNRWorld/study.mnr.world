@@ -120,7 +120,7 @@ const DhakaAdmissionInfo = () => {
   }
 
   const admissionInfo = duData.admissionInfo as AdmissionInfoData;
-  
+
   const {
     apply,
     unitRequirements,
@@ -181,7 +181,11 @@ const DhakaAdmissionInfo = () => {
           />
           {apply.helpfulLinks.map((link: HelpfulLink, index: number) => (
             <React.Fragment key={index}>
-              <ExternalLink href={link.url} text={link.label} showIcon={false} />
+              <ExternalLink
+                href={link.url}
+                text={link.label}
+                showIcon={false}
+              />
               {index < apply.helpfulLinks.length - 1 && " | "}
             </React.Fragment>
           ))}
@@ -227,18 +231,20 @@ const DhakaAdmissionInfo = () => {
             </div>
           </AccordionTrigger>
           <AccordionContent className="p-4 pt-0 sm:p-5 text-base">
-            {unitRequirements.units.map((unit: UnitRequirement, index: number) => (
-              <div key={index} className="mb-2">
-                ❐ <b>&quot;{unit.name}&quot; ইউনিট:</b>
-                <br />
-                {unit.departments.map((dept: UnitDepartment, i: number) => (
-                  <span key={i}>
-                    ● <b>{dept.name}:</b> {dept.requirement}
-                    <br />
-                  </span>
-                ))}
-              </div>
-            ))}
+            {unitRequirements.units.map(
+              (unit: UnitRequirement, index: number) => (
+                <div key={index} className="mb-2">
+                  ❐ <b>&quot;{unit.name}&quot; ইউনিট:</b>
+                  <br />
+                  {unit.departments.map((dept: UnitDepartment, i: number) => (
+                    <span key={i}>
+                      ● <b>{dept.name}:</b> {dept.requirement}
+                      <br />
+                    </span>
+                  ))}
+                </div>
+              ),
+            )}
           </AccordionContent>
         </AccordionItem>
         <AccordionItem
@@ -670,13 +676,13 @@ const DhakaAdmissionInfo = () => {
                 />
                 <br />
                 <br />
-                আইবিএ মূলত বিবিএ এর মডিফায়েড ভার্সন। বিবিএ&apos;র প্রফেশনালস ভার্সন
-                আইবিএ। ঢাকা বিশ্ববিদ্যালয় ছাড়াও জাহাঙ্গীরনগর ও রাজশাহী
+                আইবিএ মূলত বিবিএ এর মডিফায়েড ভার্সন। বিবিএ&apos;র প্রফেশনালস
+                ভার্সন আইবিএ। ঢাকা বিশ্ববিদ্যালয় ছাড়াও জাহাঙ্গীরনগর ও রাজশাহী
                 বিশ্ববিদ্যালয়েও আইবিএ ডিপার্টমেন্ট রয়েছে তবে আইবিএ বলতে মূলত
-                ঢাকা বিশ্ববিদ্যালয়ের আইবিএ&apos;ই বুঝায় এবং জাহাঙ্গীরনগর ও রাজশাহী
-                বিশ্ববিদ্যালয় থেকেই আলাদা ঢাকা বিশ্ববিদ্যালয়ের আইবিএ ইউনিট। আর
-                দেশের কর্পোরেট ওয়ার্ল্ডের টপ লেভেলের ম্যাগনেটদের অধিকাংশই ঢাকা
-                বিশ্ববিদ্যালয়ের এই ইউনিট থেকে পাস করা।
+                ঢাকা বিশ্ববিদ্যালয়ের আইবিএ&apos;ই বুঝায় এবং জাহাঙ্গীরনগর ও
+                রাজশাহী বিশ্ববিদ্যালয় থেকেই আলাদা ঢাকা বিশ্ববিদ্যালয়ের আইবিএ
+                ইউনিট। আর দেশের কর্পোরেট ওয়ার্ল্ডের টপ লেভেলের ম্যাগনেটদের
+                অধিকাংশই ঢাকা বিশ্ববিদ্যালয়ের এই ইউনিট থেকে পাস করা।
                 <br />
                 <br />
                 সাধারণ বা মাদ্রাসা যেকোন শিক্ষাবোর্ডের যেকোন বিভাগের

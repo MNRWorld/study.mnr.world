@@ -111,34 +111,38 @@ const DhakaHistoryAndMap = () => {
           </AccordionTrigger>
           <AccordionContent className="p-4 sm:p-5 border-t border-border/50 text-base text-muted-foreground">
             <Accordion type="multiple" className="w-full">
-              {mapLocations.categories.map((category: MapCategory, i: number) => (
-                <AccordionItem key={i} value={`sub-${i}`}>
-                  <AccordionTrigger className="hover:no-underline flex items-center justify-between">
-                    {category.name === "মসজিদ" ? (
-                      <Landmark className="mr-2" />
-                    ) : (
-                      <University className="mr-2" />
-                    )}
-                    {category.name}
-                  </AccordionTrigger>
-                  <AccordionContent>
-                    <Table>
-                      <TableBody>
-                        {category.locations.map((loc: MapLocation, j: number) => (
-                          <TableRow key={j}>
-                            <TableCell className="text-center">
-                              {loc.name}
-                            </TableCell>
-                            <TableCell className="text-center">
-                              <ExternalLink href={loc.url} text="[দেখুন]" />
-                            </TableCell>
-                          </TableRow>
-                        ))}
-                      </TableBody>
-                    </Table>
-                  </AccordionContent>
-                </AccordionItem>
-              ))}
+              {mapLocations.categories.map(
+                (category: MapCategory, i: number) => (
+                  <AccordionItem key={i} value={`sub-${i}`}>
+                    <AccordionTrigger className="hover:no-underline flex items-center justify-between">
+                      {category.name === "মসজিদ" ? (
+                        <Landmark className="mr-2" />
+                      ) : (
+                        <University className="mr-2" />
+                      )}
+                      {category.name}
+                    </AccordionTrigger>
+                    <AccordionContent>
+                      <Table>
+                        <TableBody>
+                          {category.locations.map(
+                            (loc: MapLocation, j: number) => (
+                              <TableRow key={j}>
+                                <TableCell className="text-center">
+                                  {loc.name}
+                                </TableCell>
+                                <TableCell className="text-center">
+                                  <ExternalLink href={loc.url} text="[দেখুন]" />
+                                </TableCell>
+                              </TableRow>
+                            ),
+                          )}
+                        </TableBody>
+                      </Table>
+                    </AccordionContent>
+                  </AccordionItem>
+                ),
+              )}
             </Accordion>
           </AccordionContent>
         </AccordionItem>
