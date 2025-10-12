@@ -3,7 +3,7 @@
     "name": "নাঈম",
     "role": "প্রতিষ্ঠাতা",
     "bio": "শিক্ষার্থীদের জন্য প্রযুক্তিকে সহজলভ্য করার লক্ষ্যে এই প্ল্যাটফর্ম তৈরি করেছেন।",
-    "imageUrl": "https://avatars.githubusercontent.com/u/73432095?v=4",
+    "imageUrl": "https://avatars.githubusercontent.com/u/98321517?v=4",
     "social": {
       "github": "https://github.com/MNRfrom2020",
       "linkedin": "https://linkedin.com/in/mnrfrom2020",
@@ -14,7 +14,7 @@
     "name": "FrostFoe",
     "role": "গুরু",
     "bio": "এই প্ল্যাটফর্মের সকল তথ্য সঠিকভাবে পরিচালনা এবং এর কার্যকারিতা বৃদ্ধিতে কাজ করছেন।",
-    "imageUrl": "https://avatars.githubusercontent.com/u/74249156?v=4",
+    "imageUrl": "https://avatars.githubusercontent.com/u/175545919?v=4",
     "social": {
       "github": "https://github.com/Frost-Foe",
       "linkedin": "#",
@@ -22,25 +22,14 @@
     }
   },
   {
-    "name": "Naimur Rahman",
-    "role": "কন্টেন্ট ক্রিয়েটর ও পরামর্শক",
-    "bio": "শিক্ষার্থীদের জন্য সঠিক ও মানসম্মত তথ্য তৈরি এবং প্ল্যাটফর্মের উন্নয়নে পরামর্শ দিয়ে সাহায্য করছেন।",
-    "imageUrl": "https://avatars.githubusercontent.com/u/102927359?v=4",
-    "social": {
-      "github": "https://github.com/NaimurRahman1",
-      "linkedin": "#",
-      "twitter": "#"
-    }
-  },
-  {
-    "name": "Sadman Alif",
+    "name": "Sadman",
     "role": "মার্কেটিং ও কমিউনিটি ম্যানেজার",
     "bio": "আমাদের প্ল্যাটফর্মের বার্তা সবার কাছে পৌঁছে দেওয়া এবং কমিউনিটি ম্যানেজমেন্টের দায়িত্বে নিয়োজিত।",
-    "imageUrl": "https://avatars.githubusercontent.com/u/98692734?v=4",
+    "imageUrl": "https://avatars.githubusercontent.com/u/101451039?v=4",
     "social": {
-      "github": "https://github.com/sadman-alif",
+      "github": "https://github.com/sadmanpro",
       "linkedin": "#",
-      "twitter": "#হ"
+      "twitter": "#"
     }
   }
 ]
