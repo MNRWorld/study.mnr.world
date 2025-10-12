@@ -1,3 +1,4 @@
+
 [
     {
       "id": "demo",
@@ -227,6 +228,29 @@
       "resultDetails": {
         "date": null,
         "link": null
+      }
+    },
+    {
+      "id": "ground",
+      "universityNameAndUnit": "গ্রাউন্ড",
+      "examDetails": {
+        "date": "০৯ জানুয়ারি",
+        "ExamCountdownDate": "2025-01-09T10:00:00+06:00"
+      },
+      "applicationDetails": {
+        "StartAndEndDate": "১২ ডিসেম্বর - ১৪ ডিসেম্বর",
+        "ApplyCountdownDate": "2024-12-14T23:59:59+06:00",
+        "fee": "১,২০০ টাকা",
+        "link": "https://bn.wikipedia.org/"
+      },
+      "admitCardDetails": {
+        "StartAndEndDate": "১৫ ডিসেম্বর - ১৬ ডিসেম্বর",
+        "DownloadCountdownDate": "2024-12-16T23:59:59+06:00",
+        "link": "https://bn.wikipedia.org/"
+      },
+      "resultDetails": {
+        "date": "১৫ জানুয়ারি",
+        "link": "https://bn.wikipedia.org/"
       }
     }
   ]
