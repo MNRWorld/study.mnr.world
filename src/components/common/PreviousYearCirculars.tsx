@@ -11,16 +11,20 @@ const PreviousYearCirculars = () => {
 
   const circulars = [
     {
-      href: "https://t.me/Study_on_Telegram/2036",
-      text: "DU Circular 2021-22 (All Unit)",
+      href: "https://t.me/Study_on_Telegram/14079",
+      text: "DU Circular 2024-25 (All Unit)",
     },
     {
-      href: "https://t.me/Study_on_Telegram/8022?single",
+      href: "https://t.me/Study_on_Telegram/11573",
+      text: "DU Circular 2023-24 (All Unit)",
+    },
+    {
+      href: "https://t.me/Study_on_Telegram/8929",
       text: "DU Circular 2022-23 (All Unit)",
     },
     {
-      href: "https://t.me/Study_on_Telegram/11073?single",
-      text: "DU Circular 2023-24 (All Unit)",
+      href: "https://t.me/Study_on_Telegram/2554",
+      text: "DU Circular 2021-22 (All Unit)",
     },
   ];
 
