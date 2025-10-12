@@ -17,6 +17,8 @@ const clusterInfo: { [key: string]: string } = {
   medical: "শুধু বিজ্ঞান বিভাগ",
   dental: "শুধু বিজ্ঞান বিভাগ",
   nursing: "নার্সিং ও মিডওয়াইফারি",
+  nu: "সকল বিভাগ",
+  dcu: "সকল বিভাগ",
 };
 
 const QuestionBankUniversityCard = React.memo(
@@ -24,7 +26,15 @@ const QuestionBankUniversityCard = React.memo(
     university,
   }: QuestionBankUniversityCardProps) {
     const universityLink = `/${university.id}#QuestionBank`;
-    const specialClusterIds = ["gst", "agri", "medical", "dental", "nursing"];
+    const specialClusterIds = [
+      "gst",
+      "agri",
+      "medical",
+      "dental",
+      "nursing",
+      "nu",
+      "dcu",
+    ];
 
     // Special case for cluster cards
     if (specialClusterIds.includes(university.id)) {
