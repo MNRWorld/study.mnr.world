@@ -13,10 +13,10 @@ interface QuestionBankUniversityCardProps {
 
 const clusterInfo: { [key: string]: string } = {
   gst: "ইউনিট: ক, খ, গ",
-  agri: "৮টি বিশ্ববিদ্যালয়",
-  medical: "মেডিকেল ও ডেন্টাল",
-  dental: "ডেন্টাল",
-  nursing: "নার্সিং ও মিডওয়াইফারি",
+  agri: "শুধু বিজ্ঞান বিভাগ",
+  medical: "শুধু বিজ্ঞান বিভাগ",
+  dental: "শুধু বিজ্ঞান বিভাগ",
+  nursing: "শুধু বিজ্ঞান বিভাগ",
 };
 
 const QuestionBankUniversityCard = React.memo(
