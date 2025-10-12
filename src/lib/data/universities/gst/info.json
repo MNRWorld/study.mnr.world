@@ -141,7 +141,6 @@
       "note": "'চ' ইউনিট (চারুকলা) এবং IBA-এর পরীক্ষা শুধু ঢাকায় অনুষ্ঠিত হবে। বাকি সব ইউনিটের পরীক্ষা বিভাগীয় শহরে হবে।"
     },
     "generalInfo": {
-      "title": "মানবন্টন ও অন্যান্য তথ্য",
       "points": [
         {
           "label": "সিলেবাস",
@@ -367,7 +366,7 @@
                 "url": "/iu#QuestionBank"
               },
               {
-                "text": "বঙ্গবন্ধু শেখ মুজিবুর রহমান বিজ্ঞান ও প্রযুক্তি বিশ্ববিদ্যালয়, গোপালগঞ্জ",
+                "text": "গোপালগঞ্জ বিজ্ঞান ও প্রযুক্তি বিশ্ববিদ্যালয়",
                 "url": "/gstu#QuestionBank"
               },
               {
@@ -399,7 +398,7 @@
                 "url": "/pstu#QuestionBank"
               },
               {
-                "text": "জামালপুর বিজ্ঞান ও প্রযুক্তি বিশ্ববিদ্যালয়",
+                "text": "জামালপুর বিজ্ঞান ও প্রযুক্তি বিশ্ববিদ্যালয়",
                 "url": "/jstu#QuestionBank"
               },
               {
@@ -407,7 +406,7 @@
                 "url": "/rub#QuestionBank"
               },
               {
-                "text": "পিরোজপুর বিজ্ঞান ও প্রযুক্তি বিশ্ববিদ্যালয়",
+                "text": "পিরোজপুর বিজ্ঞান ও প্রযুক্তি বিশ্ববিদ্যালয়",
                 "url": "/prstu#QuestionBank"
               },
               {
@@ -415,7 +414,7 @@
                 "url": "/rmstu#QuestionBank"
               },
               {
-                "text": "সুনামগঞ্জ বিজ্ঞান ও প্রযুক্তি বিশ্ববিদ্যালয়",
+                "text": "সুনামগঞ্জ বিজ্ঞান ও প্রযুক্তি বিশ্ববিদ্যালয়",
                 "url": "/sstu#QuestionBank"
               },
               {
@@ -423,11 +422,11 @@
                 "url": "/kiu#QuestionBank"
               },
               {
-                "text": "বঙ্গবন্ধু শেখ মুজিবুর রহমান ডিজিটাল ইউনিভার্সিটি",
+                "text": "গাজীপুর ডিজিটাল ইউনিভার্সিটি",
                 "url": "/uftb#QuestionBank"
               },
               {
-                "text": "চাঁদপুর বিজ্ঞান ও প্রযুক্তি বিশ্ববিদ্যালয়",
+                "text": "চাঁদপুর বিজ্ঞান ও প্রযুক্তি বিশ্ববিদ্যালয়",
                 "url": "/cstu#QuestionBank"
               },
               {
@@ -541,23 +540,74 @@
         "items": [
           {
             "links": [
-              { "text": "BRUR", "url": "https://t.me/PDFHour/9879" },
-              { "text": "BSFMSTU", "url": "https://t.me/PDFHour/9880" },
-              { "text": "BSMRSTU", "url": "https://t.me/PDFHour/9881" },
-              { "text": "BU", "url": "https://t.me/PDFHour/9882" },
-              { "text": "CoU", "url": "https://t.me/PDFHour/9883" },
-              { "text": "HSTU", "url": "https://t.me/PDFHour/9884" },
-              { "text": "IU", "url": "https://t.me/PDFHour/9885" },
-              { "text": "JKKNIU", "url": "https://t.me/PDFHour/9886" },
-              { "text": "JnU", "url": "https://t.me/PDFHour/9887" },
-              { "text": "JUST", "url": "https://t.me/PDFHour/9888" },
-              { "text": "KU", "url": "https://t.me/PDFHour/9889" },
-              { "text": "MBSTU", "url": "https://t.me/PDFHour/9890" },
-              { "text": "NSTU", "url": "https://t.me/PDFHour/9891" },
-              { "text": "PUST", "url": "https://t.me/PDFHour/9892" },
-              { "text": "RbU", "url": "https://t.me/PDFHour/9893" },
-              { "text": "ShU", "url": "https://t.me/PDFHour/9894" },
-              { "text": "SUST", "url": "https://t.me/PDFHour/9895" }
+              {
+                "text": "BRUR",
+                "url": "https://t.me/PDFHour/9879"
+              },
+              {
+                "text": "BSFMSTU",
+                "url": "https://t.me/PDFHour/9880"
+              },
+              {
+                "text": "BSMRSTU",
+                "url": "https://t.me/PDFHour/9881"
+              },
+              {
+                "text": "BU",
+                "url": "https://t.me/PDFHour/9882"
+              },
+              {
+                "text": "CoU",
+                "url": "https://t.me/PDFHour/9883"
+              },
+              {
+                "text": "HSTU",
+                "url": "https://t.me/PDFHour/9884"
+              },
+              {
+                "text": "IU",
+                "url": "https://t.me/PDFHour/9885"
+              },
+              {
+                "text": "JKKNIU",
+                "url": "https://t.me/PDFHour/9886"
+              },
+              {
+                "text": "JnU",
+                "url": "https://t.me/PDFHour/9887"
+              },
+              {
+                "text": "JUST",
+                "url": "https://t.me/PDFHour/9888"
+              },
+              {
+                "text": "KU",
+                "url": "https://t.me/PDFHour/9889"
+              },
+              {
+                "text": "MBSTU",
+                "url": "https://t.me/PDFHour/9890"
+              },
+              {
+                "text": "NSTU",
+                "url": "https://t.me/PDFHour/9891"
+              },
+              {
+                "text": "PUST",
+                "url": "https://t.me/PDFHour/9892"
+              },
+              {
+                "text": "RbU",
+                "url": "https://t.me/PDFHour/9893"
+              },
+              {
+                "text": "ShU",
+                "url": "https://t.me/PDFHour/9894"
+              },
+              {
+                "text": "SUST",
+                "url": "https://t.me/PDFHour/9895"
+              }
             ]
           }
         ]
@@ -575,7 +625,10 @@
                 "text": "BSMRSTU, HSTU",
                 "url": "https://t.me/PDFHour/9898"
               },
-              { "text": "IU, JnU", "url": "https://t.me/PDFHour/9899" },
+              {
+                "text": "IU, JnU",
+                "url": "https://t.me/PDFHour/9899"
+              },
               {
                 "text": "NSTU, PUST, RMSTU",
                 "url": "https://t.me/PDFHour/9900"
@@ -598,7 +651,7 @@
                 "url": "/iu#QuestionBank"
               },
               {
-                "text": "বঙ্গবন্ধু শেখ মুজিবুর রহমান বিজ্ঞান ও প্রযুক্তি বিশ্ববিদ্যালয়, গোপালগঞ্জ",
+                "text": "গোপালগঞ্জ বিজ্ঞান ও প্রযুক্তি বিশ্ববিদ্যালয়",
                 "url": "/gstu#QuestionBank"
               },
               {
@@ -630,7 +683,7 @@
                 "url": "/pstu#QuestionBank"
               },
               {
-                "text": "জামালপুর বিজ্ঞান ও প্রযুক্তি বিশ্ববিদ্যালয়",
+                "text": "জামালপুর বিজ্ঞান ও প্রযুক্তি বিশ্ববিদ্যালয়",
                 "url": "/jstu#QuestionBank"
               },
               {
@@ -638,7 +691,7 @@
                 "url": "/rub#QuestionBank"
               },
               {
-                "text": "পিরোজপুর বিজ্ঞান ও প্রযুক্তি বিশ্ববিদ্যালয়",
+                "text": "পিরোজপুর বিজ্ঞান ও প্রযুক্তি বিশ্ববিদ্যালয়",
                 "url": "/prstu#QuestionBank"
               },
               {
@@ -646,7 +699,7 @@
                 "url": "/rmstu#QuestionBank"
               },
               {
-                "text": "সুনামগঞ্জ বিজ্ঞান ও প্রযুক্তি বিশ্ববিদ্যালয়",
+                "text": "সুনামগঞ্জ বিজ্ঞান ও প্রযুক্তি বিশ্ববিদ্যালয়",
                 "url": "/sstu#QuestionBank"
               },
               {
@@ -654,11 +707,11 @@
                 "url": "/kiu#QuestionBank"
               },
               {
-                "text": "বঙ্গবন্ধু শেখ মুজিবুর রহমান ডিজিটাল ইউনিভার্সিটি",
+                "text": "গাজীপুর ডিজিটাল ইউনিভার্সিটি",
                 "url": "/uftb#QuestionBank"
               },
               {
-                "text": "চাঁদপুর বিজ্ঞান ও প্রযুক্তি বিশ্ববিদ্যালয়",
+                "text": "চাঁদপুর বিজ্ঞান ও প্রযুক্তি বিশ্ববিদ্যালয়",
                 "url": "/cstu#QuestionBank"
               },
               {
