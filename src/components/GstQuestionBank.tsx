@@ -51,13 +51,13 @@ const GstQuestionBank = () => {
       <Tabs defaultValue="ka-unit" className="w-full">
         <TabsList className="flex flex-wrap w-full h-auto bg-transparent gap-2">
           <TabsTrigger value="ka-unit" className="flex-grow">
-            &quot;ক&quot; ইউনিট
+            "ক" ইউনিট
           </TabsTrigger>
           <TabsTrigger value="kha-unit" className="flex-grow">
-            &quot;খ&quot; ইউনিট
+            "খ" ইউনিট
           </TabsTrigger>
           <TabsTrigger value="ga-unit" className="flex-grow">
-            &quot;গ&quot; ইউনিট
+            "গ" ইউনিট
           </TabsTrigger>
         </TabsList>
         <TabsContent value="ka-unit">
@@ -85,16 +85,22 @@ const GstQuestionBank = () => {
           </Accordion>
         </TabsContent>
         <TabsContent value="ga-unit">
-          <Accordion type="multiple" className="w-full text-left space-y-2">
-            {safeGstUnitC.map((item: QuestionBankCategory, index: number) => (
-              <QuestionBankAccordion
-                key={index}
-                value={`item-${index}`}
-                title={item.title}
-                items={item.items}
-              />
-            ))}
-          </Accordion>
+          {safeGstUnitC.length > 0 ? (
+            <Accordion type="multiple" className="w-full text-left space-y-2">
+              {safeGstUnitC.map((item: QuestionBankCategory, index: number) => (
+                <QuestionBankAccordion
+                  key={index}
+                  value={`item-${index}`}
+                  title={item.title}
+                  items={item.items}
+                />
+              ))}
+            </Accordion>
+          ) : (
+            <p className="text-muted-foreground mt-4">
+              এখন অব্দি কোনো প্রশ্ন কিংবা প্রশ্নব্যাংক সংগ্রহ সম্ভব হয়নি
+            </p>
+          )}
         </TabsContent>
       </Tabs>
     </div>
