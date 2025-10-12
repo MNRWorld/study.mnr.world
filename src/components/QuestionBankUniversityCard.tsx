@@ -1,3 +1,4 @@
+
 "use client";
 
 import React from "react";
@@ -19,6 +20,25 @@ const clusterInfo: { [key: string]: string } = {
   nursing: "নার্সিং ও মিডওয়াইফারি",
   nu: "সকল বিভাগ",
   dcu: "সকল বিভাগ",
+  bau: "শুধু বিজ্ঞান বিভাগ",
+  cvasu: "শুধু বিজ্ঞান বিভাগ",
+  gau: "শুধু বিজ্ঞান বিভাগ",
+  hau: "শুধু বিজ্ঞান বিভাগ",
+  kau: "শুধু বিজ্ঞান বিভাগ",
+  kuriau: "শুধু বিজ্ঞান বিভাগ",
+  sau: "শুধু বিজ্ঞান বিভাগ",
+  sbau: "শুধু বিজ্ঞান বিভাগ",
+  buet: "শুধু বিজ্ঞান বিভাগ",
+  kuet: "শুধু বিজ্ঞান বিভাগ",
+  mist: "শুধু বিজ্ঞান বিভাগ",
+  aaub: "শুধু বিজ্ঞান বিভাগ",
+  ruet: "শুধু বিজ্ঞান বিভাগ",
+  cuet: "শুধু বিজ্ঞান বিভাগ",
+  afmc: "শুধু বিজ্ঞান বিভাগ",
+  nitor: "শুধু বিজ্ঞান বিভাগ",
+  butex: "শুধু বিজ্ঞান বিভাগ",
+  "butex-affiliated": "শুধু বিজ্ঞান বিভাগ",
+  "sust-affiliated": "শুধু বিজ্ঞান বিভাগ",
 };
 
 const QuestionBankUniversityCard = React.memo(
@@ -34,6 +54,25 @@ const QuestionBankUniversityCard = React.memo(
       "nursing",
       "nu",
       "dcu",
+      "bau",
+      "cvasu",
+      "gau",
+      "hau",
+      "kau",
+      "kuriau",
+      "sau",
+      "sbau",
+      "buet",
+      "kuet",
+      "mist",
+      "aaub",
+      "ruet",
+      "cuet",
+      "afmc",
+      "nitor",
+      "butex",
+      "butex-affiliated",
+      "sust-affiliated",
     ];
 
     // Special case for cluster cards
