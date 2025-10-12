@@ -13,6 +13,37 @@ interface QuestionBankUniversityCardProps {
 }
 
 const clusterInfo: { [key: string]: string } = {
+  du: "ইউনিট: ক, খ, গ",
+  ru: "ইউনিট: ক, খ, গ",
+  cu: "ইউনিট: এ, বি, সি, ডি, বি১, বি২, ডি১",
+  ju: "ইউনিট: এ, বি, সি, ডি, ই, সি১, IBA-JU",
+  iu: "GST গুচ্ছভুক্ত + ডি ইউনিট",
+  ku: "ইউনিট: এ, বি, সি, ডি",
+  jnu: "ইউনিট: এ, বি, সি, ডি, ই",
+  cou: "ইউনিট: এ, বি, সি",
+  jkkniu: "GST গুচ্ছভুক্ত",
+  brur: "GST গুচ্ছভুক্ত",
+  bu: "GST গুচ্ছভুক্ত",
+  kiu: "GST গুচ্ছভুক্ত",
+  neu: "GST গুচ্ছভুক্ত",
+  rub: "GST গুচ্ছভুক্ত",
+  sust: "ইউনিট: এ, বি",
+  just: "GST গুচ্ছভুক্ত",
+  mbstu: "GST গুচ্ছভুক্ত",
+  hstu: "ইউনিট: এ, বি, সি, ডি",
+  nstu: "GST গুচ্ছভুক্ত",
+  pstu: "GST গুচ্ছভুক্ত",
+  pust: "GST গুচ্ছভুক্ত",
+  rmstu: "GST গুচ্ছভুক্ত",
+  bstu: "GST গুচ্ছভুক্ত",
+  cstu: "GST গুচ্ছভুক্ত",
+  gstu: "GST গুচ্ছভুক্ত",
+  jstu: "GST গুচ্ছভুক্ত",
+  prstu: "GST গুচ্ছভুক্ত",
+  sstu: "GST গুচ্ছভুক্ত",
+  uftb: "GST গুচ্ছভুক্ত",
+  bmu: "ইউনিট: FEOS, FET, FMGP, FSA",
+  bup: "ইউনিট: FASS, FBS, FSSS, FST",
   gst: "ইউনিট: ক, খ, গ",
   agri: "শুধু বিজ্ঞান বিভাগ",
   medical: "শুধু বিজ্ঞান বিভাগ",
@@ -49,39 +80,8 @@ const QuestionBankUniversityCard = React.memo(
     university,
   }: QuestionBankUniversityCardProps) {
     const universityLink = `/${university.id}#QuestionBank`;
-    const specialClusterIds = [
-      "gst",
-      "agri",
-      "medical",
-      "dental",
-      "nursing",
-      "nu",
-      "dcu",
-      "bau",
-      "cvasu",
-      "gau",
-      "hau",
-      "kau",
-      "kuriau",
-      "sau",
-      "sbau",
-      "buet",
-      "kuet",
-      "mist",
-      "aaub",
-      "ruet",
-      "cuet",
-      "afmc",
-      "nitor",
-      "butex",
-      "butex-affiliated",
-      "sust-affiliated",
-      "du-affiliated",
-      "iut",
-      "duet",
-    ];
+    const specialClusterIds = Object.keys(clusterInfo);
 
-    // Special case for cluster cards
     if (specialClusterIds.includes(university.id)) {
       return (
         <Link href={universityLink}>
@@ -120,7 +120,6 @@ const QuestionBankUniversityCard = React.memo(
       );
     }
 
-    // Default card for other universities
     return (
       <Link href={universityLink}>
         <div
