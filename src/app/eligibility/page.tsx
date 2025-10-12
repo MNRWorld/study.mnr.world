@@ -1,317 +1,454 @@
-// @ts-nocheck
-export default function EligibilityPage() {
-  return (
-    <div dangerouslySetInnerHTML={{ __html: `
-<!doctype html>
-<html lang="bn">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>University Eligibility Checker — প্রো স্টাইল</title>
-  <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300;400;600;700&display=swap" rel="stylesheet">
-  <style>
-    :root{
-      --bg:#0f1724; /* dark navy */
-      --card:#0b1220;
-      --muted:#94a3b8;
-      --accent:#7c3aed; /* violet */
-      --glass: rgba(255,255,255,0.04);
-      font-family: 'Hind Siliguri', system-ui, sans-serif;
-    }
-    *{box-sizing:border-box}
-    body{margin:0;background:linear-gradient(180deg,#071027 0%, var(--bg) 100%);color:#e6eef8;min-height:100vh;display:flex;align-items:center;justify-content:center;padding:28px}
-    .wrap{width:100%;max-width:980px}
-    header{display:flex;gap:16px;align-items:center;margin-bottom:18px}
-    .logo{width:64px;height:64px;border-radius:12px;background:linear-gradient(135deg,var(--accent),#4c1d95);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:20px;box-shadow:0 6px 24px rgba(124,58,237,0.18)}
-    h1{font-size:20px;margin:0}
-    p.lead{margin:0;color:var(--muted);font-size:13px}.grid{display:grid;grid-template-columns:1fr 400px;gap:16px}
-@media(max-width:920px){.grid{grid-template-columns:1fr}}
+"use client";
 
-.card{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));border-radius:14px;padding:18px;box-shadow:0 6px 30px rgba(2,6,23,0.6)}
-label{display:block;font-size:13px;color:var(--muted);margin-bottom:6px}
-.row{display:flex;gap:12px}
-input[type=number],select,input[type=text]{width:100%;padding:10px;border-radius:10px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:inherit;font-size:14px}
-.small{font-size:12px;color:var(--muted)}
-.hint{font-size:12px;color:var(--muted);margin-top:8px}
+import { useState, useEffect } from "react";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
+import { Checkbox } from "@/components/ui/checkbox";
+import { Button } from "@/components/ui/button";
+import { University, CheckCircle, XCircle } from "lucide-react";
 
-.actions{display:flex;gap:12px;margin-top:12px}
-.btn{padding:10px 14px;border-radius:10px;border:0;background:var(--accent);color:white;font-weight:600;cursor:pointer}
-.btn.edge{background:transparent;border:1px solid rgba(255,255,255,0.06)}
+const EligibilityCheckerPage = () => {
+  const [name, setName] = useState("");
+  const [sscYear, setSscYear] = useState("2019");
+  const [sscGpa, setSscGpa] = useState("5");
+  const [hscYear, setHscYear] = useState("2021");
+  const [hscGpa, setHscGpa] = useState("5");
+  const [dept, setDept] = useState("medical");
+  const [isSecondTimer, setIsSecondTimer] = useState(false);
+  const [marks, setMarks] = useState({
+    physics: "80",
+    chemistry: "80",
+    math: "80",
+    bio: "80",
+    eng: "80",
+  });
+  const [result, setResult] = useState<string | null>(null);
+  const [circulars, setCirculars] = useState<any[]>([]);
+  const [deductions, setDeductions] = useState<any[]>([]);
 
-.result{margin-top:14px;padding:12px;border-radius:10px;background:linear-gradient(180deg, rgba(124,58,237,0.06), rgba(255,255,255,0.01));}
-.ok{color:#6ee7b7;font-weight:600}
-.no{color:#fb7185;font-weight:700}
+  const CIRCULARS = {
+    medical: [
+      {
+        title: "Medical Circular 2025 - A",
+        desc: "Admission circular for Medical (sample).",
+      },
+      {
+        title: "Medical Notice - Scholarships",
+        desc: "Medical scholarship notice.",
+      },
+    ],
+    engineering: [
+      {
+        title: "Engineering Circular 2025",
+        desc: "Admission circular for Engineering.",
+      },
+      {
+        title: "Engineering Eligibility FAQ",
+        desc: "Important FAQ and schedule.",
+      },
+    ],
+    university: [
+      {
+        title: "University General Circular",
+        desc: "General admission circular.",
+      },
+      {
+        title: "Merit & Waiting List Info",
+        desc: "Merit list schedule and rules.",
+      },
+    ],
+  };
 
-.circulars{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:10px;margin-top:12px}
-.citem{padding:10px;border-radius:10px;background:var(--glass);border:1px solid rgba(255,255,255,0.025)}
-.note{font-size:13px;color:var(--muted);margin-top:10px;background:rgba(255,255,255,0.02);padding:10px;border-radius:8px}
+  const THRESHOLDS = {
+    medical: 85,
+    engineering: 80,
+    university: 60,
+  };
 
-.dlist{margin-top:10px;display:flex;flex-direction:column;gap:6px}
-.ditem{display:flex;justify-content:space-between;align-items:center;padding:8px;border-radius:8px;background:rgba(255,255,255,0.01);border:1px solid rgba(255,255,255,0.02)}
-
-footer{margin-top:12px;color:var(--muted);font-size:13px;text-align:center}
-
-  </style>
-</head>
-<body>
-  <div class="wrap">
-    <header>
-      <div class="logo">UE</div>
-      <div>
-        <h1>University Eligibility Checker</h1>
-        <p class="lead">প্রো লেভেল UI — Hind Siliguri ফন্ট ব্যবহার করা হয়েছে। ইনপুট দিন এবং চেক করুন কে এলিজিবল।</p>
-      </div>
-    </header><div class="grid">
-  <section class="card">
-    <h3 style="margin-top:0">শিক্ষার্থী তথ্য</h3>
-    <div style="display:grid;gap:10px;margin-top:10px">
-      <div>
-        <label>Student Name</label>
-        <input id="name" type="text" placeholder="নাম লিখুন (ঐচ্ছিক)" />
-      </div>
-
-      <div class="row">
-        <div style="flex:1">
-          <label>SSC Year</label>
-          <input id="ssc" type="number" min="1900" max="2100" value="2019" />
-        </div>
-        <div style="width:140px">
-          <label>SSC GPA</label>
-          <input id="ssc_gpa" type="number" min="0" max="5" step="0.01" value="5" />
-        </div>
-      </div>
-
-      <div class="row">
-        <div style="flex:1">
-          <label>HSC Year</label>
-          <input id="hsc" type="number" min="1900" max="2100" value="2021" />
-        </div>
-        <div style="width:140px">
-          <label>HSC GPA</label>
-          <input id="hsc_gpa" type="number" min="0" max="5" step="0.01" value="5" />
-        </div>
-      </div>
-
-      <div>
-        <label>Department / Apply for</label>
-        <select id="dept">
-          <option value="medical">Medical</option>
-          <option value="engineering">Engineering</option>
-          <option value="university">University (General)</option>
-        </select>
-      </div>
-
-      <div style="display:flex;gap:12px;align-items:center">
-        <input id="second_timer" type="checkbox" />
-        <label for="second_timer" style="margin:0">Second-timer / সেকেন্ড টাইম আবেদন করছেন?</label>
-      </div>
-
-      <hr style="border:none;border-top:1px solid rgba(255,255,255,0.03);margin:8px 0">
-
-      <h4 style="margin:0">পাঠ্য বিষয়গুলোর মার্ক (প্রতি বিষয় ০–১০০)</h4>
-      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:10px;margin-top:8px">
-        <div>
-          <label>Physics (ফিজিক্স)</label>
-          <input id="marks_physics" type="number" min="0" max="100" value="80" />
-        </div>
-        <div>
-          <label>Chemistry (কেমিস্ট্রি)</label>
-          <input id="marks_chemistry" type="number" min="0" max="100" value="80" />
-        </div>
-        <div>
-          <label>Math (ম্যাথ)</label>
-          <input id="marks_math" type="number" min="0" max="100" value="80" />
-        </div>
-        <div>
-          <label>Biology (বায়োলজি)</label>
-          <input id="marks_bio" type="number" min="0" max="100" value="80" />
-        </div>
-        <div>
-          <label>English (ইংরেজি)</label>
-          <input id="marks_eng" type="number" min="0" max="100" value="80" />
-        </div>
-      </div>
-
-      <div class="actions">
-        <button id="checkBtn" class="btn">Check Eligibility</button>
-        <button id="resetBtn" class="btn edge">Reset</button>
-      </div>
-
-      <div class="note">
-        <strong>নোট:</strong> SSC এবং HSC এর মধ্যে gap সর্বোচ্চ ২ বছর হতে হবে (HSC year - SSC year ≤ 2)। মেডিকেল/ইঞ্জিনিয়ারিং/ভার্সিটি - HSC GPA ৫.০০ এর কম হলে <strong>-2 মার্ক</strong> কাটা যাবে। যদি আপনি সেকেন্ড টাইম হন তাহলে <strong>-5 মার্ক</strong> কাটা হবে। (এই ডিডাকশনগুলো মোট ভর্তি পরীক্ষার মার্ক থেকে কাটা হবে।)
-      </div>
-    </div>
-  </section>
-
-  <aside class="card">
-    <h3 style="margin-top:0">রেজাল্ট & সার্কুলার</h3>
-    <div id="output" class="result">
-      ফর্ম পূরণ করে "Check Eligibility" ক্লিক করুন।
-    </div>
-
-    <div id="circularsWrap" style="display:none">
-      <h4 style="margin:12px 0 6px 0">আপনার বিভাগের সংশ্লিষ্ট সার্কুলার</h4>
-      <div id="circulars" class="circulars"></div>
-    </div>
-
-    <div class="dlist" id="deductions" style="display:none"></div>
-
-    <footer>
-      Developed for you — প্রো স্টাইল UI. Modify circular links as needed.
-    </footer>
-  </aside>
-</div>
-
-  </div>
-  <script>
-    // Department circular samples (change URLs to real ones if available)
-    const CIRCULARS = {
-      medical: [
-        {title:'Medical Circular 2025 - A',desc:'Admission circular for Medical (sample).'},
-        {title:'Medical Notice - Scholarships',desc:'Medical scholarship notice.'}
-      ],
-      engineering:[
-        {title:'Engineering Circular 2025',desc:'Admission circular for Engineering.'},
-        {title:'Engineering Eligibility FAQ',desc:'Important FAQ and schedule.'}
-      ],
-      university:[
-        {title:'University General Circular',desc:'General admission circular.'},
-        {title:'Merit & Waiting List Info',desc:'Merit list schedule and rules.'}
-      ]
-    };
-
-    // Configurable thresholds (percentage) per department
-    const THRESHOLDS = {
-      medical: 85,      // require 85%
-      engineering: 80,  // require 80%
-      university: 60    // require 60%
-    };
-
-    function computeDeductions(dept, hsc_gpa, isSecond){
-      const deductions = [];
-      if(hsc_gpa < 5){
-        deductions.push({label:'HSC GPA < 5.00 → Deduct 2 marks',value:2});
-      }
-      if(isSecond){
-        deductions.push({label:'Second-timer → Deduct 5 marks',value:5});
-      }
-      return deductions;
-    }
-
-    function showCirculars(dept){
-      const wrap = document.getElementById('circulars');
-      wrap.innerHTML='';
-      (CIRCULARS[dept]||[]).forEach(c=>{
-        const el = document.createElement('div'); el.className='citem';
-        el.innerHTML = \`<h4>\${c.title}</h4><div class="small">\${c.desc}</div><div style="margin-top:8px"><button class="btn edge" onclick="alert('Open circular: \${c.title}')">View</button></div>\`;
-        wrap.appendChild(el);
+  const computeDeductions = (
+    dept: string,
+    hsc_gpa: number,
+    isSecond: boolean,
+  ) => {
+    const deductionsArr = [];
+    if (hsc_gpa < 5) {
+      deductionsArr.push({
+        label: "HSC GPA < 5.00 → Deduct 2 marks",
+        value: 2,
       });
     }
+    if (isSecond) {
+      deductionsArr.push({ label: "Second-timer → Deduct 5 marks", value: 5 });
+    }
+    return deductionsArr;
+  };
 
-    document.getElementById('checkBtn').addEventListener('click', ()=>{
-      const ssc = Number(document.getElementById('ssc').value);
-      const hsc = Number(document.getElementById('hsc').value);
-      const hsc_gpa = Number(document.getElementById('hsc_gpa').value) || 0;
-      const dept = document.getElementById('dept').value;
-      const second = document.getElementById('second_timer').checked;
-      const name = document.getElementById('name').value || 'আপনি';
+  const checkEligibility = () => {
+    const ssc = Number(sscYear);
+    const hsc = Number(hscYear);
+    const hscGpaNum = Number(hscGpa) || 0;
+    const studentName = name || "আপনি";
 
-      // Subject marks
-      const mPhy = Number(document.getElementById('marks_physics').value) || 0;
-      const mChem = Number(document.getElementById('marks_chemistry').value) || 0;
-      const mMath = Number(document.getElementById('marks_math').value) || 0;
-      const mBio = Number(document.getElementById('marks_bio').value) || 0;
-      const mEng = Number(document.getElementById('marks_eng').value) || 0;
+    const mPhy = Number(marks.physics) || 0;
+    const mChem = Number(marks.chemistry) || 0;
+    const mMath = Number(marks.math) || 0;
+    const mBio = Number(marks.bio) || 0;
+    const mEng = Number(marks.eng) || 0;
 
-      const out = document.getElementById('output');
-      const gap = hsc - ssc;
-      const eligibleByGap = (!isNaN(ssc) && !isNaN(hsc) && gap <= 2 && gap >= 0);
+    const gap = hsc - ssc;
+    const eligibleByGap = !isNaN(ssc) && !isNaN(hsc) && gap <= 2 && gap >= 0;
 
-      // Reset circulars area
-      document.getElementById('circularsWrap').style.display='none';
-      document.getElementById('deductions').style.display='none';
+    setCirculars([]);
+    setDeductions([]);
 
-      let html = '';
-      if(!Number.isFinite(ssc) || !Number.isFinite(hsc)){
-        html = \`<div class='no'>অনুগ্রহ করে সঠিক বছর লিখুন।</div>\`;
-        out.innerHTML = html; return;
-      }
+    if (!Number.isFinite(ssc) || !Number.isFinite(hsc)) {
+      setResult("<div class='text-red-500'>অনুগ্রহ করে সঠিক বছর লিখুন।</div>");
+      return;
+    }
 
-      if(!eligibleByGap){
-        html += \`<div class='no'>দুঃখিত \${name}, আপনি এলিজিবল নন। SSC ও HSC সালের মধ্যে ব্যবধান (gap) দুই বছরের বেশি — SSC: \${ssc}, HSC: \${hsc} (gap = \${gap}).</div>\`;
-        html += \`<div class='hint'>শর্ত পূরণ করতে হবে: HSC year - SSC year ≤ 2</div>\`;
-        out.innerHTML = html; return;
-      }
+    if (!eligibleByGap) {
+      setResult(
+        `<div class='text-red-500'>দুঃখিত ${studentName}, আপনি এলিজিবল নন। SSC ও HSC সালের মধ্যে ব্যবধান (gap) দুই বছরের বেশি — SSC: ${ssc}, HSC: ${hsc} (gap = ${gap}).</div><div class='text-sm text-muted-foreground mt-2'>শর্ত পূরণ করতে হবে: HSC year - SSC year ≤ 2</div>`,
+      );
+      return;
+    }
 
-      // Calculate totals
-      const subjectTotal = mPhy + mChem + mMath + mBio + mEng; // out of 500
-      const maxTotal = 500;
+    const subjectTotal = mPhy + mChem + mMath + mBio + mEng;
+    const maxTotal = 500;
 
-      // Apply deductions (deductions are in marks, subtracted from subjectTotal)
-      const deductions = computeDeductions(dept, hsc_gpa, second);
-      const totalDeduct = deductions.reduce((s,d)=>s+d.value,0);
-      const adjustedTotal = Math.max(0, subjectTotal - totalDeduct);
-      const percentage = (adjustedTotal / maxTotal) * 100;
+    const currentDeductions = computeDeductions(
+      dept,
+      hscGpaNum,
+      isSecondTimer,
+    );
+    const totalDeduct = currentDeductions.reduce((s, d) => s + d.value, 0);
+    const adjustedTotal = Math.max(0, subjectTotal - totalDeduct);
+    const percentage = (adjustedTotal / maxTotal) * 100;
 
-      // Threshold check
-      const required = THRESHOLDS[dept] || 60;
-      const eligibleByMarks = percentage >= required;
+    const required = THRESHOLDS[dept as keyof typeof THRESHOLDS] || 60;
+    const eligibleByMarks = percentage >= required;
 
-      // Compose result
-      html += \`<div class='ok'>শিক্ষার্থী: <strong>\${name}</strong></div>\`;
-      html += \`<div class='small' style='margin-top:8px'>Raw Total: <strong>\${subjectTotal} / \${maxTotal}</strong>. After deductions: <strong>\${adjustedTotal} / \${maxTotal}</strong>. শতাংশ: <strong>\${percentage.toFixed(2)}%</strong>.</div>\`;
-      html += \`<div style='margin-top:8px'>Department Required: <strong>\${required}%</strong>.</div>\`;
+    let resultHtml = `<div class='text-green-400'>শিক্ষার্থী: <strong>${studentName}</strong></div>`;
+    resultHtml += `<div class='text-sm mt-2'>Raw Total: <strong>${subjectTotal} / ${maxTotal}</strong>. After deductions: <strong>${adjustedTotal} / ${maxTotal}</strong>. শতাংশ: <strong>${percentage.toFixed(
+      2,
+    )}%</strong>.</div>`;
+    resultHtml += `<div class='mt-2'>Department Required: <strong>${required}%</strong>.</div>`;
 
-      if(eligibleByMarks){
-        html += \`<div class='ok' style='margin-top:10px'>অভিনন্দন — আপনি আমার সিস্টেম অনুযায়ী এলিজিবল।</div>\`;
-        // show circulars
-        showCirculars(dept);
-        document.getElementById('circularsWrap').style.display='block';
-      } else {
-        html += \`<div class='no' style='margin-top:10px'>দুঃখিত — আপনার শতাংশ \${percentage.toFixed(02)}%। কর্তিত মান প্রয়োজনীয়তার নিচে: \${required}%।</div>\`;
-      }
+    if (eligibleByMarks) {
+      resultHtml += `<div class='text-green-400 font-bold mt-4'>অভিনন্দন — আপনি আমার সিস্টেম অনুযায়ী এলিজিবল।</div>`;
+      setCirculars(CIRCULARS[dept as keyof typeof CIRCULARS] || []);
+    } else {
+      resultHtml += `<div class='text-red-500 font-bold mt-4'>দুঃখিত — আপনার শতাংশ ${percentage.toFixed(
+        2,
+      )}%। কর্তিত মান প্রয়োজনীয়তার নিচে: ${required}%।</div>`;
+    }
 
-      out.innerHTML = html;
+    setResult(resultHtml);
+    setDeductions(currentDeductions);
+  };
 
-      // Show deduction breakdown
-      const dlist = document.getElementById('deductions');
-      dlist.style.display = 'flex';
-      dlist.innerHTML = '';
-      if(deductions.length === 0){
-        const e = document.createElement('div'); e.className='ditem'; e.innerHTML = \`<div>No deductions applied</div><div>0</div>\`; dlist.appendChild(e);
-      } else {
-        deductions.forEach(d=>{
-          const e = document.createElement('div'); e.className='ditem'; e.innerHTML = \`<div>\${d.label}</div><div>-\${d.value}</div>\`; dlist.appendChild(e);
-        });
-        const tot = document.createElement('div'); tot.className='ditem'; tot.innerHTML = \`<div style='font-weight:700'>Total Deduction</div><div style='font-weight:700'>-\${totalDeduct}</div>\`; dlist.appendChild(tot);
-      }
-
-      const noteArea = document.createElement('div'); noteArea.className='note';
-      noteArea.innerHTML = \`<strong>Policy note for \${dept.charAt(0).toUpperCase()+dept.slice(1)}:</strong> Percentage thresholds are configurable in the code (THRESHOLDS). HSC GPA & second-timer deductions are applied as marks subtractions before percentage calculation.\`;
-      dlist.appendChild(noteArea);
-
+  const resetForm = () => {
+    setName("");
+    setSscYear("2019");
+    setSscGpa("5");
+    setHscYear("2021");
+    setHscGpa("5");
+    setDept("medical");
+    setIsSecondTimer(false);
+    setMarks({
+      physics: "80",
+      chemistry: "80",
+      math: "80",
+      bio: "80",
+      eng: "80",
     });
+    setResult(null);
+    setCirculars([]);
+    setDeductions([]);
+  };
 
-    document.getElementById('resetBtn').addEventListener('click', ()=>{
-      document.getElementById('name').value='';
-      document.getElementById('ssc').value=2019;
-      document.getElementById('ssc_gpa').value=5;
-      document.getElementById('hsc').value=2021;
-      document.getElementById('hsc_gpa').value=5;
-      document.getElementById('dept').value='medical';
-      document.getElementById('second_timer').checked=false;
-      document.getElementById('marks_physics').value=80;
-      document.getElementById('marks_chemistry').value=80;
-      document.getElementById('marks_math').value=80;
-      document.getElementById('marks_bio').value=80;
-      document.getElementById('marks_eng').value=80;
-      document.getElementById('output').innerHTML = 'ফর্ম পূরণ করে "Check Eligibility" ক্লিক করুন।';
-      document.getElementById('circularsWrap').style.display='none';
-      document.getElementById('deductions').style.display='none';
-    });
-  </script>
-</body>
-</html>
-` }} />
+  return (
+    <div className="font-bengali bg-background py-8">
+      <div className="container mx-auto px-4">
+        <header className="text-center mb-8">
+          <div className="inline-block p-4 bg-primary/10 rounded-full mb-4">
+            <University className="h-10 w-10 text-primary" />
+          </div>
+          <h1 className="text-3xl font-bold gradient-text">
+            University Eligibility Checker
+          </h1>
+          <p className="text-muted-foreground mt-2">
+            প্রো লেভেল UI — ইনপুট দিন এবং চেক করুন কে এলিজিবল।
+          </p>
+        </header>
+
+        <div className="grid md:grid-cols-2 gap-8">
+          <Card>
+            <CardHeader>
+              <CardTitle>শিক্ষার্থী তথ্য</CardTitle>
+            </CardHeader>
+            <CardContent className="space-y-4">
+              <div>
+                <Label htmlFor="name">Student Name</Label>
+                <Input
+                  id="name"
+                  type="text"
+                  placeholder="নাম লিখুন (ঐচ্ছিক)"
+                  value={name}
+                  onChange={(e) => setName(e.target.value)}
+                />
+              </div>
+
+              <div className="grid grid-cols-2 gap-4">
+                <div>
+                  <Label htmlFor="ssc">SSC Year</Label>
+                  <Input
+                    id="ssc"
+                    type="number"
+                    value={sscYear}
+                    onChange={(e) => setSscYear(e.target.value)}
+                  />
+                </div>
+                <div>
+                  <Label htmlFor="ssc_gpa">SSC GPA</Label>
+                  <Input
+                    id="ssc_gpa"
+                    type="number"
+                    min="0"
+                    max="5"
+                    step="0.01"
+                    value={sscGpa}
+                    onChange={(e) => setSscGpa(e.target.value)}
+                  />
+                </div>
+              </div>
+
+              <div className="grid grid-cols-2 gap-4">
+                <div>
+                  <Label htmlFor="hsc">HSC Year</Label>
+                  <Input
+                    id="hsc"
+                    type="number"
+                    value={hscYear}
+                    onChange={(e) => setHscYear(e.target.value)}
+                  />
+                </div>
+                <div>
+                  <Label htmlFor="hsc_gpa">HSC GPA</Label>
+                  <Input
+                    id="hsc_gpa"
+                    type="number"
+                    min="0"
+                    max="5"
+                    step="0.01"
+                    value={hscGpa}
+                    onChange={(e) => setHscGpa(e.target.value)}
+                  />
+                </div>
+              </div>
+
+              <div>
+                <Label htmlFor="dept">Department / Apply for</Label>
+                <Select value={dept} onValueChange={setDept}>
+                  <SelectTrigger id="dept">
+                    <SelectValue placeholder="Select a department" />
+                  </SelectTrigger>
+                  <SelectContent>
+                    <SelectItem value="medical">Medical</SelectItem>
+                    <SelectItem value="engineering">Engineering</SelectItem>
+                    <SelectItem value="university">University (General)</SelectItem>
+                  </SelectContent>
+                </Select>
+              </div>
+
+              <div className="flex items-center space-x-2">
+                <Checkbox
+                  id="second_timer"
+                  checked={isSecondTimer}
+                  onCheckedChange={(checked) => setIsSecondTimer(!!checked)}
+                />
+                <Label htmlFor="second_timer">
+                  Second-timer / সেকেন্ড টাইম আবেদন করছেন?
+                </Label>
+              </div>
+
+              <hr className="border-border/50 my-4" />
+
+              <h4 className="font-semibold">
+                পাঠ্য বিষয়গুলোর মার্ক (প্রতি বিষয় ০–১০০)
+              </h4>
+              <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+                <div>
+                  <Label htmlFor="marks_physics">Physics (ফিজিক্স)</Label>
+                  <Input
+                    id="marks_physics"
+                    type="number"
+                    min="0"
+                    max="100"
+                    value={marks.physics}
+                    onChange={(e) =>
+                      setMarks({ ...marks, physics: e.target.value })
+                    }
+                  />
+                </div>
+                <div>
+                  <Label htmlFor="marks_chemistry">Chemistry (কেমিস্ট্রি)</Label>
+                  <Input
+                    id="marks_chemistry"
+                    type="number"
+                    min="0"
+                    max="100"
+                    value={marks.chemistry}
+                    onChange={(e) =>
+                      setMarks({ ...marks, chemistry: e.target.value })
+                    }
+                  />
+                </div>
+                <div>
+                  <Label htmlFor="marks_math">Math (ম্যাথ)</Label>
+                  <Input
+                    id="marks_math"
+                    type="number"
+                    min="0"
+                    max="100"
+                    value={marks.math}
+                    onChange={(e) =>
+                      setMarks({ ...marks, math: e.target.value })
+                    }
+                  />
+                </div>
+                <div>
+                  <Label htmlFor="marks_bio">Biology (বায়োলজি)</Label>
+                  <Input
+                    id="marks_bio"
+                    type="number"
+                    min="0"
+                    max="100"
+                    value={marks.bio}
+                    onChange={(e) =>
+                      setMarks({ ...marks, bio: e.target.value })
+                    }
+                  />
+                </div>
+                <div>
+                  <Label htmlFor="marks_eng">English (ইংরেজি)</Label>
+                  <Input
+                    id="marks_eng"
+                    type="number"
+                    min="0"
+                    max="100"
+                    value={marks.eng}
+                    onChange={(e) =>
+                      setMarks({ ...marks, eng: e.target.value })
+                    }
+                  />
+                </div>
+              </div>
+
+              <div className="flex gap-4 pt-4">
+                <Button onClick={checkEligibility} className="w-full">
+                  Check Eligibility
+                </Button>
+                <Button onClick={resetForm} variant="outline" className="w-full">
+                  Reset
+                </Button>
+              </div>
+
+              <div className="text-xs text-muted-foreground p-3 bg-muted rounded-md mt-4">
+                <strong>নোট:</strong> SSC এবং HSC এর মধ্যে gap সর্বোচ্চ ২ বছর হতে
+                হবে (HSC year - SSC year ≤ 2)। মেডিকেল/ইঞ্জিনিয়ারিং/ভার্সিটি -
+                HSC GPA ৫.০০ এর কম হলে <strong>-2 মার্ক</strong> কাটা যাবে। যদি
+                আপনি সেকেন্ড টাইম হন তাহলে <strong>-5 মার্ক</strong> কাটা হবে।
+                (এই ডিডাকশনগুলো মোট ভর্তি পরীক্ষার মার্ক থেকে কাটা হবে।)
+              </div>
+            </CardContent>
+          </Card>
+
+          <Card>
+            <CardHeader>
+              <CardTitle>রেজাল্ট ও সার্কুলার</CardTitle>
+            </CardHeader>
+            <CardContent>
+              <div
+                className="p-4 rounded-lg bg-muted/50 min-h-[60px]"
+                dangerouslySetInnerHTML={{
+                  __html:
+                    result || 'ফর্ম পূরণ করে "Check Eligibility" ক্লিক করুন।',
+                }}
+              />
+
+              {circulars.length > 0 && (
+                <div className="mt-4">
+                  <h4 className="font-semibold mb-2">
+                    আপনার বিভাগের সংশ্লিষ্ট সার্কুলার
+                  </h4>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    {circulars.map((c, i) => (
+                      <div
+                        key={i}
+                        className="p-4 rounded-lg border bg-card"
+                      >
+                        <h5 className="font-bold">{c.title}</h5>
+                        <p className="text-sm text-muted-foreground">
+                          {c.desc}
+                        </p>
+                        <Button
+                          variant="outline"
+                          size="sm"
+                          className="mt-2"
+                          onClick={() => alert(`Open circular: ${c.title}`)}
+                        >
+                          View
+                        </Button>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
+
+              {deductions.length > 0 && (
+                <div className="mt-4 space-y-2">
+                   <h4 className="font-semibold mb-2">কর্তন বিবরন</h4>
+                  {deductions.map((d, i) => (
+                    <div
+                      key={i}
+                      className="flex justify-between items-center p-2 bg-muted/50 rounded-md"
+                    >
+                      <span>{d.label}</span>
+                      <span className="font-bold">-{d.value}</span>
+                    </div>
+                  ))}
+                   <div
+                      className="flex justify-between items-center p-2 bg-muted rounded-md"
+                    >
+                      <span className="font-bold">Total Deduction</span>
+                      <span className="font-bold">-{deductions.reduce((total, d) => total + d.value, 0)}</span>
+                    </div>
+                </div>
+              )}
+               <footer className="text-center mt-8 text-sm text-muted-foreground">
+                <p>Developed for you — প্রো স্টাইল UI.</p>
+              </footer>
+            </CardContent>
+          </Card>
+        </div>
+      </div>
+    </div>
   );
-}
+};
+
+export default EligibilityCheckerPage;
