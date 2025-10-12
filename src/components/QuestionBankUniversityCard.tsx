@@ -16,7 +16,7 @@ const clusterInfo: { [key: string]: string } = {
   agri: "শুধু বিজ্ঞান বিভাগ",
   medical: "শুধু বিজ্ঞান বিভাগ",
   dental: "শুধু বিজ্ঞান বিভাগ",
-  nursing: "নার্সিং গুচ্ছ",
+  nursing: "নার্সিং ও মিডওয়াইফারি",
 };
 
 const QuestionBankUniversityCard = React.memo(
