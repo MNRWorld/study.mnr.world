@@ -185,8 +185,86 @@
       }
     },
     "mapLocations": {
-      "title": "ক্যাম্পাসের গুগল ম্যাপ লোকেশন",
-      "categories": []
+      "title": "গুচ্ছভুক্ত বিশ্ববিদ্যালয়ের গুগল ম্যাপ লোকেশন",
+      "categories": [
+        {
+          "name": "বিশ্ববিদ্যালয়সমূহ",
+          "locations": [
+            {
+              "name": "ইসলামী বিশ্ববিদ্যালয়, কুষ্টিয়া",
+              "url": "https://maps.app.goo.gl/FwyyPJWabQmkisGT8"
+            },
+            {
+              "name": "গোপালগঞ্জ বিজ্ঞান ও প্রযুক্তি বিশ্ববিদ্যালয়",
+              "url": "https://maps.app.goo.gl/XYFcsraqGNcQf47MA"
+            },
+            {
+              "name": "নোয়াখালী বিজ্ঞান ও প্রযুক্তি বিশ্ববিদ্যালয়",
+              "url": "https://maps.app.goo.gl/LN6QBugkoyzH7VA79"
+            },
+            {
+              "name": "বেগম রোকেয়া বিশ্ববিদ্যালয়, রংপুর",
+              "url": "https://maps.app.goo.gl/VJfuN7rABskweWXx8"
+            },
+            {
+              "name": "জাতীয় কবি কাজী নজরুল ইসলাম বিশ্ববিদ্যালয়, ত্রিশাল",
+              "url": "https://maps.app.goo.gl/yrG4W8tNxDVLpkaH6"
+            },
+            {
+              "name": "পাবনা বিজ্ঞান ও প্রযুক্তি বিশ্ববিদ্যালয়",
+              "url": "https://maps.app.goo.gl/W5f2kY7NNVLCZqpUA"
+            },
+            {
+              "name": "যশোর বিজ্ঞান ও প্রযুক্তি বিশ্ববিদ্যালয়",
+              "url": "https://maps.app.goo.gl/itozW2xRKbcYNV3s6"
+            },
+            {
+              "name": "মাওলানা ভাসানী বিজ্ঞান ও প্রযুক্তি বিশ্ববিদ্যালয়",
+              "url": "https://maps.app.goo.gl/dbuXYsmFDwD3f4Cv7"
+            },
+            {
+              "name": "পটুয়াখালী বিজ্ঞান ও প্রযুক্তি বিশ্ববিদ্যালয়",
+              "url": "https://maps.app.goo.gl/7cv5qUsZk6UmadLk8"
+            },
+            {
+              "name": "জামালপুর বিজ্ঞান ও প্রযুক্তি বিশ্ববিদ্যালয়",
+              "url": "https://maps.app.goo.gl/8WAxkar5Rya2kNrHA"
+            },
+            {
+              "name": "রবীন্দ্র বিশ্ববিদ্যালয়, সিরাজগঞ্জ",
+              "url": "https://maps.app.goo.gl/AXxCRiGiM793hSKR6"
+            },
+            {
+              "name": "পিরোজপুর বিজ্ঞান ও প্রযুক্তি বিশ্ববিদ্যালয়",
+              "url": "https://maps.app.goo.gl/Vv9Fd7YyDVPjJwzQ9"
+            },
+            {
+              "name": "রাঙামাটি বিজ্ঞান ও প্রযুক্তি বিশ্ববিদ্যালয়",
+              "url": "https://maps.app.goo.gl/54chT6XGL3hGnMLe6"
+            },
+            {
+              "name": "সুনামগঞ্জ বিজ্ঞান ও প্রযুক্তি বিশ্ববিদ্যালয়",
+              "url": "https://maps.app.goo.gl/8kUrUbxYkvdS9of38"
+            },
+            {
+              "name": "কিশোরগঞ্জ বিশ্ববিদ্যালয়",
+              "url": "https://maps.app.goo.gl/KvfLMGxKsVSx2oeE8"
+            },
+            {
+              "name": "গাজীপুর ডিজিটাল ইউনিভার্সিটি",
+              "url": "https://maps.app.goo.gl/EjxzkLsADDAoFDkP8"
+            },
+            {
+              "name": "চাঁদপুর বিজ্ঞান ও প্রযুক্তি বিশ্ববিদ্যালয়",
+              "url": "https://maps.app.goo.gl/XpxKaxTb1qSosmxa9"
+            },
+            {
+              "name": "নেত্রকোণা বিশ্ববিদ্যালয়",
+              "url": "https://maps.app.goo.gl/PPgiWEVe3w6Sr69F9"
+            }
+          ]
+        }
+      ]
     }
   },
   "links": [
