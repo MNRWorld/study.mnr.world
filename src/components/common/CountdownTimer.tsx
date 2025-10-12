@@ -156,7 +156,7 @@ const CountdownTimer = ({ universityId }: CountdownTimerProps) => {
   if (!currentDeadline) {
     return (
       <div className="text-center p-4 text-muted-foreground">
-        এই বিশ্ববিদ্যালয়ের জন্য কোনো পরীক্ষার সময়সূচী পাওয়া যায়নি।
+        এখন অব্দি কোনো তারিখ প্রকাশ করেনি
       </div>
     );
   }
