@@ -9,24 +9,52 @@ interface Deadline {
   title: string;
   date: Date;
   universityId?: string;
+  type: "exam" | "apply" | "admit";
 }
 
-const admissionDeadlines: Deadline[] = allData.CalendarInfo.filter(
-  (item) => item.examDetails.ExamCountdownDate,
-).map((item) => ({
-  id: item.id,
-  title: `🎓 ${item.universityNameAndUnit} পরীক্ষার কাউন্টডাউন`,
-  date: new Date(item.examDetails.ExamCountdownDate!),
-  universityId: item.id.split("-")[0],
-}));
+const admissionDeadlines: Deadline[] = allData.CalendarInfo.flatMap((item) => {
+  const deadlines: Deadline[] = [];
+  const universityId = item.id.split("-")[0];
+
+  if (item.examDetails.ExamCountdownDate) {
+    deadlines.push({
+      id: `${item.id}-exam`,
+      title: `🎓 ${item.universityNameAndUnit} পরীক্ষার কাউন্টডাউন`,
+      date: new Date(item.examDetails.ExamCountdownDate),
+      universityId,
+      type: "exam",
+    });
+  }
+  if (item.applicationDetails.ApplyCountdownDate) {
+    deadlines.push({
+      id: `${item.id}-apply`,
+      title: `✍️ ${item.universityNameAndUnit} আবেদনের শেষ সময়`,
+      date: new Date(item.applicationDetails.ApplyCountdownDate),
+      universityId,
+      type: "apply",
+    });
+  }
+  if (item.admitCardDetails.DownloadCountdownDate) {
+    deadlines.push({
+      id: `${item.id}-admit`,
+      title: `🎟️ ${item.universityNameAndUnit} প্রবেশপত্র ডাউনলোডের শেষ সময়`,
+      date: new Date(item.admitCardDetails.DownloadCountdownDate),
+      universityId,
+      type: "admit",
+    });
+  }
+  return deadlines;
+});
 
 function getDeadlinesByUniversity(
   universityId: string,
 ): Deadline[] | undefined {
-  if (universityId === 'gst') {
-    const gstIds = ['gst', 'gst-a', 'gst-b', 'gst-c'];
-    const deadlines = admissionDeadlines.filter((d) => 
-      (d.universityId && gstIds.includes(d.universityId)) || gstIds.includes(d.id)
+  if (universityId === "gst") {
+    const gstIds = ["gst", "gst-a", "gst-b", "gst-c"];
+    const deadlines = admissionDeadlines.filter(
+      (d) =>
+        (d.universityId && gstIds.includes(d.universityId)) ||
+        gstIds.includes(d.id),
     );
     return deadlines.length > 0 ? deadlines : undefined;
   }
@@ -35,7 +63,6 @@ function getDeadlinesByUniversity(
   );
   return deadlines.length > 0 ? deadlines : undefined;
 }
-
 
 interface CountdownTimerProps {
   universityId?: string;
@@ -60,25 +87,41 @@ const CountdownTimer = ({ universityId }: CountdownTimerProps) => {
     } else {
       relevantDeadlines = admissionDeadlines;
     }
-    setDeadlines(relevantDeadlines);
-  }, [universityId]);
 
-  useEffect(() => {
-    if (deadlines.length === 0) return;
+    const typePriority = { exam: 1, apply: 2, admit: 3 };
 
-    const upcomingDeadlines = deadlines
+    const sortedDeadlines = relevantDeadlines
       .filter((d) => d.date > new Date())
-      .sort((a, b) => a.date.getTime() - b.date.getTime());
+      .sort((a, b) => {
+        const dateA = a.date.getTime();
+        const dateB = b.date.getTime();
+        if (dateA !== dateB) {
+          return dateA - dateB;
+        }
+        return typePriority[a.type] - typePriority[b.type];
+      });
 
-    if (upcomingDeadlines.length > 0) {
-      const firstUpcomingIndex = deadlines.findIndex(
-        (d) => d.id === upcomingDeadlines[0].id,
+    setDeadlines(relevantDeadlines); // Keep original for finding by ID
+
+    if (sortedDeadlines.length > 0) {
+      const firstUpcomingId = sortedDeadlines[0].id;
+      const firstUpcomingIndex = relevantDeadlines.findIndex(
+        (d) => d.id === firstUpcomingId,
       );
       setCurrentIndex(firstUpcomingIndex);
-    } else {
-      setCurrentIndex(deadlines.length - 1);
+    } else if (relevantDeadlines.length > 0) {
+      // If no upcoming, show the last chronological one
+      const lastDeadline = [...relevantDeadlines].sort(
+        (a, b) => b.date.getTime() - a.date.getTime(),
+      )[0];
+      const lastIndex = relevantDeadlines.findIndex(
+        (d) => d.id === lastDeadline.id,
+      );
+      setCurrentIndex(lastIndex);
       setIsCurrentCompleted(true);
       setTimeLeft({ days: "00", hours: "00", minutes: "00", seconds: "00" });
+    } else {
+      setCurrentIndex(-1);
     }
 
     return () => {
@@ -86,7 +129,7 @@ const CountdownTimer = ({ universityId }: CountdownTimerProps) => {
         cancelAnimationFrame(animationFrameId.current);
       }
     };
-  }, [deadlines]);
+  }, [universityId]);
 
   useEffect(() => {
     const updateTimer = () => {
@@ -103,15 +146,9 @@ const CountdownTimer = ({ universityId }: CountdownTimerProps) => {
           cancelAnimationFrame(animationFrameId.current);
         }
         setTimeout(() => {
-          const nextUpcomingIndex = deadlines.findIndex(
-            (d) => d.date > new Date(),
-          );
-          if (nextUpcomingIndex !== -1) {
-            setCurrentIndex(nextUpcomingIndex);
-            setIsCurrentCompleted(false);
-          } else {
-            setCurrentIndex(deadlines.length);
-          }
+          // This logic can be refined to find the next upcoming one
+          setCurrentIndex((prev) => (prev + 1) % deadlines.length);
+          setIsCurrentCompleted(false);
         }, 2000);
       } else {
         const days = Math.floor(difference / (1000 * 60 * 60 * 24));
