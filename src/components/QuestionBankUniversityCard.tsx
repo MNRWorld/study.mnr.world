@@ -40,6 +40,7 @@ const clusterInfo: { [key: string]: string } = {
   "butex-affiliated": "শুধু বিজ্ঞান বিভাগ",
   "sust-affiliated": "শুধু বিজ্ঞান বিভাগ",
   "du-affiliated": "সকল বিভাগ",
+  iut: "শুধু বিজ্ঞান বিভাগের মুসলিমদের",
 };
 
 const QuestionBankUniversityCard = React.memo(
@@ -75,6 +76,7 @@ const QuestionBankUniversityCard = React.memo(
       "butex-affiliated",
       "sust-affiliated",
       "du-affiliated",
+      "iut",
     ];
 
     // Special case for cluster cards
