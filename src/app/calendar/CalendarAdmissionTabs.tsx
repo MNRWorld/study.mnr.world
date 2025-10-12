@@ -18,7 +18,7 @@ const CalendarAdmissionTabs = () => {
   return (
     <div className="mt-8">
       <Tabs defaultValue="schedule" className="w-full">
-        <div className="overflow-x-auto no-scrollbar">
+        <div className="overflow-x-auto no-scrollbar flex justify-center">
           <TabsList className="flex w-fit sm:w-full bg-transparent gap-2">
             <TabsTrigger value="schedule" className="px-2">
               <CalendarClock className="mr-2 h-4 w-4 hidden sm:inline-block" />{" "}
