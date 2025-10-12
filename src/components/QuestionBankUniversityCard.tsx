@@ -11,14 +11,23 @@ interface QuestionBankUniversityCardProps {
   university: University;
 }
 
+const clusterInfo: { [key: string]: string } = {
+  gst: "ইউনিট: ক, খ, গ",
+  agri: "৮টি বিশ্ববিদ্যালয়",
+  medical: "মেডিকেল ও ডেন্টাল",
+  dental: "ডেন্টাল",
+  nursing: "নার্সিং ও মিডওয়াইফারি",
+};
+
 const QuestionBankUniversityCard = React.memo(
   function QuestionBankUniversityCard({
     university,
   }: QuestionBankUniversityCardProps) {
     const universityLink = `/${university.id}#QuestionBank`;
+    const specialClusterIds = ["gst", "agri", "medical", "dental", "nursing"];
 
-    // Special case for GST card
-    if (university.id === "gst") {
+    // Special case for cluster cards
+    if (specialClusterIds.includes(university.id)) {
       return (
         <Link href={universityLink}>
           <div
@@ -48,7 +57,7 @@ const QuestionBankUniversityCard = React.memo(
               <hr className="my-2 border-border/50" />
               <p className="text-xs text-muted-foreground mt-1 flex items-center justify-center gap-1.5 font-normal">
                 <Sparkles size={12} />
-                ইউনিট: ক, খ, গ
+                {clusterInfo[university.id]}
               </p>
             </div>
           </div>
