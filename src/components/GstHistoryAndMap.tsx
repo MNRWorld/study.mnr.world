@@ -1,4 +1,3 @@
-
 "use client";
 import Link from "next/link";
 import {
@@ -102,26 +101,22 @@ const GstHistoryAndMap = () => {
               </div>
             </AccordionTrigger>
             <AccordionContent className="p-4 sm:p-5 border-t border-border/50 text-base text-muted-foreground">
-              {mapLocations.categories.map(
-                (category: MapCategory, i: number) => (
-                  <Table key={i}>
-                    <TableBody>
-                      {category.locations.map(
-                        (loc: MapLocation, j: number) => (
-                          <TableRow key={j}>
-                            <TableCell className="text-center">
-                              {loc.name}
-                            </TableCell>
-                            <TableCell className="text-center">
-                              <ExternalLink href={loc.url} text="[দেখুন]" />
-                            </TableCell>
-                          </TableRow>
-                        ),
-                      )}
-                    </TableBody>
-                  </Table>
-                ),
-              )}
+              <Table>
+                <TableBody>
+                  {mapLocations.categories[0].locations.map(
+                    (loc: MapLocation, j: number) => (
+                      <TableRow key={j}>
+                        <TableCell className="text-center">
+                          {loc.name}
+                        </TableCell>
+                        <TableCell className="text-center">
+                          <ExternalLink href={loc.url} text="[লিংক]" />
+                        </TableCell>
+                      </TableRow>
+                    ),
+                  )}
+                </TableBody>
+              </Table>
             </AccordionContent>
           </AccordionItem>
         )}
