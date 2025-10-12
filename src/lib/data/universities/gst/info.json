@@ -362,24 +362,78 @@
         "items": [
           {
             "links": [
-              { "text": "ইসলামী বিশ্ববিদ্যালয়, কুষ্টিয়া", "url": "/iu#QuestionBank" },
-              { "text": "বঙ্গবন্ধু শেখ মুজিবুর রহমান বিজ্ঞান ও প্রযুক্তি বিশ্ববিদ্যালয়, গোপালগঞ্জ", "url": "/gstu#QuestionBank" },
-              { "text": "নোয়াখালী বিজ্ঞান ও প্রযুক্তি বিশ্ববিদ্যালয়", "url": "/nstu#QuestionBank" },
-              { "text": "বেগম রোকেয়া বিশ্ববিদ্যালয়, রংপুর", "url": "/brur#QuestionBank" },
-              { "text": "জাতীয় কবি কাজী নজরুল ইসলাম বিশ্ববিদ্যালয়, ত্রিশাল", "url": "/jkkniu#QuestionBank" },
-              { "text": "পাবনা বিজ্ঞান ও প্রযুক্তি বিশ্ববিদ্যালয়", "url": "/pust#QuestionBank" },
-              { "text": "যশোর বিজ্ঞান ও প্রযুক্তি বিশ্ববিদ্যালয়", "url": "/just#QuestionBank" },
-              { "text": "মাওলানা ভাসানী বিজ্ঞান ও প্রযুক্তি বিশ্ববিদ্যালয়", "url": "/mbstu#QuestionBank" },
-              { "text": "পটুয়াখালী বিজ্ঞান ও প্রযুক্তি বিশ্ববিদ্যালয়", "url": "/pstu#QuestionBank" },
-              { "text": "জামালপুর বিজ্ঞান ও প্রযুক্তি বিশ্ববিদ্যালয়", "url": "/jstu#QuestionBank" },
-              { "text": "রবীন্দ্র বিশ্ববিদ্যালয়, সিরাজগঞ্জ", "url": "/rub#QuestionBank" },
-              { "text": "পিরোজপুর বিজ্ঞান ও প্রযুক্তি বিশ্ববিদ্যালয়", "url": "/prstu#QuestionBank" },
-              { "text": "রাঙামাটি বিজ্ঞান ও প্রযুক্তি বিশ্ববিদ্যালয়", "url": "/rmstu#QuestionBank" },
-              { "text": "সুনামগঞ্জ বিজ্ঞান ও প্রযুক্তি বিশ্ববিদ্যালয়", "url": "/sstu#QuestionBank" },
-              { "text": "কিশোরগঞ্জ বিশ্ববিদ্যালয়", "url": "/kiu#QuestionBank" },
-              { "text": "বঙ্গবন্ধু শেখ মুজিবুর রহমান ডিজিটাল ইউনিভার্সিটি", "url": "/uftb#QuestionBank" },
-              { "text": "চাঁদপুর বিজ্ঞান ও প্রযুক্তি বিশ্ববিদ্যালয়", "url": "/cstu#QuestionBank" },
-              { "text": "নেত্রকোণা বিশ্ববিদ্যালয়", "url": "/neu#QuestionBank" }
+              {
+                "text": "ইসলামী বিশ্ববিদ্যালয়, কুষ্টিয়া",
+                "url": "/iu#QuestionBank"
+              },
+              {
+                "text": "বঙ্গবন্ধু শেখ মুজিবুর রহমান বিজ্ঞান ও প্রযুক্তি বিশ্ববিদ্যালয়, গোপালগঞ্জ",
+                "url": "/gstu#QuestionBank"
+              },
+              {
+                "text": "নোয়াখালী বিজ্ঞান ও প্রযুক্তি বিশ্ববিদ্যালয়",
+                "url": "/nstu#QuestionBank"
+              },
+              {
+                "text": "বেগম রোকেয়া বিশ্ববিদ্যালয়, রংপুর",
+                "url": "/brur#QuestionBank"
+              },
+              {
+                "text": "জাতীয় কবি কাজী নজরুল ইসলাম বিশ্ববিদ্যালয়, ত্রিশাল",
+                "url": "/jkkniu#QuestionBank"
+              },
+              {
+                "text": "পাবনা বিজ্ঞান ও প্রযুক্তি বিশ্ববিদ্যালয়",
+                "url": "/pust#QuestionBank"
+              },
+              {
+                "text": "যশোর বিজ্ঞান ও প্রযুক্তি বিশ্ববিদ্যালয়",
+                "url": "/just#QuestionBank"
+              },
+              {
+                "text": "মাওলানা ভাসানী বিজ্ঞান ও প্রযুক্তি বিশ্ববিদ্যালয়",
+                "url": "/mbstu#QuestionBank"
+              },
+              {
+                "text": "পটুয়াখালী বিজ্ঞান ও প্রযুক্তি বিশ্ববিদ্যালয়",
+                "url": "/pstu#QuestionBank"
+              },
+              {
+                "text": "জামালপুর বিজ্ঞান ও প্রযুক্তি বিশ্ববিদ্যালয়",
+                "url": "/jstu#QuestionBank"
+              },
+              {
+                "text": "রবীন্দ্র বিশ্ববিদ্যালয়, সিরাজগঞ্জ",
+                "url": "/rub#QuestionBank"
+              },
+              {
+                "text": "পিরোজপুর বিজ্ঞান ও প্রযুক্তি বিশ্ববিদ্যালয়",
+                "url": "/prstu#QuestionBank"
+              },
+              {
+                "text": "রাঙামাটি বিজ্ঞান ও প্রযুক্তি বিশ্ববিদ্যালয়",
+                "url": "/rmstu#QuestionBank"
+              },
+              {
+                "text": "সুনামগঞ্জ বিজ্ঞান ও প্রযুক্তি বিশ্ববিদ্যালয়",
+                "url": "/sstu#QuestionBank"
+              },
+              {
+                "text": "কিশোরগঞ্জ বিশ্ববিদ্যালয়",
+                "url": "/kiu#QuestionBank"
+              },
+              {
+                "text": "বঙ্গবন্ধু শেখ মুজিবুর রহমান ডিজিটাল ইউনিভার্সিটি",
+                "url": "/uftb#QuestionBank"
+              },
+              {
+                "text": "চাঁদপুর বিজ্ঞান ও প্রযুক্তি বিশ্ববিদ্যালয়",
+                "url": "/cstu#QuestionBank"
+              },
+              {
+                "text": "নেত্রকোণা বিশ্ববিদ্যালয়",
+                "url": "/neu#QuestionBank"
+              }
             ]
           }
         ]
@@ -460,7 +514,162 @@
         ]
       }
     ],
-    "duUnitB": [],
+    "duUnitB": [
+      {
+        "title": "সালের প্রশ্ন",
+        "items": [
+          {
+            "links": [
+              {
+                "text": "GST Question 2020-2021",
+                "url": "https://t.me/PDFHour/9931"
+              },
+              {
+                "text": "GST Question 2021-2022",
+                "url": "https://t.me/PDFHour/9932"
+              },
+              {
+                "text": "GST Question 2022-2023",
+                "url": "https://t.me/PDFHour/9933"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "title": "বিজয় গুচ্ছ প্রশ্নবাংক",
+        "items": [
+          {
+            "links": [
+              { "text": "BRUR", "url": "https://t.me/PDFHour/9879" },
+              { "text": "BSFMSTU", "url": "https://t.me/PDFHour/9880" },
+              { "text": "BSMRSTU", "url": "https://t.me/PDFHour/9881" },
+              { "text": "BU", "url": "https://t.me/PDFHour/9882" },
+              { "text": "CoU", "url": "https://t.me/PDFHour/9883" },
+              { "text": "HSTU", "url": "https://t.me/PDFHour/9884" },
+              { "text": "IU", "url": "https://t.me/PDFHour/9885" },
+              { "text": "JKKNIU", "url": "https://t.me/PDFHour/9886" },
+              { "text": "JnU", "url": "https://t.me/PDFHour/9887" },
+              { "text": "JUST", "url": "https://t.me/PDFHour/9888" },
+              { "text": "KU", "url": "https://t.me/PDFHour/9889" },
+              { "text": "MBSTU", "url": "https://t.me/PDFHour/9890" },
+              { "text": "NSTU", "url": "https://t.me/PDFHour/9891" },
+              { "text": "PUST", "url": "https://t.me/PDFHour/9892" },
+              { "text": "RbU", "url": "https://t.me/PDFHour/9893" },
+              { "text": "ShU", "url": "https://t.me/PDFHour/9894" },
+              { "text": "SUST", "url": "https://t.me/PDFHour/9895" }
+            ]
+          }
+        ]
+      },
+      {
+        "title": "গুচ্ছ সামিট",
+        "items": [
+          {
+            "links": [
+              {
+                "text": "BRUR, JKKNIU, CoU, BU",
+                "url": "https://t.me/PDFHour/9897"
+              },
+              {
+                "text": "BSMRSTU, HSTU",
+                "url": "https://t.me/PDFHour/9898"
+              },
+              { "text": "IU, JnU", "url": "https://t.me/PDFHour/9899" },
+              {
+                "text": "NSTU, PUST, RMSTU",
+                "url": "https://t.me/PDFHour/9900"
+              },
+              {
+                "text": "ShU, SUST, JUST",
+                "url": "https://t.me/PDFHour/9901"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "title": "ইউনিভার্সিটি ভিত্তিক প্রশ্নবাংক",
+        "items": [
+          {
+            "links": [
+              {
+                "text": "ইসলামী বিশ্ববিদ্যালয়, কুষ্টিয়া",
+                "url": "/iu#QuestionBank"
+              },
+              {
+                "text": "বঙ্গবন্ধু শেখ মুজিবুর রহমান বিজ্ঞান ও প্রযুক্তি বিশ্ববিদ্যালয়, গোপালগঞ্জ",
+                "url": "/gstu#QuestionBank"
+              },
+              {
+                "text": "নোয়াখালী বিজ্ঞান ও প্রযুক্তি বিশ্ববিদ্যালয়",
+                "url": "/nstu#QuestionBank"
+              },
+              {
+                "text": "বেগম রোকেয়া বিশ্ববিদ্যালয়, রংপুর",
+                "url": "/brur#QuestionBank"
+              },
+              {
+                "text": "জাতীয় কবি কাজী নজরুল ইসলাম বিশ্ববিদ্যালয়, ত্রিশাল",
+                "url": "/jkkniu#QuestionBank"
+              },
+              {
+                "text": "পাবনা বিজ্ঞান ও প্রযুক্তি বিশ্ববিদ্যালয়",
+                "url": "/pust#QuestionBank"
+              },
+              {
+                "text": "যশোর বিজ্ঞান ও প্রযুক্তি বিশ্ববিদ্যালয়",
+                "url": "/just#QuestionBank"
+              },
+              {
+                "text": "মাওলানা ভাসানী বিজ্ঞান ও প্রযুক্তি বিশ্ববিদ্যালয়",
+                "url": "/mbstu#QuestionBank"
+              },
+              {
+                "text": "পটুয়াখালী বিজ্ঞান ও প্রযুক্তি বিশ্ববিদ্যালয়",
+                "url": "/pstu#QuestionBank"
+              },
+              {
+                "text": "জামালপুর বিজ্ঞান ও প্রযুক্তি বিশ্ববিদ্যালয়",
+                "url": "/jstu#QuestionBank"
+              },
+              {
+                "text": "রবীন্দ্র বিশ্ববিদ্যালয়, সিরাজগঞ্জ",
+                "url": "/rub#QuestionBank"
+              },
+              {
+                "text": "পিরোজপুর বিজ্ঞান ও প্রযুক্তি বিশ্ববিদ্যালয়",
+                "url": "/prstu#QuestionBank"
+              },
+              {
+                "text": "রাঙামাটি বিজ্ঞান ও প্রযুক্তি বিশ্ববিদ্যালয়",
+                "url": "/rmstu#QuestionBank"
+              },
+              {
+                "text": "সুনামগঞ্জ বিজ্ঞান ও প্রযুক্তি বিশ্ববিদ্যালয়",
+                "url": "/sstu#QuestionBank"
+              },
+              {
+                "text": "কিশোরগঞ্জ বিশ্ববিদ্যালয়",
+                "url": "/kiu#QuestionBank"
+              },
+              {
+                "text": "বঙ্গবন্ধু শেখ মুজিবুর রহমান ডিজিটাল ইউনিভার্সিটি",
+                "url": "/uftb#QuestionBank"
+              },
+              {
+                "text": "চাঁদপুর বিজ্ঞান ও প্রযুক্তি বিশ্ববিদ্যালয়",
+                "url": "/cstu#QuestionBank"
+              },
+              {
+                "text": "নেত্রকোণা বিশ্ববিদ্যালয়",
+                "url": "/neu#QuestionBank"
+              }
+            ]
+          }
+        ]
+      }
+    ],
     "duUnitC": []
   },
   "subjects": {
