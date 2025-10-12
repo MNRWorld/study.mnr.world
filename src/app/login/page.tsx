@@ -10,7 +10,12 @@ import { useToast } from "@/hooks/use-toast";
 import { useUser } from "@/lib/supabase/hooks";
 
 const GoogleIcon = (props: React.SVGProps<SVGSVGElement>) => (
-  <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" {...props}>
+  <svg
+    role="img"
+    viewBox="0 -1 24 24"
+    xmlns="http://www.w3.org/2000/svg"
+    {...props}
+  >
     <title>Google</title>
     <path
       fill="currentColor"
