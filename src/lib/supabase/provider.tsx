@@ -42,7 +42,7 @@ export const SupabaseProvider = ({ children }: { children: ReactNode }) => {
       setSession(session);
       const currentUser = session?.user ?? null;
       setUser(currentUser);
-      setLoading(false);
+      setLoading(false); // Ensure loading is set to false on auth state change
 
       if (event === "SIGNED_IN" && currentUser && !currentUser.is_anonymous) {
         // Upsert profile data to handle both new and existing users
