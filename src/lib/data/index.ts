@@ -22,12 +22,14 @@ import privateUniversities from "./universities/private-universities.json";
 
 import duInfo from "./universities/du/info.json";
 import ruInfo from "./universities/ru/info.json";
+import gstInfo from "./universities/gst/info.json";
 
 type University = (typeof publicUniversities)[0];
 
 const universityDetails: Record<string, any> = {
   du: duInfo,
   ru: ruInfo,
+  gst: gstInfo,
 };
 
 const allUniversities = [...publicUniversities, ...privateUniversities].map(

@@ -31,6 +31,19 @@ const DhakaHistoryAndMap = dynamic(() => import("./DhakaHistoryAndMap"), {
   loading: LoadingComponent,
 });
 
+const GstQuestionBank = dynamic(() => import("./GstQuestionBank"), {
+  loading: LoadingComponent,
+});
+const GstAdmissionInfo = dynamic(() => import("./GstAdmissionInfo"), {
+  loading: LoadingComponent,
+});
+const GstSeatInfo = dynamic(() => import("./GstSeatInfo"), {
+  loading: LoadingComponent,
+});
+const GstHistoryAndMap = dynamic(() => import("./GstHistoryAndMap"), {
+  loading: LoadingComponent,
+});
+
 // Component Map for university-specific components
 const universityComponents: {
   [key: string]: {
@@ -51,6 +64,12 @@ const universityComponents: {
     AdmissionInfo: DhakaAdmissionInfo,
     SeatInfo: DhakaSeatInfo,
     HistoryAndMap: DhakaHistoryAndMap,
+  },
+  gst: {
+    QuestionBank: GstQuestionBank,
+    AdmissionInfo: GstAdmissionInfo,
+    SeatInfo: GstSeatInfo,
+    HistoryAndMap: GstHistoryAndMap,
   },
 };
 

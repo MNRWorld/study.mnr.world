@@ -1,0 +1,130 @@
+{
+  "admissionInfo": {
+    "title": "ভর্তি তথ্য (HSC-24)",
+    "apply": {
+      "title": "আবেদন",
+      "startDate": "০৪ নভেম্বর, ২০২৪ (দুপুর ১২টা থেকে)",
+      "endDate": "২৫ নভেম্বর, ২০২৪ (রাত ১১.৫৯টা পর্যন্ত)",
+      "fees": [
+        {
+          "unit": "সকল ইউনিট",
+          "amount": "১৫০০৳"
+        }
+      ],
+      "helpfulLinks": [],
+      "link": "https://gstadmission.ac.bd/",
+      "qualificationTitle": "আবেদনের যোগ্যতাঃ",
+      "sscBatch": "2021, 2022",
+      "hscBatch": "2023, 2024",
+      "secondTime": "আছে"
+    },
+    "unitRequirements": {
+      "title": "ইউনিট ও বিভাগ ভিত্তিক শর্ত",
+      "units": []
+    },
+    "improvementPolicy": {
+      "title": "ইমপ্রুভমেন্ট ও পরবর্তী ব্যাচের পরীক্ষা",
+      "details": ""
+    },
+    "admitCard": {
+      "title": "প্রবেশপত্র",
+      "startDate": "",
+      "endDate": "",
+      "link": "https://gstadmission.ac.bd/",
+      "note": ""
+    },
+    "examDate": {
+      "title": "পরীক্ষার সময়কাল",
+      "dates": [
+        {
+          "unit": "A",
+          "date": "২৭ এপ্রিল"
+        },
+        {
+          "unit": "B",
+          "date": "০৩ মে"
+        },
+        {
+          "unit": "C",
+          "date": "১০ মে"
+        }
+      ],
+      "note": {
+        "text": "অ্যাডমিশন ক্যালেন্ডার",
+        "link": "/calendar"
+      }
+    },
+    "examCenter": {
+      "title": "ভর্তি পরীক্ষার কেন্দ্র",
+      "location": "বিভিন্ন কেন্দ্র",
+      "locationLink": "",
+      "note": ""
+    },
+    "generalInfo": {
+      "title": "মানবন্টন ও অন্যান্য তথ্য",
+      "points": [
+        {
+          "label": "সিলেবাস",
+          "value": "সংক্ষিপ্ত"
+        },
+        {
+          "label": "সেকেন্ড টাইম",
+          "value": "আছে"
+        },
+        {
+          "label": "নেগেটিভ মার্কিং",
+          "value": "প্রতি ভুলের জন্য ০.২৫ নম্বর কাটা যাবে"
+        },
+        {
+          "label": "ক্যালকুলেটর",
+          "value": "ব্যবহার করা যাবে না"
+        }
+      ]
+    },
+    "result": {
+      "title": "ভর্তি পরীক্ষার ফলাফল",
+      "date": "ভর্তি পরীক্ষার পর",
+      "link": "https://gstadmission.ac.bd/"
+    }
+  },
+  "historyAndMap": {
+    "history": {
+      "title": "একনজরে GST গুচ্ছ",
+      "paragraphs": [],
+      "source": {
+        "label": "উৎস",
+        "links": []
+      }
+    },
+    "mapLocations": {
+      "title": "বিশ্ববিদ্যালয়সমূহের গুগল ম্যাপ লোকেশন",
+      "categories": []
+    }
+  },
+  "links": [
+    [
+      {
+        "href": "#Circular",
+        "label": "সার্কুলার"
+      },
+      {
+        "href": "/question-bank?tab=gst",
+        "label": "প্রশ্নব্যাংক"
+      }
+    ]
+  ],
+  "questionBanks": {
+    "duUnitA": [],
+    "duUnitB": [],
+    "duUnitC": [],
+    "duUnitCha": [],
+    "duIBA": []
+  },
+  "subjects": {
+    "unitA": [],
+    "unitB": [],
+    "unitC": [],
+    "unitCha": [],
+    "unitIBA": []
+  }
+}
