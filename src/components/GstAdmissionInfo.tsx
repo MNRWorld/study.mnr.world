@@ -220,6 +220,54 @@ const GstAdmissionInfo = () => {
         </div>
       </div>
       <hr className="my-3 border-border/50" />
+      
+      {unitRequirements && (
+        <Accordion type="multiple" className="w-full space-y-2">
+          <AccordionItem
+            value="info-1"
+            className="border border-border rounded-lg bg-card hover:bg-accent/50"
+          >
+            <AccordionTrigger className="p-3 text-base font-bold hover:no-underline">
+              <div className="flex items-center">
+                <CircleAlert className="inline-block mr-2" />
+                <span>{unitRequirements.title}</span>
+              </div>
+            </AccordionTrigger>
+            <AccordionContent className="p-4 pt-0 sm:p-5 text-base">
+              {unitRequirements.units.map(
+                (unit: UnitRequirement, index: number) => (
+                  <div key={index} className="mb-2">
+                    ❐ <b>&quot;{unit.name}&quot; ইউনিট:</b>
+                    <br />
+                    {unit.departments.map((dept: UnitDepartment, i: number) => (
+                      <span key={i}>
+                        ● <b>{dept.name}:</b> {dept.requirement}
+                        <br />
+                      </span>
+                    ))}
+                  </div>
+                ),
+              )}
+            </AccordionContent>
+          </AccordionItem>
+          <AccordionItem
+            value="item-2"
+            className="bg-card border border-border rounded-lg overflow-hidden mt-4"
+          >
+            <AccordionTrigger className="p-3 text-base font-bold hover:no-underline">
+              <div className="flex items-center">
+                <Info className="mr-2" />
+                <span>{improvementPolicy.title}</span>
+              </div>
+            </AccordionTrigger>
+            <AccordionContent className="p-4 pt-0 sm:p-5 text-base">
+              <span
+                dangerouslySetInnerHTML={{ __html: improvementPolicy.details }}
+              />
+            </AccordionContent>
+          </AccordionItem>
+        </Accordion>
+      )}
 
       <h2
         id="ExamDate"
