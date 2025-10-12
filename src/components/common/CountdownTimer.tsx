@@ -1,3 +1,4 @@
+
 "use client";
 
 import React, { useState, useEffect, useRef } from "react";
@@ -22,11 +23,19 @@ const admissionDeadlines: Deadline[] = allData.CalendarInfo.filter(
 function getDeadlinesByUniversity(
   universityId: string,
 ): Deadline[] | undefined {
+  if (universityId === 'gst') {
+    const gstIds = ['gst', 'gst-a', 'gst-b', 'gst-c'];
+    const deadlines = admissionDeadlines.filter((d) => 
+      (d.universityId && gstIds.includes(d.universityId)) || gstIds.includes(d.id)
+    );
+    return deadlines.length > 0 ? deadlines : undefined;
+  }
   const deadlines = admissionDeadlines.filter(
     (d) => d.universityId === universityId,
   );
   return deadlines.length > 0 ? deadlines : undefined;
 }
+
 
 interface CountdownTimerProps {
   universityId?: string;
