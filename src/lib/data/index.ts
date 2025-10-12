@@ -9,6 +9,7 @@ import deadlinesList from "./deadlines/list.json";
 import linksList from "./links/list.json";
 import navigationLinks from "./navigation/links.json";
 import questionBankCards from "./question-bank/cards.json";
+import schedulesAdmission from "./schedules/admission.json";
 import schedulesApplication from "./schedules/application.json";
 import schedulesGeneral from "./schedules/general.json";
 import schedulesOthers from "./schedules/others.json";
@@ -55,6 +56,7 @@ export const allData = {
   linksList,
   navigationLinks,
   questionBankCards,
+  schedulesAdmission,
   schedulesApplication,
   schedulesGeneral,
   schedulesOthers,
