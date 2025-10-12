@@ -1,11 +1,14 @@
+
 "use client";
 
-import React from "react";
+import React, { useState, useMemo } from "react";
 import { allData } from "@/lib/data/_generated";
 import ExternalLink from "@/components/common/ExternalLink";
 import { useCountdown } from "@/hooks/useCountdown";
 import SharedScheduleTable from "@/components/common/SharedScheduleTable";
 import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Search } from "lucide-react";
 
 const CountdownDisplay = ({ targetDate }: { targetDate: string | null }) => {
   const timeLeft = useCountdown(targetDate);
@@ -37,27 +40,35 @@ const CountdownDisplay = ({ targetDate }: { targetDate: string | null }) => {
 };
 
 const CalendarApplicationScheduleTable = () => {
-  const sortedSchedule = [...allData.schedulesApplication].sort((a, b) => {
-    const dateA = a.applyCountdownDate
-      ? new Date(a.applyCountdownDate).getTime()
-      : 0;
-    const dateB = b.applyCountdownDate
-      ? new Date(b.applyCountdownDate).getTime()
-      : 0;
-    const now = new Date().getTime();
+  const [searchTerm, setSearchTerm] = useState("");
 
-    const completedA = dateA > 0 && dateA < now;
-    const completedB = dateB > 0 && dateB < now;
+  const sortedSchedule = useMemo(() => {
+    const filteredData = allData.schedulesApplication.filter((item) =>
+      item.university.toLowerCase().includes(searchTerm.toLowerCase()),
+    );
 
-    if (completedA && !completedB) return 1;
-    if (!completedA && completedB) return -1;
-    if (completedA && completedB) return dateA - dateB;
+    return [...filteredData].sort((a, b) => {
+      const dateA = a.applyCountdownDate
+        ? new Date(a.applyCountdownDate).getTime()
+        : 0;
+      const dateB = b.applyCountdownDate
+        ? new Date(b.applyCountdownDate).getTime()
+        : 0;
+      const now = new Date().getTime();
 
-    if (dateA === 0) return 1;
-    if (dateB === 0) return -1;
+      const completedA = dateA > 0 && dateA < now;
+      const completedB = dateB > 0 && dateB < now;
 
-    return dateA - dateB;
-  });
+      if (completedA && !completedB) return 1;
+      if (!completedA && completedB) return -1;
+      if (completedA && completedB) return dateA - dateB;
+
+      if (dateA === 0) return 1;
+      if (dateB === 0) return -1;
+
+      return dateA - dateB;
+    });
+  }, [searchTerm]);
 
   const columns = [
     {
@@ -103,7 +114,21 @@ const CalendarApplicationScheduleTable = () => {
     },
   ];
 
-  return <SharedScheduleTable data={sortedSchedule} columns={columns} />;
+  return (
+    <>
+      <div className="relative my-4">
+        <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground" />
+        <Input
+          type="text"
+          placeholder="বিশ্ববিদ্যালয় খুঁজুন..."
+          value={searchTerm}
+          onChange={(e) => setSearchTerm(e.target.value)}
+          className="w-full pl-10 h-12 text-base bg-card border"
+        />
+      </div>
+      <SharedScheduleTable data={sortedSchedule} columns={columns} />
+    </>
+  );
 };
 
 export default CalendarApplicationScheduleTable;
