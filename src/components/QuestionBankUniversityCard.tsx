@@ -41,6 +41,7 @@ const clusterInfo: { [key: string]: string } = {
   "sust-affiliated": "শুধু বিজ্ঞান বিভাগ",
   "du-affiliated": "সকল বিভাগ",
   iut: "শুধু বিজ্ঞান বিভাগের মুসলিমদের",
+  duet: "শুধুমাত্র ডিপ্লোমা শিক্ষার্থী",
 };
 
 const QuestionBankUniversityCard = React.memo(
@@ -77,6 +78,7 @@ const QuestionBankUniversityCard = React.memo(
       "sust-affiliated",
       "du-affiliated",
       "iut",
+      "duet",
     ];
 
     // Special case for cluster cards
