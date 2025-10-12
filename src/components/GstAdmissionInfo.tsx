@@ -270,6 +270,46 @@ const GstAdmissionInfo = () => {
       )}
 
       <h2
+        id="AdmitCard"
+        className="bg-primary/10 text-primary rounded-xl p-3 mt-8 mb-4 text-center text-lg font-bold flex items-center justify-center"
+      >
+        <Dock className="mr-2" size={16} /> {admitCard.title}
+      </h2>
+      <div className="text-base">
+        <div className="mt-2">
+          <b>
+            <CalendarClock className="inline-block mr-2" />
+            ডাউনলোডের সময়কাল:
+          </b>
+          <br />
+          <b>&nbsp;&nbsp;&nbsp; • শুরু:</b> {admitCard.startDate}
+          <br />
+          <b>&nbsp;&nbsp;&nbsp; • শেষ:</b> {admitCard.endDate}
+          <br />
+          <br />
+          <b>
+            <LinkIcon className="inline-block mr-2" size={18} />
+            লিংকঃ
+          </b>{" "}
+          <ExternalLink
+            href={admitCard.link}
+            text={admitCard.link.replace("https://", "")}
+          />
+          <br />
+          (লগইন করে ডাউনলোড করতে হবে।)
+          <br />
+          <br />
+          <b>
+            <div className="text-orange-500 dark:text-orange-400 flex items-center">
+              <CircleAlert size={18} className="inline-block mr-1" />
+              নোটঃ
+            </div>
+          </b>
+          {admitCard.note}
+        </div>
+      </div>
+
+      <h2
         id="ExamDate"
         className="bg-primary/10 text-primary rounded-xl p-3 mt-8 mb-4 text-center text-lg font-bold flex items-center justify-center"
       >
