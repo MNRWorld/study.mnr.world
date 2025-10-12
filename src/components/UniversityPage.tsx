@@ -126,7 +126,13 @@ const UniversityPage = ({
             `,
                   },
                 ]
-              : []
+              : university.id === "gst"
+                ? [
+                    { value: "১৮টি", label: "বিশ্ববিদ্যালয়" },
+                    { value: "৮৪টি+", label: "বিষয়" },
+                    { value: "১৩,০০০টি+", label: "আসন" },
+                  ]
+                : []
           }
           button={{ href: "#Info", label: "মূল তথ্য" }}
         />
