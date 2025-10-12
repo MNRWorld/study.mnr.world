@@ -1,3 +1,4 @@
+
 "use client";
 
 import React from "react";
@@ -125,7 +126,16 @@ const UniversityPage = ({
             `,
                   },
                 ]
-              : []
+              : university.id === "gst"
+                ? [
+                    { value: "২২টি", label: "বিশ্ববিদ্যালয়" },
+                    { value: "৮৪টি", label: "বিষয়" },
+                    {
+                      value: "২০,০০০+",
+                      label: "আসন",
+                    },
+                  ]
+                : []
           }
           button={{ href: "#Info", label: "মূল তথ্য" }}
         />
