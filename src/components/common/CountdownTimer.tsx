@@ -88,7 +88,7 @@ const CountdownTimer = ({ universityId }: CountdownTimerProps) => {
       relevantDeadlines = admissionDeadlines;
     }
 
-    const typePriority = { exam: 1, apply: 2, admit: 3 };
+    const typePriority = { apply: 1, admit: 2, exam: 3 };
 
     const sortedDeadlines = relevantDeadlines
       .filter((d) => d.date > new Date())
