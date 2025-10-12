@@ -33,7 +33,7 @@ function PrivatePage() {
         <Circular
           title="বিভিন্ন বিশ্ববিদ্যালয়ের সার্কুলার"
           note="(⚠ নোট: নিজ নিজ বিশ্ববিদ্যালয়ের ওয়েবসাইটে সর্বশেষ সার্কুলার পাবেন।)"
-          downloadLink="#"
+          downloadLink="https://t.me/Study_on_Telegram/14079"
         />
 
         <PrivateAdmissionInfo />

@@ -150,7 +150,7 @@ const UniversityPage = ({
         <Circular
           title="সম্পূর্ণ সার্কুলার"
           note="(⚠ নোট: সর্বশেষ সার্কুলার এখনও প্রকাশিত হয়নি। পূর্ববর্তী বছরের সার্কুলার দেখে আইডিয়া নিতে পারেন।)"
-          downloadLink="#"
+          downloadLink="https://t.me/Study_on_Telegram/14079"
           showPreviousYears={!!SpecificComponents}
         />
 
