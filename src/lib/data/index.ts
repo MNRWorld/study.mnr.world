@@ -15,6 +15,7 @@ import schedulesGeneral from "./schedules/general.json";
 import schedulesOthers from "./schedules/others.json";
 import testPapersList from "./test-papers/list.json";
 import CalendarInfo from "./deadlines/list.json";
+import calculatorContent from "./calculator/content.json";
 
 // University data imports
 import publicUniversities from "./universities/public-universities.json";
@@ -65,4 +66,5 @@ export const allData = {
   testPapersList,
   universities: allUniversities,
   CalendarInfo,
+  calculatorContent,
 };

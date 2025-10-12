@@ -1,10 +1,9 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import {
   Card,
   CardContent,
-  CardDescription,
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
@@ -19,7 +18,8 @@ import {
 } from "@/components/ui/select";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Button } from "@/components/ui/button";
-import { University, CheckCircle, XCircle } from "lucide-react";
+import { University } from "lucide-react";
+import { allData } from "@/lib/data/_generated";
 
 const EligibilityCheckerPage = () => {
   const [name, setName] = useState("");
@@ -40,44 +40,7 @@ const EligibilityCheckerPage = () => {
   const [circulars, setCirculars] = useState<any[]>([]);
   const [deductions, setDeductions] = useState<any[]>([]);
 
-  const CIRCULARS = {
-    medical: [
-      {
-        title: "Medical Circular 2025 - A",
-        desc: "Admission circular for Medical (sample).",
-      },
-      {
-        title: "Medical Notice - Scholarships",
-        desc: "Medical scholarship notice.",
-      },
-    ],
-    engineering: [
-      {
-        title: "Engineering Circular 2025",
-        desc: "Admission circular for Engineering.",
-      },
-      {
-        title: "Engineering Eligibility FAQ",
-        desc: "Important FAQ and schedule.",
-      },
-    ],
-    university: [
-      {
-        title: "University General Circular",
-        desc: "General admission circular.",
-      },
-      {
-        title: "Merit & Waiting List Info",
-        desc: "Merit list schedule and rules.",
-      },
-    ],
-  };
-
-  const THRESHOLDS = {
-    medical: 85,
-    engineering: 80,
-    university: 60,
-  };
+  const { CIRCULARS, THRESHOLDS } = allData.calculatorContent;
 
   const computeDeductions = (
     dept: string,
@@ -270,7 +233,9 @@ const EligibilityCheckerPage = () => {
                   <SelectContent>
                     <SelectItem value="medical">Medical</SelectItem>
                     <SelectItem value="engineering">Engineering</SelectItem>
-                    <SelectItem value="university">University (General)</SelectItem>
+                    <SelectItem value="university">
+                      University (General)
+                    </SelectItem>
                   </SelectContent>
                 </Select>
               </div>
@@ -363,7 +328,11 @@ const EligibilityCheckerPage = () => {
                 <Button onClick={checkEligibility} className="w-full">
                   Check Eligibility
                 </Button>
-                <Button onClick={resetForm} variant="outline" className="w-full">
+                <Button
+                  onClick={resetForm}
+                  variant="outline"
+                  className="w-full"
+                >
                   Reset
                 </Button>
               </div>
@@ -398,10 +367,7 @@ const EligibilityCheckerPage = () => {
                   </h4>
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     {circulars.map((c, i) => (
-                      <div
-                        key={i}
-                        className="p-4 rounded-lg border bg-card"
-                      >
+                      <div key={i} className="p-4 rounded-lg border bg-card">
                         <h5 className="font-bold">{c.title}</h5>
                         <p className="text-sm text-muted-foreground">
                           {c.desc}
@@ -422,7 +388,7 @@ const EligibilityCheckerPage = () => {
 
               {deductions.length > 0 && (
                 <div className="mt-4 space-y-2">
-                   <h4 className="font-semibold mb-2">কর্তন বিবরন</h4>
+                  <h4 className="font-semibold mb-2">কর্তন বিবরন</h4>
                   {deductions.map((d, i) => (
                     <div
                       key={i}
@@ -432,15 +398,15 @@ const EligibilityCheckerPage = () => {
                       <span className="font-bold">-{d.value}</span>
                     </div>
                   ))}
-                   <div
-                      className="flex justify-between items-center p-2 bg-muted rounded-md"
-                    >
-                      <span className="font-bold">Total Deduction</span>
-                      <span className="font-bold">-{deductions.reduce((total, d) => total + d.value, 0)}</span>
-                    </div>
+                  <div className="flex justify-between items-center p-2 bg-muted rounded-md">
+                    <span className="font-bold">Total Deduction</span>
+                    <span className="font-bold">
+                      -{deductions.reduce((total, d) => total + d.value, 0)}
+                    </span>
+                  </div>
                 </div>
               )}
-               <footer className="text-center mt-8 text-sm text-muted-foreground">
+              <footer className="text-center mt-8 text-sm text-muted-foreground">
                 <p>Developed for you — প্রো স্টাইল UI.</p>
               </footer>
             </CardContent>

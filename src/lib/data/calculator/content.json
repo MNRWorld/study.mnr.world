@@ -1,0 +1,39 @@
+{
+  "CIRCULARS": {
+    "medical": [
+      {
+        "title": "Medical Circular 2025 - A",
+        "desc": "Admission circular for Medical (sample)."
+      },
+      {
+        "title": "Medical Notice - Scholarships",
+        "desc": "Medical scholarship notice."
+      }
+    ],
+    "engineering": [
+      {
+        "title": "Engineering Circular 2025",
+        "desc": "Admission circular for Engineering."
+      },
+      {
+        "title": "Engineering Eligibility FAQ",
+        "desc": "Important FAQ and schedule."
+      }
+    ],
+    "university": [
+      {
+        "title": "University General Circular",
+        "desc": "General admission circular."
+      },
+      {
+        "title": "Merit & Waiting List Info",
+        "desc": "Merit list schedule and rules."
+      }
+    ]
+  },
+  "THRESHOLDS": {
+    "medical": 85,
+    "engineering": 80,
+    "university": 60
+  }
+}
