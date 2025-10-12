@@ -2,19 +2,19 @@
   "allGroups": [
     {
       "title": "বাংলা ১ম ও ২য় পত্র",
-      "logo": "https://raw.githubusercontent.com/MNRfrom2020/logo-and-icon-cdn/main/Icon/books.png",
+      "logo": "https://raw.githubusercontent.com/MNRfrom2020/logo-and-icon-cdn/refs/heads/main/Icon/Bangla.png",
       "href": "#",
       "bgColor": "bg-red-400"
     },
     {
       "title": "ইংরেজী ১ম ও ২য় পত্র",
-      "logo": "https://raw.githubusercontent.com/MNRfrom2020/logo-and-icon-cdn/main/Icon/books.png",
+      "logo": "https://raw.githubusercontent.com/MNRfrom2020/logo-and-icon-cdn/refs/heads/main/Icon/English.png",
       "href": "#",
       "bgColor": "bg-blue-400"
     },
     {
       "title": "তথ্য ও যোগাযোগ প্রযুক্তি",
-      "logo": "https://raw.githubusercontent.com/MNRfrom2020/logo-and-icon-cdn/main/Icon/books.png",
+      "logo": "https://raw.githubusercontent.com/MNRfrom2020/logo-and-icon-cdn/refs/heads/main/Icon/ICT.png",
       "href": "#",
       "bgColor": "bg-green-400"
     }
@@ -22,25 +22,25 @@
   "scienceGroup": [
     {
       "title": "পদার্থবিজ্ঞান ১ম ও ২য় পত্র",
-      "logo": "https://raw.githubusercontent.com/MNRfrom2020/logo-and-icon-cdn/main/Icon/physics.png",
+      "logo": "https://raw.githubusercontent.com/MNRfrom2020/logo-and-icon-cdn/refs/heads/main/Icon/Physics.png",
       "href": "#",
       "bgColor": "bg-indigo-400"
     },
     {
       "title": "রসায়ন ১ম ও ২য় পত্র",
-      "logo": "https://raw.githubusercontent.com/MNRfrom2020/logo-and-icon-cdn/main/Icon/chemistry.png",
+      "logo": "https://raw.githubusercontent.com/MNRfrom2020/logo-and-icon-cdn/refs/heads/main/Icon/Chemistry.png",
       "href": "#",
       "bgColor": "bg-purple-400"
     },
     {
       "title": "জীববিজ্ঞান ১ম ও ২য় পত্র",
-      "logo": "https://raw.githubusercontent.com/MNRfrom2020/logo-and-icon-cdn/main/Icon/biology.png",
+      "logo": "https://raw.githubusercontent.com/MNRfrom2020/logo-and-icon-cdn/refs/heads/main/Icon/Biology.png",
       "href": "#",
       "bgColor": "bg-teal-400"
     },
     {
       "title": "উচ্চতর গণিত ১ম ও ২য় পত্র",
-      "logo": "https://raw.githubusercontent.com/MNRfrom2020/logo-and-icon-cdn/main/Icon/math.png",
+      "logo": "https://raw.githubusercontent.com/MNRfrom2020/logo-and-icon-cdn/refs/heads/main/Icon/Math.png",
       "href": "#",
       "bgColor": "bg-orange-400"
     }
