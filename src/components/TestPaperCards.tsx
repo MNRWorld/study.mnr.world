@@ -21,12 +21,8 @@ const TestPaperCard: React.FC<TestPaperCardProps> = ({
     <Link href={href}>
       <div
         className={cn(
-          "relative w-full h-56 sm:h-64 text-center font-bold rounded-md p-4 flex flex-col justify-center items-center transition-all duration-300 hover:-translate-y-1 hover:shadow-xl border-l-8",
-          bgColor,
-          `border-${bgColor.split("-")[1]}-600`,
-          "dark:border-opacity-80",
-          "border",
-          "border-border",
+          "relative w-full h-56 sm:h-64 text-center font-bold rounded-md p-4 flex flex-col justify-center items-center transition-all duration-300 hover:-translate-y-1 hover:shadow-xl border",
+          "bg-card hover:border-primary/50",
         )}
       >
         <div className="bg-accent dark:bg-[#757575] rounded-full p-2 w-16 h-16 sm:w-20 sm:h-20 flex items-center justify-center mb-3 shadow-inner mx-auto">

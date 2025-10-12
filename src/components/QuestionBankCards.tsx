@@ -14,12 +14,8 @@ const QuestionBankCards = () => {
         <Link href={card.href} key={index}>
           <div
             className={cn(
-              "relative w-full h-56 sm:h-64 text-center font-bold rounded-md p-4 flex flex-col justify-between items-center transition-all duration-300 hover:-translate-y-1 hover:shadow-xl border-l-8",
-              card.bgColor,
-              `border-${card.bgColor.split("-")[1]}-600`,
-              "dark:border-opacity-80",
-              "border",
-              "border-border",
+              "relative w-full h-56 sm:h-64 text-center font-bold rounded-md p-4 flex flex-col justify-between items-center transition-all duration-300 hover:-translate-y-1 hover:shadow-xl border",
+              "bg-card hover:border-primary/50",
             )}
           >
             <div>
