@@ -1,3 +1,4 @@
+
 [
   {
     "nameBn": "ঢাকা বিশ্ববিদ্যালয়",
@@ -490,9 +491,9 @@
     "logo": "https://raw.githubusercontent.com/MNRfrom2020/logo-and-icon-cdn/refs/heads/main/University/RUB.png"
   },
   {
-    "nameBn": "বঙ্গবন্ধু শেখ মুজিবুর রহমান অ্যাভিয়েশন অ্যান্ড অ্যারোস্পেস বিশ্ববিদ্যালয়",
-    "nameEn": "Bangabandhu Sheikh Mujibur Rahman Aviation and Aerospace University",
-    "shortName": "BSMRAAU",
+    "nameBn": "অ্যাভিয়েশন অ্যান্ড অ্যারোস্পেস বিশ্ববিদ্যালয়, বাংলাদেশ",
+    "nameEn": "Aviation and Aerospace University, Bangladesh",
+    "shortName": "AAUB",
     "id": "aaub",
     "category": ["বিশেষ", "প্রকৌশল"],
     "description": "এটি বাংলাদেশের একটি সরকারি, স্বনামধন্য এবং মহাকাশ প্রকৌশল বিষয়ক প্রথম উচ্চশিক্ষা প্রতিষ্ঠান, যেখানে বিমান চলাচল ও মহাকাশ প্রযুক্তির ওপর বিশেষায়িত কোর্স করানো হয়",
