@@ -193,18 +193,22 @@
   "links": [
     [
       {
-        "href": "#Circular",
-        "label": "সার্কুলার"
+        "href": "https://gstadmission.ac.bd/",
+        "label": "ভর্তি ওয়েবসাইট",
+        "target": "_blank",
+        "rel": "noreferrer noopener"
       },
       {
-        "href": "/question-bank?tab=gst",
-        "label": "প্রশ্নব্যাংক"
+        "href": "https://gstadmission.ac.bd/site/gst-universities",
+        "label": "গুচ্ছভুক্ত বিশ্ববিদ্যালয়",
+        "target": "_blank",
+        "rel": "noreferrer noopener"
       }
     ],
     [
       {
         "href": "https://gstadmission.ac.bd/",
-        "label": "মূল ওয়েবসাইট",
+        "label": "আবেদন <b>|</b> প্রবেশপত্র <b>|</b> ফলাফল",
         "target": "_blank",
         "rel": "noreferrer noopener",
         "colSpan": 2
