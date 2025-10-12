@@ -295,13 +295,165 @@
   "questionBanks": {
     "duUnitA": [
       {
+        "title": "সালের প্রশ্ন",
+        "items": [
+          {
+            "links": [
+              {
+                "text": "GST Question 2020-2021",
+                "url": "https://t.me/PDFHour/9837"
+              },
+              {
+                "text": "GST Question 2021-2022",
+                "url": "https://t.me/PDFHour/9838"
+              },
+              {
+                "text": "GST Question 2022-2023",
+                "url": "https://t.me/PDFHour/9839"
+              },
+              {
+                "text": "GST Question 2023-2024",
+                "url": "https://t.me/PDFHour/10398?single"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "title": "অধ্যায়ভিত্তিক প্রশ্নব্যাংক",
+        "items": [
+          {
+            "links": [
+              {
+                "text": "নেটওয়ার্ক গুচ্ছ ভর্তি সহায়িকা",
+                "url": "https://t.me/PDFHour/9817"
+              },
+              {
+                "text": "জয়কলি গুচ্ছ এইড",
+                "url": "https://t.me/PDFHour/10018"
+              },
+              {
+                "text": "উদ্ভাস বিজ্ঞান ও প্রযুক্তি প্রশ্নব্যাংক",
+                "url": "https://t.me/PDFHour/9825"
+              }
+            ]
+          }
+        ]
+      },
+      {
         "title": "সালভিত্তিক প্রশ্নব্যাংক",
         "items": [
           {
             "links": [
               {
-                "text": "উদ্ভাস GST প্রশ্নব্যাংক",
-                "url": "#"
+                "text": "জয়কলি গুচ্ছ এইড (১ম অংশ)",
+                "url": "https://t.me/PDFHour/9836"
+              },
+              {
+                "text": "জয়কলি গুচ্ছ এইড (২য় অংশ)",
+                "url": "https://t.me/PDFHour/10006"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "title": "ইউনিভার্সিটি ভিত্তিক প্রশ্নবাংক",
+        "items": [
+          {
+            "links": [
+              { "text": "ইসলামী বিশ্ববিদ্যালয়, কুষ্টিয়া", "url": "/iu#QuestionBank" },
+              { "text": "বঙ্গবন্ধু শেখ মুজিবুর রহমান বিজ্ঞান ও প্রযুক্তি বিশ্ববিদ্যালয়, গোপালগঞ্জ", "url": "/gstu#QuestionBank" },
+              { "text": "নোয়াখালী বিজ্ঞান ও প্রযুক্তি বিশ্ববিদ্যালয়", "url": "/nstu#QuestionBank" },
+              { "text": "বেগম রোকেয়া বিশ্ববিদ্যালয়, রংপুর", "url": "/brur#QuestionBank" },
+              { "text": "জাতীয় কবি কাজী নজরুল ইসলাম বিশ্ববিদ্যালয়, ত্রিশাল", "url": "/jkkniu#QuestionBank" },
+              { "text": "পাবনা বিজ্ঞান ও প্রযুক্তি বিশ্ববিদ্যালয়", "url": "/pust#QuestionBank" },
+              { "text": "যশোর বিজ্ঞান ও প্রযুক্তি বিশ্ববিদ্যালয়", "url": "/just#QuestionBank" },
+              { "text": "মাওলানা ভাসানী বিজ্ঞান ও প্রযুক্তি বিশ্ববিদ্যালয়", "url": "/mbstu#QuestionBank" },
+              { "text": "পটুয়াখালী বিজ্ঞান ও প্রযুক্তি বিশ্ববিদ্যালয়", "url": "/pstu#QuestionBank" },
+              { "text": "জামালপুর বিজ্ঞান ও প্রযুক্তি বিশ্ববিদ্যালয়", "url": "/jstu#QuestionBank" },
+              { "text": "রবীন্দ্র বিশ্ববিদ্যালয়, সিরাজগঞ্জ", "url": "/rub#QuestionBank" },
+              { "text": "পিরোজপুর বিজ্ঞান ও প্রযুক্তি বিশ্ববিদ্যালয়", "url": "/prstu#QuestionBank" },
+              { "text": "রাঙামাটি বিজ্ঞান ও প্রযুক্তি বিশ্ববিদ্যালয়", "url": "/rmstu#QuestionBank" },
+              { "text": "সুনামগঞ্জ বিজ্ঞান ও প্রযুক্তি বিশ্ববিদ্যালয়", "url": "/sstu#QuestionBank" },
+              { "text": "কিশোরগঞ্জ বিশ্ববিদ্যালয়", "url": "/kiu#QuestionBank" },
+              { "text": "বঙ্গবন্ধু শেখ মুজিবুর রহমান ডিজিটাল ইউনিভার্সিটি", "url": "/uftb#QuestionBank" },
+              { "text": "চাঁদপুর বিজ্ঞান ও প্রযুক্তি বিশ্ববিদ্যালয়", "url": "/cstu#QuestionBank" },
+              { "text": "নেত্রকোণা বিশ্ববিদ্যালয়", "url": "/neu#QuestionBank" }
+            ]
+          }
+        ]
+      },
+      {
+        "title": "সাজেশন",
+        "items": [
+          {
+            "links": [
+              {
+                "text": "জয়কলি গুচ্ছ এইড",
+                "url": "https://t.me/PDFHour/9863"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "title": "মডেল টেস্ট",
+        "items": [
+          {
+            "links": [
+              {
+                "text": "জয়কলি গুচ্ছ এইড (অল্প কিছু)",
+                "url": "https://t.me/PDFHour/10017"
+              },
+              {
+                "text": "জয়কলি গুচ্ছ এইড (৫০ সেট)",
+                "url": "https://t.me/PDFHour/10017"
+              },
+              {
+                "text": "উদ্ভাস ফাইনাল মডেল টেস্ট",
+                "url": "https://t.me/PDFHour/10055"
+              },
+              {
+                "text": "নেটওয়ার্ক গুচ্ছ চর্চা মডেল টেস্ট",
+                "url": "https://t.me/PDFHour/10057"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "title": "শেষ সময়ের রিভিশন",
+        "items": [
+          {
+            "links": [
+              {
+                "text": "পদার্থবিজ্ঞান",
+                "url": "https://t.me/PDFHour/10062?single"
+              },
+              {
+                "text": "রসায়ন",
+                "url": "https://t.me/PDFHour/10063?single"
+              },
+              {
+                "text": "জীববিজ্ঞান",
+                "url": "https://t.me/PDFHour/10065?single"
+              },
+              {
+                "text": "উচ্চতর গণিত",
+                "url": "https://t.me/PDFHour/10064?single"
+              },
+              {
+                "text": "বাংলা",
+                "url": "https://t.me/PDFHour/10066?single"
+              },
+              {
+                "text": "ইংরেজী",
+                "url": "https://t.me/PDFHour/10067?single"
+              },
+              {
+                "text": "একত্রে সব",
+                "url": "https://t.me/PDFHour/10068"
               }
             ]
           }
@@ -309,15 +461,11 @@
       }
     ],
     "duUnitB": [],
-    "duUnitC": [],
-    "duUnitCha": [],
-    "duIBA": []
+    "duUnitC": []
   },
   "subjects": {
     "unitA": [],
     "unitB": [],
-    "unitC": [],
-    "unitCha": [],
-    "unitIBA": []
+    "unitC": []
   }
 }
