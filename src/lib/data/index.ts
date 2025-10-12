@@ -13,7 +13,7 @@ import schedulesApplication from "./schedules/application.json";
 import schedulesGeneral from "./schedules/general.json";
 import schedulesOthers from "./schedules/others.json";
 import testPapersList from "./test-papers/list.json";
-import CalendarInfo from "./CalendarInfo.json";
+import CalendarInfo from "./deadlines/list.json";
 
 // University data imports
 import publicUniversities from "./universities/public-universities.json";
