@@ -36,7 +36,7 @@ const ExternalLink = ({
     >
       {icon}
       {text}
-      {showIcon && isExternal && <ArrowUpRightFromSquare className="h-3 w-3" />}
+      {showIcon && <ArrowUpRightFromSquare className="h-3 w-3" />}
     </Link>
   );
 };
