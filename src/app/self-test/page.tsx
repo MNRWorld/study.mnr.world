@@ -106,8 +106,12 @@ export default function ExamPage() {
     let incorrectCount = 0;
     const breakdown: ResultBreakdown[] = [];
 
-    const userAnswersMap = new Map(userAnswers.filter(Boolean).map((a) => [a.q, a.value]));
-    const correctAnswersMap = new Map(correctAnswers.map((a) => [a.q, a.value]));
+    const userAnswersMap = new Map(
+      userAnswers.filter(Boolean).map((a) => [a.q, a.value]),
+    );
+    const correctAnswersMap = new Map(
+      correctAnswers.map((a) => [a.q, a.value]),
+    );
 
     for (let i = 1; i <= mcqNumber; i++) {
       const userAnswer = userAnswersMap.get(i);
@@ -206,7 +210,9 @@ export default function ExamPage() {
         >
           <CardContent className="flex flex-col sm:flex-row items-center justify-between p-4">
             <p className="font-semibold text-lg mb-2 sm:mb-0 sm:mr-4 whitespace-nowrap">
-              {isCorrectAnswerView ? `প্রশ্ন ${i + 1} এর সঠিক উত্তর:` : `প্রশ্ন. ${i + 1}:`}
+              {isCorrectAnswerView
+                ? `প্রশ্ন ${i + 1} এর সঠিক উত্তর:`
+                : `প্রশ্ন. ${i + 1}:`}
             </p>
             <div className="flex items-center justify-end flex-wrap gap-x-4 w-full">
               {["A", "B", "C", "D"].map((option) => (
@@ -386,7 +392,9 @@ export default function ExamPage() {
             </div>
           </div>
 
-          <div>{renderMcqInputs(mcqNumber, "q", userAnswers, handleAnswerChange)}</div>
+          <div>
+            {renderMcqInputs(mcqNumber, "q", userAnswers, handleAnswerChange)}
+          </div>
           <Button onClick={submitTest} className="w-full mt-6" size="lg">
             পরীক্ষা জমা দিন
           </Button>
@@ -402,7 +410,13 @@ export default function ExamPage() {
             <CardDescription>ফলাফল তৈরির জন্য সঠিক উত্তর দিন।</CardDescription>
           </CardHeader>
           <CardContent>
-            {renderMcqInputs(mcqNumber, "correct-q", correctAnswers, handleCorrectAnswerChange, true)}
+            {renderMcqInputs(
+              mcqNumber,
+              "correct-q",
+              correctAnswers,
+              handleCorrectAnswerChange,
+              true,
+            )}
             <p className="text-red-500 mt-4 text-center">
               জমা দেওয়ার আগে অনুগ্রহ করে সকল প্রশ্নের জন্য সঠিক উত্তর নির্বাচন
               করুন।
@@ -431,7 +445,9 @@ export default function ExamPage() {
               <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
                 <Card>
                   <CardHeader className="pb-2">
-                    <CardTitle className="text-sm font-medium">মোট প্রশ্ন</CardTitle>
+                    <CardTitle className="text-sm font-medium">
+                      মোট প্রশ্ন
+                    </CardTitle>
                   </CardHeader>
                   <CardContent>
                     <p className="text-2xl font-bold">{mcqNumber}</p>
@@ -439,7 +455,9 @@ export default function ExamPage() {
                 </Card>
                 <Card>
                   <CardHeader className="pb-2">
-                    <CardTitle className="text-sm font-medium">সঠিক উত্তর</CardTitle>
+                    <CardTitle className="text-sm font-medium">
+                      সঠিক উত্তর
+                    </CardTitle>
                   </CardHeader>
                   <CardContent>
                     <p className="text-2xl font-bold text-green-500">
@@ -449,7 +467,9 @@ export default function ExamPage() {
                 </Card>
                 <Card>
                   <CardHeader className="pb-2">
-                    <CardTitle className="text-sm font-medium">ভুল উত্তর</CardTitle>
+                    <CardTitle className="text-sm font-medium">
+                      ভুল উত্তর
+                    </CardTitle>
                   </CardHeader>
                   <CardContent>
                     <p className="text-2xl font-bold text-red-500">
@@ -459,10 +479,14 @@ export default function ExamPage() {
                 </Card>
                 <Card>
                   <CardHeader className="pb-2">
-                    <CardTitle className="text-sm font-medium">উত্তর দেননি</CardTitle>
+                    <CardTitle className="text-sm font-medium">
+                      উত্তর দেননি
+                    </CardTitle>
                   </CardHeader>
                   <CardContent>
-                    <p className="text-2xl font-bold">{resultStats.skippedCount}</p>
+                    <p className="text-2xl font-bold">
+                      {resultStats.skippedCount}
+                    </p>
                   </CardContent>
                 </Card>
               </div>
@@ -548,7 +572,9 @@ export default function ExamPage() {
                               </span>
                             )}
                             {res.status === "skipped" && (
-                              <span className="text-muted-foreground">স্কিপড</span>
+                              <span className="text-muted-foreground">
+                                স্কিপড
+                              </span>
                             )}
                           </td>
                         </tr>
@@ -579,4 +605,3 @@ export default function ExamPage() {
     </div>
   );
 }
-    

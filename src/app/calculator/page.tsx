@@ -169,7 +169,9 @@ const EligibilityCheckerPage = () => {
       return <p>ফর্ম পূরণ করে &quot;Check Eligibility&quot; ক্লিক করুন।</p>;
     }
     if (result.isError) {
-      return <div className="text-red-500 whitespace-pre-line">{result.message}</div>;
+      return (
+        <div className="text-red-500 whitespace-pre-line">{result.message}</div>
+      );
     }
     return (
       <div>
@@ -474,5 +476,3 @@ const EligibilityCheckerPage = () => {
 };
 
 export default EligibilityCheckerPage;
-
-    

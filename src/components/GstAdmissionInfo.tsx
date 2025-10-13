@@ -1,4 +1,3 @@
-
 "use client";
 import React from "react";
 import {
@@ -369,7 +368,8 @@ const GstAdmissionInfo = () => {
           <div className="border border-border rounded-xl p-4 mt-2.5 text-base leading-relaxed">
             ● <b>মোট নাম্বার:</b> ১০০ (MCQ)
             <hr className="my-1 border-border/50" />● <b>মোট সময়:</b> ১ ঘণ্টা
-            <hr className="my-1 border-border/50" />● <b>প্রশ্ন প্রতি নাম্বার:</b> ১
+            <hr className="my-1 border-border/50" />●{" "}
+            <b>প্রশ্ন প্রতি নাম্বার:</b> ১
           </div>
           <Accordion type="multiple" className="w-full space-y-2 mt-2">
             <AccordionItem
@@ -421,7 +421,8 @@ const GstAdmissionInfo = () => {
           <div className="border border-border rounded-xl p-4 mt-2.5 text-base leading-relaxed">
             ● <b>মোট নাম্বার:</b> ১০০ (MCQ)
             <hr className="my-1 border-border/50" />● <b>মোট সময়:</b> ১ ঘণ্টা
-            <hr className="my-1 border-border/50" />● <b>প্রশ্ন প্রতি নাম্বার:</b> ১
+            <hr className="my-1 border-border/50" />●{" "}
+            <b>প্রশ্ন প্রতি নাম্বার:</b> ১
           </div>
           <Accordion
             type="single"
@@ -460,7 +461,8 @@ const GstAdmissionInfo = () => {
           <div className="border border-border rounded-xl p-4 mt-2.5 text-base leading-relaxed">
             ● <b>মোট নাম্বার:</b> ১০০ (MCQ)
             <hr className="my-1 border-border/50" />● <b>মোট সময়:</b> ১ ঘণ্টা
-            <hr className="my-1 border-border/50" />● <b>প্রশ্ন প্রতি নাম্বার:</b> ১
+            <hr className="my-1 border-border/50" />●{" "}
+            <b>প্রশ্ন প্রতি নাম্বার:</b> ১
           </div>
           <Accordion type="multiple" className="w-full space-y-2 mt-2">
             <AccordionItem

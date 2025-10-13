@@ -1,4 +1,3 @@
-
 "use client";
 import {
   University as UniversityIcon,

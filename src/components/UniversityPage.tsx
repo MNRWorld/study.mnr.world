@@ -174,5 +174,3 @@ const UniversityPage = ({
 };
 
 export default UniversityPage;
-
-    
