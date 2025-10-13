@@ -131,6 +131,8 @@ const HomePageClient = ({ features }: HomePageClientProps) => {
                 alt={characterImage.description}
                 fill
                 className="object-contain"
+                priority
+                fetchPriority="high"
               />
             </div>
           )}
@@ -142,6 +144,7 @@ const HomePageClient = ({ features }: HomePageClientProps) => {
                 fill
                 className="object-contain"
                 priority
+                fetchPriority="high"
               />
             </div>
           )}
@@ -152,6 +155,8 @@ const HomePageClient = ({ features }: HomePageClientProps) => {
                 alt={characterImage2.description}
                 fill
                 className="object-contain"
+                priority
+                fetchPriority="high"
               />
             </div>
           )}
