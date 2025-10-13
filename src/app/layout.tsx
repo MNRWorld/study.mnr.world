@@ -16,7 +16,7 @@ const hindSiliguri = Hind_Siliguri({
 });
 
 export const metadata: Metadata = {
-  title: "স্টাডি প্ল্যাটফর্ম",
+  title: "MNR Study — Your Study Partner",
   description: "Your central hub for university information.",
 };
 

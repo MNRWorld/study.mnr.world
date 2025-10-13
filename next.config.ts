@@ -28,9 +28,6 @@ const nextConfig: NextConfig = {
       },
     ];
   },
-  compiler: {
-    browserslist: ">= 0.5%, not dead",
-  },
 };
 
 export default nextConfig;
