@@ -375,7 +375,7 @@ const GstAdmissionInfo = () => {
               <AccordionTrigger className="p-3 text-base hover:no-underline">
                 <div className="flex items-center">
                   <HelpCircle className="mr-2" />
-                  <span>বিজ্ঞান বিভাগে কোন কোন বিষয় দাগাতে হবে?</span>
+                  <span>মানবণ্টন ও কোন কোন বিষয় দাগাতে হবে?</span>
                 </div>
               </AccordionTrigger>
               <AccordionContent className="p-4 pt-0 text-base">
@@ -463,7 +463,7 @@ const GstAdmissionInfo = () => {
               <AccordionTrigger className="p-3 text-base hover:no-underline">
                 <div className="flex items-center">
                   <HelpCircle className="mr-2" />
-                  <span>ব্যবসা বিভাগে কোন কোন বিষয় দাগাতে হবে?</span>
+                  <span>মানবণ্টন ও কোন কোন বিষয় দাগাতে হবে?</span>
                 </div>
               </AccordionTrigger>
               <AccordionContent className="p-4 pt-0 text-base">
