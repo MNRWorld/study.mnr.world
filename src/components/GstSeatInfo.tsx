@@ -82,8 +82,8 @@ const GstSeatInfo = () => {
       <Table className="border rounded-md">
         <TableHeader>
           <TableRow>
-            <TableHead className="text-center w-1/2">বিশ্ববিদ্যালয়</TableHead>
-            <TableHead className="text-center w-1/2">আসন সংখ্যা</TableHead>
+            <TableHead className="text-center">বিশ্ববিদ্যালয়</TableHead>
+            <TableHead className="text-center w-auto">লিংক</TableHead>
           </TableRow>
         </TableHeader>
         <TableBody>
