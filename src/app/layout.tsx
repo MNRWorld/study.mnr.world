@@ -33,11 +33,6 @@ export default function RootLayout({
           href="https://raw.githubusercontent.com"
           crossOrigin="anonymous"
         />
-        <link
-          rel="preconnect"
-          href="https://images.unsplash.com"
-          crossOrigin="anonymous"
-        />
       </head>
       <body
         className={cn(
