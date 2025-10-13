@@ -3,15 +3,11 @@
     "title": "ভর্তি তথ্য (HSC-24)",
     "apply": {
       "title": "আবেদন",
-      "startDate": "০৪ নভেম্বর, ২০২৪ (দুপুর ১২টা থেকে)",
-      "endDate": "২৫ নভেম্বর, ২০২৪ (রাত ১১.৫৯টা পর্যন্ত)",
+      "startDate": "-",
+      "endDate": "-",
       "fees": [
         {
-          "unit": "ক, খ, গ, চ ইউনিট",
-          "amount": "১০৫০৳"
-        },
-        {
-          "unit": "আইবিএ ইউনিট",
+          "unit": "সকল ইউনিট",
           "amount": "১৫০০৳"
         }
       ],
@@ -25,35 +21,18 @@
           "url": "https://t.me/Study_on_Telegram/13206"
         }
       ],
-      "link": "https://admission.eis.du.ac.bd/",
+      "link": "https://gstadmission.ac.bd/",
       "qualificationTitle": "আবেদনের যোগ্যতাঃ",
-      "sscBatch": "2019-2022",
-      "hscBatch": "2024",
-      "secondTime": "নেই"
+      "sscBatch": "2021-2022",
+      "hscBatch": "2023-2024",
+      "secondTime": "আছে"
     },
     "unitRequirements": {
       "title": "ইউনিট ও বিভাগ ভিত্তিক শর্ত",
       "units": [
         {
-          "name": "ক",
+          "name": "A",
           "departments": [
-            {
-              "name": "বিজ্ঞান বিভাগ",
-              "requirement": "SSC ও HSC তে চতুর্থ বিষয় সহ ন্যূনতম GPA-3.5 এবং SSC ও HSC মিলে মোট ন্যূনতম GPA-8.0"
-            },
-            {
-              "name": "অন্যান্য বিভাগ",
-              "requirement": "SSC ও HSC তে চতুর্থ বিষয় সহ ন্যূনতম GPA-3.0 এবং SSC ও HSC মিলে মোট ন্যূনতম GPA-7.5"
-            }
-          ]
-        },
-        {
-          "name": "খ",
-          "departments": [
-            {
-              "name": "মানবিক ও ব্যবসা বিভাগ",
-              "requirement": "SSC ও HSC তে চতুর্থ বিষয় সহ ন্যূনতম GPA-3.0 এবং SSC ও HSC মিলে মোট ন্যূনতম GPA-7.5"
-            },
             {
               "name": "বিজ্ঞান বিভাগ",
               "requirement": "SSC ও HSC তে চতুর্থ বিষয় সহ ন্যূনতম GPA-3.5 এবং SSC ও HSC মিলে মোট ন্যূনতম GPA-8.0"
@@ -61,33 +40,20 @@
           ]
         },
         {
-          "name": "গ",
+          "name": "B",
           "departments": [
             {
-              "name": "মানবিক ও ব্যবসা বিভাগ",
-              "requirement": "SSC ও HSC তে চতুর্থ বিষয় সহ ন্যূনতম GPA-3.0 এবং SSC ও HSC মিলে মোট ন্যূনতম GPA-7.5"
-            },
-            {
-              "name": "বিজ্ঞান বিভাগ",
-              "requirement": "SSC ও HSC তে চতুর্থ বিষয় সহ ন্যূনতম GPA-3.5 এবং SSC ও HSC মিলে মোট ন্যূনতম GPA-8.0"
+              "name": "মানবিক বিভাগ",
+              "requirement": "SSC ও HSC তে চতুর্থ বিষয় সহ ন্যূনতম GPA-3.0 এবং SSC ও HSC মিলে মোট ন্যূনতম GPA-6.0"
             }
           ]
         },
         {
-          "name": "চ",
+          "name": "C",
           "departments": [
             {
-              "name": "যেকোনো বিভাগ",
+              "name": "ব্যবসা বিভাগ",
               "requirement": "SSC ও HSC তে চতুর্থ বিষয় সহ ন্যূনতম GPA-3.0 এবং SSC ও HSC মিলে মোট ন্যূনতম GPA-6.5"
-            }
-          ]
-        },
-        {
-          "name": "IBA",
-          "departments": [
-            {
-              "name": "যেকোনো বিভাগ",
-              "requirement": "SSC ও HSC তে চতুর্থ বিষয় সহ ন্যূনতম GPA-3.5 এবং SSC ও HSC মিলে মোট ন্যূনতম GPA-8.0"
             }
           ]
         }
@@ -101,43 +67,29 @@
       "title": "প্রবেশপত্র",
       "startDate": "২৩ ডিসেম্বর, ২০২৪",
       "endDate": "পরীক্ষা শুরুর ১ ঘণ্টা পূর্ব পর্যন্ত",
-      "link": "https://admission.eis.du.ac.bd/",
+      "link": "https://gstadmission.ac.bd/",
       "note": "প্রবেশপত্রে শুধু পরীক্ষার অঞ্চল উল্লেখ থাকে। পরীক্ষার কেন্দ্র, বিল্ডিং ও রুম নম্বর সাধারণত পরীক্ষার ৪৮-৭২ ঘণ্টা আগে ওয়েবসাইটে প্রকাশ করা হয়।"
     },
     "examDate": {
       "title": "পরীক্ষার সময়কাল",
       "dates": [
         {
-          "unit": "ক",
+          "unit": "A",
           "date": "১৫ ফেব্রুয়ারী"
         },
         {
-          "unit": "খ",
+          "unit": "B",
           "date": "২৫ জানুয়ারী"
         },
         {
-          "unit": "গ",
+          "unit": "C",
           "date": "০৮ ফেব্রুয়ারী"
-        },
-        {
-          "unit": "চ",
-          "date": "০৪ জানুয়ারী"
-        },
-        {
-          "unit": "IBA",
-          "date": "০৩ জানুয়ারী"
         }
       ],
       "note": {
         "text": "অ্যাডমিশন ক্যালেন্ডার",
-        "link": "https://mnr.world/ac/"
+        "link": "/calendar"
       }
-    },
-    "examCenter": {
-      "title": "ভর্তি পরীক্ষার কেন্দ্র",
-      "location": "বিভাগীয় শহরে",
-      "locationLink": "https://t.me/Study_on_Telegram/13199",
-      "note": "'চ' ইউনিট (চারুকলা) এবং IBA-এর পরীক্ষা শুধু ঢাকায় অনুষ্ঠিত হবে। বাকি সব ইউনিটের পরীক্ষা বিভাগীয় শহরে হবে।"
     },
     "generalInfo": {
       "points": [
@@ -147,7 +99,7 @@
         },
         {
           "label": "সেকেন্ড টাইম",
-          "value": "নেই"
+          "value": "আছে"
         },
         {
           "label": "নেগেটিভ মার্কিং",
@@ -162,7 +114,7 @@
     "result": {
       "title": "ভর্তি পরীক্ষার ফলাফল",
       "date": "ভর্তি পরীক্ষার ৪ সপ্তাহের মধ্যে",
-      "link": "https://admission.eis.du.ac.bd/"
+      "link": "https://gstadmission.ac.bd/"
     }
   },
   "historyAndMap": {
