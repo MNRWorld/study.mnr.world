@@ -60,7 +60,6 @@ The application will be available at `http://localhost:3000`.
 ## 📜 Available Scripts
 
 - `pnpm dev`: Starts the development server.
-- `pnpm prebuild`: Generates a pass-through data module (`src/lib/data/_generated.ts`) that imports live data from `src/lib/data/index.ts`. This allows for hot-reloading of JSON data during development without requiring a full build process. This script runs automatically before `build`.
 - `pnpm build`: Creates a production build of the app.
 - `pnpm start`: Starts the production server.
 - `pnpm typecheck`: Runs TypeScript to check for type errors.
