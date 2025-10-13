@@ -96,6 +96,7 @@ interface AdmissionInfoData {
       text: string;
       link: string;
     };
+    customNote?: string;
   };
   examCenter: {
     title: string;
@@ -304,7 +305,7 @@ const GstAdmissionInfo = () => {
               নোটঃ
             </div>
           </b>
-          {admitCard.note}
+          <span dangerouslySetInnerHTML={{ __html: admitCard.note }} />
         </div>
       </div>
 
@@ -321,6 +322,9 @@ const GstAdmissionInfo = () => {
           </span>
         ))}
       </span>
+      {examDate.customNote && (
+        <div className="text-base mt-2">{examDate.customNote}</div>
+      )}
       <hr className="my-3 border-border/50" />
       <div className="border border-border/80 p-3 text-center rounded-md">
         সব বিশ্ববিদ্যালয়ের <b>পরীক্ষার তারিখ ও কাউন্টডাউন</b> জানতে ভিজিট করুন
