@@ -45,9 +45,6 @@ const CalendarAdmissionTabs = () => {
         <TabsContent value="schedule" className="mt-1">
           <CalendarAdmissionScheduleTable />
           <div className="mt-8 text-center">
-            <h2 className="text-2xl font-bold gradient-text mb-4">
-              আপনার পছন্দের পরীক্ষার ক্যালেন্ডার
-            </h2>
             <div className="mt-4 w-full border border-border bg-card rounded-2xl shadow-lg p-4 flex justify-center">
               <FavoriteExamsCalendar />
             </div>
