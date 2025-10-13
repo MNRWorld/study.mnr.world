@@ -35,31 +35,6 @@
       },
       "required": ["uid", "createdAt"]
     },
-    "Course": {
-      "title": "Course",
-      "description": "Represents a preparatory course for university admissions.",
-      "type": "object",
-      "properties": {
-        "title": { "type": "string" },
-        "description": { "type": "string" },
-        "icon": { "type": "string" },
-        "stats": {
-          "type": "array",
-          "items": {
-            "type": "object",
-            "properties": {
-              "value": { "type": "string" },
-              "label": { "type": "string" },
-              "tooltip": { "type": "string" }
-            },
-            "required": ["value", "label"]
-          }
-        },
-        "features": { "type": "array", "items": { "type": "string" } },
-        "forWhom": { "type": "array", "items": { "type": "string" } }
-      },
-      "required": ["title", "description", "icon", "features", "forWhom"]
-    },
     "University": {
       "title": "University",
       "description": "Represents a university with its details.",
@@ -108,10 +83,6 @@
     "/users/{userId}": {
       "schema": { "$ref": "#/backend/entities/UserProfile" },
       "description": "Stores public profile information for each user."
-    },
-    "/courses": {
-      "schema": { "$ref": "#/backend/entities/Course" },
-      "description": "Collection of all available courses."
     },
     "/universities": {
       "schema": { "$ref": "#/backend/entities/University" },

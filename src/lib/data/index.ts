@@ -3,7 +3,6 @@
 
 import content from "./content.json";
 import contributorsList from "./contributors.json";
-import coursesList from "./courses.json";
 import deadlinesList from "./deadlines.json";
 import linksList from "./links.json";
 import questionBankCards from "./question-bank.json";
@@ -56,7 +55,6 @@ export const allData = {
   aboutContent: content.about,
   contactContent: content.contact,
   contributorsList,
-  coursesList,
   deadlinesList,
   linksList,
   questionBankCards,
