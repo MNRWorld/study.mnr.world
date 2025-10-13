@@ -360,12 +360,6 @@ const GstAdmissionInfo = () => {
           <TabsTrigger value="ga-unit" className="flex-grow">
             &quot;গ&quot; ইউনিট
           </TabsTrigger>
-          <TabsTrigger value="cha-unit" className="flex-grow">
-            &quot;চ&quot; ইউনিট
-          </TabsTrigger>
-          <TabsTrigger value="iba-unit" className="flex-grow">
-            DU IBA (বিশেষ)
-          </TabsTrigger>
         </TabsList>
         <TabsContent value="ka-unit">
           <div className="border border-border rounded-xl p-4 mt-2.5 text-base leading-relaxed">
@@ -624,155 +618,6 @@ const GstAdmissionInfo = () => {
             </AccordionItem>
           </Accordion>
         </TabsContent>
-        <TabsContent value="cha-unit">
-          <div className="border border-border rounded-xl p-4 mt-2.5 text-base leading-relaxed">
-            ● <b>মোট নাম্বার:</b> ১০০ নাম্বার
-            <hr className="my-1 border-border/50" />● <b>MCQ:</b> ৪০,{" "}
-            <b>অঙ্কন:</b> ৬০
-            <hr className="my-1 border-border/50" />● <b>মোট সময়:</b> ১.৫ ঘণ্টা
-            <br />
-            <br />
-            <b>ক) বহুনির্বাচনি (MCQ) = ৪০ - সাধারণ জ্ঞান</b>
-            <br />
-            <div className="flex items-start text-sm mt-1">
-              <AlertTriangle
-                size={20}
-                className="mr-1 text-orange-500 dark:text-orange-400 shrink-0 mt-0.5"
-              />
-              <b>নোট:</b> পরীক্ষায় মাধ্যমিক ও উচ্চ মাধ্যমিক পর্যায়ে পঠিত বাংলা ও
-              ইংরেজিসহ চারুকলার বিভিন্ন বিভাগ সম্পর্কিত বা বিষয় ভিত্তিক প্রশ্ন
-              এবং শিল্প, সাহিত্য, সংস্কৃতি, ইতিহাস, ঐতিহ্য, সমসাময়িক ঘটনাবলি
-              বিষয়ে প্রশ্ন থাকে।
-            </div>
-            <br />
-            <b>খ) অঙ্কন = ৬০</b>
-            <br />
-            অঙ্কন পরীক্ষায় হিউম্যান ফিগার ড্রইংয়ের (মানুষের বিভিন্ন দেহ ভঙ্গির
-            ফটোগ্রাফ) প্রশ্ন থাকে।
-          </div>
-        </TabsContent>
-        <TabsContent value="iba-unit">
-          <Accordion type="multiple" className="w-full space-y-2 mt-2">
-            <AccordionItem
-              value="item-5-1"
-              className="border border-border rounded-lg bg-card hover:bg-accent/50"
-            >
-              <AccordionTrigger className="p-3 text-base hover:no-underline">
-                <div className="flex items-center">
-                  <HelpCircle className="mr-2" />
-                  <span>আইবিএ কী? সম্পূর্ণ বিস্তারিত</span>
-                </div>
-              </AccordionTrigger>
-              <AccordionContent className="p-4 pt-0 text-base">
-                এটি ঢাকা বিশ্ববিদ্যালয়ের একটি স্বতন্ত্র ইউনিট। পরীক্ষাও আলাদা
-                ধাচে হবে। লিখিত ও মৌখিক দুই ধাপে হবে।
-                <br />
-                <br />
-                <ExternalLink
-                  href="/IBA/"
-                  text="আইবিএ এর সম্পূর্ণ বিস্তারিত রিভিউ"
-                />
-                <br />
-                <br />
-                আইবিএ মূলত বিবিএ এর মডিফায়েড ভার্সন। বিবিএ&apos;র প্রফেশনালস
-                ভার্সন আইবিএ। ঢাকা বিশ্ববিদ্যালয় ছাড়াও জাহাঙ্গীরনগর ও রাজশাহী
-                বিশ্ববিদ্যালয়েও আইবিএ ডিপার্টমেন্ট রয়েছে তবে আইবিএ বলতে মূলত
-                ঢাকা বিশ্ববিদ্যালয়ের আইবিএ&apos;ই বুঝায় এবং জাহাঙ্গীরনগর ও
-                রাজশাহী বিশ্ববিদ্যালয় থেকেই আলাদা ঢাকা বিশ্ববিদ্যালয়ের আইবিএ
-                ইউনিট। আর দেশের কর্পোরেট ওয়ার্ল্ডের টপ লেভেলের ম্যাগনেটদের
-                অধিকাংশই ঢাকা বিশ্ববিদ্যালয়ের এই ইউনিট থেকে পাস করা।
-                <br />
-                <br />
-                সাধারণ বা মাদ্রাসা যেকোন শিক্ষাবোর্ডের যেকোন বিভাগের
-                (বিজ্ঞান,বাণিজ্য ও মানবিক) শিক্ষার্থীরা আবেদন ও পরীক্ষা দিতে
-                পারবে। বাংলা ও ইংরেজি উভয় মিডিয়ামের শিক্ষার্থীরা পরীক্ষা দিতে
-                পারবে।
-                <br />
-                <br />
-                আইবিএ ইউনিটে প্রস্তুতির জন্য নির্দিষ্ট ও ধরাবাধা কোন সিলেবাস
-                নেই। তবে ইংরেজিতে সাধারণত Grammar, Comprehension ও Vocabulary
-                উপর ভিত্তি করে প্রশ্ন করা হয়। গণিতে সাধারণত বীজগণিত, পাটিগণিত ও
-                জ্যামিতি থেকে প্রশ্ন হয়। আর Analytical Ability এর প্রশ্নে
-                বৈচিত্র‍্য থাকলেও Puzzle matching, Critical Reasoning বা কোন
-                ঘটনার সবচেয়ে সঠিক কারণ নির্ণয় করা, Data Sufficiency বা প্রদত্ত
-                তথ্য যথেষ্ট কি না ইত্যাদি থাকে।
-                <br />
-                <br />
-                প্রতিটি বিষয়ে আলাদা আলাদা ভাবে পাস করতে হবে। প্রচলিত নিয়ম
-                অনুযায়ী, প্রতিটি বিষয়ে ৬০% নাম্বার না পেলে উত্তীর্ণ হওয়ার
-                সম্ভাবনা কম।
-                <br />
-                <br />
-                আইবিএ তে মোট আসন সংখ্যা ১২০ টি। লিখিত পরীক্ষার পর সাধারণত মৌখিক
-                পরীক্ষার জন্য ১৬০-১৮০ জনকে নির্বাচিত করা হয়। পরবর্তীতে মৌখিক
-                পরীক্ষার ভিত্তিতে ১২০ জন চূড়ান্ত ভর্তির সুযোগ পায়।
-                <br />
-                <br />
-                <b>ক্রেডিট:</b> Admission Informer
-              </AccordionContent>
-            </AccordionItem>
-          </Accordion>
-          <hr className="my-2 border-border/50" />
-          <div className="border border-border rounded-xl p-4 mt-2.5 text-base leading-relaxed">
-            ● <b>মোট নাম্বার:</b> ১০০ নাম্বার
-            <hr className="my-1 border-border/50" />● <b>MCQ:</b> ৭০,{" "}
-            <b>বর্ণনামূলক:</b> ৩০
-            <hr className="my-1 border-border/50" />● <b>মোট সময়:</b> ২ ঘণ্টা
-          </div>
-          <Accordion
-            type="single"
-            collapsible
-            className="w-full space-y-2 mt-2"
-          >
-            <AccordionItem
-              value="item-5-2"
-              className="border border-border rounded-lg bg-card hover:bg-accent/50"
-            >
-              <AccordionTrigger className="p-3 text-base hover:no-underline">
-                <div className="flex items-center">
-                  <HelpCircle className="mr-2" />
-                  <span>
-                    মানবণ্টন, নুন্যতম নাম্বার ও কোন কোন বিষয় দাগাতে হবে?
-                  </span>
-                </div>
-              </AccordionTrigger>
-              <AccordionContent className="p-4 pt-0 text-base">
-                <b>=&gt; নিম্নলিখিত সব বিষয় দাগাতে হবে।</b>
-                <br />
-                <br />
-                <b>✓ বহুনির্বাচনি (MCQ) -</b>
-                <br />
-                &nbsp;&nbsp;&nbsp; ➤ ইংরেজী
-                <br />
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ○ <b>মোট নাম্বার:</b> ৩০
-                <br />
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ○ <b>নুন্যতম পেতে হবে:</b> ১০
-                <br />
-                &nbsp;&nbsp;&nbsp; ➤ গণিত
-                <br />
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ○ <b>মোট নাম্বার:</b> ২৫
-                <br />
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ○ <b>নুন্যতম পেতে হবে:</b> ৮.৩৩
-                <br />
-                &nbsp;&nbsp;&nbsp; ➤ বিশ্লেষণাত্মক দক্ষতা
-                <br />
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ○ <b>মোট নাম্বার:</b> ১৫
-                <br />
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ○ <b>নুন্যতম পেতে হবে:</b> ৫
-                <br />
-                <br />
-                <b>✓ বর্ণনামূলক –</b>
-                <br />
-                &nbsp;&nbsp;&nbsp; ➤ Argumentative writing/Descriptive
-                writing/Critical writing/Thematic writeup etc.
-                <br />
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ○ <b>মোট নাম্বার:</b> ৩০
-                <br />
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ○ <b>নুন্যতম পেতে হবে:</b> ১৫
-              </AccordionContent>
-            </AccordionItem>
-          </Accordion>
-        </TabsContent>
       </Tabs>
       <div className="border border-border/80 rounded-xl p-4 mt-2.5 text-base">
         {duGeneralInfo.points.map((point: GeneralInfoPoint, index: number) => (
@@ -809,5 +654,3 @@ const GstAdmissionInfo = () => {
 };
 
 export default GstAdmissionInfo;
-
-    
