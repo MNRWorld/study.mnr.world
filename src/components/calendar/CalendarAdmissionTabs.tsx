@@ -45,6 +45,9 @@ const CalendarAdmissionTabs = () => {
         <TabsContent value="schedule" className="mt-1">
           <CalendarAdmissionScheduleTable />
           <div className="mt-8 text-center">
+            <p className="mb-4 text-muted-foreground">
+              লিস্ট ভালো না লাগলে ডিরেক্ট কেলেন্ডারেই দেখে নাও...
+            </p>
             <div className="mt-4 w-full border border-border bg-card rounded-2xl shadow-lg p-4 flex justify-center">
               <FavoriteExamsCalendar />
             </div>
