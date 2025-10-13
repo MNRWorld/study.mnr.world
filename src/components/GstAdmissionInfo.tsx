@@ -261,22 +261,6 @@ const GstAdmissionInfo = () => {
               )}
             </AccordionContent>
           </AccordionItem>
-          <AccordionItem
-            value="item-2"
-            className="bg-card border border-border rounded-lg overflow-hidden mt-4"
-          >
-            <AccordionTrigger className="p-3 text-base font-bold hover:no-underline">
-              <div className="flex items-center">
-                <Info className="mr-2" />
-                <span>{improvementPolicy.title}</span>
-              </div>
-            </AccordionTrigger>
-            <AccordionContent className="p-4 pt-0 sm:p-5 text-base">
-              <span
-                dangerouslySetInnerHTML={{ __html: improvementPolicy.details }}
-              />
-            </AccordionContent>
-          </AccordionItem>
         </Accordion>
       )}
 
@@ -511,6 +495,24 @@ const GstAdmissionInfo = () => {
           </Accordion>
         </TabsContent>
       </Tabs>
+      <Accordion type="multiple" className="w-full space-y-2 mt-2">
+        <AccordionItem
+          value="item-2"
+          className="bg-card border border-border rounded-lg overflow-hidden mt-4"
+        >
+          <AccordionTrigger className="p-3 text-base font-bold hover:no-underline">
+            <div className="flex items-center">
+              <Info className="mr-2" />
+              <span>{improvementPolicy.title}</span>
+            </div>
+          </AccordionTrigger>
+          <AccordionContent className="p-4 pt-0 sm:p-5 text-base">
+            <span
+              dangerouslySetInnerHTML={{ __html: improvementPolicy.details }}
+            />
+          </AccordionContent>
+        </AccordionItem>
+      </Accordion>
       <div className="border border-border/80 rounded-xl p-4 mt-2.5 text-base">
         <React.Fragment>
           ● <b>সিলেবাসঃ </b>
@@ -556,5 +558,3 @@ const GstAdmissionInfo = () => {
 };
 
 export default GstAdmissionInfo;
-
-    
