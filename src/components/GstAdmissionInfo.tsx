@@ -1,3 +1,4 @@
+
 "use client";
 import React from "react";
 import {
@@ -343,6 +344,25 @@ const GstAdmissionInfo = () => {
           <ExternalLink href={examDate.note.link} text={examDate.note.text} />
         </b>
       </div>
+
+      <h2
+        id="Location"
+        className="bg-primary/10 text-primary rounded-xl p-3 mt-8 mb-4 text-center text-lg font-bold flex items-center justify-center"
+      >
+        <MapPinned className="mr-2" size={16} /> {examCenter.title}
+      </h2>
+      <span className="text-base">
+        ➜ {examCenter.location}{" "}
+        <ExternalLink href={examCenter.locationLink} text="[তালিকা]" /> <br />
+        <hr className="my-2 border-border/50" />
+        <b>
+          <div className="text-orange-500 dark:text-orange-400 flex items-center">
+            <CircleAlert size={18} className="inline-block mr-1" />
+            নোটঃ
+          </div>
+        </b>
+        {examCenter.note}
+      </span>
 
       <div id="MarkDistributionAndOthers"></div>
       <h2 className="bg-primary/10 text-primary rounded-xl p-3 mt-8 mb-4 text-center text-lg font-bold flex items-center justify-center">
