@@ -1,5 +1,5 @@
+
 "use client";
-import { useState } from "react";
 import {
   University as UniversityIcon,
   Leaf,
@@ -16,6 +16,7 @@ import QuestionBankUniversityCard from "./QuestionBankUniversityCard";
 
 interface QuestionBankClientProps {
   universities: University[];
+  searchTerm: string;
 }
 
 const categoryIcons: { [key: string]: React.FC<React.ComponentProps<"svg">> } =
@@ -45,9 +46,8 @@ const categoryIdMap: { [key: string]: string } = {
 
 export default function QuestionBankClient({
   universities,
+  searchTerm,
 }: QuestionBankClientProps) {
-  const [searchTerm, setSearchTerm] = useState("");
-
   const filteredUniversities = universities.filter((uni) => {
     if (searchTerm === "") return true;
     const lowercasedTerm = searchTerm.toLowerCase();

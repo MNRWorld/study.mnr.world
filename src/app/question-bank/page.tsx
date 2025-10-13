@@ -1,6 +1,7 @@
+
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 import SimplePageHeader from "@/components/common/SimplePageHeader";
 import QuestionBankCards from "@/components/QuestionBankCards";
 import { Input } from "@/components/ui/input";
@@ -11,6 +12,7 @@ import TestPaperCard from "@/components/TestPaperCards";
 import { allData } from "@/lib/data/_generated";
 
 export default function QuestionBankPage() {
+  const [searchTerm, setSearchTerm] = useState("");
   const allGroupsTestPapers = allData.testPapersList.allGroups;
   const scienceGroupTestPapers = allData.testPapersList.scienceGroup;
   const allUniversities = allData.universities;
@@ -39,6 +41,8 @@ export default function QuestionBankPage() {
               type="text"
               placeholder="বিশ্ববিদ্যালয় খুঁজুন..."
               className="w-full pl-10 h-12 text-base bg-card"
+              value={searchTerm}
+              onChange={(e) => setSearchTerm(e.target.value)}
             />
           </div>
         </div>
@@ -67,6 +71,7 @@ export default function QuestionBankPage() {
         <div className="mt-12">
           <QuestionBankClient
             universities={[...publicUniversities, ...privateUniversities]}
+            searchTerm={searchTerm}
           />
         </div>
 
