@@ -9,10 +9,12 @@ import {
   FilePenLine,
   Ticket,
   BarChart3,
+  Star,
 } from "lucide-react";
 import CalendarApplicationScheduleTable from "./CalendarApplicationScheduleTable";
 import CalendarAdmitCardScheduleTable from "./CalendarAdmitCardScheduleTable";
 import CalendarResultScheduleTable from "./CalendarResultScheduleTable";
+import FavoriteExamsCalendar from "../FavoriteExamsCalendar";
 
 const CalendarAdmissionTabs = () => {
   return (
@@ -39,6 +41,10 @@ const CalendarAdmissionTabs = () => {
               <BarChart3 className="mr-2 h-4 w-4 hidden sm:inline-block" />{" "}
               ফলাফল
             </TabsTrigger>
+            <TabsTrigger value="favorite" className="px-2">
+              <Star className="mr-2 h-4 w-4 hidden sm:inline-block" /> পছন্দের
+              ক্যালেন্ডার
+            </TabsTrigger>
           </TabsList>
         </div>
         <TabsContent value="schedule" className="mt-1">
@@ -55,6 +61,11 @@ const CalendarAdmissionTabs = () => {
         </TabsContent>
         <TabsContent value="result" className="mt-1">
           <CalendarResultScheduleTable />
+        </TabsContent>
+        <TabsContent value="favorite" className="mt-1">
+          <div className="mt-4 w-full border border-border bg-card rounded-2xl shadow-lg p-4 flex justify-center">
+            <FavoriteExamsCalendar />
+          </div>
         </TabsContent>
       </Tabs>
     </div>
