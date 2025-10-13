@@ -649,10 +649,8 @@ export default function ExamPage() {
           </CardFooter>
         </Card>
       )}
-
-      <footer className="text-center mt-12 text-sm text-muted-foreground">
-        <p>&copy; ২০২৪। সর্বস্বত্ব সংরক্ষিত।</p>
-      </footer>
     </div>
   );
 }
+
+    
