@@ -18,6 +18,27 @@ const hindSiliguri = Hind_Siliguri({
 export const metadata: Metadata = {
   title: "MNR Study — Your Study Partner",
   description: "Your central hub for university information.",
+  keywords: [
+    "mnr",
+    "mnr world",
+    "mnrfrom2020",
+    "frostfoe",
+    "mnr study",
+    "study platform",
+    "admission calendar",
+    "admission news 2025",
+    "admission 2025",
+    "university admission",
+    "question bank",
+    "bangladesh university",
+    "public university",
+    "private university",
+    "college admission",
+    "ভর্তি তথ্য",
+    "বিশ্ববিদ্যালয় ভর্তি",
+    "প্রশ্নব্যাংক",
+    "অ্যাডমিশন ক্যালেন্ডার",
+  ],
 };
 
 export default function RootLayout({
