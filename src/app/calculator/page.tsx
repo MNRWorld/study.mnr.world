@@ -16,6 +16,28 @@ import { Button } from "@/components/ui/button";
 import { University } from "lucide-react";
 import { allData } from "@/lib/data/_generated";
 
+interface ResultState {
+  studentName?: string;
+  isError: boolean;
+  message: string;
+  rawTotal?: number;
+  maxTotal?: number;
+  adjustedTotal?: number;
+  percentage?: number;
+  required?: number;
+  eligibleByMarks?: boolean;
+}
+
+interface Deduction {
+  label: string;
+  value: number;
+}
+
+interface Circular {
+  title: string;
+  desc: string;
+}
+
 const EligibilityCheckerPage = () => {
   const [name, setName] = useState("");
   const [sscYear, setSscYear] = useState("2019");
@@ -31,9 +53,9 @@ const EligibilityCheckerPage = () => {
     bio: "80",
     eng: "80",
   });
-  const [result, setResult] = useState<string | null>(null);
-  const [circulars, setCirculars] = useState<any[]>([]);
-  const [deductions, setDeductions] = useState<any[]>([]);
+  const [result, setResult] = useState<ResultState | null>(null);
+  const [circulars, setCirculars] = useState<Circular[]>([]);
+  const [deductions, setDeductions] = useState<Deduction[]>([]);
 
   const { CIRCULARS, THRESHOLDS } = allData.calculatorContent;
 
@@ -41,7 +63,7 @@ const EligibilityCheckerPage = () => {
     dept: string,
     hsc_gpa: number,
     isSecond: boolean,
-  ) => {
+  ): Deduction[] => {
     const deductionsArr = [];
     if (hsc_gpa < 5) {
       deductionsArr.push({
@@ -74,14 +96,18 @@ const EligibilityCheckerPage = () => {
     setDeductions([]);
 
     if (!Number.isFinite(ssc) || !Number.isFinite(hsc)) {
-      setResult("<div class='text-red-500'>অনুগ্রহ করে সঠিক বছর লিখুন।</div>");
+      setResult({
+        isError: true,
+        message: "অনুগ্রহ করে সঠিক বছর লিখুন।",
+      });
       return;
     }
 
     if (!eligibleByGap) {
-      setResult(
-        `<div class='text-red-500'>দুঃখিত ${studentName}, আপনি এলিজিবল নন। SSC ও HSC সালের মধ্যে ব্যবধান (gap) দুই বছরের বেশি — SSC: ${ssc}, HSC: ${hsc} (gap = ${gap}).</div><div class='text-sm text-muted-foreground mt-2'>শর্ত পূরণ করতে হবে: HSC year - SSC year ≤ 2</div>`,
-      );
+      setResult({
+        isError: true,
+        message: `দুঃখিত ${studentName}, আপনি এলিজিবল নন। SSC ও HSC সালের মধ্যে ব্যবধান (gap) দুই বছরের বেশি — SSC: ${ssc}, HSC: ${hsc} (gap = ${gap}).\nশর্ত পূরণ করতে হবে: HSC year - SSC year ≤ 2`,
+      });
       return;
     }
 
@@ -96,22 +122,25 @@ const EligibilityCheckerPage = () => {
     const required = THRESHOLDS[dept as keyof typeof THRESHOLDS] || 60;
     const eligibleByMarks = percentage >= required;
 
-    let resultHtml = `<div class='text-green-400'>শিক্ষার্থী: <strong>${studentName}</strong></div>`;
-    resultHtml += `<div class='text-sm mt-2'>Raw Total: <strong>${subjectTotal} / ${maxTotal}</strong>. After deductions: <strong>${adjustedTotal} / ${maxTotal}</strong>. শতাংশ: <strong>${percentage.toFixed(
-      2,
-    )}%</strong>.</div>`;
-    resultHtml += `<div class='mt-2'>Department Required: <strong>${required}%</strong>.</div>`;
+    setResult({
+      isError: false,
+      studentName: studentName,
+      rawTotal: subjectTotal,
+      maxTotal: maxTotal,
+      adjustedTotal: adjustedTotal,
+      percentage: percentage,
+      required: required,
+      eligibleByMarks: eligibleByMarks,
+      message: eligibleByMarks
+        ? `অভিনন্দন — আপনি আমার সিস্টেম অনুযায়ী এলিজিবল।`
+        : `দুঃখিত — আপনার শতাংশ ${percentage.toFixed(
+            2,
+          )}%। কর্তিত মান প্রয়োজনীয়তার নিচে: ${required}%।`,
+    });
 
     if (eligibleByMarks) {
-      resultHtml += `<div class='text-green-400 font-bold mt-4'>অভিনন্দন — আপনি আমার সিস্টেম অনুযায়ী এলিজিবল।</div>`;
       setCirculars(CIRCULARS[dept as keyof typeof CIRCULARS] || []);
-    } else {
-      resultHtml += `<div class='text-red-500 font-bold mt-4'>দুঃখিত — আপনার শতাংশ ${percentage.toFixed(
-        2,
-      )}%। কর্তিত মান প্রয়োজনীয়তার নিচে: ${required}%।</div>`;
     }
-
-    setResult(resultHtml);
     setDeductions(currentDeductions);
   };
 
@@ -133,6 +162,43 @@ const EligibilityCheckerPage = () => {
     setResult(null);
     setCirculars([]);
     setDeductions([]);
+  };
+
+  const ResultDisplay = () => {
+    if (!result) {
+      return <p>ফর্ম পূরণ করে "Check Eligibility" ক্লিক করুন।</p>;
+    }
+    if (result.isError) {
+      return <div className="text-red-500 whitespace-pre-line">{result.message}</div>;
+    }
+    return (
+      <div>
+        <div className="text-green-400">
+          শিক্ষার্থী: <strong>{result.studentName}</strong>
+        </div>
+        <div className="text-sm mt-2">
+          Raw Total:{" "}
+          <strong>
+            {result.rawTotal} / {result.maxTotal}
+          </strong>
+          . After deductions:{" "}
+          <strong>
+            {result.adjustedTotal} / {result.maxTotal}
+          </strong>
+          . শতাংশ: <strong>{result.percentage?.toFixed(2)}%</strong>.
+        </div>
+        <div className="mt-2">
+          Department Required: <strong>{result.required}%</strong>.
+        </div>
+        <div
+          className={`font-bold mt-4 ${
+            result.eligibleByMarks ? "text-green-400" : "text-red-500"
+          }`}
+        >
+          {result.message}
+        </div>
+      </div>
+    );
   };
 
   return (
@@ -346,13 +412,9 @@ const EligibilityCheckerPage = () => {
               <CardTitle>রেজাল্ট ও সার্কুলার</CardTitle>
             </CardHeader>
             <CardContent>
-              <div
-                className="p-4 rounded-lg bg-muted/50 min-h-[60px]"
-                dangerouslySetInnerHTML={{
-                  __html:
-                    result || 'ফর্ম পূরণ করে "Check Eligibility" ক্লিক করুন।',
-                }}
-              />
+              <div className="p-4 rounded-lg bg-muted/50 min-h-[60px]">
+                <ResultDisplay />
+              </div>
 
               {circulars.length > 0 && (
                 <div className="mt-4">
@@ -412,3 +474,5 @@ const EligibilityCheckerPage = () => {
 };
 
 export default EligibilityCheckerPage;
+
+    

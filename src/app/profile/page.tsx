@@ -1,7 +1,7 @@
 "use client";
 
 import { useRouter } from "next/navigation";
-import { useEffect, useState, useCallback } from "react";
+import { useEffect, useState } from "react";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import {
@@ -74,29 +74,30 @@ function RegisteredUserProfile() {
   const [loading, setLoading] = useState(true);
   const [saving, setSaving] = useState(false);
 
-  const fetchProfile = useCallback(async () => {
-    if (user && !user.is_anonymous && supabase) {
-      const { data, error } = await supabase
-        .from("profiles")
-        .select("display_name")
-        .eq("id", user.id)
-        .single();
-
-      if (data) {
-        setDisplayName(
-          data.display_name ||
-            user.user_metadata?.full_name ||
-            user.user_metadata?.user_name ||
-            "ব্যবহারকারী",
-        );
-      }
-      setLoading(false);
-    }
-  }, [user, supabase]);
-
   useEffect(() => {
+    const fetchProfile = async () => {
+      if (user && !user.is_anonymous && supabase) {
+        setLoading(true);
+        const { data, error } = await supabase
+          .from("profiles")
+          .select("display_name")
+          .eq("id", user.id)
+          .single();
+
+        if (data) {
+          setDisplayName(
+            data.display_name ||
+              user.user_metadata?.full_name ||
+              user.user_metadata?.user_name ||
+              "ব্যবহারকারী",
+          );
+        }
+        setLoading(false);
+      }
+    };
+
     fetchProfile();
-  }, [fetchProfile]);
+  }, [user, supabase]);
 
   const handleProfileUpdate = async () => {
     if (!user || !supabase) return;

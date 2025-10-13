@@ -73,9 +73,13 @@ const universityComponents: {
   },
 };
 
+interface UniversityData extends University {
+  links: any[]; // Replace 'any' with a more specific type if available
+  // Add other properties from universityData as needed
+}
 interface UniversityPageProps {
   university: University;
-  universityData: any;
+  universityData: UniversityData;
 }
 
 const UniversityPage = ({
@@ -170,3 +174,5 @@ const UniversityPage = ({
 };
 
 export default UniversityPage;
+
+    

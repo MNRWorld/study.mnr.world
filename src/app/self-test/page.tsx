@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState, useCallback } from "react";
+import { useEffect, useRef, useState } from "react";
 import {
   Card,
   CardContent,
@@ -23,273 +23,96 @@ import {
   X,
 } from "lucide-react";
 
+type View = "config" | "test" | "answers" | "result";
+type Answer = { q: number; value: string };
+interface ResultBreakdown {
+  q: number;
+  userAnswer: string;
+  correctAnswer?: string;
+  status: "correct" | "incorrect" | "skipped";
+}
+
 export default function ExamPage() {
-  const [view, setView] = useState("config"); // 'config', 'test', 'answers', 'result'
+  const [view, setView] = useState<View>("config");
 
-  const testState = useRef({
-    mcqNumber: 0,
-    testName: "",
-    timeLimit: 0,
-    negativeMarkValue: 0,
-    timerInterval: null as NodeJS.Timeout | null,
-    userAnswers: [] as { q: number; value: string }[],
-    correctAnswers: [] as { q: number; value: string }[],
-  });
+  // Config state
+  const [testName, setTestName] = useState("");
+  const [mcqNumber, setMcqNumber] = useState(10);
+  const [timeLimit, setTimeLimit] = useState(10);
+  const [negativeMarkValue, setNegativeMarkValue] = useState(0.25);
 
-  const [config, setConfig] = useState({
-    testName: "",
-    mcqNumber: "10",
-    timeLimit: "10",
-    negativeMarkValue: "0.25",
-  });
-
+  // Test state
   const [timeLeft, setTimeLeft] = useState("");
-  const [mcqQuestions, setMcqQuestions] = useState<JSX.Element[]>([]);
-  const [correctAnswerInputs, setCorrectAnswerInputs] = useState<JSX.Element[]>(
-    [],
-  );
-  const [resultDetails, setResultDetails] = useState<JSX.Element | null>(null);
+  const [userAnswers, setUserAnswers] = useState<Answer[]>([]);
+  const [correctAnswers, setCorrectAnswers] = useState<Answer[]>([]);
   const [isSummaryVisible, setSummaryVisible] = useState(false);
-  const [summaryContent, setSummaryContent] = useState<JSX.Element[]>([]);
 
-  const mcqContainerRef = useRef<HTMLDivElement>(null);
-  const correctAnswersContainerRef = useRef<HTMLDivElement>(null);
+  // Result state
+  const [resultDetails, setResultDetails] = useState<ResultBreakdown[]>([]);
+  const [resultStats, setResultStats] = useState({
+    correctCount: 0,
+    incorrectCount: 0,
+    skippedCount: 0,
+    totalScore: 0,
+    percentage: 0,
+    negativeMark: 0,
+  });
 
-  const handleConfigChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const { id, value } = e.target;
-    setConfig((prev) => ({
-      ...prev,
-      [id]: value,
-    }));
+  const timerIntervalRef = useRef<NodeJS.Timeout | null>(null);
+
+  // --- Handlers for Configuration View ---
+  const startTest = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (mcqNumber <= 0 || timeLimit <= 0) {
+      alert("অনুগ্রহ করে MCQ সংখ্যা এবং সময়সীমার জন্য বৈধ সংখ্যা লিখুন।");
+      return;
+    }
+    setUserAnswers(Array(mcqNumber).fill(null));
+    setCorrectAnswers(Array(mcqNumber).fill(null));
+    setView("test");
   };
 
-  const submitTest = useCallback(() => {
-    if (testState.current.timerInterval)
-      clearInterval(testState.current.timerInterval);
+  // --- Handlers for Test View ---
+  const handleAnswerChange = (qIndex: number, value: string) => {
+    const newAnswers = [...userAnswers];
+    newAnswers[qIndex] = { q: qIndex + 1, value };
+    setUserAnswers(newAnswers);
+  };
 
-    const userAnswers = [];
-    for (let i = 1; i <= testState.current.mcqNumber; i++) {
-      const answer = (
-        document.querySelector(
-          `input[name="q${i}"]:checked`,
-        ) as HTMLInputElement
-      )?.value;
-      if (answer) {
-        userAnswers.push({ q: i, value: answer });
-      }
-    }
-    testState.current.userAnswers = userAnswers;
-
-    const inputs = [];
-    for (let i = 1; i <= testState.current.mcqNumber; i++) {
-      inputs.push(
-        <Card
-          key={`correct-q-${i}`}
-          className="mb-4 animate-fade-in-up"
-          style={{ animationDelay: `${i * 50}ms` }}
-        >
-          <CardContent className="flex flex-col sm:flex-row items-center justify-between p-4">
-            <p className="font-semibold text-lg mb-2 sm:mb-0 sm:mr-4">
-              প্রশ্ন {i} এর সঠিক উত্তর:
-            </p>
-            <div className="flex items-center justify-end flex-wrap gap-x-4">
-              {["A", "B", "C", "D"].map((option) => (
-                <div key={option} className="flex items-center space-x-2">
-                  <input
-                    type="radio"
-                    id={`correct-q${i}-${option}`}
-                    name={`correct-q${i}`}
-                    value={option}
-                    className="h-5 w-5 accent-primary"
-                  />
-                  <Label
-                    htmlFor={`correct-q${i}-${option}`}
-                    className="text-lg font-medium cursor-pointer"
-                  >
-                    {option}
-                  </Label>
-                </div>
-              ))}
-            </div>
-          </CardContent>
-        </Card>,
-      );
-    }
-    setCorrectAnswerInputs(inputs);
+  const submitTest = () => {
+    if (timerIntervalRef.current) clearInterval(timerIntervalRef.current);
     setView("answers");
-  }, []);
+  };
 
-  const updateSummary = useCallback(() => {
-    const content = [];
-    const numMcqs = testState.current.mcqNumber;
-    for (let i = 1; i <= numMcqs; i++) {
-      const isAnswered = document.querySelector(`input[name="q${i}"]:checked`);
-      content.push(
-        <div
-          key={`summary-${i}`}
-          className={`w-8 h-8 flex items-center justify-center cursor-pointer rounded font-bold border ${isAnswered ? "bg-green-500 text-white border-green-600" : "bg-card border-border"}`}
-          onClick={() => {
-            document
-              .getElementById(`mcq-${i}`)
-              ?.scrollIntoView({ behavior: "smooth", block: "center" });
-            setSummaryVisible(false);
-          }}
-        >
-          {i}
-        </div>,
-      );
-    }
-    setSummaryContent(content);
-  }, []);
-
-  const generateMcqInputs = useCallback(() => {
-    const questions = [];
-    for (let i = 1; i <= testState.current.mcqNumber; i++) {
-      questions.push(
-        <Card
-          key={`q-${i}`}
-          id={`mcq-${i}`}
-          className="mb-4 animate-fade-in-up"
-          style={{ animationDelay: `${i * 50}ms` }}
-        >
-          <CardContent className="flex flex-col sm:flex-row items-center justify-between p-4">
-            <p className="font-semibold text-lg mb-2 sm:mb-0 sm:mr-4 whitespace-nowrap">
-              প্রশ্ন. {i}:
-            </p>
-            <div className="flex items-center justify-end flex-wrap gap-x-4 w-full">
-              {["A", "B", "C", "D"].map((option) => (
-                <div key={option} className="flex items-center space-x-2">
-                  <input
-                    type="radio"
-                    id={`q${i}-${option}`}
-                    name={`q${i}`}
-                    value={option}
-                    className="h-5 w-5 accent-primary"
-                    onChange={updateSummary}
-                  />
-                  <Label
-                    htmlFor={`q${i}-${option}`}
-                    className="text-lg font-medium cursor-pointer"
-                  >
-                    {option}
-                  </Label>
-                </div>
-              ))}
-            </div>
-          </CardContent>
-        </Card>,
-      );
-    }
-    setMcqQuestions(questions);
-  }, [updateSummary]);
-
-  const startTest = useCallback(
-    (e: React.FormEvent) => {
-      e.preventDefault();
-      testState.current.testName = config.testName;
-      testState.current.mcqNumber = parseInt(config.mcqNumber) || 0;
-      testState.current.timeLimit = parseInt(config.timeLimit) || 0;
-      testState.current.negativeMarkValue =
-        parseFloat(config.negativeMarkValue) || 0;
-
-      if (
-        testState.current.mcqNumber <= 0 ||
-        testState.current.timeLimit <= 0
-      ) {
-        alert("অনুগ্রহ করে MCQ সংখ্যা এবং সময়সীমার জন্য বৈধ সংখ্যা লিখুন।");
-        return;
-      }
-
-      generateMcqInputs();
-      startTimer();
-      setView("test");
-
-      function startTimer() {
-        if (testState.current.timerInterval)
-          clearInterval(testState.current.timerInterval);
-
-        let timeRemaining = testState.current.timeLimit * 60;
-
-        const updateTimerDisplay = () => {
-          if (timeRemaining <= 0) {
-            clearInterval(testState.current.timerInterval!);
-            setTimeLeft("সময় শেষ!");
-            alert("সময় শেষ! পরীক্ষাটি স্বয়ংক্রিয়ভাবে জমা দেওয়া হবে।");
-            submitTest();
-          } else {
-            const minutes = Math.floor(timeRemaining / 60);
-            const seconds = timeRemaining % 60;
-            setTimeLeft(
-              `অবশিষ্ট সময়: ${String(minutes).padStart(2, "0")}মি ${String(
-                seconds,
-              ).padStart(2, "0")}সে`,
-            );
-            timeRemaining--;
-          }
-        };
-
-        updateTimerDisplay();
-        testState.current.timerInterval = setInterval(updateTimerDisplay, 1000);
-      }
-    },
-    [
-      config.mcqNumber,
-      config.negativeMarkValue,
-      config.testName,
-      config.timeLimit,
-      submitTest,
-      generateMcqInputs,
-    ],
-  );
-
-  useEffect(() => {
-    if (view === "test") {
-      updateSummary();
-    }
-  }, [view, mcqQuestions, updateSummary]);
+  // --- Handlers for Correct Answers View ---
+  const handleCorrectAnswerChange = (qIndex: number, value: string) => {
+    const newCorrectAnswers = [...correctAnswers];
+    newCorrectAnswers[qIndex] = { q: qIndex + 1, value };
+    setCorrectAnswers(newCorrectAnswers);
+  };
 
   const submitCorrectAnswers = () => {
-    let allSelected = true;
-    const correctAnswers = [];
-    for (let i = 1; i <= testState.current.mcqNumber; i++) {
-      const answer = (
-        document.querySelector(
-          `input[name="correct-q${i}"]:checked`,
-        ) as HTMLInputElement
-      )?.value;
-      if (!answer) {
-        allSelected = false;
-        break;
-      }
-      correctAnswers.push({ q: i, value: answer });
-    }
-
-    if (!allSelected) {
+    if (correctAnswers.some((a) => a === null)) {
       alert("অনুগ্রহ করে সকল সঠিক উত্তর নির্বাচন করুন।");
       return;
     }
-
-    testState.current.correctAnswers = correctAnswers;
     calculateResult();
     setView("result");
   };
 
+  // --- Result Calculation ---
   const calculateResult = () => {
     let correctCount = 0;
     let incorrectCount = 0;
-    let resultBreakdown = [];
+    const breakdown: ResultBreakdown[] = [];
 
-    const userAnswersMap = new Map(
-      testState.current.userAnswers.map((a) => [a.q, a.value]),
-    );
-    const correctAnswersMap = new Map(
-      testState.current.correctAnswers.map((a) => [a.q, a.value]),
-    );
+    const userAnswersMap = new Map(userAnswers.filter(Boolean).map((a) => [a.q, a.value]));
+    const correctAnswersMap = new Map(correctAnswers.map((a) => [a.q, a.value]));
 
-    for (let i = 1; i <= testState.current.mcqNumber; i++) {
+    for (let i = 1; i <= mcqNumber; i++) {
       const userAnswer = userAnswersMap.get(i);
       const correctAnswer = correctAnswersMap.get(i);
-      let status = "skipped";
+      let status: ResultBreakdown["status"] = "skipped";
       if (userAnswer) {
         if (userAnswer === correctAnswer) {
           correctCount++;
@@ -299,7 +122,7 @@ export default function ExamPage() {
           status = "incorrect";
         }
       }
-      resultBreakdown.push({
+      breakdown.push({
         q: i,
         userAnswer: userAnswer || "-",
         correctAnswer: correctAnswer,
@@ -307,164 +130,136 @@ export default function ExamPage() {
       });
     }
 
-    const skippedCount =
-      testState.current.mcqNumber - (correctCount + incorrectCount);
-    const negMarkValue = testState.current.negativeMarkValue;
-    const totalScore = correctCount - incorrectCount * negMarkValue;
-    const percentage = (correctCount / testState.current.mcqNumber) * 100;
+    const skippedCount = mcqNumber - (correctCount + incorrectCount);
+    const negativeMark = incorrectCount * negativeMarkValue;
+    const totalScore = correctCount - negativeMark;
+    const percentage = (correctCount / mcqNumber) * 100;
 
-    setResultDetails(
-      <div className="space-y-6 text-center">
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-          <Card>
-            <CardHeader className="pb-2">
-              <CardTitle className="text-sm font-medium">মোট প্রশ্ন</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <p className="text-2xl font-bold">
-                {testState.current.mcqNumber}
-              </p>
-            </CardContent>
-          </Card>
-          <Card>
-            <CardHeader className="pb-2">
-              <CardTitle className="text-sm font-medium">সঠিক উত্তর</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <p className="text-2xl font-bold text-green-500">
-                {correctCount}
-              </p>
-            </CardContent>
-          </Card>
-          <Card>
-            <CardHeader className="pb-2">
-              <CardTitle className="text-sm font-medium">ভুল উত্তর</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <p className="text-2xl font-bold text-red-500">
-                {incorrectCount}
-              </p>
-            </CardContent>
-          </Card>
-          <Card>
-            <CardHeader className="pb-2">
-              <CardTitle className="text-sm font-medium">উত্তর দেননি</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <p className="text-2xl font-bold">{skippedCount}</p>
-            </CardContent>
-          </Card>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-center">
-          <Card>
-            <CardHeader className="pb-2">
-              <CardTitle className="text-sm font-medium">
-                নেগেটিভ মার্কিং
-              </CardTitle>
-            </CardHeader>
-            <CardContent>
-              <p className="text-lg font-bold">
-                {(incorrectCount * negMarkValue).toFixed(2)}
-              </p>
-            </CardContent>
-          </Card>
-          <Card className="md:col-span-2">
-            <CardHeader className="pb-2">
-              <CardTitle className="text-sm font-medium">
-                সর্বমোট স্কোর
-              </CardTitle>
-            </CardHeader>
-            <CardContent>
-              <p className="text-2xl font-bold text-primary">
-                {totalScore.toFixed(2)} / {testState.current.mcqNumber}
-              </p>
-            </CardContent>
-          </Card>
-        </div>
-
-        <div className="border-2 border-amber-500 bg-amber-100 dark:bg-amber-900/20 p-4 rounded-lg">
-          <p className="text-2xl font-bold text-amber-600 dark:text-amber-400">
-            শতাংশ: {percentage.toFixed(2)}%
-          </p>
-        </div>
-
-        <div>
-          <h3 className="text-xl font-bold my-4">ফলাফল বিশ্লেষণ</h3>
-          <div className="max-h-96 overflow-y-auto border rounded-lg">
-            <table className="w-full divide-y divide-border">
-              <thead className="bg-muted sticky top-0">
-                <tr>
-                  <th className="px-4 py-2 text-left text-sm font-semibold">
-                    প্রশ্ন
-                  </th>
-                  <th className="px-4 py-2 text-left text-sm font-semibold">
-                    আপনার উত্তর
-                  </th>
-                  <th className="px-4 py-2 text-left text-sm font-semibold">
-                    সঠিক উত্তর
-                  </th>
-                  <th className="px-4 py-2 text-left text-sm font-semibold">
-                    ফলাফল
-                  </th>
-                </tr>
-              </thead>
-              <tbody className="bg-card divide-y divide-border">
-                {resultBreakdown.map((res) => (
-                  <tr key={res.q}>
-                    <td className="px-4 py-2 font-medium">{res.q}</td>
-                    <td
-                      className={`px-4 py-2 font-bold ${res.status === "incorrect" ? "text-red-500" : "text-green-500"}`}
-                    >
-                      {res.userAnswer}
-                    </td>
-                    <td className="px-4 py-2 font-bold text-blue-500">
-                      {res.correctAnswer}
-                    </td>
-                    <td className="px-4 py-2">
-                      {res.status === "correct" && (
-                        <span className="flex items-center gap-1 text-green-500">
-                          <Check size={16} /> সঠিক
-                        </span>
-                      )}
-                      {res.status === "incorrect" && (
-                        <span className="flex items-center gap-1 text-red-500">
-                          <X size={16} /> ভুল
-                        </span>
-                      )}
-                      {res.status === "skipped" && (
-                        <span className="text-muted-foreground">স্কিপড</span>
-                      )}
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-        </div>
-      </div>,
-    );
+    setResultDetails(breakdown);
+    setResultStats({
+      correctCount,
+      incorrectCount,
+      skippedCount,
+      totalScore,
+      percentage,
+      negativeMark,
+    });
   };
 
+  // --- Reset ---
   const restartTest = () => {
-    if (testState.current.timerInterval)
-      clearInterval(testState.current.timerInterval);
-    testState.current = {
-      mcqNumber: 0,
-      testName: "",
-      timeLimit: 0,
-      negativeMarkValue: 0,
-      timerInterval: null,
-      userAnswers: [],
-      correctAnswers: [],
-    };
-    setConfig({
-      testName: "",
-      mcqNumber: "10",
-      timeLimit: "10",
-      negativeMarkValue: "0.25",
-    });
+    if (timerIntervalRef.current) clearInterval(timerIntervalRef.current);
+    setTestName("");
+    setMcqNumber(10);
+    setTimeLimit(10);
+    setNegativeMarkValue(0.25);
     setView("config");
+  };
+
+  // --- Timer Effect ---
+  useEffect(() => {
+    if (view !== "test") return;
+
+    let timeRemaining = timeLimit * 60;
+    const updateTimerDisplay = () => {
+      if (timeRemaining <= 0) {
+        clearInterval(timerIntervalRef.current!);
+        setTimeLeft("সময় শেষ!");
+        alert("সময় শেষ! পরীক্ষাটি স্বয়ংক্রিয়ভাবে জমা দেওয়া হবে।");
+        submitTest();
+      } else {
+        const minutes = Math.floor(timeRemaining / 60);
+        const seconds = timeRemaining % 60;
+        setTimeLeft(
+          `অবশিষ্ট সময়: ${String(minutes).padStart(2, "0")}মি ${String(
+            seconds,
+          ).padStart(2, "0")}সে`,
+        );
+        timeRemaining--;
+      }
+    };
+
+    updateTimerDisplay();
+    timerIntervalRef.current = setInterval(updateTimerDisplay, 1000);
+
+    return () => {
+      if (timerIntervalRef.current) clearInterval(timerIntervalRef.current);
+    };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [view, timeLimit]);
+
+  const renderMcqInputs = (
+    count: number,
+    namePrefix: string,
+    answers: Answer[],
+    onChange: (index: number, value: string) => void,
+    isCorrectAnswerView = false,
+  ) => {
+    const inputs = [];
+    for (let i = 0; i < count; i++) {
+      inputs.push(
+        <Card
+          key={`${namePrefix}-${i}`}
+          id={`mcq-${i + 1}`}
+          className="mb-4 animate-fade-in-up"
+          style={{ animationDelay: `${i * 50}ms` }}
+        >
+          <CardContent className="flex flex-col sm:flex-row items-center justify-between p-4">
+            <p className="font-semibold text-lg mb-2 sm:mb-0 sm:mr-4 whitespace-nowrap">
+              {isCorrectAnswerView ? `প্রশ্ন ${i + 1} এর সঠিক উত্তর:` : `প্রশ্ন. ${i + 1}:`}
+            </p>
+            <div className="flex items-center justify-end flex-wrap gap-x-4 w-full">
+              {["A", "B", "C", "D"].map((option) => (
+                <div key={option} className="flex items-center space-x-2">
+                  <input
+                    type="radio"
+                    id={`${namePrefix}-${i + 1}-${option}`}
+                    name={`${namePrefix}-${i + 1}`}
+                    value={option}
+                    className="h-5 w-5 accent-primary"
+                    checked={answers[i]?.value === option}
+                    onChange={() => onChange(i, option)}
+                  />
+                  <Label
+                    htmlFor={`${namePrefix}-${i + 1}-${option}`}
+                    className="text-lg font-medium cursor-pointer"
+                  >
+                    {option}
+                  </Label>
+                </div>
+              ))}
+            </div>
+          </CardContent>
+        </Card>,
+      );
+    }
+    return inputs;
+  };
+
+  const renderSummary = () => {
+    const content = [];
+    for (let i = 0; i < mcqNumber; i++) {
+      const isAnswered = !!userAnswers[i];
+      content.push(
+        <div
+          key={`summary-${i}`}
+          className={`w-8 h-8 flex items-center justify-center cursor-pointer rounded font-bold border ${
+            isAnswered
+              ? "bg-green-500 text-white border-green-600"
+              : "bg-card border-border"
+          }`}
+          onClick={() => {
+            document
+              .getElementById(`mcq-${i + 1}`)
+              ?.scrollIntoView({ behavior: "smooth", block: "center" });
+            setSummaryVisible(false);
+          }}
+        >
+          {i + 1}
+        </div>,
+      );
+    }
+    return content;
   };
 
   return (
@@ -492,8 +287,8 @@ export default function ExamPage() {
                 <Label htmlFor="testName">পরীক্ষার নাম:</Label>
                 <Input
                   id="testName"
-                  value={config.testName}
-                  onChange={handleConfigChange}
+                  value={testName}
+                  onChange={(e) => setTestName(e.target.value)}
                   required
                 />
               </div>
@@ -502,8 +297,8 @@ export default function ExamPage() {
                 <Input
                   id="mcqNumber"
                   type="number"
-                  value={config.mcqNumber}
-                  onChange={handleConfigChange}
+                  value={mcqNumber}
+                  onChange={(e) => setMcqNumber(parseInt(e.target.value) || 0)}
                   required
                   min="1"
                 />
@@ -513,8 +308,8 @@ export default function ExamPage() {
                 <Input
                   id="timeLimit"
                   type="number"
-                  value={config.timeLimit}
-                  onChange={handleConfigChange}
+                  value={timeLimit}
+                  onChange={(e) => setTimeLimit(parseInt(e.target.value) || 0)}
                   required
                   min="1"
                 />
@@ -526,8 +321,10 @@ export default function ExamPage() {
                 <Input
                   id="negativeMarkValue"
                   type="number"
-                  value={config.negativeMarkValue}
-                  onChange={handleConfigChange}
+                  value={negativeMarkValue}
+                  onChange={(e) =>
+                    setNegativeMarkValue(parseFloat(e.target.value) || 0)
+                  }
                   step="0.01"
                   placeholder="যেমন: 0.25"
                 />
@@ -564,7 +361,7 @@ export default function ExamPage() {
                   </CardTitle>
                 </CardHeader>
                 <CardContent className="p-2 flex flex-wrap gap-2">
-                  {summaryContent}
+                  {renderSummary()}
                 </CardContent>
               </Card>
             )}
@@ -572,13 +369,11 @@ export default function ExamPage() {
 
           <Card className="mb-6 animate-fade-in-up">
             <CardHeader className="text-center">
-              <CardTitle>{testState.current.testName}</CardTitle>
+              <CardTitle>{testName || "OMR পরীক্ষা"}</CardTitle>
               <CardDescription>
-                মোট প্রশ্ন: {testState.current.mcqNumber} | সময়সীমা:{" "}
-                {testState.current.timeLimit} মিনিট | নেগেটিভ মার্কিং:{" "}
-                {testState.current.negativeMarkValue > 0
-                  ? `${testState.current.negativeMarkValue}`
-                  : "নেই"}
+                মোট প্রশ্ন: {mcqNumber} | সময়সীমা: {timeLimit} মিনিট | নেগেটিভ
+                মার্কিং:{" "}
+                {negativeMarkValue > 0 ? `${negativeMarkValue}` : "নেই"}
               </CardDescription>
             </CardHeader>
           </Card>
@@ -591,7 +386,7 @@ export default function ExamPage() {
             </div>
           </div>
 
-          <div ref={mcqContainerRef}>{mcqQuestions}</div>
+          <div>{renderMcqInputs(mcqNumber, "q", userAnswers, handleAnswerChange)}</div>
           <Button onClick={submitTest} className="w-full mt-6" size="lg">
             পরীক্ষা জমা দিন
           </Button>
@@ -606,8 +401,8 @@ export default function ExamPage() {
             </CardTitle>
             <CardDescription>ফলাফল তৈরির জন্য সঠিক উত্তর দিন।</CardDescription>
           </CardHeader>
-          <CardContent ref={correctAnswersContainerRef}>
-            {correctAnswerInputs}
+          <CardContent>
+            {renderMcqInputs(mcqNumber, "correct-q", correctAnswers, handleCorrectAnswerChange, true)}
             <p className="text-red-500 mt-4 text-center">
               জমা দেওয়ার আগে অনুগ্রহ করে সকল প্রশ্নের জন্য সঠিক উত্তর নির্বাচন
               করুন।
@@ -631,7 +426,139 @@ export default function ExamPage() {
               আপনার পরীক্ষার পারফরম্যান্সের সারসংক্ষেপ এখানে।
             </CardDescription>
           </CardHeader>
-          <CardContent>{resultDetails}</CardContent>
+          <CardContent>
+            <div className="space-y-6 text-center">
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+                <Card>
+                  <CardHeader className="pb-2">
+                    <CardTitle className="text-sm font-medium">মোট প্রশ্ন</CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <p className="text-2xl font-bold">{mcqNumber}</p>
+                  </CardContent>
+                </Card>
+                <Card>
+                  <CardHeader className="pb-2">
+                    <CardTitle className="text-sm font-medium">সঠিক উত্তর</CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <p className="text-2xl font-bold text-green-500">
+                      {resultStats.correctCount}
+                    </p>
+                  </CardContent>
+                </Card>
+                <Card>
+                  <CardHeader className="pb-2">
+                    <CardTitle className="text-sm font-medium">ভুল উত্তর</CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <p className="text-2xl font-bold text-red-500">
+                      {resultStats.incorrectCount}
+                    </p>
+                  </CardContent>
+                </Card>
+                <Card>
+                  <CardHeader className="pb-2">
+                    <CardTitle className="text-sm font-medium">উত্তর দেননি</CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <p className="text-2xl font-bold">{resultStats.skippedCount}</p>
+                  </CardContent>
+                </Card>
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-center">
+                <Card>
+                  <CardHeader className="pb-2">
+                    <CardTitle className="text-sm font-medium">
+                      নেগেটিভ মার্কিং
+                    </CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <p className="text-lg font-bold">
+                      {resultStats.negativeMark.toFixed(2)}
+                    </p>
+                  </CardContent>
+                </Card>
+                <Card className="md:col-span-2">
+                  <CardHeader className="pb-2">
+                    <CardTitle className="text-sm font-medium">
+                      সর্বমোট স্কোর
+                    </CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <p className="text-2xl font-bold text-primary">
+                      {resultStats.totalScore.toFixed(2)} / {mcqNumber}
+                    </p>
+                  </CardContent>
+                </Card>
+              </div>
+
+              <div className="border-2 border-amber-500 bg-amber-100 dark:bg-amber-900/20 p-4 rounded-lg">
+                <p className="text-2xl font-bold text-amber-600 dark:text-amber-400">
+                  শতাংশ: {resultStats.percentage.toFixed(2)}%
+                </p>
+              </div>
+
+              <div>
+                <h3 className="text-xl font-bold my-4">ফলাফল বিশ্লেষণ</h3>
+                <div className="max-h-96 overflow-y-auto border rounded-lg">
+                  <table className="w-full divide-y divide-border">
+                    <thead className="bg-muted sticky top-0">
+                      <tr>
+                        <th className="px-4 py-2 text-left text-sm font-semibold">
+                          প্রশ্ন
+                        </th>
+                        <th className="px-4 py-2 text-left text-sm font-semibold">
+                          আপনার উত্তর
+                        </th>
+                        <th className="px-4 py-2 text-left text-sm font-semibold">
+                          সঠিক উত্তর
+                        </th>
+                        <th className="px-4 py-2 text-left text-sm font-semibold">
+                          ফলাফল
+                        </th>
+                      </tr>
+                    </thead>
+                    <tbody className="bg-card divide-y divide-border">
+                      {resultDetails.map((res) => (
+                        <tr key={res.q}>
+                          <td className="px-4 py-2 font-medium">{res.q}</td>
+                          <td
+                            className={`px-4 py-2 font-bold ${
+                              res.status === "incorrect"
+                                ? "text-red-500"
+                                : "text-green-500"
+                            }`}
+                          >
+                            {res.userAnswer}
+                          </td>
+                          <td className="px-4 py-2 font-bold text-blue-500">
+                            {res.correctAnswer}
+                          </td>
+                          <td className="px-4 py-2">
+                            {res.status === "correct" && (
+                              <span className="flex items-center gap-1 text-green-500">
+                                <Check size={16} /> সঠিক
+                              </span>
+                            )}
+                            {res.status === "incorrect" && (
+                              <span className="flex items-center gap-1 text-red-500">
+                                <X size={16} /> ভুল
+                              </span>
+                            )}
+                            {res.status === "skipped" && (
+                              <span className="text-muted-foreground">স্কিপড</span>
+                            )}
+                          </td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </CardContent>
           <CardFooter className="flex-col gap-4">
             <Button onClick={restartTest} className="w-full" size="lg">
               <RotateCcw /> আরেকটি পরীক্ষা শুরু করুন
@@ -652,5 +579,4 @@ export default function ExamPage() {
     </div>
   );
 }
-
     
