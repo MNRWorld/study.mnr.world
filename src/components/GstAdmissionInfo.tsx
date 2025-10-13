@@ -137,13 +137,12 @@ const GstAdmissionInfo = () => {
   // Manually define duData for the mark distribution part
   const duData = allData.universities.find((uni) => uni.id === "du");
   if (!duData || !duData.admissionInfo) {
-    return <div>No DU admission information available for marks distribution</div>;
+    return (
+      <div>No DU admission information available for marks distribution</div>
+    );
   }
   const duAdmissionInfo = duData.admissionInfo as any;
-  const {
-    generalInfo: duGeneralInfo,
-  } = duAdmissionInfo;
-
+  const { generalInfo: duGeneralInfo } = duAdmissionInfo;
 
   return (
     <div
@@ -786,7 +785,6 @@ const GstAdmissionInfo = () => {
           </React.Fragment>
         ))}
       </div>
-
 
       <h2
         id="Result"
