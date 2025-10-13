@@ -28,6 +28,8 @@ import {
   Bookmark,
   Copy,
   Check,
+  BookOpen,
+  FilePenLine,
 } from "lucide-react";
 import Link from "next/link";
 import { useUser, useSupabase } from "@/lib/supabase/hooks";
@@ -43,14 +45,17 @@ const suggestions = [
   {
     title: "ঢাকা বিশ্ববিদ্যালয় প্রশ্নব্যাংক",
     href: "/question-bank?tab=du",
-  },
-  {
-    title: "গুচ্ছ প্রস্তুতি কোর্স",
-    href: "/courses/gst-admission",
+    icon: BookOpen,
   },
   {
     title: "অ্যাডমিশন ক্যালেন্ডার দেখুন",
     href: "/calendar",
+    icon: CalendarDays,
+  },
+  {
+    title: "OMR সেলফ টেস্ট",
+    href: "/self-test",
+    icon: FilePenLine,
   },
 ];
 
@@ -66,8 +71,6 @@ function RegisteredUserProfile() {
   const supabase = useSupabase();
   const { toast } = useToast();
   const [displayName, setDisplayName] = useState("ব্যবহারকারী");
-  const [targetUniversity, setTargetUniversity] = useState("");
-  const [hscResult, setHscResult] = useState("");
   const [loading, setLoading] = useState(true);
   const [saving, setSaving] = useState(false);
 
@@ -75,7 +78,7 @@ function RegisteredUserProfile() {
     if (user && !user.is_anonymous && supabase) {
       const { data, error } = await supabase
         .from("profiles")
-        .select("display_name, target_university, hsc_result")
+        .select("display_name")
         .eq("id", user.id)
         .single();
 
@@ -86,8 +89,6 @@ function RegisteredUserProfile() {
             user.user_metadata?.user_name ||
             "ব্যবহারকারী",
         );
-        setTargetUniversity(data.target_university || "");
-        setHscResult(data.hsc_result || "");
       }
       setLoading(false);
     }
@@ -104,8 +105,6 @@ function RegisteredUserProfile() {
       .from("profiles")
       .update({
         display_name: displayName,
-        target_university: targetUniversity,
-        hsc_result: hscResult,
         updated_at: new Date().toISOString(),
       })
       .eq("id", user.id);
@@ -182,24 +181,6 @@ function RegisteredUserProfile() {
               value={displayName}
               onChange={(e) => setDisplayName(e.target.value)}
               placeholder="আপনার পুরো নাম"
-            />
-          </div>
-          <div className="space-y-2">
-            <Label htmlFor="targetUniversity">আপনার টার্গেট</Label>
-            <Input
-              id="targetUniversity"
-              value={targetUniversity}
-              onChange={(e) => setTargetUniversity(e.target.value)}
-              placeholder="যেমন: ঢাকা বিশ্ববিদ্যালয়"
-            />
-          </div>
-          <div className="space-y-2">
-            <Label htmlFor="hscResult">HSC ফলাফল</Label>
-            <Input
-              id="hscResult"
-              value={hscResult}
-              onChange={(e) => setHscResult(e.target.value)}
-              placeholder="যেমন: GPA 5.00"
             />
           </div>
         </CardContent>
@@ -379,19 +360,28 @@ export default function ProfilePage() {
           </CardDescription>
         </CardHeader>
         <CardContent className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
-          {suggestions.map((suggestion) => (
-            <Button
-              key={suggestion.href}
-              asChild
-              variant="outline"
-              className="justify-between"
-            >
-              <Link href={suggestion.href}>
-                {suggestion.title}
-                <ArrowRight />
-              </Link>
-            </Button>
-          ))}
+          {suggestions.map((suggestion) => {
+            const Icon = suggestion.icon;
+            return (
+              <Button
+                key={suggestion.href}
+                asChild
+                variant="outline"
+                className="justify-between items-center"
+              >
+                <Link
+                  href={suggestion.href}
+                  className="flex items-center justify-between w-full"
+                >
+                  <div className="flex items-center gap-2 overflow-hidden">
+                    <Icon />
+                    <span className="truncate">{suggestion.title}</span>
+                  </div>
+                  <ArrowRight className="ml-2 flex-shrink-0" />
+                </Link>
+              </Button>
+            );
+          })}
         </CardContent>
       </Card>
 
@@ -484,3 +474,5 @@ export default function ProfilePage() {
     </div>
   );
 }
+
+    
