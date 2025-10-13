@@ -51,13 +51,13 @@ const GstQuestionBank = () => {
       <Tabs defaultValue="ka-unit" className="w-full">
         <TabsList className="flex flex-wrap w-full h-auto bg-transparent gap-2">
           <TabsTrigger value="ka-unit" className="flex-grow">
-            "ক" ইউনিট
+            'ক' ইউনিট
           </TabsTrigger>
           <TabsTrigger value="kha-unit" className="flex-grow">
-            "খ" ইউনিট
+            'খ' ইউনিট
           </TabsTrigger>
           <TabsTrigger value="ga-unit" className="flex-grow">
-            "গ" ইউনিট
+            'গ' ইউনিট
           </TabsTrigger>
         </TabsList>
         <TabsContent value="ka-unit">

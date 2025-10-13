@@ -91,7 +91,6 @@ CREATE TABLE public.courses (
 );
 ALTER TABLE public.courses ENABLE ROW LEVEL SECURITY;
 CREATE POLICY "Courses are viewable by everyone." ON public.courses FOR SELECT USING (true);
--- Add policies for insert/update/delete for admins later.
 
 -- Enrollments Table (Many-to-Many between users and courses)
 CREATE TABLE public.enrollments (
@@ -117,7 +116,6 @@ CREATE TABLE public.modules (
 );
 ALTER TABLE public.modules ENABLE ROW LEVEL SECURITY;
 CREATE POLICY "Modules are viewable by everyone." ON public.modules FOR SELECT USING (true);
--- Add policies for insert/update/delete for admins later.
 
 -- Course Lessons Table
 CREATE TABLE public.lessons (
@@ -140,7 +138,7 @@ CREATE POLICY "Lessons are viewable by enrolled users." ON public.lessons
             WHERE m.id = lessons.module_id AND e.user_id = auth.uid()
         )
     );
--- Add policies for insert/update/delete for admins later.
+
 
 -- User Lesson Progress Table
 CREATE TABLE public.lesson_progress (
