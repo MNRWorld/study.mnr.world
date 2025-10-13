@@ -11,7 +11,6 @@ import {
   Mail,
 } from "lucide-react";
 import Link from "next/link";
-import { allData } from "@/lib/data/_generated";
 import Image from "next/image";
 
 const icons: { [key: string]: React.ElementType } = {
@@ -23,7 +22,28 @@ const icons: { [key: string]: React.ElementType } = {
 };
 
 export default function Footer() {
-  const { important, shortcuts } = allData.navigationLinks.footerLinks;
+  const footerLinks = {
+    "important": [
+      { "href": "/courses", "label": "আমাদের কোর্স", "icon": "ArrowRight" },
+      {
+        "href": "/calendar",
+        "label": "ভর্তি ক্যালেন্ডার",
+        "icon": "ArrowRight"
+      },
+      {
+        "href": "/question-bank",
+        "label": "বই ও প্রশ্নব্যাংক",
+        "icon": "ArrowRight"
+      }
+    ],
+    "shortcuts": [
+      { "href": "/", "label": "হোম", "icon": "Home" },
+      { "href": "/about", "label": "আমাদের সম্পর্কে", "icon": "Info" },
+      { "href": "/contact", "label": "যোগাযোগ", "icon": "Mail" }
+    ]
+  };
+  const { important, shortcuts } = footerLinks;
+
 
   return (
     <footer className="w-full mt-16 mb-2 sm:mb-4">

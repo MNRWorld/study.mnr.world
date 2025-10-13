@@ -1,4 +1,3 @@
-
 "use client";
 import React from "react";
 import {
@@ -220,7 +219,7 @@ const GstAdmissionInfo = () => {
         </div>
       </div>
       <hr className="my-3 border-border/50" />
-      
+
       {unitRequirements && (
         <Accordion type="multiple" className="w-full space-y-2">
           <AccordionItem

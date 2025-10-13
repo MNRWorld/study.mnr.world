@@ -7,12 +7,7 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import { Table, TableBody, TableCell, TableRow } from "@/components/ui/table";
-import {
-  Landmark,
-  University,
-  History,
-  Map,
-} from "lucide-react";
+import { Landmark, University, History, Map } from "lucide-react";
 import { allData } from "@/lib/data/_generated";
 import ExternalLink from "./common/ExternalLink";
 

@@ -1,4 +1,3 @@
-
 "use client";
 
 import React, { useState, useEffect, useCallback } from "react";
@@ -143,7 +142,11 @@ const SubjectTable: React.FC<SubjectTableProps> = ({
   );
 
   if (subjects.length === 0) {
-    return <p className="text-muted-foreground">এই ইউনিটের বিষয়ভিত্তিক আসনের তথ্য শীঘ্রই যোগ করা হবে।</p>;
+    return (
+      <p className="text-muted-foreground">
+        এই ইউনিটের বিষয়ভিত্তিক আসনের তথ্য শীঘ্রই যোগ করা হবে।
+      </p>
+    );
   }
 
   return (

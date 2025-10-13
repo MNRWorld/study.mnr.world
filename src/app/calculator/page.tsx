@@ -1,12 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import {
-  Card,
-  CardContent,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import {
@@ -93,11 +88,7 @@ const EligibilityCheckerPage = () => {
     const subjectTotal = mPhy + mChem + mMath + mBio + mEng;
     const maxTotal = 500;
 
-    const currentDeductions = computeDeductions(
-      dept,
-      hscGpaNum,
-      isSecondTimer,
-    );
+    const currentDeductions = computeDeductions(dept, hscGpaNum, isSecondTimer);
     const totalDeduct = currentDeductions.reduce((s, d) => s + d.value, 0);
     const adjustedTotal = Math.max(0, subjectTotal - totalDeduct);
     const percentage = (adjustedTotal / maxTotal) * 100;
@@ -271,7 +262,9 @@ const EligibilityCheckerPage = () => {
                   />
                 </div>
                 <div>
-                  <Label htmlFor="marks_chemistry">Chemistry (কেমিস্ট্রি)</Label>
+                  <Label htmlFor="marks_chemistry">
+                    Chemistry (কেমিস্ট্রি)
+                  </Label>
                   <Input
                     id="marks_chemistry"
                     type="number"
@@ -338,11 +331,12 @@ const EligibilityCheckerPage = () => {
               </div>
 
               <div className="text-xs text-muted-foreground p-3 bg-muted rounded-md mt-4">
-                <strong>নোট:</strong> SSC এবং HSC এর মধ্যে gap সর্বোচ্চ ২ বছর হতে
-                হবে (HSC year - SSC year ≤ 2)। মেডিকেল/ইঞ্জিনিয়ারিং/ভার্সিটি -
-                HSC GPA ৫.০০ এর কম হলে <strong>-2 মার্ক</strong> কাটা যাবে। যদি
-                আপনি সেকেন্ড টাইম হন তাহলে <strong>-5 মার্ক</strong> কাটা হবে।
-                (এই ডিডাকশনগুলো মোট ভর্তি পরীক্ষার মার্ক থেকে কাটা হবে।)
+                <strong>নোট:</strong> SSC এবং HSC এর মধ্যে gap সর্বোচ্চ ২ বছর
+                হতে হবে (HSC year - SSC year ≤ 2)।
+                মেডিকেল/ইঞ্জিনিয়ারিং/ভার্সিটি - HSC GPA ৫.০০ এর কম হলে{" "}
+                <strong>-2 মার্ক</strong> কাটা যাবে। যদি আপনি সেকেন্ড টাইম হন
+                তাহলে <strong>-5 মার্ক</strong> কাটা হবে। (এই ডিডাকশনগুলো মোট
+                ভর্তি পরীক্ষার মার্ক থেকে কাটা হবে।)
               </div>
             </CardContent>
           </Card>

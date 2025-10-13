@@ -6,7 +6,6 @@ import contributorsList from "./contributors.json";
 import coursesList from "./courses.json";
 import deadlinesList from "./deadlines.json";
 import linksList from "./links.json";
-import navigationLinks from "./navigation.json";
 import questionBankCards from "./question-bank.json";
 import schedules from "./schedules.json";
 import testPapersList from "./test-papers.json";
@@ -60,7 +59,6 @@ export const allData = {
   coursesList,
   deadlinesList,
   linksList,
-  navigationLinks,
   questionBankCards,
   schedulesAdmission: schedules.admission,
   schedulesApplication: schedules.application,

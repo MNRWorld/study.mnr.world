@@ -14,7 +14,6 @@ import {
   GraduationCap,
   Calculator,
 } from "lucide-react";
-import { allData } from "@/lib/data/_generated";
 import HeaderAuth from "./HeaderAuth";
 import { memo } from "react";
 import { usePathname } from "next/navigation";
@@ -130,7 +129,65 @@ const NavItem = memo(function NavItem({ item, isActive }: NavItemProps) {
 
 const Header = memo(function Header() {
   const pathname = usePathname();
-  const navItems = allData.navigationLinks.navItems;
+  const navItems = [
+    { "id": "home", "label": "হোম", "icon": "Home", "href": "/" },
+    {
+      "id": "info",
+      "label": "তথ্য",
+      "icon": "Info",
+      "href": "#",
+      "subItems": [
+        {
+          "id": "public",
+          "label": "পাবলিক",
+          "icon": "University",
+          "href": "/public"
+        },
+        {
+          "id": "private",
+          "label": "প্রাইভেট",
+          "icon": "Building",
+          "href": "/private"
+        },
+        {
+          "id": "college",
+          "label": "কলেজ",
+          "icon": "School",
+          "href": "/college"
+        }
+      ]
+    },
+    {
+      "id": "question-bank",
+      "label": "প্রশ্নব্যাংক",
+      "icon": "BookOpen",
+      "href": "/question-bank"
+    },
+    {
+      "id": "calendar",
+      "label": "ক্যালেন্ডার",
+      "icon": "CalendarDays",
+      "href": "/calendar"
+    },
+    {
+      "id": "self-test",
+      "label": "সেলফ টেস্ট",
+      "icon": "FilePenLine",
+      "href": "/self-test"
+    },
+    {
+      "id": "calculator",
+      "label": "ক্যালকুলেটর",
+      "icon": "Calculator",
+      "href": "/calculator"
+    },
+    {
+      "id": "courses",
+      "label": "কোর্স",
+      "icon": "GraduationCap",
+      "href": "/courses"
+    }
+  ];
 
   return (
     <header className="sticky top-2 z-40 w-full flex justify-center px-2 sm:px-0">

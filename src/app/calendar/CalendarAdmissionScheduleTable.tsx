@@ -1,4 +1,3 @@
-
 "use client";
 
 import React, { useState, useEffect, useCallback } from "react";
@@ -46,16 +45,24 @@ const CountdownCell = ({ targetDate }: { targetDate: string | null }) => {
 
   return (
     <TableCell className="text-center align-top font-bengali whitespace-nowrap text-xs sm:text-sm">
-      <span className="tabular-nums">{toBengaliNumber(String(timeLeft.days).padStart(2, "0"))}</span>
+      <span className="tabular-nums">
+        {toBengaliNumber(String(timeLeft.days).padStart(2, "0"))}
+      </span>
       <span className="mr-1 hidden sm:inline">দিন</span>
       <span className="mr-1 sm:hidden">দি</span>
-      <span className="tabular-nums">{toBengaliNumber(String(timeLeft.hours).padStart(2, "0"))}</span>
+      <span className="tabular-nums">
+        {toBengaliNumber(String(timeLeft.hours).padStart(2, "0"))}
+      </span>
       <span className="mr-1 hidden sm:inline">ঘণ্টা</span>
       <span className="mr-1 sm:hidden">ঘ</span>
-      <span className="tabular-nums">{toBengaliNumber(String(timeLeft.minutes).padStart(2, "0"))}</span>
+      <span className="tabular-nums">
+        {toBengaliNumber(String(timeLeft.minutes).padStart(2, "0"))}
+      </span>
       <span className="mr-1 hidden sm:inline">মিনিট</span>
       <span className="mr-1 sm:hidden">মি</span>
-      <span className="tabular-nums">{toBengaliNumber(String(timeLeft.seconds).padStart(2, "0"))}</span>
+      <span className="tabular-nums">
+        {toBengaliNumber(String(timeLeft.seconds).padStart(2, "0"))}
+      </span>
       <span className="hidden sm:inline">সেকেন্ড</span>
       <span className="sm:hidden">সে</span>
     </TableCell>
