@@ -1,7 +1,7 @@
 "use client";
 
 import { useRouter } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useMemo } from "react";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import {
@@ -70,34 +70,12 @@ function RegisteredUserProfile() {
   const { user } = useUser();
   const supabase = useSupabase();
   const { toast } = useToast();
-  const [displayName, setDisplayName] = useState("ব্যবহারকারী");
-  const [loading, setLoading] = useState(true);
+  const [displayName, setDisplayName] = useState(
+    user?.user_metadata?.full_name ||
+      user?.user_metadata?.user_name ||
+      "ব্যবহারকারী",
+  );
   const [saving, setSaving] = useState(false);
-
-  useEffect(() => {
-    const fetchProfile = async () => {
-      if (user && !user.is_anonymous && supabase) {
-        setLoading(true);
-        const { data, error } = await supabase
-          .from("profiles")
-          .select("display_name")
-          .eq("id", user.id)
-          .single();
-
-        if (data) {
-          setDisplayName(
-            data.display_name ||
-              user.user_metadata?.full_name ||
-              user.user_metadata?.user_name ||
-              "ব্যবহারকারী",
-          );
-        }
-        setLoading(false);
-      }
-    };
-
-    fetchProfile();
-  }, [user, supabase]);
 
   const handleProfileUpdate = async () => {
     if (!user || !supabase) return;
@@ -123,14 +101,6 @@ function RegisteredUserProfile() {
     }
     setSaving(false);
   };
-
-  if (loading) {
-    return (
-      <div className="text-lg text-center font-bengali">
-        প্রোফাইল লোড হচ্ছে...
-      </div>
-    );
-  }
 
   if (!user || user.is_anonymous) {
     return null;
@@ -475,5 +445,3 @@ export default function ProfilePage() {
     </div>
   );
 }
-
-    
