@@ -10,26 +10,34 @@ import {
   TableRow,
 } from "@/components/ui/table";
 import { Input } from "@/components/ui/input";
-import { allData } from "@/lib/data/_generated";
 import ExternalLink from "./common/ExternalLink";
-
-interface GstUniversity {
-  id: string;
-  nameBn: string;
-  shortName: string;
-}
 
 const GstSeatInfo = () => {
   const [searchTerm, setSearchTerm] = useState("");
 
-  const gstUniversities: GstUniversity[] = allData.universities.filter((uni) =>
-    uni.category.includes("গুচ্ছ"),
-  );
+  const universities = [
+    { name: "ইসলামী বিশ্ববিদ্যালয়", id: "iu" },
+    { name: "গোপালগঞ্জ বিজ্ঞান ও প্রযুক্তি বিশ্ববিদ্যালয়", id: "gstu" },
+    { name: "নোয়াখালী বিজ্ঞান ও প্রযুক্তি বিশ্ববিদ্যালয়", id: "nstu" },
+    { name: "বেগম রোকেয়া বিশ্ববিদ্যালয়, রংপুর", id: "brur" },
+    { name: "জাতীয় কবি কাজী নজরুল ইসলাম বিশ্ববিদ্যালয়", id: "jkkniu" },
+    { name: "পাবনা বিজ্ঞান ও প্রযুক্তি বিশ্ববিদ্যালয়", id: "pust" },
+    { name: "যশোর বিজ্ঞান ও প্রযুক্তি বিশ্ববিদ্যালয়", id: "just" },
+    { name: "মাওলানা ভাসানী বিজ্ঞান ও প্রযুক্তি বিশ্ববিদ্যালয়", id: "mbstu" },
+    { name: "পটুয়াখালী বিজ্ঞান ও প্রযুক্তি বিশ্ববিদ্যালয়", id: "pstu" },
+    { name: "জামালপুর বিজ্ঞান ও প্রযুক্তি বিশ্ববিদ্যালয়", id: "jstu" },
+    { name: "রবীন্দ্র বিশ্ববিদ্যালয়, সিরাজগঞ্জ", id: "rub" },
+    { name: "পিরোজপুর বিজ্ঞান ও প্রযুক্তি বিশ্ববিদ্যালয়", id: "prstu" },
+    { name: "রাঙামাটি বিজ্ঞান ও প্রযুক্তি বিশ্ববিদ্যালয়", id: "rmstu" },
+    { name: "সুনামগঞ্জ বিজ্ঞান ও প্রযুক্তি বিশ্ববিদ্যালয়", id: "sstu" },
+    { name: "কিশোরগঞ্জ বিশ্ববিদ্যালয়", id: "kiu" },
+    { name: "বঙ্গবন্ধু ডিজিটাল ইউনিভার্সিটি, গাজীপুর", id: "uftb" },
+    { name: "চাঁদপুর বিজ্ঞান ও প্রযুক্তি বিশ্ববিদ্যালয়", id: "cstu" },
+    { name: "নেত্রকোণা বিশ্ববিদ্যালয়", id: "neu" },
+  ];
 
-  const filteredUniversities = gstUniversities.filter(
-    (uni) =>
-      uni.nameBn.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      uni.shortName.toLowerCase().includes(searchTerm.toLowerCase()),
+  const filteredUniversities = universities.filter((uni) =>
+    uni.name.toLowerCase().includes(searchTerm.toLowerCase()),
   );
 
   return (
@@ -63,7 +71,7 @@ const GstSeatInfo = () => {
         <TableBody>
           {filteredUniversities.map((uni) => (
             <TableRow key={uni.id} className="text-center">
-              <TableCell className="font-bold">{uni.nameBn}</TableCell>
+              <TableCell className="font-bold">{uni.name}</TableCell>
               <TableCell>
                 <ExternalLink href={`/${uni.id}#Subjects`} text="[দেখুন]" />
               </TableCell>
