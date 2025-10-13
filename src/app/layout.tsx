@@ -28,6 +28,7 @@ export default function RootLayout({
   return (
     <html lang="bn" suppressHydrationWarning>
       <head>
+        <link rel="icon" href="/logo.svg" type="image/svg+xml" />
         <link
           rel="preconnect"
           href="https://raw.githubusercontent.com"
