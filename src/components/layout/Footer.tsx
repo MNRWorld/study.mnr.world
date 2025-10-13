@@ -22,29 +22,6 @@ const icons: { [key: string]: React.ElementType } = {
 };
 
 export default function Footer() {
-  const footerLinks = {
-    "important": [
-      { "href": "/courses", "label": "আমাদের কোর্স", "icon": "ArrowRight" },
-      {
-        "href": "/calendar",
-        "label": "ভর্তি ক্যালেন্ডার",
-        "icon": "ArrowRight"
-      },
-      {
-        "href": "/question-bank",
-        "label": "বই ও প্রশ্নব্যাংক",
-        "icon": "ArrowRight"
-      }
-    ],
-    "shortcuts": [
-      { "href": "/", "label": "হোম", "icon": "Home" },
-      { "href": "/about", "label": "আমাদের সম্পর্কে", "icon": "Info" },
-      { "href": "/contact", "label": "যোগাযোগ", "icon": "Mail" }
-    ]
-  };
-  const { important, shortcuts } = footerLinks;
-
-
   return (
     <footer className="w-full mt-16 mb-2 sm:mb-4">
       <div className="bg-card/50 rounded-2xl shadow-lg px-4 sm:px-8 py-8 border border-border mx-2 sm:mx-4">
@@ -111,7 +88,19 @@ export default function Footer() {
               গুরুত্বপূর্ণ লিঙ্ক
             </h2>
             <ul className="mt-4 space-y-3 font-bengali">
-              {important.map((link, index) => {
+              {[
+                { href: "/courses", label: "আমাদের কোর্স", icon: "ArrowRight" },
+                {
+                  href: "/calendar",
+                  label: "ভর্তি ক্যালেন্ডার",
+                  icon: "ArrowRight",
+                },
+                {
+                  href: "/question-bank",
+                  label: "বই ও প্রশ্নব্যাংক",
+                  icon: "ArrowRight",
+                },
+              ].map((link, index) => {
                 const Icon = icons[link.icon];
                 return (
                   <li key={index}>
@@ -133,7 +122,11 @@ export default function Footer() {
               শর্টকাট
             </h2>
             <ul className="mt-4 space-y-3 font-bengali">
-              {shortcuts.map((link, index) => {
+              {[
+                { href: "/", label: "হোম", icon: "Home" },
+                { href: "/about", label: "আমাদের সম্পর্কে", icon: "Info" },
+                { href: "/contact", label: "যোগাযোগ", icon: "Mail" },
+              ].map((link, index) => {
                 const Icon = icons[link.icon];
                 return (
                   <li key={index}>
