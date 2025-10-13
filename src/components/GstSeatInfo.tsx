@@ -44,12 +44,12 @@ const GstSeatInfo = () => {
       name: "জামালপুর বিজ্ঞান ও প্রযুক্তি বিশ্ববিদ্যালয়",
       id: "jstu",
     },
-    { name: "রবীন্দ্র বিশ্ববিদ্যালয়, সিরাজগঞ্জ", id: "rub" },
+    { name: "রবীন্দ্র বিশ্ববিদ্যালয়", id: "rub" },
     { name: "পিরোজপুর বিজ্ঞান ও প্রযুক্তি বিশ্ববিদ্যালয়", id: "prstu" },
-    { name: "রাঙামাটি বিজ্ঞান ও প্রযুক্তি বিশ্ববিদ্যালয়", id: "rmstu" },
+    { name: "রাঙামাটি বিজ্ঞান ও প্রযুক্তি বিশ্ববিদ্যালয়", id_name: "rmstu" },
     { name: "সুনামগঞ্জ বিজ্ঞান ও প্রযুক্তি বিশ্ববিদ্যালয়", id: "sstu" },
     { name: "কিশোরগঞ্জ বিশ্ববিদ্যালয়", id: "kiu" },
-    { name: "বঙ্গবন্ধু ডিজিটাল ইউনিভার্সিটি, গাজীপুর", id: "uftb" },
+    { name: "গাজীপুর ডিজিটাল ইউনিভার্সিটি", id: "uftb" },
     { name: "চাঁদপুর বিজ্ঞান ও প্রযুক্তি বিশ্ববিদ্যালয়", id: "cstu" },
     { name: "নেত্রকোণা বিশ্ববিদ্যালয়", id: "neu" },
   ];
@@ -83,7 +83,7 @@ const GstSeatInfo = () => {
         <TableHeader>
           <TableRow>
             <TableHead className="text-center w-1/2">বিশ্ববিদ্যালয়</TableHead>
-            <TableHead className="text-center w-1/2">লিংক</TableHead>
+            <TableHead className="text-center w-1/2">আসন সংখ্যা</TableHead>
           </TableRow>
         </TableHeader>
         <TableBody>
@@ -91,7 +91,7 @@ const GstSeatInfo = () => {
             <TableRow key={uni.id} className="text-center">
               <TableCell>{uni.name}</TableCell>
               <TableCell>
-                <ExternalLink href={`/${uni.id}#Subjects`} text="[দেখুন]" />
+                <ExternalLink href={`/${uni.id}#Subjects`} text="[লিংক]" />
               </TableCell>
             </TableRow>
           ))}
