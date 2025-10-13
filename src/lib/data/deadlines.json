@@ -1,6 +1,4 @@
-
-[
-    {
+[{
       "id": "demo",
       "universityNameAndUnit": "ডেমো",
       "examDetails": {
@@ -254,4 +252,3 @@
       }
     }
   ]
-  

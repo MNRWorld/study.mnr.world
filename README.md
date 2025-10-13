@@ -15,7 +15,6 @@ A comprehensive platform for students in Bangladesh, providing all necessary inf
   - Save target university and HSC result.
   - Bookmark favorite exams to view in a personalized calendar.
   - Bookmark important subjects for quick access.
-
 - **Responsive Design:** Fully responsive and modern UI built with Next.js, Tailwind CSS, and ShadCN UI.
 
 ## 🛠️ Tech Stack

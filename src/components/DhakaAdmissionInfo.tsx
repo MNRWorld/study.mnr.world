@@ -26,7 +26,7 @@ import {
   HelpCircle,
   AlertTriangle,
 } from "lucide-react";
-import { duData } from "@/lib/data/universities/du";
+import { allData } from "@/lib/data/_generated";
 import ExternalLink from "./common/ExternalLink";
 
 // Define proper TypeScript interfaces
@@ -114,8 +114,9 @@ interface AdmissionInfoData {
 }
 
 const DhakaAdmissionInfo = () => {
+  const duData = allData.universities.find((uni) => uni.id === "du");
   // Add type guard and safe destructuring
-  if (!duData.admissionInfo) {
+  if (!duData || !duData.admissionInfo) {
     return <div>No admission information available</div>;
   }
 

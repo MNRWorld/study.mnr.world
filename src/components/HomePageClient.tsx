@@ -1,7 +1,7 @@
 "use client";
 import Image from "next/image";
 import Link from "next/link";
-import { PlaceHolderImages } from "@/lib/placeholder-images";
+import { allData } from "@/lib/data";
 import React, { useState, useEffect } from "react";
 
 interface Feature {
@@ -81,13 +81,13 @@ const TypingAnimation = () => {
 };
 
 const HomePageClient = ({ features }: HomePageClientProps) => {
-  const studyPlatformImage = PlaceHolderImages.find(
+  const studyPlatformImage = allData.placeholderImages.find(
     (p) => p.id === "study-platform",
   );
-  const characterImage = PlaceHolderImages.find(
+  const characterImage = allData.placeholderImages.find(
     (p) => p.id === "study-platform-character",
   );
-  const characterImage2 = PlaceHolderImages.find(
+  const characterImage2 = allData.placeholderImages.find(
     (p) => p.id === "study-platform-character-2",
   );
 
