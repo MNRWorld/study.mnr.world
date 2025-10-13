@@ -1,8 +1,8 @@
 "use client";
 
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import CalendarAdmissionScheduleTable from "@/app/calendar/CalendarAdmissionScheduleTable";
-import CalendarGeneralAdmissionInfo from "@/app/calendar/CalendarGeneralAdmissionInfo";
+import CalendarAdmissionScheduleTable from "./CalendarAdmissionScheduleTable";
+import CalendarGeneralAdmissionInfo from "./CalendarGeneralAdmissionInfo";
 import {
   CalendarClock,
   Info,
@@ -10,9 +10,9 @@ import {
   Ticket,
   BarChart3,
 } from "lucide-react";
-import CalendarApplicationScheduleTable from "@/app/calendar/CalendarApplicationScheduleTable";
-import CalendarAdmitCardScheduleTable from "@/app/calendar/CalendarAdmitCardScheduleTable";
-import CalendarResultScheduleTable from "@/app/calendar/CalendarResultScheduleTable";
+import CalendarApplicationScheduleTable from "./CalendarApplicationScheduleTable";
+import CalendarAdmitCardScheduleTable from "./CalendarAdmitCardScheduleTable";
+import CalendarResultScheduleTable from "./CalendarResultScheduleTable";
 
 const CalendarAdmissionTabs = () => {
   return (

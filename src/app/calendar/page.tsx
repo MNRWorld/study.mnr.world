@@ -4,7 +4,7 @@ import dynamic from "next/dynamic";
 import SimplePageHeader from "@/components/common/SimplePageHeader";
 
 const AdmissionTabs = dynamic(
-  () => import("@/app/calendar/CalendarAdmissionTabs"),
+  () => import("@/components/calendar/CalendarAdmissionTabs"),
   {
     ssr: false,
   },

@@ -33,6 +33,11 @@ const nextConfig: NextConfig = {
         destination: "/calendar",
         permanent: true,
       },
+      {
+        source: "/qb",
+        destination: "/question-bank",
+        permanent: true,
+      },
     ];
   },
 };
