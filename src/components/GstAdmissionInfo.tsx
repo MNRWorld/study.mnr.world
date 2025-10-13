@@ -213,8 +213,8 @@ const GstAdmissionInfo = () => {
         <br />
         &nbsp;&nbsp;&nbsp; <b>- HSC ব্যাচ:</b> {apply.hscBatch}
         <br />
-        <div className="text-red-500 dark:text-red-400 flex items-center">
-          <CircleAlert size={18} className="inline-block mr-1" />{" "}
+        <div className="text-green-600 dark:text-green-500 flex items-center">
+          <CircleCheck size={18} className="inline-block mr-1" />{" "}
           <b>সেকেন্ড টাইম:</b>&nbsp;{apply.secondTime}
         </div>
       </div>
