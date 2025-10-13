@@ -363,16 +363,9 @@ const GstAdmissionInfo = () => {
         </TabsList>
         <TabsContent value="ka-unit">
           <div className="border border-border rounded-xl p-4 mt-2.5 text-base leading-relaxed">
-            ● <b>মোট নাম্বার:</b> ১০০ নাম্বার
-            <hr className="my-1 border-border/50" />● <b>MCQ:</b> ৬০,{" "}
-            <b>লিখিত:</b> ৪০
-            <hr className="my-1 border-border/50" />● <b>মোট সময়:</b> ১.৫ ঘণ্টা
-            <hr className="my-1 border-border/50" />●{" "}
-            <b>প্রতিটি বিষয়ের প্রশ্ন সংখ্যা ও নাম্বার:</b>
-            <br />
-            &nbsp;&nbsp;&nbsp; ✓ <b>MCQ -</b> প্রশ্ন: ১৫টি, নাম্বার: ১৫
-            <hr className="my-1 border-border/50" />
-            &nbsp;&nbsp;&nbsp; ✓ <b>লিখিত -</b> প্রশ্ন: ৪টি, নাম্বার: ১০
+            ● <b>মোট নাম্বার:</b> ১০০ (MCQ)
+            <hr className="my-1 border-border/50" />● <b>মোট সময়:</b> ১ ঘণ্টা
+            <hr className="my-1 border-border/50" />● <b>প্রশ্ন প্রতি নাম্বার:</b> ১
           </div>
           <Accordion type="multiple" className="w-full space-y-2 mt-2">
             <AccordionItem
@@ -395,72 +388,20 @@ const GstAdmissionInfo = () => {
                 <br />
                 &nbsp;&nbsp;&nbsp; ○ রসায়ন
                 <br />
-                &nbsp;&nbsp;&nbsp; ○ মেইন সাবজেক্ট
                 <br />
-                <br />
-                <b>✓ মেইন সাবজেক্ট মিলে একটা বা দুটোই -</b>
+                <b>✓ যেকোনো দুটি –</b>
                 <br />
                 &nbsp;&nbsp;&nbsp; ○ জীববিজ্ঞান
                 <br />
                 &nbsp;&nbsp;&nbsp; ○ উচ্চতর গণিত
                 <br />
-                <br />
-                (মেইন সাবজেক্ট দাগানো বাধ্যতামূলক। না দাগালে রেজাল্ট আসবে না বা
-                ফেল আসবে।)
-                <br />
-                <br />
-                <b>✓ জীববিজ্ঞান বা উচ্চতর গণিত না দাগালে যেকোনো একটি –</b>
-                <br />
                 &nbsp;&nbsp;&nbsp; ○ বাংলা
                 <br />
                 &nbsp;&nbsp;&nbsp; ○ ইংরেজী
                 <br />
                 <br />
                 <div className="flex items-center">
-                  <Info size={14} className="mr-1" /> প্রতিটি বিষয়ের MCQ-15 ও
-                  লিখিত-10
-                </div>
-              </AccordionContent>
-            </AccordionItem>
-            <AccordionItem
-              value="item-1-2"
-              className="border border-border rounded-lg bg-card hover:bg-accent/50"
-            >
-              <AccordionTrigger className="p-3 text-base hover:no-underline">
-                <div className="flex items-center">
-                  <HelpCircle className="mr-2" />
-                  <span>অন্য বিভাগে কোন কোন বিষয় দাগাতে হবে?</span>
-                </div>
-              </AccordionTrigger>
-              <AccordionContent className="p-4 pt-0 text-base">
-                <b>=&gt; মোট ৪টি বিষয় দাগাতে হবে।</b>
-                <br />
-                <br />
-                <b>✓ দাগানো বাধ্যতামূলক -</b>
-                <br />
-                &nbsp;&nbsp;&nbsp; ○ বাংলা
-                <br />
-                &nbsp;&nbsp;&nbsp; ○ ইংরেজী
-                <br />
-                &nbsp;&nbsp;&nbsp; ○ আইসিটি
-                <br />
-                <br />
-                <b>✓ যেকোনো একটা -</b>
-                <br />
-                &nbsp;&nbsp;&nbsp; ○ গণিত
-                <br />
-                &nbsp;&nbsp;&nbsp; ○ পরিসংখ্যান
-                <br />
-                &nbsp;&nbsp;&nbsp; ○ মনোবিজ্ঞান
-                <br />
-                &nbsp;&nbsp;&nbsp; ○ অর্থনীতি
-                <br />
-                &nbsp;&nbsp;&nbsp; ○ ভূগোল
-                <br />
-                <br />
-                <div className="flex items-center">
-                  <Info size={14} className="mr-1" /> প্রতিটি বিষয়ের MCQ-15 ও
-                  লিখিত-10
+                  <Info size={14} className="mr-1" /> প্রতিটি বিষয়ের প্রশ্ন: ২৫টি, নাম্বার: ২৫
                 </div>
               </AccordionContent>
             </AccordionItem>
@@ -468,10 +409,9 @@ const GstAdmissionInfo = () => {
         </TabsContent>
         <TabsContent value="kha-unit">
           <div className="border border-border rounded-xl p-4 mt-2.5 text-base leading-relaxed">
-            ● <b>মোট নাম্বার:</b> ১০০ নাম্বার
-            <hr className="my-1 border-border/50" />● <b>MCQ:</b> ৬০,{" "}
-            <b>লিখিত:</b> ৪০
-            <hr className="my-1 border-border/50" />● <b>মোট সময়:</b> ১.৫ ঘণ্টা
+            ● <b>মোট নাম্বার:</b> ১০০ (MCQ)
+            <hr className="my-1 border-border/50" />● <b>মোট সময়:</b> ১ ঘণ্টা
+            <hr className="my-1 border-border/50" />● <b>প্রশ্ন প্রতি নাম্বার:</b> ১
           </div>
           <Accordion
             type="single"
@@ -494,50 +434,26 @@ const GstAdmissionInfo = () => {
                 <br />
                 <b>✓ দাগানো বাধ্যতামূলক -</b>
                 <br />
+                &nbsp;&nbsp;&nbsp; ➤ বাংলা
+                <br />
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ○ <b>প্রশ্ন:</b> ৩৫টি, <b>নাম্বার:</b> ৩৫
+                <br />
                 &nbsp;&nbsp;&nbsp; ➤ ইংরেজী
                 <br />
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ○ <b>MCQ -</b> প্রশ্ন: ১৫টি,
-                নাম্বার: ১৫
-                <br />
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ○ <b>লিখিত -</b> প্রশ্ন: ৩টি,
-                নাম্বার: ২০
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ○ <b>প্রশ্ন:</b> ৩৫টি, <b>নাম্বার:</b> ৩৫
                 <br />
                 &nbsp;&nbsp;&nbsp; ➤ সাধারণ জ্ঞান
                 <br />
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ○ <b>MCQ -</b> প্রশ্ন: ৩০টি,
-                নাম্বার: ৩০
-                <br />
-                <br />
-                <b>✓ সাধারণ শিক্ষার্থীরা দাগাবে -</b>
-                <br />
-                &nbsp;&nbsp;&nbsp; ➤ বাংলা
-                <br />
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ○ <b>MCQ -</b> প্রশ্ন: ১৫টি,
-                নাম্বার: ১৫
-                <br />
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ○ <b>লিখিত -</b> প্রশ্ন: ৩টি,
-                নাম্বার: ২০
-                <br />
-                <br />
-                <b>✓ যারা GCE/A Level পাশ করেছে, তারাই শুধুমাত্র দাগাবে –</b>
-                <br />
-                &nbsp;&nbsp;&nbsp; ➤ Elective English
-                <br />
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ○ <b>MCQ -</b> প্রশ্ন: ১৫টি,
-                নাম্বার: ১৫
-                <br />
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ○ <b>লিখিত -</b> প্রশ্ন: ৩টি,
-                নাম্বার: ২০
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ○ <b>প্রশ্ন:</b> ৩০টি, <b>নাম্বার:</b> ৩০
               </AccordionContent>
             </AccordionItem>
           </Accordion>
         </TabsContent>
         <TabsContent value="ga-unit">
           <div className="border border-border rounded-xl p-4 mt-2.5 text-base leading-relaxed">
-            ● <b>মোট নাম্বার:</b> ১০০ নাম্বার
-            <hr className="my-1 border-border/50" />● <b>MCQ:</b> ৬০,{" "}
-            <b>লিখিত:</b> ৪০
-            <hr className="my-1 border-border/50" />● <b>মোট সময়:</b> ১.৫ ঘণ্টা
+            ● <b>মোট নাম্বার:</b> ১০০ (MCQ)
+            <hr className="my-1 border-border/50" />● <b>মোট সময়:</b> ১ ঘণ্টা
+            <hr className="my-1 border-border/50" />● <b>প্রশ্ন প্রতি নাম্বার:</b> ১
           </div>
           <Accordion type="multiple" className="w-full space-y-2 mt-2">
             <AccordionItem
@@ -551,84 +467,37 @@ const GstAdmissionInfo = () => {
                 </div>
               </AccordionTrigger>
               <AccordionContent className="p-4 pt-0 text-base">
-                <b>=&gt; মোট ৫টি বিষয় দাগাতে হবে।</b>
+                <b>=&gt; মোট ৩টি বিষয় দাগাতে হবে।</b>
                 <br />
                 <br />
                 <b>✓ দাগানো বাধ্যতামূলক -</b>
                 <br />
-                &nbsp;&nbsp;&nbsp; ○ বাংলা
+                &nbsp;&nbsp;&nbsp; ○ হিসাববিজ্ঞান (প্রশ্ন: ৩৫টি)
                 <br />
-                &nbsp;&nbsp;&nbsp; ○ ইংরেজি
+                &nbsp;&nbsp;&nbsp; ○ ব্যবসায় সংগঠন ও ব্যবস্থাপনা (প্রশ্ন: ৩৫টি)
                 <br />
-                &nbsp;&nbsp;&nbsp; ○ হিসাববিজ্ঞান
-                <br />
-                &nbsp;&nbsp;&nbsp; ○ ব্যবসায় সংগঠন ও ব্যবস্থাপনা
-                <br />
-                <br />
-                <b>✓ যেকোনো একটি –</b>
-                <br />
-                &nbsp;&nbsp;&nbsp; ○ উৎপাদন ব্যবস্থাপনা ও বিপণন
-                <br />
-                &nbsp;&nbsp;&nbsp; ○ ফিন্যান্স, ব্যাংকিং ও বিমা
-                <br />
-                <br />
-                <div className="flex items-center">
-                  <Info size={14} className="mr-1" /> প্রতিটি বিষয়ের MCQ প্রশ্ন:
-                  ১২টি, নাম্বার: ১২ এবং লিখিত নাম্বার: ৮
-                </div>
-              </AccordionContent>
-            </AccordionItem>
-            <AccordionItem
-              value="item-3-2"
-              className="border border-border rounded-lg bg-card hover:bg-accent/50"
-            >
-              <AccordionTrigger className="p-3 text-base hover:no-underline">
-                <div className="flex items-center">
-                  <HelpCircle className="mr-2" />
-                  <span>অন্য বিভাগে কোন কোন বিষয় দাগাতে হবে?</span>
-                </div>
-              </AccordionTrigger>
-              <AccordionContent className="p-4 pt-0 text-base">
-                <b>=&gt; মোট ৪টি বিষয় দাগাতে হবে।</b>
-                <br />
-                <br />
-                <b>✓ দাগানো বাধ্যতামূলক -</b>
-                <br />
-                &nbsp;&nbsp;&nbsp; ○ বাংলা
-                <br />
-                &nbsp;&nbsp;&nbsp; ○ ইংরেজী
-                <br />
-                &nbsp;&nbsp;&nbsp; ○ আইসিটি
-                <br />
-                <br />
-                <b>✓ যেকোনো একটা -</b>
-                <br />
-                &nbsp;&nbsp;&nbsp; ○ গণিত
-                <br />
-                &nbsp;&nbsp;&nbsp; ○ পরিসংখ্যান
-                <br />
-                &nbsp;&nbsp;&nbsp; ○ অর্থনীতি
-                <br />
-                <br />
-                <div className="flex items-center">
-                  <Info size={14} className="mr-1" /> আইসিটি ব্যাতীত প্রতিটি
-                  বিষয়ের MCQ-১২ ও লিখিত-১০, আইসিটি এর MCQ-২৪ ও লিখিত-১০
-                </div>
+                &nbsp;&nbsp;&nbsp; ○ বাংলা ও ইংরেজী (প্রশ্ন: ৩০টি)
               </AccordionContent>
             </AccordionItem>
           </Accordion>
         </TabsContent>
       </Tabs>
       <div className="border border-border/80 rounded-xl p-4 mt-2.5 text-base">
-        {duGeneralInfo.points.map((point: GeneralInfoPoint, index: number) => (
-          <React.Fragment key={index}>
-            ● <b>{point.label}ঃ </b>
-            {point.value}
-            {index < duGeneralInfo.points.length - 1 && (
-              <hr className="my-1 border-border/50" />
-            )}
-          </React.Fragment>
-        ))}
+        <React.Fragment>
+            ● <b>সিলেবাস:</b> অজানা
+            <hr className="my-1 border-border/50" />
+        </React.Fragment>
+        <React.Fragment>
+            ● <b>সেকেন্ড টাইম:</b> আছে
+            <hr className="my-1 border-border/50" />
+        </React.Fragment>
+        <React.Fragment>
+            ● <b>নেগেটিভ মার্কিং:</b> প্রতি ভুলের জন্য ০.২৫ নম্বর কাটা যাবে
+            <hr className="my-1 border-border/50" />
+        </React.Fragment>
+        <React.Fragment>
+            ● <b>ক্যালকুলেটর:</b> ব্যবহার করা যাবে না
+        </React.Fragment>
       </div>
 
       <h2
