@@ -375,7 +375,7 @@ const GstAdmissionInfo = () => {
               <AccordionTrigger className="p-3 text-base hover:no-underline">
                 <div className="flex items-center">
                   <HelpCircle className="mr-2" />
-                  <span>মানবণ্টন ও কোন কোন বিষয় দাগাতে হবে?</span>
+                  <span>মানবন্টন ও কোন কোন বিষয় দাগাতে হবে?</span>
                 </div>
               </AccordionTrigger>
               <AccordionContent className="p-4 pt-0 text-base">
@@ -389,11 +389,17 @@ const GstAdmissionInfo = () => {
                 &nbsp;&nbsp;&nbsp; ○ রসায়ন
                 <br />
                 <br />
-                <b>✓ যেকোনো দুটি –</b>
+                <b>✓ যেকোনো একটা বা দুটোই -</b>
                 <br />
                 &nbsp;&nbsp;&nbsp; ○ জীববিজ্ঞান
                 <br />
                 &nbsp;&nbsp;&nbsp; ○ উচ্চতর গণিত
+                <br />
+                <br />
+                (মেইন সাবজেক্ট দাগানো বাধ্যতামূলক নয়।)
+                <br />
+                <br />
+                <b>✓ জীববিজ্ঞান বা উচ্চতর গণিত না দাগালে যেকোনো একটা -</b>
                 <br />
                 &nbsp;&nbsp;&nbsp; ○ বাংলা
                 <br />
@@ -401,7 +407,7 @@ const GstAdmissionInfo = () => {
                 <br />
                 <br />
                 <div className="flex items-center">
-                  <Info size={14} className="mr-1" /> প্রতিটি বিষয়ের প্রশ্ন: ২৫টি, নাম্বার: ২৫
+                  <Info size={14} className="mr-1" /> প্রতিটি বিষয়ের MCQ-25
                 </div>
               </AccordionContent>
             </AccordionItem>
@@ -425,26 +431,23 @@ const GstAdmissionInfo = () => {
               <AccordionTrigger className="p-3 text-base hover:no-underline">
                 <div className="flex items-center">
                   <HelpCircle className="mr-2" />
-                  <span>মানবণ্টন ও কোন কোন বিষয় দাগাতে হবে?</span>
+                  <span>মানবন্টন ও কোন কোন বিষয় দাগাতে হবে?</span>
                 </div>
               </AccordionTrigger>
               <AccordionContent className="p-4 pt-0 text-base">
-                <b>=&gt; মোট ৩টি বিষয় দাগাতে হবে।</b>
+                <b>=&gt; ৩টি বিষয়ই দাগাতে হবে।</b>
                 <br />
                 <br />
                 <b>✓ দাগানো বাধ্যতামূলক -</b>
                 <br />
-                &nbsp;&nbsp;&nbsp; ➤ বাংলা
+                &nbsp;&nbsp;&nbsp; ○ বাংলা
                 <br />
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ○ <b>প্রশ্ন:</b> ৩৫টি, <b>নাম্বার:</b> ৩৫
+                &nbsp;&nbsp;&nbsp; ○ ইংরেজী
                 <br />
-                &nbsp;&nbsp;&nbsp; ➤ ইংরেজী
+                &nbsp;&nbsp;&nbsp; ○ সাধারণ জ্ঞান
                 <br />
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ○ <b>প্রশ্ন:</b> ৩৫টি, <b>নাম্বার:</b> ৩৫
                 <br />
-                &nbsp;&nbsp;&nbsp; ➤ সাধারণ জ্ঞান
-                <br />
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ○ <b>প্রশ্ন:</b> ৩০টি, <b>নাম্বার:</b> ৩০
+                বাংলা-৩৫, ইংরেজী-৩৫, সাধারণ জ্ঞান-৩০ (শুধু MCQ)
               </AccordionContent>
             </AccordionItem>
           </Accordion>
@@ -463,20 +466,26 @@ const GstAdmissionInfo = () => {
               <AccordionTrigger className="p-3 text-base hover:no-underline">
                 <div className="flex items-center">
                   <HelpCircle className="mr-2" />
-                  <span>মানবণ্টন ও কোন কোন বিষয় দাগাতে হবে?</span>
+                  <span>মানবন্টন ও কোন কোন বিষয় দাগাতে হবে?</span>
                 </div>
               </AccordionTrigger>
               <AccordionContent className="p-4 pt-0 text-base">
-                <b>=&gt; মোট ৩টি বিষয় দাগাতে হবে।</b>
+                <b>=&gt; ৪টি বিষয়ই দাগাতে হবে।</b>
                 <br />
                 <br />
                 <b>✓ দাগানো বাধ্যতামূলক -</b>
                 <br />
-                &nbsp;&nbsp;&nbsp; ○ হিসাববিজ্ঞান (প্রশ্ন: ৩৫টি)
+                &nbsp;&nbsp;&nbsp; ○ হিসাব বিজ্ঞান
                 <br />
-                &nbsp;&nbsp;&nbsp; ○ ব্যবসায় সংগঠন ও ব্যবস্থাপনা (প্রশ্ন: ৩৫টি)
+                &nbsp;&nbsp;&nbsp; ○ ব্যবসায় সংগঠন ও ব্যবস্থাপনা
                 <br />
-                &nbsp;&nbsp;&nbsp; ○ বাংলা ও ইংরেজী (প্রশ্ন: ৩০টি)
+                &nbsp;&nbsp;&nbsp; ○ বাংলা
+                <br />
+                &nbsp;&nbsp;&nbsp; ○ ইংরেজী
+                <br />
+                <br />
+                হিসাব বিজ্ঞান-৩৫, ব্যবসায় সংগঠন ও ব্যবস্থাপনা-৩৫, বাংলা-১৫,
+                ইংরেজী-১৫ (শুধু MCQ)
               </AccordionContent>
             </AccordionItem>
           </Accordion>
@@ -484,19 +493,23 @@ const GstAdmissionInfo = () => {
       </Tabs>
       <div className="border border-border/80 rounded-xl p-4 mt-2.5 text-base">
         <React.Fragment>
-            ● <b>সিলেবাস:</b> অজানা
-            <hr className="my-1 border-border/50" />
+          ● <b>সিলেবাসঃ </b>
+          অজানা
+          <hr className="my-1 border-border/50" />
         </React.Fragment>
         <React.Fragment>
-            ● <b>সেকেন্ড টাইম:</b> আছে
-            <hr className="my-1 border-border/50" />
+          ● <b>সেকেন্ড টাইমঃ </b>
+          আছে
+          <hr className="my-1 border-border/50" />
         </React.Fragment>
         <React.Fragment>
-            ● <b>নেগেটিভ মার্কিং:</b> প্রতি ভুলের জন্য ০.২৫ নম্বর কাটা যাবে
-            <hr className="my-1 border-border/50" />
+          ● <b>নেগেটিভ মার্কিংঃ </b>
+          প্রতি ভুলের জন্য ০.২৫ নম্বর কাটা যাবে
+          <hr className="my-1 border-border/50" />
         </React.Fragment>
         <React.Fragment>
-            ● <b>ক্যালকুলেটর:</b> ব্যবহার করা যাবে না
+          ● <b>ক্যালকুলেটরঃ </b>
+          ব্যবহার করা যাবে না
         </React.Fragment>
       </div>
 
@@ -523,3 +536,5 @@ const GstAdmissionInfo = () => {
 };
 
 export default GstAdmissionInfo;
+
+    
