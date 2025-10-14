@@ -5,9 +5,15 @@ import ExternalLink from "@/components/common/ExternalLink";
 import SharedScheduleTable from "@/components/common/SharedScheduleTable";
 
 const CalendarAdmitCardScheduleTable = () => {
-  const admitCardSchedule = allData.CalendarInfo.filter(
-    (item) => item.id !== "demo" && item.admitCardDetails.StartAndEndDate,
-  );
+  const admitCardSchedule = allData.CalendarInfo.filter((item) => {
+    const { StartAndEndDate, DownloadCountdownDate, link } =
+      item.admitCardDetails;
+    return (
+      StartAndEndDate !== null ||
+      DownloadCountdownDate !== null ||
+      link !== null
+    );
+  });
 
   const columns = [
     {
@@ -42,3 +48,5 @@ const CalendarAdmitCardScheduleTable = () => {
 };
 
 export default CalendarAdmitCardScheduleTable;
+
+    

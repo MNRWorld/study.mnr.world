@@ -69,9 +69,16 @@ const CalendarApplicationScheduleTable = () => {
   const [searchTerm, setSearchTerm] = useState("");
 
   const sortedSchedule = useMemo(() => {
-    const applicationSchedule = allData.CalendarInfo.filter(
-      (item) => item.applicationDetails.StartAndEndDate,
-    ).map((item) => ({
+    const applicationSchedule = allData.CalendarInfo.filter((item) => {
+      const { StartAndEndDate, ApplyCountdownDate, fee, link } =
+        item.applicationDetails;
+      return (
+        StartAndEndDate !== null ||
+        ApplyCountdownDate !== null ||
+        fee !== null ||
+        link !== null
+      );
+    }).map((item) => ({
       university: item.universityNameAndUnit,
       date: item.applicationDetails.StartAndEndDate,
       applyCountdownDate: item.applicationDetails.ApplyCountdownDate,
@@ -172,3 +179,5 @@ const CalendarApplicationScheduleTable = () => {
 };
 
 export default CalendarApplicationScheduleTable;
+
+    

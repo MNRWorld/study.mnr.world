@@ -5,9 +5,10 @@ import ExternalLink from "@/components/common/ExternalLink";
 import SharedScheduleTable from "@/components/common/SharedScheduleTable";
 
 const CalendarResultScheduleTable = () => {
-  const resultSchedule = allData.CalendarInfo.filter(
-    (item) => item.id !== "demo" && item.resultDetails.date,
-  );
+  const resultSchedule = allData.CalendarInfo.filter((item) => {
+    const { date, link } = item.resultDetails;
+    return date !== null || link !== null;
+  });
 
   const columns = [
     {
@@ -45,3 +46,5 @@ const CalendarResultScheduleTable = () => {
 };
 
 export default CalendarResultScheduleTable;
+
+    
