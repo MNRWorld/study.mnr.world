@@ -35,6 +35,11 @@ export default function Footer() {
       icon: Globe,
     },
     {
+      href: "mailto:mail@mnr.world",
+      label: "Mail",
+      icon: Mail,
+    },
+    {
       href: "https://t.me/MNRfrom2020",
       label: "Telegram",
       icon: Send,
