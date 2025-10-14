@@ -53,8 +53,9 @@ export default function PublicPageClient({
   const isPublicPage = pathname === "/public";
 
   const filteredUniversities = universities.filter((uni) => {
-    if (searchTerm === "") return true;
-    const lowercasedTerm = searchTerm.toLowerCase();
+    const term = isPublicPage ? searchTerm : "";
+    if (term === "") return true;
+    const lowercasedTerm = term.toLowerCase();
     return (
       uni.nameBn.toLowerCase().includes(lowercasedTerm) ||
       uni.nameEn.toLowerCase().includes(lowercasedTerm) ||
