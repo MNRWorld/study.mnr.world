@@ -157,6 +157,18 @@ const Header = memo(function Header() {
             {[
               { id: "home", label: "হোম", icon: "Home", href: "/" },
               {
+                id: "calendar",
+                label: "ক্যালেন্ডার",
+                icon: "CalendarDays",
+                href: "/calendar",
+              },
+              {
+                id: "question-bank",
+                label: "প্রশ্নব্যাংক",
+                icon: "BookOpen",
+                href: "/question-bank",
+              },
+              {
                 id: "info",
                 label: "তথ্য",
                 icon: "Info",
@@ -181,18 +193,6 @@ const Header = memo(function Header() {
                     href: "/college",
                   },
                 ],
-              },
-              {
-                id: "question-bank",
-                label: "প্রশ্নব্যাংক",
-                icon: "BookOpen",
-                href: "/question-bank",
-              },
-              {
-                id: "calendar",
-                label: "ক্যালেন্ডার",
-                icon: "CalendarDays",
-                href: "/calendar",
               },
               {
                 id: "courses",
