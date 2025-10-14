@@ -28,14 +28,13 @@
     }
   },
   {
-    "name": "Sadman",
+    "name": "Sadman Prodhan",
     "role": "মার্কেটিং ও কমিউনিটি ম্যানেজার",
-    "bio": "আমাদের প্ল্যাটফর্মের বার্তা সবার কাছে পৌঁছে দেওয়া এবং কমিউনিটি ম্যানেজমেন্টের দায়িত্বে নিয়োজিত।",
+    "bio": "আমাদের প্ল্যাটফর্মের বার্তা সবার কাছে পৌঁছে দেওয়া এবং কমিউনিটি ম্যানেজমেন্টের দায়িত্বে নিয়োজিত",
     "imageUrl": "https://avatars.githubusercontent.com/u/101451039?v=4",
     "social": {
-      "github": "https://github.com/sadmanpro",
-      "linkedin": "#",
-      "twitter": "#"
+      "send": "https://t.me/sadman34",
+      "facebook": "https://facebook.com/sadman.saad.944347"
     }
   }
 ]
