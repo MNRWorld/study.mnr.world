@@ -178,6 +178,72 @@ const Header = memo(function Header() {
     },
   ];
 
+  const infoPages = [
+    "/public",
+    "/private",
+    "/college",
+    "/gst",
+    "/agri",
+    "/medical",
+    "/dental",
+    "/nursing",
+    "/nu",
+    "/dcu",
+    "/du",
+    "/ru",
+    "/cu",
+    "/ju",
+    "/iu",
+    "/ku",
+    "/jnu",
+    "/cou",
+    "/jkkniu",
+    "/brur",
+    "/bu",
+    "/kiu",
+    "/neu",
+    "/rub",
+    "/bau",
+    "/cvasu",
+    "/gau",
+    "/hau",
+    "/kau",
+    "/kuriau",
+    "/sau",
+    "/sbau",
+    "/buet",
+    "/kuet",
+    "/cuet",
+    "/ruet",
+    "/duet",
+    "/mist",
+    "/aaub",
+    "/iut",
+    "/sust",
+    "/just",
+    "/mbstu",
+    "/hstu",
+    "/nstu",
+    "/pstu",
+    "/pust",
+    "/rmstu",
+    "/bstu",
+    "/cstu",
+    "/gstu",
+    "/jstu",
+    "/prstu",
+    "/sstu",
+    "/afmc",
+    "/nitor",
+    "/butex",
+    "/bup",
+    "/uftb",
+    "/bmu",
+    "/du-affiliated",
+    "/butex-affiliated",
+    "/sust-affiliated",
+  ];
+
   return (
     <header className="sticky top-2 z-40 w-full flex justify-center px-2 sm:px-0">
       <div
@@ -204,15 +270,12 @@ const Header = memo(function Header() {
             <div className="h-6 w-px bg-border/50"></div>
             {navItems.map((item) => {
               let isActive = false;
-              if (item.subItems) {
-                isActive = item.subItems.some((sub) =>
-                  pathname.startsWith(sub.href),
-                );
+              if (item.id === "info") {
+                isActive = infoPages.some((page) => pathname.startsWith(page));
+              } else if (item.href === "/") {
+                isActive = pathname === item.href;
               } else {
-                isActive =
-                  item.href === "/"
-                    ? pathname === item.href
-                    : pathname.startsWith(item.href);
+                isActive = pathname.startsWith(item.href);
               }
               return (
                 <NavItem key={item.id} item={item} isActive={isActive} />
