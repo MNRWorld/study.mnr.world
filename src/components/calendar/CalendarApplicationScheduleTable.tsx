@@ -99,7 +99,7 @@ const CalendarApplicationScheduleTable = () => {
       ),
     },
     {
-      header: "সময়কাল ও কাউন্টডাউন",
+      header: "সময়কাল",
       className: "w-1/3",
       accessor: (item: any) => (
         <div>
@@ -109,7 +109,7 @@ const CalendarApplicationScheduleTable = () => {
       ),
     },
     {
-      header: "ফি ও আবেদন",
+      header: "ফি ও লিংক",
       className: "w-1/3",
       accessor: (item: any) => (
         <div>
