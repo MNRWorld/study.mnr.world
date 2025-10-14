@@ -25,7 +25,7 @@
   },
   {
     "id": "du",
-    "universityNameAndUnit": "ঢাবি",
+    "universityNameAndUnit": "ঢাবি*",
     "examDetails": {
       "date": null,
       "ExamCountdownDate": null
@@ -48,7 +48,7 @@
   },
   {
     "id": "du-a",
-    "universityNameAndUnit": "ঢাবি (ক)",
+    "universityNameAndUnit": "ঢাবি (ক)*",
     "examDetails": {
       "date": "২০ ডিসেম্বর",
       "ExamCountdownDate": "2025-12-20T10:00:00+06:00"
@@ -71,7 +71,7 @@
   },
   {
     "id": "du-b",
-    "universityNameAndUnit": "ঢাবি (খ)",
+    "universityNameAndUnit": "ঢাবি (খ)*",
     "examDetails": {
       "date": "১৩ ডিসেম্বর",
       "ExamCountdownDate": "2025-12-13T10:00:00+06:00"
@@ -94,7 +94,7 @@
   },
   {
     "id": "du-c",
-    "universityNameAndUnit": "ঢাবি (গ)",
+    "universityNameAndUnit": "ঢাবি (গ)*",
     "examDetails": {
       "date": "৬ ডিসেম্বর",
       "ExamCountdownDate": "2025-12-06T10:00:00+06:00"
@@ -117,7 +117,7 @@
   },
   {
     "id": "du-iba",
-    "universityNameAndUnit": "ঢাবি (IBA)",
+    "universityNameAndUnit": "ঢাবি (IBA)*",
     "examDetails": {
       "date": "২৮ নভেম্বর",
       "ExamCountdownDate": "2025-11-28T10:00:00+06:00"
@@ -140,7 +140,7 @@
   },
   {
     "id": "du-cha",
-    "universityNameAndUnit": "ঢাবি (চ)",
+    "universityNameAndUnit": "ঢাবি (চ)*",
     "examDetails": {
       "date": "২৯ নভেম্বর",
       "ExamCountdownDate": "2025-11-29T10:00:00+06:00"
