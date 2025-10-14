@@ -1,29 +1,6 @@
 
 [
   {
-    "id": "demo",
-    "universityNameAndUnit": "ডেমো",
-    "examDetails": {
-      "date": "১৫ ফেব্রুয়ারী",
-      "ExamCountdownDate": "2025-02-15T11:00:00+06:00"
-    },
-    "applicationDetails": {
-      "StartAndEndDate": "০৪ নভেম্বর - ২৭ নভেম্বর",
-      "ApplyCountdownDate": "2024-11-25T23:59:59+06:00",
-      "fee": "১,০৫০ টাকা",
-      "link": "https://admission.eis.du.ac.bd/"
-    },
-    "admitCardDetails": {
-      "StartAndEndDate": "১৫ ফেব্রুয়ারী",
-      "DownloadCountdownDate": "2025-02-15T10:00:00+06:00",
-      "link": "https://admission.eis.du.ac.bd/"
-    },
-    "resultDetails": {
-      "date": null,
-      "link": "https://admission.eis.du.ac.bd/"
-    }
-  },
-  {
     "id": "medical",
     "universityNameAndUnit": "মেডিকেল",
     "examDetails": {
