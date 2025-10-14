@@ -6,6 +6,7 @@ import { cn } from "@/lib/utils";
 
 interface TestPaperCardProps {
   title: string;
+  subtitle?: string;
   logo: string;
   href: string;
   bgColor: string;
@@ -13,6 +14,7 @@ interface TestPaperCardProps {
 
 const TestPaperCard: React.FC<TestPaperCardProps> = ({
   title,
+  subtitle,
   logo,
   href,
   bgColor,
@@ -35,6 +37,11 @@ const TestPaperCard: React.FC<TestPaperCardProps> = ({
           />
         </div>
         <h3 className="text-sm sm:text-base text-card-foreground">{title}</h3>
+        {subtitle && (
+          <p className="text-xs text-muted-foreground mt-1 font-normal">
+            {subtitle}
+          </p>
+        )}
       </div>
     </Link>
   );
