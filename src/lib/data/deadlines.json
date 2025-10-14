@@ -436,5 +436,166 @@
       "date": null,
       "link": null
     }
+  },
+  {
+    "id": "bup",
+    "universityNameAndUnit": "BUP",
+    "examDetails": {
+      "date": null,
+      "ExamCountdownDate": null
+    },
+    "applicationDetails": {
+      "StartAndEndDate": "১০ নভেম্বর - ৩০ নভেম্বর",
+      "ApplyCountdownDate": "2025-11-30T23:59:00+06:00",
+      "fee": null,
+      "link": "https://admission.bup.edu.bd/Admission/Home"
+    },
+    "admitCardDetails": {
+      "StartAndEndDate": null,
+      "DownloadCountdownDate": null,
+      "link": null
+    },
+    "resultDetails": {
+      "date": null,
+      "link": null
+    }
+  },
+  {
+    "id": "bup-fass",
+    "universityNameAndUnit": "BUP (FASS)",
+    "examDetails": {
+      "date": "০৯ জানুয়ারি",
+      "ExamCountdownDate": "2026-01-09T10:00:00+06:00"
+    },
+    "applicationDetails": {
+      "StartAndEndDate": null,
+      "ApplyCountdownDate": null,
+      "fee": null,
+      "link": null
+    },
+    "admitCardDetails": {
+      "StartAndEndDate": null,
+      "DownloadCountdownDate": null,
+      "link": null
+    },
+    "resultDetails": {
+      "date": null,
+      "link": null
+    }
+  },
+  {
+    "id": "bup-fsss",
+    "universityNameAndUnit": "BUP (FSSS)",
+    "examDetails": {
+      "date": "০৯ জানুয়ারি",
+      "ExamCountdownDate": "2026-01-09T10:00:00+06:00"
+    },
+    "applicationDetails": {
+      "StartAndEndDate": null,
+      "ApplyCountdownDate": null,
+      "fee": null,
+      "link": null
+    },
+    "admitCardDetails": {
+      "StartAndEndDate": null,
+      "DownloadCountdownDate": null,
+      "link": null
+    },
+    "resultDetails": {
+      "date": null,
+      "link": null
+    }
+  },
+  {
+    "id": "bup-fst",
+    "universityNameAndUnit": "BUP (FST)",
+    "examDetails": {
+      "date": "১০ জানুয়ারি",
+      "ExamCountdownDate": "2026-01-10T10:00:00+06:00"
+    },
+    "applicationDetails": {
+      "StartAndEndDate": null,
+      "ApplyCountdownDate": null,
+      "fee": null,
+      "link": null
+    },
+    "admitCardDetails": {
+      "StartAndEndDate": null,
+      "DownloadCountdownDate": null,
+      "link": null
+    },
+    "resultDetails": {
+      "date": null,
+      "link": null
+    }
+  },
+  {
+    "id": "bup-fbs1",
+    "universityNameAndUnit": "BUP (FBS 1)",
+    "examDetails": {
+      "date": "১০ জানুয়ারি",
+      "ExamCountdownDate": "2026-01-10T10:00:00+06:00"
+    },
+    "applicationDetails": {
+      "StartAndEndDate": null,
+      "ApplyCountdownDate": null,
+      "fee": null,
+      "link": null
+    },
+    "admitCardDetails": {
+      "StartAndEndDate": null,
+      "DownloadCountdownDate": null,
+      "link": null
+    },
+    "resultDetails": {
+      "date": null,
+      "link": null
+    }
+  },
+  {
+    "id": "bup-fbs2",
+    "universityNameAndUnit": "BUP (FBS 2)",
+    "examDetails": {
+      "date": "১৬ জানুয়ারি",
+      "ExamCountdownDate": "2026-01-16T10:00:00+06:00"
+    },
+    "applicationDetails": {
+      "StartAndEndDate": null,
+      "ApplyCountdownDate": null,
+      "fee": null,
+      "link": null
+    },
+    "admitCardDetails": {
+      "StartAndEndDate": null,
+      "DownloadCountdownDate": null,
+      "link": null
+    },
+    "resultDetails": {
+      "date": null,
+      "link": null
+    }
+  },
+  {
+    "id": "bup-fms",
+    "universityNameAndUnit": "BUP (FMS)",
+    "examDetails": {
+      "date": "১৬ জানুয়ারি",
+      "ExamCountdownDate": "2026-01-16T10:00:00+06:00"
+    },
+    "applicationDetails": {
+      "StartAndEndDate": null,
+      "ApplyCountdownDate": null,
+      "fee": null,
+      "link": null
+    },
+    "admitCardDetails": {
+      "StartAndEndDate": null,
+      "DownloadCountdownDate": null,
+      "link": null
+    },
+    "resultDetails": {
+      "date": null,
+      "link": null
+    }
   }
 ]
