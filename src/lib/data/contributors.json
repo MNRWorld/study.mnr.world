@@ -47,5 +47,16 @@
       "mail": "mailto:mdshuyaibislam5050@gmail.com",
       "github": "https://github.com/shuyaib105"
     }
+  },
+  {
+    "name": "Awolad Hossain",
+    "role": "প্রধান পর্যালোচক",
+    "bio": "প্রজেক্টের শুরু থেকেই ফিডব্যাক দিয়ে প্রজেক্ট কে অনেকটা বেটার করতে সাহায্য করেছে",
+    "imageUrl": "https://raw.githubusercontent.com/MNRfrom2020/logo-and-icon-cdn/8401d539e6860676b73549b102ad89cc6e742e29/Logo/MNR%20World/MNR%20Icon.svg",
+    "social": {
+      "send": "https://t.me/mdawolad",
+      "mail": "mailto:mdawoladhossain20252@gmail.com",
+      "facebook": "https://facebook.com/md.awolad.hossain.705189/"
+    }
   }
 ]
