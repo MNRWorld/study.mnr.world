@@ -8,6 +8,22 @@ import SharedScheduleTable from "@/components/common/SharedScheduleTable";
 import { Input } from "@/components/ui/input";
 import { Search } from "lucide-react";
 
+const toBengaliNumber = (num: number | string) => {
+  const bengaliNumbers: { [key: string]: string } = {
+    "0": "০",
+    "1": "১",
+    "2": "২",
+    "3": "৩",
+    "4": "৪",
+    "5": "৫",
+    "6": "৬",
+    "7": "৭",
+    "8": "৮",
+    "9": "৯",
+  };
+  return String(num).replace(/[0-9]/g, (match) => bengaliNumbers[match]);
+};
+
 const CountdownDisplay = ({ targetDate }: { targetDate: string | null }) => {
   const timeLeft = useCountdown(targetDate);
 
@@ -24,15 +40,27 @@ const CountdownDisplay = ({ targetDate }: { targetDate: string | null }) => {
   }
 
   return (
-    <div className="font-mono text-xs text-foreground">
-      <span>{String(timeLeft.days).padStart(2, "0")}</span>
-      <span className="font-bengali">d </span>
-      <span>{String(timeLeft.hours).padStart(2, "0")}</span>
-      <span className="font-bengali">h </span>
-      <span>{String(timeLeft.minutes).padStart(2, "0")}</span>
-      <span className="font-bengali">m </span>
-      <span>{String(timeLeft.seconds).padStart(2, "0")}</span>
-      <span className="font-bengali">s</span>
+    <div className="font-bengali whitespace-nowrap text-xs sm:text-sm">
+      <span className="tabular-nums">
+        {toBengaliNumber(String(timeLeft.days).padStart(2, "0"))}
+      </span>
+      <span className="mr-1 hidden sm:inline">দিন</span>
+      <span className="mr-1 sm:hidden">দি</span>
+      <span className="tabular-nums">
+        {toBengaliNumber(String(timeLeft.hours).padStart(2, "0"))}
+      </span>
+      <span className="mr-1 hidden sm:inline">ঘণ্টা</span>
+      <span className="mr-1 sm:hidden">ঘ</span>
+      <span className="tabular-nums">
+        {toBengaliNumber(String(timeLeft.minutes).padStart(2, "0"))}
+      </span>
+      <span className="mr-1 hidden sm:inline">মিনিট</span>
+      <span className="mr-1 sm:hidden">মি</span>
+      <span className="tabular-nums">
+        {toBengaliNumber(String(timeLeft.seconds).padStart(2, "0"))}
+      </span>
+      <span className="hidden sm:inline">সেকেন্ড</span>
+      <span className="sm:hidden">সে</span>
     </div>
   );
 };
