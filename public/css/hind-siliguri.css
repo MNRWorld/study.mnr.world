@@ -1,0 +1,44 @@
+/* hind-siliguri-300 - latin */
+@font-face {
+  font-display: swap;
+  font-family: 'Hind Siliguri';
+  font-style: normal;
+  font-weight: 300;
+  src: url('../fonts/Hind Siliguri/HindSiliguri-Light.ttf') format('truetype');
+}
+
+/* hind-siliguri-400 - latin */
+@font-face {
+  font-display: swap;
+  font-family: 'Hind Siliguri';
+  font-style: normal;
+  font-weight: 400;
+  src: url('../fonts/Hind Siliguri/HindSiliguri-Regular.ttf') format('truetype');
+}
+
+/* hind-siliguri-500 - latin */
+@font-face {
+  font-display: swap;
+  font-family: 'Hind Siliguri';
+  font-style: normal;
+  font-weight: 500;
+  src: url('../fonts/Hind Siliguri/HindSiliguri-Medium.ttf') format('truetype');
+}
+
+/* hind-siliguri-600 - latin */
+@font-face {
+  font-display: swap;
+  font-family: 'Hind Siliguri';
+  font-style: normal;
+  font-weight: 600;
+  src: url('../fonts/Hind Siliguri/HindSiliguri-SemiBold.ttf') format('truetype');
+}
+
+/* hind-siliguri-700 - latin */
+@font-face {
+  font-display: swap;
+  font-family: 'Hind Siliguri';
+  font-style: normal;
+  font-weight: 700;
+  src: url('../fonts/Hind Siliguri/HindSiliguri-Bold.ttf') format('truetype');
+}

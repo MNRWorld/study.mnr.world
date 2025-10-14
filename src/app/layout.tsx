@@ -7,13 +7,6 @@ import BackToTopButton from "@/components/common/BackToTopButton";
 import { cn } from "@/lib/utils";
 import { ThemeProvider } from "@/components/ThemeProvider";
 import { SupabaseProvider } from "@/lib/supabase/provider";
-import { Hind_Siliguri } from "next/font/google";
-
-const hindSiliguri = Hind_Siliguri({
-  subsets: ["latin", "bengali"],
-  weight: ["300", "400", "500", "600", "700"],
-  variable: "--font-sans",
-});
 
 export const metadata: Metadata = {
   title: "MNR Study — Your Study Partner",
@@ -50,6 +43,7 @@ export default function RootLayout({
     <html lang="bn" suppressHydrationWarning>
       <head>
         <link rel="icon" href="/logo.svg" type="image/svg+xml" />
+        <link rel="stylesheet" href="/css/hind-siliguri.css" />
         <link
           rel="preconnect"
           href="https://raw.githubusercontent.com"
@@ -59,7 +53,6 @@ export default function RootLayout({
       <body
         className={cn(
           "min-h-screen flex flex-col antialiased font-sans",
-          hindSiliguri.variable,
         )}
       >
         <ThemeProvider

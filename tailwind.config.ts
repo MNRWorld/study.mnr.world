@@ -10,7 +10,7 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        sans: ["var(--font-sans)", "sans-serif"],
+        sans: ["'Hind Siliguri'", "sans-serif"],
         code: ["monospace"],
       },
       colors: {
