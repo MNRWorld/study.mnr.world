@@ -5,7 +5,6 @@ import { allData } from "@/lib/data/_generated";
 import ExternalLink from "@/components/common/ExternalLink";
 import { useCountdown } from "@/hooks/useCountdown";
 import SharedScheduleTable from "@/components/common/SharedScheduleTable";
-import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Search } from "lucide-react";
 
@@ -118,9 +117,9 @@ const CalendarApplicationScheduleTable = () => {
             <div dangerouslySetInnerHTML={{ __html: item.fee }} />
           )}
           {item.applyLink && (
-            <Button asChild size="sm" className="mt-2 text-xs h-7">
-              <ExternalLink href={item.applyLink} text="আবেদন করুন" />
-            </Button>
+            <div className="mt-2">
+              <ExternalLink href={item.applyLink} text="[লিংক]" />
+            </div>
           )}
         </div>
       ),
