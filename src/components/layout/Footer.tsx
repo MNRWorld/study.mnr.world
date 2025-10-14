@@ -50,7 +50,7 @@ export default function Footer() {
       icon: Youtube,
     },
     {
-      href: "https://twitter.com/MNRfrom2020",
+      href: "https://x.com/MNRfrom2020",
       label: "Twitter",
       icon: Twitter,
     },
