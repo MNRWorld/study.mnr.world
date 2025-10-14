@@ -24,6 +24,29 @@
     }
   },
   {
+    "id": "du",
+    "universityNameAndUnit": "ঢাবি",
+    "examDetails": {
+      "date": null,
+      "ExamCountdownDate": null
+    },
+    "applicationDetails": {
+      "StartAndEndDate": "২৯ অক্টোবর - ১৬ নভেম্বর",
+      "ApplyCountdownDate": "2025-11-16T23:59:00+06:00",
+      "fee": null,
+      "link": null
+    },
+    "admitCardDetails": {
+      "StartAndEndDate": null,
+      "DownloadCountdownDate": null,
+      "link": null
+    },
+    "resultDetails": {
+      "date": null,
+      "link": null
+    }
+  },
+  {
     "id": "du-a",
     "universityNameAndUnit": "ঢাবি (ক)",
     "examDetails": {
