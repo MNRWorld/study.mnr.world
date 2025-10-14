@@ -15,7 +15,7 @@ const CalendarResultScheduleTable = () => {
       className: "w-1/3",
       accessor: (item: any) => (
         <span
-          className="font-medium"
+          className="font-bold"
           dangerouslySetInnerHTML={{ __html: item.universityNameAndUnit }}
         />
       ),

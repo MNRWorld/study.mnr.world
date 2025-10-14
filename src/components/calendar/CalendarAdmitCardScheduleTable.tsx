@@ -14,7 +14,7 @@ const CalendarAdmitCardScheduleTable = () => {
       header: "বিশ্ববিদ্যালয়",
       className: "w-1/3",
       accessor: (item: any) => (
-        <span className="font-medium">{item.universityNameAndUnit}</span>
+        <span className="font-bold">{item.universityNameAndUnit}</span>
       ),
     },
     {
