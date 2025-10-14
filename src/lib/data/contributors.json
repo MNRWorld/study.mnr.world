@@ -1,13 +1,15 @@
 [
   {
-    "name": "নাঈম",
-    "role": "প্রতিষ্ঠাতা",
-    "bio": "শিক্ষার্থীদের জন্য প্রযুক্তিকে সহজলভ্য করার লক্ষ্যে এই প্ল্যাটফর্ম তৈরি করেছেন।",
-    "imageUrl": "https://avatars.githubusercontent.com/u/98321517?v=4",
+    "name": "নাঈমুর রহমান (MNR)",
+    "role": "প্রতিষ্ঠাতা ও ডেভলপার",
+    "bio": "শিক্ষার্থীদের জন্য প্রযুক্তিকে সহজলভ্য করার লক্ষ্যে দীর্ঘ সময় ধরে কাজ করে যাচ্ছে",
+    "imageUrl": "https://raw.githubusercontent.com/MNRfrom2020/logo-and-icon-cdn/refs/heads/main/Logo/Naimur/Naimur%20BGB.png",
     "social": {
-      "github": "https://github.com/MNRfrom2020",
-      "linkedin": "https://linkedin.com/in/mnrfrom2020",
-      "twitter": "https://twitter.com/mnrfrom2020"
+      "globe": "https://naimur.mnr.world/",
+      "send": "https://t.me/WithNaimur",
+      "facebook": "https://facebook.com/WithNaimur",
+      "youtube": "https://youtube.com/@MNRfrom2020",
+      "github": "https://github.com/MNRfrom2020"
     }
   },
   {

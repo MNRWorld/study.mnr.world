@@ -1,6 +1,17 @@
 import { allData } from "@/lib/data/_generated";
 import SimplePageHeader from "@/components/common/SimplePageHeader";
-import { Github, Linkedin, Mail, MapPin, Phone, Twitter } from "lucide-react";
+import {
+  Github,
+  Linkedin,
+  Mail,
+  MapPin,
+  Phone,
+  Twitter,
+  Globe,
+  Send,
+  Facebook,
+  Youtube,
+} from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
@@ -56,7 +67,67 @@ export default function AboutPage() {
                 <p className="text-muted-foreground mt-2 text-sm flex-grow">
                   {contributor.bio}
                 </p>
-                <div className="mt-4 flex space-x-4">
+                <div className="mt-4 flex space-x-2 flex-wrap justify-center">
+                  {contributor.social.globe && (
+                    <Link
+                      href={contributor.social.globe}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <Button
+                        variant="outline"
+                        size="icon"
+                        className="rounded-full"
+                      >
+                        <Globe className="h-5 w-5" />
+                      </Button>
+                    </Link>
+                  )}
+                  {contributor.social.send && (
+                    <Link
+                      href={contributor.social.send}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <Button
+                        variant="outline"
+                        size="icon"
+                        className="rounded-full"
+                      >
+                        <Send className="h-5 w-5" />
+                      </Button>
+                    </Link>
+                  )}
+                  {contributor.social.facebook && (
+                    <Link
+                      href={contributor.social.facebook}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <Button
+                        variant="outline"
+                        size="icon"
+                        className="rounded-full"
+                      >
+                        <Facebook className="h-5 w-5" />
+                      </Button>
+                    </Link>
+                  )}
+                  {contributor.social.youtube && (
+                    <Link
+                      href={contributor.social.youtube}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <Button
+                        variant="outline"
+                        size="icon"
+                        className="rounded-full"
+                      >
+                        <Youtube className="h-5 w-5" />
+                      </Button>
+                    </Link>
+                  )}
                   {contributor.social.github && (
                     <Link
                       href={contributor.social.github}
