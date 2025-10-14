@@ -188,12 +188,12 @@ export default function AboutPage() {
           </p>
           <Button asChild size="lg" className="mt-6">
             <Link
-              href="https://github.com/MNRfrom2020/Study-Platform"
+              href="https://t.me/MNRfrom2020"
               target="_blank"
               rel="noopener noreferrer"
             >
-              <Github className="mr-2" />
-              GitHub-এ যোগ দিন
+              <Send className="mr-2" />
+              Telegram-এ যোগ দিন
             </Link>
           </Button>
         </div>
