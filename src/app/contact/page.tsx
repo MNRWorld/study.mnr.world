@@ -1,11 +1,16 @@
 import { allData } from "@/lib/data/_generated";
 import SimplePageHeader from "@/components/common/SimplePageHeader";
-import { Mail, Phone, MapPin } from "lucide-react";
+import { Mail, Send, Facebook, Instagram } from "lucide-react";
 import Link from "next/link";
 
 export default function ContactPage() {
   const { title, description, contactPoints } = allData.contactContent;
-  const icons: { [key: string]: React.ElementType } = { Mail, Phone, MapPin };
+  const icons: { [key: string]: React.ElementType } = {
+    Mail,
+    Send,
+    Facebook,
+    Instagram,
+  };
 
   return (
     <div className="font-bengali bg-background">
@@ -14,7 +19,7 @@ export default function ContactPage() {
           <SimplePageHeader title={title} description={description} />
         </div>
 
-        <div className="mt-12 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-12 grid gap-8 md:grid-cols-2 lg:grid-cols-4">
           {contactPoints.map((point, index) => {
             const Icon = icons[point.icon];
             return (
@@ -30,10 +35,14 @@ export default function ContactPage() {
                 <h3 className="text-xl font-bold text-foreground mb-2">
                   {point.title}
                 </h3>
-                <p className="text-muted-foreground">{point.detail}</p>
+                {point.detail && (
+                  <p className="text-muted-foreground">{point.detail}</p>
+                )}
                 <Link
                   href={point.link}
                   className="text-primary hover:underline mt-4 inline-block"
+                  target="_blank"
+                  rel="noopener noreferrer"
                 >
                   {point.linkText}
                 </Link>
