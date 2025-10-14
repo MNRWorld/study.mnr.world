@@ -42,7 +42,19 @@ const CalendarApplicationScheduleTable = () => {
   const [searchTerm, setSearchTerm] = useState("");
 
   const sortedSchedule = useMemo(() => {
-    const filteredData = allData.schedulesApplication.filter((item) =>
+    const applicationSchedule = allData.CalendarInfo.filter(
+      (item) => item.applicationDetails.StartAndEndDate,
+    ).map((item) => ({
+      university: item.universityNameAndUnit,
+      date: item.applicationDetails.StartAndEndDate,
+      applyCountdownDate: item.applicationDetails.ApplyCountdownDate,
+      fee: item.applicationDetails.fee,
+      applyLink: item.applicationDetails.link,
+      detailsLink: `/${item.id.split("-")[0]}#Apply`,
+      detailsLinkText: "[বিস্তারিত]",
+    }));
+
+    const filteredData = applicationSchedule.filter((item) =>
       item.university.toLowerCase().includes(searchTerm.toLowerCase()),
     );
 
@@ -102,7 +114,9 @@ const CalendarApplicationScheduleTable = () => {
       className: "w-1/3",
       accessor: (item: any) => (
         <div>
-          <div dangerouslySetInnerHTML={{ __html: item.fee }} />
+          {item.fee && (
+            <div dangerouslySetInnerHTML={{ __html: item.fee }} />
+          )}
           {item.applyLink && (
             <Button asChild size="sm" className="mt-2 text-xs h-7">
               <ExternalLink href={item.applyLink} text="আবেদন করুন" />
