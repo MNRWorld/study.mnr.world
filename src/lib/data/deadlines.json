@@ -1,3 +1,4 @@
+
 [
   {
     "id": "demo",
@@ -49,8 +50,8 @@
     "id": "du-a",
     "universityNameAndUnit": "ঢাবি (ক)",
     "examDetails": {
-      "date": "১৩ ডিসেম্বর",
-      "ExamCountdownDate": "2025-12-13T10:00:00+06:00"
+      "date": "২০ ডিসেম্বর",
+      "ExamCountdownDate": "2025-12-20T10:00:00+06:00"
     },
     "applicationDetails": {
       "StartAndEndDate": null,
