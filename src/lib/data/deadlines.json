@@ -33,8 +33,8 @@
     "applicationDetails": {
       "StartAndEndDate": "২৯ অক্টোবর - ১৬ নভেম্বর",
       "ApplyCountdownDate": "2025-11-16T23:59:00+06:00",
-      "fee": null,
-      "link": null
+      "fee": "-",
+      "link": "https://admission.eis.du.ac.bd/bn/408b7c8ad06e4d9954fa2d948a01f508"
     },
     "admitCardDetails": {
       "StartAndEndDate": null,
