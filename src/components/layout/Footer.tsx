@@ -45,7 +45,7 @@ export default function Footer() {
       icon: Facebook,
     },
     {
-      href: "https://youtube.com/MNRfrom2020",
+      href: "https://youtube.com/@MNRfrom2020",
       label: "Youtube",
       icon: Youtube,
     },
