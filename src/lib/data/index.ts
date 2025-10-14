@@ -10,6 +10,7 @@ import schedules from "./schedules.json";
 import testPapersList from "./test-papers.json";
 import CalendarInfo from "./deadlines.json";
 import placeholderImagesData from "./placeholder-images.json";
+import footerData from "./footer.json";
 
 // University data imports
 import publicUniversities from "./universities/public-universities.json";
@@ -67,4 +68,5 @@ export const allData = {
   CalendarInfo,
   calculatorContent: content.calculator,
   placeholderImages: placeholderImagesData as ImagePlaceholder[],
+  footer: footerData,
 };

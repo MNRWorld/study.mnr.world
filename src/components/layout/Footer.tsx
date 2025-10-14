@@ -12,6 +12,7 @@ import {
 } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
+import { allData } from "@/lib/data";
 
 const icons: { [key: string]: React.ElementType } = {
   ArrowRight,
@@ -22,6 +23,8 @@ const icons: { [key: string]: React.ElementType } = {
 };
 
 export default function Footer() {
+  const { importantLinks, shortcuts } = allData.footer;
+
   return (
     <footer className="w-full mt-16 mb-2 sm:mb-4">
       <div className="bg-card/50 rounded-2xl shadow-lg px-4 sm:px-8 py-8 border border-border mx-2 sm:mx-4">
@@ -88,19 +91,7 @@ export default function Footer() {
               গুরুত্বপূর্ণ লিঙ্ক
             </h2>
             <ul className="mt-4 space-y-3 font-bengali">
-              {[
-                { href: "/courses", label: "আমাদের কোর্স", icon: "ArrowRight" },
-                {
-                  href: "/calendar",
-                  label: "ভর্তি ক্যালেন্ডার",
-                  icon: "ArrowRight",
-                },
-                {
-                  href: "/question-bank",
-                  label: "বই ও প্রশ্নব্যাংক",
-                  icon: "ArrowRight",
-                },
-              ].map((link, index) => {
+              {importantLinks.map((link, index) => {
                 const Icon = icons[link.icon];
                 return (
                   <li key={index}>
@@ -122,11 +113,7 @@ export default function Footer() {
               শর্টকাট
             </h2>
             <ul className="mt-4 space-y-3 font-bengali">
-              {[
-                { href: "/", label: "হোম", icon: "Home" },
-                { href: "/about", label: "আমাদের সম্পর্কে", icon: "Info" },
-                { href: "/contact", label: "যোগাযোগ", icon: "Mail" },
-              ].map((link, index) => {
+              {shortcuts.map((link, index) => {
                 const Icon = icons[link.icon];
                 return (
                   <li key={index}>
