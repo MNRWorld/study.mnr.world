@@ -263,7 +263,7 @@
     "applicationDetails": {
       "StartAndEndDate": "০১ ডিসেম্বর - ১৫ ডিসেম্বর",
       "ApplyCountdownDate": "2025-12-15T23:59:00+06:00",
-      "fee": null,
+      "fee": "-",
       "link": "https://admission.cu.ac.bd/"
     },
     "admitCardDetails": {
@@ -447,7 +447,7 @@
     "applicationDetails": {
       "StartAndEndDate": "১০ নভেম্বর - ৩০ নভেম্বর",
       "ApplyCountdownDate": "2025-11-30T23:59:00+06:00",
-      "fee": null,
+      "fee": "-",
       "link": "https://admission.bup.edu.bd/Admission/Home"
     },
     "admitCardDetails": {
