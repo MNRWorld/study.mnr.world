@@ -1,3 +1,4 @@
+
 [
   {
     "name": "নাঈমুর রহমান (MNR)",
@@ -14,13 +15,16 @@
   },
   {
     "name": "FrostFoe",
-    "role": "গুরু",
-    "bio": "এই প্ল্যাটফর্মের সকল তথ্য সঠিকভাবে পরিচালনা এবং এর কার্যকারিতা বৃদ্ধিতে কাজ করছেন।",
+    "role": "প্রধান ডেভলপার",
+    "bio": "এই প্ল্যাটফর্ম ডেভলপ থেকে শুরু করে পরিচালনা এবং এর কার্যকারিতা বৃদ্ধিতে কাজ করছেন",
     "imageUrl": "https://avatars.githubusercontent.com/u/175545919?v=4",
     "social": {
-      "github": "https://github.com/Frost-Foe",
-      "linkedin": "#",
-      "twitter": "#"
+      "globe": "https://frostfoe.netlify.app/",
+      "send": "https://t.me/FrostFoe",
+      "facebook": "https://facebook.com/FrostFoe/",
+      "instagram": "https://instagram.com/FrostFoe/",
+      "youtube": "https://youtube.com/@FrostFoe1337",
+      "github": "https://github.com/FrostFoe"
     }
   },
   {
