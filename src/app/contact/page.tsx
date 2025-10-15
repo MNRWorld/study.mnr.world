@@ -3,8 +3,19 @@ import SimplePageHeader from "@/components/common/SimplePageHeader";
 import { Mail, Send, Facebook, Instagram } from "lucide-react";
 import Link from "next/link";
 
+// Define proper TypeScript interfaces
+interface ContactPoint {
+  icon: string;
+  title: string;
+  link: string;
+  linkText: string;
+  detail?: string; // Make detail optional
+}
+
 export default function ContactPage() {
   const { title, description, contactPoints } = allData.contactContent;
+  const contactPointsData = contactPoints as ContactPoint[];
+  
   const icons: { [key: string]: React.ElementType } = {
     Mail,
     Send,
@@ -20,7 +31,7 @@ export default function ContactPage() {
         </div>
 
         <div className="mt-12 grid gap-8 md:grid-cols-2 lg:grid-cols-4">
-          {contactPoints.map((point, index) => {
+          {contactPointsData.map((point, index) => {
             const Icon = icons[point.icon];
             return (
               <div

@@ -16,9 +16,30 @@ import Image from "next/image";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 
+// Define proper TypeScript interfaces
+interface SocialLinks {
+  globe?: string;
+  send?: string;
+  facebook?: string;
+  youtube?: string;
+  github?: string;
+  instagram?: string;
+  mail?: string;
+  linkedin?: string;
+  twitter?: string;
+}
+
+interface Contributor {
+  name: string;
+  role: string;
+  bio: string;
+  imageUrl: string;
+  social: SocialLinks;
+}
+
 export default function AboutPage() {
   const { title, description, sections, team } = allData.aboutContent;
-  const contributors = allData.contributorsList;
+  const contributors = allData.contributorsList as Contributor[];
 
   return (
     <div className="font-bengali bg-background">

@@ -24,7 +24,7 @@ A comprehensive platform for students in Bangladesh, providing all necessary inf
 - **Styling:** [Tailwind CSS](https://tailwindcss.com/)
 - **UI Components:** [ShadCN UI](https://ui.shadcn.com/)
 - **Language:** [TypeScript](https://www.typescriptlang.org/)
-- **Deployment:** [Netlify](https://www.netlify.com/)
+- **Deployment:** [Vercel](https://vercel.com/)
 
 ## ⚙️ Getting Started
 
@@ -33,7 +33,7 @@ To get a local copy up and running, follow these simple steps.
 ### Prerequisites
 
 - Node.js (v20 or later)
-- pnpm (or npm/yarn)
+- npm (or pnpm/yarn)
 
 ### Installation
 
@@ -43,7 +43,7 @@ To get a local copy up and running, follow these simple steps.
     ```
 2.  Install packages:
     ```sh
-    pnpm install
+    npm install
     ```
 3.  Set up your environment variables. Create a `.env.local` file and add your Supabase credentials:
     ```env
@@ -52,14 +52,14 @@ To get a local copy up and running, follow these simple steps.
     ```
 4.  Run the development server:
     ```sh
-    pnpm run dev
+    npm run dev
     ```
 
 The application will be available at `http://localhost:3000`.
 
 ## 📜 Available Scripts
 
-- `pnpm dev`: Starts the development server.
-- `pnpm build`: Creates a production build of the app.
-- `pnpm start`: Starts the production server.
-- `pnpm typecheck`: Runs TypeScript to check for type errors.
+- `npm run dev`: Starts the development server.
+- `npm run build`: Creates a production build of the app.
+- `npm run start`: Starts the production server.
+- `npm run typecheck`: Runs TypeScript to check for type errors.
