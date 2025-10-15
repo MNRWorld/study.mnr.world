@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect, useCallback } from "react";
+import React, { useState, useEffect } from "react";
 import { allData } from "@/lib/data/_generated";
 import {
   Table,
@@ -13,7 +13,6 @@ import {
 import { useCountdown } from "@/hooks/useCountdown";
 import { cn } from "@/lib/utils";
 import { Heart } from "lucide-react";
-import { useUser, useSupabase } from "@/lib/supabase/hooks";
 import { useToast } from "@/hooks/use-toast";
 
 const toBengaliNumber = (num: number | string) => {
@@ -71,7 +70,6 @@ const CountdownCell = ({ targetDate }: { targetDate: string | null }) => {
 
 const CalendarAdmissionScheduleTable = () => {
   const [favorites, setFavorites] = useState<string[]>([]);
-  const { user } = useUser();
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -123,11 +121,7 @@ const CalendarAdmissionScheduleTable = () => {
   });
 
   if (loading) {
-    return (
-      <div className="mt-4 text-center">
-        আপনার পছন্দের পরীক্ষার তথ্য লোড হচ্ছে...
-      </div>
-    );
+    return <div className="mt-4 text-center">আপনার পছন্দের পরীক্ষার তথ্য লোড হচ্ছে...</div>;
   }
 
   return (

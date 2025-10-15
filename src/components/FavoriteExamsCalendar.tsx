@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect, useCallback } from "react";
+import React, { useState, useEffect } from "react";
 import { Calendar } from "@/components/ui/calendar";
 import { allData } from "@/lib/data/_generated";
 import {
@@ -10,13 +10,11 @@ import {
   TooltipTrigger,
 } from "@/components/ui/tooltip";
 import type { DayContentProps } from "react-day-picker";
-import { useUser } from "@/lib/supabase/hooks";
 import { bn } from "date-fns/locale";
 import { cn } from "@/lib/utils";
 import { format } from "date-fns";
 
 const FavoriteExamsCalendar = () => {
-  const { user } = useUser();
   const [allExamDates, setAllExamDates] = useState<{
     [key: string]: string[];
   }>({});
@@ -29,7 +27,7 @@ const FavoriteExamsCalendar = () => {
     if (storedFavorites) {
       setFavoriteIds(JSON.parse(storedFavorites));
     }
-  }, [user]);
+  }, []);
 
   useEffect(() => {
     const dates: { [key: string]: string[] } = {};
