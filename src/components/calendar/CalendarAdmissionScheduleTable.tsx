@@ -70,15 +70,13 @@ const CountdownCell = ({ targetDate }: { targetDate: string | null }) => {
 
 const CalendarAdmissionScheduleTable = () => {
   const [favorites, setFavorites] = useState<string[]>([]);
-  const [loading, setLoading] = useState(true);
+  const { toast } = useToast();
 
   useEffect(() => {
-    setLoading(true);
     const storedFavorites = localStorage.getItem("admissionFavorites");
     if (storedFavorites) {
       setFavorites(JSON.parse(storedFavorites));
     }
-    setLoading(false);
   }, []);
 
   const toggleFavorite = (id: string) => {
@@ -87,6 +85,11 @@ const CalendarAdmissionScheduleTable = () => {
       : [...favorites, id];
     localStorage.setItem("admissionFavorites", JSON.stringify(newFavorites));
     setFavorites(newFavorites);
+    toast({
+      title: newFavorites.includes(id)
+        ? "পছন্দের তালিকায় যুক্ত হয়েছে"
+        : "পছন্দের তালিকা থেকে সরানো হয়েছে",
+    });
   };
 
   const admissionSchedule = allData.CalendarInfo.filter((item) => {
@@ -120,27 +123,19 @@ const CalendarAdmissionScheduleTable = () => {
     return dateA - dateB;
   });
 
-  if (loading) {
-    return (
-      <div className="mt-4 text-center">
-        আপনার পছন্দের পরীক্ষার তথ্য লোড হচ্ছে...
-      </div>
-    );
-  }
-
   return (
     <div className="mt-4 w-full border border-border bg-card rounded-2xl shadow-lg">
       <Table>
         <TableHeader>
           <TableRow>
-            <TableHead className="sticky top-[66px] sm:top-[66px] z-10 bg-primary text-primary-foreground text-center font-bold rounded-tl-2xl"></TableHead>
-            <TableHead className="sticky top-[66px] sm:top-[66px] z-10 bg-primary text-primary-foreground text-center font-bold truncate">
+            <TableHead className="bg-primary text-primary-foreground text-center font-bold rounded-tl-2xl"></TableHead>
+            <TableHead className="bg-primary text-primary-foreground text-center font-bold truncate">
               ভার্সিটি
             </TableHead>
-            <TableHead className="sticky top-[66px] sm:top-[66px] z-10 bg-primary text-primary-foreground text-center font-bold truncate">
+            <TableHead className="bg-primary text-primary-foreground text-center font-bold truncate">
               তারিখ
             </TableHead>
-            <TableHead className="sticky top-[66px] sm:top-[66px] z-10 bg-primary text-primary-foreground text-center font-bold rounded-tr-2xl">
+            <TableHead className="bg-primary text-primary-foreground text-center font-bold rounded-tr-2xl">
               সময় বাকি
             </TableHead>
           </TableRow>
@@ -158,7 +153,7 @@ const CalendarAdmissionScheduleTable = () => {
               <TableCell className="align-top text-center">
                 <Heart
                   className={cn(
-                    "h-5 w-5 cursor-pointer text-muted-foreground/50 transition-all hover:scale-125",
+                    "h-5 w-5 cursor-pointer text-muted-foreground/30 transition-all hover:scale-125",
                     favorites.includes(item.id) && "text-primary fill-primary",
                   )}
                   onClick={() => toggleFavorite(item.id)}

@@ -43,7 +43,7 @@ const SharedScheduleTable = <T extends {}>({
             {columns.map((col, index) => (
               <TableHead
                 key={index}
-                className={`sticky top-0 z-10 text-center font-bold bg-primary text-primary-foreground ${
+                className={`text-center font-bold bg-primary text-primary-foreground ${
                   index === 0 ? "rounded-tl-2xl" : ""
                 } ${
                   index === columns.length - 1 ? "rounded-tr-2xl" : ""
