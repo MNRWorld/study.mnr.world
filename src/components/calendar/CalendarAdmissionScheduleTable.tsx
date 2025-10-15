@@ -57,7 +57,7 @@ const CountdownCell = ({ targetDate }: { targetDate: string | null }) => {
       <span className="tabular-nums">
         {toBengaliNumber(String(timeLeft.minutes).padStart(2, "0"))}
       </span>
-      <span className="mr-1 hidden sm:inline">মিনিট</span>
+      <span className="mr_1 hidden sm:inline">মিনিট</span>
       <span className="mr-1 sm:hidden">মি</span>
       <span className="tabular-nums">
         {toBengaliNumber(String(timeLeft.seconds).padStart(2, "0"))}
@@ -80,11 +80,14 @@ const CalendarAdmissionScheduleTable = () => {
   }, []);
 
   const toggleFavorite = (id: string) => {
-    const newFavorites = favorites.includes(id)
-      ? favorites.filter((favId) => favId !== id)
-      : [...favorites, id];
-    localStorage.setItem("admissionFavorites", JSON.stringify(newFavorites));
+    let newFavorites;
+    if (favorites.includes(id)) {
+      newFavorites = favorites.filter((favId) => favId !== id);
+    } else {
+      newFavorites = [...favorites, id];
+    }
     setFavorites(newFavorites);
+    localStorage.setItem("admissionFavorites", JSON.stringify(newFavorites));
     toast({
       title: newFavorites.includes(id)
         ? "পছন্দের তালিকায় যুক্ত হয়েছে"
