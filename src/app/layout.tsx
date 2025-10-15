@@ -50,11 +50,7 @@ export default function RootLayout({
           crossOrigin="anonymous"
         />
       </head>
-      <body
-        className={cn(
-          "min-h-screen flex flex-col antialiased font-sans",
-        )}
-      >
+      <body className={cn("min-h-screen flex flex-col antialiased font-sans")}>
         <ThemeProvider
           attribute="class"
           defaultTheme="system"

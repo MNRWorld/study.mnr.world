@@ -148,9 +148,7 @@ const CalendarApplicationScheduleTable = () => {
       className: "w-1/3",
       accessor: (item: any) => (
         <div>
-          {item.fee && (
-            <div dangerouslySetInnerHTML={{ __html: item.fee }} />
-          )}
+          {item.fee && <div dangerouslySetInnerHTML={{ __html: item.fee }} />}
           {item.applyLink && (
             <div className="mt-2">
               <ExternalLink href={item.applyLink} text="[লিংক]" />
@@ -179,5 +177,3 @@ const CalendarApplicationScheduleTable = () => {
 };
 
 export default CalendarApplicationScheduleTable;
-
-    

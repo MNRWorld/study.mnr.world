@@ -42,9 +42,7 @@ const TestPaperCard: React.FC<TestPaperCardProps> = ({
               className="object-contain w-10 h-10 sm:w-12 sm:h-12"
             />
           </div>
-          <h3 className="text-sm sm:text-base text-card-foreground">
-            {title}
-          </h3>
+          <h3 className="text-sm sm:text-base text-card-foreground">{title}</h3>
         </div>
         {subtitle && (
           <div className="w-full">

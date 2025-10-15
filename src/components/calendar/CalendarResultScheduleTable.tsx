@@ -46,5 +46,3 @@ const CalendarResultScheduleTable = () => {
 };
 
 export default CalendarResultScheduleTable;
-
-    

@@ -1,4 +1,3 @@
-
 "use client";
 
 import { createContext, useState, useEffect, ReactNode } from "react";
@@ -48,16 +47,18 @@ export const SupabaseProvider = ({ children }: { children: ReactNode }) => {
 
       if (event === "SIGNED_IN" && currentUser) {
         if (!currentUser.is_anonymous) {
-          const { error: upsertError } = await supabase.from("profiles").upsert({
-            id: currentUser.id,
-            display_name:
-              currentUser.user_metadata.full_name ||
-              currentUser.user_metadata.name,
-            avatar_url:
-              currentUser.user_metadata.avatar_url ||
-              currentUser.user_metadata.picture,
-            updated_at: new Date().toISOString(),
-          });
+          const { error: upsertError } = await supabase
+            .from("profiles")
+            .upsert({
+              id: currentUser.id,
+              display_name:
+                currentUser.user_metadata.full_name ||
+                currentUser.user_metadata.name,
+              avatar_url:
+                currentUser.user_metadata.avatar_url ||
+                currentUser.user_metadata.picture,
+              updated_at: new Date().toISOString(),
+            });
 
           if (upsertError) {
             console.error("Error upserting profile:", upsertError);

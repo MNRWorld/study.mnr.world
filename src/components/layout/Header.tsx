@@ -277,9 +277,7 @@ const Header = memo(function Header() {
               } else {
                 isActive = pathname.startsWith(item.href);
               }
-              return (
-                <NavItem key={item.id} item={item} isActive={isActive} />
-              );
+              return <NavItem key={item.id} item={item} isActive={isActive} />;
             })}
           </div>
         </div>

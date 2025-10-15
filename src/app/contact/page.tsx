@@ -15,7 +15,7 @@ interface ContactPoint {
 export default function ContactPage() {
   const { title, description, contactPoints } = allData.contactContent;
   const contactPointsData = contactPoints as ContactPoint[];
-  
+
   const icons: { [key: string]: React.ElementType } = {
     Mail,
     Send,

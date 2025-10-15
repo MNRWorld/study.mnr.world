@@ -121,7 +121,11 @@ const CalendarAdmissionScheduleTable = () => {
   });
 
   if (loading) {
-    return <div className="mt-4 text-center">আপনার পছন্দের পরীক্ষার তথ্য লোড হচ্ছে...</div>;
+    return (
+      <div className="mt-4 text-center">
+        আপনার পছন্দের পরীক্ষার তথ্য লোড হচ্ছে...
+      </div>
+    );
   }
 
   return (

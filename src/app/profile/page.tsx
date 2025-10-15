@@ -418,7 +418,8 @@ export default function ProfilePage() {
               <CardTitle className="text-destructive">ডেঞ্জার জোন</CardTitle>
             </div>
             <CardDescription className="text-destructive/80">
-              এই সেকশনের কাজগুলো অপরিবর্তনীয়। অনুগ্রহ করে সতর্কতার সাথে ব্যবহার করুন।
+              এই সেকশনের কাজগুলো অপরিবর্তনীয়। অনুগ্রহ করে সতর্কতার সাথে ব্যবহার
+              করুন।
             </CardDescription>
           </CardHeader>
           <CardContent>

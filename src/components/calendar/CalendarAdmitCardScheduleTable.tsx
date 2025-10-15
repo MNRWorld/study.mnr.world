@@ -48,5 +48,3 @@ const CalendarAdmitCardScheduleTable = () => {
 };
 
 export default CalendarAdmitCardScheduleTable;
-
-    

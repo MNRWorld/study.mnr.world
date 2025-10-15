@@ -11,11 +11,10 @@ A comprehensive platform for students in Bangladesh, providing all necessary inf
 - **Eligibility Calculator:** Check your eligibility for different universities based on your results.
 - **OMR Self-Test Simulator:** Create and take your own OMR-based tests with custom timing, question counts, and negative marking to evaluate your preparation.
 - **User Authentication:** Secure login via GitHub, Google, or as a guest (anonymous) using Supabase.
-- **Personalized Profiles:**
-  - Save target university and HSC result.
+- **Personalized Experience (Browser-Saved):**
+  - Save target university and HSC result in your profile.
   - Bookmark favorite exams to view in a personalized calendar.
   - Bookmark important subjects for quick access.
-- **Responsive Design:** Fully responsive and modern UI built with Next.js, Tailwind CSS, and ShadCN UI.
 
 ## 🛠️ Tech Stack
 
