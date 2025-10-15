@@ -1,3 +1,4 @@
+
 "use client";
 
 import React, { useState, useEffect, useCallback } from "react";
@@ -20,7 +21,6 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from "@/components/ui/popover";
-import { useUser, useSupabase } from "@/lib/supabase/hooks";
 import { cn } from "@/lib/utils";
 import { useToast } from "@/hooks/use-toast";
 
@@ -62,26 +62,14 @@ const SubjectTable: React.FC<SubjectTableProps> = ({
 }) => {
   const [searchTerm, setSearchTerm] = useState("");
   const [bookmarks, setBookmarks] = useState<string[]>([]);
-  const { user } = useUser();
-  const supabase = useSupabase();
   const { toast } = useToast();
 
   const fetchBookmarks = useCallback(async () => {
-    if (user && !user.is_anonymous && supabase) {
-      const { data, error } = await supabase
-        .from("user_subject_bookmarks")
-        .select("subject_id")
-        .eq("user_id", user.id);
-      if (!error && data) {
-        setBookmarks(data.map((b) => b.subject_id));
-      }
-    } else {
-      const localBookmarks = localStorage.getItem("subjectBookmarks");
-      if (localBookmarks) {
-        setBookmarks(JSON.parse(localBookmarks));
-      }
+    const localBookmarks = localStorage.getItem("subjectBookmarks");
+    if (localBookmarks) {
+      setBookmarks(JSON.parse(localBookmarks));
     }
-  }, [user, supabase]);
+  }, []);
 
   useEffect(() => {
     fetchBookmarks();
@@ -91,43 +79,14 @@ const SubjectTable: React.FC<SubjectTableProps> = ({
     const isBookmarked = bookmarks.includes(subjectId);
     let newBookmarks: string[];
 
-    if (user && !user.is_anonymous && supabase) {
-      if (isBookmarked) {
-        const { error } = await supabase
-          .from("user_subject_bookmarks")
-          .delete()
-          .match({ user_id: user.id, subject_id: subjectId });
-        if (error) {
-          toast({
-            variant: "destructive",
-            title: "বুকমার্ক সরাতে সমস্যা হয়েছে",
-          });
-          return;
-        }
-        newBookmarks = bookmarks.filter((id) => id !== subjectId);
-      } else {
-        const { error } = await supabase
-          .from("user_subject_bookmarks")
-          .insert({ user_id: user.id, subject_id: subjectId });
-        if (error) {
-          toast({
-            variant: "destructive",
-            title: "বুকমার্ক করতে সমস্যা হয়েছে",
-          });
-          return;
-        }
-        newBookmarks = [...bookmarks, subjectId];
-      }
+    const currentBookmarks = bookmarks;
+    if (isBookmarked) {
+      newBookmarks = currentBookmarks.filter((id) => id !== subjectId);
     } else {
-      // Guest user logic
-      const currentBookmarks = bookmarks;
-      if (isBookmarked) {
-        newBookmarks = currentBookmarks.filter((id) => id !== subjectId);
-      } else {
-        newBookmarks = [...currentBookmarks, subjectId];
-      }
-      localStorage.setItem("subjectBookmarks", JSON.stringify(newBookmarks));
+      newBookmarks = [...currentBookmarks, subjectId];
     }
+    localStorage.setItem("subjectBookmarks", JSON.stringify(newBookmarks));
+
     setBookmarks(newBookmarks);
     toast({
       title: isBookmarked

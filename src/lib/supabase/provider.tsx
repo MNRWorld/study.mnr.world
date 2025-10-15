@@ -1,3 +1,4 @@
+
 "use client";
 
 import { createContext, useState, useEffect, ReactNode } from "react";
@@ -5,6 +6,7 @@ import { createClient } from "@/lib/supabase/client";
 import { SupabaseClient, Session, User } from "@supabase/supabase-js";
 import { useRouter } from "next/navigation";
 import { Database } from "./database.types";
+import { useToast } from "@/hooks/use-toast";
 
 type SupabaseContextType = {
   supabase: SupabaseClient<Database>;
@@ -22,7 +24,7 @@ export const SupabaseProvider = ({ children }: { children: ReactNode }) => {
   const [session, setSession] = useState<Session | null>(null);
   const [user, setUser] = useState<User | null>(null);
   const [loading, setLoading] = useState(true);
-  const router = useRouter();
+  const { toast } = useToast();
 
   useEffect(() => {
     async function getActiveSession() {
@@ -42,23 +44,29 @@ export const SupabaseProvider = ({ children }: { children: ReactNode }) => {
       setSession(session);
       const currentUser = session?.user ?? null;
       setUser(currentUser);
-      setLoading(false); // Ensure loading is set to false on auth state change
+      setLoading(false);
 
-      if (event === "SIGNED_IN" && currentUser && !currentUser.is_anonymous) {
-        // Upsert profile data to handle both new and existing users
-        const { error: upsertError } = await supabase.from("profiles").upsert({
-          id: currentUser.id,
-          display_name:
-            currentUser.user_metadata.full_name ||
-            currentUser.user_metadata.name,
-          avatar_url:
-            currentUser.user_metadata.avatar_url ||
-            currentUser.user_metadata.picture,
-          updated_at: new Date().toISOString(),
-        });
+      if (event === "SIGNED_IN" && currentUser) {
+        if (!currentUser.is_anonymous) {
+          const { error: upsertError } = await supabase.from("profiles").upsert({
+            id: currentUser.id,
+            display_name:
+              currentUser.user_metadata.full_name ||
+              currentUser.user_metadata.name,
+            avatar_url:
+              currentUser.user_metadata.avatar_url ||
+              currentUser.user_metadata.picture,
+            updated_at: new Date().toISOString(),
+          });
 
-        if (upsertError) {
-          console.error("Error upserting profile:", upsertError);
+          if (upsertError) {
+            console.error("Error upserting profile:", upsertError);
+            toast({
+              variant: "destructive",
+              title: "প্রোফাইল তৈরিতে সমস্যা হয়েছে",
+              description: upsertError.message,
+            });
+          }
         }
       }
     });
@@ -66,7 +74,7 @@ export const SupabaseProvider = ({ children }: { children: ReactNode }) => {
     return () => {
       subscription.unsubscribe();
     };
-  }, [supabase]);
+  }, [supabase, toast]);
 
   return (
     <SupabaseContext.Provider value={{ supabase, session, user, loading }}>

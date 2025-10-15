@@ -1,7 +1,7 @@
+
 "use client";
 
 import React, { useState, useEffect, useCallback } from "react";
-import { useUser, useSupabase } from "@/lib/supabase/hooks";
 import { allData } from "@/lib/data/_generated";
 import type { Subject } from "@/lib/supabase/database.types";
 import {
@@ -24,8 +24,6 @@ interface BookmarkedSubject extends Subject {
 }
 
 const BookmarkedSubjects = () => {
-  const { user } = useUser();
-  const supabase = useSupabase();
   const { toast } = useToast();
   const [bookmarkedSubjects, setBookmarkedSubjects] = useState<
     BookmarkedSubject[]
@@ -57,58 +55,27 @@ const BookmarkedSubjects = () => {
 
   const fetchBookmarks = useCallback(async () => {
     setLoading(true);
-    let subjectIds: string[] = [];
+    const storedBookmarks = localStorage.getItem("subjectBookmarks");
+    const subjectIds = storedBookmarks ? JSON.parse(storedBookmarks) : [];
     const allSubjects = getAllSubjects();
-
-    if (user && !user.is_anonymous && supabase) {
-      const { data, error } = await supabase
-        .from("user_subject_bookmarks")
-        .select("subject_id")
-        .eq("user_id", user.id);
-
-      if (!error) {
-        subjectIds = data.map((b) => b.subject_id);
-      }
-    } else {
-      const storedBookmarks = localStorage.getItem("subjectBookmarks");
-      if (storedBookmarks) {
-        subjectIds = JSON.parse(storedBookmarks);
-      }
-    }
-
     const subjects = allSubjects.filter((subject) =>
       subjectIds.includes(subject.short),
     );
     setBookmarkedSubjects(subjects);
     setLoading(false);
-  }, [user, supabase, getAllSubjects]);
+  }, [getAllSubjects]);
 
   useEffect(() => {
     fetchBookmarks();
   }, [fetchBookmarks]);
 
   const removeBookmark = async (subjectId: string) => {
-    if (user && !user.is_anonymous && supabase) {
-      const { error } = await supabase
-        .from("user_subject_bookmarks")
-        .delete()
-        .match({ user_id: user.id, subject_id: subjectId });
-
-      if (error) {
-        toast({
-          variant: "destructive",
-          title: "বুকমার্ক সরাতে সমস্যা হয়েছে",
-        });
-        return;
-      }
-    } else {
-      const stored = localStorage.getItem("subjectBookmarks");
-      const currentBookmarks = stored ? JSON.parse(stored) : [];
-      const newBookmarks = currentBookmarks.filter(
-        (id: string) => id !== subjectId,
-      );
-      localStorage.setItem("subjectBookmarks", JSON.stringify(newBookmarks));
-    }
+    const stored = localStorage.getItem("subjectBookmarks");
+    const currentBookmarks = stored ? JSON.parse(stored) : [];
+    const newBookmarks = currentBookmarks.filter(
+      (id: string) => id !== subjectId,
+    );
+    localStorage.setItem("subjectBookmarks", JSON.stringify(newBookmarks));
 
     toast({ title: "বুকমার্ক সরানো হয়েছে" });
     fetchBookmarks();
