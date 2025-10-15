@@ -10,14 +10,13 @@ import {
   TooltipTrigger,
 } from "@/components/ui/tooltip";
 import type { DayContentProps } from "react-day-picker";
-import { useUser, useSupabase } from "@/lib/supabase/hooks";
+import { useUser } from "@/lib/supabase/hooks";
 import { bn } from "date-fns/locale";
 import { cn } from "@/lib/utils";
 import { format } from "date-fns";
 
 const FavoriteExamsCalendar = () => {
   const { user } = useUser();
-  const supabase = useSupabase();
   const [allExamDates, setAllExamDates] = useState<{
     [key: string]: string[];
   }>({});
@@ -25,31 +24,12 @@ const FavoriteExamsCalendar = () => {
   const [modifiers, setModifiers] = useState({});
   const [month, setMonth] = useState<Date>(new Date());
 
-  const fetchFavorites = useCallback(async () => {
-    if (user && !user.is_anonymous) {
-      if (!supabase) return;
-      const { data, error } = await supabase
-        .from("user_favorite_exams")
-        .select("exam_id")
-        .eq("user_id", user.id);
-
-      if (error) {
-        // RLS policy handles security, so no need to toast error here
-      } else {
-        setFavoriteIds(data.map((fav) => fav.exam_id));
-      }
-    } else {
-      // Handle guest or non-logged-in users
-      const storedFavorites = localStorage.getItem("admissionFavorites");
-      if (storedFavorites) {
-        setFavoriteIds(JSON.parse(storedFavorites));
-      }
-    }
-  }, [user, supabase]);
-
   useEffect(() => {
-    fetchFavorites();
-  }, [user, fetchFavorites]);
+    const storedFavorites = localStorage.getItem("admissionFavorites");
+    if (storedFavorites) {
+      setFavoriteIds(JSON.parse(storedFavorites));
+    }
+  }, [user]);
 
   useEffect(() => {
     const dates: { [key: string]: string[] } = {};

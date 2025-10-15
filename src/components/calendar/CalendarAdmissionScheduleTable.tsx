@@ -72,83 +72,23 @@ const CountdownCell = ({ targetDate }: { targetDate: string | null }) => {
 const CalendarAdmissionScheduleTable = () => {
   const [favorites, setFavorites] = useState<string[]>([]);
   const { user } = useUser();
-  const supabase = useSupabase();
-  const { toast } = useToast();
-
-  const fetchFavorites = useCallback(async () => {
-    if (!user || !supabase || user.is_anonymous) return;
-
-    const { data, error } = await supabase
-      .from("user_favorite_exams")
-      .select("exam_id")
-      .eq("user_id", user.id);
-
-    if (error) {
-      // RLS policy handles security, so no need to toast error here
-    } else {
-      setFavorites(data.map((fav) => fav.exam_id));
-    }
-  }, [user, supabase]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    if (user && !user.is_anonymous) {
-      fetchFavorites();
-    } else {
-      const storedFavorites = localStorage.getItem("admissionFavorites");
-      if (storedFavorites) {
-        setFavorites(JSON.parse(storedFavorites));
-      }
+    setLoading(true);
+    const storedFavorites = localStorage.getItem("admissionFavorites");
+    if (storedFavorites) {
+      setFavorites(JSON.parse(storedFavorites));
     }
-  }, [user, fetchFavorites]);
+    setLoading(false);
+  }, []);
 
-  const toggleFavorite = async (id: string) => {
-    // Handle guest or non-logged-in users with localStorage
-    if (!user || user.is_anonymous) {
-      const newFavorites = favorites.includes(id)
-        ? favorites.filter((favId) => favId !== id)
-        : [...favorites, id];
-      localStorage.setItem("admissionFavorites", JSON.stringify(newFavorites));
-      setFavorites(newFavorites);
-      return;
-    }
-
-    // Handle registered users with Supabase
-    if (!supabase) return;
-
-    const isFavorite = favorites.includes(id);
-
-    if (isFavorite) {
-      // Remove from favorites
-      const { error } = await supabase
-        .from("user_favorite_exams")
-        .delete()
-        .match({ user_id: user.id, exam_id: id });
-
-      if (error) {
-        toast({
-          variant: "destructive",
-          title: "ত্রুটি",
-          description: "পছন্দের তালিকা থেকে সরাতে সমস্যা হয়েছে।",
-        });
-      } else {
-        setFavorites((prev) => prev.filter((favId) => favId !== id));
-      }
-    } else {
-      // Add to favorites
-      const { error } = await supabase
-        .from("user_favorite_exams")
-        .insert([{ user_id: user.id, exam_id: id }]);
-
-      if (error) {
-        toast({
-          variant: "destructive",
-          title: "ত্রুটি",
-          description: "পছন্দের তালিকায় যোগ করতে সমস্যা হয়েছে।",
-        });
-      } else {
-        setFavorites((prev) => [...prev, id]);
-      }
-    }
+  const toggleFavorite = (id: string) => {
+    const newFavorites = favorites.includes(id)
+      ? favorites.filter((favId) => favId !== id)
+      : [...favorites, id];
+    localStorage.setItem("admissionFavorites", JSON.stringify(newFavorites));
+    setFavorites(newFavorites);
   };
 
   const admissionSchedule = allData.CalendarInfo.filter((item) => {
@@ -181,6 +121,14 @@ const CalendarAdmissionScheduleTable = () => {
 
     return dateA - dateB;
   });
+
+  if (loading) {
+    return (
+      <div className="mt-4 text-center">
+        আপনার পছন্দের পরীক্ষার তথ্য লোড হচ্ছে...
+      </div>
+    );
+  }
 
   return (
     <div className="mt-4 w-full border border-border bg-card rounded-2xl shadow-lg">
@@ -234,5 +182,3 @@ const CalendarAdmissionScheduleTable = () => {
 };
 
 export default CalendarAdmissionScheduleTable;
-
-    
