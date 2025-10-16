@@ -89,6 +89,11 @@ interface UniversityData extends University {
     label: string;
     tooltip?: string;
   }[];
+  circular: {
+    title: string;
+    note?: string;
+    downloadLink: string;
+  };
   previousCirculars?: { href: string; text: string }[];
 }
 interface UniversityPageProps {
@@ -142,15 +147,17 @@ const UniversityPage = ({
           <CountdownTimer universityId={university.id} />
         </div>
 
-        <Circular
-          title="সম্পূর্ণ সার্কুলার"
-          note="(⚠ নোট: সর্বশেষ সার্কুলার এখনও প্রকাশিত হয়নি। পূর্ববর্তী বছরের সার্কুলার দেখে আইডিয়া নিতে পারেন।)"
-          downloadLink="https://t.me/Study_on_Telegram/14079"
-          showPreviousYears={
-            !!SpecificComponents || !!universityData.previousCirculars
-          }
-          previousCirculars={universityData.previousCirculars}
-        />
+        {universityData.circular && (
+          <Circular
+            title={universityData.circular.title}
+            note={universityData.circular.note}
+            downloadLink={universityData.circular.downloadLink}
+            showPreviousYears={
+              !!SpecificComponents || !!universityData.previousCirculars
+            }
+            previousCirculars={universityData.previousCirculars}
+          />
+        )}
 
         {SpecificComponents ? (
           <>
