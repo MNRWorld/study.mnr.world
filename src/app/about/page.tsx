@@ -102,7 +102,7 @@ const SpecialContributorCard: React.FC<{ contributor: Contributor }> = ({
       className="bg-card border border-border rounded-xl shadow-sm transition-all duration-300 hover:border-primary/50 hover:shadow-lg hover:shadow-primary/10 overflow-hidden dark:hover:bg-accent"
     >
       <AccordionItem value={contributor.name} className="border-none">
-        <AccordionTrigger className="p-4 w-full flex justify-between items-center cursor-pointer hover:no-underline [&[data-state=open]>svg.chevron]:-rotate-180 text-foreground">
+        <AccordionTrigger className="p-4 w-full flex justify-between items-center cursor-pointer hover:no-underline text-foreground">
           <div className="flex items-center gap-4 text-left w-full">
             <Image
               src={contributor.imageUrl}
@@ -195,7 +195,7 @@ export default function AboutPage() {
           <h2 className="text-3xl font-bold mb-8 gradient-text text-center">
             বিশেষ ধন্যবাদ
           </h2>
-          <div className="mt-12 grid gap-4 md:grid-cols-2">
+          <div className="mt-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
             {specialContributors.map((contributor, index) => (
               <div
                 key={contributor.name}
