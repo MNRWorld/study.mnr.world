@@ -44,6 +44,13 @@ const CalendarAdmissionTabs = () => {
         </div>
         <TabsContent value="schedule" className="mt-1">
           <CalendarAdmissionScheduleTable />
+          <div className="mt-4 text-center text-sm text-muted-foreground">
+            <p>
+              <span className="text-red-500 font-bold">“*”</span> চিহ্ন দেয়া তারিখ
+              গুলো কতৃপক্ষ সম্ভাব্য তারিখ হিসবে জানিয়েছে
+            </p>
+            <hr className="my-4 border-border/50" />
+          </div>
           <div className="mt-8 text-center">
             <p className="mb-4 text-muted-foreground">
               লিস্ট ভালো না লাগলে ডিরেক্ট ক্যালেন্ডারেই দেখে নাও...
