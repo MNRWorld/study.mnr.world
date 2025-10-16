@@ -6,7 +6,6 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import {
   Info,
   FilePenLine,
@@ -18,18 +17,14 @@ import {
   Timer,
   MapPinned,
   BarChart3,
-  Users,
   CalendarClock,
   PackageCheck,
-  Play,
   ListChecks,
   HelpCircle,
-  AlertTriangle,
 } from "lucide-react";
 import { allData } from "@/lib/data/_generated";
 import ExternalLink from "./common/ExternalLink";
 
-// Define proper TypeScript interfaces
 interface Fee {
   unit: string;
   amount: string;
@@ -96,7 +91,6 @@ interface AdmissionInfoData {
       text: string;
       link: string;
     };
-    customNote?: string;
   };
   examCenter: {
     title: string;
@@ -114,14 +108,14 @@ interface AdmissionInfoData {
   };
 }
 
-const GstAdmissionInfo = () => {
-  const gstData = allData.universities.find((uni) => uni.id === "gst");
+const AgriAdmissionInfo = () => {
+  const agriData = allData.universities.find((uni) => uni.id === "agri");
 
-  if (!gstData || !gstData.admissionInfo) {
+  if (!agriData || !agriData.admissionInfo) {
     return <div>No admission information available</div>;
   }
 
-  const admissionInfo = gstData.admissionInfo as AdmissionInfoData;
+  const admissionInfo = agriData.admissionInfo as AdmissionInfoData;
 
   const {
     apply,
@@ -133,16 +127,6 @@ const GstAdmissionInfo = () => {
     generalInfo,
     result,
   } = admissionInfo;
-
-  // Manually define duData for the mark distribution part
-  const duData = allData.universities.find((uni) => uni.id === "du");
-  if (!duData || !duData.admissionInfo) {
-    return (
-      <div>No DU admission information available for marks distribution</div>
-    );
-  }
-  const duAdmissionInfo = duData.admissionInfo as any;
-  const { generalInfo: duGeneralInfo } = duAdmissionInfo;
 
   return (
     <div
@@ -299,7 +283,7 @@ const GstAdmissionInfo = () => {
               নোটঃ
             </div>
           </b>
-          <span dangerouslySetInnerHTML={{ __html: admitCard.note }} />
+          {admitCard.note}
         </div>
       </div>
 
@@ -316,9 +300,6 @@ const GstAdmissionInfo = () => {
           </span>
         ))}
       </span>
-      {examDate.customNote && (
-        <div className="text-base mt-2">{examDate.customNote}</div>
-      )}
       <hr className="my-3 border-border/50" />
       <div className="border border-border/80 p-3 text-center rounded-md">
         সব বিশ্ববিদ্যালয়ের <b>পরীক্ষার তারিখ ও কাউন্টডাউন</b> জানতে ভিজিট করুন
@@ -352,151 +333,18 @@ const GstAdmissionInfo = () => {
         <ListChecks className="mr-2" size={16} /> মানবণ্টন ও অন্যান্য তথ্য
       </h2>
 
-      <Tabs defaultValue="ka-unit" className="w-full">
-        <TabsList className="flex flex-wrap w-full h-auto bg-transparent gap-2">
-          <TabsTrigger value="ka-unit" className="flex-grow">
-            &quot;ক&quot; ইউনিট
-          </TabsTrigger>
-          <TabsTrigger value="kha-unit" className="flex-grow">
-            &quot;খ&quot; ইউনিট
-          </TabsTrigger>
-          <TabsTrigger value="ga-unit" className="flex-grow">
-            &quot;গ&quot; ইউনিট
-          </TabsTrigger>
-        </TabsList>
-        <TabsContent value="ka-unit">
-          <div className="border border-border rounded-xl p-4 mt-2.5 text-base leading-relaxed">
-            ● <b>মোট নাম্বার:</b> ১০০ (MCQ)
-            <hr className="my-1 border-border/50" />● <b>মোট সময়:</b> ১ ঘণ্টা
-            <hr className="my-1 border-border/50" />●{" "}
-            <b>প্রশ্ন প্রতি নাম্বার:</b> ১
-          </div>
-          <Accordion type="multiple" className="w-full space-y-2 mt-2">
-            <AccordionItem
-              value="item-1-1"
-              className="border border-border rounded-lg bg-card hover:bg-accent/50"
-            >
-              <AccordionTrigger className="p-3 text-base hover:no-underline">
-                <div className="flex items-center">
-                  <HelpCircle className="mr-2" />
-                  <span>মানবন্টন ও কোন কোন বিষয় দাগাতে হবে?</span>
-                </div>
-              </AccordionTrigger>
-              <AccordionContent className="p-4 pt-0 text-base">
-                <b>=&gt; মোট ৪টি বিষয় দাগাতে হবে।</b>
-                <br />
-                <br />
-                <b>✓ দাগানো বাধ্যতামূলক -</b>
-                <br />
-                &nbsp;&nbsp;&nbsp; ○ পদার্থবিজ্ঞান
-                <br />
-                &nbsp;&nbsp;&nbsp; ○ রসায়ন
-                <br />
-                <br />
-                <b>✓ যেকোনো একটা বা দুটোই -</b>
-                <br />
-                &nbsp;&nbsp;&nbsp; ○ জীববিজ্ঞান
-                <br />
-                &nbsp;&nbsp;&nbsp; ○ উচ্চতর গণিত
-                <br />
-                <br />
-                (মেইন সাবজেক্ট দাগানো বাধ্যতামূলক নয়।)
-                <br />
-                <br />
-                <b>✓ জীববিজ্ঞান বা উচ্চতর গণিত না দাগালে যেকোনো একটা -</b>
-                <br />
-                &nbsp;&nbsp;&nbsp; ○ বাংলা
-                <br />
-                &nbsp;&nbsp;&nbsp; ○ ইংরেজী
-                <br />
-                <br />
-                <div className="flex items-center">
-                  <Info size={14} className="mr-1" /> প্রতিটি বিষয়ের MCQ-25
-                </div>
-              </AccordionContent>
-            </AccordionItem>
-          </Accordion>
-        </TabsContent>
-        <TabsContent value="kha-unit">
-          <div className="border border-border rounded-xl p-4 mt-2.5 text-base leading-relaxed">
-            ● <b>মোট নাম্বার:</b> ১০০ (MCQ)
-            <hr className="my-1 border-border/50" />● <b>মোট সময়:</b> ১ ঘণ্টা
-            <hr className="my-1 border-border/50" />●{" "}
-            <b>প্রশ্ন প্রতি নাম্বার:</b> ১
-          </div>
-          <Accordion
-            type="single"
-            collapsible
-            className="w-full space-y-2 mt-2"
-          >
-            <AccordionItem
-              value="item-2-1"
-              className="border border-border rounded-lg bg-card hover:bg-accent/50"
-            >
-              <AccordionTrigger className="p-3 text-base hover:no-underline">
-                <div className="flex items-center">
-                  <HelpCircle className="mr-2" />
-                  <span>মানবন্টন ও কোন কোন বিষয় দাগাতে হবে?</span>
-                </div>
-              </AccordionTrigger>
-              <AccordionContent className="p-4 pt-0 text-base">
-                <b>=&gt; ৩টি বিষয়ই দাগাতে হবে।</b>
-                <br />
-                <br />
-                <b>✓ দাগানো বাধ্যতামূলক -</b>
-                <br />
-                &nbsp;&nbsp;&nbsp; ○ বাংলা
-                <br />
-                &nbsp;&nbsp;&nbsp; ○ ইংরেজী
-                <br />
-                &nbsp;&nbsp;&nbsp; ○ সাধারণ জ্ঞান
-                <br />
-                <br />
-                বাংলা-৩৫, ইংরেজী-৩৫, সাধারণ জ্ঞান-৩০ (শুধু MCQ)
-              </AccordionContent>
-            </AccordionItem>
-          </Accordion>
-        </TabsContent>
-        <TabsContent value="ga-unit">
-          <div className="border border-border rounded-xl p-4 mt-2.5 text-base leading-relaxed">
-            ● <b>মোট নাম্বার:</b> ১০০ (MCQ)
-            <hr className="my-1 border-border/50" />● <b>মোট সময়:</b> ১ ঘণ্টা
-            <hr className="my-1 border-border/50" />●{" "}
-            <b>প্রশ্ন প্রতি নাম্বার:</b> ১
-          </div>
-          <Accordion type="multiple" className="w-full space-y-2 mt-2">
-            <AccordionItem
-              value="item-3-1"
-              className="border border-border rounded-lg bg-card hover:bg-accent/50"
-            >
-              <AccordionTrigger className="p-3 text-base hover:no-underline">
-                <div className="flex items-center">
-                  <HelpCircle className="mr-2" />
-                  <span>মানবন্টন ও কোন কোন বিষয় দাগাতে হবে?</span>
-                </div>
-              </AccordionTrigger>
-              <AccordionContent className="p-4 pt-0 text-base">
-                <b>=&gt; ৪টি বিষয়ই দাগাতে হবে।</b>
-                <br />
-                <br />
-                <b>✓ দাগানো বাধ্যতামূলক -</b>
-                <br />
-                &nbsp;&nbsp;&nbsp; ○ হিসাব বিজ্ঞান
-                <br />
-                &nbsp;&nbsp;&nbsp; ○ ব্যবসায় সংগঠন ও ব্যবস্থাপনা
-                <br />
-                &nbsp;&nbsp;&nbsp; ○ বাংলা
-                <br />
-                &nbsp;&nbsp;&nbsp; ○ ইংরেজী
-                <br />
-                <br />
-                হিসাব বিজ্ঞান-৩৫, ব্যবসায় সংগঠন ও ব্যবস্থাপনা-৩৫, বাংলা-১৫,
-                ইংরেজী-১৫ (শুধু MCQ)
-              </AccordionContent>
-            </AccordionItem>
-          </Accordion>
-        </TabsContent>
-      </Tabs>
+      <div className="border border-border rounded-xl p-4 mt-2.5 text-base leading-relaxed">
+        ● <b>মোট নাম্বার:</b> ১০০ (MCQ)
+        <hr className="my-1 border-border/50" />● <b>মোট সময়:</b> ১ ঘণ্টা
+        <hr className="my-1 border-border/50" />● <b>প্রশ্ন প্রতি নাম্বার:</b> ১
+        <hr className="my-1 border-border/50" />● <b>মানবণ্টন:</b><br />
+        &nbsp;&nbsp;&nbsp;• পদার্থবিজ্ঞান: ২০<br />
+        &nbsp;&nbsp;&nbsp;• রসায়ন: ২০<br />
+        &nbsp;&nbsp;&nbsp;• গণিত: ২০<br />
+        &nbsp;&nbsp;&nbsp;• জীববিজ্ঞান: ২০<br />
+        &nbsp;&nbsp;&nbsp;• ইংরেজি: ২০<br />
+      </div>
+
       <Accordion type="multiple" className="w-full space-y-2 mt-2">
         <AccordionItem
           value="item-2"
@@ -549,4 +397,4 @@ const GstAdmissionInfo = () => {
   );
 };
 
-export default GstAdmissionInfo;
+export default AgriAdmissionInfo;

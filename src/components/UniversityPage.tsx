@@ -47,6 +47,9 @@ const SharedHistoryAndMap = dynamic(() => import("./SharedHistoryAndMap"), {
 const AgriQuestionBank = dynamic(() => import("./AgriQuestionBank"), {
   loading: LoadingComponent,
 });
+const AgriAdmissionInfo = dynamic(() => import("./AgriAdmissionInfo"), {
+  loading: LoadingComponent,
+});
 
 // Define a more specific type for the components
 interface UniversityComponentSet {
@@ -80,7 +83,7 @@ const universityComponents: {
   },
   agri: {
     QuestionBank: AgriQuestionBank,
-    AdmissionInfo: GstAdmissionInfo, // Re-using GST as they are similar
+    AdmissionInfo: AgriAdmissionInfo,
     SeatInfo: GstSeatInfo, // Re-using GST as they are similar
     HistoryAndMap: SharedHistoryAndMap,
   },
