@@ -50,12 +50,15 @@ const AgriQuestionBank = dynamic(() => import("./AgriQuestionBank"), {
 const AgriAdmissionInfo = dynamic(() => import("./AgriAdmissionInfo"), {
   loading: LoadingComponent,
 });
+const AgriSeatInfo = dynamic(() => import("./AgriSeatInfo"), {
+  loading: LoadingComponent,
+});
 
 // Define a more specific type for the components
 interface UniversityComponentSet {
   QuestionBank: React.ComponentType<any>;
   AdmissionInfo: React.ComponentType<any>;
-  SeatInfo: React.ComponentType<any>;
+  SeatInfo: React.ComponentType<{ universityData: any }>; // Make it specific if possible
   HistoryAndMap: React.ComponentType<{ university: University }>;
 }
 
@@ -84,7 +87,7 @@ const universityComponents: {
   agri: {
     QuestionBank: AgriQuestionBank,
     AdmissionInfo: AgriAdmissionInfo,
-    SeatInfo: GstSeatInfo, // Re-using GST as they are similar
+    SeatInfo: AgriSeatInfo,
     HistoryAndMap: SharedHistoryAndMap,
   },
 };
@@ -181,7 +184,9 @@ const UniversityPage = ({
             {SpecificComponents.AdmissionInfo && (
               <SpecificComponents.AdmissionInfo />
             )}
-            {SpecificComponents.SeatInfo && <SpecificComponents.SeatInfo />}
+            {SpecificComponents.SeatInfo && (
+              <SpecificComponents.SeatInfo universityData={universityData} />
+            )}
           </>
         ) : (
           <div className="mt-8 text-center text-muted-foreground">
