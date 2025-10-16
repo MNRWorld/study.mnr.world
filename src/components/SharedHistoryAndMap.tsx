@@ -46,11 +46,11 @@ interface HistoryAndMapData {
   mapLocations: MapLocationsData;
 }
 
-interface GstHistoryAndMapProps {
+interface SharedHistoryAndMapProps {
   university: UniversityType;
 }
 
-const GstHistoryAndMap = ({ university }: GstHistoryAndMapProps) => {
+const SharedHistoryAndMap = ({ university }: SharedHistoryAndMapProps) => {
   const uniData = allData.universities.find((uni) => uni.id === university.id);
 
   if (!uniData || !uniData.historyAndMap) {
@@ -125,4 +125,4 @@ const GstHistoryAndMap = ({ university }: GstHistoryAndMapProps) => {
   );
 };
 
-export default GstHistoryAndMap;
+export default SharedHistoryAndMap;

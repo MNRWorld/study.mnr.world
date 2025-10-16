@@ -40,7 +40,7 @@ const GstAdmissionInfo = dynamic(() => import("./GstAdmissionInfo"), {
 const GstSeatInfo = dynamic(() => import("./GstSeatInfo"), {
   loading: LoadingComponent,
 });
-const GstHistoryAndMap = dynamic(() => import("./GstHistoryAndMap"), {
+const SharedHistoryAndMap = dynamic(() => import("./SharedHistoryAndMap"), {
   loading: LoadingComponent,
 });
 
@@ -76,13 +76,13 @@ const universityComponents: {
     QuestionBank: GstQuestionBank,
     AdmissionInfo: GstAdmissionInfo,
     SeatInfo: GstSeatInfo,
-    HistoryAndMap: GstHistoryAndMap,
+    HistoryAndMap: SharedHistoryAndMap,
   },
   agri: {
     QuestionBank: AgriQuestionBank,
     AdmissionInfo: GstAdmissionInfo, // Re-using GST as they are similar
     SeatInfo: GstSeatInfo, // Re-using GST as they are similar
-    HistoryAndMap: GstHistoryAndMap,
+    HistoryAndMap: SharedHistoryAndMap,
   },
 };
 
@@ -191,5 +191,3 @@ const UniversityPage = ({
 };
 
 export default UniversityPage;
-
-    
