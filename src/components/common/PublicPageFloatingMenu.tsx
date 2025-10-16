@@ -12,6 +12,7 @@ import {
   Sparkles,
   Book,
   Building,
+  Pen,
 } from "lucide-react";
 import React, { useState, useEffect, useRef } from "react";
 import { cn } from "@/lib/utils";
@@ -52,6 +53,7 @@ const PublicPageFloatingMenu = () => {
       },
       ...baseMenuItems,
       { href: "#private", label: "প্রাইভেট", Icon: Building },
+      { href: "#test-papers", label: "টেস্ট পেপার (HSC)", Icon: Pen },
     ];
   } else {
     menuItems = baseMenuItems;
