@@ -71,6 +71,12 @@ const universityComponents: {
     SeatInfo: GstSeatInfo,
     HistoryAndMap: GstHistoryAndMap,
   },
+  agri: {
+    QuestionBank: GstQuestionBank,
+    AdmissionInfo: GstAdmissionInfo,
+    SeatInfo: GstSeatInfo,
+    HistoryAndMap: GstHistoryAndMap,
+  },
 };
 
 interface UniversityData extends University {
@@ -129,7 +135,7 @@ const UniversityPage = ({
             `,
                   },
                 ]
-              : university.id === "gst"
+              : university.id === "gst" || university.id === "agri"
                 ? [
                     { value: "১৮টি", label: "বিশ্ববিদ্যালয়" },
                     { value: "৮৪টি+", label: "বিষয়" },
