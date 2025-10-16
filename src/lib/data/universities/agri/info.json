@@ -108,7 +108,49 @@
     },
     "mapLocations": {
       "title": "গুচ্ছভুক্ত বিশ্ববিদ্যালয়ের গুগল ম্যাপ লোকেশন",
-      "categories": []
+      "categories": [
+        {
+          "name": "বিশ্ববিদ্যালয়সমূহ",
+          "locations": [
+            {
+              "name": "বাংলাদেশ কৃষি বিশ্ববিদ্যালয়",
+              "url": "https://maps.app.goo.gl/3fKjZ3j3z4mN7q8x7"
+            },
+            {
+              "name": "বঙ্গবন্ধু শেখ মুজিবুর রহমান কৃষি বিশ্ববিদ্যালয়",
+              "url": "https://maps.app.goo.gl/wJ5C6qjJ7pB6f6Zz5"
+            },
+            {
+              "name": "শেরেবাংলা কৃষি বিশ্ববিদ্যালয়",
+              "url": "https://maps.app.goo.gl/yB5X1Y9fGzJ3K8R6A"
+            },
+            {
+              "name": "পটুয়াখালী বিজ্ঞান ও প্রযুক্তি বিশ্ববিদ্যালয়",
+              "url": "https://maps.app.goo.gl/mP7h8gZ7X5N4Y7nZ8"
+            },
+            {
+              "name": "সিলেট কৃষি বিশ্ববিদ্যালয়",
+              "url": "https://maps.app.goo.gl/yJ6K9X8P3Z7S6D4A9"
+            },
+            {
+              "name": "খুলনা কৃষি বিশ্ববিদ্যালয়",
+              "url": "https://maps.app.goo.gl/uX7C9J4j6K7L8F5T9"
+            },
+            {
+              "name": "হবিগঞ্জ কৃষি বিশ্ববিদ্যালয়",
+              "url": "https://maps.app.goo.gl/fG5sH6J4K9D9B9R9A"
+            },
+            {
+              "name": "কুড়িগ্রাম কৃষি বিশ্ববিদ্যালয়",
+              "url": "https://maps.app.goo.gl/sD9fJ6H7L8G9K9S8A"
+            },
+            {
+              "name": "চট্টগ্রাম ভেটেরিনারি ও এনিম্যাল সাইন্সেস বিশ্ববিদ্যালয়",
+              "url": "https://maps.app.goo.gl/zX6Y7J8K6D4B5C3G9"
+            }
+          ]
+        }
+      ]
     }
   },
   "stats": [
