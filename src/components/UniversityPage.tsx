@@ -44,6 +44,10 @@ const GstHistoryAndMap = dynamic(() => import("./GstHistoryAndMap"), {
   loading: LoadingComponent,
 });
 
+const AgriQuestionBank = dynamic(() => import("./AgriQuestionBank"), {
+  loading: LoadingComponent,
+});
+
 // Define a more specific type for the components
 interface UniversityComponentSet {
   QuestionBank: React.ComponentType<any>;
@@ -54,7 +58,7 @@ interface UniversityComponentSet {
 
 // Component Map for university-specific components
 const universityComponents: {
-  [key: string]: UniversityComponentSet;
+  [key: string]: Partial<UniversityComponentSet>;
 } = {
   du: {
     QuestionBank: DhakaQuestionBank,
@@ -75,9 +79,9 @@ const universityComponents: {
     HistoryAndMap: GstHistoryAndMap,
   },
   agri: {
-    QuestionBank: GstQuestionBank,
-    AdmissionInfo: GstAdmissionInfo,
-    SeatInfo: GstSeatInfo,
+    QuestionBank: AgriQuestionBank,
+    AdmissionInfo: GstAdmissionInfo, // Re-using GST as they are similar
+    SeatInfo: GstSeatInfo, // Re-using GST as they are similar
     HistoryAndMap: GstHistoryAndMap,
   },
 };
@@ -139,7 +143,7 @@ const UniversityPage = ({
           <LinkList links={universityData.links} />
         )}
 
-        {SpecificComponents && (
+        {SpecificComponents?.HistoryAndMap && (
           <SpecificComponents.HistoryAndMap university={university} />
         )}
 
@@ -161,9 +165,13 @@ const UniversityPage = ({
 
         {SpecificComponents ? (
           <>
-            <SpecificComponents.QuestionBank />
-            <SpecificComponents.AdmissionInfo />
-            <SpecificComponents.SeatInfo />
+            {SpecificComponents.QuestionBank && (
+              <SpecificComponents.QuestionBank />
+            )}
+            {SpecificComponents.AdmissionInfo && (
+              <SpecificComponents.AdmissionInfo />
+            )}
+            {SpecificComponents.SeatInfo && <SpecificComponents.SeatInfo />}
           </>
         ) : (
           <div className="mt-8 text-center text-muted-foreground">

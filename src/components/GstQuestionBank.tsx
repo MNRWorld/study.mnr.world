@@ -2,6 +2,7 @@
 import { Accordion } from "@/components/ui/accordion";
 import QuestionBankAccordion from "@/components/QuestionBankAccordion";
 import { allData } from "@/lib/data/_generated";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 interface QuestionBankItem {
   title?: string;
@@ -16,19 +17,23 @@ interface QuestionBankCategory {
   items: QuestionBankItem[];
 }
 
-interface AgriQuestionBanks {
-  agri: QuestionBankCategory[];
+interface GstQuestionBanks {
+  duUnitA: QuestionBankCategory[];
+  duUnitB: QuestionBankCategory[];
+  duUnitC: QuestionBankCategory[];
 }
 
 const GstQuestionBank = () => {
-  const agriData = allData.universities.find((uni) => uni.id === "agri");
+  const gstData = allData.universities.find((uni) => uni.id === "gst");
 
-  if (!agriData || !agriData.questionBanks) {
-    return <div>কৃষি গুচ্ছের প্রশ্নব্যাংক পাওয়া যায়নি।</div>;
+  if (!gstData || !gstData.questionBanks) {
+    return <div>জিএসটি গুচ্ছের প্রশ্নব্যাংক পাওয়া যায়নি।</div>;
   }
 
-  const questionBanks = agriData.questionBanks as AgriQuestionBanks;
-  const agriQuestionBanks = questionBanks.agri || [];
+  const questionBanks = gstData.questionBanks as GstQuestionBanks;
+  const unitA = questionBanks.duUnitA || [];
+  const unitB = questionBanks.duUnitB || [];
+  const unitC = questionBanks.duUnitC || [];
 
   return (
     <div
@@ -40,16 +45,55 @@ const GstQuestionBank = () => {
           প্রশ্নব্যাংক
         </div>
       </div>
-      <Accordion type="multiple" className="w-full text-left space-y-2">
-        {agriQuestionBanks.map((item: QuestionBankCategory, index: number) => (
-          <QuestionBankAccordion
-            key={index}
-            value={`item-${index}`}
-            title={item.title}
-            items={item.items}
-          />
-        ))}
-      </Accordion>
+      <Tabs defaultValue="ka-unit" className="w-full">
+        <TabsList className="flex flex-wrap w-full h-auto bg-transparent gap-2">
+          <TabsTrigger value="ka-unit" className="flex-grow">
+            &quot;ক&quot; ইউনিট
+          </TabsTrigger>
+          <TabsTrigger value="kha-unit" className="flex-grow">
+            &quot;খ&quot; ইউনিট
+          </TabsTrigger>
+          <TabsTrigger value="ga-unit" className="flex-grow">
+            &quot;গ&quot; ইউনিট
+          </TabsTrigger>
+        </TabsList>
+        <TabsContent value="ka-unit">
+          <Accordion type="multiple" className="w-full text-left space-y-2">
+            {unitA.map((item: QuestionBankCategory, index: number) => (
+              <QuestionBankAccordion
+                key={index}
+                value={`item-${index}`}
+                title={item.title}
+                items={item.items}
+              />
+            ))}
+          </Accordion>
+        </TabsContent>
+        <TabsContent value="kha-unit">
+          <Accordion type="multiple" className="w-full text-left space-y-2">
+            {unitB.map((item: QuestionBankCategory, index: number) => (
+              <QuestionBankAccordion
+                key={index}
+                value={`item-${index}`}
+                title={item.title}
+                items={item.items}
+              />
+            ))}
+          </Accordion>
+        </TabsContent>
+        <TabsContent value="ga-unit">
+          <Accordion type="multiple" className="w-full text-left space-y-2">
+            {unitC.map((item: QuestionBankCategory, index: number) => (
+              <QuestionBankAccordion
+                key={index}
+                value={`item-${index}`}
+                title={item.title}
+                items={item.items}
+              />
+            ))}
+          </Accordion>
+        </TabsContent>
+      </Tabs>
     </div>
   );
 };
