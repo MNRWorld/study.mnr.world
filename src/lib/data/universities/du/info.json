@@ -223,11 +223,6 @@
       "tooltip": "'ক' ইউনিট: ১৮৯৬<br/>'খ' ইউনিট: ২৯৩৪<br/>'গ' ইউনিট: ১০৫০<br/>'চ' ইউনিট: ১৩০<br/>IBA ইউনিট: ১২০"
     }
   ],
-  "circular": {
-    "title": "সম্পূর্ণ সার্কুলার",
-    "note": "(⚠ নোট: সর্বশেষ সার্কুলার এখনও প্রকাশিত হয়নি। পূর্ববর্তী বছরের সার্কুলার দেখে আইডিয়া নিতে পারেন।)",
-    "downloadLink": "https://t.me/Study_on_Telegram/14079"
-  },
   "links": [
     [
       {
@@ -271,24 +266,6 @@
         "colSpan": 2
       }
     ]
-  ],
-  "previousCirculars": [
-    {
-      "href": "https://t.me/Study_on_Telegram/14079",
-      "text": "DU Circular 2024-25 (All Unit)"
-    },
-    {
-      "href": "https://t.me/Study_on_Telegram/11573",
-      "text": "DU Circular 2023-24 (All Unit)"
-    },
-    {
-      "href": "https://t.me/Study_on_Telegram/8929",
-      "text": "DU Circular 2022-23 (All Unit)"
-    },
-    {
-      "href": "https://t.me/Study_on_Telegram/2554",
-      "text": "DU Circular 2021-22 (All Unit)"
-    }
   ],
   "questionBanks": {
     "duUnitA": [
@@ -1460,3 +1437,5 @@
     ]
   }
 }
+
+    

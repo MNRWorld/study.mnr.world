@@ -93,7 +93,7 @@ interface UniversityData extends University {
     label: string;
     tooltip?: string;
   }[];
-  circular: {
+  circular?: {
     title: string;
     note?: string;
     downloadLink: string;
@@ -110,6 +110,15 @@ const UniversityPage = ({
   universityData,
 }: UniversityPageProps) => {
   const SpecificComponents = universityComponents[university.id];
+
+  // Default circular data for non-agri pages
+  const circularData = universityData.circular || {
+    title: "সম্পূর্ণ সার্কুলার",
+    note: "(⚠ নোট: সর্বশেষ সার্কুলার এখনও প্রকাশিত হয়নি। পূর্ববর্তী বছরের সার্কুলার দেখে আইডিয়া নিতে পারেন।)",
+    downloadLink: "https://t.me/Study_on_Telegram/14079",
+  };
+
+  const previousCircularsData = universityData.previousCirculars;
 
   return (
     <div className="bg-background">
@@ -151,17 +160,15 @@ const UniversityPage = ({
           <CountdownTimer universityId={university.id} />
         </div>
 
-        {universityData.circular && (
-          <Circular
-            title={universityData.circular.title}
-            note={universityData.circular.note}
-            downloadLink={universityData.circular.downloadLink}
-            showPreviousYears={
-              !!SpecificComponents || !!universityData.previousCirculars
-            }
-            previousCirculars={universityData.previousCirculars}
-          />
-        )}
+        <Circular
+          title={circularData.title}
+          note={circularData.note}
+          downloadLink={circularData.downloadLink}
+          showPreviousYears={
+            !!SpecificComponents || !!previousCircularsData
+          }
+          previousCirculars={previousCircularsData}
+        />
 
         {SpecificComponents ? (
           <>
@@ -184,3 +191,5 @@ const UniversityPage = ({
 };
 
 export default UniversityPage;
+
+    
