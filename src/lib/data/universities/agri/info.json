@@ -1,154 +1,117 @@
+
 {
   "admissionInfo": {
     "title": "ভর্তি তথ্য (HSC-24)",
     "apply": {
       "title": "আবেদন",
-      "startDate": "০৪ নভেম্বর, ২০২৪ (দুপুর ১২টা থেকে)",
-      "endDate": "২৫ নভেম্বর, ২০২৪ (রাত ১১.৫৯টা পর্যন্ত)",
+      "startDate": "-",
+      "endDate": "-",
       "fees": [
         {
-          "unit": "ক, খ, গ, চ ইউনিট",
-          "amount": "১০৫০৳"
+          "unit": "ক, খ, গ ইউনিট",
+          "amount": "১৫০০৳"
         },
         {
-          "unit": "আইবিএ ইউনিট",
-          "amount": "১৫০০৳"
+          "unit": "আর্কিটেকচার",
+          "amount": "২০০০৳ (বিজ্ঞান)"
         }
       ],
       "helpfulLinks": [
         {
-          "label": "আবেদনের ধাপসমূহ",
-          "url": "https://t.me/Study_on_Telegram/13209"
+          "label": "এডমিশন গাইডলাইন",
+          "url": "https://gstadmission.ac.bd/site/application-guideline"
         },
         {
-          "label": "সচিত্র আবেদন প্রক্রিয়া",
-          "url": "https://t.me/Study_on_Telegram/13206"
+          "label": "ফটো গাইডলাইন",
+          "url": "https://gstadmission.ac.bd/site/photo-guideline"
         }
       ],
-      "link": "https://admission.eis.du.ac.bd/",
+      "link": "https://gstadmission.ac.bd/",
       "qualificationTitle": "আবেদনের যোগ্যতাঃ",
-      "sscBatch": "2019-2022",
-      "hscBatch": "2024",
-      "secondTime": "নেই"
+      "sscBatch": "-",
+      "hscBatch": "-",
+      "secondTime": "আছে"
     },
     "unitRequirements": {
       "title": "ইউনিট ও বিভাগ ভিত্তিক শর্ত",
       "units": [
         {
-          "name": "ক",
+          "name": "A",
           "departments": [
             {
               "name": "বিজ্ঞান বিভাগ",
-              "requirement": "SSC ও HSC তে চতুর্থ বিষয় সহ ন্যূনতম GPA-3.5 এবং SSC ও HSC মিলে মোট ন্যূনতম GPA-8.0"
-            },
-            {
-              "name": "অন্যান্য বিভাগ",
-              "requirement": "SSC ও HSC তে চতুর্থ বিষয় সহ ন্যূনতম GPA-3.0 এবং SSC ও HSC মিলে মোট ন্যূনতম GPA-7.5"
+              "requirement": "বিজ্ঞান শাখা হতে এইচএসসি/সমমান পরীক্ষায় উত্তীর্ণ আবেদনকারীদের এসএসসি/সমমান ও এইচএসসি/সমমান উভয় পরীক্ষায় (৪র্থ বিষয়সহ) ন্যূনতম জিপিএ ৩.৫০ সহ সর্বমোট জিপিএ কমপক্ষে ৮.০০ থাকতে হবে। সাধারণ শিক্ষা বোর্ডের বিজ্ঞান শাখাসহ মাদ্রাসা বোর্ড (বিজ্ঞান) এবং ভোকেশনাল (এইচএসসি) বিজ্ঞান শাখা হিসাবে বিবেচিত হবে।"
             }
           ]
         },
         {
-          "name": "খ",
+          "name": "B",
           "departments": [
             {
-              "name": "মানবিক ও ব্যবসা বিভাগ",
-              "requirement": "SSC ও HSC তে চতুর্থ বিষয় সহ ন্যূনতম GPA-3.0 এবং SSC ও HSC মিলে মোট ন্যূনতম GPA-7.5"
-            },
-            {
-              "name": "বিজ্ঞান বিভাগ",
-              "requirement": "SSC ও HSC তে চতুর্থ বিষয় সহ ন্যূনতম GPA-3.5 এবং SSC ও HSC মিলে মোট ন্যূনতম GPA-8.0"
+              "name": "মানবিক বিভাগ",
+              "requirement": "মানবিক শাখা হতে এইচএসসি/সমমান পরীক্ষায় উত্তীর্ণ আবেদনকারীদের এসএসসি/সমমান ও এইচএসসি/সমমান উভয় পরীক্ষায় (৪র্থ বিষয়সহ) ন্যূনতম জিপিএ ৩.০০ সহ সর্বমোট জিপিএ কমপক্ষে ৬.০০ থাকতে হবে। সাধারণ শিক্ষা বোর্ডের মানবিক শাখাসহ মিউজিক, গার্হস্থ্য অর্থনীতি এবং মাদ্রাসা বোর্ড (সাধারণ, মুজাব্বিদ) মানবিক শাখা হিসাবে বিবেচিত হবে।"
             }
           ]
         },
         {
-          "name": "গ",
+          "name": "C",
           "departments": [
             {
-              "name": "মানবিক ও ব্যবসা বিভাগ",
-              "requirement": "SSC ও HSC তে চতুর্থ বিষয় সহ ন্যূনতম GPA-3.0 এবং SSC ও HSC মিলে মোট ন্যূনতম GPA-7.5"
-            },
-            {
-              "name": "বিজ্ঞান বিভাগ",
-              "requirement": "SSC ও HSC তে চতুর্থ বিষয় সহ ন্যূনতম GPA-3.5 এবং SSC ও HSC মিলে মোট ন্যূনতম GPA-8.0"
-            }
-          ]
-        },
-        {
-          "name": "চ",
-          "departments": [
-            {
-              "name": "যেকোনো বিভাগ",
-              "requirement": "SSC ও HSC তে চতুর্থ বিষয় সহ ন্যূনতম GPA-3.0 এবং SSC ও HSC মিলে মোট ন্যূনতম GPA-6.5"
-            }
-          ]
-        },
-        {
-          "name": "IBA",
-          "departments": [
-            {
-              "name": "যেকোনো বিভাগ",
-              "requirement": "SSC ও HSC তে চতুর্থ বিষয় সহ ন্যূনতম GPA-3.5 এবং SSC ও HSC মিলে মোট ন্যূনতম GPA-8.0"
+              "name": "ব্যবসা বিভাগ",
+              "requirement": "বাণিজ্য শাখা হতে এইচএসসি/সমমান পরীক্ষায় উত্তীর্ণ আবেদনকারীদের এসএসসি/সমমান ও এইচএসসি/সমমান উভয় পরীক্ষায় (৪র্থ বিষয়সহ) ন্যূনতম জিপিএ ৩.০০ সহ সর্বমোট জিপিএ কমপক্ষে ৬.৫০ থাকতে হবে। সাধারণ শিক্ষা বোর্ডের বাণিজ্য শাখাসহ ডিপ্লোমা ইন বিজনেস স্টাডিজ, ব্যবসায় ব্যবস্থাপনা (এইচএসসি) এবং ডিপ্লোমা ইন কমার্স বাণিজ্য শাখা হিসাবে বিবেচিত হবে।"
             }
           ]
         }
       ]
     },
     "improvementPolicy": {
-      "title": "ইমপ্রুভমেন্ট ও পরবর্তী ব্যাচের পরীক্ষা",
-      "details": "<b>দুটি শর্ত পূরণ করে একজন শিক্ষার্থী পরবর্তী ব্যাচের সাথে ঢাকা বিশ্ববিদ্যালয়ে পরীক্ষা দিতে পারে:<br/><br/>১।</b> ঢাকা বিশ্ববিদ্যালয় বা এর অধিভুক্ত কোনো কলেজে আবেদন না করা।<br/><b>২।</b> পরবর্তী ব্যাচের সাথে HSC ইমপ্রুভমেন্ট পরীক্ষা দেওয়া।<br/><br/><b><u>উদাহরণ:</u></b> একজন HSC-24 ব্যাচের শিক্ষার্থী যদি ঢাবিতে আবেদন না করে এবং HSC-25 ব্যাচের সাথে ইমপ্রুভমেন্ট দেয়, তবে সে HSC-25 ব্যাচের সাথে পরীক্ষা দিতে পারবে।"
+      "title": "ইউনিট পরিবর্তনের নিয়ম",
+      "details": "অন্যান্য ইউনিভার্সিটির মতো সরাসরি বিভাগ পরিবর্তন করে পরীক্ষা দেয়ার সুযোগ নেই। নিজ নিজ বিভাগেই পরীক্ষা দিতে হবে। এরপর সেই রেজাল্টের উপর ভিত্তি করে অন্য বিভাগের সাবজেক্টে আবেদন করা যাবে।<br/><br/><b>অর্থাৎ, ধরো তুমি বিজ্ঞান বিভাগের।</b> এক্ষেত্রে, তোমাকে বিজ্ঞান বিভাগেই এক্সাম দিতে হবে। এরপর সেই নাম্বার দিয়ে মানবিক বা ব্যবসা বিভাগের বিষয়ে আবেদন করা যাবে।"
     },
     "admitCard": {
       "title": "প্রবেশপত্র",
-      "startDate": "২৩ ডিসেম্বর, ২০২৪",
-      "endDate": "পরীক্ষা শুরুর ১ ঘণ্টা পূর্ব পর্যন্ত",
-      "link": "https://admission.eis.du.ac.bd/",
-      "note": "প্রবেশপত্রে শুধু পরীক্ষার অঞ্চল উল্লেখ থাকে। পরীক্ষার কেন্দ্র, বিল্ডিং ও রুম নম্বর সাধারণত পরীক্ষার ৪৮-৭২ ঘণ্টা আগে ওয়েবসাইটে প্রকাশ করা হয়।"
+      "startDate": "-",
+      "endDate": "-",
+      "link": "https://gstadmission.ac.bd/",
+      "note": "রুম নম্বর সহ এডমিট কার্ড পরীক্ষা শুরুর ২ দিন আগে ডাউনলোড করা যাবে।"
     },
     "examDate": {
       "title": "পরীক্ষার সময়কাল",
       "dates": [
         {
-          "unit": "ক",
-          "date": "১৫ ফেব্রুয়ারী"
+          "unit": "A",
+          "date": "-"
         },
         {
-          "unit": "খ",
-          "date": "২৫ জানুয়ারী"
+          "unit": "B",
+          "date": "-"
         },
         {
-          "unit": "গ",
-          "date": "০৮ ফেব্রুয়ারী"
-        },
-        {
-          "unit": "চ",
-          "date": "০৪ জানুয়ারী"
-        },
-        {
-          "unit": "IBA",
-          "date": "০৩ জানুয়ারী"
+          "unit": "C",
+          "date": "-"
         }
       ],
       "note": {
         "text": "অ্যাডমিশন ক্যালেন্ডার",
-        "link": "https://mnr.world/ac/"
-      }
+        "link": "/calendar"
+      },
+      "customNote": "(নির্বাচনের পর পরীক্ষা হওয়ার সম্ভাবনা বেশি)"
     },
     "examCenter": {
       "title": "ভর্তি পরীক্ষার কেন্দ্র",
-      "location": "বিভাগীয় শহরে",
-      "locationLink": "https://t.me/Study_on_Telegram/13199",
-      "note": "'চ' ইউনিট (চারুকলা) এবং IBA-এর পরীক্ষা শুধু ঢাকায় অনুষ্ঠিত হবে। বাকি সব ইউনিটের পরীক্ষা বিভাগীয় শহরে হবে।"
+      "location": "গুচ্ছভুক্ত সকল বিশ্ববিদ্যালয়ে",
+      "locationLink": "https://t.me/Study_on_Telegram/14174",
+      "note": "আর্কিটেকচারগুলোর পরীক্ষা শুধুমাত্র নিজ নিজ ইউনিভার্সিটিতে হবে। বাকি সব ইউনিটের পরীক্ষা গুচ্ছভুক্ত সকল বিশ্ববিদ্যালয়ে হবে।"
     },
     "generalInfo": {
-      "title": "মানবন্টন ও অন্যান্য তথ্য",
       "points": [
         {
           "label": "সিলেবাস",
-          "value": "সংক্ষিপ্ত"
+          "value": "অজানা"
         },
         {
           "label": "সেকেন্ড টাইম",
-          "value": "নেই"
+          "value": "আছে"
         },
         {
           "label": "নেগেটিভ মার্কিং",
@@ -162,46 +125,104 @@
     },
     "result": {
       "title": "ভর্তি পরীক্ষার ফলাফল",
-      "date": "ভর্তি পরীক্ষার ৪ সপ্তাহের মধ্যে",
-      "link": "https://admission.eis.du.ac.bd/"
+      "date": "-",
+      "link": "https://gstadmission.ac.bd/"
     }
   },
   "historyAndMap": {
     "history": {
-      "title": "একনজরে ঢাকা বিশ্ববিদ্যালয়",
+      "title": "GST গুচ্ছের সংক্ষিপ্ত ইতিহাস",
       "paragraphs": [
-        "ঢাকা বিশ্ববিদ্যালয় (ঢাবি) বাংলাদেশের সর্বপ্রথম এবং অন্যতম প্রধান উচ্চশিক্ষা প্রতিষ্ঠান, যা ১৯২১ সালের ১ জুলাই প্রতিষ্ঠিত হয়। এটি ব্রিটিশ ভারতের অক্সব্রিজ মডেল অনুসরণে গঠিত হয়েছিল এবং শুরুতে তিনটি অনুষদ (কলা, বিজ্ঞান ও আইন) এবং ১২টি বিভাগ নিয়ে যাত্রা শুরু করে।",
-        "১৯০৫ সালে বঙ্গভঙ্গের মাধ্যমে পূর্ব বাংলা ও আসাম নিয়ে একটি নতুন প্রদেশ গঠিত হয়, যার রাজধানী ছিল ঢাকা। এই প্রক্রিয়ায় মুসলিম সমাজের মধ্যে শিক্ষার প্রসার ঘটে। তবে ১৯১১ সালে বঙ্গভঙ্গ রদের ফলে পূর্ব বাংলার মুসলিম সমাজের মধ্যে উচ্চশিক্ষার সুযোগ হ্রাস পায়। এই প্রেক্ষাপটে, ১৯১২ সালের ২১ জানুয়ারি ভারতের ভাইসরয় লর্ড হার্ডিঞ্জ ঢাকায় সফরকালে একটি বিশ্ববিদ্যালয় প্রতিষ্ঠার প্রতিশ্রুতি দেন।",
-        "এরপর ব্যারিস্টার রবার্ট নাথানের নেতৃত্বে নাথান কমিশন গঠিত হয় এবং ১৯১৩ সালে তার রিপোর্ট অনুমোদন পায়। বর্তমানে ঢাকা বিশ্ববিদ্যালয় ৪৬,০০০-এরও বেশি শিক্ষার্থী এবং ২,০০০-এরও বেশি শিক্ষক নিয়ে বাংলাদেশের বৃহত্তম পাবলিক গবেষণা বিশ্ববিদ্যালয়। এটি দেশের শিক্ষা, সংস্কৃতি এবং মুক্ত চিন্তার বিকাশে গুরুত্বপূর্ণ ভূমিকা পালন করে চলেছে।"
+        "বিশ্ববিদ্যালয়ে ভর্তিচ্ছু শিক্ষার্থীদের ভোগান্তি কমাতে ২০২০ সালের ১৯ ডিসেম্বর প্রথমবারের মতো দেশের ২০টি সরকারি বিশ্ববিদ্যালয়ের উপাচার্যরা গুচ্ছ পদ্ধতিতে ২০২০-২১ শিক্ষাবর্ষের জন্য জিএসটি পদ্ধতিতে ভর্তি পরীক্ষা বাস্তবায়নের সিদ্ধান্ত গ্রহণ করেন। পরের শিক্ষাবর্ষে আরও দুটি যোগ হয়ে মোট ২২টি বিশ্ববিদ্যালয় গুচ্ছের অন্তর্ভূক্ত হয়। গুচ্ছ ভর্তি পরীক্ষা সার্কুলার ২০২৩ অনুযায়ী নতুন আরো ২টি বিশ্ববিদ্যালয় গুচ্ছ ভর্তি পরীক্ষার অন্তর্ভুক্ত হয়ে ২০২২-২৩ ভর্তি সেশনে ২৪টি বিশ্ববিদ্যালয় গুচ্ছ ভর্তি প্রক্রিয়ায় অংশ নেয়।",
+        "২০২৪-২৫ শিক্ষাবর্ষ থেকে জগন্নাথ বিশ্ববিদ্যালয়, শাহজালাল বিজ্ঞান ও প্রযুক্তি বিশ্ববিদ্যালয়, খুলনা বিশ্ববিদ্যালয়, হাজী মোহাম্মদ দানেশ বিজ্ঞান ও প্রযুক্তি বিশ্ববিদ্যালয় এবং কুমিল্লা বিশ্ববিদ্যালয় গুচ্ছ ভর্তি পরীক্ষা থেকে বের হয়ে নিজস্ব প্রক্রিয়ায় শিক্ষার্থী ভর্তি করার সিদ্ধান্ত গ্রহণ করে।"
       ],
       "source": {
         "label": "উৎস",
         "links": [
           {
-            "text": "উইকিপিডিয়া প্রতিবেদন (ঢাকা বিশ্ববিদ্যালয়)",
-            "url": "https://bn.wikipedia.org/wiki/%E0%A6%A2%E0%A6%BE%E0%A6%95%E0%A6%BE_%E0%A6%AC%E0%A6%BF%E0%A6%B6%E0%A7%8D%E0%A6%AC%E0%A6%AC%E0%A6%BF%E0%A6%A6%E0%A7%8D%E0%A6%AF%E0%A6%BE%E0%A6%B2%E0%A6%AF%E0%A6%BC"
+            "text": "উইকিপিডিয়া প্রতিবেদন (জিএসটি গুচ্ছ)",
+            "url": "https://bn.wikipedia.org/wiki/%E0%A6%9C%E0%A6%BF%E0%A6%8F%E0%A6%B8%E0%A6%9F%E0%A6%BF_%E0%A6%97%E0%A7%81%E0%A6%9A%E0%A7%8D%E0%A6%9B_%E0%A6%AC%E0%A6%BF%E0%A6%B6%E0%A7%8D%E0%A6%AC%E0%A6%AC%E0%A6%BF%E0%A6%A6%E0%A7%8D%E0%A6%AF%E0%A6%BE%E0%A6%B2%E0%A6%AF%E0%A6%BC_%E0%A6%AD%E0%A6%B0%E0%A7%8D%E0%A6%A4%E0%A6%BF_%E0%A6%AA%E0%A6%B0%E0%A7%80%E0%A6%95%E0%A7%8D%E0%A6%B7%E0%A6%BE"
           }
         ]
       }
     },
     "mapLocations": {
-      "title": "ক্যাম্পাসের গুগল ম্যাপ লোকেশন",
+      "title": "গুচ্ছভুক্ত বিশ্ববিদ্যালয়ের গুগল ম্যাপ লোকেশন",
       "categories": [
         {
-          "name": "মসজিদ",
+          "name": "বিশ্ববিদ্যালয়সমূহ",
           "locations": [
             {
-              "name": "মুসা খান মসজিদ",
-              "url": "https://maps.app.goo.gl/A5Pt2z5yceEQ641y7?g_st=atm"
-            }
-          ]
-        },
-        {
-          "name": "প্রশাসনিক ভবন",
-          "locations": [
+              "name": "ইসলামী বিশ্ববিদ্যালয়, কুষ্টিয়া",
+              "url": "https://maps.app.goo.gl/FwyyPJWabQmkisGT8"
+            },
             {
-              "name": "রেজিস্ট্রার বিল্ডিং",
-              "url": "https://maps.app.goo.gl/your-link-here"
+              "name": "গোপালগঞ্জ বিজ্ঞান ও প্রযুক্তি বিশ্ববিদ্যালয়",
+              "url": "https://maps.app.goo.gl/XYFcsraqGNcQf47MA"
+            },
+            {
+              "name": "নোয়াখালী বিজ্ঞান ও প্রযুক্তি বিশ্ববিদ্যালয়",
+              "url": "https://maps.app.goo.gl/LN6QBugkoyzH7VA79"
+            },
+            {
+              "name": "বেগম রোকেয়া বিশ্ববিদ্যালয়, রংপুর",
+              "url": "https://maps.app.goo.gl/VJfuN7rABskweWXx8"
+            },
+            {
+              "name": "জাতীয় কবি কাজী নজরুল ইসলাম বিশ্ববিদ্যালয়, ত্রিশাল",
+              "url": "https://maps.app.goo.gl/yrG4W8tNxDVLpkaH6"
+            },
+            {
+              "name": "পাবনা বিজ্ঞান ও প্রযুক্তি বিশ্ববিদ্যালয়",
+              "url": "https://maps.app.goo.gl/W5f2kY7NNVLCZqpUA"
+            },
+            {
+              "name": "যশোর বিজ্ঞান ও প্রযুক্তি বিশ্ববিদ্যালয়",
+              "url": "https://maps.app.goo.gl/itozW2xRKbcYNV3s6"
+            },
+            {
+              "name": "মাওলানা ভাসানী বিজ্ঞান ও প্রযুক্তি বিশ্ববিদ্যালয়",
+              "url": "https://maps.app.goo.gl/dbuXYsmFDwD3f4Cv7"
+            },
+            {
+              "name": "পটুয়াখালী বিজ্ঞান ও প্রযুক্তি বিশ্ববিদ্যালয়",
+              "url": "https://maps.app.goo.gl/7cv5qUsZk6UmadLk8"
+            },
+            {
+              "name": "জামালপুর বিজ্ঞান ও প্রযুক্তি বিশ্ববিদ্যালয়",
+              "url": "https://maps.app.goo.gl/8WAxkar5Rya2kNrHA"
+            },
+            {
+              "name": "রবীন্দ্র বিশ্ববিদ্যালয়, সিরাজগঞ্জ",
+              "url": "https://maps.app.goo.gl/AXxCRiGiM793hSKR6"
+            },
+            {
+              "name": "পিরোজপুর বিজ্ঞান ও প্রযুক্তি বিশ্ববিদ্যালয়",
+              "url": "https://maps.app.goo.gl/Vv9Fd7YyDVPjJwzQ9"
+            },
+            {
+              "name": "রাঙামাটি বিজ্ঞান ও প্রযুক্তি বিশ্ববিদ্যালয়",
+              "url": "https://maps.app.goo.gl/54chT6XGL3hGnMLe6"
+            },
+            {
+              "name": "সুনামগঞ্জ বিজ্ঞান ও প্রযুক্তি বিশ্ববিদ্যালয়",
+              "url": "https://maps.app.goo.gl/8kUrUbxYkvdS9of38"
+            },
+            {
+              "name": "কিশোরগঞ্জ বিশ্ববিদ্যালয়",
+              "url": "https://maps.app.goo.gl/KvfLMGxKsVSx2oeE8"
+            },
+            {
+              "name": "গাজীপুর ডিজিটাল ইউনিভার্সিটি",
+              "url": "https://maps.app.goo.gl/EjxzkLsADDAoFDkP8"
+            },
+            {
+              "name": "চাঁদপুর বিজ্ঞান ও প্রযুক্তি বিশ্ববিদ্যালয়",
+              "url": "https://maps.app.goo.gl/XpxKaxTb1qSosmxa9"
+            },
+            {
+              "name": "নেত্রকোণা বিশ্ববিদ্যালয়",
+              "url": "https://maps.app.goo.gl/PPgiWEVe3w6Sr69F9"
             }
           ]
         }
@@ -211,41 +232,22 @@
   "links": [
     [
       {
-        "href": "#Circular",
-        "label": "সার্কুলার"
-      },
-      {
-        "href": "/question-bank?tab=du",
-        "label": "প্রশ্নব্যাংক"
-      }
-    ],
-    [
-      {
-        "href": "https://www.du.ac.bd/",
-        "label": "মূল ওয়েবসাইট",
-        "target": "_blank",
-        "rel": "noreferrer noopener"
-      },
-      {
-        "href": "https://admission.eis.du.ac.bd/bn/408b7c8ad06e4d9954fa2d948a01f508",
+        "href": "https://gstadmission.ac.bd/",
         "label": "ভর্তি ওয়েবসাইট",
         "target": "_blank",
         "rel": "noreferrer noopener"
-      }
-    ],
-    [
+      },
       {
-        "href": "https://admission.eis.du.ac.bd/bn/408b7c8ad06e4d9954fa2d948a01f508",
-        "label": "আবেদন <b>|</b> প্রবেশপত্র <b>|</b> ফলাফল",
+        "href": "https://gstadmission.ac.bd/site/gst-universities",
+        "label": "গুচ্ছভুক্ত বিশ্ববিদ্যালয়",
         "target": "_blank",
-        "rel": "noreferrer noopener",
-        "colSpan": 2
+        "rel": "noreferrer noopener"
       }
     ],
     [
       {
-        "href": "https://collegeadmission.eis.du.ac.bd/en/b45de047fde9788c53fradae3cfe8e88dc02",
-        "label": "অধিভুক্ত কলেজ ভর্তি",
+        "href": "https://gstadmission.ac.bd/",
+        "label": "আবেদন | প্রবেশপত্র | ফলাফল",
         "target": "_blank",
         "rel": "noreferrer noopener",
         "colSpan": 2
@@ -255,146 +257,25 @@
   "questionBanks": {
     "duUnitA": [
       {
-        "title": "সালভিত্তিক প্রশ্নব্যাংক",
+        "title": "সালের প্রশ্ন",
         "items": [
           {
             "links": [
               {
-                "text": "আসপেক্ট “ক” ইউনিট প্রশ্নব্যাংক",
-                "url": "https://t.me/PDFHour/10357"
+                "text": "GST Question 2020-2021",
+                "url": "https://t.me/PDFHour/9837"
               },
               {
-                "text": "উদ্ভাস “ক” ইউনিট প্রশ্নব্যাংক",
-                "url": "https://t.me/PDFHour/10357"
+                "text": "GST Question 2021-2022",
+                "url": "https://t.me/PDFHour/9838"
               },
               {
-                "text": "জয়কলি “ক” ইউনিট প্রশ্নব্যাংক",
-                "url": "https://t.me/PDFHour/10357"
+                "text": "GST Question 2022-2023",
+                "url": "https://t.me/PDFHour/9839"
               },
               {
-                "text": "UCC “ক” ইউনিট প্রশ্নব্যাংক",
-                "url": "https://t.me/PDFHour/10357"
-              },
-              {
-                "text": "ACS “ক” ইউনিট প্রশ্নব্যাংক",
-                "url": "https://t.me/PDFHour/10357"
-              }
-            ]
-          },
-          {
-            "title": "সকল সালের প্রশ্ন একত্রে",
-            "links": [
-              {
-                "text": "Question of 1995-96",
-                "url": "https://t.me/PDFHour/10297"
-              },
-              {
-                "text": "Question of 1996-97",
-                "url": "https://t.me/PDFHour/10298"
-              },
-              {
-                "text": "Question of 1998-99",
-                "url": "https://t.me/PDFHour/10299"
-              },
-              {
-                "text": "Question of 1999-00",
-                "url": "https://t.me/PDFHour/10300"
-              },
-              {
-                "text": "Question of 2000-01",
-                "url": "https://t.me/PDFHour/10303?single"
-              },
-              {
-                "text": "Question of 2001-02",
-                "url": "https://t.me/PDFHour/10305?single"
-              },
-              {
-                "text": "Question of 2002-03",
-                "url": "https://t.me/PDFHour/10307?single"
-              },
-              {
-                "text": "Question of 2003-04",
-                "url": "https://t.me/PDFHour/10309?single"
-              },
-              {
-                "text": "Question of 2004-05",
-                "url": "https://t.me/PDFHour/10311?single"
-              },
-              {
-                "text": "Question of 2005-06",
-                "url": "https://t.me/PDFHour/10313?single"
-              },
-              {
-                "text": "Question of 2006-07",
-                "url": "https://t.me/PDFHour/10315?single"
-              },
-              {
-                "text": "Question of 2007-08",
-                "url": "https://t.me/PDFHour/10317?single"
-              },
-              {
-                "text": "Question of 2008-09",
-                "url": "https://t.me/PDFHour/10319?single"
-              },
-              {
-                "text": "Question of 2009-10",
-                "url": "https://t.me/PDFHour/10321?single"
-              },
-              {
-                "text": "Question of 2010-11",
-                "url": "https://t.me/PDFHour/10323?single"
-              },
-              {
-                "text": "Question of 2011-12",
-                "url": "https://t.me/PDFHour/10325?single"
-              },
-              {
-                "text": "Question of 2012-13",
-                "url": "https://t.me/PDFHour/10328?single"
-              },
-              {
-                "text": "Question of 2013-14",
-                "url": "https://t.me/PDFHour/10331?single"
-              },
-              {
-                "text": "Question of 2014-15",
-                "url": "https://t.me/PDFHour/10334?single"
-              },
-              {
-                "text": "Question of 2015-16",
-                "url": "https://t.me/PDFHour/10337?single"
-              },
-              {
-                "text": "Question of 2016-17",
-                "url": "https://t.me/PDFHour/10340?single"
-              },
-              {
-                "text": "Question of 2017-18",
-                "url": "https://t.me/PDFHour/10343?single"
-              },
-              {
-                "text": "Question of 2018-19",
-                "url": "https://t.me/PDFHour/10346?single"
-              },
-              {
-                "text": "Question of 2019-20",
-                "url": "https://t.me/PDFHour/10349?single"
-              },
-              {
-                "text": "Question of 2020-21",
-                "url": "https://t.me/PDFHour/10350"
-              },
-              {
-                "text": "Question of 2021-22",
-                "url": "https://t.me/PDFHour/10352?single"
-              },
-              {
-                "text": "Question of 2022-23",
-                "url": "https://t.me/PDFHour/10355?single"
-              },
-              {
-                "text": "Question of 2023-24",
-                "url": "https://t.me/PDFHour/10356"
+                "text": "GST Question 2023-2024",
+                "url": "https://t.me/PDFHour/10398?single"
               }
             ]
           }
@@ -406,21 +287,127 @@
           {
             "links": [
               {
-                "text": "রেটিনা ঢাবি “ক” ইউনিট প্রশ্নব্যাংক",
-                "url": "https://t.me/PDFHour/10285"
-              }
-            ]
-          },
-          {
-            "title": "সহায়ক বই",
-            "links": [
-              {
-                "text": "উদ্ভাস ভার্সিটি “ক” প্রশ্নব্যাংক",
-                "url": "https://t.me/PDFHour/10214"
+                "text": "নেটওয়ার্ক গুচ্ছ ভর্তি সহায়িকা",
+                "url": "https://t.me/PDFHour/9817"
               },
               {
-                "text": "উদ্ভাস ভার্সিটি “ক” প্রিপারেশন বুক",
-                "url": "https://t.me/PDFHour/10478"
+                "text": "জয়কলি গুচ্ছ এইড",
+                "url": "https://t.me/PDFHour/10018"
+              },
+              {
+                "text": "উদ্ভাস বিজ্ঞান ও প্রযুক্তি প্রশ্নব্যাংক",
+                "url": "https://t.me/PDFHour/9825"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "title": "সালভিত্তিক প্রশ্নব্যাংক",
+        "items": [
+          {
+            "links": [
+              {
+                "text": "জয়কলি গুচ্ছ এইড (১ম অংশ)",
+                "url": "https://t.me/PDFHour/9836"
+              },
+              {
+                "text": "জয়কলি গুচ্ছ এইড (২য় অংশ)",
+                "url": "https://t.me/PDFHour/10006"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "title": "ইউনিভার্সিটি ভিত্তিক প্রশ্নবাংক",
+        "items": [
+          {
+            "links": [
+              {
+                "text": "ইসলামী বিশ্ববিদ্যালয়, কুষ্টিয়া",
+                "url": "/iu#QuestionBank"
+              },
+              {
+                "text": "গোপালগঞ্জ বিজ্ঞান ও প্রযুক্তি বিশ্ববিদ্যালয়",
+                "url": "/gstu#QuestionBank"
+              },
+              {
+                "text": "নোয়াখালী বিজ্ঞান ও প্রযুক্তি বিশ্ববিদ্যালয়",
+                "url": "/nstu#QuestionBank"
+              },
+              {
+                "text": "বেগম রোকেয়া বিশ্ববিদ্যালয়, রংপুর",
+                "url": "/brur#QuestionBank"
+              },
+              {
+                "text": "জাতীয় কবি কাজী নজরুল ইসলাম বিশ্ববিদ্যালয়, ত্রিশাল",
+                "url": "/jkkniu#QuestionBank"
+              },
+              {
+                "text": "পাবনা বিজ্ঞান ও প্রযুক্তি বিশ্ববিদ্যালয়",
+                "url": "/pust#QuestionBank"
+              },
+              {
+                "text": "যশোর বিজ্ঞান ও প্রযুক্তি বিশ্ববিদ্যালয়",
+                "url": "/just#QuestionBank"
+              },
+              {
+                "text": "মাওলানা ভাসানী বিজ্ঞান ও প্রযুক্তি বিশ্ববিদ্যালয়",
+                "url": "/mbstu#QuestionBank"
+              },
+              {
+                "text": "পটুয়াখালী বিজ্ঞান ও প্রযুক্তি বিশ্ববিদ্যালয়",
+                "url": "/pstu#QuestionBank"
+              },
+              {
+                "text": "জামালপুর বিজ্ঞান ও প্রযুক্তি বিশ্ববিদ্যালয়",
+                "url": "/jstu#QuestionBank"
+              },
+              {
+                "text": "রবীন্দ্র বিশ্ববিদ্যালয়, সিরাজগঞ্জ",
+                "url": "/rub#QuestionBank"
+              },
+              {
+                "text": "পিরোজপুর বিজ্ঞান ও প্রযুক্তি বিশ্ববিদ্যালয়",
+                "url": "/prstu#QuestionBank"
+              },
+              {
+                "text": "রাঙামাটি বিজ্ঞান ও প্রযুক্তি বিশ্ববিদ্যালয়",
+                "url": "/rmstu#QuestionBank"
+              },
+              {
+                "text": "সুনামগঞ্জ বিজ্ঞান ও প্রযুক্তি বিশ্ববিদ্যালয়",
+                "url": "/sstu#QuestionBank"
+              },
+              {
+                "text": "কিশোরগঞ্জ বিশ্ববিদ্যালয়",
+                "url": "/kiu#QuestionBank"
+              },
+              {
+                "text": "গাজীপুর ডিজিটাল ইউনিভার্সিটি",
+                "url": "/uftb#QuestionBank"
+              },
+              {
+                "text": "চাঁদপুর বিজ্ঞান ও প্রযুক্তি বিশ্ববিদ্যালয়",
+                "url": "/cstu#QuestionBank"
+              },
+              {
+                "text": "নেত্রকোণা বিশ্ববিদ্যালয়",
+                "url": "/neu#QuestionBank"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "title": "সাজেশন",
+        "items": [
+          {
+            "links": [
+              {
+                "text": "জয়কলি গুচ্ছ এইড",
+                "url": "https://t.me/PDFHour/9863"
               }
             ]
           }
@@ -432,34 +419,57 @@
           {
             "links": [
               {
-                "text": "জয়কলি ঢাবি “ক” ইউনিট মডেল টেস্ট",
-                "url": "https://t.me/PDFHour/"
-              }
-            ]
-          },
-          {
-            "title": "সহায়ক বই",
-            "links": [
-              {
-                "text": "জয়কলি ভার্সিটি “ক” মডেল টেস্ট",
-                "url": "https://t.me/PDFHour/"
+                "text": "জয়কলি গুচ্ছ এইড (অল্প কিছু)",
+                "url": "https://t.me/PDFHour/10017"
               },
               {
-                "text": "উদ্ভাস ভার্সিটি “ক” প্র্যাকটিস বুক",
-                "url": "https://t.me/PDFHour/"
+                "text": "জয়কলি গুচ্ছ এইড (৫০ সেট)",
+                "url": "https://t.me/PDFHour/10017"
+              },
+              {
+                "text": "উদ্ভাস ফাইনাল মডেল টেস্ট",
+                "url": "https://t.me/PDFHour/10055"
+              },
+              {
+                "text": "নেটওয়ার্ক গুচ্ছ চর্চা মডেল টেস্ট",
+                "url": "https://t.me/PDFHour/10057"
               }
             ]
           }
         ]
       },
       {
-        "title": "সাজেশন",
+        "title": "শেষ সময়ের রিভিশন",
         "items": [
           {
             "links": [
               {
-                "text": "BOB ঢাবি “ক” ইউনিট সাজেশন (MCQ ও লিখিত)",
-                "url": "https://t.me/PDFHour/"
+                "text": "পদার্থবিজ্ঞান",
+                "url": "https://t.me/PDFHour/10062?single"
+              },
+              {
+                "text": "রসায়ন",
+                "url": "https://t.me/PDFHour/10063?single"
+              },
+              {
+                "text": "জীববিজ্ঞান",
+                "url": "https://t.me/PDFHour/10065?single"
+              },
+              {
+                "text": "উচ্চতর গণিত",
+                "url": "https://t.me/PDFHour/10064?single"
+              },
+              {
+                "text": "বাংলা",
+                "url": "https://t.me/PDFHour/10066?single"
+              },
+              {
+                "text": "ইংরেজী",
+                "url": "https://t.me/PDFHour/10067?single"
+              },
+              {
+                "text": "একত্রে সব",
+                "url": "https://t.me/PDFHour/10068"
               }
             ]
           }
@@ -468,957 +478,221 @@
     ],
     "duUnitB": [
       {
-        "title": "সালভিত্তিক প্রশ্নব্যাংক",
+        "title": "সালের প্রশ্ন",
         "items": [
           {
             "links": [
               {
-                "text": "পানকৌড়ি “খ” ইউনিট প্রশ্নব্যাংক",
-                "url": "https://t.me/PDFHour/10394"
+                "text": "GST Question 2020-2021",
+                "url": "https://t.me/PDFHour/9931"
               },
               {
-                "text": "আসপেক্ট “খ” ইউনিট প্রশ্নব্যাংক",
-                "url": "https://t.me/PDFHour/10394"
+                "text": "GST Question 2021-2022",
+                "url": "https://t.me/PDFHour/9932"
               },
               {
-                "text": "জয়কলি “খ” ইউনিট প্রশ্নব্যাংক",
-                "url": "https://t.me/PDFHour/10394"
-              },
-              {
-                "text": "UCC “খ” ইউনিট প্রশ্নব্যাংক",
-                "url": "https://t.me/PDFHour/10394"
-              }
-            ]
-          },
-          {
-            "title": "সকল সালের প্রশ্ন একত্রে",
-            "links": [
-              {
-                "text": "Question of 2000-01",
-                "url": "https://t.me/PDFHour/10359"
-              },
-              {
-                "text": "Question of 2001-02",
-                "url": "https://t.me/PDFHour/10360"
-              },
-              {
-                "text": "Question of 2002-03",
-                "url": "https://t.me/PDFHour/10361"
-              },
-              {
-                "text": "Question of 2003-04",
-                "url": "https://t.me/PDFHour/10362"
-              },
-              {
-                "text": "Question of 2004-05",
-                "url": "https://t.me/PDFHour/10363"
-              },
-              {
-                "text": "Question of 2005-06",
-                "url": "https://t.me/PDFHour/10364"
-              },
-              {
-                "text": "Question of 2006-07",
-                "url": "https://t.me/PDFHour/10365"
-              },
-              {
-                "text": "Question of 2007-08",
-                "url": "https://t.me/PDFHour/10366"
-              },
-              {
-                "text": "Question of 2008-09",
-                "url": "https://t.me/PDFHour/10367"
-              },
-              {
-                "text": "Question of 2009-10",
-                "url": "https://t.me/PDFHour/10368"
-              },
-              {
-                "text": "Question of 2010-11",
-                "url": "https://t.me/PDFHour/10370?single"
-              },
-              {
-                "text": "Question of 2011-12",
-                "url": "https://t.me/PDFHour/10372?single"
-              },
-              {
-                "text": "Question of 2012-13",
-                "url": "https://t.me/PDFHour/10374?single"
-              },
-              {
-                "text": "Question of 2013-14",
-                "url": "https://t.me/PDFHour/10376?single"
-              },
-              {
-                "text": "Question of 2014-15",
-                "url": "https://t.me/PDFHour/10378?single"
-              },
-              {
-                "text": "Question of 2015-16",
-                "url": "https://t.me/PDFHour/10380?single"
-              },
-              {
-                "text": "Question of 2016-17",
-                "url": "https://t.me/PDFHour/10382?single"
-              },
-              {
-                "text": "Question of 2017-18",
-                "url": "https://t.me/PDFHour/10384?single"
-              },
-              {
-                "text": "Question of 2018-19",
-                "url": "https://t.me/PDFHour/10386?single"
-              },
-              {
-                "text": "Question of 2019-20",
-                "url": "https://t.me/PDFHour/10388?single"
-              },
-              {
-                "text": "Question of 2020-21",
-                "url": "https://t.me/PDFHour/10389"
-              },
-              {
-                "text": "Question of 2021-22",
-                "url": "https://t.me/PDFHour/10390"
-              },
-              {
-                "text": "Question of 2022-23",
-                "url": "https://t.me/PDFHour/10391"
-              },
-              {
-                "text": "Question of 2023-24",
-                "url": "https://t.me/PDFHour/10392"
-              },
-              {
-                "text": "Question of 2024-25",
-                "url": "https://t.me/PDFHour/10835?single"
+                "text": "GST Question 2022-2023",
+                "url": "https://t.me/PDFHour/9933"
               }
             ]
           }
         ]
       },
       {
-        "title": "সহায়ক প্রশ্নব্যাংক",
+        "title": "বিজয় গুচ্ছ প্রশ্নবাংক",
         "items": [
           {
             "links": [
               {
-                "text": "উদ্ভাস “ঘ” ইউনিট প্রশ্নব্যাংক",
-                "url": "https://t.me/Study_on_Telegram/2072"
+                "text": "BRUR",
+                "url": "https://t.me/PDFHour/9879"
               },
               {
-                "text": "UCC “ঘ” ইউনিট প্রশ্নব্যাংক",
-                "url": "https://t.me/Study_on_Telegram/8882"
+                "text": "BSFMSTU",
+                "url": "https://t.me/PDFHour/9880"
+              },
+              {
+                "text": "BSMRSTU",
+                "url": "https://t.me/PDFHour/9881"
+              },
+              {
+                "text": "BU",
+                "url": "https://t.me/PDFHour/9882"
+              },
+              {
+                "text": "CoU",
+                "url": "https://t.me/PDFHour/9883"
+              },
+              {
+                "text": "HSTU",
+                "url": "https://t.me/PDFHour/9884"
+              },
+              {
+                "text": "IU",
+                "url": "https://t.me/PDFHour/9885"
+              },
+              {
+                "text": "JKKNIU",
+                "url": "https://t.me/PDFHour/9886"
+              },
+              {
+                "text": "JnU",
+                "url": "https://t.me/PDFHour/9887"
+              },
+              {
+                "text": "JUST",
+                "url": "https://t.me/PDFHour/9888"
+              },
+              {
+                "text": "KU",
+                "url": "https://t.me/PDFHour/9889"
+              },
+              {
+                "text": "MBSTU",
+                "url": "https://t.me/PDFHour/9890"
+              },
+              {
+                "text": "NSTU",
+                "url": "https://t.me/PDFHour/9891"
+              },
+              {
+                "text": "PUST",
+                "url": "https://t.me/PDFHour/9892"
+              },
+              {
+                "text": "RbU",
+                "url": "https://t.me/PDFHour/9893"
+              },
+              {
+                "text": "ShU",
+                "url": "https://t.me/PDFHour/9894"
+              },
+              {
+                "text": "SUST",
+                "url": "https://t.me/PDFHour/9895"
               }
             ]
           }
         ]
       },
       {
-        "title": "সাজেশন",
+        "title": "গুচ্ছ সামিট",
         "items": [
           {
             "links": [
               {
-                "text": "Written Foundation Book By iEducation",
-                "url": "https://t.me/PDFHour/10731"
-              }
-            ]
-          }
-        ]
-      }
-    ],
-    "duUnitC": [
-      {
-        "title": "সালভিত্তিক প্রশ্নব্যাংক",
-        "items": [
-          {
-            "links": [
-              {
-                "text": "ফোকাস “গ” ইউনিট প্রশ্নব্যাংক",
-                "url": "https://t.me/Study_on_Telegram/2072"
+                "text": "BRUR, JKKNIU, CoU, BU",
+                "url": "https://t.me/PDFHour/9897"
               },
               {
-                "text": "আইকন “গ” ইউনিট প্রশ্নব্যাংক",
-                "url": "https://t.me/Study_on_Telegram/2072"
+                "text": "BSMRSTU, HSTU",
+                "url": "https://t.me/PDFHour/9898"
               },
               {
-                "text": "জয়কলি “গ” ইউনিট প্রশ্নব্যাংক",
-                "url": "https://t.me/Study_on_Telegram/2072"
+                "text": "IU, JnU",
+                "url": "https://t.me/PDFHour/9899"
               },
               {
-                "text": "UCC “গ” ইউনিট প্রশ্নব্যাংক",
-                "url": "https://t.me/Study_on_Telegram/8882"
-              }
-            ]
-          },
-          {
-            "title": "সকল সালের প্রশ্ন একত্রে",
-            "links": [
-              {
-                "text": "Question of 2006-07",
-                "url": "#"
+                "text": "NSTU, PUST, RMSTU",
+                "url": "https://t.me/PDFHour/9900"
               },
               {
-                "text": "Question of 2007-08",
-                "url": "#"
-              },
-              {
-                "text": "Question of 2008-09",
-                "url": "#"
-              },
-              {
-                "text": "Question of 2009-10",
-                "url": "#"
-              },
-              {
-                "text": "Question of 2010-11",
-                "url": "#"
-              },
-              {
-                "text": "Question of 2011-12",
-                "url": "#"
-              },
-              {
-                "text": "Question of 2012-13",
-                "url": "#"
-              },
-              {
-                "text": "Question of 2013-14",
-                "url": "#"
-              },
-              {
-                "text": "Question of 2014-15",
-                "url": "#"
-              },
-              {
-                "text": "Question of 2015-16",
-                "url": "#"
-              },
-              {
-                "text": "Question of 2016-17",
-                "url": "#"
-              },
-              {
-                "text": "Question of 2017-18",
-                "url": "#"
-              },
-              {
-                "text": "Question of 2018-19",
-                "url": "#"
-              },
-              {
-                "text": "Question of 2019-20",
-                "url": "#"
-              },
-              {
-                "text": "Question of 2020-21",
-                "url": "#"
-              },
-              {
-                "text": "Question of 2021-22",
-                "url": "#"
-              },
-              {
-                "text": "Question of 2022-23",
-                "url": "#"
-              },
-              {
-                "text": "Question of 2023-24",
-                "url": "#"
-              },
-              {
-                "text": "Question of 2024-25",
-                "url": "https://t.me/PDFHour/10359"
+                "text": "ShU, SUST, JUST",
+                "url": "https://t.me/PDFHour/9901"
               }
             ]
           }
         ]
       },
       {
-        "title": "অধ্যায়ভিত্তিক প্রশ্নব্যাংক",
+        "title": "ইউনিভার্সিটি ভিত্তিক প্রশ্নবাংক",
         "items": [
           {
             "links": [
               {
-                "text": "টেন মিনিট স্কুল ঢাবি “গ” ইউনিট প্রশ্নব্যাংক",
-                "url": "https://t.me/PDFHour/10285"
+                "text": "ইসলামী বিশ্ববিদ্যালয়, কুষ্টিয়া",
+                "url": "/iu#QuestionBank"
+              },
+              {
+                "text": "গোপালগঞ্জ বিজ্ঞান ও প্রযুক্তি বিশ্ববিদ্যালয়",
+                "url": "/gstu#QuestionBank"
+              },
+              {
+                "text": "নোয়াখালী বিজ্ঞান ও প্রযুক্তি বিশ্ববিদ্যালয়",
+                "url": "/nstu#QuestionBank"
+              },
+              {
+                "text": "বেগম রোকেয়া বিশ্ববিদ্যালয়, রংপুর",
+                "url": "/brur#QuestionBank"
+              },
+              {
+                "text": "জাতীয় কবি কাজী নজরুল ইসলাম বিশ্ববিদ্যালয়, ত্রিশাল",
+                "url": "/jkkniu#QuestionBank"
+              },
+              {
+                "text": "পাবনা বিজ্ঞান ও প্রযুক্তি বিশ্ববিদ্যালয়",
+                "url": "/pust#QuestionBank"
+              },
+              {
+                "text": "যশোর বিজ্ঞান ও প্রযুক্তি বিশ্ববিদ্যালয়",
+                "url": "/just#QuestionBank"
+              },
+              {
+                "text": "মাওলানা ভাসানী বিজ্ঞান ও প্রযুক্তি বিশ্ববিদ্যালয়",
+                "url": "/mbstu#QuestionBank"
+              },
+              {
+                "text": "পটুয়াখালী বিজ্ঞান ও প্রযুক্তি বিশ্ববিদ্যালয়",
+                "url": "/pstu#QuestionBank"
+              },
+              {
+                "text": "জামালপুর বিজ্ঞান ও প্রযুক্তি বিশ্ববিদ্যালয়",
+                "url": "/jstu#QuestionBank"
+              },
+              {
+                "text": "রবীন্দ্র বিশ্ববিদ্যালয়, সিরাজগঞ্জ",
+                "url": "/rub#QuestionBank"
+              },
+              {
+                "text": "পিরোজপুর বিজ্ঞান ও প্রযুক্তি বিশ্ববিদ্যালয়",
+                "url": "/prstu#QuestionBank"
+              },
+              {
+                "text": "রাঙামাটি বিজ্ঞান ও প্রযুক্তি বিশ্ববিদ্যালয়",
+                "url": "/rmstu#QuestionBank"
+              },
+              {
+                "text": "সুনামগঞ্জ বিজ্ঞান ও প্রযুক্তি বিশ্ববিদ্যালয়",
+                "url": "/sstu#QuestionBank"
+              },
+              {
+                "text": "কিশোরগঞ্জ বিশ্ববিদ্যালয়",
+                "url": "/kiu#QuestionBank"
+              },
+              {
+                "text": "গাজীপুর ডিজিটাল ইউনিভার্সিটি",
+                "url": "/uftb#QuestionBank"
+              },
+              {
+                "text": "চাঁদপুর বিজ্ঞান ও প্রযুক্তি বিশ্ববিদ্যালয়",
+                "url": "/cstu#QuestionBank"
+              },
+              {
+                "text": "নেত্রকোণা বিশ্ববিদ্যালয়",
+                "url": "/neu#QuestionBank"
               }
             ]
           }
         ]
       }
     ],
-    "duUnitCha": [
-      {
-        "title": "সালভিত্তিক প্রশ্নব্যাংক",
-        "items": [
-          {
-            "links": [
-              {
-                "text": "Question of 2023-24",
-                "url": "https://t.me/PDFHour/10638"
-              },
-              {
-                "text": "Question of 2024-25",
-                "url": "https://t.me/PDFHour/10728"
-              }
-            ]
-          }
-        ]
-      }
-    ],
-    "duIBA": [
-      {
-        "title": "সকল কিছু একসাথে",
-        "items": [
-          {
-            "links": [
-              {
-                "text": "DU IBA Question Bank",
-                "url": "https://t.me/Study_on_Telegram/2069"
-              },
-              {
-                "text": "Dreams IBA Ex. MBA Book",
-                "url": "https://t.me/Study_on_Telegram/2070"
-              }
-            ]
-          }
-        ]
-      }
-    ]
+    "duUnitC": []
   },
   "subjects": {
-    "unitA": [
-      {
-        "short": "ACCE",
-        "fullName": "Applied Chemistry and Chemical Engineering",
-        "seat": 60,
-        "reviewLink": "https://study.mnr.world/ACCE/"
-      },
-      {
-        "short": "AMT",
-        "fullName": "Applied Mathematics",
-        "seat": 60,
-        "reviewLink": "https://study.mnr.world/AMT/"
-      },
-      {
-        "short": "ASDS",
-        "fullName": "Applied Statistics and Data Science",
-        "seat": 55,
-        "reviewLink": "https://study.mnr.world/ASDS/"
-      },
-      {
-        "short": "BMB",
-        "fullName": "Biochemistry and Molecular Biology",
-        "seat": 60,
-        "reviewLink": "https://study.mnr.world/BMB/"
-      },
-      {
-        "short": "BOT",
-        "fullName": "Botany",
-        "seat": 70,
-        "reviewLink": "https://study.mnr.world/BOT/"
-      },
-      {
-        "short": "BS",
-        "fullName": "Biological Science",
-        "seat": 19,
-        "reviewLink": "https://study.mnr.world/BS/"
-      },
-      {
-        "short": "CHE",
-        "fullName": "Chemistry",
-        "seat": 90,
-        "reviewLink": "https://study.mnr.world/CHE/"
-      },
-      {
-        "short": "CSE",
-        "fullName": "Computer Science and Engineering",
-        "seat": 65,
-        "reviewLink": "https://study.mnr.world/CSE/"
-      },
-      {
-        "short": "DSC",
-        "fullName": "Disaster Science and Climate Resilience",
-        "seat": 30,
-        "reviewLink": "https://study.mnr.world/DSC/"
-      },
-      {
-        "short": "EEE",
-        "fullName": "Electrical and Electronic Engineering",
-        "seat": 75,
-        "reviewLink": "https://study.mnr.world/EEE/"
-      },
-      {
-        "short": "FE",
-        "fullName": "Footwear Engineering",
-        "seat": 50,
-        "reviewLink": "https://study.mnr.world/FE/"
-      },
-      {
-        "short": "FIS",
-        "fullName": "Fisheries",
-        "seat": 40,
-        "reviewLink": "https://study.mnr.world/FIS/"
-      },
-      {
-        "short": "GEB",
-        "fullName": "Genetic Engineering and Biotechnology",
-        "seat": 30,
-        "reviewLink": "https://study.mnr.world/GEB/"
-      },
-      {
-        "short": "GEO",
-        "fullName": "Geography and Environment",
-        "seat": 80,
-        "tooltip": "<b>Science:</b> 50<br><b>Arts:</b> 25<br><b>Commerce:</b> 5",
-        "reviewLink": "https://study.mnr.world/GEO/"
-      },
-      {
-        "short": "GLY",
-        "fullName": "Geology",
-        "seat": 50,
-        "reviewLink": "https://study.mnr.world/GLY/"
-      },
-      {
-        "short": "LE",
-        "fullName": "Leather Engineering",
-        "seat": 50,
-        "reviewLink": "https://study.mnr.world/LE/"
-      },
-      {
-        "short": "LPE",
-        "fullName": "Leather Products Engineering",
-        "seat": 50,
-        "reviewLink": "https://study.mnr.world/LPE/"
-      },
-      {
-        "short": "MAT",
-        "fullName": "Mathematics",
-        "seat": 130,
-        "tooltip": "<b>Science:</b> 127<br><b>Arts:</b> 3",
-        "reviewLink": "https://study.mnr.world/MAT/"
-      },
-      {
-        "short": "MET",
-        "fullName": "Meteorology",
-        "seat": 30,
-        "reviewLink": "https://study.mnr.world/MET/"
-      },
-      {
-        "short": "MIC",
-        "fullName": "Microbiology",
-        "seat": 40,
-        "reviewLink": "https://study.mnr.world/MIC/"
-      },
-      {
-        "short": "NE",
-        "fullName": "Nuclear Engineering",
-        "seat": 30,
-        "reviewLink": "https://study.mnr.world/NE/"
-      },
-      {
-        "short": "NFS",
-        "fullName": "Nutrition and Food Science",
-        "seat": 40,
-        "reviewLink": "https://study.mnr.world/NFS/"
-      },
-      {
-        "short": "OCN",
-        "fullName": "Oceanography",
-        "seat": 40,
-        "reviewLink": "https://study.mnr.world/OCN/"
-      },
-      {
-        "short": "PHA",
-        "fullName": "Pharmacy",
-        "seat": 85,
-        "reviewLink": "https://study.mnr.world/PHA/"
-      },
-      {
-        "short": "PHY",
-        "fullName": "Physics",
-        "seat": 100,
-        "reviewLink": "https://study.mnr.world/PHY/"
-      },
-      {
-        "short": "PS",
-        "fullName": "Physical Science",
-        "seat": 22,
-        "reviewLink": "https://study.mnr.world/PS/"
-      },
-      {
-        "short": "PSY",
-        "fullName": "Psychology",
-        "seat": 80,
-        "tooltip": "<b>Science:</b> 40<br><b>Arts:</b> 20<br><b>Commerce:</b> 20",
-        "reviewLink": "https://study.mnr.world/PSY/"
-      },
-      {
-        "short": "RME",
-        "fullName": "Robotics and Mechanics Engineering",
-        "seat": 30,
-        "reviewLink": "https://study.mnr.world/RME/"
-      },
-      {
-        "short": "SE",
-        "fullName": "Software Engineering",
-        "seat": 55,
-        "reviewLink": "https://study.mnr.world/SE/"
-      },
-      {
-        "short": "STA",
-        "fullName": "Statistics",
-        "seat": 90,
-        "tooltip": "<b>Science:</b> 87<br><b>Arts:</b> 3",
-        "reviewLink": "https://study.mnr.world/STA/"
-      },
-      {
-        "short": "SWE",
-        "fullName": "Soil, Water & Environment",
-        "seat": 100,
-        "reviewLink": "https://study.mnr.world/SWE/"
-      },
-      {
-        "short": "ZOO",
-        "fullName": "Zoology",
-        "seat": 80,
-        "reviewLink": "https://study.mnr.world/ZOO/"
-      }
-    ],
-    "unitB": [
-      {
-        "short": "B",
-        "fullName": "Bangla",
-        "seat": 110,
-        "tooltip": "<b>Arts:</b> 80<br><b>Science:</b> 25<br><b>Commerce:</b> 5",
-        "reviewLink": "https://study.mnr.world/B/"
-      },
-      {
-        "short": "E",
-        "fullName": "English",
-        "seat": 110,
-        "tooltip": "<b>Arts:</b> 90<br><b>Science:</b> 15<br><b>Commerce:</b> 5",
-        "reviewLink": "https://study.mnr.world/E/"
-      },
-      {
-        "short": "A",
-        "fullName": "Arabic",
-        "seat": 100,
-        "tooltip": "<b>Arts:</b> 80<br><b>Science:</b> 20",
-        "reviewLink": "https://study.mnr.world/A/"
-      },
-      {
-        "short": "PLL",
-        "fullName": "Persian Language and Literature",
-        "seat": 75,
-        "tooltip": "<b>Arts:</b> 60<br><b>Science:</b> 10<br><b>Commerce:</b> 5",
-        "reviewLink": "https://study.mnr.world/PLL/"
-      },
-      {
-        "short": "U",
-        "fullName": "Urdu",
-        "seat": 70,
-        "tooltip": "<b>Arts:</b> 60<br><b>Science:</b> 5<br><b>Commerce:</b> 5",
-        "reviewLink": "https://study.mnr.world/U/"
-      },
-      {
-        "short": "S",
-        "fullName": "Sanskrit",
-        "seat": 75,
-        "tooltip": "<b>Arts:</b> 55<br><b>Science:</b> 15<br><b>Commerce:</b> 5",
-        "reviewLink": "https://study.mnr.world/S/"
-      },
-      {
-        "short": "PBS",
-        "fullName": "Pali and Buddhist Studies",
-        "seat": 50,
-        "tooltip": "<b>Arts:</b> 35<br><b>Science:</b> 10<br><b>Commerce:</b> 5",
-        "reviewLink": "https://study.mnr.world/PBS/"
-      },
-      {
-        "short": "H",
-        "fullName": "History",
-        "seat": 110,
-        "tooltip": "<b>Arts:</b> 85<br><b>Science:</b> 18<br><b>Commerce:</b> 7",
-        "reviewLink": "https://study.mnr.world/H/"
-      },
-      {
-        "short": "PHI",
-        "fullName": "Philosophy",
-        "seat": 120,
-        "tooltip": "<b>Arts:</b> 96<br><b>Science:</b> 18<br><b>Commerce:</b> 6",
-        "reviewLink": "https://study.mnr.world/PHI/"
-      },
-      {
-        "short": "IS",
-        "fullName": "Islamic Studies",
-        "seat": 100,
-        "tooltip": "<b>Arts:</b> 95<br><b>Science:</b> 5",
-        "reviewLink": "https://study.mnr.world/IS/"
-      },
-      {
-        "short": "IHAC",
-        "fullName": "Islamic History and Culture",
-        "seat": 110,
-        "tooltip": "<b>Arts:</b> 90<br><b>Science:</b> 12<br><b>Commerce:</b> 8",
-        "reviewLink": "https://study.mnr.world/IHAC/"
-      },
-      {
-        "short": "ITLM",
-        "fullName": "Information technology and Library management",
-        "seat": 65,
-        "tooltip": "<b>Arts:</b> 45<br><b>Science:</b> 15<br><b>Commerce:</b> 5",
-        "reviewLink": "https://study.mnr.world/ITLM/"
-      },
-      {
-        "short": "TPS",
-        "fullName": "Theatre and Performance Studies",
-        "seat": 25,
-        "tooltip": "<b>Arts:</b> 13<br><b>Science:</b> 8<br><b>Commerce:</b> 4",
-        "reviewLink": "https://study.mnr.world/TPS/"
-      },
-      {
-        "short": "L",
-        "fullName": "Linguistics",
-        "seat": 70,
-        "tooltip": "<b>Arts:</b> 45<br><b>Science:</b> 20<br><b>Commerce:</b> 5",
-        "reviewLink": "https://study.mnr.world/L/"
-      },
-      {
-        "short": "M",
-        "fullName": "Music",
-        "seat": 60,
-        "tooltip": "<b>Arts:</b> 30<br><b>Science:</b> 20<br><b>Commerce:</b> 10",
-        "reviewLink": "https://study.mnr.world/M/"
-      },
-      {
-        "short": "WRC",
-        "fullName": "World Religion and Culture",
-        "seat": 60,
-        "tooltip": "<b>Arts:</b> 40<br><b>Science:</b> 15<br><b>Commerce:</b> 5",
-        "reviewLink": "https://study.mnr.world/WRC/"
-      },
-      {
-        "short": "D",
-        "fullName": "Dance",
-        "seat": 30,
-        "tooltip": "<b>Arts:</b> 20<br><b>Science:</b> 5<br><b>Commerce:</b> 5",
-        "reviewLink": "https://study.mnr.world/D/"
-      },
-      {
-        "short": "ECON",
-        "fullName": "Economics",
-        "seat": 130,
-        "tooltip": "<b>Arts:</b> 50<br><b>Science:</b> 72<br><b>Commerce:</b> 8",
-        "reviewLink": "https://study.mnr.world/ECON/"
-      },
-      {
-        "short": "PS",
-        "fullName": "Political Science",
-        "seat": 150,
-        "tooltip": "<b>Arts:</b> 75<br><b>Science:</b> 60<br><b>Commerce:</b> 15",
-        "reviewLink": "https://study.mnr.world/PS/"
-      },
-      {
-        "short": "IR",
-        "fullName": "International Relation",
-        "seat": 80,
-        "tooltip": "<b>Arts:</b> 40<br><b>Science:</b> 35<br><b>Commerce:</b> 5",
-        "reviewLink": "https://study.mnr.world/IR/"
-      },
-      {
-        "short": "SO",
-        "fullName": "Sociology",
-        "seat": 150,
-        "tooltip": "<b>Arts:</b> 75<br><b>Science:</b> 65<br><b>Commerce:</b> 10",
-        "reviewLink": "https://study.mnr.world/SO/"
-      },
-      {
-        "short": "MCJ",
-        "fullName": "Mass Communication and Journalism",
-        "seat": 65,
-        "tooltip": "<b>Arts:</b> 32<br><b>Science:</b> 25<br><b>Commerce:</b> 8",
-        "reviewLink": "https://study.mnr.world/MCJ/"
-      },
-      {
-        "short": "PA",
-        "fullName": "Public Administration",
-        "seat": 90,
-        "tooltip": "<b>Arts:</b> 30<br><b>Science:</b> 30<br><b>Commerce:</b> 30",
-        "reviewLink": "https://study.mnr.world/PA/"
-      },
-      {
-        "short": "ANT",
-        "fullName": "Anthropology",
-        "seat": 55,
-        "tooltip": "<b>Arts:</b> 25<br><b>Science:</b> 25<br><b>Commerce:</b> 5",
-        "reviewLink": "https://study.mnr.world/ANT/"
-      },
-      {
-        "short": "POP",
-        "fullName": "Population Science",
-        "seat": 40,
-        "tooltip": "<b>Arts:</b> 14<br><b>Science:</b> 26",
-        "reviewLink": "https://study.mnr.world/POP/"
-      },
-      {
-        "short": "PCS",
-        "fullName": "Peace and Conflict Studies",
-        "seat": 40,
-        "tooltip": "<b>Arts:</b> 20<br><b>Science:</b> 15<br><b>Commerce:</b> 5",
-        "reviewLink": "https://study.mnr.world/PCS/"
-      },
-      {
-        "short": "WGS",
-        "fullName": "Women and Gender Studies",
-        "seat": 40,
-        "tooltip": "<b>Arts:</b> 17<br><b>Science:</b> 20<br><b>Commerce:</b> 3",
-        "reviewLink": "https://study.mnr.world/WGS/"
-      },
-      {
-        "short": "DS",
-        "fullName": "Development Studies",
-        "seat": 40,
-        "tooltip": "<b>Arts:</b> 15<br><b>Science:</b> 19<br><b>Commerce:</b> 6",
-        "reviewLink": "https://study.mnr.world/DS/"
-      },
-      {
-        "short": "TFP",
-        "fullName": "Television, Film, and Photography",
-        "seat": 30,
-        "tooltip": "<b>Arts:</b> 5<br><b>Science:</b> 15<br><b>Commerce:</b> 10",
-        "reviewLink": "https://study.mnr.world/TFP/"
-      },
-      {
-        "short": "CRIM",
-        "fullName": "Criminology",
-        "seat": 50,
-        "tooltip": "<b>Arts:</b> 10<br><b>Science:</b> 35<br><b>Commerce:</b> 5",
-        "reviewLink": "https://study.mnr.world/CRIM/"
-      },
-      {
-        "short": "CD",
-        "fullName": "Communication Disorders",
-        "seat": 30,
-        "tooltip": "<b>Arts:</b> 10<br><b>Science:</b> 20",
-        "reviewLink": "https://study.mnr.world/CD/"
-      },
-      {
-        "short": "PPS",
-        "fullName": "Print and Publication Studies",
-        "seat": 30,
-        "tooltip": "<b>Arts:</b> 10<br><b>Science:</b> 15<br><b>Commerce:</b> 5",
-        "reviewLink": "https://study.mnr.world/PPS/"
-      },
-      {
-        "short": "JS",
-        "fullName": "Japanese Studies",
-        "seat": 50,
-        "tooltip": "<b>Arts:</b> 10<br><b>Science:</b> 30<br><b>Commerce:</b> 10",
-        "reviewLink": "https://study.mnr.world/JS/"
-      },
-      {
-        "short": "LAW",
-        "fullName": "Law",
-        "seat": 110,
-        "tooltip": "<b>Arts:</b> 55<br><b>Science:</b> 37<br><b>Commerce:</b> 18",
-        "reviewLink": "https://study.mnr.world/LAW/"
-      },
-      {
-        "short": "SSW",
-        "fullName": "Social Welfare and Research Institute",
-        "seat": 100,
-        "tooltip": "<b>Arts:</b> 85<br><b>Science:</b> 12<br><b>Commerce:</b> 3",
-        "reviewLink": "https://study.mnr.world/SSW/"
-      },
-      {
-        "short": "HEI",
-        "fullName": "Health Economics Institute",
-        "seat": 60,
-        "tooltip": "<b>Arts:</b> 30<br><b>Science:</b> 30",
-        "reviewLink": "https://study.mnr.world/HEI/"
-      },
-      {
-        "short": "IDMVS",
-        "fullName": "Institute of Disaster Management and Vulnerability Studies",
-        "seat": 45,
-        "tooltip": "<b>Arts:</b> 10<br><b>Science:</b> 25<br><b>Commerce:</b> 10",
-        "reviewLink": "https://study.mnr.world/IDMVS/"
-      },
-      {
-        "short": "LED",
-        "fullName": "Language Education Department",
-        "seat": 26,
-        "tooltip": "<b>Arts:</b> 6<br><b>Science:</b> 16<br><b>Commerce:</b> 4",
-        "reviewLink": "https://study.mnr.world/LED/"
-      },
-      {
-        "short": "SSED",
-        "fullName": "Social Science Education Department",
-        "seat": 30,
-        "tooltip": "<b>Arts:</b> 8<br><b>Science:</b> 15<br><b>Commerce:</b> 7",
-        "reviewLink": "https://study.mnr.world/SSED/"
-      },
-      {
-        "short": "SED",
-        "fullName": "Special Education Department",
-        "seat": 23,
-        "tooltip": "<b>Arts:</b> 3<br><b>Science:</b> 20",
-        "reviewLink": "https://study.mnr.world/SED/"
-      },
-      {
-        "short": "ESOL",
-        "fullName": "English for Speakers of Other Languages (ESOL)",
-        "seat": 40,
-        "tooltip": "<b>Arts:</b> 23<br><b>Science:</b> 11<br><b>Commerce:</b> 6",
-        "reviewLink": "https://study.mnr.world/ESOL/"
-      },
-      {
-        "short": "FLC",
-        "fullName": "French Language and Culture (FLC)",
-        "seat": 30,
-        "tooltip": "<b>Arts:</b> 10<br><b>Science:</b> 10<br><b>Commerce:</b> 10",
-        "reviewLink": "https://study.mnr.world/FLC/"
-      },
-      {
-        "short": "CLC",
-        "fullName": "Chinese Language and Culture (CLC)",
-        "seat": 30,
-        "tooltip": "<b>Arts:</b> 10<br><b>Science:</b> 15<br><b>Commerce:</b> 5",
-        "reviewLink": "https://study.mnr.world/CLC/"
-      },
-      {
-        "short": "JLC",
-        "fullName": "Japanese Language and Culture (JLC)",
-        "seat": 30,
-        "tooltip": "<b>Arts:</b> 10<br><b>Science:</b> 10<br><b>Commerce:</b> 10",
-        "reviewLink": "https://study.mnr.world/JLC/"
-      }
-    ],
-    "unitC": [
-      {
-        "short": "MGMT",
-        "fullName": "Management",
-        "seat": 150,
-        "tooltip": "<b>Commerce:</b> 135<br><b>Science:</b> 12<br><b>Arts:</b> 3",
-        "reviewLink": "https://study.mnr.world/MGMT/"
-      },
-      {
-        "short": "AIS",
-        "fullName": "Accounting and Information System",
-        "seat": 150,
-        "tooltip": "<b>Commerce:</b> 135<br><b>Science:</b> 12<br><b>Arts:</b> 3",
-        "reviewLink": "https://study.mnr.world/AIS/"
-      },
-      {
-        "short": "MKT",
-        "fullName": "Marketing",
-        "seat": 150,
-        "tooltip": "<b>Commerce:</b> 135<br><b>Science:</b> 12<br><b>Arts:</b> 3",
-        "reviewLink": "https://study.mnr.world/MKT/"
-      },
-      {
-        "short": "FIN",
-        "fullName": "Finance",
-        "seat": 150,
-        "tooltip": "<b>Commerce:</b> 135<br><b>Science:</b> 12<br><b>Arts:</b> 3",
-        "reviewLink": "https://study.mnr.world/FIN/"
-      },
-      {
-        "short": "BI",
-        "fullName": "Banking and Insurance",
-        "seat": 100,
-        "tooltip": "<b>Commerce:</b> 90<br><b>Science:</b> 8<br><b>Arts:</b> 2",
-        "reviewLink": "https://study.mnr.world/BI/"
-      },
-      {
-        "short": "MIS",
-        "fullName": "Management and Information System",
-        "seat": 100,
-        "tooltip": "<b>Commerce:</b> 90<br><b>Science:</b> 8<br><b>Arts:</b> 2",
-        "reviewLink": "https://study.mnr.world/MIS/"
-      },
-      {
-        "short": "THM",
-        "fullName": "Tourism and Hospitality Management",
-        "seat": 100,
-        "tooltip": "<b>Commerce:</b> 90<br><b>Science:</b> 8<br><b>Arts:</b> 2",
-        "reviewLink": "https://study.mnr.world/THM/"
-      },
-      {
-        "short": "IB",
-        "fullName": "International Business",
-        "seat": 100,
-        "tooltip": "<b>Commerce:</b> 90<br><b>Science:</b> 8<br><b>Arts:</b> 2",
-        "reviewLink": "https://study.mnr.world/IB/"
-      },
-      {
-        "short": "OSL",
-        "fullName": "Organization Strategy and Leadership",
-        "seat": 50,
-        "tooltip": "<b>Commerce:</b> 30<br><b>Science:</b> 15<br><b>Arts:</b> 5",
-        "reviewLink": "https://study.mnr.world/OSL/"
-      }
-    ],
-    "unitCha": [
-      {
-        "short": "অঙ্কন ও চিত্রায়ণ",
-        "fullName": "অঙ্কন ও চিত্রায়ণ",
-        "seat": 25,
-        "reviewLink": "#"
-      },
-      {
-        "short": "গ্রাফিক ডিজাইন",
-        "fullName": "গ্রাফিক ডিজাইন",
-        "seat": 25,
-        "reviewLink": "#"
-      },
-      {
-        "short": "প্রিন্টমেকিং",
-        "fullName": "প্রিন্টমেকিং",
-        "seat": 12,
-        "reviewLink": "#"
-      },
-      {
-        "short": "প্রাচ্যকলা",
-        "fullName": "প্রাচ্যকলা",
-        "seat": 15,
-        "reviewLink": "#"
-      },
-      {
-        "short": "মৃৎশিল্প",
-        "fullName": "মৃৎশিল্প",
-        "seat": 10,
-        "reviewLink": "#"
-      },
-      {
-        "short": "ভাস্কর্য",
-        "fullName": "ভাস্কর্য",
-        "seat": 10,
-        "reviewLink": "#"
-      },
-      {
-        "short": "কারুশিল্প",
-        "fullName": "কারুশিল্প",
-        "seat": 15,
-        "reviewLink": "#"
-      },
-      {
-        "short": "শিল্পকলার ইতিহাস",
-        "fullName": "শিল্পকলার ইতিহাস",
-        "seat": 18,
-        "reviewLink": "#"
-      }
-    ],
-    "unitIBA": [
-      {
-        "short": "IBA",
-        "fullName": "Institute of Business Administration",
-        "seat": 120,
-        "reviewLink": "https://study.mnr.world/IBA/"
-      }
-    ]
+    "unitA": [],
+    "unitB": [],
+    "unitC": []
   }
 }
+
+    
