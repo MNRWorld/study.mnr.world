@@ -1,3 +1,4 @@
+
 [
   {
     "name": "Naimur Rahaman (MNR)",
@@ -42,6 +43,7 @@
     "bio": "ডিজাইনের কাজ ও ফিডব্যাক দিয়ে সহায়তাকারী",
     "imageUrl": "https://raw.githubusercontent.com/MNRfrom2020/logo-and-icon-cdn/refs/heads/main/Logo/Shuyaib/Shuyaib.png",
     "social": {
+      "globe": "https://sybfiles.mnr.world/",
       "send": "https://t.me/shu_yaib",
       "mail": "mailto:mdshuyaibislam5050@gmail.com",
       "github": "https://github.com/shuyaib105"
