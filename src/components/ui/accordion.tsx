@@ -35,11 +35,7 @@ const AccordionTrigger = forwardRef<
 
   const hasCustomIcon = isCustomIcon(lastChild);
   const mainContent = hasCustomIcon ? childrenArray.slice(0, -1) : children;
-  const icon = hasCustomIcon ? (
-    lastChild
-  ) : (
-    <ChevronDown className="h-4 w-4 shrink-0 transition-transform duration-200 chevron" />
-  );
+  const icon = hasCustomIcon ? lastChild : null;
 
   return (
     <AccordionPrimitive.Header className="flex">
