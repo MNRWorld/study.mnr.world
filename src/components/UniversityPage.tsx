@@ -83,8 +83,12 @@ const universityComponents: {
 };
 
 interface UniversityData extends University {
-  links: any[]; // Replace 'any' with a more specific type if available
-  // Add other properties from universityData as needed
+  links: any[]; 
+  stats: {
+    value: string;
+    label: string;
+    tooltip?: string;
+  }[];
 }
 interface UniversityPageProps {
   university: University;
@@ -121,31 +125,7 @@ const UniversityPage = ({
           title={university.nameBn}
           subtitle={university.nameEn}
           description={university.description}
-          stats={
-            university.id === "du"
-              ? [
-                  { value: "১৩টি", label: "অনুষদ" },
-                  { value: "৮৩টি", label: "বিষয়" },
-                  {
-                    value: "৬১৩০টি",
-                    label: "আসন",
-                    tooltip: `
-              'ক' ইউনিট: ১৮৯৬<br/>
-              'খ' ইউনিট: ২৯৩৪<br/>
-              'গ' ইউনিট: ১০৫০<br/>
-              'চ' ইউনিট: ১৩০<br/>
-              IBA ইউনিট: ১২০
-            `,
-                  },
-                ]
-              : university.id === "gst" || university.id === "agri"
-                ? [
-                    { value: "১৮টি", label: "বিশ্ববিদ্যালয়" },
-                    { value: "৮৪টি+", label: "বিষয়" },
-                    { value: "১৩,০০০টি+", label: "আসন" },
-                  ]
-                : []
-          }
+          stats={universityData.stats || []}
           button={{ href: "#Info", label: "মূল তথ্য" }}
         />
 
