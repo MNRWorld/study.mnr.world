@@ -220,23 +220,77 @@
     }
   ],
   "questionBanks": {
-    "duUnitA": [
+    "agri": [
       {
         "title": "সালের প্রশ্ন",
         "items": [
           {
             "links": [
-              {
-                "text": "GST Question 2020-2021",
-                "url": "https://t.me/PDFHour/9837"
-              }
+              { "text": "Question of 2019-2020", "url": "https://t.me/PDFHour/10187?single" },
+              { "text": "Question of 2020-2021", "url": "https://t.me/PDFHour/10189?single" },
+              { "text": "Question of 2021-2022", "url": "https://t.me/PDFHour/10191?single" },
+              { "text": "Question of 2022-2023", "url": "https://t.me/PDFHour/10193?single" },
+              { "text": "Question of 2023-2024", "url": "https://t.me/PDFHour/10972?single" }
+            ]
+          }
+        ]
+      },
+      {
+        "title": "অধ্যায়ভিত্তিক প্রশ্নব্যাংক",
+        "items": [
+          {
+            "links": [
+              { "text": "নেটওয়ার্ক কৃষি ভর্তি সহায়িকা", "url": "https://t.me/PDFHour/10111" },
+              { "text": "Address Academy", "url": "https://t.me/PDFHour/10986" },
+              { "text": "জয়কলি কৃষি বিচিত্রা", "url": "https://t.me/PDFHour/10226" },
+              { "text": "উদ্ভাস কৃষি প্রশ্নব্যাংক", "url": "https://t.me/PDFHour/10143" },
+              { "text": "রেটিনা কৃষি প্রশ্নব্যাংক", "url": "https://t.me/PDFHour/10150" },
+              { "text": "ভিটামিন কৃষি ভর্তি সহায়িকা", "url": "https://t.me/PDFHour/10137" }
+            ]
+          }
+        ]
+      },
+      {
+        "title": "ইউনিভার্সিটির প্রশ্নবাংক",
+        "items": [
+          {
+            "links": [
+              { "text": "বাংলাদেশ কৃষি বিশ্ববিদ্যালয়", "url": "/bau#QuestionBank" },
+              { "text": "পটুয়াখালী বিজ্ঞান ও প্রযুক্তি বিশ্ববিদ্যালয় (কৃষি বিভাগ)", "url": "/pstu#QuestionBank" },
+              { "text": "চট্টগ্রাম ভেটেরিনারি ও এনিম্যাল সাইন্সেস বিশ্ববিদ্যালয়", "url": "/cvasu#QuestionBank" },
+              { "text": "বঙ্গবন্ধু শেখ মুজিবুর রহমান কৃষি বিশ্ববিদ্যালয়", "url": "/gau#QuestionBank" },
+              { "text": "শেরেবাংলা কৃষি বিশ্ববিদ্যালয়", "url": "/sbau#QuestionBank" },
+              { "text": "সিলেট কৃষি বিশ্ববিদ্যালয়", "url": "/sau#QuestionBank" },
+              { "text": "খুলনা কৃষি বিশ্ববিদ্যালয়", "url": "/kau#QuestionBank" },
+              { "text": "হবিগঞ্জ কৃষি বিশ্ববিদ্যালয়", "url": "/hau#QuestionBank" },
+              { "text": "কুড়িগ্রাম কৃষি বিশ্ববিদ্যালয়", "url": "/kuriau#QuestionBank" }
+            ]
+          }
+        ]
+      },
+      {
+        "title": "মডেল টেস্ট",
+        "items": [
+          {
+            "links": [
+              { "text": "নেটওয়ার্ক কৃষি গুচ্ছ মডেল টেস্ট", "url": "https://t.me/PDFHour/10479" },
+              { "text": "জয়কলি গুচ্ছ এইড (৫০ সেট)", "url": "https://t.me/PDFHour/10479" },
+              { "text": "উদ্ভাস কৃষি ফাইনাল মডেল টেস্ট", "url": "https://t.me/PDFHour/10479" }
+            ]
+          }
+        ]
+      },
+      {
+        "title": "চূড়ান্ত সাজেশন",
+        "items": [
+          {
+            "links": [
+              { "text": "নেটওয়ার্ক লাস্ট নাইট ফাইট", "url": "https://t.me/PDFHour/10238" }
             ]
           }
         ]
       }
-    ],
-    "duUnitB": [],
-    "duUnitC": []
+    ]
   },
   "subjects": {
     "unitA": [],
