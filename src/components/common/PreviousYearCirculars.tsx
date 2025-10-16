@@ -5,28 +5,24 @@ import { ChevronRight } from "lucide-react";
 import React, { useState } from "react";
 import ExternalLink from "./ExternalLink";
 
-const PreviousYearCirculars = () => {
+interface Circular {
+  href: string;
+  text: string;
+}
+
+interface PreviousYearCircularsProps {
+  circulars?: Circular[];
+}
+
+const PreviousYearCirculars: React.FC<PreviousYearCircularsProps> = ({
+  circulars,
+}) => {
   const [infoBoxVisible, setInfoBoxVisible] = useState(false);
   const toggleInfoBox = () => setInfoBoxVisible(!infoBoxVisible);
 
-  const circulars = [
-    {
-      href: "https://t.me/Study_on_Telegram/14079",
-      text: "DU Circular 2024-25 (All Unit)",
-    },
-    {
-      href: "https://t.me/Study_on_Telegram/11573",
-      text: "DU Circular 2023-24 (All Unit)",
-    },
-    {
-      href: "https://t.me/Study_on_Telegram/8929",
-      text: "DU Circular 2022-23 (All Unit)",
-    },
-    {
-      href: "https://t.me/Study_on_Telegram/2554",
-      text: "DU Circular 2021-22 (All Unit)",
-    },
-  ];
+  if (!circulars || circulars.length === 0) {
+    return null;
+  }
 
   return (
     <>

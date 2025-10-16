@@ -10,6 +10,7 @@ interface CircularProps {
   note?: string;
   downloadLink: string;
   showPreviousYears?: boolean;
+  previousCirculars?: { href: string; text: string }[];
 }
 
 const Circular = ({
@@ -17,6 +18,7 @@ const Circular = ({
   note,
   downloadLink,
   showPreviousYears = false,
+  previousCirculars,
 }: CircularProps) => {
   return (
     <div
@@ -44,7 +46,9 @@ const Circular = ({
             <Download size={16} className="mr-2" /> ডাউনলোড করুন
           </Link>
         </Button>
-        {showPreviousYears && <PreviousYearCirculars />}
+        {showPreviousYears && (
+          <PreviousYearCirculars circulars={previousCirculars} />
+        )}
       </div>
     </div>
   );

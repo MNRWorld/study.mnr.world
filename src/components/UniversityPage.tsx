@@ -49,7 +49,7 @@ interface UniversityComponentSet {
   QuestionBank: React.ComponentType<any>;
   AdmissionInfo: React.ComponentType<any>;
   SeatInfo: React.ComponentType<any>;
-  HistoryAndMap: React.ComponentType<any>;
+  HistoryAndMap: React.ComponentType<{ university: University }>;
 }
 
 // Component Map for university-specific components
@@ -83,12 +83,13 @@ const universityComponents: {
 };
 
 interface UniversityData extends University {
-  links: any[]; 
+  links: any[];
   stats: {
     value: string;
     label: string;
     tooltip?: string;
   }[];
+  previousCirculars?: { href: string; text: string }[];
 }
 interface UniversityPageProps {
   university: University;
@@ -145,7 +146,10 @@ const UniversityPage = ({
           title="সম্পূর্ণ সার্কুলার"
           note="(⚠ নোট: সর্বশেষ সার্কুলার এখনও প্রকাশিত হয়নি। পূর্ববর্তী বছরের সার্কুলার দেখে আইডিয়া নিতে পারেন।)"
           downloadLink="https://t.me/Study_on_Telegram/14079"
-          showPreviousYears={!!SpecificComponents}
+          showPreviousYears={
+            !!SpecificComponents || !!universityData.previousCirculars
+          }
+          previousCirculars={universityData.previousCirculars}
         />
 
         {SpecificComponents ? (
