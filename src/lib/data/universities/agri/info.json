@@ -231,22 +231,26 @@
   },
   "links": [
     [
+      { "href": "/agri#Circular", "label": "সার্কুলার" },
+      { "href": "/agri#QuestionBank", "label": "প্রশ্নব্যাংক" }
+    ],
+    [
       {
-        "href": "https://gstadmission.ac.bd/",
+        "href": "https://acas.edu.bd/",
         "label": "ভর্তি ওয়েবসাইট",
         "target": "_blank",
         "rel": "noreferrer noopener"
       },
       {
-        "href": "https://gstadmission.ac.bd/site/gst-universities",
-        "label": "গুচ্ছভুক্ত বিশ্ববিদ্যালয়",
+        "href": "https://acas.edu.bd/assets/static/ACAS-FAQ.pdf",
+        "label": "গুরুত্বপূর্ণ প্রশ্নোত্তর",
         "target": "_blank",
         "rel": "noreferrer noopener"
       }
     ],
     [
       {
-        "href": "https://gstadmission.ac.bd/",
+        "href": "https://acas.edu.bd/signin",
         "label": "আবেদন | প্রবেশপত্র | ফলাফল",
         "target": "_blank",
         "rel": "noreferrer noopener",
@@ -694,5 +698,3 @@
     "unitC": []
   }
 }
-
-    
