@@ -10,6 +10,7 @@ import { Table, TableBody, TableCell, TableRow } from "@/components/ui/table";
 import { Landmark, University, History, Map } from "lucide-react";
 import { allData } from "@/lib/data/_generated";
 import ExternalLink from "./common/ExternalLink";
+import type { University as UniversityType } from "@/lib/supabase/database.types";
 
 interface HistorySourceLink {
   text: string;
@@ -45,14 +46,18 @@ interface HistoryAndMapData {
   mapLocations: MapLocationsData;
 }
 
-const GstHistoryAndMap = () => {
-  const gstData = allData.universities.find((uni) => uni.id === "gst");
+interface GstHistoryAndMapProps {
+  university: UniversityType;
+}
 
-  if (!gstData || !gstData.historyAndMap) {
-    return <div>জিএসটি গুচ্ছের ইতিহাস ও ম্যাপের তথ্য পাওয়া যায়নি।</div>;
+const GstHistoryAndMap = ({ university }: GstHistoryAndMapProps) => {
+  const uniData = allData.universities.find((uni) => uni.id === university.id);
+
+  if (!uniData || !uniData.historyAndMap) {
+    return <div>এই বিশ্ববিদ্যালয়ের ইতিহাস ও ম্যাপের তথ্য পাওয়া যায়নি।</div>;
   }
 
-  const { history, mapLocations } = gstData.historyAndMap as HistoryAndMapData;
+  const { history, mapLocations } = uniData.historyAndMap as HistoryAndMapData;
 
   return (
     <div className="mt-4">

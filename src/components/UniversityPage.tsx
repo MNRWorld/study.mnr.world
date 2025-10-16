@@ -44,14 +44,17 @@ const GstHistoryAndMap = dynamic(() => import("./GstHistoryAndMap"), {
   loading: LoadingComponent,
 });
 
+// Define a more specific type for the components
+interface UniversityComponentSet {
+  QuestionBank: React.ComponentType<any>;
+  AdmissionInfo: React.ComponentType<any>;
+  SeatInfo: React.ComponentType<any>;
+  HistoryAndMap: React.ComponentType<any>;
+}
+
 // Component Map for university-specific components
 const universityComponents: {
-  [key: string]: {
-    QuestionBank: React.ComponentType;
-    AdmissionInfo: React.ComponentType;
-    SeatInfo: React.ComponentType;
-    HistoryAndMap: React.ComponentType;
-  };
+  [key: string]: UniversityComponentSet;
 } = {
   du: {
     QuestionBank: DhakaQuestionBank,
@@ -150,7 +153,9 @@ const UniversityPage = ({
           <LinkList links={universityData.links} />
         )}
 
-        {SpecificComponents && <SpecificComponents.HistoryAndMap />}
+        {SpecificComponents && (
+          <SpecificComponents.HistoryAndMap university={university} />
+        )}
 
         <div className="mt-4 w-full border border-border bg-card rounded-2xl p-4 sm:p-6 shadow-lg relative">
           <CountdownTimer universityId={university.id} />
