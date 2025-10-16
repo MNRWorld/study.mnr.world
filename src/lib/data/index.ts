@@ -20,6 +20,7 @@ import privateUniversities from "./universities/private-universities.json";
 import duInfo from "./universities/du/info.json";
 import ruInfo from "./universities/ru/info.json";
 import gstInfo from "./universities/gst/info.json";
+import agriInfo from "./universities/agri/info.json";
 
 type University = (typeof publicUniversities)[0];
 
@@ -34,6 +35,7 @@ const universityDetails: Record<string, any> = {
   du: duInfo,
   ru: ruInfo,
   gst: gstInfo,
+  agri: agriInfo,
 };
 
 const allUniversities = [...publicUniversities, ...privateUniversities].map(
