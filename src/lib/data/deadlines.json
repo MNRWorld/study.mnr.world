@@ -1,3 +1,4 @@
+
 [
   {
     "id": "medical",
@@ -580,6 +581,52 @@
     "examDetails": {
       "date": "১৬ জানুয়ারি",
       "ExamCountdownDate": "2026-01-16T10:00:00+06:00"
+    },
+    "applicationDetails": {
+      "StartAndEndDate": null,
+      "ApplyCountdownDate": null,
+      "fee": null,
+      "link": null
+    },
+    "admitCardDetails": {
+      "StartAndEndDate": null,
+      "DownloadCountdownDate": null,
+      "link": null
+    },
+    "resultDetails": {
+      "date": null,
+      "link": null
+    }
+  },
+  {
+    "id": "ruet-pr",
+    "universityNameAndUnit": "রুয়েট (প্রিলি)*",
+    "examDetails": {
+      "date": "০৩ জানুয়ারি",
+      "ExamCountdownDate": "2026-01-03T10:00:00+06:00"
+    },
+    "applicationDetails": {
+      "StartAndEndDate": null,
+      "ApplyCountdownDate": null,
+      "fee": null,
+      "link": null
+    },
+    "admitCardDetails": {
+      "StartAndEndDate": null,
+      "DownloadCountdownDate": null,
+      "link": null
+    },
+    "resultDetails": {
+      "date": null,
+      "link": null
+    }
+  },
+  {
+    "id": "ruet-wr",
+    "universityNameAndUnit": "রুয়েট (লিখিত)*",
+    "examDetails": {
+      "date": "২৩ জানুয়ারি",
+      "ExamCountdownDate": "2026-01-23T10:00:00+06:00"
     },
     "applicationDetails": {
       "StartAndEndDate": null,
