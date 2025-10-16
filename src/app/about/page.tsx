@@ -138,7 +138,6 @@ const SpecialContributorCard: React.FC<{ contributor: Contributor }> = ({
               </div>
             </div>
           </div>
-          <ChevronDown className="h-4 w-4 shrink-0 transition-transform duration-200 chevron" />
         </AccordionTrigger>
         <AccordionContent>
           <div className="px-4 pb-4 border-t border-border/50">
