@@ -77,6 +77,7 @@ interface AdmissionInfoData {
     startDate: string;
     endDate: string;
     link: string;
+    linkNote?: string;
     note: string;
   };
   examDate: {
@@ -280,7 +281,11 @@ const SharedAdmissionInfo = ({ university }: SharedAdmissionInfoProps) => {
             href={admitCard.link}
             text={admitCard.link.replace("https://", "")}
           />
-          <br />
+          {admitCard.linkNote && (
+            <div className="text-muted-foreground text-sm mt-1">
+              {admitCard.linkNote}
+            </div>
+          )}
           <br />
           {admitCard.note && (
             <>
