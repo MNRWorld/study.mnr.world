@@ -232,7 +232,7 @@ const AgriAdmissionInfo = () => {
             <AccordionContent className="p-4 sm:p-5 text-base pt-0">
               {unitRequirements.units.map(
                 (unit: UnitRequirement, index: number) => (
-                  <div key={index} className="mb-2">
+                  <div key={index}>
                     {unit.name !== "সাধারণ শর্ত" && (
                       <b>&quot;{unit.name}&quot; ইউনিট:</b>
                     )}
@@ -308,7 +308,7 @@ const AgriAdmissionInfo = () => {
       <span className="text-base">
         {examDate.dates.map((date: ExamDate, index: number) => (
           <span key={index}>
-            ❐ <b>&quot;{date.unit}&quot; ইউনিট:</b> {date.date} <br />
+            ❐ <b>পরীক্ষার তারিখ:</b> {date.date} <br />
           </span>
         ))}
       </span>
