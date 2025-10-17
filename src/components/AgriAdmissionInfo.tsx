@@ -358,25 +358,6 @@ const AgriAdmissionInfo = () => {
         ))}
       </div>
 
-      <Accordion type="multiple" className="w-full space-y-2 mt-2">
-        <AccordionItem
-          value="item-2"
-          className="bg-card border border-border rounded-lg overflow-hidden mt-4"
-        >
-          <AccordionTrigger className="p-3 text-base font-bold hover:no-underline">
-            <div className="flex items-center">
-              <Info className="mr-2" />
-              <span>{improvementPolicy.title}</span>
-            </div>
-          </AccordionTrigger>
-          <AccordionContent className="p-4 pt-0 sm:p-5 text-base">
-            <span
-              dangerouslySetInnerHTML={{ __html: improvementPolicy.details }}
-            />
-          </AccordionContent>
-        </AccordionItem>
-      </Accordion>
-      
       <h2
         id="Result"
         className="bg-primary/10 text-primary rounded-xl p-3 mt-8 mb-4 text-center text-lg font-bold flex items-center justify-center"
@@ -400,5 +381,3 @@ const AgriAdmissionInfo = () => {
 };
 
 export default AgriAdmissionInfo;
-
-    
