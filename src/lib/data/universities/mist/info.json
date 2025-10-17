@@ -197,7 +197,7 @@
   ],
   "links": [
     [
-      { "href": "#Circular", "label": "সার্কুলার" },
+      { "href": "/mist#Circular", "label": "সার্কুলার" },
       { "href": "/mist#QuestionBank", "label": "প্রশ্নব্যাংক" }
     ],
     [
@@ -316,7 +316,7 @@
         ]
       },
       {
-        "title": "Model Tests",
+        "title": "মডেল টেস্ট",
         "items": [
           {
             "links": [
