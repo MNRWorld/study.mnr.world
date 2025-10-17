@@ -235,9 +235,15 @@ const SharedAdmissionInfo = ({ university }: SharedAdmissionInfoProps) => {
                   <div key={index}>
                     <b>❐ {unit.name}</b>
                     {unit.departments.map((dept: UnitDepartment, i: number) => (
-                      <div key={i}>
-                        &nbsp;&nbsp;&nbsp;{dept.name}
-                        {dept.requirement && `: ${dept.requirement}`}
+                      <div key={i} className="ml-4">
+                        <p>
+                          ✓ {dept.name}
+                          {dept.requirement && (
+                            <span className="text-muted-foreground">
+                              : {dept.requirement}
+                            </span>
+                          )}
+                        </p>
                       </div>
                     ))}
                   </div>
@@ -275,8 +281,6 @@ const SharedAdmissionInfo = ({ university }: SharedAdmissionInfoProps) => {
             text={admitCard.link.replace("https://", "")}
           />
           <br />
-          (লগইন করে ডাউনলোড করতে হবে।)
-          <br />
           <br />
           {admitCard.note && (
             <>
@@ -286,7 +290,7 @@ const SharedAdmissionInfo = ({ university }: SharedAdmissionInfoProps) => {
                   নোটঃ
                 </div>
               </b>
-              {admitCard.note}
+              <div dangerouslySetInnerHTML={{ __html: admitCard.note }} />
             </>
           )}
         </div>

@@ -35,8 +35,7 @@
           "name": "এসএসসি (SSC)",
           "departments": [
             {
-              "name": "বিজ্ঞান বিভাগে ন্যূনতম জিপিএ ৪.০০ (চতুর্থ বিষয় ছাড়া)",
-              "requirement": ""
+              "name": "বিজ্ঞান বিভাগে ন্যূনতম জিপিএ ৪.০০ (চতুর্থ বিষয় ছাড়া)"
             }
           ]
         },
@@ -44,8 +43,7 @@
           "name": "এইচএসসি (HSC)",
           "departments": [
             {
-              "name": "চারটি বিষয়ে (গণিত, পদার্থবিজ্ঞান, রসায়ন এবং ইংরেজি) সর্বনিম্ন ১৮ গ্রেড এবং গণিত, পদার্থবিজ্ঞান এবং রসায়ন প্রতিটিতে ন্যূনতম ৪.০",
-              "requirement": ""
+              "name": "চারটি বিষয়ে (গণিত, পদার্থবিজ্ঞান, রসায়ন এবং ইংরেজি) সর্বনিম্ন ১৮ গ্রেড এবং গণিত, পদার্থবিজ্ঞান এবং রসায়ন প্রতিটিতে ন্যূনতম ৪.০"
             }
           ]
         }
@@ -59,8 +57,8 @@
       "title": "প্রবেশপত্র",
       "startDate": "-",
       "endDate": "-",
-      "link": "https://mist.ac.bd/admission",
-      "note": ""
+      "link": "http://mist.teletalk.com.bd/admitcard/index.php",
+      "note": "পরীক্ষা দেয়ার জন্যে যোগ্য কি না ও সেন্টার রোল, ভেন্যু ইত্যাদি জানার জন্যে আগে <a href='https://admission.mist.ac.bd/eligible-list/index.html' target='_blank' rel='noopener noreferrer' class='text-primary hover:underline'>Eligibility Check</a> করে নিতে হবে। USER ID দিয়ে সার্চ দিলেই হবে। (<a href='https://admission.mist.ac.bd/eligible-list/index.html' target='_blank' rel='noopener noreferrer' class='text-primary hover:underline'>লিংক</a>)<br/> (User ID এবং Password দিয়ে ADMIT CARD ডাউনলোড করতে হবে।)"
     },
     "examDate": {
       "title": "পরীক্ষার সময়কাল",
