@@ -165,7 +165,7 @@ const DhakaAdmissionInfo = () => {
         <div className="mt-2">
           <b>
             <Banknote className="inline-block mr-2" />
-            আবেদন ফিঃ
+            আবেদন ফিঃ (পূর্ববর্তী অনুসারে)
           </b>
           <br />
           {apply.fees.map((fee: Fee, index: number) => (
