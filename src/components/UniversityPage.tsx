@@ -54,6 +54,10 @@ const AgriSeatInfo = dynamic(() => import("./AgriSeatInfo"), {
   loading: LoadingComponent,
 });
 
+const SharedQuestionBank = dynamic(() => import("./SharedQuestionBank"), {
+  loading: LoadingComponent,
+});
+
 // Define a more specific type for the components
 interface UniversityComponentSet {
   QuestionBank: React.ComponentType<any>;
@@ -92,6 +96,7 @@ const universityComponents: {
   },
   mist: {
     HistoryAndMap: SharedHistoryAndMap,
+    QuestionBank: SharedQuestionBank,
   },
 };
 
@@ -180,7 +185,7 @@ const UniversityPage = ({
         {SpecificComponents ? (
           <>
             {SpecificComponents.QuestionBank && (
-              <SpecificComponents.QuestionBank />
+              <SpecificComponents.QuestionBank university={university} />
             )}
             {SpecificComponents.AdmissionInfo && (
               <SpecificComponents.AdmissionInfo />
