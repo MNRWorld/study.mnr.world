@@ -82,16 +82,22 @@ const GstQuestionBank = () => {
           </Accordion>
         </TabsContent>
         <TabsContent value="ga-unit">
-          <Accordion type="multiple" className="w-full text-left space-y-2">
-            {unitC.map((item: QuestionBankCategory, index: number) => (
-              <QuestionBankAccordion
-                key={index}
-                value={`item-${index}`}
-                title={item.title}
-                items={item.items}
-              />
-            ))}
-          </Accordion>
+          {unitC.length > 0 ? (
+            <Accordion type="multiple" className="w-full text-left space-y-2">
+              {unitC.map((item: QuestionBankCategory, index: number) => (
+                <QuestionBankAccordion
+                  key={index}
+                  value={`item-${index}`}
+                  title={item.title}
+                  items={item.items}
+                />
+              ))}
+            </Accordion>
+          ) : (
+            <div className="text-center p-8 text-muted-foreground">
+              এখন অব্দি কোনো প্রশ্ন কিংবা প্রশ্নব্যাংক সংগ্রহ সম্ভব হয়নি
+            </div>
+          )}
         </TabsContent>
       </Tabs>
     </div>
