@@ -90,6 +90,9 @@ const universityComponents: {
     SeatInfo: AgriSeatInfo,
     HistoryAndMap: SharedHistoryAndMap,
   },
+  mist: {
+    HistoryAndMap: SharedHistoryAndMap,
+  },
 };
 
 interface UniversityData extends University {
