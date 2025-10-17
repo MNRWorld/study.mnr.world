@@ -163,6 +163,29 @@
         "target": "_blank",
         "rel": "noreferrer noopener"
       }
+    ],
+    [
+      {
+        "href": "https://admission.mist.ac.bd/",
+        "label": "আবেদন",
+        "target": "_blank",
+        "rel": "noreferrer noopener"
+      },
+      {
+        "href": "http://mist.teletalk.com.bd/admitcard/index.php",
+        "label": "প্রবেশপত্র",
+        "target": "_blank",
+        "rel": "noreferrer noopener"
+      }
+    ],
+    [
+      {
+        "href": "https://mist.ac.bd/notice",
+        "label": "ফলাফল (নোটিশ থেকে)",
+        "target": "_blank",
+        "rel": "noreferrer noopener",
+        "colSpan": 2
+      }
     ]
   ],
   "questionBanks": {},
