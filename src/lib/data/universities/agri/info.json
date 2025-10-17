@@ -12,7 +12,12 @@
           "amount": "১২০০৳ + চার্য"
         }
       ],
-      "helpfulLinks": [],
+      "helpfulLinks": [
+        {
+          "label": "প্রাথমিক যোগ্যতা যাচাই",
+          "url": "https://acas.edu.bd/"
+        }
+      ],
       "link": "https://acas.edu.bd/",
       "qualificationTitle": "আবেদনের যোগ্যতাঃ",
       "sscBatch": "-",
@@ -145,7 +150,7 @@
               "url": "https://maps.app.goo.gl/TQtpehDcXcRkm7xX9"
             },
             {
-              "name": "শেরেবাংলা কৃষি বিশ্ববিদ্যালয়",
+              "name": "שেরেবাংলা কৃষি বিশ্ববিদ্যালয়",
               "url": "https://maps.app.goo.gl/DiZv3v4Qw6ypuRH39"
             },
             {
@@ -190,7 +195,7 @@
   },
   "links": [
     [
-      { "href": "/agri#Circular", "label": "সার্কুলার" },
+      { "href": "/agri#Circular", "label": "সার্কুলار" },
       { "href": "/agri#QuestionBank", "label": "প্রশ্নব্যাংক" }
     ],
     [
@@ -286,7 +291,7 @@
               { "text": "পটুয়াখালী বিজ্ঞান ও প্রযুক্তি বিশ্ববিদ্যালয় (কৃষি বিভাগ)", "url": "/pstu#QuestionBank" },
               { "text": "চট্টগ্রাম ভেটেরিনারি ও এনিম্যাল সাইন্সেস বিশ্ববিদ্যালয়", "url": "/cvasu#QuestionBank" },
               { "text": "বঙ্গবন্ধু শেখ মুজিবুর রহমান কৃষি বিশ্ববিদ্যালয়", "url": "/gau#QuestionBank" },
-              { "text": "শেরেবাংলা কৃষি বিশ্ববিদ্যালয়", "url": "/sbau#QuestionBank" },
+              { "text": "שেরেবাংলা কৃষি বিশ্ববিদ্যালয়", "url": "/sbau#QuestionBank" },
               { "text": "সিলেট কৃষি বিশ্ববিদ্যালয়", "url": "/sau#QuestionBank" },
               { "text": "খুলনা কৃষি বিশ্ববিদ্যালয়", "url": "/kau#QuestionBank" },
               { "text": "হবিগঞ্জ কৃষি বিশ্ববিদ্যালয়", "url": "/hau#QuestionBank" },
