@@ -89,11 +89,11 @@
         },
         {
           "label": "মানবণ্টন",
-          "value": "<br/>&nbsp;&nbsp;&nbsp;• পদার্থবিজ্ঞান: ২০<br/>&nbsp;&nbsp;&nbsp;• রসায়ন: ২০<br/>&nbsp;&nbsp;&nbsp;• গণিত: ২০<br/>&nbsp;&nbsp;&nbsp;• জীববিজ্ঞান: ২০<br/>&nbsp;&nbsp;&nbsp;• ইংরেজি: ২০"
+          "value": "<br/>&nbsp;&nbsp;&nbsp;• জীববিজ্ঞান: ৩০<br/>&nbsp;&nbsp;&nbsp;• পদার্থবিজ্ঞান: ২০<br/>&nbsp;&nbsp;&nbsp;• রসায়ন: ২০<br/>&nbsp;&nbsp;&nbsp;• গণিত: ২০<br/>&nbsp;&nbsp;&nbsp;• ইংরেজি: ১০<br/>উল্লেখ্য, ৫টি বিষয়ই দাগাতে হবে।"
         },
         {
           "label": "সিলেবাস",
-          "value": "সংক্ষিপ্ত"
+          "value": "অজানা"
         },
         {
           "label": "সেকেন্ড টাইম",
@@ -335,3 +335,5 @@
     "unitC": []
   }
 }
+
+    

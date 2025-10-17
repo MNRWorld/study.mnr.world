@@ -1,3 +1,4 @@
+
 "use client";
 import React from "react";
 import {
@@ -345,16 +346,16 @@ const AgriAdmissionInfo = () => {
         <ListChecks className="mr-2" size={16} /> মানবণ্টন ও অন্যান্য তথ্য
       </h2>
 
-      <div className="border border-border rounded-xl p-4 mt-2.5 text-base leading-relaxed">
-        ● <b>মোট নাম্বার:</b> ১০০ (MCQ)
-        <hr className="my-1 border-border/50" />● <b>মোট সময়:</b> ১ ঘণ্টা
-        <hr className="my-1 border-border/50" />● <b>প্রশ্ন প্রতি নাম্বার:</b> ১
-        <hr className="my-1 border-border/50" />● <b>মানবণ্টন:</b><br />
-        &nbsp;&nbsp;&nbsp;• পদার্থবিজ্ঞান: ২০<br />
-        &nbsp;&nbsp;&nbsp;• রসায়ন: ২০<br />
-        &nbsp;&nbsp;&nbsp;• গণিত: ২০<br />
-        &nbsp;&nbsp;&nbsp;• জীববিজ্ঞান: ২০<br />
-        &nbsp;&nbsp;&nbsp;• ইংরেজি: ২০<br />
+      <div className="border border-border rounded-xl p-4 mt-2.5 text-base">
+        {generalInfo.points.map((point, index) => (
+          <React.Fragment key={index}>
+            ● <b>{point.label}ঃ </b>
+            <span dangerouslySetInnerHTML={{ __html: point.value }} />
+            {index < generalInfo.points.length - 1 && (
+              <hr className="my-1 border-border/50" />
+            )}
+          </React.Fragment>
+        ))}
       </div>
 
       <Accordion type="multiple" className="w-full space-y-2 mt-2">
@@ -375,18 +376,7 @@ const AgriAdmissionInfo = () => {
           </AccordionContent>
         </AccordionItem>
       </Accordion>
-      <div className="border border-border/80 rounded-xl p-4 mt-2.5 text-base">
-        {generalInfo.points.map((point, index) => (
-          <React.Fragment key={index}>
-            ● <b>{point.label}ঃ </b>
-            {point.value}
-            {index < generalInfo.points.length - 1 && (
-              <hr className="my-1 border-border/50" />
-            )}
-          </React.Fragment>
-        ))}
-      </div>
-
+      
       <h2
         id="Result"
         className="bg-primary/10 text-primary rounded-xl p-3 mt-8 mb-4 text-center text-lg font-bold flex items-center justify-center"
@@ -410,3 +400,5 @@ const AgriAdmissionInfo = () => {
 };
 
 export default AgriAdmissionInfo;
+
+    
