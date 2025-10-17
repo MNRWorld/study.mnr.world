@@ -241,12 +241,12 @@
     "logo": "https://raw.githubusercontent.com/MNRfrom2020/logo-and-icon-cdn/refs/heads/main/University/DUET.png"
   },
   {
-    "nameBn": "সামরিক বিজ্ঞান ও প্রযুক্তি ইনস্টিটিউট",
+    "nameBn": "মিলিটারি ইনস্টিটিউট অব সায়েন্স অ্যান্ড টেকনোলজি",
     "nameEn": "Military Institute of Science and Technology",
     "shortName": "MIST",
     "id": "mist",
     "category": ["প্রকৌশল"],
-    "description": "বাংলাদেশ সশস্ত্র বাহিনী দ্বারা পরিচালিত একটি উন্নত প্রযুক্তিগত শিক্ষা প্রতিষ্ঠান।",
+    "description": "বাংলাদেশ সশস্ত্র বাহিনী দ্বারা পরিচালিত একটি উন্নত প্রযুক্তিগত শিক্ষা প্রতিষ্ঠান",
     "link": "/mist",
     "logo": "https://raw.githubusercontent.com/MNRfrom2020/logo-and-icon-cdn/refs/heads/main/University/MIST.png"
   },
