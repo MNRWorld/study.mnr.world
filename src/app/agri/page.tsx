@@ -12,5 +12,7 @@ export default function AgriPage() {
   // The 'universityData' prop expects a more detailed object, which allData.universities provides.
   const universityData = university;
 
-  return <UniversityPage university={university} universityData={universityData} />;
+  return (
+    <UniversityPage university={university} universityData={universityData} />
+  );
 }

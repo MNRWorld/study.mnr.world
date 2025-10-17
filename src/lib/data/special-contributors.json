@@ -1,4 +1,3 @@
-
 [
   {
     "name": "Md Abdullah Al Khalid Alif",
@@ -25,5 +24,19 @@
       "youtube": "https://youtube.com/@Iftiar_TawSiv",
       "linkedin": "https://www.linkedin.com/in/iftiar-ibne-anwar-423717384"
     }
+  },
+  {
+    "name": "Pronin",
+    "role": "তথ্য সহযোগিতা ও পর্যালোচক",
+    "bio": "তথ্য দিয়ে এবং পর্যালোচনা করে সহায়তা করেছেন।",
+    "imageUrl": "https://raw.githubusercontent.com/MNRfrom2020/logo-and-icon-cdn/8401d539e6860676b73549b102ad89cc6e742e29/Logo/MNR%20World/MNR%20Icon.svg",
+    "social": {}
+  },
+  {
+    "name": "Ridwan",
+    "role": "পর্যালোচক",
+    "bio": "প্রজেক্ট রিভিউ এবং মূল্যবান মতামত দিয়ে সহায়তা করেছেন।",
+    "imageUrl": "https://raw.githubusercontent.com/MNRfrom2020/logo-and-icon-cdn/refs/heads/main/Logo/Ridwan/Ridwan.jpg",
+    "social": {}
   }
 ]

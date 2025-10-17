@@ -1,4 +1,3 @@
-
 {
   "admissionInfo": {
     "title": "ভর্তি তথ্য",
@@ -728,7 +727,7 @@
       }
     ],
     "duUnitC": [
-       {
+      {
         "title": "গ ইউনিট",
         "items": [
           {

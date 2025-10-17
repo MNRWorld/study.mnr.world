@@ -170,9 +170,7 @@ const UniversityPage = ({
           title={circularData.title}
           note={circularData.note}
           downloadLink={circularData.downloadLink}
-          showPreviousYears={
-            !!SpecificComponents || !!previousCircularsData
-          }
+          showPreviousYears={!!SpecificComponents || !!previousCircularsData}
           previousCirculars={previousCircularsData}
         />
 

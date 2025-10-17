@@ -46,8 +46,8 @@ const CalendarAdmissionTabs = () => {
           <CalendarAdmissionScheduleTable />
           <div className="mt-4 text-center text-sm text-muted-foreground">
             <p>
-              <span className="text-red-500 font-bold">“*”</span> চিহ্ন দেয়া তারিখ
-              গুলো কতৃপক্ষ সম্ভাব্য তারিখ হিসবে জানিয়েছে
+              <span className="text-red-500 font-bold">“*”</span> চিহ্ন দেয়া
+              তারিখ গুলো কতৃপক্ষ সম্ভাব্য তারিখ হিসবে জানিয়েছে
             </p>
             <hr className="my-4 border-border/50" />
           </div>

@@ -1,4 +1,3 @@
-
 "use client";
 import React from "react";
 import {
@@ -241,11 +240,7 @@ const AgriAdmissionInfo = () => {
                       <React.Fragment key={i}>
                         <div>
                           {dept.name}
-                          {dept.requirement && (
-                            <>
-                              : {dept.requirement}
-                            </>
-                          )}
+                          {dept.requirement && <>: {dept.requirement}</>}
                         </div>
                         {i < unit.departments.length - 1 && (
                           <hr className="my-2 border-border/50" />
