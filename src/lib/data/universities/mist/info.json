@@ -175,9 +175,26 @@
   "circular": {
     "title": "সম্পূর্ণ সার্কুলার",
     "note": "(⚠ নোট: সর্বশেষ সার্কুলার এখনও প্রকাশিত হয়নি। পূর্ববর্তী বছরের সার্কুলার দেখে আইডিয়া নিতে পারেন।)",
-    "downloadLink": "https://t.me/Study_on_Telegram/14079"
+    "downloadLink": "https://t.me/Study_on_Telegram/13315"
   },
-  "previousCirculars": [],
+  "previousCirculars": [
+    {
+      "href": "https://t.me/Study_on_Telegram/13315",
+      "text": "MIST Circular 2024-25"
+    },
+    {
+      "href": "https://t.me/Study_on_Telegram/11197",
+      "text": "MIST Circular 2023-24"
+    },
+    {
+      "href": "https://t.me/Study_on_Telegram/7609",
+      "text": "MIST Circular 2022-23"
+    },
+    {
+      "href": "https://t.me/Study_on_Telegram/1584",
+      "text": "MIST Circular 2021-22"
+    }
+  ],
   "links": [
     [
       { "href": "#Circular", "label": "সার্কুলার" },
