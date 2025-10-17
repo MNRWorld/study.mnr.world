@@ -7,16 +7,21 @@
       "endDate": "-",
       "fees": [
         {
-          "unit": "ইউনিট এ",
+          "unit": "ক গ্রুপ (ইঞ্জিনিয়ারিং)",
           "amount": "১০০০৳"
         },
         {
-          "unit": "ইউনিট বি",
+          "unit": "খ গ্রুপ (ইঞ্জিনিয়ারিং ও আর্কিটেকচার)",
           "amount": "১২০০৳"
         }
       ],
-      "helpfulLinks": [],
-      "link": "https://mist.ac.bd/admission",
+      "helpfulLinks": [
+        {
+          "label": "চার বছরের খরচ সম্পর্কে ধারণা",
+          "url": "https://t.me/Study_on_Telegram/11397"
+        }
+      ],
+      "link": "https://admission.mist.ac.bd/",
       "qualificationTitle": "আবেদনের যোগ্যতাঃ",
       "sscBatch": "-",
       "hscBatch": "-",
@@ -24,7 +29,26 @@
     },
     "unitRequirements": {
       "title": "আবেদনের যোগ্যতা",
-      "units": []
+      "units": [
+        {
+          "name": "এসএসসি (SSC)",
+          "departments": [
+            {
+              "name": "২০২২ বা ২০২১ সালে বিজ্ঞান বিভাগে ন্যূনতম জিপিএ ৪.০০ (চতুর্থ বিষয় ছাড়া) ৫.০০ স্কেলে উত্তীর্ণ আবেদনকারী।",
+              "requirement": ""
+            }
+          ]
+        },
+        {
+          "name": "এইচএসসি (HSC)",
+          "departments": [
+            {
+              "name": "২০২৪ বা ২০২৩ সালে চারটি বিষয়ে (গণিত, পদার্থবিদ্যা, রসায়ন এবং ইংরেজি) সর্বনিম্ন ১৮ গ্রেড এবং গণিত, পদার্থবিদ্যা এবং রসায়ন প্রতিটিতে ন্যূনতম ৪.০ গ্রেড পেয়ে উত্তীর্ণ আবেদনকারী।",
+              "requirement": ""
+            }
+          ]
+        }
+      ]
     },
     "improvementPolicy": {
       "title": "ইমপ্রুভমেন্ট ও অন্যান্য",
@@ -197,7 +221,7 @@
   ],
   "links": [
     [
-      { "href": "/mist#Circular", "label": "সার্কুলার" },
+      { "href": "#Circular", "label": "সার্কুলার" },
       { "href": "/mist#QuestionBank", "label": "প্রশ্নব্যাংক" }
     ],
     [
@@ -340,3 +364,5 @@
   },
   "subjects": {}
 }
+
+    
