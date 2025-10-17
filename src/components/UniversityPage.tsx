@@ -171,10 +171,6 @@ const UniversityPage = ({
           <LinkList links={universityData.links} />
         )}
 
-        {SpecificComponents?.HistoryAndMap && (
-          <SpecificComponents.HistoryAndMap university={university} />
-        )}
-
         <div className="mt-4 w-full border border-border bg-card rounded-2xl p-4 sm:p-6 shadow-lg relative">
           <CountdownTimer universityId={university.id} />
         </div>
@@ -203,6 +199,10 @@ const UniversityPage = ({
           <div className="mt-8 text-center text-muted-foreground">
             এই বিশ্ববিদ্যালয়ের বিস্তারিত তথ্য শীঘ্রই যোগ করা হবে।
           </div>
+        )}
+
+        {SpecificComponents?.HistoryAndMap && (
+          <SpecificComponents.HistoryAndMap university={university} />
         )}
       </div>
     </div>
