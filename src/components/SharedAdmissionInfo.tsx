@@ -233,11 +233,11 @@ const SharedAdmissionInfo = ({ university }: SharedAdmissionInfoProps) => {
               {unitRequirements.units.map(
                 (unit: UnitRequirement, index: number) => (
                   <div key={index}>
-                    <b>&quot;{unit.name}&quot;</b>
+                    <b>❐ {unit.name}</b>
                     {unit.departments.map((dept: UnitDepartment, i: number) => (
                       <div key={i}>
-                        {dept.name}
-                        {dept.requirement && dept.requirement}
+                        &nbsp;&nbsp;&nbsp;{dept.name}
+                        {dept.requirement && `: ${dept.requirement}`}
                       </div>
                     ))}
                   </div>

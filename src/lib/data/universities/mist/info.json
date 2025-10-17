@@ -222,8 +222,14 @@
   ],
   "links": [
     [
-      { "href": "#Circular", "label": "সার্কুলার" },
-      { "href": "/mist#QuestionBank", "label": "প্রশ্নব্যাংক" }
+      {
+        "href": "#Circular",
+        "label": "সার্কুলার"
+      },
+      {
+        "href": "/mist#QuestionBank",
+        "label": "প্রশ্নব্যাংক"
+      }
     ],
     [
       {
