@@ -58,6 +58,10 @@ const SharedQuestionBank = dynamic(() => import("./SharedQuestionBank"), {
   loading: LoadingComponent,
 });
 
+const SharedAdmissionInfo = dynamic(() => import("./SharedAdmissionInfo"), {
+  loading: LoadingComponent,
+});
+
 // Define a more specific type for the components
 interface UniversityComponentSet {
   QuestionBank: React.ComponentType<any>;
@@ -97,6 +101,7 @@ const universityComponents: {
   mist: {
     HistoryAndMap: SharedHistoryAndMap,
     QuestionBank: SharedQuestionBank,
+    AdmissionInfo: SharedAdmissionInfo,
   },
 };
 
@@ -184,11 +189,11 @@ const UniversityPage = ({
 
         {SpecificComponents ? (
           <>
+            {SpecificComponents.AdmissionInfo && (
+              <SpecificComponents.AdmissionInfo university={university} />
+            )}
             {SpecificComponents.QuestionBank && (
               <SpecificComponents.QuestionBank university={university} />
-            )}
-            {SpecificComponents.AdmissionInfo && (
-              <SpecificComponents.AdmissionInfo />
             )}
             {SpecificComponents.SeatInfo && (
               <SpecificComponents.SeatInfo universityData={universityData} />
