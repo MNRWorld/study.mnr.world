@@ -229,7 +229,7 @@ const AgriAdmissionInfo = () => {
                 <span>{unitRequirements.title}</span>
               </div>
             </AccordionTrigger>
-            <AccordionContent className="p-4 sm:p-5 text-base">
+            <AccordionContent className="p-4 sm:p-5 text-base pt-0">
               {unitRequirements.units.map(
                 (unit: UnitRequirement, index: number) => (
                   <div key={index} className="mb-2">
@@ -237,15 +237,19 @@ const AgriAdmissionInfo = () => {
                       <b>&quot;{unit.name}&quot; ইউনিট:</b>
                     )}
                     {unit.departments.map((dept: UnitDepartment, i: number) => (
-                      <div key={i}>
-                        {dept.name}
-                        {dept.requirement && (
-                          <>
-                            : {dept.requirement}
-                          </>
+                      <React.Fragment key={i}>
+                        <div>
+                          {dept.name}
+                          {dept.requirement && (
+                            <>
+                              : {dept.requirement}
+                            </>
+                          )}
+                        </div>
+                        {i < unit.departments.length - 1 && (
+                          <hr className="my-2 border-border/50" />
                         )}
-                        <br />
-                      </div>
+                      </React.Fragment>
                     ))}
                   </div>
                 ),
@@ -406,5 +410,3 @@ const AgriAdmissionInfo = () => {
 };
 
 export default AgriAdmissionInfo;
-
-    
