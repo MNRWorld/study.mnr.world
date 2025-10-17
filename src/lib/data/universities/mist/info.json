@@ -112,8 +112,50 @@
       }
     },
     "mapLocations": {
-      "title": "ক্যাম্পাসের গুগল ম্যাপ লোকেশন",
-      "categories": []
+      "title": "MIST এর পরীক্ষার কেন্দ্র",
+      "categories": [
+        {
+          "name": "পরীক্ষার কেন্দ্রসমূহ",
+          "locations": [
+            {
+              "name": "মিলিটারি ইনস্টিটিউট অব সায়েন্স অ্যান্ড টেকনোলজি",
+              "url": "https://maps.app.goo.gl/8rfPPCQgFiU6h4zh7"
+            },
+            {
+              "name": "বিএএফ শাহীন কলেজ, ঢাকা",
+              "url": "https://maps.app.goo.gl/wpBZgqZqYdGWNL4L8"
+            },
+            {
+              "name": "বাংলাদেশ ইন্টারন্যাশনাল স্কুল ও কলেজ, নির্ঝর",
+              "url": "https://maps.app.goo.gl/dEKmQVj2DUAC1BWx5"
+            },
+            {
+              "name": "বাংলাদেশ ইউনিভার্সিটি অব প্রফেশনালস",
+              "url": "https://maps.app.goo.gl/K7pVeoRzuDzei9H1A"
+            },
+            {
+              "name": "ঢাকা ক্যান্টনমেন্ট গার্লস পাবলিক স্কুল এন্ড কলেজ",
+              "url": "https://maps.app.goo.gl/fc5FSvW5hnEduarw6"
+            },
+            {
+              "name": "মিরপুর ক্যান্টনমেন্ট পাবলিক স্কুল ও কলেজ",
+              "url": "https://maps.app.goo.gl/9NnCNbD4PsgxMRt98"
+            },
+            {
+              "name": "শাহিদ বীর বিক্রম রমিজ উদ্দিন ক্যান্টনমেন্ট স্কুল, ঢাকা",
+              "url": "https://maps.app.goo.gl/Z4v4enBDVUQV5TCA8"
+            },
+            {
+              "name": "শহীদ রমিজ উদ্দিন ক্যান্টনমেন্ট কলেজ",
+              "url": "https://maps.app.goo.gl/k3Qio9uHtDgbWGys8"
+            },
+            {
+              "name": "নির্ঝর ক্যান্টনমেন্ট পাবলিক স্কুল ও কলেজ",
+              "url": "https://maps.app.goo.gl/yeZjz2KFTK439Fky9"
+            }
+          ]
+        }
+      ]
     }
   },
   "stats": [
@@ -138,14 +180,8 @@
   "previousCirculars": [],
   "links": [
     [
-      {
-        "href": "#Circular",
-        "label": "সার্কুলার"
-      },
-      {
-        "href": "/mist#QuestionBank",
-        "label": "প্রশ্নব্যাংক"
-      }
+      { "href": "#Circular", "label": "সার্কুলার" },
+      { "href": "/mist#QuestionBank", "label": "প্রশ্নব্যাংক" }
     ],
     [
       {
