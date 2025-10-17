@@ -165,7 +165,9 @@ const AgriAdmissionInfo = () => {
           <br />
           {apply.fees.map((fee: Fee, index: number) => (
             <div key={index}>
-              &nbsp;&nbsp;&nbsp; ✓ {fee.unit}: {fee.amount}
+              &nbsp;&nbsp;&nbsp; ✓ {fee.unit}
+              {fee.unit && ": "}
+              {fee.amount}
             </div>
           ))}
         </div>
