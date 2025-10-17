@@ -150,6 +150,7 @@ const UniversityPage = ({
           </div>
         )}
 
+        {/* 1. মূল তথ্য */}
         <PageHeaderCard
           icon={
             <Image
@@ -170,11 +171,18 @@ const UniversityPage = ({
         {universityData.links && universityData.links.length > 0 && (
           <LinkList links={universityData.links} />
         )}
+        
+        {/* 2. ইতিহাস ও ম্যাপ */}
+        {SpecificComponents?.HistoryAndMap && (
+          <SpecificComponents.HistoryAndMap university={university} />
+        )}
 
+        {/* 3. কাউন্টডাউন */}
         <div className="mt-4 w-full border border-border bg-card rounded-2xl p-4 sm:p-6 shadow-lg relative">
           <CountdownTimer universityId={university.id} />
         </div>
-
+        
+        {/* 4. সার্কুলার */}
         <Circular
           title={circularData.title}
           note={circularData.note}
@@ -185,12 +193,17 @@ const UniversityPage = ({
 
         {SpecificComponents ? (
           <>
-            {SpecificComponents.AdmissionInfo && (
-              <SpecificComponents.AdmissionInfo university={university} />
-            )}
+            {/* 5. প্রশ্নব্যাংক */}
             {SpecificComponents.QuestionBank && (
               <SpecificComponents.QuestionBank university={university} />
             )}
+
+            {/* 6. ভর্তি তথ্য */}
+            {SpecificComponents.AdmissionInfo && (
+              <SpecificComponents.AdmissionInfo university={university} />
+            )}
+
+            {/* 7. আসন সংখ্যা */}
             {SpecificComponents.SeatInfo && (
               <SpecificComponents.SeatInfo universityData={universityData} />
             )}
@@ -199,10 +212,6 @@ const UniversityPage = ({
           <div className="mt-8 text-center text-muted-foreground">
             এই বিশ্ববিদ্যালয়ের বিস্তারিত তথ্য শীঘ্রই যোগ করা হবে।
           </div>
-        )}
-
-        {SpecificComponents?.HistoryAndMap && (
-          <SpecificComponents.HistoryAndMap university={university} />
         )}
       </div>
     </div>
