@@ -37,7 +37,7 @@ interface HelpfulLink {
 
 interface UnitDepartment {
   name: string;
-  requirement: string;
+  requirement?: string;
 }
 
 interface UnitRequirement {
@@ -233,13 +233,20 @@ const AgriAdmissionInfo = () => {
               {unitRequirements.units.map(
                 (unit: UnitRequirement, index: number) => (
                   <div key={index} className="mb-2">
-                    ❐ <b>&quot;{unit.name}&quot; ইউনিট:</b>
+                    {unit.name !== "সাধারণ শর্ত" && (
+                      <b>&quot;{unit.name}&quot; ইউনিট:</b>
+                    )}
                     <br />
                     {unit.departments.map((dept: UnitDepartment, i: number) => (
-                      <span key={i}>
-                        ● {dept.requirement}
+                      <div key={i}>
+                        {dept.name}
+                        {dept.requirement && (
+                          <>
+                            : {dept.requirement}
+                          </>
+                        )}
                         <br />
-                      </span>
+                      </div>
                     ))}
                   </div>
                 ),
