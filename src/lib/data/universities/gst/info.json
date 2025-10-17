@@ -268,6 +268,10 @@
   ],
   "links": [
     [
+      { "href": "/gst#Circular", "label": "সার্কুলার" },
+      { "href": "/gst#QuestionBank", "label": "প্রশ্নব্যাংক" }
+    ],
+    [
       {
         "href": "https://gstadmission.ac.bd/",
         "label": "ভর্তি ওয়েবসাইট",
@@ -723,7 +727,16 @@
         ]
       }
     ],
-    "duUnitC": []
+    "duUnitC": [
+       {
+        "title": "গ ইউনিট",
+        "items": [
+          {
+            "links": []
+          }
+        ]
+      }
+    ]
   },
   "subjects": {
     "unitA": [],
