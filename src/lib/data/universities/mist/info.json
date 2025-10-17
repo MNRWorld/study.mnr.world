@@ -58,7 +58,8 @@
       "startDate": "-",
       "endDate": "-",
       "link": "http://mist.teletalk.com.bd/admitcard/",
-      "note": "(User ID এবং Password দিয়ে ADMIT CARD ডাউনলোড করতে হবে।)<br/><br/><b>নোটঃ</b><br/>পরীক্ষা দেয়ার জন্যে যোগ্য কি না ও সেন্টার রোল, ভেন্যু ইত্যাদি জানার জন্যে আগে <a href='https://admission.mist.ac.bd/eligible-list/index.html' target='_blank' rel='noopener noreferrer' class='text-primary hover:underline'>Eligibility Check</a> করে নিতে হবে। USER ID দিয়ে সার্চ দিলেই হবে।"
+      "linkNote": "(User ID এবং Password দিয়ে ADMIT CARD ডাউনলোড করতে হবে।)",
+      "note": "পরীক্ষা দেয়ার জন্যে যোগ্য কি না ও সেন্টার রোল, ভেন্যু ইত্যাদি জানার জন্যে আগে <a href='https://admission.mist.ac.bd/eligible-list/index.html' target='_blank' rel='noopener noreferrer' class='text-primary hover:underline'>Eligibility Check</a> করে নিতে হবে। USER ID দিয়ে সার্চ দিলেই হবে।"
     },
     "examDate": {
       "title": "পরীক্ষার সময়কাল",

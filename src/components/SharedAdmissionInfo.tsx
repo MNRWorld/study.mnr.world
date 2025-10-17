@@ -282,14 +282,17 @@ const SharedAdmissionInfo = ({ university }: SharedAdmissionInfoProps) => {
             text={admitCard.link.replace("https://", "")}
           />
           {admitCard.linkNote && (
-            <div className="text-sm mt-1">
-              {admitCard.linkNote}
-            </div>
+            <div className="text-sm mt-1">{admitCard.linkNote}</div>
           )}
           <br />
           {admitCard.note && (
             <>
-              
+              <b>
+                <div className="text-orange-500 dark:text-orange-400 flex items-center mt-2">
+                  <CircleAlert size={18} className="inline-block mr-1" />
+                  নোটঃ
+                </div>
+              </b>
               <div dangerouslySetInnerHTML={{ __html: admitCard.note }} />
             </>
           )}
