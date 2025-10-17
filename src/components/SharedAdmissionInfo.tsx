@@ -315,8 +315,7 @@ const SharedAdmissionInfo = ({ university }: SharedAdmissionInfoProps) => {
           ></span>
         ))}
       </span>
-      <hr className="my-3 border-border/50" />
-      <div className="border border-border/80 p-3 text-center rounded-md">
+      <div className="border border-border/80 p-3 text-center rounded-md mt-3">
         সব বিশ্ববিদ্যালয়ের <b>পরীক্ষার তারিখ ও কাউন্টডাউন</b> জানতে ভিজিট করুন
         আমাদের{" "}
         <b>
