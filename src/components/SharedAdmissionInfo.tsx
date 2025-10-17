@@ -281,9 +281,7 @@ const SharedAdmissionInfo = ({ university }: SharedAdmissionInfoProps) => {
             href={admitCard.link}
             text={admitCard.link.replace("https://", "")}
           />
-          {admitCard.linkNote && (
-            <div className="mt-1">{admitCard.linkNote}</div>
-          )}
+          {admitCard.linkNote && <div>{admitCard.linkNote}</div>}
           <br />
           {admitCard.note && (
             <>
@@ -307,9 +305,14 @@ const SharedAdmissionInfo = ({ university }: SharedAdmissionInfoProps) => {
       </h2>
       <span className="text-base">
         {examDate.dates.map((date: ExamDate, index: number) => (
-          <span key={index}>
-            ❐ <b>{date.unit && `"${date.unit}" ইউনিট: `}</b> {date.date} <br />
-          </span>
+          <span
+            key={index}
+            dangerouslySetInnerHTML={{
+              __html: `❐ <b>${
+                date.unit && `"${date.unit}" ইউনিট: `
+              }</b> ${date.date} <br />`,
+            }}
+          ></span>
         ))}
       </span>
       <hr className="my-3 border-border/50" />
